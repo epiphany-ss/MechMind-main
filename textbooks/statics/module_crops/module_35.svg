@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">作用与反作用公理</text>
+<rect x="120" y="145" width="160" height="90" rx="16" class="b"/><text x="200" y="198" text-anchor="middle" class="t m">物体 A</text>
+<rect x="440" y="145" width="160" height="90" rx="16" class="b"/><text x="520" y="198" text-anchor="middle" class="t m">物体 B</text>
+<line x1="280" y1="190" x2="435" y2="190" class="arr"/><text x="330" y="176" class="t m">F_AB</text>
+<line x1="440" y1="210" x2="285" y2="210" class="arrb"/><text x="335" y="235" class="t m">F_BA</text>
+<text x="70" y="292" class="t s">两个物体相互作用时，总是同时产生一对大小相等、方向相反、作用线相同的力。</text>
+<rect x="70" y="320" width="600" height="70" rx="14" class="rb"/>
+<text x="95" y="350" class="t s">关键区别：这两个力作用在不同物体上，所以不能互相平衡，也不能在同一受力图上相消。</text>
+
+    </svg>

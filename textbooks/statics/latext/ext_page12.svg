@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:800;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.3;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="18" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="44" class="t h">扩展：桁架方法选择与结果判断</text>
+<circle cx="130" cy="275" r="6" fill="#17385f"/><circle cx="330" cy="275" r="6" fill="#17385f"/><circle cx="530" cy="275" r="6" fill="#17385f"/><circle cx="230" cy="120" r="6" fill="#17385f"/><circle cx="430" cy="120" r="6" fill="#17385f"/>
+<line x1="130" y1="275" x2="330" y2="275" class="line"/><line x1="330" y1="275" x2="530" y2="275" class="line"/><line x1="130" y1="275" x2="230" y2="120" class="line"/><line x1="230" y1="120" x2="330" y2="275" class="line"/><line x1="330" y1="275" x2="430" y2="120" class="line"/><line x1="430" y1="120" x2="530" y2="275" class="line"/><line x1="230" y1="120" x2="430" y2="120" class="line"/>
+<rect x="575" y="100" width="135" height="65" rx="12" class="blue"/><text x="596" y="138" class="t xs">求多数杆：节点法</text>
+<rect x="575" y="205" width="135" height="65" rx="12" class="green"/><text x="596" y="243" class="t xs">求指定杆：截面法</text>
+<rect x="100" y="340" width="560" height="45" rx="12" class="warn"/><text x="120" y="368" class="t xs">结果为负不代表错误，表示实际受力方向与假设相反。</text>
+
+</svg>

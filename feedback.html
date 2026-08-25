@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意见反馈 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px;--transition:0.3s ease}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all var(--transition);position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#9333ea,#c084fc);color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+.container{max-width:680px;margin:0 auto;padding:40px 24px}
+.feedback-form{background:var(--card-bg);border-radius:var(--radius);padding:36px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.feedback-form h3{margin-bottom:24px;font-size:1.2em}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:0.92em}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:0.92em;font-family:inherit;outline:none;transition:all var(--transition);background:var(--bg)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,0.08)}
+.form-group textarea{min-height:140px;resize:vertical}
+.rating-stars{display:flex;gap:8px;font-size:2em;cursor:pointer}
+.rating-stars span{transition:transform var(--transition)}
+.rating-stars span:hover{transform:scale(1.2)}
+.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,#9333ea,#c084fc);color:#fff;border:none;border-radius:25px;font-size:1.05em;font-weight:700;cursor:pointer;letter-spacing:1px;transition:all var(--transition)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(147,51,234,0.3)}
+.other-contact{text-align:center;margin-top:24px;color:var(--text-light);font-size:0.9em}
+.other-contact a{color:var(--primary);text-decoration:none;font-weight:600}
+.other-contact a:hover{text-decoration:underline}
+@media(max-width:768px){
+  .page-header{padding:70px 16px 32px}
+  .page-header h1{font-size:1.5em}
+  .page-header p{font-size:0.88em}
+  .container{padding:20px 12px}
+  .feedback-form{padding:24px}
+  .feedback-form h3{font-size:1.05em;margin-bottom:18px}
+  .form-group input,.form-group select,.form-group textarea{padding:10px 14px;font-size:0.85em}
+  .rating-stars{font-size:1.6em;gap:6px}
+  .submit-btn{font-size:0.95em;padding:12px}
+  .back-home{padding:8px 14px;font-size:0.78em;top:8px;left:8px}
+}
+@media(max-width:480px){
+  .page-header{padding:56px 12px 20px}
+  .page-header h1{font-size:1.2em}
+  .container{padding:12px 8px}
+  .feedback-form{padding:16px}
+  .feedback-form h3{font-size:0.95em}
+  .form-group{margin-bottom:14px}
+  .form-group label{font-size:0.82em}
+  .form-group input,.form-group select,.form-group textarea{padding:10px 12px;font-size:0.8em}
+  .form-group textarea{min-height:100px}
+  .rating-stars{font-size:1.4em;gap:4px}
+  .other-contact{font-size:0.78em}
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-home">← 返回主页</a>
+<header class="page-header"><h1>💬 意见反馈</h1><p>帮助我们做得更好 · 您的每一条建议都很重要</p></header>
+<div class="container">
+  <div class="feedback-form">
+    <h3>提交反馈</h3>
+    <div class="form-group"><label>反馈类型</label><select><option>功能建议</option><option>Bug报告</option><option>内容纠错</option><option>使用体验</option><option>其他</option></select></div>
+    <div class="form-group"><label>您的姓名</label><input type="text" placeholder="选填"></div>
+    <div class="form-group"><label>电子邮箱</label><input type="email" placeholder="选填，便于我们回复您"></div>
+    <div class="form-group"><label>反馈内容 *</label><textarea placeholder="请详细描述您的意见或建议…（必填）"></textarea></div>
+    <div class="form-group">
+      <label>平台评分</label>
+      <div class="rating-stars" id="ratingStars">
+        <span onclick="rate(1)">☆</span><span onclick="rate(2)">☆</span><span onclick="rate(3)">☆</span><span onclick="rate(4)">☆</span><span onclick="rate(5)">☆</span>
+      </div>
+      <input type="hidden" id="ratingValue" value="0">
+    </div>
+    <button class="submit-btn" onclick="submitFeedback()">提交反馈</button>
+  </div>
+  <div class="other-contact">
+    <p>或通过以下方式联系我们：</p>
+    <p>📧 <a href="mailto:mechanics@csust.edu.cn">mechanics@csust.edu.cn</a> &nbsp;|&nbsp; 📞 0731-85065321</p>
+  </div>
+</div>
+<script>
+let currentRating=0;
+function rate(n){currentRating=n;document.querySelectorAll('#ratingStars span').forEach((s,i)=>{s.textContent=i<n?'★':'☆';s.style.color=i<n?'#f0a030':'#ccc'});document.getElementById('ratingValue').value=n}
+function submitFeedback(){alert('感谢您的反馈！\n\n您的意见已提交，我们将尽快处理。\n\n（完整反馈提交功能需集成后端API）')}
+</script>
+</body>
+</html>

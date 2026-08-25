@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>串联复合系统 - 复合机构演示</title>
+<link rel="stylesheet" href="complex_mechanism_style.css">
+</head>
+<body>
+<a class="back-home" href="complex_mechanism_demo.html">← 返回复合机构目录</a>
+<header class="page-header"><h1 id="demoTitle"></h1><p id="demoSubtitle"></p></header>
+<main class="layout"><section class="canvas-wrap" id="canvasWrap"><canvas id="complexCanvas"></canvas></section><aside class="side-panel">
+<section class="panel-sec"><h4>控制</h4><div class="btn-row"><button id="btnPlay">暂停</button><button id="btnStep">单步</button><button id="btnReset">重置</button><button id="btnClear">清轨迹</button></div><div class="slider-group"><label>输入角速度 <span><span id="omegaVal">1.4</span> rad/s</span></label><input id="omega" type="range" min="0.4" max="3.6" step="0.1"></div></section>
+<section class="panel-sec"><h4>显示选项</h4><label class="toggle-row"><input id="showVel" type="checkbox" checked>速度矢量</label><label class="toggle-row"><input id="showAcc" type="checkbox" checked>加速度矢量</label><label class="toggle-row"><input id="showTrail" type="checkbox" checked>运动轨迹</label><label class="toggle-row"><input id="showPhase" type="checkbox" checked>相位标记</label></section>
+<section class="panel-sec"><h4>教学目标</h4><ul id="teachingGoals" class="goals"></ul></section><section class="panel-sec"><h4>实时数据</h4><div id="dataPanel"></div></section><section class="panel-sec"><h4>子机构对比</h4><div id="comparePanel"></div></section><section class="panel-sec"><h4>核心公式</h4><div id="formulaPanel"></div></section>
+</aside></main>
+<script>
+window.COMPLEX_DEMO_CONFIG = {
+  shortTitle:'串联复合系统',
+  title:'行星减速 + 曲柄滑块 + 曲柄导杆串联系统',
+  subtitle:'行星减速输出先驱动曲柄滑块，滑块输出再通过连杆带动导杆摆动，构成串联执行机构。',
+  omega:1.4,
+  goals:['观察减速级、往复滑块级、摆动导杆级的串联传动。','比较前级平动输出与后级转动动系的运动学差异。','突出转动动系中的相对滑动会引入科氏加速度。'],
+  formulas:['传动链：太阳轮输入 → 行星架输出 → 曲柄滑块往复 → 连杆参考 → 曲柄导杆摆动。','加速度合成：aa = ae + ar + aC。','滑块级：aC=0；导杆级：aC = 2ωe × vr。'],
+  connections:[
+    {points:[{x:245,y:270},{x:355,y:230},{x:420,y:210}],label:'减速轴驱动曲柄',color:'#8edcff'},
+    {points:[{x:650,y:210},{x:705,y:300},{x:635,y:390}],label:'滑块输出连杆',color:'#ffd166',dash:[8,6]},
+    {points:[{x:575,y:390},{x:600,y:420}],label:'带动导杆摆动',color:'#8edcff',dy:20}
+  ],
+  modules:[
+    {id:'gear',name:'行星减速级',type:'planetary',motion:'减速输出',origin:{x:145,y:270},scale:1.1,sunR:42,planetR:28,titleBox:{x:25,y:28,w:245,h:40,title:'第一级：行星减速'},phaseMark:'ωs → ωc'},
+    {id:'slider',name:'曲柄滑块级',type:'slider',motion:'平动动系 / aC=0',origin:{x:455,y:210},scale:1.18,r:48,L:142,phase:0,label:'滑块 B',trailColor:'#ff7777',titleBox:{x:330,y:28,w:250,h:40,title:'第二级：曲柄滑块'},phaseMark:'平动动系'},
+    {id:'guide',name:'曲柄导杆级',type:'guide',motion:'转动动系 / 有 aC',origin:{x:520,y:420},scale:1.05,r:52,d:154,phase:Math.PI/5,label:'动点 A',trailColor:'#66d9ef',titleBox:{x:330,y:310,w:250,h:40,title:'第三级：曲柄导杆'},phaseMark:'转动动系'}
+  ],
+  plots:[]
+};
+</script>
+<script src="complex_mechanism_common.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>机构运动演示 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root {
+  --primary:#1a56db;--primary-dark:#0d3b9e;
+  --dark-bg:#1a1a2e;--dark-panel:#16213e;--dark-text:#e0e0e0;--dark-accent:#4cc9f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--dark-bg);color:var(--dark-text);
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+  min-height:100vh;
+}
+
+.back-home{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;background:rgba(255,255,255,0.1);color:#fff;
+  text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;
+  transition:all 0.3s;position:fixed;top:16px;left:16px;z-index:100;
+  backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);
+}
+.back-home:hover{background:rgba(255,255,255,0.2);transform:translateY(-2px)}
+
+.page-header{
+  background:linear-gradient(135deg,#0d1a35,#1a2540);
+  padding:80px 32px 32px;text-align:center;border-bottom:1px solid #2a3a5c;
+}
+.page-header h1{font-size:2em;font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.page-header p{color:#8899bb;font-size:1em}
+
+.container{
+  display:flex;gap:14px;padding:20px;max-width:1400px;margin:0 auto;
+}
+.canvas-wrapper{
+  flex:1 1 780px;min-width:520px;background:#0d1117;
+  border-radius:12px;position:relative;overflow:hidden;border:1px solid #2a3a5c;
+}
+canvas{display:block;width:100%;height:auto;cursor:grab}
+canvas:active{cursor:grabbing}
+.canvas-hint{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  font-size:0.7em;color:#555;pointer-events:none;transition:opacity 0.8s;white-space:nowrap;
+}
+.side-panel{flex:0 0 290px;display:flex;flex-direction:column;gap:10px;min-width:270px}
+.panel-sec{background:var(--dark-panel);border-radius:10px;padding:13px;border:1px solid #2a3a5c}
+.panel-sec h4{font-size:0.85em;margin-bottom:9px;color:var(--dark-accent);letter-spacing:0.5px;font-weight:600}
+.btn-row{display:flex;flex-wrap:wrap;gap:6px}
+.btn-row button{
+  padding:7px 14px;border-radius:7px;border:1px solid #3a4f7a;
+  background:#2a3a5c;color:#e0e0e0;cursor:pointer;
+  font-size:0.75em;font-weight:500;transition:all 0.18s;white-space:nowrap;font-family:inherit;
+}
+.btn-row button:hover{background:#3a4f7a;border-color:var(--dark-accent)}
+.btn-row button.active{background:#4cc9f033;border-color:var(--dark-accent);color:var(--dark-accent);box-shadow:0 0 8px #4cc9f033}
+.slider-group{display:flex;flex-direction:column;gap:4px;margin:4px 0}
+.slider-group label{font-size:0.74em;color:#aaa;display:flex;justify-content:space-between}
+.slider-group label span{color:var(--dark-accent);font-weight:600}
+.slider-group input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:3px;background:#2a3a5c;outline:none;cursor:pointer}
+.slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--dark-accent);border:2px solid #fff;cursor:pointer;box-shadow:0 0 8px #4cc9f066}
+.info-row{display:flex;justify-content:space-between;font-size:0.68em;padding:3px 0;border-bottom:1px solid #1a2540}
+.info-row .val{font-weight:600;color:var(--dark-accent);font-family:'Consolas',monospace}
+.toggle-row{display:flex;align-items:center;gap:5px;font-size:0.76em;margin:2px 0}
+.toggle-row input{accent-color:var(--dark-accent)}
+.legend-item{font-size:0.66em;line-height:1.7;display:flex;align-items:center;gap:6px}
+.legend-swatch{width:18px;height:3px;border-radius:2px;flex-shrink:0}
+.legend-swatch.thick{height:5px}
+.mech-desc{font-size:0.67em;color:#888;margin-top:6px;line-height:1.5}
+
+/* Guide tabs */
+.info-tabs{
+  display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;
+}
+.info-tab{
+  padding:10px 20px;background:rgba(255,255,255,0.05);border:1px solid #2a3a5c;
+  border-radius:8px;color:#8899bb;cursor:pointer;font-size:0.85em;font-family:inherit;
+  transition:all 0.2s;
+}
+.info-tab:hover,.info-tab.active{background:rgba(76,201,240,0.1);border-color:var(--dark-accent);color:var(--dark-accent)}
+.info-content{max-width:1100px;margin:0 auto;padding:24px;display:none}
+.info-content.active{display:block}
+.info-content h3{color:var(--dark-accent);margin-bottom:16px;font-size:1.2em}
+.info-content p{color:#aab;line-height:1.8;margin-bottom:12px;font-size:0.9em}
+.info-content .formula{
+  background:rgba(76,201,240,0.08);padding:14px 20px;border-radius:8px;
+  border-left:3px solid var(--dark-accent);margin:12px 0;font-family:'Consolas',monospace;
+}
+.compound-section{
+  max-width:1180px;margin:6px auto 18px;padding:0 20px;
+}
+.compound-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+  margin-bottom:12px;border-top:1px solid #2a3a5c;padding-top:18px;
+}
+.compound-head h2{font-size:1.15em;color:#fff;letter-spacing:1px}
+.compound-head p{color:#8899bb;font-size:0.82em;line-height:1.6;margin-top:4px}
+.compound-head a{
+  flex:0 0 auto;text-decoration:none;color:#101827;background:var(--dark-accent);
+  border-radius:22px;padding:9px 18px;font-weight:700;font-size:0.82em;
+}
+.compound-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.compound-card{
+  display:block;text-decoration:none;color:inherit;background:rgba(22,33,62,0.92);
+  border:1px solid #2a3a5c;border-radius:8px;padding:13px;transition:all 0.18s;
+}
+.compound-card:hover{border-color:var(--dark-accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.compound-card strong{display:block;color:#dff7ff;font-size:0.82em;line-height:1.35;margin-bottom:7px}
+.compound-card span{display:block;color:#8fa4c2;font-size:0.68em;line-height:1.55}
+.compound-link{
+  display:block;margin-top:8px;text-decoration:none;color:var(--dark-accent);
+  border:1px solid #35577a;border-radius:7px;padding:8px 10px;font-size:0.74em;
+  background:rgba(76,201,240,0.06);font-weight:700;text-align:center;
+}
+.compound-link:hover{background:rgba(76,201,240,0.12)}
+
+@media(max-width:860px){
+  .container{flex-direction:column}
+  .canvas-wrapper{min-width:auto}
+  .side-panel{flex:0 0 auto}
+  .compound-head{align-items:flex-start;flex-direction:column}
+  .compound-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-home">← 返回主页</a>
+
+<header class="page-header">
+  <h1>⚙️ 机构运动学 · 交互式演示</h1>
+  <p>拖拽动点改变角度 | 滚轮缩放 | 按键1/2/3/4切换机构 | 实时速度加速度矢量可视化</p>
+</header>
+
+<!-- Theory tabs -->
+<div style="padding:20px 20px 0">
+  <div class="info-tabs">
+    <button class="info-tab active" onclick="switchInfoTab('theory')">合成运动理论</button>
+    <button class="info-tab" onclick="switchInfoTab('guide')">曲柄导杆机构</button>
+    <button class="info-tab" onclick="switchInfoTab('slider')">曲柄滑块机构</button>
+    <button class="info-tab" onclick="switchInfoTab('scotch')">正弦机构</button>
+    <button class="info-tab" onclick="switchInfoTab('planetary')">行星减速机构</button>
+  </div>
+</div>
+
+<div class="info-content active" id="info-theory">
+  <h3>点的合成运动 —— 核心理论</h3>
+  <p><strong>一点·两系·三种运动：</strong>选取合适的<strong>动点</strong>，建立<strong>动坐标系</strong>（固连于运动物体）和<strong>定坐标系</strong>（固连于地面），分析绝对运动、相对运动和牵连运动。</p>
+  <div class="formula">
+    <strong>速度合成定理：</strong>v<sub>a</sub> = v<sub>e</sub> + v<sub>r</sub><br>
+    绝对速度 = 牵连速度 + 相对速度
+  </div>
+  <div class="formula">
+    <strong>加速度合成定理：</strong>a<sub>a</sub> = a<sub>e</sub> + a<sub>r</sub> + a<sub>C</sub><br>
+    其中科氏加速度：<strong>a<sub>C</sub> = 2ω<sub>e</sub> × v<sub>r</sub></strong>
+  </div>
+  <p><strong>科氏加速度为零的三种情况：</strong>①动系平动（ω<sub>e</sub>=0）；②相对速度为零（v<sub>r</sub>=0）；③ω<sub>e</sub>与v<sub>r</sub>平行。</p>
+</div>
+<div class="info-content" id="info-guide">
+  <h3>曲柄导杆机构</h3>
+  <p><strong>动点：</strong>A（曲柄端部滑块）| <strong>动系：</strong>固连于导杆（绕B转动）</p>
+  <p>曲柄OA绕O匀速转动，通过滑块A带动导杆绕B摆动。动系（导杆）作定轴转动，因此<strong>存在科氏加速度</strong>。</p>
+  <div class="formula">
+    导杆角速度：ω<sub>e</sub> = ωr(r - d·cosθ) / (r² + d² - 2rd·cosθ)<br>
+    相对速度大小：v<sub>r</sub> = rd·ω·sinθ / √(r² + d² - 2rd·cosθ)
+  </div>
+</div>
+<div class="info-content" id="info-slider">
+  <h3>曲柄滑块机构</h3>
+  <p><strong>动点：</strong>M（连杆AB的中点）| <strong>动系：</strong>固连于滑块B（平动）</p>
+  <p>曲柄OA转动驱动连杆AB，滑块B沿水平滑道平动。动系（滑块B）作平动，因此<strong>科氏加速度为零</strong>。</p>
+  <div class="formula">
+    滑块B位置：x<sub>B</sub> = r·cosθ + √(L² - (e + r·sinθ)²)<br>
+    连杆角：φ = arcsin((e + r·sinθ) / L)
+  </div>
+</div>
+<div class="info-content" id="info-scotch">
+  <h3>正弦机构（Scotch Yoke）</h3>
+  <p><strong>动点：</strong>A（曲柄销）| <strong>动系：</strong>固连于滑框（竖直平动）</p>
+  <p>曲柄OA匀速转动，通过滑块在滑框的水平槽中滑动，驱动滑框竖直运动。动系（滑框）作平动，<strong>科氏加速度为零</strong>。</p>
+  <div class="formula">
+    滑框位移：y = r·sinθ<br>
+    滑框速度：v = ωr·cosθ<br>
+    滑框加速度：a = -ω²r·sinθ
+  </div>
+</div>
+<div class="info-content" id="info-planetary">
+  <h3>行星减速机构</h3>
+  <p><strong>动点：</strong>P（行星轮节圆标记点）| <strong>动系：</strong>行星架（绕O转动）</p>
+  <p>太阳轮输入、内齿圈固定，行星轮一边自转一边随行星架公转，输出为行星架的低速同向转动。该机构用于展示齿轮啮合约束、传动比和复合运动。</p>
+  <div class="formula">
+    固定内齿圈：ω<sub>c</sub> = ω<sub>s</sub>·R<sub>s</sub> / (R<sub>s</sub> + R<sub>r</sub>)<br>
+    R<sub>r</sub> = R<sub>s</sub> + 2R<sub>p</sub>，减速比 i = ω<sub>s</sub> / ω<sub>c</sub> = 1 + R<sub>r</sub>/R<sub>s</sub>
+  </div>
+</div>
+
+<section class="compound-section">
+  <div class="compound-head">
+    <div>
+      <h2>复合机构总成演示</h2>
+      <p>在现有单机构基础上补充合理组合：输入轴、减速级、分流轴、连杆传动与执行机构组合成完整复合机构。</p>
+    </div>
+    <a href="complex_mechanism_demo.html">查看全部复合演示</a>
+  </div>
+  <div class="compound-grid">
+    <a class="compound-card" href="complex_dual_slider.html">
+      <strong>行星减速 + 双曲柄滑块</strong>
+      <span>减速输出经分流轴驱动两套反相滑块，形成双输出往复总成。</span>
+    </a>
+    <a class="compound-card" href="complex_series_slider_guide.html">
+      <strong>行星减速 + 滑块 + 导杆</strong>
+      <span>减速级、往复级、摆动级串联，比较平动动系与转动动系。</span>
+    </a>
+    <a class="compound-card" href="complex_dual_scotch.html">
+      <strong>双正弦正交合成</strong>
+      <span>同轴 90° 偏心曲柄驱动两个滑框，形成二维简谐合成。</span>
+    </a>
+    <a class="compound-card" href="complex_dual_guide.html">
+      <strong>双导杆科氏对比</strong>
+      <span>同一输入经不同传动比驱动两组导杆，对比科氏加速度。</span>
+    </a>
+  </div>
+</section>
+
+<div class="container">
+  <div class="canvas-wrapper" id="wrapper">
+    <canvas id="cv"></canvas>
+    <div class="canvas-hint" id="hint">🖱 拖拽动点改变角度 | 滚轮缩放 | 按键1/2/3/4切换机构 | 空格暂停</div>
+  </div>
+  <div class="side-panel">
+    <div class="panel-sec">
+      <h4>机构选择</h4>
+      <div class="btn-row" id="mechBtns">
+        <button data-mech="guideBar" class="active">曲柄导杆</button>
+        <button data-mech="sliderCrank">曲柄滑块</button>
+        <button data-mech="scotchYoke">正弦机构</button>
+        <button data-mech="planetaryGear">行星减速</button>
+      </div>
+      <div class="mech-desc" id="mechDesc">动点：A(滑块) | 动系：导杆(绕B转动)<br>va=ve+vr · 有科氏加速度</div>
+      <a class="compound-link" href="complex_mechanism_demo.html">进入复合机构总成</a>
+    </div>
+    <div class="panel-sec" id="paramSection">
+      <h4>参数调节</h4>
+      <div class="slider-group" id="pgR"><label><span id="labelR">曲柄长度 r</span> <span id="valR">120</span> px</label><input type="range" id="sldR" min="40" max="200" value="120" step="2"></div>
+      <div class="slider-group" id="pgD"><label><span id="labelD">枢轴间距 d</span> <span id="valD">300</span> px</label><input type="range" id="sldD" min="100" max="420" value="300" step="2"></div>
+      <div class="slider-group" id="pgL" style="display:none"><label><span id="labelL">连杆长度 L</span> <span id="valL">200</span> px</label><input type="range" id="sldL" min="40" max="350" value="200" step="2"></div>
+      <div class="slider-group" id="pgE" style="display:none"><label><span id="labelE">滑块偏距 e</span> <span id="valE">0</span> px</label><input type="range" id="sldE" min="-80" max="80" value="0" step="2"></div>
+      <div class="slider-group" id="pgSun" style="display:none"><label>太阳轮半径 Rs <span id="valSun">70</span> px</label><input type="range" id="sldSun" min="35" max="110" value="70" step="1"></div>
+      <div class="slider-group" id="pgPlanet" style="display:none"><label>行星轮半径 Rp <span id="valPlanet">45</span> px</label><input type="range" id="sldPlanet" min="25" max="90" value="45" step="1"></div>
+      <div class="slider-group"><label>角速度 ω <span id="valOmega">1.8</span> rad/s</label><input type="range" id="sldOmega" min="0.3" max="5" value="1.8" step="0.1"></div>
+      <div class="slider-group"><label>速度矢缩放 <span id="valVScale">0.60</span></label><input type="range" id="sldVScale" min="0.15" max="1.8" value="0.60" step="0.05"></div>
+      <div class="slider-group"><label>加速度矢缩放 <span id="valAScale">0.22</span></label><input type="range" id="sldAScale" min="0.03" max="0.6" value="0.22" step="0.02"></div>
+    </div>
+    <div class="panel-sec">
+      <h4>显示选项</h4>
+      <div class="toggle-row"><input type="checkbox" id="chkVel" checked><label>速度矢量 (vₐ vₑ vᵣ)</label></div>
+      <div class="toggle-row"><input type="checkbox" id="chkAcc"><label>加速度矢量 (aₐ aₑ aᵣ a𝒸)</label></div>
+      <div class="toggle-row"><input type="checkbox" id="chkTrail" checked><label>运动轨迹 (绝对/相对/牵连)</label></div>
+      <div class="toggle-row"><input type="checkbox" id="chkComp"><label>速度合成三角形</label></div>
+      <div class="btn-row" style="margin-top:8px">
+        <button id="btnPlay">⏯ 暂停</button><button id="btnStep">⏭ 单步</button>
+        <button id="btnReset">↺ 重置</button><button id="btnClearTraj">🗑 清轨迹</button>
+      </div>
+    </div>
+    <div class="panel-sec"><h4>实时数据</h4><div id="infoArea"></div></div>
+    <div class="panel-sec"><h4>图例</h4><div id="legendArea"></div></div>
+    <div class="panel-sec">
+      <h4>🔗 拓展工具</h4>
+      <div class="btn-row">
+        <a href="linkage-generator.html" style="padding:7px 14px;border-radius:7px;border:1px solid #3a4f7a;background:#2a3a5c;color:#e0e0e0;cursor:pointer;font-size:0.75em;font-weight:500;transition:all 0.18s;white-space:nowrap;font-family:inherit;text-decoration:none;display:inline-block;text-align:center;">✏️ 连杆机构自动生成</a>
+      </div>
+      <div style="font-size:0.66em;color:#778;margin-top:6px;line-height:1.4;">手绘曲线自动综合四连杆机构</div>
+    </div>
+  </div>
+</div>
+
+<script src="mechanism_engine.js"></script>
+</body>
+</html>

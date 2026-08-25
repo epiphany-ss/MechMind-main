@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">二力平衡公理示意</text>
+<rect x="110" y="120" width="430" height="90" rx="18" class="b"/>
+<text x="325" y="172" text-anchor="middle" class="t m">同一刚体</text>
+<line x1="50" y1="165" x2="110" y2="165" class="arr"/>
+<text x="34" y="154" class="t m">F₁</text>
+<line x1="600" y1="165" x2="540" y2="165" class="arr"/>
+<text x="608" y="154" class="t m">F₂</text>
+<text x="70" y="260" class="t s">平衡条件：等值、反向、共线，并且作用在同一刚体上</text>
+<rect x="70" y="294" width="580" height="82" rx="16" class="gb"/>
+<text x="95" y="326" class="t s">若缺少“共线”，两个力会形成力偶；若不在同一刚体上，</text>
+<text x="95" y="354" class="t s">就不是二力平衡，而可能是作用与反作用。</text>
+
+    </svg>

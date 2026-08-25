@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于平台 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all .3s;position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#1e3a5f,#2c5282);color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+.container{max-width:960px;margin:0 auto;padding:40px 24px}
+
+.section{background:var(--card-bg);border-radius:var(--radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.section h3{font-size:1.2em;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--primary-light);display:flex;align-items:center;gap:8px}
+.section p{color:var(--text-light);line-height:1.8;margin-bottom:12px;font-size:0.92em}
+
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feature-card{background:var(--bg);border-radius:10px;padding:22px;border:1px solid var(--border);transition:all .2s}
+.feature-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.feature-card .feat-icon{font-size:1.8em;margin-bottom:8px}
+.feature-card h5{font-size:0.95em;margin-bottom:4px}
+.feature-card p{font-size:0.8em;color:var(--text-light);line-height:1.6;margin:0}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}
+.stat-box{text-align:center;padding:20px;background:var(--bg);border-radius:10px;border:1px solid var(--border)}
+.stat-box .stat-num{font-size:1.8em;font-weight:800}
+.stat-box .stat-lbl{font-size:0.78em;color:var(--text-lighter);margin-top:4px}
+.stat-num.c1{color:#1a56db}.stat-num.c2{color:#059669}.stat-num.c3{color:#e67e22}.stat-num.c4{color:#7c3aed}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.team-card{text-align:center;padding:24px 16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);transition:all .25s}
+.team-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--primary)}
+.team-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:2em;color:#fff;font-weight:700}
+.team-card h4{font-size:0.95em;margin-bottom:2px}
+.team-card .role-tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:0.7em;font-weight:700;letter-spacing:0.5px;margin-bottom:6px}
+.role-lead{background:#fef3e2;color:#e67e22}.role-ai{background:#f3e8ff;color:#7c3aed}
+.role-mech{background:#e8f0fe;color:#1a56db}.role-exam{background:#e6f7ee;color:#059669}
+.role-kp{background:#fde8e8;color:#dc2626}
+.team-card p{font-size:0.76em;color:var(--text-lighter);line-height:1.5;margin:0}
+
+.tech-stack{display:flex;flex-wrap:wrap;gap:8px}
+.tech-tag{padding:6px 14px;background:var(--primary-light);color:var(--primary);border-radius:16px;font-size:0.82em;font-weight:600;border:1px solid rgba(26,86,219,.15)}
+
+@media(max-width:768px){.feature-grid,.team-grid{grid-template-columns:1fr 1fr}.stats-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.feature-grid,.team-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr}.page-header{padding:56px 14px 22px}.page-header h1{font-size:1.3em}.section{padding:20px}}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-home">← 返回主页</a>
+<header class="page-header"><h1>ℹ️ 关于平台</h1><p>长沙理工大学 · 工程力学系 · 理论力学研究平台</p></header>
+<div class="container">
+
+  <div class="section">
+    <h3>📖 平台简介</h3>
+    <p>长沙理工大学<strong>理论力学研究平台</strong>是面向工程力学教育的综合性数字化教学平台，由工程力学系师生团队协作开发。平台以<strong>"理论结合实际、交互促进理解"</strong>为核心理念，整合知识框架梳理、交互式机构演示、分类题库练习、AI智能问答、社区问题探讨、个人学习中心等核心功能，覆盖理论力学课程从静力学基础到分析力学高级专题的全部教学内容。</p>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num c1">4</div><div class="stat-lbl">知识篇章</div></div>
+      <div class="stat-box"><div class="stat-num c2">100+</div><div class="stat-lbl">知识模块</div></div>
+      <div class="stat-box"><div class="stat-num c3">3</div><div class="stat-lbl">交互演示机构</div></div>
+      <div class="stat-box"><div class="stat-num c4">8</div><div class="stat-lbl">核心功能模块</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>✨ 核心功能</h3>
+    <div class="feature-grid">
+      <div class="feature-card"><div class="feat-icon">🧠</div><h5>知识框架梳理</h5><p>树状思维导图展示理论力学四大篇章知识体系，由主干到枝干由内向外分散排布，点击节点展开细节，叶子节点直达详细知识框架。</p></div>
+      <div class="feature-card"><div class="feat-icon">🔬</div><h5>交互式机构运动演示</h5><p>曲柄导杆、曲柄滑块、正弦机构三大经典机构的实时运动学动画。支持鼠标拖拽操作与参数调节，速度与加速度矢量动态可视化，科氏加速度实时显示。</p></div>
+      <div class="feature-card"><div class="feat-icon">📝</div><h5>分类题库练习</h5><p>覆盖静力学、运动学、动力学、分析力学四大模块，按难度分级（基础/中等/困难），支持关键词检索、模块筛选与在线作答，题目数据持久化存储。</p></div>
+      <div class="feature-card"><div class="feat-icon">🤖</div><h5>AI 智能问答</h5><p>集成大语言模型的智能力学助教，支持自然语言提问、LaTeX 公式识别与分步推理，可随时解答理论力学学习中的疑难问题。</p></div>
+      <div class="feature-card"><div class="feat-icon">💬</div><h5>问题探讨社区</h5><p>理论学习交流论坛，支持按分类发帖（提问/分享/讨论）、图片上传、评论互动。帖子与评论数据持久化存储，管理员可管理内容。</p></div>
+      <div class="feature-card"><div class="feat-icon">👤</div><h5>个人学习中心</h5><p>学号登录注册系统，区分管理员与普通用户权限。记录个人发帖、评论与做题历史，管理员可管理用户、题目与论坛内容。</p></div>
+      <div class="feature-card"><div class="feat-icon">🔍</div><h5>全站搜索引擎</h5><p>跨模块搜索题库习题、知识概念、论坛帖子与功能页面。支持分词加权匹配与结果高亮显示，快速定位所需资源。</p></div>
+      <div class="feature-card"><div class="feat-icon">📱</div><h5>响应式设计</h5><p>全面适配桌面端、平板和手机端，所有交互功能在移动设备上均可正常使用，随时随地进行理论学习。</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🛠 技术架构</h3>
+    <p><strong>前端：</strong>HTML5 Canvas 交互绘图 · CSS3 响应式布局 · 原生 JavaScript（无框架依赖）· SVG 矢量图形</p>
+    <p><strong>后端：</strong>Python HTTP Server · RESTful API 接口 · JSON 结构化数据存储 · 文件系统数据库</p>
+    <p><strong>数据：</strong>题库数据 (qdata/) · 论坛数据 (fdata/) · 用户数据 (udata/) · 知识框架 (textbooks/) · 全部本地可运行</p>
+    <div class="tech-stack" style="margin-top:12px">
+      <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript ES5</span>
+      <span class="tech-tag">Canvas API</span><span class="tech-tag">SVG</span><span class="tech-tag">Python</span>
+      <span class="tech-tag">HTTP Server</span><span class="tech-tag">RESTful API</span><span class="tech-tag">JSON</span>
+      <span class="tech-tag">localStorage</span><span class="tech-tag">File API</span><span class="tech-tag">响应式设计</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>👥 制作团队</h3>
+    <p style="margin-bottom:18px">本平台由长沙理工大学工程力学系学生团队协作完成，各成员分工明确、密切配合。</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#e67e22,#f0a030)">丰</div>
+        <h4>刘丰源</h4>
+        <span class="role-tag role-lead">🎯 主要负责人</span>
+        <p>整体架构设计 · 前后端开发 · 网站搭建与部署 · 功能模块整合 · 各模块跳转制作完善 · 细节优化</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">晞</div>
+        <h4>孙晞凯</h4>
+        <span class="role-tag role-ai">🤖 AI 训练助手</span>
+        <p>AI 智能问答模块开发 · 大语言模型训练与调优 · 公式识别优化</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a56db,#3b82f6)">震</div>
+        <h4>刘震直</h4>
+        <span class="role-tag role-mech">🔬 运动机构展示</span>
+        <p>交互式机构运动演示开发 · Canvas 动画引擎编写 · 运动学算法实现 · 速度加速度矢量可视化</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#059669,#34d399)">霖</div>
+        <h4>李沐霖</h4>
+        <span class="role-tag role-exam">📝 习题总结</span>
+        <p>120+ 题库内容整理 · 四大模块题目分类 · 难度分级 · 答案解析编写</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#dc2626,#ef4444)">瑞</div>
+        <h4>王代瑞</h4>
+        <span class="role-tag role-kp">📚 知识点总结</span>
+        <p>知识框架体系构建 · 四大部分教材内容梳理</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📬 联系方式</h3>
+    <p>🏫 <strong>单位：</strong>长沙理工大学 · 卓越工程师工程学院</p>
+    <p>📧 <strong>反馈：</strong>如在使用过程中遇到问题或有改进建议，欢迎通过问题探讨社区或联系管理员反馈。</p>
+    <p>📅 <strong>版本：</strong>工程力学研究平台第四代 · 2026年7月</p>
+  </div>
+</div>
+</body>
+</html>

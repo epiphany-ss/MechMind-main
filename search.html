@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全站搜索 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px;--transition:0.3s ease}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all var(--transition);position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#b91c1c,#dc2626);color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+.container{max-width:900px;margin:0 auto;padding:32px 24px}
+
+.search-box{display:flex;gap:12px;margin-bottom:28px}
+.search-box input{flex:1;padding:16px 24px;border:2px solid var(--border);border-radius:30px;font-size:1.1em;font-family:inherit;outline:none;transition:all var(--transition);box-shadow:var(--shadow)}
+.search-box input:focus{border-color:#dc2626;box-shadow:0 0 0 4px rgba(220,38,38,0.1)}
+.search-box button{padding:16px 32px;background:linear-gradient(135deg,#b91c1c,#dc2626);color:#fff;border:none;border-radius:30px;cursor:pointer;font-weight:700;font-size:1.05em;letter-spacing:1px;transition:all var(--transition)}
+.search-box button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(220,38,38,0.3)}
+
+.hot-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;justify-content:center}
+.hot-tags span{padding:8px 18px;background:var(--card-bg);border-radius:20px;font-size:0.88em;cursor:pointer;border:1px solid var(--border);transition:all var(--transition);color:var(--text)}
+.hot-tags span:hover{background:#dc2626;color:#fff;border-color:#dc2626}
+
+.stats-bar{text-align:center;font-size:0.85em;color:var(--text-lighter);margin-bottom:20px;display:none}
+.stats-bar.show{display:block}
+
+.result-section{margin-bottom:28px}
+.result-section h3{font-size:1.05em;margin-bottom:12px;padding:6px 0;border-bottom:2px solid var(--primary-light);display:flex;align-items:center;gap:8px}
+.result-section h3 .count{font-size:0.75em;color:var(--text-lighter);font-weight:400}
+.result-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result-card{background:var(--card-bg);border-radius:10px;padding:16px 20px;border:1px solid var(--border);transition:all var(--transition);cursor:pointer;text-decoration:none;color:inherit;display:block}
+.result-card:hover{box-shadow:var(--shadow);border-color:var(--primary);transform:translateX(3px)}
+.result-card .r-badge{display:inline-block;font-size:0.68em;padding:2px 8px;border-radius:8px;margin-bottom:6px;font-weight:600}
+.badge-exercise{background:#e8f0fe;color:var(--primary)}
+.badge-concept{background:#e6f7ec;color:#059669}
+.badge-forum{background:#fef3e2;color:#e67e22}
+.badge-demo{background:#f3e8ff;color:#7c3aed}
+.badge-page{background:#f1f5f9;color:#64748b}
+.result-card h5{font-size:0.9em;margin-bottom:4px;line-height:1.4}
+.result-card p{font-size:0.76em;color:var(--text-light);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.result-card .match{background:#fef3c7;padding:0 2px;border-radius:2px}
+
+.empty-state{text-align:center;padding:50px 20px;color:var(--text-lighter)}
+.empty-state .icon{font-size:3em;margin-bottom:12px}
+
+@media(max-width:600px){.result-list{grid-template-columns:1fr}.search-box{flex-direction:column}.page-header{padding:60px 16px 24px}.page-header h1{font-size:1.4em}.container{padding:16px 10px}.back-home{padding:8px 14px;font-size:0.78em;top:8px;left:8px}}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-home">← 返回主页</a>
+<header class="page-header"><h1>🔍 全站搜索</h1><p>搜索题库习题 · 知识概念 · 论坛帖子 · 机构演示</p></header>
+<div class="container">
+  <div class="search-box">
+    <input type="text" placeholder="搜索知识点、题目、帖子…" id="searchInput" onkeydown="if(event.key==='Enter')doSearch()" autofocus>
+    <button onclick="doSearch()">🔍 搜索</button>
+  </div>
+  <div class="hot-tags" id="hotTags">
+    <span onclick="quickSearch(this.textContent)">科氏加速度</span>
+    <span onclick="quickSearch(this.textContent)">平面任意力系</span>
+    <span onclick="quickSearch(this.textContent)">速度瞬心</span>
+    <span onclick="quickSearch(this.textContent)">动能定理</span>
+    <span onclick="quickSearch(this.textContent)">虚位移原理</span>
+    <span onclick="quickSearch(this.textContent)">受力分析</span>
+    <span onclick="quickSearch(this.textContent)">拉格朗日方程</span>
+    <span onclick="quickSearch(this.textContent)">动量矩定理</span>
+  </div>
+  <div class="stats-bar" id="statsBar"></div>
+  <div id="searchResults"></div>
+</div>
+
+<script>
+// ===== Search Index =====
+var searchIndex = [];
+var indexReady = false;
+
+// Build knowledge concept index (always available)
+function getKnowledgeConcepts() {
+  return [
+    {type:'concept',title:'力与刚体的基本概念',desc:'力的三要素、作用效果、刚体模型',link:'textbooks/statics/textbook.html?target=m2',tags:['力','刚体','三要素','静力学']},
+    {type:'concept',title:'静力学公理体系',desc:'二力平衡、加减平衡力系、平行四边形法则、作用反作用',link:'textbooks/statics/textbook.html?target=m31',tags:['公理','静力学','平衡']},
+    {type:'concept',title:'约束类型与受力图',desc:'光滑面、铰链、固定端约束及受力图绘制规范',link:'textbooks/statics/textbook.html?target=m27',tags:['约束','受力图','反力']},
+    {type:'concept',title:'力的分解与投影',desc:'力是矢量、正交分解、分量正负号判断',link:'textbooks/statics/textbook.html?target=m16',tags:['分解','投影','矢量','分量']},
+    {type:'concept',title:'力矩与力臂',desc:'力对点之矩M_O=F·d、右手定则、求矩三法',link:'textbooks/statics/textbook.html?target=m21',tags:['力矩','力臂','右手定则']},
+    {type:'concept',title:'力偶的性质',desc:'等值反向平行力、力偶矩与取矩点无关',link:'textbooks/statics/textbook.html?target=m26',tags:['力偶','力偶矩']},
+    {type:'concept',title:'力的平移定理',desc:'F@A≡F@O+M_O、平移产生附加力偶',link:'textbooks/statics/textbook.html?target=m37',tags:['平移定理','力偶','简化']},
+    {type:'concept',title:'平面任意力系的平衡',desc:'主矢与主矩、ΣFx=0 ΣFy=0 ΣM_O=0、分布载荷',link:'textbooks/statics/textbook.html?target=m51',tags:['平衡方程','任意力系','主矢','主矩']},
+    {type:'concept',title:'空间力系平衡',desc:'空间力分解、方向余弦、6个平衡方程',link:'textbooks/statics/textbook.html?target=m56',tags:['空间力系','平衡','方向余弦']},
+    {type:'concept',title:'物体系平衡与拆分策略',desc:'整体求外反力→局部求连接力',link:'textbooks/statics/textbook.html?target=m61',tags:['物体系','拆分','整体法','局部法']},
+    {type:'concept',title:'平面桁架分析',desc:'节点法、截面法、零杆判断',link:'textbooks/statics/textbook.html?target=m66',tags:['桁架','节点法','截面法','零杆']},
+    {type:'concept',title:'点的运动学四种方法',desc:'矢量法、直角坐标法、自然法、切向/法向加速度',link:'textbooks/kinematics/index.html?target=p1m1',tags:['运动学','矢量法','自然法','加速度']},
+    {type:'concept',title:'刚体的平动与定轴转动',desc:'平动各点v/a相同、定轴转动v=rω a_t=rα a_n=rω²',link:'textbooks/kinematics/index.html?target=p2m1',tags:['平动','定轴转动','角速度','角加速度']},
+    {type:'concept',title:'点的合成运动',desc:'动点/动系选择、v_a=v_e+v_r、加速度合成、科氏加速度',link:'textbooks/kinematics/index.html?target=p3m1',tags:['合成运动','动点','动系','科氏加速度','牵连速度']},
+    {type:'concept',title:'刚体平面运动',desc:'基点法、速度投影法、瞬心法、加速度合成',link:'textbooks/kinematics/index.html?target=p4m1',tags:['平面运动','基点法','瞬心法','投影法']},
+    {type:'concept',title:'牛顿第二定律与质点动力学',desc:'ΣF=ma、运动微分方程、两类问题',link:'textbooks/dynamics/index.html?target=dyn1-1',tags:['牛顿','质点','微分方程','动力学']},
+    {type:'concept',title:'动量定理与冲量',desc:'I=∫Fdt=Δp、质心运动定理、变质量系统',link:'textbooks/dynamics/index.html?target=dyn2-1',tags:['动量','冲量','质心','碰撞']},
+    {type:'concept',title:'动量矩定理与转动惯量',desc:'ΣM_O=I_Oα、I=∫r²dm、平行轴定理',link:'textbooks/dynamics/index.html?target=dyn3-1',tags:['动量矩','转动惯量','定轴转动']},
+    {type:'concept',title:'动能定理与机械能守恒',desc:'T₂-T₁=W₁₂、T+V=常数、三大定理综合',link:'textbooks/dynamics/index.html?target=dyn4-1',tags:['动能','功','机械能','守恒']},
+    {type:'concept',title:'达朗贝尔原理与动静法',desc:'惯性力F_in=-ma、动静法：求a→补惯性力→列平衡',link:'textbooks/analytical/index.html?target=inertia-force',tags:['达朗贝尔','动静法','惯性力']},
+    {type:'concept',title:'虚位移原理',desc:'约束分类、虚位移/虚功、理想约束、广义力',link:'textbooks/analytical/index.html?target=constraints',tags:['虚位移','虚功','理想约束','广义力']},
+    {type:'concept',title:'拉格朗日方程',desc:'L=T-V、d/dt(∂L/∂q̇)-∂L/∂q=Q、能量积分、循环积分',link:'textbooks/analytical/index.html?target=lagrange-second-kind',tags:['拉格朗日','广义坐标','能量','分析力学']},
+    {type:'concept',title:'振动分析基础',desc:'单自由度自由/受迫振动、ω_n=√(k/m)、共振、多自由度',link:'textbooks/analytical/index.html?target=sdof-free',tags:['振动','固有频率','共振','阻尼']},
+    {type:'concept',title:'碰撞理论',desc:'恢复系数e、动量守恒、完全弹性/塑性碰撞、撞击中心',link:'textbooks/analytical/index.html?target=collision-concept',tags:['碰撞','恢复系数','动量守恒','弹性']},
+    {type:'demo',title:'曲柄导杆机构演示',desc:'科氏加速度可视化、速度与加速度矢量实时显示',link:'mechanism.html',tags:['导杆','演示','科氏加速度','机构']},
+    {type:'demo',title:'曲柄滑块机构演示',desc:'连杆中点运动分析、滑块速度/加速度',link:'mechanism.html',tags:['曲柄','滑块','演示','机构']},
+    {type:'page',title:'知识框架总览',desc:'四大部分知识体系、思维导图',link:'knowledge_framework.html',tags:['知识框架','体系','总览']},
+    {type:'page',title:'思维导图',desc:'由主干到枝干由内向外分散排布的全知识体系',link:'mindmap.html',tags:['思维导图','知识树','全体系']},
+    {type:'page',title:'AI智能问答',desc:'理论力学AI助手，支持公式识别与逐步推理',link:'ai_qa.html',tags:['AI','问答','智能','推理']},
+    {type:'page',title:'问题探讨社区',desc:'理论力学学习交流、提问探讨、分享心得',link:'forum.html',tags:['论坛','讨论','提问','交流']},
+    {type:'page',title:'题库练习',desc:'四大模块分类练习、搜索筛选、在线作答',link:'questions.html',tags:['题库','练习','题目','测试']},
+  ];
+}
+
+// Build index from knowledge + local files
+function buildIndex() {
+  searchIndex = getKnowledgeConcepts();
+
+  // Try loading questions index
+  fetch('qdata/index.json').then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
+    var qs = d.questions || [];
+    qs.forEach(function(q){
+      searchIndex.push({
+        type:'exercise', title:q.title, desc:(q.knowledge_points||[]).join(' · '),
+        link:'questions.html', tags:(q.knowledge_points||[]).join(' ')+' '+q.module+' '+q.title,
+        module:q.module, difficulty:q.difficulty||'medium'
+      });
+    });
+    indexReady = true;
+  }).catch(function(){});
+
+  // Try loading forum posts
+  fetch('fdata/index.json').then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
+    var ps = d.posts || [];
+    ps.forEach(function(p){
+      searchIndex.push({
+        type:'forum', title:p.title, desc:(p.excerpt||'').substring(0,60),
+        link:'forum.html', tags:p.title+' '+p.category, forumId:p.id
+      });
+    });
+  }).catch(function(){});
+
+  // Also try loading detailed questions
+  allQuestionLoads();
+}
+
+function allQuestionLoads() {
+  fetch('qdata/index.json').then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
+    var qs = d.questions || [];
+    var tasks = qs.slice(0,30).map(function(q){
+      return fetch('qdata/'+q.id+'/data.json').then(function(r){if(r.ok)return r.json();throw new Error()}).catch(function(){return q});
+    });
+    return Promise.all(tasks);
+  }).then(function(full) {
+    full.forEach(function(q){
+      if (q.content) {
+        var existing = searchIndex.filter(function(item){return item.type==='exercise' && item.title===q.title});
+        if (existing.length > 0) existing[0].content = q.content;
+      }
+    });
+  }).catch(function(){});
+}
+
+// ===== Search =====
+function doSearch() {
+  var q = document.getElementById('searchInput').value.trim();
+  if (!q) { showEmpty(); return; }
+  if (searchIndex.length === 0) buildIndex();
+
+  var keywords = q.toLowerCase().split(/\s+/);
+  var results = [];
+
+  searchIndex.forEach(function(item) {
+    var text = (item.title+' '+item.desc+' '+(item.tags||'')+' '+(item.content||'')).toLowerCase();
+    var score = 0;
+    keywords.forEach(function(kw) {
+      if (!kw) return;
+      var re = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g');
+      var titleMatches = ((item.title||'').toLowerCase().match(re)||[]).length;
+      var descMatches = ((item.desc||'').toLowerCase().match(re)||[]).length;
+      var tagMatches = ((item.tags||'').toLowerCase().match(re)||[]).length;
+      var contentMatches = ((item.content||'').toLowerCase().match(re)||[]).length;
+      score += titleMatches * 10 + tagMatches * 5 + descMatches * 2 + contentMatches * 1;
+      if ((item.title||'').toLowerCase().indexOf(kw) === 0) score += 15;
+    });
+    if (score > 0) results.push({item:item, score:score});
+  });
+
+  results.sort(function(a,b){return b.score - a.score});
+
+  // Group by type
+  var groups = {exercise:[], concept:[], forum:[], demo:[], page:[], other:[]};
+  results.forEach(function(r){
+    var t = r.item.type;
+    if (groups[t]) groups[t].push(r); else groups.other.push(r);
+  });
+
+  var total = results.length;
+  document.getElementById('statsBar').className = 'stats-bar show';
+  document.getElementById('statsBar').textContent = '找到 ' + total + ' 条结果（' + q + '）';
+
+  var html = '';
+  var sections = [
+    {key:'exercise',icon:'📝',label:'题库习题',badge:'badge-exercise'},
+    {key:'concept',icon:'📖',label:'知识概念',badge:'badge-concept'},
+    {key:'forum',icon:'💬',label:'论坛帖子',badge:'badge-forum'},
+    {key:'demo',icon:'🎮',label:'机构演示',badge:'badge-demo'},
+    {key:'page',icon:'📄',label:'功能页面',badge:'badge-page'}
+  ];
+
+  sections.forEach(function(sec){
+    var items = groups[sec.key] || [];
+    if (items.length === 0) return;
+    html += '<div class="result-section"><h3>' + sec.icon + ' ' + sec.label + '<span class="count">（' + items.length + '）</span></h3><div class="result-list">';
+    items.forEach(function(r){
+      var i = r.item;
+      var title = highlightMatches(i.title, q);
+      var desc = highlightMatches((i.desc||'').substring(0,80), q);
+      var href = i.link;
+      if (i.type==='exercise' && i.module) href += '?module=' + encodeURIComponent(i.module);
+      if (i.type==='forum' && i.forumId) href += '#';
+      html += '<a class="result-card" href="' + href + '"><span class="r-badge ' + sec.badge + '">' + sec.label.replace(/[0-9]/g,'') + '</span><h5>' + title + '</h5><p>' + desc + '</p></a>';
+    });
+    html += '</div></div>';
+  });
+
+  document.getElementById('searchResults').innerHTML = html || '<div class="empty-state"><div class="icon">🔍</div><p>未找到与 "' + escHtml(q) + '" 相关的结果</p><p style="font-size:0.8em;margin-top:6px">请尝试其他关键词，如"科氏加速度"、"平面力系"等</p></div>';
+}
+
+function highlightMatches(text, query) {
+  if (!query) return escHtml(text);
+  var kws = query.split(/\s+/).filter(function(k){return k});
+  var result = escHtml(text);
+  kws.forEach(function(kw) {
+    var escaped = kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    result = result.replace(new RegExp('('+escaped+')','gi'), '<span class="match">$1</span>');
+  });
+  return result;
+}
+
+function showEmpty() {
+  document.getElementById('statsBar').className = 'stats-bar';
+  document.getElementById('searchResults').innerHTML = '<div class="empty-state"><div class="icon">⌨️</div><p>输入关键词开始搜索全站内容</p></div>';
+}
+
+function quickSearch(text) { document.getElementById('searchInput').value = text; doSearch(); }
+function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+// Init
+buildIndex();
+
+// URL param
+var params = new URLSearchParams(window.location.search);
+var qp = params.get('q');
+if (qp) { document.getElementById('searchInput').value = qp; setTimeout(doSearch, 300); }
+</script>
+</body>
+</html>

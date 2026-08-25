@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fbfdff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.4;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:4;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:4;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="16" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="42" class="t h">第4页拓展：分解力的四步检查法</text>
+<circle cx="160" cy="270" r="5" fill="#17385f"/>
+<line x1="160" y1="270" x2="160" y2="85" class="line"/><line x1="160" y1="270" x2="360" y2="270" class="line"/>
+<line x1="160" y1="270" x2="315" y2="130" class="arrR"/><text x="325" y="130" class="t s">F</text>
+<line x1="315" y1="130" x2="315" y2="270" class="dash"/><line x1="160" y1="130" x2="315" y2="130" class="dash"/>
+<text x="220" y="292" class="t xs">Fₓ</text><text x="125" y="205" class="t xs">Fᵧ</text>
+<rect x="420" y="95" width="270" height="185" rx="14" class="blue"/>
+<text x="445" y="130" class="t xs">① 建坐标轴</text><text x="445" y="160" class="t xs">② 明确 θ 与哪个轴夹角</text><text x="445" y="190" class="t xs">③ 写分量大小</text><text x="445" y="220" class="t xs">④ 结合象限补正负号</text>
+<rect x="80" y="330" width="610" height="46" rx="12" class="warn"/><text x="100" y="358" class="t xs">易错：角度不是和 x 轴夹角时，不要机械套 Fₓ=Fcosθ。</text>
+
+</svg>

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "u_001",
+      "name": "刘丰源",
+      "student_id": "202509020109",
+      "password": "202509020109",
+      "role": "admin",
+      "created": "2026-07-01"
+    },
+    {
+      "id": "u_101",
+      "name": "耿若冰",
+      "student_id": "202510080345",
+      "password": "323420",
+      "role": "user",
+      "created": "2026-07-31"
+    }
+  ]
+}

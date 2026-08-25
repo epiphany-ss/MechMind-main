@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双正弦机构相位合成 - 复合机构演示</title>
+<link rel="stylesheet" href="complex_mechanism_style.css">
+</head>
+<body>
+<a class="back-home" href="complex_mechanism_demo.html">← 返回复合机构目录</a>
+<header class="page-header"><h1 id="demoTitle"></h1><p id="demoSubtitle"></p></header>
+<main class="layout"><section class="canvas-wrap" id="canvasWrap"><canvas id="complexCanvas"></canvas></section><aside class="side-panel">
+<section class="panel-sec"><h4>控制</h4><div class="btn-row"><button id="btnPlay">暂停</button><button id="btnStep">单步</button><button id="btnReset">重置</button><button id="btnClear">清轨迹</button></div><div class="slider-group"><label>输入角速度 <span><span id="omegaVal">1.8</span> rad/s</span></label><input id="omega" type="range" min="0.4" max="3.6" step="0.1"></div></section>
+<section class="panel-sec"><h4>显示选项</h4><label class="toggle-row"><input id="showVel" type="checkbox" checked>速度矢量</label><label class="toggle-row"><input id="showAcc" type="checkbox" checked>加速度矢量</label><label class="toggle-row"><input id="showTrail" type="checkbox" checked>运动轨迹</label><label class="toggle-row"><input id="showPhase" type="checkbox" checked>相位标记</label></section>
+<section class="panel-sec"><h4>教学目标</h4><ul id="teachingGoals" class="goals"></ul></section><section class="panel-sec"><h4>实时数据</h4><div id="dataPanel"></div></section><section class="panel-sec"><h4>子机构对比</h4><div id="comparePanel"></div></section><section class="panel-sec"><h4>核心公式</h4><div id="formulaPanel"></div></section>
+</aside></main>
+<script>
+window.COMPLEX_DEMO_CONFIG = {
+  shortTitle:'双正弦相位合成',
+  title:'双正弦机构相位合成系统',
+  subtitle:'同一输入轴通过两只相差 90° 的偏心曲柄驱动两个正交滑框，构成二维简谐合成机构。',
+  omega:1.8,
+  goals:['理解一根输入轴上两个正交偏心轮如何产生两个相位差 90° 的简谐输出。','观察两个滑框组合后可作为二维描点/导向机构。','比较两个平动动系中的速度与加速度相位关系。'],
+  formulas:['传动链：输入轴 → 0° 偏心曲柄 → 滑框 A；输入轴 → 90° 偏心曲柄 → 滑框 B。','正弦机构：y = r sinθ，v = ωr cosθ，a = -ω²r sinθ。','正交合成：x = r cosθ，y = r sinθ。'],
+  connections:[
+    {points:[{x:300,y:260},{x:435,y:260},{x:570,y:260}],label:'同轴输入，两个偏心曲柄相差 90°',color:'#8edcff',arrow:false},
+    {points:[{x:430,y:198},{x:430,y:322}],label:'正交滑框合成输出',color:'#ffd166',dash:[8,6],arrow:false,dx:58,dy:0}
+  ],
+  modules:[
+    {id:'scotchA',name:'正弦机构 A',type:'scotch',motion:'平动动系 / aC=0',origin:{x:300,y:260},scale:1.45,r:62,phase:0,label:'滑框 A',trailColor:'#ff7777',titleBox:{x:80,y:32,w:260,h:40,title:'分量 A：sin θ'},phaseMark:'θ'},
+    {id:'scotchB',name:'正弦机构 B',type:'scotch',motion:'平动动系 / aC=0',origin:{x:570,y:260},scale:1.45,r:62,phase:Math.PI/2,label:'滑框 B',trailColor:'#66d9ef',titleBox:{x:445,y:32,w:260,h:40,title:'分量 B：sin(θ + 90°)'},phaseMark:'θ + 90°'}
+  ],
+  plots:[{plot:{x:665,y:360,w:220,h:130,title:'位移相位曲线'},phases:[0,Math.PI/2],colorA:'#ff7777',colorB:'#66d9ef'}]
+};
+</script>
+<script src="complex_mechanism_common.js"></script>
+</body>
+</html>

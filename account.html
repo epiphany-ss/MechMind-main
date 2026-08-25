@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人账户 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all 0.3s;position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+.container{max-width:600px;margin:0 auto;padding:40px 24px}
+
+.card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:24px}
+.card-header{padding:24px 28px;color:#fff;display:flex;align-items:center;gap:16px}
+.card-header.admin-hd{background:linear-gradient(135deg,#b91c1c,#dc2626)}
+.card-header.user-hd{background:linear-gradient(135deg,#0d9488,#14b8a6)}
+.card-header.guest-hd{background:linear-gradient(135deg,#64748b,#94a3b8)}
+.card-avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:2.2em;border:3px solid rgba(255,255,255,0.3);flex-shrink:0}
+.card-info h2{font-size:1.4em;margin-bottom:2px}
+.card-info p{opacity:0.85;font-size:0.85em}
+.role-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:0.7em;font-weight:700;margin-top:4px;letter-spacing:0.5px}
+.role-admin{background:rgba(255,255,255,0.25);color:#fff}
+.role-user{background:rgba(255,255,255,0.2);color:#fff}
+.card-body{padding:28px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.stat-item{background:var(--bg);border-radius:10px;padding:18px;text-align:center;border:1px solid var(--border)}
+.stat-item .s-val{font-size:1.8em;font-weight:800;color:var(--primary)}
+.stat-item .s-lbl{font-size:0.78em;color:var(--text-lighter);margin-top:4px}
+
+.section-title{font-size:1em;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--primary-light);display:flex;justify-content:space-between;align-items:center}
+
+/* Login/Register form */
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.85em;font-weight:600;margin-bottom:5px;color:var(--text)}
+.form-group input{width:100%;padding:11px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:0.95em;font-family:inherit;outline:none;transition:border-color 0.2s}
+.form-group input:focus{border-color:var(--primary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 28px;border-radius:22px;font-weight:700;font-size:0.95em;cursor:pointer;border:none;transition:all 0.2s;letter-spacing:0.5px;width:100%}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,0.3)}
+.btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary)}
+.btn-outline:hover{background:var(--primary-light)}
+.btn-danger{background:#fff;color:#dc2626;border:1.5px solid #dc2626}
+.btn-danger:hover{background:#fef2f2}
+.form-hint{text-align:center;font-size:0.82em;color:var(--text-lighter);margin-top:14px}
+.form-hint a{color:var(--primary);cursor:pointer;text-decoration:underline;font-weight:600}
+.form-error{background:#fef2f2;color:#dc2626;padding:10px 16px;border-radius:8px;font-size:0.85em;margin-bottom:14px;display:none;border:1px solid #fecaca}
+
+/* Admin panel */
+.admin-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.admin-actions .action-card{background:var(--bg);border-radius:10px;padding:16px;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;text-decoration:none;color:inherit;display:block}
+.admin-actions .action-card:hover{box-shadow:var(--shadow);border-color:var(--primary);transform:translateY(-2px)}
+.action-card .act-icon{font-size:1.6em;margin-bottom:6px}
+.action-card h5{font-size:0.9em;margin-bottom:2px}
+.action-card p{font-size:0.75em;color:var(--text-lighter)}
+
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;padding:12px 24px;border-radius:20px;color:#fff;font-weight:600;font-size:0.9em;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.success{background:#059669}
+.toast.error{background:#dc2626}
+
+@media(max-width:500px){.stats-grid{grid-template-columns:1fr}.admin-actions{grid-template-columns:1fr}.container{padding:16px 10px}}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-home">← 返回主页</a>
+<header class="page-header"><h1>👤 个人学习中心</h1><p id="headerSub">登录以查看学习进度与统计</p></header>
+<div class="container" id="mainContainer"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== Auth helpers =====
+var currentUser = null;
+var EMBEDDED_USERS = [{id:'u_001',name:'刘丰源',student_id:'202509020109',password:'202509020109',role:'admin',created:'2026-07-01'}];
+
+function getCurrentUser() {
+  try { var raw = localStorage.getItem('current_user'); return raw ? JSON.parse(raw) : null; } catch(e) { return null; }
+}
+function setCurrentUser(u) {
+  if (u) localStorage.setItem('current_user', JSON.stringify(u));
+  else localStorage.removeItem('current_user');
+  currentUser = u;
+}
+function isAdmin() { return currentUser && currentUser.role === 'admin'; }
+function isLoggedIn() { return !!currentUser; }
+window.__checkAdmin = function() { return isAdmin(); };
+
+// ===== 用户活跃状态记录 =====
+function activityKey(sid) { return 'user_activity_' + sid; }
+function getActivity(sid) { try { return JSON.parse(localStorage.getItem(activityKey(sid)) || '{}'); } catch(e) { return {}; } }
+function saveActivity(sid, data) { try { localStorage.setItem(activityKey(sid), JSON.stringify(data)); } catch(e) {} }
+function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }
+function recordLogin(sid) {
+  var data = getActivity(sid);
+  var t = todayStr();
+  if (!data[t]) data[t] = { login:true, questions:0, ai_minutes:0, ai_count:0 };
+  else data[t].login = true;
+  saveActivity(sid, data);
+}
+
+// ===== Load users (with embedded fallback + timeout) =====
+function loadUsers(cb) {
+  var done = false;
+  var timer = setTimeout(function() {
+    if (!done) { done = true; console.warn('User fetch timeout, using embedded'); mergeAndReturn([]); }
+  }, 2000);
+
+  // 1) Try Netlify API first (cloud-synced)
+  fetch('/api/account/list?_=' + Date.now()).then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
+    if (!done && d.ok) { done = true; clearTimeout(timer); mergeAndReturn(d.users||[]); return; }
+    throw new Error();
+  }).catch(function(){
+    // 2) Try static udata/index.json
+    fetch('udata/index.json?_=' + Date.now()).then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
+      if (!done) { done = true; clearTimeout(timer); mergeAndReturn(d.users||[]); }
+    }).catch(function(e){
+      if (!done) { done = true; clearTimeout(timer); console.warn('User fetch failed:', e.message); mergeAndReturn([]); }
+    });
+  });
+
+  function mergeAndReturn(serverUsers) {
+    // Merge: server users take priority, embedded as fallback fill
+    var all = serverUsers.slice();
+    var ids = {}; all.forEach(function(u){ids[u.student_id]=1});
+
+    // Fill passwords from embedded users (API strips passwords for security)
+    EMBEDDED_USERS.forEach(function(eu) {
+      for (var i = 0; i < all.length; i++) {
+        if (all[i].student_id === eu.student_id && !all[i].password) {
+          all[i].password = eu.password;
+        }
+      }
+      if (!ids[eu.student_id]) { all.push(eu); ids[eu.student_id] = 1; }
+    });
+
+    // Also merge localStorage registered users
+    try {
+      var raw = localStorage.getItem('udata_users');
+      if (raw) { var lp = JSON.parse(raw); lp.forEach(function(u) {
+        var ex = false;
+        for (var j = 0; j < all.length; j++) {
+          if (all[j].student_id === u.student_id) { ex = true; break; }
+        }
+        if (!ex) { all.push(u); }
+      }); }
+    } catch(e) {}
+    cb(all);
+  }
+}
+
+// ===== Render =====
+function render() {
+  currentUser = getCurrentUser();
+  var container = document.getElementById('mainContainer');
+  if (currentUser) {
+    renderProfile(container);
+    document.getElementById('headerSub').textContent = '欢迎回来，' + currentUser.name;
+  } else {
+    renderLogin(container);
+  }
+}
+
+// ===== Login form =====
+function renderLogin(container) {
+  container.innerHTML =
+    '<div class="card"><div class="card-header guest-hd"><div class="card-avatar">🔐</div><div class="card-info"><h2>登录账户</h2><p>使用学号与密码登录平台</p></div></div>' +
+    '<div class="card-body">' +
+      '<div class="form-error" id="loginError"></div>' +
+      '<div class="form-group"><label>学号</label><input type="text" id="loginId" placeholder="请输入学号" onkeydown="if(event.key===\'Enter\')doLogin()"></div>' +
+      '<div class="form-group"><label>密码</label><input type="password" id="loginPw" placeholder="请输入密码" onkeydown="if(event.key===\'Enter\')doLogin()"></div>' +
+      '<button class="btn btn-primary" onclick="doLogin()">🔓 登录</button>' +
+      '<div class="form-hint">没有账户？<a onclick="showRegister()">点击注册</a></div>' +
+    '</div></div>';
+  document.getElementById('loginId').focus();
+}
+
+// ===== Register form =====
+function showRegister() {
+  var container = document.getElementById('mainContainer');
+  container.innerHTML =
+    '<div class="card"><div class="card-header user-hd"><div class="card-avatar">📝</div><div class="card-info"><h2>注册新账户</h2><p>注册后即可追踪学习进度（仅限普通用户）</p></div></div>' +
+    '<div class="card-body">' +
+      '<div class="form-error" id="regError"></div>' +
+      '<div class="form-group"><label>姓名</label><input type="text" id="regName" placeholder="请输入真实姓名"></div>' +
+      '<div class="form-group"><label>学号</label><input type="text" id="regId" placeholder="请输入学号"></div>' +
+      '<div class="form-group"><label>密码</label><input type="password" id="regPw" placeholder="请设置密码（至少6位）"></div>' +
+      '<button class="btn btn-primary" onclick="doRegister()">✅ 注册</button>' +
+      '<div class="form-hint">已有账户？<a onclick="render()">返回登录</a></div>' +
+    '</div></div>';
+}
+
+// ===== Do login =====
+function doLogin() {
+  var sid = document.getElementById('loginId').value.trim();
+  var pw = document.getElementById('loginPw').value.trim();
+  if (!sid || !pw) { showLoginError('请输入学号和密码'); return; }
+  loadUsers(function(users) {
+    var found = null;
+    for (var i = 0; i < users.length; i++) { if (users[i].student_id === sid && users[i].password === pw) { found = users[i]; break; } }
+    if (found) {
+      setCurrentUser({name:found.name, student_id:found.student_id, role:found.role, id:found.id, created:found.created});
+      recordLogin(found.student_id);
+      showToast('登录成功！欢迎 ' + found.name, 'success');
+      render();
+    } else {
+      // Check if student ID exists with wrong password
+      var idExists = false;
+      for (var j = 0; j < users.length; j++) { if (users[j].student_id === sid) { idExists = true; break; } }
+      if (idExists) { showLoginError('密码错误，请重试'); }
+      else { showLoginError('学号未注册，请先注册'); }
+    }
+  });
+}
+
+function showLoginError(msg) { var e = document.getElementById('loginError'); e.textContent = msg; e.style.display = 'block'; }
+
+// ===== Do register =====
+function doRegister() {
+  var name = document.getElementById('regName').value.trim();
+  var sid = document.getElementById('regId').value.trim();
+  var pw = document.getElementById('regPw').value.trim();
+  if (!name) { showRegError('请输入姓名'); return; }
+  if (!sid) { showRegError('请输入学号'); return; }
+  if (pw.length < 6) { showRegError('密码至少6位'); return; }
+
+  loadUsers(function(users) {
+    for (var i = 0; i < users.length; i++) { if (users[i].student_id === sid) { showRegError('该学号已注册，请直接登录'); return; } }
+    // Generate new ID
+    var maxN = 100;
+    for (var j = 0; j < users.length; j++) { var n = parseInt(users[j].id.replace('u_','')); if (n > maxN) maxN = n; }
+    var newUser = { id: 'u_' + String(maxN + 1).padStart(3,'0'), name: name, student_id: sid, password: pw, role: 'user', created: new Date().toISOString().split('T')[0] };
+    users.push(newUser);
+
+    // Try server API first
+    fetch('/api/account/register', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(newUser) })
+    .then(function(r){if(r.ok)return r.json();throw new Error()})
+    .then(function(d) {
+      if (d.ok) console.log('用户注册已同步至服务器:', sid);
+      else throw new Error(d.message || 'failed');
+    })
+    .catch(function(){
+      // Server unavailable — save locally and queue for sync
+      try { localStorage.setItem('udata_users', JSON.stringify(users)); } catch(e) {}
+      queuePendingRegistration(newUser);
+    });
+
+    setCurrentUser({name:newUser.name, student_id:newUser.student_id, role:'user', id:newUser.id, created:newUser.created});
+    recordLogin(newUser.student_id);
+    showToast('注册成功！欢迎 ' + name, 'success');
+    render();
+  });
+}
+
+// Queue a registration for later cloud sync
+function queuePendingRegistration(user) {
+  try {
+    var pr = localStorage.getItem('account_pending_sync');
+    var pending = pr ? JSON.parse(pr) : [];
+    // Avoid duplicates
+    if (!pending.some(function(p) { return p.student_id === user.student_id; })) {
+      pending.push({ name: user.name, student_id: user.student_id, password: user.password, created: user.created });
+      localStorage.setItem('account_pending_sync', JSON.stringify(pending));
+    }
+  } catch(e) {}
+}
+
+// Sync pending registrations to server (called on init and after login)
+function syncPendingRegistrations() {
+  try {
+    var pr = localStorage.getItem('account_pending_sync');
+    if (!pr) return;
+    var pending = JSON.parse(pr);
+    if (pending.length === 0) return;
+    var item = pending[0];
+    fetch('/api/account/register', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(item)
+    }).then(function(r) { if (r.ok) return r.json(); throw new Error(); })
+    .then(function(d) {
+      if (d.ok) {
+        pending.shift();
+        localStorage.setItem('account_pending_sync', JSON.stringify(pending));
+        console.log('离线注册已同步至服务器:', item.student_id);
+      }
+    }).catch(function() {});
+  } catch(e) {}
+}
+
+function showRegError(msg) { var e = document.getElementById('regError'); e.textContent = msg; e.style.display = 'block'; }
+
+// ===== Profile =====
+function renderProfile(container) {
+  var isAdm = isAdmin();
+  var headerCls = isAdm ? 'admin-hd' : 'user-hd';
+  var roleLabel = isAdm ? '<span class="role-badge role-admin">👑 管理员</span>' : '<span class="role-badge role-user">📘 普通用户</span>';
+  var avatarIcon = isAdm ? '👑' : '👤';
+
+  var statsHtml = '<div class="stats-grid">' +
+    '<div class="stat-item"><div class="s-val">0</div><div class="s-lbl">已答题数</div></div>' +
+    '<div class="stat-item"><div class="s-val">-</div><div class="s-lbl">正确率</div></div>' +
+    '<div class="stat-item"><div class="s-val">-</div><div class="s-lbl">连续学习天数</div></div>' +
+    '</div>';
+
+  var adminHtml = '';
+  if (isAdm) {
+    adminHtml = '<div class="section-title">🔧 管理员操作</div>' +
+      '<div class="admin-actions">' +
+        '<a class="action-card" href="personal_knowledge.html"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联</p></a>' +
+        '<a class="action-card" href="questions.html"><div class="act-icon">📝</div><h5>管理题库</h5><p>上传/删除/修改题目</p></a>' +
+        '<a class="action-card" href="forum.html"><div class="act-icon">💬</div><h5>管理论坛</h5><p>删除违规帖子与评论</p></a>' +
+        '<a class="action-card" href="account.html" onclick="event.preventDefault();showUserManager()"><div class="act-icon">👥</div><h5>用户管理</h5><p>查看/删除用户账户</p></a>' +
+        '<a class="action-card" href="account.html" onclick="event.preventDefault();showDataViewer()"><div class="act-icon">📁</div><h5>数据文件</h5><p>查看平台数据概况</p></a>' +
+      '</div>';
+  }
+
+  container.innerHTML =
+    '<div class="card"><div class="card-header ' + headerCls + '"><div class="card-avatar">' + avatarIcon + '</div>' +
+      '<div class="card-info"><h2>' + escHtml(currentUser.name) + '</h2><p>学号：' + currentUser.student_id + '</p>' + roleLabel + '</div></div>' +
+    '<div class="card-body">' +
+      '<div class="section-title">📊 学习概览</div>' + statsHtml +
+      '<a class="action-card" href="personal_knowledge.html" style="display:block;margin-bottom:18px"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联，形成个性化学习地图</p></a>' +
+      '<a class="action-card" href="activity.html" style="display:block;margin-bottom:18px"><div class="act-icon">🔥</div><h5>用户活跃状态</h5><p>查看最近的登录、做题与AI问答活跃记录</p></a>' +
+      renderMyContent() +
+      adminHtml +
+      '<div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-outline" onclick="logout()">🚪 退出登录</button>' +
+      (isAdm ? '' : '<button class="btn btn-danger" onclick="deleteMyAccount()">🗑 注销账户</button>') +
+      '</div>' +
+    '</div></div>';
+}
+
+// ===== User manager (admin only) =====
+function showUserManager() {
+  if (!isAdmin()) { showToast('仅管理员可访问','error'); return; }
+  loadUsers(function(users) {
+    var container = document.getElementById('mainContainer');
+    var rows = users.map(function(u, i) {
+      return '<tr><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0">' + escHtml(u.name) + '</td>' +
+        '<td style="padding:8px 12px;border-bottom:1px solid #e2e8f0">' + u.student_id + '</td>' +
+        '<td style="padding:8px 12px;border-bottom:1px solid #e2e8f0">' + (u.role==='admin'?'👑 管理员':'📘 用户') + '</td>' +
+        '<td style="padding:8px 12px;border-bottom:1px solid #e2e8f0">' + (u.created||'') + '</td>' +
+        (u.role==='admin' ? '<td style="padding:8px 12px;border-bottom:1px solid #e2e8f0"></td>' :
+        '<td style="padding:8px 12px;border-bottom:1px solid #e2e8f0"><button onclick="promoteUser(\'' + u.id + '\')" style="background:none;border:none;color:#059669;cursor:pointer;font-weight:600;margin-right:8px">升管理员</button><button onclick="deleteUser(\'' + u.id + '\')" style="background:none;border:none;color:#dc2626;cursor:pointer;font-weight:600">删除</button></td>') +
+        '</tr>';
+    }).join('');
+    container.innerHTML =
+      '<div class="card"><div class="card-header admin-hd"><div class="card-avatar">👥</div><div class="card-info"><h2>用户管理</h2><p>共 ' + users.length + ' 个账户</p></div></div>' +
+      '<div class="card-body">' +
+        '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse"><thead><tr style="background:#f8fafc">' +
+          '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">姓名</th>' +
+          '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">学号</th>' +
+          '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">角色</th>' +
+          '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">注册日期</th>' +
+          '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">操作</th>' +
+        '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        '<button class="btn btn-outline" style="margin-top:16px" onclick="render()">← 返回个人中心</button>' +
+      '</div></div>';
+  });
+}
+
+// ===== Data viewer (admin only) =====
+function showDataViewer() {
+  if (!isAdmin()) { showToast('仅管理员可访问','error'); return; }
+  var container = document.getElementById('mainContainer');
+  container.innerHTML = '<div class="card"><div class="card-header admin-hd"><div class="card-avatar">📁</div><div class="card-info"><h2>平台数据概况</h2><p>正在加载…</p></div></div>' +
+    '<div class="card-body"><p style="text-align:center;color:var(--text-lighter);padding:40px">⏳ 正在从服务器获取数据…</p></div></div>';
+
+  fetch('/api/admin/data?_=' + Date.now())
+    .then(function(r) { if (r.ok) return r.json(); throw new Error('API不可用'); })
+    .then(function(d) {
+      if (!d.ok || !d.data) throw new Error('数据格式错误');
+      var data = d.data;
+      // Build questions table
+      var qRows = data.questions.items.map(function(q) {
+        return '<tr><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;font-family:monospace;font-size:0.82em">' + q.id + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(q.title) + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(q.module) + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(q.difficulty) + '</td></tr>';
+      }).join('');
+
+      // Build forum table
+      var fRows = data.forum.items.map(function(p) {
+        return '<tr><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;font-family:monospace;font-size:0.82em">' + p.id + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(p.title) + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(p.author) + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(p.time) + '</td></tr>';
+      }).join('');
+
+      // Build accounts table
+      var aRows = data.accounts.items.map(function(u) {
+        return '<tr><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + escHtml(u.name) + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + u.student_id + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + (u.role === 'admin' ? '👑 管理员' : '📘 用户') + '</td>' +
+          '<td style="padding:6px 10px;border-bottom:1px solid #e2e8f0">' + (u.created || '') + '</td></tr>';
+      }).join('');
+
+      container.innerHTML =
+        '<div class="card"><div class="card-header admin-hd"><div class="card-avatar">📁</div><div class="card-info"><h2>平台数据概况</h2><p>题目 ' + data.questions_count + ' · 帖子 ' + data.forum_posts_count + ' · 用户 ' + data.accounts_count + '</p></div></div>' +
+        '<div class="card-body">' +
+          '<div class="section-title">📝 题库题目 (' + data.questions_count + ')</div>' +
+          '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse"><thead><tr style="background:#f8fafc">' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">ID</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">标题</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">模块</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">难度</th>' +
+          '</tr></thead><tbody>' + (qRows || '<tr><td colspan="4" style="padding:16px;text-align:center;color:var(--text-lighter)">暂无题目</td></tr>') + '</tbody></table></div>' +
+          '<div class="section-title">💬 论坛帖子 (' + data.forum_posts_count + ')</div>' +
+          '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse"><thead><tr style="background:#f8fafc">' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">ID</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">标题</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">作者</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">时间</th>' +
+          '</tr></thead><tbody>' + (fRows || '<tr><td colspan="4" style="padding:16px;text-align:center;color:var(--text-lighter)">暂无帖子</td></tr>') + '</tbody></table></div>' +
+          '<div class="section-title">👥 用户账户 (' + data.accounts_count + ')</div>' +
+          '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse"><thead><tr style="background:#f8fafc">' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">姓名</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">学号</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">角色</th>' +
+            '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0">注册日期</th>' +
+          '</tr></thead><tbody>' + (aRows || '<tr><td colspan="4" style="padding:16px;text-align:center;color:var(--text-lighter)">暂无用户</td></tr>') + '</tbody></table></div>' +
+          '<button class="btn btn-outline" onclick="render()">← 返回个人中心</button>' +
+        '</div></div>';
+    })
+    .catch(function(err) {
+      container.innerHTML =
+        '<div class="card"><div class="card-header admin-hd"><div class="card-avatar">📁</div><div class="card-info"><h2>平台数据概况</h2><p>加载失败</p></div></div>' +
+        '<div class="card-body">' +
+          '<p style="color:#dc2626;margin-bottom:12px">⚠️ 无法连接服务器: ' + escHtml(err.message) + '</p>' +
+          '<p style="color:var(--text-lighter);margin-bottom:16px">提示：Netlify Blobs 可能需要等待几分钟初始化，或者检查 Netlify 控制台的 Function 日志。</p>' +
+          '<button class="btn btn-outline" onclick="render()">← 返回个人中心</button>' +
+        '</div></div>';
+    });
+}
+
+function promoteUser(uid) {
+  if (!isAdmin()) { showToast('仅管理员可操作','error'); return; }
+  if (!confirm('确定将该用户提升为管理员？')) return;
+  loadUsers(function(users) {
+    for (var i = 0; i < users.length; i++) { if (users[i].id === uid) { users[i].role = 'admin'; break; } }
+    try { localStorage.setItem('udata_users', JSON.stringify(users)); } catch(e) {}
+    fetch('/api/account/promote/' + uid, {method:'POST'}).catch(function(){});
+    showToast('已提升为管理员','success');
+    showUserManager();
+  });
+}
+
+function deleteUser(uid) {
+  if (!isAdmin()) return;
+  if (!confirm('确定删除该用户？此操作不可撤销。')) return;
+  loadUsers(function(users) {
+    users = users.filter(function(u){return u.id!==uid});
+    try { localStorage.setItem('udata_users', JSON.stringify(users)); } catch(e) {}
+    fetch('/api/account/delete/' + uid, {method:'DELETE'}).catch(function(){});
+    showToast('用户已删除', 'success');
+    showUserManager();
+  });
+}
+
+function deleteMyAccount() {
+  if (!confirm('确定注销你的账户？所有学习记录将被清除。')) return;
+  loadUsers(function(users) {
+    users = users.filter(function(u){return u.id!==currentUser.id});
+    try { localStorage.setItem('udata_users', JSON.stringify(users)); } catch(e) {}
+    fetch('/api/account/delete/' + currentUser.id, {method:'DELETE'}).catch(function(){});
+  });
+  setCurrentUser(null);
+  showToast('账户已注销', 'success');
+  render();
+}
+
+function renderMyContent() {
+  var sid = currentUser.student_id;
+  var catLabel = {qa:'提问',share:'分享',discuss:'讨论',other:'其他'};
+  var html = '';
+
+  // My posts
+  var posts = [];
+  try { var r=localStorage.getItem('user_posts_'+sid); if(r)posts=JSON.parse(r); } catch(e) {}
+  if (posts.length > 0) {
+    html += '<div class="section-title">📝 我的帖子 (' + posts.length + ')</div>';
+    posts.slice(0,10).forEach(function(p) {
+      html += '<div style="padding:10px 14px;margin-bottom:6px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;font-size:0.85em">' +
+        '<span style="color:#64748b;font-size:0.75em">' + (p.time||'') + '</span> ' +
+        '<span style="color:#1a56db;font-weight:600">' + escHtml(p.title||'') + '</span></div>';
+    });
+  }
+
+  // My comments
+  var comments = [];
+  try { var rc=localStorage.getItem('user_comments_'+sid); if(rc)comments=JSON.parse(rc); } catch(e) {}
+  if (comments.length > 0) {
+    html += '<div class="section-title" style="margin-top:18px">💬 我的评论 (' + comments.length + ')</div>';
+    comments.slice(0,10).forEach(function(c) {
+      html += '<div style="padding:8px 14px;margin-bottom:4px;background:#f0fdf4;border-radius:8px;border:1px solid #dcfce7;font-size:0.82em">' +
+        '<span style="color:#64748b;font-size:0.72em">' + (c.time||'') + '</span> ' +
+        escHtml((c.content||'').substring(0,60)) + '</div>';
+    });
+  }
+
+  // My questions
+  var questions = [];
+  try { var rq=localStorage.getItem('user_questions_'+sid); if(rq)questions=JSON.parse(rq); } catch(e) {}
+  if (questions.length > 0) {
+    html += '<div class="section-title" style="margin-top:18px">✅ 已做题目 (' + questions.length + ')</div>';
+    html += '<div style="font-size:0.8em;color:#64748b">共完成 ' + questions.length + ' 道题目</div>';
+  }
+
+  return html || '<div style="text-align:center;padding:20px;color:#94a3b8;font-size:0.85em">暂无个人内容，去论坛发帖或做题吧！</div>';
+}
+
+function logout() { setCurrentUser(null); showToast('已退出登录','success'); render(); }
+
+// ===== Helpers =====
+function escHtml(s) { var d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
+function showToast(msg, type) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast ' + type + ' show'; setTimeout(function(){t.classList.remove('show')},2500); }
+
+// ===== Init =====
+currentUser = getCurrentUser();
+if (currentUser && currentUser.student_id) recordLogin(currentUser.student_id);
+render();
+syncPendingRegistrations();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双曲柄滑块并联系统 - 复合机构演示</title>
+<link rel="stylesheet" href="complex_mechanism_style.css">
+</head>
+<body>
+<a class="back-home" href="complex_mechanism_demo.html">← 返回复合机构目录</a>
+<header class="page-header"><h1 id="demoTitle"></h1><p id="demoSubtitle"></p></header>
+<main class="layout"><section class="canvas-wrap" id="canvasWrap"><canvas id="complexCanvas"></canvas></section><aside class="side-panel">
+<section class="panel-sec"><h4>控制</h4><div class="btn-row"><button id="btnPlay">暂停</button><button id="btnStep">单步</button><button id="btnReset">重置</button><button id="btnClear">清轨迹</button></div><div class="slider-group"><label>输入角速度 <span><span id="omegaVal">1.6</span> rad/s</span></label><input id="omega" type="range" min="0.4" max="3.6" step="0.1"></div></section>
+<section class="panel-sec"><h4>显示选项</h4><label class="toggle-row"><input id="showVel" type="checkbox" checked>速度矢量</label><label class="toggle-row"><input id="showAcc" type="checkbox" checked>加速度矢量</label><label class="toggle-row"><input id="showTrail" type="checkbox" checked>运动轨迹</label><label class="toggle-row"><input id="showPhase" type="checkbox" checked>相位标记</label></section>
+<section class="panel-sec"><h4>教学目标</h4><ul id="teachingGoals" class="goals"></ul></section>
+<section class="panel-sec"><h4>实时数据</h4><div id="dataPanel"></div></section>
+<section class="panel-sec"><h4>子机构对比</h4><div id="comparePanel"></div></section>
+<section class="panel-sec"><h4>核心公式</h4><div id="formulaPanel"></div></section>
+</aside></main>
+<script>
+window.COMPLEX_DEMO_CONFIG = {
+  shortTitle:'双曲柄滑块并联',
+  title:'行星减速 + 双曲柄滑块并联系统',
+  subtitle:'行星减速后的输出轴通过分流轴同时驱动两套曲柄滑块，形成一个双输出往复机构总成。',
+  omega:1.6,
+  goals:['理解一个减速输入如何通过分流轴驱动两个执行支路。','观察 180° 曲柄错相让两个滑块形成一进一退的配平运动。','确认两个输出支路都属于平动动系，科氏加速度为零。'],
+  formulas:['传动链：太阳轮输入 → 行星架减速输出 → 分流轴 → 两套曲柄滑块。','滑块级：xB = r cosθ + √(L² - (e + r sinθ)²)。','两支路：θB = θA + 180°，两滑块形成反相往复输出。'],
+  connections:[
+    {points:[{x:250,y:250},{x:385,y:250},{x:385,y:190},{x:455,y:190}],label:'减速输出轴',color:'#8edcff'},
+    {points:[{x:385,y:250},{x:385,y:390},{x:455,y:390}],label:'180° 分流轴',color:'#8edcff',dy:18}
+  ],
+  modules:[
+    {id:'gear',name:'行星减速级',type:'planetary',motion:'转动输出',origin:{x:155,y:250},scale:1.15,sunR:42,planetR:28,titleBox:{x:28,y:24,w:245,h:40,title:'输入级：行星减速'},phaseMark:'输入 θ'},
+    {id:'sliderA',name:'上滑块输出支路',type:'slider',motion:'平动动系 / aC=0',origin:{x:520,y:190},scale:1.25,r:50,L:150,phase:0,label:'输出滑块 A',trailColor:'#ff7777',titleBox:{x:356,y:24,w:260,h:40,title:'上支路：曲柄 θ'},phaseMark:'θ'},
+    {id:'sliderB',name:'下滑块输出支路',type:'slider',motion:'平动动系 / aC=0',origin:{x:520,y:390},scale:1.25,r:50,L:150,phase:Math.PI,label:'输出滑块 B',trailColor:'#66d9ef',titleBox:{x:356,y:302,w:260,h:40,title:'下支路：曲柄 θ + 180°'},phaseMark:'θ + 180°'}
+  ],
+  plots:[{plot:{x:660,y:35,w:210,h:130,title:'两滑块相位曲线'},phases:[0,Math.PI],colorA:'#ff7777',colorB:'#66d9ef'}]
+};
+</script>
+<script src="complex_mechanism_common.js"></script>
+</body>
+</html>

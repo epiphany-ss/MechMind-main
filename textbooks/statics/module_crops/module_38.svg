@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">数学表达与特殊情形</text>
+<rect x="70" y="88" width="580" height="90" rx="16" class="bb"/>
+<text x="360" y="132" text-anchor="middle" class="t h">F@A  ≡  F@O  +  M_O</text>
+<text x="360" y="160" text-anchor="middle" class="t s">其中   M_O = r_OA × F ，平面问题常写为 M_O = F d</text>
+<rect x="70" y="220" width="250" height="126" rx="16" class="gb"/>
+<text x="195" y="258" text-anchor="middle" class="t m">一般情形</text>
+<text x="95" y="292" class="t s">平移到任意点 O，</text><text x="95" y="320" class="t s">必须补一个力偶矩 M_O。</text>
+<rect x="400" y="220" width="250" height="126" rx="16" class="rb"/>
+<text x="525" y="258" text-anchor="middle" class="t m">特殊情形</text>
+<text x="425" y="292" class="t s">若 O 在原力作用线上，d = 0，</text><text x="425" y="320" class="t s">于是 M_O = 0，只剩同一作用线上的平移。</text>
+<text x="360" y="390" text-anchor="middle" class="t s">因此：可传性原理是力的平移定理的特殊情形</text>
+
+    </svg>

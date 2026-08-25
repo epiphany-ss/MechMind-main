@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>个人知识网络 - 理论力学研究平台</title>
+<style>
+:root{--blue:#2563eb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb}*{box-sizing:border-box}body{margin:0;font-family:"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}header{background:linear-gradient(135deg,#123b8f,#2563eb);color:white;padding:28px max(22px,calc((100% - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}header h1{margin:0;font-size:1.6rem}header p{margin:6px 0 0;opacity:.8}.back{color:white;text-decoration:none;border:1px solid #ffffff66;padding:8px 14px;border-radius:18px;white-space:nowrap}.layout{max-width:1180px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:320px 1fr;gap:20px}.layout>*{min-width:0}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 24px #0f172a0a}.card h2{font-size:1rem;margin:0 0 16px}.field{margin-bottom:12px}.field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit}.field textarea{resize:vertical}.btn{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}.primary{background:var(--blue);color:#fff}.secondary{background:#eef4ff;color:#1d4ed8}.danger{background:#fee2e2;color:#b91c1c}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.node-list{overflow:auto;border-top:1px solid var(--line);margin-top:14px}.node-item{padding:10px 2px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}.node-item small{display:block;color:var(--muted);margin-top:2px}.node-item button{padding:5px 8px}.network{min-height:460px;position:relative;overflow:hidden;background:radial-gradient(circle at 12% 18%,rgba(147,197,253,0.30),transparent 38%),radial-gradient(circle at 88% 20%,rgba(196,181,253,0.24),transparent 42%),radial-gradient(circle at 84% 84%,rgba(125,211,252,0.28),transparent 42%),radial-gradient(circle at 16% 86%,rgba(186,230,253,0.30),transparent 40%),radial-gradient(circle at 50% 42%,#eef4ff,#ffffff 74%)}
+#graph{width:100%;height:420px;border-radius:10px;overflow:hidden;background:#0b1220}.empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.status{font-size:.82rem;color:var(--muted);margin-top:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.network{min-height:360px}#graph{height:320px}}.right-col{display:flex;flex-direction:column;gap:20px}.review-progress{margin:12px 0 16px}.review-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}.review-bar-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:4px;transition:width .4s}.review-count{font-size:.82rem;color:var(--muted);margin-top:6px}.review-list{display:flex;flex-direction:column;gap:8px;overflow:auto}.review-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafcff;transition:all .2s}.review-item.done{background:#f0fdf4;border-color:#bbf7d0}.review-check{font-size:1.4rem;cursor:pointer;line-height:1;user-select:none}.review-item .review-info{flex:1;min-width:0}.review-item .review-info b{display:block}.review-item .review-info small{color:var(--muted)}.review-item.done .review-info b{color:#16a34a}.encourage-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:50;opacity:0;transition:all .3s;pointer-events:none}.encourage-toast.show{opacity:1;transform:translateX(-50%) scale(1)}@media(max-width:800px){.review-card{grid-column:1}}
+</style>
+<style>.detail-overlay{position:fixed;inset:0;background:#0f172a99;display:none;place-items:center;z-index:20;padding:20px}.detail-overlay.show{display:grid}.detail-modal{position:relative;background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 20px 60px #0f172a55}.detail-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:26px;color:#64748b;cursor:pointer}.detail-modal h2{margin:0 28px 6px 0}.detail-modal h3{font-size:.95rem;margin:18px 0 7px;color:#1d4ed8}.detail-modal .detail-block{background:#f8fafc;border-radius:8px;padding:10px;margin:6px 0;font-size:.9rem;line-height:1.6}.detail-modal textarea{width:100%;min-height:180px;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}.detail-modal .detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}</style>
+<style>
+/* ===== 3D 全景知识图谱 ===== */
+.net-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.net-head h2{margin:0}
+.net-head .btn{width:auto;padding:9px 16px}
+.graph3d-overlay{position:fixed;inset:0;background:#0b1220;z-index:60;display:none;flex-direction:column}
+.graph3d-overlay.show{display:flex}
+.g3d-topbar{display:flex;align-items:center;gap:16px;padding:12px 20px;background:#0f172a;color:#e2e8f0;border-bottom:1px solid #1e293b;z-index:2;flex-wrap:wrap}
+.g3d-title{font-weight:700;font-size:1.05rem;white-space:nowrap}
+.g3d-legend{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+.g3d-legend span{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:#cbd5e1}
+.g3d-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.g3d-close{border:1px solid #334155;background:#1e293b;color:#e2e8f0;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:.85rem}
+.g3d-close:hover{background:#334155}
+.g3d-canvas{flex:1;position:relative;min-height:0}
+.g3d-msg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fca5a5;background:#1e293b;padding:12px 20px;border-radius:10px;display:none;z-index:3;max-width:80%;text-align:center}
+.g3d-info{position:absolute;right:20px;top:76px;width:280px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.5);display:none;z-index:4;color:#1e293b;max-height:70vh;overflow:auto}
+.g3d-info h3{margin:0 22px 8px 0;font-size:1.05rem}
+.g3d-info .g3d-row{margin:6px 0;font-size:.88rem;color:#475569}
+.g3d-info .g3d-row b{color:#1e293b}
+.g3d-info .btn{margin-top:12px;width:100%}
+.g3d-info-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:#64748b;font-size:22px;cursor:pointer;padding:0;line-height:1}
+.g3d-popup{position:absolute;width:340px;max-height:80%;overflow:auto;background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:14px;padding:14px;display:none;z-index:6;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.g3d-popup .pp-title{font-weight:700;font-size:.98rem;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.g3d-popup .pp-badge{font-size:.7rem;color:#94a3b8;background:#1e293b;border-radius:10px;padding:1px 8px}
+.g3d-popup .pp-sec{border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.g3d-popup .pp-sec:last-child{margin-bottom:0}
+.g3d-popup .pp-rel{background:#1e293b}
+.g3d-popup .pp-rec{background:#0b1220;border:1px solid #1e293b}
+.g3d-popup .pp-sec-label{font-size:.72rem;font-weight:700;color:#94a3b8;margin-bottom:8px;letter-spacing:.5px}
+.g3d-popup .pp-chip{display:inline-flex;align-items:center;gap:6px;background:#334155;color:#e2e8f0;border-radius:16px;padding:3px 6px 3px 10px;margin:3px;font-size:.8rem}
+.g3d-popup .pp-jump{display:inline-flex;align-items:center;background:#2563eb;color:#fff;text-decoration:none;border-radius:12px;padding:2px 9px;font-size:.72rem;font-weight:700}
+.g3d-popup .pp-jump:hover{background:#1d4ed8}
+.g3d-popup .pp-rec-item{font-size:.78rem;color:#cbd5e1;padding:4px 0;border-bottom:1px dashed #1e293b}
+.g3d-popup .pp-rec-item:last-child{border-bottom:0}
+.g3d-popup .pp-rec-empty{color:#64748b;font-size:.78rem}
+@media(max-width:640px){.g3d-info{right:10px;left:10px;width:270px}.g3d-popup{width:280px}}
+</style></head>
+<body>
+<header><div><h1>🕸️ 个人知识网络</h1><p>把概念、公式、题目与自己的理解连接起来</p></div><div><a class="back" href="learning_notes.html">学习记录</a> <a class="back" href="weaknesses.html">我的薄弱点</a> <a class="back" href="account.html">← 返回个人中心</a></div></header>
+<main class="layout"><section class="card"><h2>新增知识节点</h2><div id="loginHint" class="hint"></div>
+<div class="field"><label for="label">知识点名称</label><input id="label" placeholder="例如：动量定理"></div>
+<div class="field"><label for="type">类型</label><select id="type"><option value="concept">概念</option><option value="formula">公式</option><option value="problem">题目</option><option value="insight">心得</option></select></div>
+<div class="field"><label for="status">掌握状态</label><select id="status"><option value="learning">学习中</option><option value="familiar">已熟悉</option><option value="mastered">已掌握</option></select></div>
+<div class="field"><label for="note">备注</label><textarea id="note" rows="3" placeholder="记录自己的理解、易错点或复习提示"></textarea></div>
+<button class="btn primary" onclick="addNode()">＋ 添加节点</button>
+<div class="field" style="margin-top:12px"><label for="relationType">新建关联类型</label><select id="relationType"><option value="RELATED_TO">相关于</option><option value="PREREQUISITE_OF">前置知识</option><option value="APPLIES_TO">应用于</option><option value="CONFUSED_WITH">容易混淆</option><option value="CORRECTED_BY">由……纠正</option></select></div>
+<h2 style="margin-top:24px">节点列表</h2><div id="nodes" class="node-list"></div><div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div></section>
+<div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 知识网络图</h2><button class="btn primary" onclick="open3d()">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
+<div id="detailOverlay" class="detail-overlay" onclick="if(event.target===this)closeDetail()"><div class="detail-modal"><button class="detail-close" onclick="closeDetail()">×</button><div id="detailContent"></div></div></div>
+<div class="encourage-toast" id="encourageToast"></div>
+<div id="graph3dOverlay" class="graph3d-overlay">
+  <div class="g3d-topbar">
+    <div class="g3d-title">🧭 个人知识网络 · 3D 全景</div>
+    <div class="g3d-legend" id="graph3dLegend"></div>
+    <button class="g3d-close" onclick="close3d()">✕ 退出</button>
+  </div>
+  <div id="graph3d" class="g3d-canvas"></div>
+  <div id="graph3dMsg" class="g3d-msg"></div>
+  <div id="graph3dInfo" class="g3d-info"></div>
+  <div id="graph3dPopup" class="g3d-popup"></div>
+</div>
+<script src="js/learning-memory-api.js"></script>
+<script src="https://unpkg.com/3d-force-graph@1.73.5/dist/3d-force-graph.min.js"></script>
+<script src="https://unpkg.com/force-graph@1.43.1/dist/force-graph.min.js"></script>
+<script>
+const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'null')}catch(e){return null}})();
+let graph={nodes:[],edges:[]};let memoryState=null;let selected=null;const key='personal_knowledge_'+(user?.id||user?.student_id||'guest');
+document.getElementById('loginHint').textContent=user?'当前用户：'+user.name+'（数据仅属于当前账户）':'未登录：将暂存于本机。建议先登录后使用。';
+function apiUrl(){return '/api/knowledge-network/'+encodeURIComponent(user?.id||user?.student_id||'guest')}
+function render(){const list=document.getElementById('nodes');list.innerHTML=graph.nodes.map(n=>`<div class="node-item"><div><b>${esc(n.label)}</b><small>${esc(n.type)} · ${esc(n.status)}</small></div><button class="btn danger" onclick="removeNode('${n.id}')">删除</button></div>`).join('')||'<div class="hint" style="padding:12px 0">还没有知识节点</div>';draw2d();renderReview();syncListHeights();}
+let graph2d=null;let last2dSig='';
+function draw2d(){
+  const el=document.getElementById('graph');
+  const empty=document.getElementById('empty');
+  if(empty)empty.style.display=graph.nodes.length?'none':'grid';
+  if(!el)return;
+  if(!graph2d){
+    if(typeof ForceGraph==='undefined')return;
+    graph2d=ForceGraph()(el)
+      .backgroundColor('#0b1220')
+      .nodeLabel(function(n){return n.label+' · '+statusLabel(n.status);})
+      .nodeColor(function(n){return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));})
+      .nodeVal(function(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.8;return v;})
+      .nodeRelSize(4)
+      .linkColor(function(){return 'rgba(148,163,184,0.35)';})
+      .linkWidth(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
+      .linkDirectionalArrowLength(4)
+      .linkDirectionalArrowRelPos(1)
+      .onNodeClick(function(n){if(n)pick(n.id);})
+      .onNodeHover(function(n){el.style.cursor=n?'pointer':'grab';});
+  }
+  const sig=graph.nodes.length+'|'+graph.edges.length;
+  if(sig!==last2dSig){last2dSig=sig;graph2d.graphData(build3dData());}
+}
+function syncListHeights(){
+  const layout=document.querySelector('.layout');
+  const leftCard=document.querySelector('.layout>.card');
+  const rightCol=document.querySelector('.right-col');
+  const nodeList=document.getElementById('nodes');
+  const reviewList=document.getElementById('reviewList');
+  if(!layout||!leftCard||!rightCol||!nodeList||!reviewList)return;
+  nodeList.style.maxHeight='none';
+  reviewList.style.maxHeight='none';
+  layout.style.alignItems='start';
+  const leftNat=leftCard.offsetHeight;
+  const rightNat=rightCol.offsetHeight;
+  layout.style.alignItems='';
+  if(leftNat>rightNat){
+    nodeList.style.maxHeight=Math.max(80,nodeList.scrollHeight-(leftNat-rightNat))+'px';
+    reviewList.style.maxHeight='none';
+  }else if(rightNat>leftNat){
+    reviewList.style.maxHeight=Math.max(80,reviewList.scrollHeight-(rightNat-leftNat))+'px';
+    nodeList.style.maxHeight='none';
+  }
+}
+window.addEventListener('resize',syncListHeights);
+function draw(){const svg=document.getElementById('graph'),w=800,h=520;svg.innerHTML='<defs><radialGradient id="ball" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#93c5fd"/><stop offset="55%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></radialGradient><radialGradient id="ballActive" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="55%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></radialGradient></defs>';document.getElementById('empty').style.display=graph.nodes.length?'none':'grid';const pos={};graph.nodes.forEach((n,i)=>{const a=-Math.PI/2+i*Math.PI*2/Math.max(graph.nodes.length,1);pos[n.id]={x:w/2+Math.cos(a)*Math.min(260,70+graph.nodes.length*22),y:h/2+Math.sin(a)*Math.min(170,50+graph.nodes.length*15)}});graph.edges.forEach(e=>{if(pos[e.source]&&pos[e.target])svg.insertAdjacentHTML('beforeend',`<line x1="${pos[e.source].x}" y1="${pos[e.source].y}" x2="${pos[e.target].x}" y2="${pos[e.target].y}"/>`)});graph.nodes.forEach(n=>{const p=pos[n.id],active=selected===n.id;const clicks=(getClicks()[n.label]||0);const r=(n.size==='L'?34:n.size==='M'?26:18)+Math.min(clicks,20)+(active?3:0);const color=n.color||'#3b82f6';const fs=r>=34?12:r>=26?11:9;const cut=r>=34?6:r>=26?5:4;svg.insertAdjacentHTML('beforeend',`<g onclick="pick('${n.id}')" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${color}" stroke="${active?'#fff':'rgba(15,23,42,0.28)'}" stroke-width="${active?3:1.5}"/><ellipse cx="${p.x-r*0.3}" cy="${p.y-r*0.4}" rx="${r*0.34}" ry="${r*0.22}" fill="rgba(255,255,255,0.38)"/><text x="${p.x}" y="${p.y+fs*0.35}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="${fs}">${esc(n.label).slice(0,cut)}</text></g>`)})}
+function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n)recordClick(n.label);if(selected&&selected!==id){const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
+function addNode(){const label=document.getElementById('label').value.trim();if(!label)return alert('请输入知识点名称');graph.nodes.push({id:'node_'+Date.now(),label,type:document.getElementById('type').value,status:document.getElementById('status').value,note:document.getElementById('note').value.trim()});['label','note'].forEach(id=>document.getElementById(id).value='');render()}
+function removeNode(id){graph.nodes=graph.nodes.filter(n=>n.id!==id);graph.edges=graph.edges.filter(e=>e.source!==id&&e.target!==id);render()}
+const clickKey='knowledge_clicks_'+(user?.id||user?.student_id||'guest');
+function getClicks(){try{return JSON.parse(localStorage.getItem(clickKey)||'{}')}catch(e){return {}}}
+function recordClick(label){const c=getClicks();c[label]=(c[label]||0)+1;localStorage.setItem(clickKey,JSON.stringify(c));return c[label]}
+const reviewKey='review_done_'+(user?.id||user?.student_id||'guest');
+function getReviewDone(){try{return JSON.parse(localStorage.getItem(reviewKey)||'[]')}catch(e){return []}}
+function saveReviewDone(a){localStorage.setItem(reviewKey,JSON.stringify(a))}
+function renderReview(){
+  const list=document.getElementById('reviewList');
+  if(!list)return;
+  const weak=graph.nodes.filter(n=>n.status==='learning');
+  const done=getReviewDone();
+  if(!weak.length){list.innerHTML='<div class="hint" style="padding:8px 0">暂无需要重点复习的知识点</div>';document.getElementById('reviewCount').textContent='0 / 0 已完成';document.getElementById('reviewBarFill').style.width='0%';return;}
+  list.innerHTML=weak.map(n=>{
+    const isDone=done.includes(n.label);
+    return '<div class="review-item'+(isDone?' done':'')+'">'+
+      '<span class="review-check" onclick="toggleReview(\''+esc(n.label)+'\')">'+(isDone?'☑':'☐')+'</span>'+
+      '<div class="review-info"><b>'+esc(n.label)+'</b><small>'+esc(n.type)+' · 薄弱点</small></div>'+
+      '<button class="btn '+(isDone?'secondary':'primary')+'" onclick="toggleReview(\''+esc(n.label)+'\')">'+(isDone?'已完成':'去复习')+'</button>'+
+    '</div>';
+  }).join('');
+  const doneCount=weak.filter(n=>done.includes(n.label)).length;
+  document.getElementById('reviewCount').textContent=doneCount+' / '+weak.length+' 已完成';
+  document.getElementById('reviewBarFill').style.width=(doneCount/weak.length*100)+'%';
+}
+function toggleReview(label){
+  const done=getReviewDone();
+  const i=done.indexOf(label);
+  if(i>=0){done.splice(i,1);saveReviewDone(done);renderReview();return;}
+  done.push(label);saveReviewDone(done);
+  recordLearningLog(label);
+  renderReview();
+  showEncourage(label);
+}
+function recordLearningLog(label){
+  const now=new Date();
+  const ts=now.toLocaleString();
+  const dateStr=now.getFullYear()+'-'+('0'+(now.getMonth()+1)).slice(-2)+'-'+('0'+now.getDate()).slice(-2);
+  try{LearningMemoryAPI.createNote(user,{title:'完成复习：'+label,markdown_content:'- 学习知识点：'+label+'\n- 完成时间：'+ts+'\n- 状态：已完成复习',status:'confirmed'}).catch(function(){});}catch(e){}
+  const logKey='learning_log_'+(user?.id||user?.student_id||'guest');
+  try{const log=JSON.parse(localStorage.getItem(logKey)||'[]');log.unshift({point:label,date:dateStr,time:now.toLocaleTimeString()});localStorage.setItem(logKey,JSON.stringify(log));}catch(e){}
+}
+function showEncourage(label){
+  const t=document.getElementById('encourageToast');
+  if(!t)return;
+  const phrases=['太棒了！','真不错！','继续加油！','厉害！','为你点赞！','进步看得见！'];
+  const p=phrases[Math.floor(Math.random()*phrases.length)];
+  t.innerHTML='🎉 '+p+' 你已完成「'+esc(label)+'」的复习！';
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show')},2600);
+}
+function seedDemoNodes(){
+  const demos=[
+    {label:'牛顿运动定律',type:'concept',status:'mastered',note:'动力学基础，力与运动的关系',size:'L',color:'#3b82f6'},
+    {label:'动量定理',type:'concept',status:'mastered',note:'质点系动量变化等于合外力冲量',size:'L',color:'#22c55e'},
+    {label:'动能定理',type:'concept',status:'familiar',note:'合外力做功等于动能变化',size:'L',color:'#f97316'},
+    {label:'达朗贝尔原理',type:'concept',status:'learning',note:'惯性力与约束力构成平衡力系',size:'L',color:'#a855f7'},
+    {label:'质心运动定理',type:'concept',status:'familiar',note:'质心运动只取决于外力',size:'M',color:'#14b8a6'},
+    {label:'动量矩定理',type:'concept',status:'familiar',note:'动量矩变化率等于外力矩',size:'M',color:'#ec4899'},
+    {label:'虚位移原理',type:'concept',status:'learning',note:'理想约束下主动力虚功为零',size:'M',color:'#6366f1'},
+    {label:'静力学平衡方程',type:'formula',status:'mastered',note:'合力为零、合力矩为零',size:'M',color:'#06b6d4'},
+    {label:'受力分析',type:'concept',status:'mastered',note:'明确对象、画出全部主动力与约束力',size:'S',color:'#84cc16'},
+    {label:'摩擦',type:'concept',status:'familiar',note:'静摩擦与动摩擦，自锁现象',size:'S',color:'#8b5cf6'},
+    {label:'刚体转动',type:'concept',status:'learning',note:'定轴转动的角速度与角加速度',size:'S',color:'#eab308'},
+    {label:'科氏加速度',type:'concept',status:'learning',note:'牵连转动中的附加加速度',size:'S',color:'#10b981'},
+    {label:'拉格朗日方程',type:'formula',status:'learning',note:'d/dt(∂L/∂q̇)-∂L/∂q=Q',size:'S',color:'#f59e0b'},
+    {label:'哈密顿原理',type:'formula',status:'learning',note:'真实运动使作用量取极值',size:'S',color:'#f43f5e'},
+    {label:'转动惯量',type:'concept',status:'learning',note:'刚体转动惯性的度量',size:'S',color:'#d946ef'},
+    {label:'质心',type:'concept',status:'mastered',note:'质量分布的中心',size:'S',color:'#0ea5e9'},
+    {label:'约束反力',type:'concept',status:'familiar',note:'约束对物体的作用力',size:'S',color:'#fbbf24'},
+    {label:'惯性力',type:'concept',status:'learning',note:'达朗贝尔原理中的假想力',size:'S',color:'#ef4444'},
+    {label:'力的平移定理',type:'formula',status:'mastered',note:'力可沿作用线平移并附加一力偶',size:'S',color:'#0ea5e9'},
+    {label:'平面汇交力系',type:'concept',status:'mastered',note:'各力作用线汇交于一点',size:'S',color:'#84cc16'},
+    {label:'空间力系',type:'concept',status:'learning',note:'空间力系平衡需六个独立方程',size:'M',color:'#f97316'},
+    {label:'点的运动学',type:'concept',status:'familiar',note:'运动方程、速度、加速度',size:'S',color:'#3b82f6'},
+    {label:'刚体的基本运动',type:'concept',status:'familiar',note:'平动与定轴转动',size:'S',color:'#14b8a6'},
+    {label:'碰撞',type:'concept',status:'learning',note:'碰撞过程动量守恒、有动能损失',size:'M',color:'#f97316'},
+    {label:'广义坐标',type:'concept',status:'learning',note:'描述系统位形的最少独立参数',size:'S',color:'#f97316'},
+    {label:'欧拉方程',type:'formula',status:'learning',note:'刚体定点转动的动力学方程',size:'S',color:'#f97316'},
+    {label:'分析力学基础',type:'concept',status:'familiar',note:'广义坐标、虚位移、变分原理',size:'S',color:'#8b5cf6'},
+    {label:'保守系统',type:'concept',status:'mastered',note:'只有保守力做功，机械能守恒',size:'S',color:'#22c55e'}
+  ];
+  demos.forEach((d,i)=>graph.nodes.push({id:'seed_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color}));
+  const links=[
+    [0,1,'PREREQUISITE_OF'],[0,2,'PREREQUISITE_OF'],[0,3,'PREREQUISITE_OF'],
+    [1,4,'PREREQUISITE_OF'],[1,5,'RELATED_TO'],[2,5,'RELATED_TO'],
+    [3,6,'RELATED_TO'],[3,12,'PREREQUISITE_OF'],[3,13,'PREREQUISITE_OF'],[3,17,'RELATED_TO'],
+    [4,15,'RELATED_TO'],[5,14,'RELATED_TO'],[7,16,'RELATED_TO'],
+    [7,8,'PREREQUISITE_OF'],[8,9,'RELATED_TO'],[10,14,'RELATED_TO'],
+    [10,11,'RELATED_TO'],[12,6,'RELATED_TO'],[15,16,'RELATED_TO'],
+    [18,8,'RELATED_TO'],[19,7,'PREREQUISITE_OF'],[20,7,'PREREQUISITE_OF'],[20,14,'RELATED_TO'],
+    [21,10,'PREREQUISITE_OF'],[22,10,'RELATED_TO'],[23,1,'RELATED_TO'],[23,2,'RELATED_TO'],
+    [24,12,'PREREQUISITE_OF'],[24,6,'RELATED_TO'],[25,5,'RELATED_TO'],[25,14,'RELATED_TO'],
+    [26,12,'PREREQUISITE_OF'],[26,6,'RELATED_TO'],[27,2,'RELATED_TO']
+  ];
+  links.forEach(e=>graph.edges.push({id:'seed_'+e[0]+'-'+e[1],source:'seed_'+e[0],target:'seed_'+e[1],relation:e[2]}));
+  localStorage.setItem(key,JSON.stringify(graph));
+  setStatus('已插入示例知识点（可自行修改或清空）');
+}
+async function loadGraph(){try{const old=await fetch(apiUrl());if(old.ok){const oldData=await old.json();graph=oldData.graph||graph}const memory=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(memory.ok){const data=await memory.json(),state=data.state||{};const known=new Set(graph.nodes.map(n=>n.id));(state.concepts||[]).forEach(c=>{if(!known.has(c.id)){graph.nodes.push({id:c.id,label:c.name||c.concept_key,type:'concept',status:'learning',note:'来自本次学习整理'});known.add(c.id)}});(state.misconceptions||[]).forEach(m=>{if(!known.has(m.id)){graph.nodes.push({id:m.id,label:m.description||m.error_code,type:'insight',status:m.status||'learning',note:'待验证错误理解'});known.add(m.id)}});(state.concept_relations||[]).forEach(e=>{if(!graph.edges.some(x=>x.id===e.id))graph.edges.push({id:e.id,source:e.source_concept_id,target:e.target_concept_id,relation:e.relation_type||'关联'})});localStorage.setItem(key,JSON.stringify(graph));setStatus('已加载个人知识网络与学习整理结果')}else throw Error()}catch(e){try{graph=JSON.parse(localStorage.getItem(key)||'{"nodes":[],"edges":[]}')}catch(x){}setStatus('服务器不可用，已加载本机暂存')}if(graph.nodes.length===0)seedDemoNodes();render()}
+async function saveGraph(){localStorage.setItem(key,JSON.stringify(graph));try{const r=await fetch(apiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(graph)});if(!r.ok)throw Error();setStatus('保存成功 · '+new Date().toLocaleTimeString())}catch(e){setStatus('已保存到本机，服务器暂不可用')}}
+function clearGraph(){if(!confirm('确定清空当前个人知识网络吗？'))return;graph={nodes:[],edges:[]};localStorage.removeItem(key);render();setStatus('已清空本机数据')}
+const RELATED_TOPICS={
+  '速度瞬心': [{ key: '刚体平面运动', reason: '瞬心是平面运动速度分析的核心方法' },{ key: '点的合成运动', reason: '两者均用于速度分析，可互为补充' },{ key: '科氏加速度', reason: '动系转动时瞬心法需结合科氏加速度' },{ key: '动能定理', reason: '求速度后可结合动能定理求角速度' }],
+  '受力图': [{ key: '平衡方程', reason: '受力图是列平衡方程的前提' },{ key: '二力杆', reason: '识别二力杆可简化受力图' },{ key: '桁架', reason: '桁架分析依赖正确的节点受力图' },{ key: '虚位移原理', reason: '两者均涉及约束反力的处理方式' }],
+  '平衡方程': [{ key: '受力图', reason: '先画受力图再列平衡方程' },{ key: '虚位移原理', reason: '虚功法是平衡问题的另一种解法' },{ key: '拉格朗日方程', reason: '拉格朗日方程是平衡方程的推广' },{ key: '桁架', reason: '截面法/节点法本质是平衡方程的应用' },{ key: '空间力系', reason: '空间力系是平面平衡方程的三维推广' }],
+  '二力杆': [{ key: '受力图', reason: '判断二力杆可大幅简化受力分析' },{ key: '桁架', reason: '桁架各杆均为二力杆' },{ key: '平衡方程', reason: '二力杆是平衡问题中的关键简化' }],
+  '摩擦力': [{ key: '功与能', reason: '摩擦力做功导致机械能损失' },{ key: '动能定理', reason: '动能定理中需计入摩擦力的负功' },{ key: '功率与效率', reason: '摩擦损耗决定机械效率上限' },{ key: '虚功原理应用', reason: '有摩擦时需将摩擦力作为主动力处理' }],
+  '空间力系': [{ key: '平衡方程', reason: '空间力系是平面平衡的三维推广' },{ key: '重心与形心', reason: '重心坐标由空间平行力系合成' },{ key: '转动惯量', reason: '空间力系中的力对轴之矩需转动惯量' }],
+  '桁架': [{ key: '二力杆', reason: '桁架分析的每一根杆都是二力杆' },{ key: '平衡方程', reason: '节点法和截面法均基于平衡方程' },{ key: '受力图', reason: '正确的受力图是桁架分析的前提' },{ key: '应力与应变', reason: '桁架内力→应力→变形计算链' }],
+  '重心与形心': [{ key: '转动惯量', reason: '平行轴定理需要质心位置信息' },{ key: '弯曲应力', reason: '弯曲中性轴过截面形心' },{ key: '空间力系', reason: '重心是空间平行力系的合力中心' }],
+  '科氏加速度': [{ key: '点的合成运动', reason: '科氏加速度是加速度合成定理的核心项' },{ key: '相对运动', reason: '动系转动时相对运动产生科氏加速度' },{ key: '速度瞬心', reason: '瞬心随时间移动涉及科氏效应' },{ key: '刚体定点转动', reason: '陀螺进动涉及科氏加速度的宏观表现' }],
+  '点的合成运动': [{ key: '科氏加速度', reason: '合成运动加速度分析必须包含科氏项' },{ key: '相对运动', reason: '点的合成运动=相对+牵连的核心框架' },{ key: '刚体平面运动', reason: '基点法是合成运动在刚体上的应用' },{ key: '速度瞬心', reason: '瞬心可用合成运动观点理解' }],
+  '刚体平面运动': [{ key: '速度瞬心', reason: '瞬心法是最简便的平面运动速度解法' },{ key: '点的合成运动', reason: '基点法本质是点的合成运动' },{ key: '动能定理', reason: '平面运动动能=平动+转动两部分' },{ key: '转动惯量', reason: '平面运动转动部分需转动惯量' }],
+  '刚体定点转动': [{ key: '转动惯量', reason: '刚体定点转动涉及惯性张量' },{ key: '动量矩定理', reason: '定点转动动力学用动量矩定理描述' },{ key: '科氏加速度', reason: '定点转动的加速度场包含向轴+切向分量' }],
+  '相对运动': [{ key: '点的合成运动', reason: '相对运动是合成运动的子概念' },{ key: '科氏加速度', reason: '科氏加速度源于牵连+相对运动的耦合' },{ key: '牛顿定律', reason: '非惯性系需修正牛顿定律' }],
+  '动能定理': [{ key: '动量定理', reason: '两大定理常联合求解动力学问题' },{ key: '动量矩定理', reason: '三大定理组成完整的动力学分析工具' },{ key: '功与能', reason: '动能定理是功和能概念的工程应用' },{ key: '拉格朗日方程', reason: '拉格朗日方程是动能定理的分析力学推广' },{ key: '功率与效率', reason: '功率方程是动能定理的时间导数形式' }],
+  '动量定理': [{ key: '动能定理', reason: '动量定理求力，动能定理求速度' },{ key: '动量矩定理', reason: '动量定理(平动)+动量矩定理(转动)' },{ key: '碰撞理论', reason: '碰撞问题首选动量定理(碰撞力功难算)' },{ key: '牛顿定律', reason: '动量定理是牛顿第二定律的积分形式' }],
+  '动量矩定理': [{ key: '转动惯量', reason: '动量矩定理涉及转动惯量(刚体)' },{ key: '动能定理', reason: '角速度用动能定理求，角加速度用动量矩定理' },{ key: '动量定理', reason: '平动方程+转动方程联合求解' },{ key: '刚体定点转动', reason: '定点转动的欧拉方程来自动量矩定理' }],
+  '三大定理联合': [{ key: '动能定理', reason: '三大定理之一：标量方程求速度' },{ key: '动量定理', reason: '三大定理之一：矢量方程求外力' },{ key: '动量矩定理', reason: '三大定理之一：转动问题的核心' },{ key: '达朗贝尔原理', reason: '动静法将三大定理统一为平衡形式' }],
+  '达朗贝尔原理': [{ key: '三大定理联合', reason: '动静法统一三大定理为平衡形式' },{ key: '虚位移原理', reason: '两者均将动力学问题形式化' },{ key: '牛顿定律', reason: '达朗贝尔原理是牛顿定律的形式变换' }],
+  '碰撞理论': [{ key: '动量定理', reason: '碰撞问题主要依靠动量(矩)定理求解' },{ key: '动能定理', reason: '碰撞的动能损失用恢复因数计算' },{ key: '动量矩定理', reason: '偏心碰撞需用动量矩定理' }],
+  '转动惯量': [{ key: '动量矩定理', reason: '转动惯量是旋转动力学的核心参数' },{ key: '重心与形心', reason: '平行轴定理连接质心和任意轴的转动惯量' },{ key: '扭转', reason: '极惯性矩J_p是抗扭截面的核心参数' },{ key: '弯曲应力', reason: '惯性矩I是抗弯截面的核心参数' }],
+  '功率与效率': [{ key: '动能定理', reason: '功率方程是动能定理的微分形式' },{ key: '功与能', reason: '功率是功的时间变化率' },{ key: '摩擦力', reason: '摩擦是功率损耗的主要原因' }],
+  '虚位移原理': [{ key: '平衡方程', reason: '虚位移原理是平衡问题的变分表述' },{ key: '拉格朗日方程', reason: '拉格朗日方程从虚功原理导出' },{ key: '虚功原理应用', reason: '工程应用实例与方法' },{ key: '完整约束与非完整约束', reason: '虚位移必须满足约束条件' }],
+  '拉格朗日方程': [{ key: '虚位移原理', reason: '拉格朗日方程由虚功原理+达朗贝尔原理导出' },{ key: '哈密顿原理', reason: '拉格朗日方程也可从哈密顿变分原理导出' },{ key: '广义坐标', reason: '拉格朗日方程建立在广义坐标之上' },{ key: '动能定理', reason: '单自由度时拉格朗日方程等价于动能定理' },{ key: '自由度', reason: '方程数=自由度数，需先确定自由度' }],
+  '哈密顿原理': [{ key: '拉格朗日方程', reason: '哈密顿原理→拉格朗日方程的变分推导' },{ key: '虚位移原理', reason: '哈密顿原理是虚功原理在时间域的推广' }],
+  '广义坐标': [{ key: '拉格朗日方程', reason: '拉格朗日方程以广义坐标表达' },{ key: '自由度', reason: '广义坐标的个数=自由度数' },{ key: '完整约束与非完整约束', reason: '完整约束可用广义坐标自动满足' }],
+  '虚功原理应用': [{ key: '虚位移原理', reason: '虚功原理应用即虚位移原理的工程实践' },{ key: '平衡方程', reason: '与传统平衡法互为补充' },{ key: '摩擦力', reason: '摩擦下的虚功分析需特殊处理' }],
+  '完整约束与非完整约束': [{ key: '广义坐标', reason: '完整约束可减少广义坐标数' },{ key: '自由度', reason: '完整约束系统自由度=3n-s' },{ key: '拉格朗日方程', reason: '拉格朗日方程仅适用于完整约束系统' }],
+  '应力与应变': [{ key: '拉伸与压缩', reason: '拉压问题的最基本应力-应变关系' },{ key: '弯曲应力', reason: '弯曲正应力公式基于胡克定律' },{ key: '扭转', reason: '扭转切应力基于剪切胡克定律' }],
+  '拉伸与压缩': [{ key: '应力与应变', reason: '拉压是应力应变概念的直接应用' },{ key: '弯曲应力', reason: '弯曲可看作各层纤维的拉压' },{ key: '压杆稳定', reason: '受压杆件的稳定性分析' }],
+  '扭转': [{ key: '弯曲应力', reason: '弯扭组合变形需联合分析' },{ key: '组合变形', reason: '弯扭组合是工程常见工况' },{ key: '转动惯量', reason: 'J_p极惯性矩与J_z惯性矩概念相通' }],
+  '弯曲应力': [{ key: '弯曲变形', reason: '应力→应变→变形链' },{ key: '组合变形', reason: '斜弯曲、拉弯组合均涉及弯曲应力' },{ key: '应力与应变', reason: '弯曲正应力公式σ=My/I基于胡克定律' }],
+  '弯曲变形': [{ key: '弯曲应力', reason: '变形(挠度)由应力分布→弯矩决定' },{ key: '组合变形', reason: '组合变形的挠度可用叠加原理' },{ key: '压杆稳定', reason: '压杆失稳弯曲与梁弯曲的数学形式相似' }],
+  '组合变形': [{ key: '弯曲应力', reason: '组合变形的应力=各基本变形应力叠加' },{ key: '扭转', reason: '弯扭组合是最常见的组合变形' },{ key: '弯曲变形', reason: '叠加法求组合变形的总挠度' }],
+  '压杆稳定': [{ key: '拉伸与压缩', reason: '压杆是受压构件，失稳是控制因素' },{ key: '弯曲变形', reason: '压杆失稳的挠曲线微分方程与梁相似' },{ key: '应力与应变', reason: '临界应力与长细比的关系' }],
+  '牛顿定律': [{ key: '动量定理', reason: '动量定理是牛顿第二定律的积分/集合形式' },{ key: '达朗贝尔原理', reason: '动静法将牛顿定律改写为平衡形式' },{ key: '动能定理', reason: '动能定理是牛顿定律的能量积分' }],
+  '功与能': [{ key: '动能定理', reason: '功和能的核心定理' },{ key: '功率与效率', reason: '功率=功/时间，效率=有用功/总功' },{ key: '摩擦力', reason: '摩擦力的功恒为负，导致能量损失' }],
+  '振动基础': [{ key: '动能定理', reason: '振动系统的能量守恒(无阻尼时)' },{ key: '拉格朗日方程', reason: '多自由度振动系统用拉格朗日方程建模' },{ key: '自由度', reason: '振动系统的自由度=独立振动模态数' },{ key: '牛顿定律', reason: '振动微分方程来自牛顿第二定律' }],
+  '自由度': [{ key: '广义坐标', reason: '自由度=所需广义坐标数' },{ key: '拉格朗日方程', reason: '一个自由度对应一个拉格朗日方程' },{ key: '完整约束与非完整约束', reason: '自由度=3n-完整约束数' },{ key: '振动基础', reason: '多自由度系统的振动模态分析' }],
+  '解题技巧': [{ key: '三大定理联合', reason: '综合解题策略的核心' },{ key: '受力图', reason: '解题第一步：正确绘制受力图' },{ key: '点的合成运动', reason: '动点/动系选择的通用原则' },{ key: '拉格朗日方程', reason: '多自由度系统的最佳方法选择' }],
+  '力系简化': [{ key: '平衡方程', reason: '简化后用力系平衡方程求解' },{ key: '空间力系', reason: '空间力系向一点简化的推广' },{ key: '平面任意力系', reason: '平面任意力系是力系简化的典型应用' }],
+  '汇交力系': [{ key: '平衡方程', reason: '汇交力系用两个力方程即可求解' },{ key: '受力图', reason: '正确画受力图是汇交力系分析的前提' }],
+  '平面任意力系': [{ key: '平衡方程', reason: '平面任意力系有三个平衡方程' },{ key: '力系简化', reason: '力系简化的核心案例' },{ key: '受力图', reason: '先画受力图再列方程' }],
+  '摩擦与自锁': [{ key: '摩擦力', reason: '摩擦与自锁的基础概念' },{ key: '平衡方程', reason: '考虑摩擦的平衡问题' }],
+  '桁架节点法': [{ key: '桁架', reason: '节点法是桁架分析的基本方法' },{ key: '桁架截面法', reason: '两种方法互补' },{ key: '汇交力系', reason: '每个节点是汇交力系平衡问题' }],
+  '桁架截面法': [{ key: '桁架', reason: '截面法可直接求特定杆内力' },{ key: '桁架节点法', reason: '截面法与节点法互补' },{ key: '平面任意力系', reason: '截面法基于平面任意力系平衡' }],
+  '速度合成': [{ key: '点的合成运动', reason: '速度合成是点的合成运动的核心' },{ key: '科氏加速度', reason: '速度合成→加速度合成的递进' }],
+  '加速度合成': [{ key: '科氏加速度', reason: '科氏加速度是加速度合成的关键项' },{ key: '速度合成', reason: '加速度合成是速度合成的递进' },{ key: '点的合成运动', reason: '加速度合成定理的完整表述' }],
+  '平面运动速度': [{ key: '刚体平面运动', reason: '瞬心法是最简便的平面运动速度解法' },{ key: '速度瞬心', reason: '速度瞬心是平面运动速度分析的核心' },{ key: '平面运动加速度', reason: '先速度分析再加速度分析的递进关系' }],
+  '平面运动加速度': [{ key: '刚体平面运动', reason: '平面运动加速度分析的基点法' },{ key: '平面运动速度', reason: '必须先速度分析再加速度分析' }],
+  '机构运动分析': [{ key: '刚体平面运动', reason: '多数机构构件作平面运动' },{ key: '点的合成运动', reason: '导杆、凸轮机构用合成运动法' },{ key: '速度瞬心', reason: '瞬心法在机构分析中广泛应用' }],
+  '质点动力学': [{ key: '牛顿定律', reason: '质点动力学来自牛顿第二定律' },{ key: '质心运动定理', reason: '由质点动力学推广到质点系' }],
+  '质心运动定理': [{ key: '动量定理', reason: '质心运动定理=动量定理的另一种形式' },{ key: '质点动力学', reason: '由质点动力学推广到质点系' }],
+  '转动微分方程': [{ key: '动量矩定理', reason: '转动微分方程是动量矩定理的工程应用' },{ key: '转动惯量', reason: '转动惯量是转动微分方程的核心参数' }],
+  '机械能守恒': [{ key: '动能定理', reason: '机械能守恒是动能定理在保守系统中的特例' },{ key: '功与能', reason: '机械能=动能+势能' }],
+  '动静法': [{ key: '达朗贝尔原理', reason: '动静法=达朗贝尔原理的工程应用' },{ key: '三大定理联合', reason: '动静法统一三大定理为平衡形式' }],
+  '单自由度振动': [{ key: '振动基础', reason: '单自由度振动是振动分析的基础' },{ key: '动能定理', reason: '振动能量分析用动能定理' },{ key: '自由度', reason: '单自由度系统=1个独立坐标' }],
+  '轴向拉压': [{ key: '拉伸与压缩', reason: '轴向拉压的深入分析' },{ key: '应力与应变', reason: '拉压正应力和正应变基础知识' }],
+  '弯扭强度': [{ key: '弯曲应力', reason: '弯曲正应力的深入计算' },{ key: '扭转', reason: '扭转切应力的深入计算' },{ key: '组合变形', reason: '弯扭组合是最常见的组合变形' }],
+  '压杆屈曲': [{ key: '压杆稳定', reason: '压杆屈曲=压杆稳定的深入分析' },{ key: '弯曲变形', reason: '压杆失稳的挠曲线与梁弯曲相似' }],
+};
+let currentDetailId=null;
+function stripHtml(s){return String(s||'').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim();}
+function getQaAccountId(){try{const u=JSON.parse(localStorage.getItem('current_user')||'{}');return u.id||u.student_id||'anonymous';}catch(e){return 'anonymous';}}
+function mergeQaConversations(state){try{const convs=JSON.parse(localStorage.getItem('qa_conversations_'+getQaAccountId())||'[]');if(!convs||!convs.length)return state;const out=Object.assign({},state);const conversations=(out.conversations||[]).slice();const messages=(out.messages||[]).slice();const convIds=new Set(conversations.map(c=>c.id));const msgIds=new Set(messages.map(m=>m.id));convs.forEach(function(cv){const cid=String(cv.id||('qa_'+conversations.length));const title=stripHtml(cv.title)||'AI问答';if(!convIds.has(cid)){conversations.push({id:cid,title:title,created_at:cv.createdAt?new Date(cv.createdAt).toISOString().slice(0,10):''});convIds.add(cid);}(cv.messages||[]).forEach(function(m,i){const mid=cid+'_'+i;if(msgIds.has(mid))return;messages.push({id:mid,conversation_id:cid,role:(m.type==='user'?'user':'assistant'),content:stripHtml(m.text),created_at:m.time||''});msgIds.add(mid);});});out.conversations=conversations;out.messages=messages;return out;}catch(e){return state;}}
+function collectLearningRecords(node,state){
+  state=mergeQaConversations(state||{});
+  const concepts=state.concepts||[];
+  const label=(node.label||'').trim();
+  let matched=null;
+  matched=concepts.find(c=>(node.id&&(c.id===node.id||c.concept_key===node.id))||(label&&(c.name===label||c.concept_key===label)));
+  if(!matched){matched=concepts.find(c=>{const n=(c.name||'').trim(),k=(c.concept_key||'').trim();return (n&&(label.indexOf(n)>=0||n.indexOf(label)>=0))||(k&&label.toLowerCase().indexOf(k.toLowerCase())>=0);})}
+  const byKey={};concepts.forEach(c=>{if(c.concept_key)byKey[c.concept_key]=c;});
+  const keySet=new Set(),nameSet=new Set();
+  function addConcept(c){if(!c)return;if(c.concept_key)keySet.add(c.concept_key);if(c.name)nameSet.add(c.name);}
+  if(matched)addConcept(matched);
+  if(label)nameSet.add(label);
+  const adj={};
+  (state.concept_relations||[]).forEach(r=>{(adj[r.source_concept_id]=adj[r.source_concept_id]||[]).push(r.target_concept_id);(adj[r.target_concept_id]=adj[r.target_concept_id]||[]).push(r.source_concept_id);});
+  const visited=new Set(keySet),queue=Array.from(keySet);
+  let depth=0;
+  while(queue.length&&depth<2){const size=queue.length;for(let i=0;i<size;i++){const k=queue.shift();(adj[k]||[]).forEach(nk=>{if(!visited.has(nk)){visited.add(nk);keySet.add(nk);const c=byKey[nk];if(c)addConcept(c);queue.push(nk);}});}depth++;}
+  try{const rt=(typeof RELATED_TOPICS!=='undefined')?RELATED_TOPICS:{};const addRt=function(nm){if(nm)nameSet.add(nm);};if(rt[label]){rt[label].forEach(function(r){addRt(r.key);});}Object.keys(rt).forEach(function(k){if((rt[k]||[]).some(function(r){return r.key===label;}))addRt(k);});}catch(e){}
+  try{(graph.edges||[]).forEach(function(e){if(e.source===node.id||e.source===node.label){const nb=graph.nodes.find(function(n){return n.id===e.target;});if(nb&&nb.label)nameSet.add(nb.label);}else if(e.target===node.id||e.target===node.label){const nb=graph.nodes.find(function(n){return n.id===e.source;});if(nb&&nb.label)nameSet.add(nb.label);}});}catch(e){}
+  const keywords=Array.from(nameSet).filter(Boolean);
+  function hit(text){if(!text)return false;const t=String(text);return keywords.some(k=>k&&t.indexOf(k)>=0);}
+  const msgById={};(state.messages||[]).forEach(m=>{msgById[m.id]=m.content;});
+  const notes=(state.learning_notes||[]).filter(n=>{const sc=n.structured_content||{},cs=sc.concepts||[];if(cs.some(c=>keySet.has(c.concept_key)||nameSet.has(c.name)))return true;return hit((n.title||'')+' '+JSON.stringify(sc));});
+  const conversations=(state.conversations||[]).filter(cv=>{if(hit(cv.title))return true;return (state.messages||[]).some(m=>m.conversation_id===cv.id&&m.role==='user'&&hit(m.content));});
+  const thoughts=(state.user_thoughts||[]).filter(t=>{if(hit(t.content))return true;return (t.source_message_ids||[]).some(mid=>hit(msgById[mid]));});
+  const errors=(state.misconceptions||[]).filter(m=>{if((m.concept_ids||[]).some(k=>keySet.has(k))||(m.concept_keys||[]).some(k=>keySet.has(k)))return true;return hit((m.error_code||'')+' '+(m.description||''));});
+  const matchedErrorIds=new Set(errors.map(e=>e.id));
+  const weaknesses=(state.weaknesses||[]).filter(w=>{if(matchedErrorIds.has(w.misconception_id))return true;return hit((w.reasons||'')+' '+(w.level||''));});
+  const states=(state.user_concept_states||[]).filter(s=>{return (s.conversation_id&&conversations.some(cv=>cv.id===s.conversation_id))||(s.evidence_ids||[]).some(mid=>hit(msgById[mid]))||(s.concept_id&&keySet.has(s.concept_id));});
+  const events=(state.learning_events||[]).filter(e=>{return (e.concept_id&&keySet.has(e.concept_id))||hit((e.event_type||'')+' '+JSON.stringify(e.payload||{}));});
+  const relatedList=Array.from(nameSet).filter(n=>n!==label);
+  let h='';
+  h+='<h2>'+esc(node.label)+'</h2><div class="hint">类型：'+esc(node.type)+' · 状态：'+esc(node.status)+'</div>';
+  if(relatedList.length){h+='<h3>🔗 关联知识点</h3><div class="detail-block">'+relatedList.map(n=>'<span style="display:inline-block;background:#eef4ff;color:#1d4ed8;border-radius:10px;padding:2px 9px;margin:2px;font-size:.85rem">'+esc(n)+'</span>').join('')+'</div>';}
+  h+='<h3>💬 学习对话（'+conversations.length+'）</h3>';
+  if(conversations.length){h+=conversations.map(cv=>{const msgs=(state.messages||[]).filter(m=>m.conversation_id===cv.id&&m.role==='user');return '<div class="detail-block"><b>'+esc(cv.title||'对话')+'</b><div class="hint">'+esc((cv.created_at||'').slice(0,10))+'</div>'+(msgs.length?'<div>'+msgs.map(m=>'<div style="font-size:.85rem;color:#475569;margin:3px 0">▸ '+esc(m.content)+'</div>').join('')+'</div>':'')+'</div>';}).join('');}else{h+='<div class="detail-block">暂无相关学习对话</div>';}
+  h+='<h3>📒 学习笔记（'+notes.length+'）</h3>';
+  if(notes.length){const first=notes[0];h+='<div class="detail-block"><input id="detailNoteTitle" value="'+esc(first.title)+'" style="width:100%;border:1px solid #cbd5e1;border-radius:7px;padding:8px;margin-bottom:8px"><textarea id="detailNoteBody">'+esc(first.markdown_content||'')+'</textarea><div class="detail-actions"><button class="btn primary" onclick="saveDetailNote(\''+first.id+'\')">保存编辑</button><button class="btn secondary" onclick="confirmDetailNote(\''+first.id+'\')">确认笔记</button></div><div class="hint" style="margin-top:6px">状态：'+esc(first.status)+' · '+esc((first.updated_at||'').slice(0,10))+'</div></div>';notes.slice(1).forEach(n=>{h+='<div class="detail-block"><b>'+esc(n.title)+'</b><div class="hint">状态：'+esc(n.status)+' · '+esc((n.created_at||'').slice(0,10))+'</div></div>';});}else{h+='<div class="detail-block">暂无关联学习笔记</div>';}
+  h+='<h3>💭 用户思考（'+thoughts.length+'）</h3>';
+  if(thoughts.length){h+=thoughts.map(t=>'<div class="detail-block">'+esc(t.content)+'<div class="hint">'+esc(t.thought_type||'')+' · '+esc((t.created_at||'').slice(0,10))+'</div></div>').join('');}else{h+='<div class="detail-block">暂无用户思考记录</div>';}
+  h+='<h3>⚠️ 错误理解（'+errors.length+'）</h3>';
+  if(errors.length){h+=errors.map(e=>'<div class="detail-block"><b>'+esc(e.error_code||'')+'</b>：'+esc(e.description)+'<br><span class="hint">状态：'+esc(e.status)+'</span></div>').join('');}else{h+='<div class="detail-block">暂无错误理解记录</div>';}
+  h+='<h3>📊 掌握状态（'+states.length+'）</h3>';
+  if(states.length){h+=states.map(s=>'<div class="detail-block">'+esc(s.ability_type||'能力')+'：'+esc(s.mastery_level||'unknown')+'<div class="hint">证据数：'+esc(s.evidence_count)+'</div></div>').join('');}else{h+='<div class="detail-block">暂无掌握状态记录</div>';}
+  h+='<h3>🎯 薄弱点（'+weaknesses.length+'）</h3>';
+  if(weaknesses.length){h+=weaknesses.map(w=>'<div class="detail-block">'+esc(w.reasons||'')+'<div class="hint">等级：'+esc(w.level||'')+' · 反馈：'+esc(w.user_feedback||'unknown')+'</div><div class="detail-actions"><button class="btn secondary" onclick="feedbackDetail(\''+w.id+'\',\'accurate\')">判断准确</button><button class="btn danger" onclick="feedbackDetail(\''+w.id+'\',\'inaccurate\')">判断不准确</button></div></div>').join('');}else{h+='<div class="detail-block">暂无薄弱点记录</div>';}
+  if(events.length){h+='<h3>📌 学习事件（'+events.length+'）</h3>'+events.map(e=>'<div class="detail-block"><b>'+esc(e.event_type||'')+'</b><div class="hint">'+esc((e.created_at||'').slice(0,10))+'</div></div>').join('');}
+  if(!notes.length&&!conversations.length&&!thoughts.length&&!errors.length&&!weaknesses.length&&!states.length&&!events.length){h+='<div class="detail-block" style="margin-top:14px">该知识点暂无学习记录。可通过 AI 问答、复习等方式积累。</div>';}
+  return h;
+}
+function buildLocalState(){const uid=user?.id||user?.student_id||'guest';const notes=[];try{const log=JSON.parse(localStorage.getItem('learning_log_'+uid)||'[]');log.forEach(function(l,i){const point=l.point||'';notes.push({id:'local_note_'+i,title:'完成复习：'+point,markdown_content:'- 学习知识点：'+point+'\n- 完成时间：'+(l.date||'')+' '+(l.time||'')+'\n- 状态：已完成复习',structured_content:{title:'完成复习：'+point,concepts:point?[{name:point}]:[]},status:'confirmed',created_at:l.date||'',updated_at:l.date||''});});}catch(e){}return{schema_version:1,user_id:uid,conversations:[],messages:[],learning_events:[],concepts:[],concept_relations:[],user_thoughts:[],misconceptions:[],user_concept_states:[],learning_notes:notes,weaknesses:[],updated_at:null};}
+async function showNodeDetail(id){const node=graph.nodes.find(n=>n.id===id);if(!node)return;currentDetailId=id;const overlay=document.getElementById('detailOverlay'),box=document.getElementById('detailContent');overlay.classList.add('show');box.innerHTML='<p>正在加载该知识点的全部学习记录…</p>';try{let state=memoryState;let fromLocal=false;if(!state){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(r.ok){const d=await r.json();state=d.state||{};memoryState=state}else{state=buildLocalState();fromLocal=true}}catch(e){state=buildLocalState();fromLocal=true}}state=state||{};let html=collectLearningRecords(node,state);if(fromLocal)html='<div class="hint" style="margin-bottom:10px;color:#b45309">⚠️ 服务器未连接，以下仅为本机保存的学习记录</div>'+html;box.innerHTML=html;}catch(e){box.innerHTML='<p>学习记录加载失败：'+esc(e.message)+'</p>'}}
+function closeDetail(){document.getElementById('detailOverlay').classList.remove('show')}
+async function saveDetailNote(id){try{await LearningMemoryAPI.updateNote(user,id,{title:document.getElementById('detailNoteTitle').value,markdown_content:document.getElementById('detailNoteBody').value,status:'edited'});setStatus('学习笔记已保存')}catch(e){alert(e.message)}}
+async function confirmDetailNote(id){try{await LearningMemoryAPI.confirmNote(user,id);setStatus('学习笔记已确认');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
+async function feedbackDetail(id,value){try{await LearningMemoryAPI.feedbackWeakness(user,id,value);setStatus('薄弱点反馈已保存');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
+function setStatus(t){document.getElementById('statusText').textContent=t}function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}loadGraph();
+async function loadManualNoteNodes(){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(!r.ok)return;const d=await r.json(),state=d.state||{};memoryState=state;const ids=new Set(graph.nodes.map(n=>n.id));(state.learning_notes||[]).forEach(n=>{if(!ids.has(n.id)){graph.nodes.push({id:n.id,label:n.title||'未命名笔记',type:'LEARNING_NOTE',status:n.status||'draft',note:n.markdown_content||''})}});render()}catch(e){console.warn('manual notes load failed',e)}}loadManualNoteNodes();
+setTimeout(loadManualNoteNodes,500);
+
+// ===== 3D 全景知识图谱（Obsidian 风格）=====
+let fg3d=null;let g3dHoverId=null;
+const CONCEPT_LINKS={
+  '力与刚体的基本概念':'textbooks/statics/textbook.html?target=m2',
+  '静力学公理体系':'textbooks/statics/textbook.html?target=m31',
+  '约束类型与受力图':'textbooks/statics/textbook.html?target=m27',
+  '受力分析':'textbooks/statics/textbook.html?target=m27',
+  '力的平移定理':'textbooks/statics/textbook.html?target=m37',
+  '平面任意力系':'textbooks/statics/textbook.html?target=m51',
+  '空间力系':'textbooks/statics/textbook.html?target=m56',
+  '平面桁架分析':'textbooks/statics/textbook.html?target=m66',
+  '点的运动学':'textbooks/kinematics/index.html?target=p1m1',
+  '刚体的基本运动':'textbooks/kinematics/index.html?target=p2m1',
+  '点的合成运动':'textbooks/kinematics/index.html?target=p3m1',
+  '刚体平面运动':'textbooks/kinematics/index.html?target=p4m1',
+  '牛顿运动定律':'textbooks/dynamics/index.html?target=dyn1-1',
+  '牛顿定律':'textbooks/dynamics/index.html?target=dyn1-1',
+  '动量定理':'textbooks/dynamics/index.html?target=dyn2-1',
+  '质心运动定理':'textbooks/dynamics/index.html?target=dyn2-2',
+  '动量矩定理':'textbooks/dynamics/index.html?target=dyn3-1',
+  '转动惯量':'textbooks/dynamics/index.html?target=dyn3-1',
+  '动能定理':'textbooks/dynamics/index.html?target=dyn4-1',
+  '机械能守恒':'textbooks/dynamics/index.html?target=dyn4-1',
+  '保守系统':'textbooks/dynamics/index.html?target=dyn4-1',
+  '功':'textbooks/dynamics/index.html?target=dyn4-1',
+  '动能':'textbooks/dynamics/index.html?target=dyn4-1',
+  '势能':'textbooks/dynamics/index.html?target=dyn4-1',
+  '功率':'textbooks/dynamics/index.html?target=dyn4-1',
+  '效率':'textbooks/dynamics/index.html?target=dyn4-1',
+  '达朗贝尔原理':'textbooks/analytical/index.html?target=inertia-force',
+  '惯性力':'textbooks/analytical/index.html?target=inertia-force',
+  '虚位移原理':'textbooks/analytical/index.html?target=constraints',
+  '拉格朗日方程':'textbooks/analytical/index.html?target=lagrange-second-kind',
+  '振动基础':'textbooks/analytical/index.html?target=sdof-free',
+  '碰撞':'textbooks/analytical/index.html?target=collision-concept',
+  '科氏加速度':'textbooks/kinematics/index.html?target=p3m1',
+  '刚体转动':'textbooks/kinematics/index.html?target=p2m1',
+  '质心':'textbooks/dynamics/index.html?target=dyn2-2'
+};
+function conceptUrl(label){return CONCEPT_LINKS[label]||('search.html?q='+encodeURIComponent(label));}
+function statusLabel(s){return s==='mastered'?'已掌握':s==='familiar'?'已熟悉':s==='learning'?'学习中（薄弱）':'未知';}
+function statusColor(s){return s==='mastered'?'#22c55e':s==='familiar'?'#3b82f6':s==='learning'?'#f97316':'#94a3b8';}
+function g3dNodeVal(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.9;if(n.id===g3dHoverId)v*=1.8;return v;}
+function g3dNodeColor(n){return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));}
+function build3dData(){
+  const nodes=graph.nodes.map(function(n){return {id:n.id,label:n.label,type:n.type,status:n.status,note:n.note,size:n.size,color:n.color};});
+  const links=graph.edges.map(function(e){return {source:e.source,target:e.target,relation:e.relation};});
+  return {nodes:nodes,links:links};
+}
+function show3dError(msg){const m=document.getElementById('graph3dMsg');m.textContent=msg;m.style.display='block';}
+function update3dLegend(){
+  document.getElementById('graph3dLegend').innerHTML=
+    '<span><i style="background:#22c55e"></i>已掌握</span>'+
+    '<span><i style="background:#3b82f6"></i>已熟悉</span>'+
+    '<span><i style="background:#f97316"></i>薄弱点（学习中）</span>';
+}
+function collectRelatedLinks(node){
+  const seen={};seen[node.label]=1;const out=[];
+  graph.edges.forEach(function(e){
+    if(e.source===node.id){const nb=graph.nodes.find(function(x){return x.id===e.target;});if(nb&&!seen[nb.label]){seen[nb.label]=1;out.push({label:nb.label,relation:e.relation});}}
+    else if(e.target===node.id){const nb=graph.nodes.find(function(x){return x.id===e.source;});if(nb&&!seen[nb.label]){seen[nb.label]=1;out.push({label:nb.label,relation:e.relation});}}
+  });
+  const rt=RELATED_TOPICS[node.label]||[];
+  rt.forEach(function(r){if(r.key&&!seen[r.key]){seen[r.key]=1;out.push({label:r.key,relation:'相关'});}});
+  return out;
+}
+function collectLearningSummary(node){
+  const state=memoryState||{};const label=(node.label||'').trim();
+  const hit=function(t){return t&&label&&String(t).indexOf(label)>=0;};
+  const notes=(state.learning_notes||[]).filter(function(n){return hit(n.title)||hit(n.markdown_content);});
+  const convs=(state.conversations||[]).filter(function(c){return hit(c.title);});
+  const thoughts=(state.user_thoughts||[]).filter(function(t){return hit(t.content);});
+  const states=(state.user_concept_states||[]).filter(function(s){return s.mastery_level;});
+  let h='';
+  if(notes.length){h+='<div class="pp-rec-item">📒 学习笔记 '+notes.length+' 条</div>';notes.slice(0,2).forEach(function(n){h+='<div class="pp-rec-item">· '+esc((n.title||'').substring(0,16))+'</div>';});}
+  if(convs.length)h+='<div class="pp-rec-item">💬 相关对话 '+convs.length+' 条</div>';
+  if(thoughts.length)h+='<div class="pp-rec-item">💭 学习思考 '+thoughts.length+' 条</div>';
+  if(states.length)h+='<div class="pp-rec-item">📊 掌握：'+esc(states[0].mastery_level||'unknown')+'</div>';
+  return h||'<div class="pp-rec-empty">暂无历史学习记录</div>';
+}
+function show3dPopup(n){
+  if(!n)return;const popup=document.getElementById('graph3dPopup');if(!popup)return;
+  const rel=collectRelatedLinks(n);
+  const relHtml=rel.length?rel.map(function(r){return '<span class="pp-chip">'+esc(r.label)+'<a class="pp-jump" href="'+conceptUrl(r.label)+'" target="_blank">跳转 ↗</a></span>';}).join(''):'<span class="pp-rec-empty">暂无相关知识点</span>';
+  popup.innerHTML=
+    '<div class="pp-title">'+esc(n.label)+'<span class="pp-badge">'+statusLabel(n.status)+'</span><a class="pp-jump" href="'+conceptUrl(n.label)+'" target="_blank">本知识点 ↗</a></div>'+
+    '<div class="pp-sec pp-rel"><div class="pp-sec-label">🔗 相关知识链路（'+rel.length+'）</div>'+relHtml+'</div>'+
+    '<div class="pp-sec pp-rec"><div class="pp-sec-label">📜 历史学习记录</div>'+collectLearningSummary(n)+'</div>';
+  popup.style.display='block';
+  requestAnimationFrame(function(){position3dPopup(n);});
+}
+function position3dPopup(n){
+  const popup=document.getElementById('graph3dPopup');
+  const canvas=document.getElementById('graph3d');
+  const overlay=document.getElementById('graph3dOverlay');
+  if(!popup||!canvas||!overlay||!fg3d)return;
+  let r=null;try{r=fg3d.graph2ScreenCoords(n.x,n.y,n.z);}catch(e){return;}
+  if(!r)return;
+  const sx=Array.isArray(r)?r[0]:r.x;
+  const sy=Array.isArray(r)?r[1]:r.y;
+  if(typeof sx!=='number'||typeof sy!=='number')return;
+  const cr=canvas.getBoundingClientRect(),orr=overlay.getBoundingClientRect();
+  const pw=popup.offsetWidth,ph=popup.offsetHeight;
+  let left=(cr.left-orr.left)+sx+18;
+  let top=(cr.top-orr.top)+sy-20;
+  if(left+pw>orr.width-10)left=(cr.left-orr.left)+sx-pw-18;
+  if(top+ph>orr.height-10)top=orr.height-ph-10;
+  if(left<10)left=10;if(top<10)top=10;
+  popup.style.left=left+'px';popup.style.top=top+'px';
+}
+function hide3dPopup(){const p=document.getElementById('graph3dPopup');if(p)p.style.display='none';}
+function open3d(){
+  const overlay=document.getElementById('graph3dOverlay');
+  const canvas=document.getElementById('graph3d');
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
+  document.getElementById('graph3dMsg').style.display='none';
+  if(!fg3d){
+    if(typeof ForceGraph3D==='undefined'){show3dError('3D 图谱库加载失败，请检查网络连接后刷新页面重试');return;}
+    try{
+      fg3d=ForceGraph3D()(canvas)
+        .width(canvas.clientWidth||window.innerWidth)
+        .height(canvas.clientHeight||(window.innerHeight-60))
+        .backgroundColor('#0b1220')
+        .nodeLabel(function(n){return n.label+' · '+statusLabel(n.status);})
+        .nodeColor(g3dNodeColor)
+        .nodeVal(g3dNodeVal)
+        .nodeRelSize(4)
+        .linkColor(function(){return 'rgba(148,163,184,0.4)';})
+        .linkWidth(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
+        .linkDirectionalParticles(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
+        .onNodeClick(function(n){if(n){hide3dPopup();showNodeDetail(n.id);}})
+        .onBackgroundClick(hide3dPopup)
+        .onNodeHover(function(n){
+          canvas.style.cursor=n?'pointer':'grab';
+          const id=n?n.id:null;
+          if(id!==g3dHoverId){g3dHoverId=id;try{fg3d.nodeVal(g3dNodeVal);}catch(e){}}
+          if(n){if(fg3d.controls())fg3d.controls().autoRotate=false;show3dPopup(n);}
+          else{if(fg3d.controls())fg3d.controls().autoRotate=true;hide3dPopup();}
+        });
+    }catch(e){show3dError('3D 图谱初始化失败：'+e.message);fg3d=null;return;}
+  }
+  fg3d.graphData(build3dData());
+  if(fg3d.controls()){fg3d.controls().autoRotate=true;fg3d.controls().autoRotateSpeed=0.7;}
+  update3dLegend();
+  requestAnimationFrame(function(){if(fg3d&&canvas.clientWidth>0&&canvas.clientHeight>0){fg3d.width(canvas.clientWidth).height(canvas.clientHeight);}});
+}
+function close3d(){
+  document.getElementById('graph3dOverlay').classList.remove('show');
+  document.body.style.overflow='';
+  if(fg3d&&fg3d.controls())fg3d.controls().autoRotate=false;
+  g3dHoverId=null;
+  hide3dPopup();
+}
+window.addEventListener('resize',function(){
+  const overlay=document.getElementById('graph3dOverlay');
+  const canvas=document.getElementById('graph3d');
+  if(overlay&&overlay.classList.contains('show')&&fg3d&&canvas){fg3d.width(canvas.clientWidth).height(canvas.clientHeight);}
+});
+</script></body></html>

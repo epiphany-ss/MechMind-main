@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="718" height="428" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="40" y="46" class="t h">公理解题“题眼识别”流程</text>
+<rect x="255" y="62" width="200" height="56" rx="14" class="box"/>
+<text x="355" y="97" text-anchor="middle" class="t m">先问：题目在考什么？</text>
+<rect x="50" y="165" width="130" height="54" rx="12" class="note"/>
+<text x="115" y="198" text-anchor="middle" class="t xs">同一刚体</text>
+<rect x="210" y="165" width="130" height="54" rx="12" class="note"/>
+<text x="275" y="198" text-anchor="middle" class="t xs">要等效替换</text>
+<rect x="370" y="165" width="130" height="54" rx="12" class="note"/>
+<text x="435" y="198" text-anchor="middle" class="t xs">要合成分解</text>
+<rect x="530" y="165" width="130" height="54" rx="12" class="note"/>
+<text x="595" y="198" text-anchor="middle" class="t xs">不同物体接触</text>
+<line x1="355" y1="118" x2="115" y2="165" class="line"/><line x1="355" y1="118" x2="275" y2="165" class="line"/><line x1="355" y1="118" x2="435" y2="165" class="line"/><line x1="355" y1="118" x2="595" y2="165" class="line"/>
+<text x="84" y="278" class="t xs">→ 二力平衡</text>
+<text x="228" y="278" class="t xs">→ 加减平衡力系</text>
+<text x="392" y="278" class="t xs">→ 平行四边形法则</text>
+<text x="550" y="278" class="t xs">→ 作用与反作用</text>
+<rect x="70" y="330" width="580" height="54" rx="12" class="warn"/>
+<text x="360" y="362" text-anchor="middle" class="t xs">技巧：先识别“题眼”，再决定用哪条公理，做题速度会明显提升。</text>
+
+</svg>

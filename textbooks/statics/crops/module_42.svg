@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="718" height="428" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="40" y="46" class="t h">三力平衡与支座反力入门</text>
+<circle cx="180" cy="210" r="6" fill="#1d3d61"/>
+<line x1="180" y1="210" x2="60" y2="140" class="arrR"/><text x="30" y="138" class="t xs">F₁</text>
+<line x1="180" y1="210" x2="320" y2="135" class="arrB"/><text x="330" y="135" class="t xs">F₂</text>
+<line x1="180" y1="210" x2="185" y2="345" class="arrR"/><text x="196" y="345" class="t xs">F₃</text>
+<circle cx="180" cy="210" r="48" fill="none" stroke="#8aaed3" stroke-dasharray="6 6"/>
+<text x="412" y="130" class="t s">若刚体受三个不平行的力而平衡，</text>
+<text x="412" y="158" class="t s">三力作用线通常应汇交于一点。</text>
+<rect x="390" y="190" width="270" height="112" rx="12" class="note"/>
+<text x="408" y="222" class="t xs">用途：</text>
+<text x="408" y="248" class="t xs">1. 判断三力构件</text>
+<text x="408" y="274" class="t xs">2. 快速确定支座反力方向</text>
+<text x="408" y="300" class="t xs">3. 配合受力图减少未知量</text>
+
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="318" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="28" y="38" class="t h">题图：新点 O 位于原力作用线上</text>
+<circle cx="200" cy="180" r="5" fill="#1d3d61"/><text x="182" y="206" class="t s">O</text>
+<line x1="100" y1="180" x2="540" y2="180" class="arrR"/><text x="552" y="186" class="t s">F</text>
+<text x="250" y="160" class="t xs">O 在力的作用线上</text>
+<rect x="95" y="235" width="560" height="50" rx="12" class="note"/>
+<text x="112" y="265" class="t xs">因为点 O 到作用线的垂距 d = 0，所以 Mₒ = Fd = 0，不需要附加力偶。</text>
+
+</svg>

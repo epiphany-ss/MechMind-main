@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="338" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="28" y="38" class="t h">题图：三力构件的支座反力方向判断</text>
+<rect x="120" y="160" width="260" height="26" rx="8" class="box"/>
+<circle cx="120" cy="173" r="9" fill="#d8e8f8" stroke="#2d6fb7" stroke-width="2.5"/>
+<circle cx="380" cy="173" r="9" fill="#d8e8f8" stroke="#2d6fb7" stroke-width="2.5"/>
+<line x1="250" y1="173" x2="250" y2="85" class="arrR"/><text x="262" y="95" class="t s">P</text>
+<line x1="120" y1="173" x2="50" y2="120" class="arrB"/><text x="26" y="118" class="t xs">R_A ?</text>
+<line x1="380" y1="173" x2="460" y2="115" class="arrB"/><text x="470" y="115" class="t xs">R_B ?</text>
+<rect x="60" y="255" width="640" height="48" rx="12" class="note"/>
+<text x="78" y="284" class="t xs">若该杆件仅受三力而平衡，则三力作用线应汇交。可据此反推两个支座反力的大致方向。</text>
+
+</svg>

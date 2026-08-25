@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户活跃状态 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all 0.3s;position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+.container{max-width:820px;margin:0 auto;padding:40px 24px}
+
+.card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:24px}
+.card-body{padding:24px 28px}
+.section-title{font-size:1em;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--primary-light);display:flex;justify-content:space-between;align-items:center}
+.section-title .sub{font-size:0.8em;font-weight:400;color:var(--text-lighter)}
+.sub-title{font-size:0.88em;font-weight:700;margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border);color:var(--text-light);display:flex;justify-content:space-between;align-items:center}
+.sub-title .sub{font-size:0.8em;font-weight:400;color:var(--text-lighter)}
+.records-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.records-grid .record-col{min-width:0}
+.records-grid .sub-title{margin-top:0}
+@media(max-width:640px){.records-grid{grid-template-columns:1fr}}
+
+/* Codeforces 风格顶栏 */
+.cf-header{background:linear-gradient(135deg,#1e293b,#0f172a);color:#fff;padding:78px 24px 44px;position:relative;overflow:hidden}
+.cf-header::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#f97316,#fb923c,#f97316)}
+.cf-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.cf-avatar{width:82px;height:82px;border-radius:14px;background:#334155;display:flex;align-items:center;justify-content:center;font-size:2.6em;border:2px solid #475569;flex-shrink:0}
+.cf-info{flex:1;min-width:200px}
+.cf-name{font-size:1.55em;font-weight:800;letter-spacing:1px}
+.cf-meta{font-size:0.85em;color:#94a3b8;margin-top:2px}
+.cf-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.cf-badge{display:inline-flex;align-items:center;gap:4px;font-size:0.72em;font-weight:700;padding:3px 11px;border-radius:10px}
+.cf-badge.blue{background:rgba(59,130,246,0.16);color:#7cb0fb;border:1px solid rgba(59,130,246,0.4)}
+.cf-badge.yellow{background:rgba(250,204,21,0.14);color:#facc15;border:1px solid rgba(250,204,21,0.4)}
+.cf-badge.gold{background:rgba(251,191,36,0.14);color:#fbbf24;border:1px solid rgba(251,191,36,0.45)}
+.cf-badge.red{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.4)}
+/* 综合分数方形框 */
+.score-box{width:120px;height:120px;border-radius:16px;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto}
+.score-box .score-caption{font-size:0.66em;color:#94a3b8;letter-spacing:1px}
+.score-box .score-num{font-size:2.3em;font-weight:800;line-height:1.1}
+.score-box .score-level{font-size:0.72em;font-weight:700;margin-top:6px;padding:2px 12px;border-radius:10px;color:#fff}
+.score-box .score-max{font-size:0.6em;color:#94a3b8;margin-top:2px}
+.lv-cyan{color:#06b6d4}
+.lv-green{color:#22c55e}
+.lv-yellow{color:#eab308}
+.lv-orange{color:#f97316}
+.lv-brown{color:#b45309}
+.lv-red{color:#b91c1c}
+/* 分数曲线图 */
+.band-chart{width:100%;overflow-x:auto}
+.band-chart svg{display:block;width:100%;height:auto;min-width:520px}
+.band-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:0.7em;color:var(--text-lighter)}
+.band-legend .lg{display:inline-flex;align-items:center;gap:4px}
+.band-legend .sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+.stat-item{background:var(--bg);border-radius:10px;padding:18px;text-align:center;border:1px solid var(--border)}
+.stat-item .s-val{font-size:1.7em;font-weight:800;color:var(--primary)}
+.stat-item .s-lbl{font-size:0.78em;color:var(--text-lighter);margin-top:4px}
+
+/* 热力图 */
+.hm-scroll{overflow-x:auto;padding-bottom:6px}
+.hm-body{display:flex;gap:8px;min-width:max-content}
+.hm-days{display:flex;flex-direction:column;gap:3px;padding-top:22px;flex-shrink:0}
+.hm-days span{height:13px;line-height:13px;font-size:10px;color:#8899aa}
+.hm-main{display:flex;flex-direction:column}
+.hm-months{display:flex;gap:3px;height:18px;margin-bottom:4px}
+.hm-months .slot{width:13px;flex-shrink:0;position:relative}
+.hm-months .slot span{position:absolute;left:0;top:0;font-size:10px;color:#8899aa;white-space:nowrap}
+.hm-grid{display:flex;gap:3px}
+.hm-week{display:flex;flex-direction:column;gap:3px}
+.cell{width:13px;height:13px;border-radius:2px;background:#edf2f7}
+.cell.lv1{background:#99f6e4}
+.cell.lv2{background:#2dd4bf}
+.cell.lv3{background:#14b8a6}
+.cell.lv4{background:#0d9488}
+.cell.future{background:#f8fafc;border:1px solid #eef2f6}
+.hm-legend{display:flex;align-items:center;gap:4px;margin-top:10px;font-size:0.75em;color:var(--text-lighter)}
+.hm-legend .cell{width:11px;height:11px}
+
+/* 明细列表 */
+.rows{max-height:320px;overflow-y:auto;border:1px solid var(--border);border-radius:10px}
+.row{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid #f1f5f9;font-size:0.88em}
+.row:last-child{border-bottom:none}
+.row:nth-child(odd){background:#fafcfd}
+.row .d{color:var(--text)}
+.row .d .tag{display:inline-block;font-size:0.7em;color:var(--text-lighter);margin-right:6px}
+.row .v{font-weight:700;color:var(--primary);white-space:nowrap}
+.empty{text-align:center;padding:24px;color:#94a3b8;font-size:0.85em}
+.badge{display:inline-block;font-size:0.72em;font-weight:700;padding:2px 10px;border-radius:10px;background:#fef3c7;color:#b45309;margin-left:8px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 28px;border-radius:22px;font-weight:700;font-size:0.95em;cursor:pointer;border:none;transition:all 0.2s;letter-spacing:0.5px;width:100%;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,0.3)}
+@media(max-width:500px){.stats-grid{grid-template-columns:1fr 1fr}.container{padding:16px 12px}}
+</style>
+</head>
+<body>
+<a href="account.html" class="back-home">← 返回个人中心</a>
+<header class="cf-header" id="cfHeader"></header>
+<div class="container" id="mainContainer"></div>
+
+<script>
+(function(){
+  var currentUser = null;
+  try { currentUser = JSON.parse(localStorage.getItem('current_user') || 'null'); } catch(e) { currentUser = null; }
+
+  function pad(n){ return ('0'+n).slice(-2); }
+  function ds(d){ return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
+  function aKey(sid){ return 'user_activity_' + sid; }
+  function getActivity(sid){ try { return JSON.parse(localStorage.getItem(aKey(sid)) || '{}'); } catch(e) { return {}; } }
+  function saveActivity(sid, d){ try { localStorage.setItem(aKey(sid), JSON.stringify(d)); } catch(e) {} }
+
+  var CAPS = { questions: 200, loginDays: 160, aiDays: 150, aiCount: 750 };
+  var LEVELS = [
+    { name:'初学', color:'cyan', hex:'#06b6d4', min:0 },
+    { name:'入门', color:'green', hex:'#22c55e', min:20 },
+    { name:'进阶', color:'yellow', hex:'#eab308', min:40 },
+    { name:'熟练', color:'orange', hex:'#f97316', min:60 },
+    { name:'精通', color:'brown', hex:'#b45309', min:75 },
+    { name:'大师', color:'red', hex:'#b91c1c', min:90 }
+  ];
+
+  var container = document.getElementById('mainContainer');
+  var cfHeader = document.getElementById('cfHeader');
+
+  // 未登录
+  if (!currentUser || !currentUser.student_id) {
+    cfHeader.innerHTML = '<div class="cf-inner"><div class="cf-avatar">🔐</div><div class="cf-info"><div class="cf-name" style="color:#94a3b8">未登录</div><div class="cf-meta">登录后查看学习等级与记录</div></div></div>';
+    container.innerHTML =
+      '<div class="card"><div class="card-body" style="text-align:center;padding:60px 20px">' +
+        '<div style="font-size:3em">🔐</div><h2 style="margin:12px 0">请先登录</h2>' +
+        '<p style="color:var(--text-lighter);margin-bottom:24px">登录后即可查看从注册以来的活跃状态</p>' +
+        '<a class="btn btn-primary" href="account.html">去登录</a>' +
+      '</div></div>';
+    return;
+  }
+
+  var sid = currentUser.student_id;
+  var created = currentUser.created;
+  if (!created) { var f = new Date(); f.setDate(f.getDate() - 45); created = ds(f); }
+
+  var data = getActivity(sid);
+  var stats = computeStats(data);
+
+  renderHeader(currentUser, stats, created);
+
+  container.innerHTML =
+    renderSummary(stats) +
+    renderScoreCurve(data, created) +
+    renderHeatmap(data) +
+    renderDetails(stats, data);
+
+  function computeStats(d) {
+    var loginDays = [], qDays = [], aiDays = [], totalQ = 0, totalAi = 0, totalAiCount = 0;
+    Object.keys(d).sort().forEach(function(date) {
+      var r = d[date];
+      if (r.login) loginDays.push(date);
+      if (r.questions > 0) { totalQ += r.questions; qDays.push({ date:date, count:r.questions }); }
+      if (r.ai_count > 0) totalAiCount += r.ai_count;
+      if ((r.ai_minutes > 0) || (r.ai_count > 0)) { totalAi += (r.ai_minutes || 0); aiDays.push({ date:date, min:(r.ai_minutes||0), count:(r.ai_count||0) }); }
+    });
+    loginDays.sort(function(a,b){ return a < b ? 1 : -1; });
+    qDays.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+    aiDays.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+    return { loginDays:loginDays, qDays:qDays, aiDays:aiDays, totalQ:totalQ, totalAi:totalAi, totalAiCount:totalAiCount };
+  }
+
+  function scoreFromTotals(totalQ, loginDays, aiDays, aiCount) {
+    var q = Math.min(100, totalQ / CAPS.questions * 100);
+    var l = Math.min(100, loginDays / CAPS.loginDays * 100);
+    var ad = Math.min(100, aiDays / CAPS.aiDays * 100);
+    var ac = Math.min(100, aiCount / CAPS.aiCount * 100);
+    var ai = 0.3 * ad + 0.7 * ac;
+    return Math.round((0.6 * q + 0.3 * ai + 0.1 * l) * 10) / 10;
+  }
+  function computeScore(s) { return scoreFromTotals(s.totalQ, s.loginDays.length, s.aiDays.length, s.totalAiCount); }
+  function levelForScore(score) {
+    var lv = LEVELS[0];
+    for (var i = 0; i < LEVELS.length; i++) { if (score >= LEVELS[i].min) lv = LEVELS[i]; }
+    return lv;
+  }
+  function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+  function renderHeader(user, s, created) {
+    var score = computeScore(s);
+    var lv = levelForScore(score);
+    cfHeader.innerHTML =
+      '<div class="cf-inner">' +
+        '<div class="cf-avatar">🎓</div>' +
+        '<div class="cf-info">' +
+          '<div class="cf-name lv-' + lv.color + '">' + escHtml(user.name || '用户') + '</div>' +
+          '<div class="cf-meta">学号 ' + (user.student_id || '-') + ' · 注册于 ' + (created || '-') + '</div>' +
+          '<div class="cf-badges">' +
+            '<span class="cf-badge blue">🔑 登录 ' + s.loginDays.length + ' 天</span>' +
+            '<span class="cf-badge gold">📝 做题 ' + s.totalQ + ' 道</span>' +
+            '<span class="cf-badge yellow">🤖 AI ' + s.totalAiCount + ' 次</span>' +
+            '<span class="cf-badge red">🏅 ' + lv.name + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="score-box">' +
+          '<div class="score-caption">综合分数</div>' +
+          '<div class="score-num lv-' + lv.color + '">' + score + '</div>' +
+          '<div class="score-max">满分 100</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function fmtDuration(min) {
+    if (min >= 60) { var h = Math.floor(min/60), m = min%60; return h + '小时' + (m ? m + '分' : ''); }
+    return min + '分钟';
+  }
+
+  function renderSummary(s) {
+    return '<div class="card"><div class="card-body">' +
+      '<div class="section-title">📊 活跃概览</div>' +
+      '<div class="stats-grid">' +
+        '<div class="stat-item"><div class="s-val">' + s.loginDays.length + '</div><div class="s-lbl">累计登录天数</div></div>' +
+        '<div class="stat-item"><div class="s-val">' + s.totalQ + '</div><div class="s-lbl">累计做题数</div></div>' +
+        '<div class="stat-item"><div class="s-val">' + fmtDuration(s.totalAi) + '</div><div class="s-lbl">累计AI问答时长</div></div>' +
+      '</div></div></div>';
+  }
+
+  function buildScoreHistory(d, created) {
+    var dates = Object.keys(d).sort();
+    var pts = [{ date: created, score: 0 }];
+    var totalQ = 0, loginDays = 0, aiDays = 0, aiCount = 0;
+    dates.forEach(function(date) {
+      var r = d[date];
+      if (r.questions) totalQ += r.questions;
+      if (r.login) loginDays++;
+      if ((r.ai_count > 0) || (r.ai_minutes > 0)) aiDays++;
+      if (r.ai_count) aiCount += r.ai_count;
+      pts.push({ date: date, score: scoreFromTotals(totalQ, loginDays, aiDays, aiCount) });
+    });
+    return pts;
+  }
+
+  function renderScoreCurve(d, created) {
+    var pts = buildScoreHistory(d, created);
+    var W = 800, H = 300, padL = 38, padR = 6, padT = 4, padB = 22;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+
+    var dates = pts.map(function(p) { return p.date; });
+    var t0 = new Date(dates[0] + 'T00:00:00').getTime();
+    var tN = new Date().getTime();
+    if (dates.length > 1) {
+      var lastT = new Date(dates[dates.length - 1] + 'T00:00:00').getTime();
+      if (lastT > tN) tN = lastT;
+    }
+    var span = (tN - t0) || 1;
+
+    function xFor(date) { var t = new Date(date + 'T00:00:00').getTime(); return padL + (t - t0) / span * plotW; }
+    function yFor(score) { return padT + (100 - score) / 100 * plotH; }
+
+    // 渐变底色（从上到下：红→褐→橙→黄→绿→青，红色最高）
+    var bandHtml = '<defs><linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">' +
+      '<stop offset="0" stop-color="#b91c1c"></stop>' +
+      '<stop offset="0.10" stop-color="#b45309"></stop>' +
+      '<stop offset="0.25" stop-color="#f97316"></stop>' +
+      '<stop offset="0.40" stop-color="#eab308"></stop>' +
+      '<stop offset="0.60" stop-color="#22c55e"></stop>' +
+      '<stop offset="0.80" stop-color="#06b6d4"></stop>' +
+      '<stop offset="1" stop-color="#06b6d4"></stop>' +
+    '</linearGradient></defs>' +
+    '<rect x="' + padL + '" y="' + padT + '" width="' + plotW + '" height="' + plotH + '" fill="url(#scoreGrad)" opacity="0.9"></rect>';
+
+    var gridHtml = '', yLabelHtml = '';
+    [0, 20, 40, 60, 75, 90, 100].forEach(function(v) {
+      var y = yFor(v);
+      gridHtml += '<line x1="' + padL + '" y1="' + y.toFixed(1) + '" x2="' + (padL + plotW) + '" y2="' + y.toFixed(1) + '" stroke="rgba(148,163,184,0.45)" stroke-width="1"></line>';
+      yLabelHtml += '<text x="' + (padL - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#8899aa">' + v + '</text>';
+    });
+
+    var lineD = '', areaD = '';
+    pts.forEach(function(p, i) {
+      var x = xFor(p.date).toFixed(1), y = yFor(p.score).toFixed(1);
+      if (i === 0) { lineD = 'M' + x + ' ' + y; areaD = 'M' + x + ' ' + (padT + plotH).toFixed(1) + ' L' + x + ' ' + y; }
+      else { lineD += ' L' + x + ' ' + y; areaD += ' L' + x + ' ' + y; }
+    });
+    var lastX = xFor(dates[dates.length - 1]).toFixed(1);
+    areaD += ' L' + lastX + ' ' + (padT + plotH).toFixed(1) + ' Z';
+
+    var dotsHtml = '';
+    pts.forEach(function(p) {
+      var x = xFor(p.date).toFixed(1), y = yFor(p.score).toFixed(1);
+      dotsHtml += '<circle cx="' + x + '" cy="' + y + '" r="3" fill="#fff" stroke="#334155" stroke-width="1"></circle>';
+    });
+
+    var xLabelHtml = '';
+    [0, 0.25, 0.5, 0.75, 1].forEach(function(frac) {
+      var x = padL + frac * plotW;
+      var idx = Math.min(dates.length - 1, Math.max(0, Math.round(frac * (dates.length - 1))));
+      var label = dates[idx] ? dates[idx].slice(5) : '';
+      xLabelHtml += '<text x="' + x.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10" fill="#8899aa">' + label + '</text>';
+    });
+
+    return '<div class="card"><div class="card-body">' +
+      '<div class="section-title">📈 学习分数曲线 <span class="sub">综合分随时间变化</span></div>' +
+      '<div class="band-chart"><svg viewBox="0 0 ' + W + ' ' + H + '">' +
+        bandHtml + gridHtml +
+        '<path d="' + areaD + '" fill="rgba(51,65,85,0.10)"></path>' +
+        '<path d="' + lineD + '" fill="none" stroke="#334155" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></path>' +
+        dotsHtml + yLabelHtml + xLabelHtml +
+      '</svg></div>' +
+    '</div></div>';
+  }
+
+  function levelFor(date, d) {
+    var r = d[date];
+    if (!r || !r.login) return 0;
+    var q = r.questions || 0;
+    var ai = r.ai_minutes || 0;
+    var extra = (q > 0 ? 1 : 0) + (ai >= 30 ? 2 : (ai >= 15 ? 1 : 0));
+    if (extra === 0) return 1;
+    if (extra === 1) return 2;
+    if (extra === 2) return 3;
+    return 4;
+  }
+
+  function renderHeatmap(d) {
+    var today = new Date();
+    var todayS = ds(today);
+    var year = today.getFullYear();
+    var jan1 = new Date(year, 0, 1);
+    var gridStart = new Date(jan1);
+    gridStart.setDate(gridStart.getDate() - jan1.getDay());
+
+    var weeks = [];
+    var cur = new Date(gridStart);
+    while (true) {
+      var week = [];
+      for (var i = 0; i < 7; i++) { week.push(ds(cur)); cur.setDate(cur.getDate() + 1); }
+      weeks.push(week);
+      if (cur.getFullYear() > year) break;
+    }
+
+    // 月份标签：记录每月1号所在列
+    var monthOf = {};
+    weeks.forEach(function(week, ci) {
+      week.forEach(function(date) {
+        var y = parseInt(date.slice(0,4),10), dd = parseInt(date.slice(8,10),10);
+        if (y === year && dd === 1 && monthOf[ci] === undefined) monthOf[ci] = parseInt(date.slice(5,7),10) + '月';
+      });
+    });
+
+    var monthsHtml = '<div class="hm-months">';
+    for (var ci = 0; ci < weeks.length; ci++) {
+      monthsHtml += '<div class="slot">' + (monthOf[ci] ? '<span>' + monthOf[ci] + '</span>' : '') + '</div>';
+    }
+    monthsHtml += '</div>';
+
+    var gridHtml = '<div class="hm-grid">';
+    weeks.forEach(function(week) {
+      gridHtml += '<div class="hm-week">';
+      week.forEach(function(date) {
+        var y = parseInt(date.slice(0,4),10);
+        if (y !== year || date > todayS) { gridHtml += '<div class="cell future"></div>'; return; }
+        var lvl = levelFor(date, d);
+        var r = d[date];
+        var tip = date + '：' + (r && r.login ? '已登录' : '未登录') +
+                  (r && r.questions ? '，做题 ' + r.questions + ' 道' : '') +
+                  (r && r.ai_minutes ? '，AI问答 ' + r.ai_minutes + ' 分钟' : '');
+        gridHtml += '<div class="cell lv' + lvl + '" title="' + tip + '"></div>';
+      });
+      gridHtml += '</div>';
+    });
+    gridHtml += '</div>';
+
+    var daysHtml = '<div class="hm-days"><span>一</span><span></span><span>三</span><span></span><span>五</span><span></span><span>日</span></div>';
+
+    return '<div class="card"><div class="card-body">' +
+      '<div class="section-title">📅 登录热力图 <span class="sub">' + year + '年</span></div>' +
+      '<div class="hm-scroll"><div class="hm-body">' + daysHtml +
+        '<div class="hm-main">' + monthsHtml + gridHtml + '</div>' +
+      '</div></div>' +
+      '<div class="hm-legend">少 <span class="cell lv1"></span><span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv4"></span> 多</div>' +
+    '</div></div>';
+  }
+
+  function renderDetails(s, d) {
+    function list(rows, fmt, emptyText) {
+      if (!rows.length) return '<div class="empty">' + emptyText + '</div>';
+      var html = '';
+      rows.forEach(function(r) { html += '<div class="row">' + fmt(r) + '</div>'; });
+      return html;
+    }
+    function actText(r) {
+      var parts = [];
+      if (r && r.questions) parts.push(r.questions + ' 题');
+      if (r && r.ai_minutes) parts.push(r.ai_minutes + ' 分钟');
+      return parts.length ? parts.join(' · ') : '仅登录';
+    }
+    var loginList = list(s.loginDays, function(date) {
+      var r = d[date];
+      return '<span class="d"><span class="tag">' + weekdayLabel(date) + '</span>' + date + '</span>' +
+             '<span class="v">' + actText(r) + '</span>';
+    }, '暂无登录记录');
+
+    var qList = list(s.qDays, function(r) {
+      return '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
+             '<span class="v">' + r.count + ' 道题</span>';
+    }, '暂无做题记录');
+
+    var aiList = list(s.aiDays, function(r) {
+      return '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
+             '<span class="v">' + fmtDuration(r.min) + '</span>';
+    }, '暂无AI问答记录');
+
+    return '<div class="card"><div class="card-body">' +
+      '<div class="section-title">📚 学习记录</div>' +
+      '<div class="records-grid">' +
+        '<div class="record-col"><div class="sub-title">🔑 登录记录 <span class="sub">共 ' + s.loginDays.length + ' 天</span></div><div class="rows">' + loginList + '</div></div>' +
+        '<div class="record-col"><div class="sub-title">📝 做题记录 <span class="sub">共 ' + s.totalQ + ' 道</span></div><div class="rows">' + qList + '</div></div>' +
+        '<div class="record-col"><div class="sub-title">🤖 AI问答记录 <span class="sub">共 ' + fmtDuration(s.totalAi) + '</span></div><div class="rows">' + aiList + '</div></div>' +
+      '</div>' +
+    '</div></div>';
+  }
+
+  function weekdayLabel(date) {
+    var parts = date.split('-');
+    var w = new Date(parseInt(parts[0],10), parseInt(parts[1],10)-1, parseInt(parts[2],10)).getDay();
+    return ['周日','周一','周二','周三','周四','周五','周六'][w];
+  }
+})();
+</script>
+</body>
+</html>

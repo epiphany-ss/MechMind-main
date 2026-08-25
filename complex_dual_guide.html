@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双曲柄导杆科氏加速度对比 - 复合机构演示</title>
+<link rel="stylesheet" href="complex_mechanism_style.css">
+</head>
+<body>
+<a class="back-home" href="complex_mechanism_demo.html">← 返回复合机构目录</a>
+<header class="page-header"><h1 id="demoTitle"></h1><p id="demoSubtitle"></p></header>
+<main class="layout"><section class="canvas-wrap" id="canvasWrap"><canvas id="complexCanvas"></canvas></section><aside class="side-panel">
+<section class="panel-sec"><h4>控制</h4><div class="btn-row"><button id="btnPlay">暂停</button><button id="btnStep">单步</button><button id="btnReset">重置</button><button id="btnClear">清轨迹</button></div><div class="slider-group"><label>输入角速度 <span><span id="omegaVal">1.3</span> rad/s</span></label><input id="omega" type="range" min="0.4" max="3.6" step="0.1"></div></section>
+<section class="panel-sec"><h4>显示选项</h4><label class="toggle-row"><input id="showVel" type="checkbox" checked>速度矢量</label><label class="toggle-row"><input id="showAcc" type="checkbox" checked>加速度矢量</label><label class="toggle-row"><input id="showTrail" type="checkbox" checked>运动轨迹</label><label class="toggle-row"><input id="showPhase" type="checkbox" checked>相位标记</label></section>
+<section class="panel-sec"><h4>教学目标</h4><ul id="teachingGoals" class="goals"></ul></section><section class="panel-sec"><h4>实时数据</h4><div id="dataPanel"></div></section><section class="panel-sec"><h4>子机构对比</h4><div id="comparePanel"></div></section><section class="panel-sec"><h4>核心公式</h4><div id="formulaPanel"></div></section>
+</aside></main>
+<script>
+window.COMPLEX_DEMO_CONFIG = {
+  shortTitle:'双导杆科氏对比',
+  title:'双曲柄导杆科氏加速度对比系统',
+  subtitle:'同一输入轴经不同传动比的两组曲柄导杆输出两种摆动，用于比较转动动系中的科氏加速度。',
+  omega:1.3,
+  goals:['理解同一动力源经两组传动比后驱动两个导杆输出。','比较低速支路和高速支路的科氏加速度差异。','理解 aC = 2ωe × vr 同时受牵连角速度和相对速度影响。'],
+  formulas:['传动链：输入轴 → 低速支路曲柄导杆；输入轴 → 高速支路曲柄导杆。','导杆动系绕固定点转动，因此 ωe ≠ 0。','科氏加速度：aC = 2ωe × vr。'],
+  connections:[
+    {points:[{x:140,y:500},{x:435,y:500},{x:435,y:300},{x:250,y:300}],label:'低速传动支路',color:'#8edcff'},
+    {points:[{x:435,y:500},{x:720,y:500},{x:720,y:300},{x:610,y:300}],label:'高速传动支路',color:'#ffd166'}
+  ],
+  modules:[
+    {id:'guideA',name:'导杆 A',type:'guide',motion:'转动动系 / 有 aC',origin:{x:260,y:300},scale:1.28,r:48,d:158,speed:0.85,phase:0,label:'A1',trailColor:'#ff7777',titleBox:{x:70,y:35,w:285,h:40,title:'低速短曲柄：0.85ω'},phaseMark:'较小 ωe 与 vr'},
+    {id:'guideB',name:'导杆 B',type:'guide',motion:'转动动系 / 有 aC',origin:{x:620,y:300},scale:1.18,r:64,d:178,speed:1.45,phase:0,label:'A2',trailColor:'#66d9ef',titleBox:{x:465,y:35,w:285,h:40,title:'高速长曲柄：1.45ω'},phaseMark:'较大 ωe 与 vr'}
+  ],
+  plots:[]
+};
+</script>
+<script src="complex_mechanism_common.js"></script>
+</body>
+</html>

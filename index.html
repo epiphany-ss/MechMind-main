@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长沙理工大学 · 理论力学研究平台</title>
+<style>
+:root {
+  --primary: #1a56db; --primary-dark: #0d3b9e; --primary-light: #e8f0fe;
+  --accent: #f0a030; --bg: #f5f7fa; --card-bg: #ffffff;
+  --text: #2c3e50; --text-light: #5a6c7d; --text-lighter: #8899aa;
+  --border: #e2e8f0; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px; --radius-sm: 8px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --nav-height: 64px; --max-width: 1320px;
+  --dark-bg: #1a1a2e; --dark-panel: #16213e; --dark-text: #e0e0e0; --dark-accent: #4cc9f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden;
+}
+
+/* ===== Nav ===== */
+.top-nav{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  height:var(--nav-height); background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--border);
+  box-shadow:0 1px 8px rgba(0,0,0,0.06);
+  display:flex; align-items:center; justify-content:space-between; padding:0 32px;
+  transition:all var(--transition);
+}
+.top-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.1)}
+.nav-brand{display:flex; align-items:center; gap:12px; cursor:pointer; text-decoration:none; color:inherit}
+.nav-logo{
+  width:42px; height:42px; background:linear-gradient(135deg,var(--primary),#3b82f6);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.nav-logo::before{
+  content:''; position:absolute; width:24px; height:4px;
+  background:#fff; border-radius:2px; top:14px;
+}
+.nav-logo::after{
+  content:''; position:absolute; width:4px; height:18px;
+  background:#fff; border-radius:2px; left:19px; top:10px;
+}
+.nav-logo .bridge-arc{
+  position:absolute; width:20px; height:10px; border:3px solid rgba(255,255,255,0.9);
+  border-bottom:none; border-radius:10px 10px 0 0; bottom:8px; left:11px;
+}
+.nav-title{font-size:1.15em; font-weight:700; color:var(--primary-dark); letter-spacing:1px}
+.nav-title small{display:block; font-size:0.55em; font-weight:400; color:var(--text-lighter); letter-spacing:0.5px}
+.nav-links{display:flex; list-style:none; gap:4px; align-items:center}
+.nav-links a{
+  text-decoration:none; color:var(--text); font-size:0.88em; font-weight:500;
+  padding:8px 16px; border-radius:6px; transition:all var(--transition); white-space:nowrap;
+}
+.nav-links a:hover{background:var(--primary-light); color:var(--primary)}
+.nav-links a.btn-nav{background:var(--primary); color:#fff; padding:8px 20px; border-radius:20px; font-weight:600}
+.nav-links a.btn-nav:hover{background:var(--primary-dark); transform:translateY(-1px)}
+.nav-search{
+  display:flex; align-items:center; gap:6px; background:var(--bg);
+  border-radius:20px; padding:6px 14px; border:1px solid var(--border); transition:all var(--transition);
+}
+.nav-search:focus-within{border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,86,219,0.1)}
+.nav-search input{border:none; background:none; outline:none; font-size:0.85em; width:140px; font-family:inherit; color:var(--text)}
+.nav-search button{border:none; background:none; cursor:pointer; color:var(--text-lighter); font-size:1em; padding:2px 4px; transition:color var(--transition)}
+.nav-search button:hover{color:var(--primary)}
+.menu-toggle{display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none}
+.menu-toggle span{width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:all var(--transition)}
+
+/* ===== Hero ===== */
+.hero{margin-top:var(--nav-height); position:relative; width:100%; height:560px; overflow:hidden}
+.hero-slides{display:flex; width:100%; height:100%; transition:transform 0.8s cubic-bezier(0.65,0,0.35,1)}
+.hero-slide{min-width:100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center}
+.hero-slide .slide-bg{
+  position:absolute; inset:0; background-size:cover; background-position:center;
+  filter:brightness(0.45); transform:scale(1.05); transition:transform 8s ease;
+}
+.hero:hover .hero-slide.active .slide-bg{transform:scale(1)}
+.hero-slide .slide-overlay{position:relative; z-index:2; text-align:center; color:#fff; max-width:800px; padding:20px}
+.hero-slide .slide-tag{
+  display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px);
+  padding:6px 18px; border-radius:20px; font-size:0.82em; letter-spacing:3px; margin-bottom:20px;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.hero-slide h2{font-size:2.8em; font-weight:800; letter-spacing:2px; margin-bottom:16px; text-shadow:0 2px 20px rgba(0,0,0,0.4); line-height:1.3}
+.hero-slide p{font-size:1.15em; opacity:0.9; margin-bottom:32px; line-height:1.7}
+.hero-slide .slide-cta{
+  display:inline-block; padding:14px 40px; background:linear-gradient(135deg,var(--primary),#4f8cf7);
+  color:#fff; text-decoration:none; border-radius:30px; font-weight:700; font-size:1em;
+  letter-spacing:1px; transition:all var(--transition); box-shadow:0 4px 20px rgba(26,86,219,0.4);
+}
+.hero-slide .slide-cta:hover{transform:translateY(-2px); box-shadow:0 8px 30px rgba(26,86,219,0.5)}
+.hero-dots{position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:10}
+.hero-dots button{
+  width:12px; height:12px; border-radius:50%; border:2px solid rgba(255,255,255,0.6);
+  background:transparent; cursor:pointer; transition:all var(--transition);
+}
+.hero-dots button.active{background:#fff; border-color:#fff; transform:scale(1.2)}
+.hero-arrows{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:10;
+  display:flex; justify-content:space-between; width:100%; padding:0 20px; pointer-events:none;
+}
+.hero-arrows button{
+  pointer-events:auto; width:48px; height:48px; border-radius:50%; border:none;
+  background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff;
+  font-size:1.3em; cursor:pointer; transition:all var(--transition);
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-arrows button:hover{background:rgba(255,255,255,0.3)}
+
+/* ===== Section Common ===== */
+.section{padding:80px 32px; max-width:var(--max-width); margin:0 auto}
+.section-header{text-align:center; margin-bottom:56px}
+.section-header .section-tag{display:inline-block; color:var(--primary); font-weight:700; font-size:0.82em; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px}
+.section-header h2{font-size:2.2em; font-weight:800; color:var(--text); margin-bottom:12px; letter-spacing:1px}
+.section-header .divider{width:60px; height:4px; background:linear-gradient(90deg,var(--primary),var(--accent)); border-radius:2px; margin:16px auto 0}
+.section-header p{color:var(--text-light); font-size:1em; max-width:600px; margin:16px auto 0}
+
+/* ===== Features ===== */
+.features-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.feature-card{
+  background:var(--card-bg); border-radius:var(--radius); padding:36px 28px;
+  border:1px solid var(--border); transition:all var(--transition); cursor:pointer;
+  text-decoration:none; color:inherit; display:block; position:relative; overflow:hidden;
+}
+.feature-card::before{
+  content:''; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0); transform-origin:left; transition:transform var(--transition);
+}
+.feature-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg)}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-card .card-icon{
+  width:56px; height:56px; border-radius:14px; display:flex; align-items:center;
+  justify-content:center; font-size:1.6em; margin-bottom:20px; font-weight:bold;
+}
+.card-icon.c1{background:#e8f0fe; color:var(--primary)}
+.card-icon.c2{background:#fef3e2; color:#e67e22}
+.card-icon.c3{background:#f3e8ff; color:#7c3aed}
+.card-icon.c4{background:#e6f7ec; color:#27ae60}
+.card-icon.c5{background:#e0f7f6; color:#0d9488}
+.card-icon.c6{background:#fde8e8; color:#e74c3c}
+.feature-card h3{font-size:1.15em; font-weight:700; margin-bottom:8px}
+.feature-card p{color:var(--text-light); font-size:0.88em; line-height:1.6}
+.feature-card .card-arrow{display:inline-block; margin-top:16px; color:var(--primary); font-weight:600; font-size:0.85em; transition:transform var(--transition)}
+.feature-card:hover .card-arrow{transform:translateX(4px)}
+
+/* ===== Stats ===== */
+.stats-bar{
+  background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+  color:#fff; padding:48px 32px; display:flex; justify-content:center; gap:80px; flex-wrap:wrap;
+}
+.stat-item{text-align:center}
+.stat-item .stat-num{font-size:2.8em; font-weight:800; letter-spacing:1px}
+.stat-item .stat-label{font-size:0.9em; opacity:0.85; margin-top:4px}
+
+/* ===== Preview Cards ===== */
+.preview-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.preview-card{
+  background:var(--card-bg); border-radius:var(--radius); padding:24px;
+  border:1px solid var(--border); transition:all var(--transition);
+}
+.preview-card:hover{box-shadow:var(--shadow-lg); transform:translateY(-3px)}
+.preview-card h4{font-size:1em; font-weight:700; margin-bottom:6px; line-height:1.4}
+.preview-card p{color:var(--text-light); font-size:0.82em; line-height:1.5}
+.preview-card .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.preview-card .tags span{font-size:0.72em; padding:2px 10px; background:var(--bg); border-radius:10px; color:var(--text-lighter); border:1px solid var(--border)}
+.preview-card .diff{display:inline-block; font-size:0.7em; font-weight:700; padding:3px 10px; border-radius:10px; margin-bottom:10px; letter-spacing:1px}
+.diff.easy{background:#e6f7ec; color:#27ae60}
+.diff.medium{background:#fef3e2; color:#e67e22}
+.diff.hard{background:#fde8e8; color:#e74c3c}
+
+/* ===== AI Preview ===== */
+.ai-section{background:linear-gradient(180deg,#f8faff 0%,var(--bg) 100%)}
+.ai-preview{
+  max-width:780px; margin:0 auto; background:var(--card-bg);
+  border-radius:var(--radius); box-shadow:var(--shadow-lg); overflow:hidden; border:1px solid var(--border);
+}
+.ai-chat-header{
+  background:linear-gradient(135deg,var(--primary),#4f8cf7); color:#fff;
+  padding:18px 24px; display:flex; align-items:center; gap:12px;
+}
+.ai-chat-header .ai-avatar{width:40px; height:40px; background:rgba(255,255,255,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2em}
+.ai-chat-header h4{font-weight:700}
+.ai-chat-header small{opacity:0.8; font-size:0.8em; display:block}
+.ai-chat-body{padding:24px; min-height:240px; max-height:380px; overflow-y:auto}
+.ai-msg{display:flex; gap:12px; margin-bottom:20px}
+.ai-msg.user{flex-direction:row-reverse}
+.ai-msg .msg-avatar{width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.8em; color:#fff}
+.ai-msg.bot .msg-avatar{background:var(--primary)}
+.ai-msg.user .msg-avatar{background:var(--accent)}
+.ai-msg .msg-bubble{background:var(--bg); padding:12px 16px; border-radius:14px; font-size:0.88em; line-height:1.6; max-width:75%}
+.ai-msg.user .msg-bubble{background:var(--primary); color:#fff}
+.ai-msg.bot .msg-bubble{border-top-left-radius:4px}
+.ai-chat-link{text-align:center; padding:16px}
+.ai-chat-link a{color:var(--primary); font-weight:600; text-decoration:none; font-size:0.95em}
+.ai-chat-link a:hover{text-decoration:underline}
+
+/* ===== Forum Preview ===== */
+.forum-preview-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;max-width:1100px;margin:0 auto}
+.forum-preview-main{display:flex;flex-direction:column;gap:0;background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
+.forum-preview-item{display:flex;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);cursor:pointer;transition:background var(--transition);align-items:flex-start;text-decoration:none;color:inherit}
+.forum-preview-item:last-child{border-bottom:none}
+.forum-preview-item:hover{background:#f8faff}
+.forum-preview-item .fp-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1em;color:#fff;font-weight:700}
+.forum-preview-item .fp-body{flex:1;min-width:0}
+.forum-preview-item .fp-title{font-size:0.9em;font-weight:600;color:var(--text);margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.forum-preview-item .fp-title:hover{color:var(--primary)}
+.forum-preview-item .fp-meta{display:flex;gap:14px;font-size:0.72em;color:var(--text-lighter)}
+.forum-preview-item .fp-stats{flex-shrink:0;text-align:center;min-width:50px}
+.forum-preview-item .fp-stats .fp-count{font-size:0.85em;font-weight:600;color:var(--text-light)}
+.forum-preview-item .fp-stats .fp-label{font-size:0.68em;color:var(--text-lighter)}
+.forum-preview-item .fp-stats.has-new .fp-count{color:var(--primary)}
+.forum-preview-sidebar{display:flex;flex-direction:column;gap:14px}
+.forum-preview-sidebar .fp-side-card{background:var(--card-bg);border-radius:var(--radius);padding:18px;border:1px solid var(--border)}
+.forum-preview-sidebar .fp-side-card h4{font-weight:700;margin-bottom:12px;font-size:0.95em}
+.forum-preview-sidebar .fp-hot-item{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.8em;cursor:pointer;transition:color var(--transition);text-decoration:none;color:inherit}
+.forum-preview-sidebar .fp-hot-item:hover{color:var(--primary)}
+.forum-preview-sidebar .fp-hot-item:last-child{border-bottom:none}
+.fp-hot-rank{width:18px;height:18px;border-radius:4px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:0.7em;font-weight:700;flex-shrink:0;color:var(--text-lighter)}
+.fp-hot-rank.r1{background:#e74c3c;color:#fff}
+.fp-hot-rank.r2{background:#e67e22;color:#fff}
+.fp-hot-rank.r3{background:#f0a030;color:#fff}
+.fp-hot-item .fp-hot-title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.forum-preview-btn{display:block;width:100%;padding:11px;background:linear-gradient(135deg,var(--primary),#4f8cf7);color:#fff;border:none;border-radius:8px;font-size:0.9em;font-weight:600;cursor:pointer;letter-spacing:1px;transition:all var(--transition);text-align:center;text-decoration:none}
+.forum-preview-btn:hover{background:var(--primary-dark);box-shadow:0 4px 16px rgba(26,86,219,0.3)}
+
+/* ===== Knowledge Preview ===== */
+.knowledge-preview{max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:20px}
+.knowledge-root{background:var(--primary); color:#fff; padding:16px 32px; border-radius:30px; font-weight:700; font-size:1.1em; letter-spacing:1px}
+.knowledge-branches{display:flex; gap:36px; flex-wrap:wrap; justify-content:center}
+.knowledge-branch{
+  background:var(--card-bg); border-radius:var(--radius); padding:22px 28px;
+  min-width:200px; text-align:center; border:1px solid var(--border);
+  box-shadow:var(--shadow); transition:all var(--transition);
+}
+.knowledge-branch:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg)}
+.knowledge-branch h5{font-size:1em; font-weight:700; margin-bottom:8px}
+.knowledge-branch .branch-topics{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:12px}
+.knowledge-branch .branch-topics span{font-size:0.72em; padding:3px 10px; background:var(--primary-light); color:var(--primary); border-radius:10px}
+
+/* ===== Demo Section ===== */
+.demo-section{background:var(--dark-bg); padding:80px 32px; color:var(--dark-text)}
+.demo-section .section-header h2{color:#fff}
+.demo-section .section-header p{color:#8899bb}
+.demo-section .section-tag{color:var(--dark-accent)}
+.demo-link{text-align:center; margin-top:24px}
+.demo-link a{
+  display:inline-block; padding:12px 36px; background:var(--dark-accent); color:#1a1a2e;
+  text-decoration:none; border-radius:25px; font-weight:700; font-size:0.95em;
+  letter-spacing:1px; transition:all var(--transition);
+}
+.demo-link a:hover{background:#fff; transform:translateY(-2px)}
+
+/* ===== Footer ===== */
+.footer{background:#1a1f2e; color:#aab; padding:56px 32px 28px}
+.footer-grid{max-width:var(--max-width); margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px}
+.footer-brand h3{color:#fff; font-size:1.3em; margin-bottom:12px; letter-spacing:1px}
+.footer-brand p{font-size:0.85em; line-height:1.7; margin-bottom:8px}
+.footer-col h4{color:#fff; font-size:0.95em; margin-bottom:16px; letter-spacing:1px}
+.footer-col a{display:block; color:#aab; text-decoration:none; font-size:0.82em; padding:4px 0; transition:color var(--transition)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{max-width:var(--max-width); margin:32px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); text-align:center; font-size:0.78em; color:#667}
+
+.back-to-top{
+  position:fixed; bottom:32px; right:32px; width:46px; height:46px; border-radius:50%;
+  background:var(--primary); color:#fff; border:none; cursor:pointer; font-size:1.3em;
+  box-shadow:0 4px 16px rgba(26,86,219,0.35); z-index:999; opacity:0; pointer-events:none;
+  transition:all var(--transition);
+}
+.back-to-top.visible{opacity:1; pointer-events:auto}
+.back-to-top:hover{background:var(--primary-dark); transform:translateY(-3px)}
+
+@media(max-width:1024px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .preview-grid{grid-template-columns:repeat(2,1fr)}
+  .forum-preview-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-slide h2{font-size:2em}
+  .hero{height:420px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-search{display:none}
+  .menu-toggle{display:flex}
+  .features-grid{grid-template-columns:1fr}
+  .preview-grid{grid-template-columns:1fr}
+  .stats-bar{gap:32px}
+  .stat-item .stat-num{font-size:2em}
+  .hero-slide h2{font-size:1.6em}
+  .hero{height:340px}
+  .section{padding:48px 16px}
+  .footer-grid{grid-template-columns:1fr}
+  .knowledge-branches{flex-direction:column; align-items:center}
+}
+@media(max-width:480px){
+  .hero{height:260px}
+  .hero-slide h2{font-size:1.2em}
+  .hero-slide p{font-size:0.78em}
+  .hero .cta-btn{padding:8px 20px;font-size:0.82em}
+  .section{padding:32px 10px}
+  .section h2{font-size:1.2em}
+  .stats-bar{gap:20px}
+  .stat-item .stat-num{font-size:1.5em}
+  .stat-item .stat-label{font-size:0.7em}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  .forum-preview-grid{grid-template-columns:1fr}
+  .nav-brand .nav-title{font-size:0.85em}
+  .nav-brand .nav-title small{font-size:0.65em}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav" id="topNav">
+  <a class="nav-brand" href="index.html">
+    <div class="nav-logo"><div class="bridge-arc"></div></div>
+    <div class="nav-title">理论力学研究平台<small>长沙理工大学 · 工程力学系</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="questions.html">理论力学题库</a></li>
+    <li><a href="mechanism.html">机构运动演示</a></li>
+    <li><a href="ai_qa.html">AI智能问答</a></li>
+    <li><a href="knowledge_framework.html">知识框架</a></li>
+    <li><a href="personal_knowledge.html">个人知识网络</a></li>
+    <li><a href="forum.html">问题探讨</a></li>
+    <li><a href="account.html" class="btn-nav">个人账户</a></li>
+  </ul>
+  <div class="nav-search">
+    <input type="text" placeholder="搜索力学知识…" id="navSearchInput" onkeydown="if(event.key==='Enter')window.location.href='search.html?q='+encodeURIComponent(this.value)">
+    <button onclick="window.location.href='search.html?q='+encodeURIComponent(document.getElementById('navSearchInput').value)">🔍</button>
+  </div>
+  <button class="menu-toggle" id="menuToggle" onclick="document.getElementById('mobileMenu').classList.add('active')"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,0.5);display:none;align-items:flex-start" onclick="if(event.target===this)this.classList.remove('active')">
+  <div style="background:#fff;width:280px;height:100vh;padding:24px;overflow-y:auto" onclick="event.stopPropagation()">
+    <h3 style="margin-bottom:20px">导航菜单</h3>
+    <a href="index.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🏠 首页</a>
+    <a href="questions.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">📝 理论力学题库</a>
+    <a href="mechanism.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">⚙️ 机构运动演示</a>
+    <a href="ai_qa.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🤖 AI智能问答</a>
+    <a href="knowledge_framework.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🧠 知识框架</a>
+    <a href="forum.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">💬 问题探讨</a>
+    <a href="account.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">👤 个人账户</a>
+    <a href="personal_knowledge.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🕸️ 个人知识网络</a>
+    <a href="search.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🔍 功能搜索</a>
+    <a href="about.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">ℹ️ 平台介绍</a>
+    <a href="contact.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">📞 联系我们</a>
+    <a href="help.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">❓ 使用帮助</a>
+    <button onclick="this.parentElement.parentElement.classList.remove('active')" style="margin-top:20px;width:100%;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:1em">关闭菜单</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80')"></div><div class="slide-overlay"><div class="slide-tag">THEORETICAL MECHANICS</div><h2>探索力学之美<br>解析运动奥秘</h2><p>长沙理工大学理论力学研究平台，集知识学习、机构演示、智能问答于一体，<br>为工程力学教育提供全方位数字化支撑。</p><a href="mechanism.html" class="slide-cta">开始探索 →</a></div></div>
+    <div class="hero-slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=1920&q=80')"></div><div class="slide-overlay"><div class="slide-tag">INTERACTIVE DEMO</div><h2>交互式机构运动演示</h2><p>曲柄导杆 · 曲柄滑块 · 正弦机构 · 行星减速 · 连杆机构自动生成</p><a href="mechanism.html" class="slide-cta">立即体验 →</a></div></div>
+    <div class="hero-slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80')"></div><div class="slide-overlay"><div class="slide-tag">AI POWERED</div><h2>AI智能体 · 力学问答</h2><p>基于大语言模型的智能力学助教，随时解答您的理论力学疑问</p><a href="ai_qa.html" class="slide-cta">与AI对话 →</a></div></div>
+    <div class="hero-slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1920&q=80')"></div><div class="slide-overlay"><div class="slide-tag">KNOWLEDGE SYSTEM</div><h2>体系化知识框架</h2><p>从静力学到动力学，从质点系到刚体，构建完整的理论力学知识体系</p><a href="knowledge_framework.html" class="slide-cta">查看框架 →</a></div></div>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-arrows"><button onclick="prevSlide()">◀</button><button onclick="nextSlide()">▶</button></div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">理论力学习题</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">交互式机构演示</div></div>
+  <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">AI智能问答</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">大知识模块</div></div>
+</div>
+
+<!-- Features -->
+<section class="section" id="features">
+  <div class="section-header"><div class="section-tag">CORE MODULES</div><h2>平台核心功能</h2><div class="divider"></div><p>为理论力学学习与研究提供一站式数字化解决方案</p></div>
+  <div class="features-grid">
+    <a class="feature-card" href="questions.html"><div class="card-icon c1">📝</div><h3>理论力学题库</h3><p>涵盖静力学、运动学、动力学、分析力学四大模块，120+精选习题，按难度分级，支持智能组卷与自动批改。</p><span class="card-arrow">进入题库 →</span></a>
+    <a class="feature-card" href="mechanism.html"><div class="card-icon c2">⚙️</div><h3>机构运动演示</h3><p>4种交互式机构动画（导杆/滑块/正弦/行星减速）+ 手绘曲线自动生成四连杆机构。</p><span class="card-arrow">查看演示 →</span></a>
+    <a class="feature-card" href="ai_qa.html"><div class="card-icon c3">🤖</div><h3>AI智能体问答</h3><p>基于大语言模型的理论力学习题解答与概念讲解，支持公式识别与逐步推理。</p><span class="card-arrow">开始对话 →</span></a>
+    <a class="feature-card" href="knowledge_framework.html"><div class="card-icon c4">🧠</div><h3>知识框架梳理</h3><p>体系化的理论力学知识图谱，从基础概念到高级应用，帮助构建完整知识体系。</p><span class="card-arrow">查看框架 →</span></a>
+    <a class="feature-card" href="account.html"><div class="card-icon c5">👤</div><h3>个人学习中心</h3><p>记录学习进度、收藏重点题目、查看答题统计，个性化学习路径推荐。</p><span class="card-arrow">进入账户 →</span></a>
+    <a class="feature-card" href="personal_knowledge.html"><div class="card-icon c6">🕸️</div><h3>个人知识网络</h3><p>自主添加知识点并建立概念关联，沉淀属于自己的理论力学知识结构。</p><span class="card-arrow">开始构建 →</span></a>
+    <a class="feature-card" href="search.html"><div class="card-icon c6">🔍</div><h3>功能搜索</h3><p>全站知识内容检索，快速定位所需的理论力学知识点、习题与演示内容。</p><span class="card-arrow">搜索内容 →</span></a>
+  </div>
+</section>
+
+<!-- Question Bank Preview -->
+<section class="section">
+  <div class="section-header"><div class="section-tag">QUESTION BANK</div><h2>理论力学题库</h2><div class="divider"></div><p>覆盖静力学、运动学、动力学、分析力学四大核心领域</p></div>
+  <div class="preview-grid">
+    <div class="preview-card"><span class="diff medium">中等</span><h4>平面任意力系的平衡方程及其应用</h4><p>主矢、主矩的计算；平衡方程的三种形式；固定端约束反力。</p><div class="tags"><span>静力学</span><span>平面力系</span><span>平衡方程</span></div></div>
+    <div class="preview-card"><span class="diff hard">困难</span><h4>点的合成运动 — 科氏加速度分析</h4><p>动点动系选择；速度合成定理；牵连运动为转动时的加速度合成。</p><div class="tags"><span>运动学</span><span>合成运动</span><span>科氏加速度</span></div></div>
+    <div class="preview-card"><span class="diff easy">基础</span><h4>质点动力学基本方程与运动微分方程</h4><p>牛顿第二定律应用；直角坐标与自然坐标系下的运动微分方程建立。</p><div class="tags"><span>动力学</span><span>质点动力学</span><span>微分方程</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:32px"><a href="questions.html" style="color:var(--primary);font-weight:700;text-decoration:none;font-size:1.05em">查看全部题库 →</a></div>
+</section>
+
+<!-- Mechanism Demo Preview -->
+<section class="demo-section">
+  <div class="section-header"><div class="section-tag">INTERACTIVE DEMONSTRATION</div><h2>机构运动学 · 交互式演示</h2><div class="divider"></div><p>拖拽动点 | 滚轮缩放 | 按键切换机构 | 实时矢量显示</p></div>
+  <div style="text-align:center">
+    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="机构运动示意" style="max-width:600px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);opacity:0.8">
+  </div>
+  <div class="demo-link"><a href="mechanism.html">进入完整演示 →</a></div>
+</section>
+
+<!-- AI Preview -->
+<section class="section ai-section">
+  <div class="section-header"><div class="section-tag">AI ASSISTANT</div><h2>AI 智能体 · 力学问答</h2><div class="divider"></div><p>基于大语言模型的智能力学助教，随时解答理论力学疑问</p></div>
+  <div class="ai-preview">
+    <div class="ai-chat-header"><div class="ai-avatar">⚡</div><div><h4>理论力学AI助教</h4><small>在线 · 支持公式推理与逐步解答</small></div></div>
+    <div class="ai-chat-body">
+      <div class="ai-msg bot"><div class="msg-avatar">AI</div><div class="msg-bubble">您好！我是理论力学AI助教 🤖<br>我可以帮助您解答静力学、运动学、动力学问题，逐步推导公式和证明定理，解释力学概念和物理意义。</div></div>
+      <div class="ai-msg user"><div class="msg-avatar">我</div><div class="msg-bubble">请解释一下科氏加速度的物理意义？</div></div>
+      <div class="ai-msg bot"><div class="msg-avatar">AI</div><div class="msg-bubble"><strong>科氏加速度</strong>（Coriolis acceleration）的物理意义：当动点相对于转动参考系有相对运动时，由于牵连运动和相对运动的耦合而产生的一种附加加速度。<br><br><strong>公式：a𝒸 = 2ωₑ × vᵣ</strong><br><br>需要进一步说明吗？</div></div>
+    </div>
+    <div class="ai-chat-link"><a href="ai_qa.html">进入完整AI对话 →</a></div>
+  </div>
+</section>
+
+<!-- Knowledge Preview -->
+<section class="section">
+  <div class="section-header"><div class="section-tag">KNOWLEDGE FRAMEWORK</div><h2>理论力学知识框架</h2><div class="divider"></div><p>体系化梳理理论力学核心知识模块</p></div>
+  <div class="knowledge-preview">
+    <div class="knowledge-root">理论力学 · 知识体系</div>
+    <div class="knowledge-branches">
+      <a href="knowledge_framework.html" class="knowledge-branch" style="text-decoration:none;color:inherit"><h5>📐 静力学</h5><p style="font-size:0.78em;color:var(--text-light)">力与力矩的平衡</p><div class="branch-topics"><span>受力分析</span><span>平面力系</span><span>空间力系</span><span>摩擦</span><span>桁架</span></div></a>
+      <a href="knowledge_framework.html" class="knowledge-branch" style="text-decoration:none;color:inherit"><h5>🏃 运动学</h5><p style="font-size:0.78em;color:var(--text-light)">运动的几何描述</p><div class="branch-topics"><span>点的运动</span><span>刚体平动</span><span>刚体转动</span><span>平面运动</span><span>合成运动</span></div></a>
+      <a href="knowledge_framework.html" class="knowledge-branch" style="text-decoration:none;color:inherit"><h5>🚀 动力学</h5><p style="font-size:0.78em;color:var(--text-light)">力与运动的关系</p><div class="branch-topics"><span>质点动力学</span><span>三大定理</span><span>达朗贝尔原理</span><span>虚位移原理</span><span>拉格朗日方程</span></div></a>
+      <a href="knowledge_framework.html" class="knowledge-branch" style="text-decoration:none;color:inherit"><h5>🔬 分析力学</h5><p style="font-size:0.78em;color:var(--text-light)">高等力学方法</p><div class="branch-topics"><span>约束与广义坐标</span><span>虚功原理</span><span>达朗贝尔-拉格朗日原理</span><span>哈密顿原理</span></div></a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:32px"><a href="knowledge_framework.html" style="color:var(--primary);font-weight:700;text-decoration:none;font-size:1.05em">查看完整知识框架 →</a></div>
+</section>
+
+<!-- Forum Preview -->
+<section class="section">
+  <div class="section-header"><div class="section-tag">DISCUSSION FORUM</div><h2>问题探讨</h2><div class="divider"></div><p>理论力学学习交流社区，提问探讨、分享心得、共同进步</p></div>
+  <div class="forum-preview-grid">
+    <div class="forum-preview-main">
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#1a56db;">管</div><div class="fp-body"><div class="fp-title">【置顶】理论力学研究平台使用指南与常见问题汇总</div><div class="fp-meta"><span>👤 管理员</span><span>📅 05/20</span></div></div><div class="fp-stats has-new"><div class="fp-count">56</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#27ae60;">李</div><div class="fp-body"><div class="fp-title">科氏加速度的方向到底怎么判断？有没有简单的口诀？</div><div class="fp-meta"><span>👤 李同学</span><span>📅 05/24</span><span>🏷 运动学</span></div></div><div class="fp-stats has-new"><div class="fp-count">23</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#7c3aed;">张</div><div class="fp-body"><div class="fp-title">达朗贝尔原理和动静法到底有什么区别？</div><div class="fp-meta"><span>👤 张同学</span><span>📅 05/23</span><span>🏷 动力学</span></div></div><div class="fp-stats"><div class="fp-count">15</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#0d9488;">王</div><div class="fp-body"><div class="fp-title">分享一个我自己整理的虚位移原理解题思路</div><div class="fp-meta"><span>👤 王同学</span><span>📅 05/22</span><span>🏷 分析力学</span></div></div><div class="fp-stats has-new"><div class="fp-count">41</div><div class="fp-label">回复</div></div></a>
+    </div>
+    <div class="forum-preview-sidebar">
+      <a href="forum.html" class="forum-preview-btn">✏️ 发布新帖 / 查看更多</a>
+      <div class="fp-side-card">
+        <h4>🔥 今日热帖</h4>
+        <a href="forum.html" class="fp-hot-item"><span class="fp-hot-rank r1">1</span><span class="fp-hot-title">科氏加速度的方向判断口诀</span></a>
+        <a href="forum.html" class="fp-hot-item"><span class="fp-hot-rank r2">2</span><span class="fp-hot-title">虚位移原理解题思路分享</span></a>
+        <a href="forum.html" class="fp-hot-item"><span class="fp-hot-rank r3">3</span><span class="fp-hot-title">拉格朗日方程的优势讨论</span></a>
+        <a href="forum.html" class="fp-hot-item"><span class="fp-hot-rank">4</span><span class="fp-hot-title">期末复习重点与备考策略</span></a>
+        <a href="forum.html" class="fp-hot-item"><span class="fp-hot-rank">5</span><span class="fp-hot-title">达朗贝尔原理vs动静法</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>长沙理工大学 · 理论力学研究平台</h3><p>致力于为工程力学教育提供全方位数字化支撑。</p><p>集知识学习、机构演示、AI智能问答于一体，助力每一位力学学子的成长。</p><p style="margin-top:8px;font-size:0.8em">📍 湖南省长沙市天心区万家丽南路二段960号</p></div>
+    <div class="footer-col"><h4>学习资源</h4><a href="questions.html">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="ai_qa.html">AI智能问答</a></div>
+    <div class="footer-col"><h4>关于我们</h4><a href="about.html">平台介绍</a><a href="contact.html">联系我们</a><a href="forum.html">问题探讨</a><a href="help.html">使用帮助</a></div>
+    <div class="footer-col"><h4>更多</h4><a href="account.html">个人账户</a><a href="search.html">功能搜索</a><a href="feedback.html">意见反馈</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 长沙理工大学 工程力学系 · 理论力学研究平台 | 云塘校区</div>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Carousel
+let currentSlide=0;
+const slides=document.querySelectorAll('.hero-slide');
+const totalSlides=slides.length;
+const slidesContainer=document.getElementById('heroSlides');
+const dotsContainer=document.getElementById('heroDots');
+let carouselInterval;
+
+for(let i=0;i<totalSlides;i++){
+  const dot=document.createElement('button');
+  if(i===0) dot.className='active';
+  dot.addEventListener('click',()=>goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+function goToSlide(i){
+  currentSlide=i;
+  slidesContainer.style.transform=`translateX(-${currentSlide*100}%)`;
+  slides.forEach((s,j)=>s.classList.toggle('active',j===currentSlide));
+  document.querySelectorAll('.hero-dots button').forEach((d,j)=>d.classList.toggle('active',j===currentSlide));
+  resetTimer();
+}
+function nextSlide(){goToSlide((currentSlide+1)%totalSlides)}
+function prevSlide(){goToSlide((currentSlide-1+totalSlides)%totalSlides)}
+function resetTimer(){clearInterval(carouselInterval);carouselInterval=setInterval(nextSlide,5000)}
+
+let touchStartX=0;
+document.querySelector('.hero').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX});
+document.querySelector('.hero').addEventListener('touchend',e=>{
+  const diff=touchStartX-e.changedTouches[0].screenX;
+  if(Math.abs(diff)>50){if(diff>0)nextSlide();else prevSlide()}
+});
+
+carouselInterval=setInterval(nextSlide,5000);
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('topNav').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('backToTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识框架 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);--radius:12px;--transition:0.3s ease}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all var(--transition);position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+
+.page-header{background:linear-gradient(135deg,rgba(6,95,70,0.8),rgba(5,150,105,0.7)),url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80') center/cover no-repeat;color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+
+.container{max-width:1200px;margin:0 auto;padding:40px 24px}
+
+/* Knowledge tree */
+.ktree{display:flex;flex-direction:column;align-items:center;gap:0}
+.ktree-root{background:linear-gradient(135deg,var(--primary),#4f8cf7);color:#fff;padding:18px 40px;border-radius:30px;font-weight:800;font-size:1.2em;letter-spacing:2px;margin-bottom:40px;box-shadow:0 4px 20px rgba(26,86,219,0.3)}
+.ktree-level{display:flex;gap:18px;flex-wrap:nowrap;justify-content:center;margin-bottom:32px;position:relative}
+.ktree-level::before{content:'';position:absolute;top:-20px;left:50%;width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--primary),var(--primary),transparent);opacity:0.3}
+
+.ktree-module{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);flex:1 1 0;min-width:0;overflow:hidden;transition:all var(--transition)}
+.ktree-module:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.ktree-module-header{padding:18px 20px;color:#fff;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05em}
+.ktree-module-header.s1{background:linear-gradient(135deg,#1a56db,#3b82f6)}
+.ktree-module-header.s2{background:linear-gradient(135deg,#e67e22,#f59e0b)}
+.ktree-module-header.s3{background:linear-gradient(135deg,#dc2626,#ef4444)}
+.ktree-module-header.s4{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+a.ktree-module-header{text-decoration:none;cursor:pointer;transition:all var(--transition)}
+a.ktree-module-header:hover{filter:brightness(1.15);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+a.ktree-module-header::after{content:'→';margin-left:auto;font-size:1.1em;opacity:0;transition:all var(--transition)}
+a.ktree-module-header:hover::after{opacity:1;transform:translateX(4px)}
+.ktree-module-body{padding:18px 20px}
+.ktree-topic{margin-bottom:14px}
+.ktree-topic h5{font-size:0.9em;font-weight:700;margin-bottom:6px;color:var(--text);display:flex;align-items:center;gap:6px}
+.ktree-topic h5::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0}
+.ktree-topic .subtopics{display:flex;flex-wrap:wrap;gap:4px;padding-left:12px}
+.ktree-topic .subtopics span{font-size:0.7em;padding:2px 8px;background:var(--bg);border-radius:8px;color:var(--text-light);border:1px solid var(--border)}
+.ktopic-link{font-size:0.7em;padding:2px 8px;background:var(--bg);border-radius:8px;color:var(--primary);border:1px solid var(--primary);text-decoration:none;transition:all var(--transition);cursor:pointer}
+.ktopic-link:hover{background:var(--primary);color:#fff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(26,86,219,0.25)}
+.ktopic-link::after{content:' ↗';font-size:0.85em;opacity:0.7}
+
+/* Relations diagram */
+.relation-diagram{text-align:center;margin:40px 0;padding:32px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+.relation-diagram h3{margin-bottom:24px;font-size:1.3em}
+.relation-blocks{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center}
+.rel-block{padding:16px 28px;border-radius:12px;font-weight:700;font-size:1em;letter-spacing:1px}
+.rel-block.r1{background:#e8f0fe;color:var(--primary);border:2px solid var(--primary)}
+.rel-block.r2{background:#fef3e2;color:#e67e22;border:2px solid #e67e22}
+.rel-block.r3{background:#fde8e8;color:#dc2626;border:2px solid #dc2626}
+.rel-arrow{font-size:2em;color:var(--text-lighter);font-weight:bold}
+
+/* Study path */
+.study-path{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.path-step{background:var(--card-bg);border-radius:var(--radius);padding:24px 18px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow);transition:all var(--transition);position:relative}
+.path-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.path-step .step-num{width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1em;margin:0 auto 12px}
+.path-step h5{font-size:0.95em;font-weight:700;margin-bottom:6px}
+.path-step p{font-size:0.78em;color:var(--text-light);line-height:1.5}
+
+/* Core skills — force 5 in one row */
+.skills-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:20px}
+.skill-block{background:var(--card-bg);border-radius:var(--radius);padding:24px;border:1px solid var(--border);box-shadow:var(--shadow);text-align:center}
+.skill-block .skill-icon{font-size:2em;margin-bottom:8px}
+.skill-block h5{margin-bottom:6px}
+.skill-block p{font-size:0.8em;color:var(--text-light)}
+
+/* Interactive cards */
+.interact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+.interact-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;transition:all var(--transition)}
+.interact-card-header{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none;transition:background var(--transition);position:relative}
+.interact-card-header.vib{background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff}
+.interact-card-header.col{background:linear-gradient(135deg,#059669,#34d399);color:#fff}
+.interact-card-header:hover{filter:brightness(1.1)}
+.interact-card-header h4{font-size:1.05em;font-weight:700;margin:0}
+.interact-card-header small{opacity:0.85;font-size:0.78em}
+.interact-icon{font-size:2em;flex-shrink:0}
+.interact-arrow{font-size:1em;margin-left:auto;transition:transform var(--transition);flex-shrink:0}
+.interact-card.open .interact-arrow{transform:rotate(90deg)}
+.interact-card-body{display:none;padding:0 24px 24px;background:var(--card-bg)}
+.interact-card.open .interact-card-body{display:block}
+.interact-section{margin-top:18px}
+.interact-section h5{font-size:0.9em;font-weight:700;margin-bottom:10px;color:var(--text)}
+.interact-formula{display:flex;gap:12px;flex-wrap:wrap}
+.interact-formula.two-col .formula-card{flex:1;min-width:220px}
+.formula-card{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--border);flex:1;min-width:150px;text-align:center;transition:all var(--transition)}
+.formula-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.formula-card.highlight{border-color:#7c3aed;background:#f3e8ff}
+.formula-card .formula-title{font-size:0.72em;font-weight:700;color:var(--text-lighter);margin-bottom:6px;letter-spacing:0.5px;text-transform:uppercase}
+.formula-card .formula-text{font-size:0.95em;font-weight:700;color:var(--primary);font-family:'Courier New',monospace}
+.formula-card.highlight .formula-text{color:#7c3aed}
+.formula-card small{display:block;font-size:0.7em;color:var(--text-lighter);margin-top:4px}
+.interact-table{width:100%;border-collapse:collapse;font-size:0.82em;margin-top:4px}
+.interact-table th{background:var(--bg);padding:8px 12px;text-align:left;font-weight:700;color:var(--text);border-bottom:2px solid var(--border)}
+.interact-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-light)}
+.interact-table tr:hover td{background:#f8faff}
+
+@media(max-width:768px){
+  .interact-grid{grid-template-columns:1fr}
+  .interact-formula{flex-direction:column}
+  .interact-formula.two-col .formula-card{min-width:0}
+  .ktree-level{flex-wrap:wrap}
+  .ktree-module{flex:1 1 200px;min-width:0}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .study-path{grid-template-columns:repeat(2,1fr)}
+  .relation-blocks{flex-direction:column;gap:12px}
+  .rel-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-home">← 返回主页</a>
+
+<header class="page-header">
+  <h1>🧠 理论力学知识框架</h1>
+  <p>体系化梳理核心知识模块 · 构建完整力学知识体系</p>
+</header>
+
+<div class="container">
+
+  <!-- Relations -->
+  <div class="relation-diagram">
+    <h3>理论力学三大板块关系</h3>
+    <div class="relation-blocks">
+      <a href="textbooks/statics/textbook.html" class="rel-block r1" style="text-decoration:none;cursor:pointer;transition:all var(--transition)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">📐 静力学<br><small>力与力矩的平衡</small></a>
+      <div class="rel-arrow">→</div>
+      <a href="textbooks/kinematics/index.html" class="rel-block r2" style="text-decoration:none;cursor:pointer;transition:all var(--transition)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🏃 运动学<br><small>运动的几何描述</small></a>
+      <div class="rel-arrow">→</div>
+      <a href="textbooks/dynamics/index.html" class="rel-block r3" style="text-decoration:none;cursor:pointer;transition:all var(--transition)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🚀 动力学<br><small>力与运动的关系</small></a>
+    </div>
+    <p style="margin-top:16px;font-size:0.85em;color:var(--text-light)">动静法（达朗贝尔原理）将动力学问题转化为静力学形式，建立静力学与动力学的桥梁</p>
+  </div>
+
+  <!-- Knowledge Tree -->
+  <div class="ktree">
+    <div class="ktree-root">理论力学 · 知识体系</div>
+    <p style="text-align:center;font-size:0.8em;color:var(--text-lighter);margin-bottom:24px">💡 <strong>点击模块标题</strong>（如 <span style="color:var(--primary);font-weight:700">📐 第一篇：静力学 →</span>）可跳转到对应知识框架详细页面；蓝色标签 <span style="color:var(--primary);border:1px solid var(--primary);border-radius:6px;padding:1px 6px;font-size:0.9em">力的定义 ↗</span> 可跳转到详细知识框架中对应章节</p>
+
+    <div class="ktree-level">
+      <div class="ktree-module">
+        <a href="textbooks/statics/textbook.html" class="ktree-module-header s1" title="点击进入静力学知识框架">📐 第一篇：静力学</a>
+        <div class="ktree-module-body">
+          <div class="ktree-topic"><h5>力的基本概念</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m3" class="ktopic-link" title="跳转到：力的三要素与单位">力的定义与三要素</a><a href="textbooks/statics/textbook.html?target=m6" class="ktopic-link" title="跳转到：什么是刚体模型">刚体模型</a><a href="textbooks/statics/textbook.html?target=m12" class="ktopic-link" title="跳转到：力的可传性原理">力的可传性</a><a href="textbooks/statics/textbook.html?target=m31" class="ktopic-link" title="跳转到：静力学公理总览与学习地位">静力学公理</a></div></div>
+          <div class="ktree-topic"><h5>力的运算与简化</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m17" class="ktopic-link" title="跳转到：平面力的正交分解">力的分解与投影</a><a href="textbooks/statics/textbook.html?target=m21" class="ktopic-link" title="跳转到：什么是力矩">力矩与力臂</a><a href="textbooks/statics/textbook.html?target=m37" class="ktopic-link" title="跳转到：力的平移定理：内容与图解">力的平移定理</a></div></div>
+          <div class="ktree-topic"><h5>约束与受力分析</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m26" class="ktopic-link" title="跳转到：什么是力偶">力偶</a><a href="textbooks/statics/textbook.html?target=m27" class="ktopic-link" title="跳转到：约束与约束反力">约束类型</a><a href="textbooks/statics/textbook.html?target=m28" class="ktopic-link" title="跳转到：怎样画受力图">受力图画法</a></div></div>
+          <div class="ktree-topic"><h5>力系的平衡</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m51" class="ktopic-link" title="跳转到：平面任意力系的概念与分类">平面任意力系</a><a href="textbooks/statics/textbook.html?target=m56" class="ktopic-link" title="跳转到：空间力系的概念与空间力分解">空间力系</a><a href="textbooks/statics/textbook.html?target=m61" class="ktopic-link" title="跳转到：物体系平衡的概念与分析层次">物体系平衡</a><a href="textbooks/statics/textbook.html?target=m66" class="ktopic-link" title="跳转到：平面桁架基本假设与杆件轴力">平面桁架</a></div></div>
+          <div class="ktree-topic"><h5>摩擦</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m77" class="ktopic-link" title="跳转到：滑动摩擦的概念、分类与产生条件">滑动摩擦</a><a href="textbooks/statics/textbook.html?target=m82" class="ktopic-link" title="跳转到：摩擦角的定义与几何意义">摩擦角</a><a href="textbooks/statics/textbook.html?target=m87" class="ktopic-link" title="跳转到：自锁的概念与判断思路">自锁</a><a href="textbooks/statics/textbook.html?target=m92" class="ktopic-link" title="跳转到：滚动摩阻的概念与形成机理">滚动摩阻</a></div></div>
+        </div>
+      </div>
+
+      <div class="ktree-module">
+        <a href="textbooks/kinematics/index.html" class="ktree-module-header s2" title="点击进入运动学知识框架">🏃 第二篇：运动学</a>
+        <div class="ktree-module-body">
+          <div class="ktree-topic"><h5>点的运动学</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p1m1" class="ktopic-link" title="跳转到：矢量法">矢量法</a><a href="textbooks/kinematics/index.html?target=p1m2" class="ktopic-link" title="跳转到：直角坐标法">直角坐标法</a><a href="textbooks/kinematics/index.html?target=p1m3" class="ktopic-link" title="跳转到：自然法">自然法</a><a href="textbooks/kinematics/index.html?target=p1m4" class="ktopic-link" title="跳转到：切向/法向加速度">切向/法向加速度</a></div></div>
+          <div class="ktree-topic"><h5>刚体的基本运动</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p2m1" class="ktopic-link" title="跳转到：平动">平动</a><a href="textbooks/kinematics/index.html?target=p2m2" class="ktopic-link" title="跳转到：定轴转动">定轴转动</a><a href="textbooks/kinematics/index.html?target=p2m3" class="ktopic-link" title="跳转到：角速度/角加速度">角速度/角加速度</a></div></div>
+          <div class="ktree-topic"><h5>点的合成运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p3m1" class="ktopic-link" title="跳转到：动点/动系选择">动点/动系选择</a><a href="textbooks/kinematics/index.html?target=p3m2" class="ktopic-link" title="跳转到：速度合成">速度合成 vₐ=vₑ+vᵣ</a><a href="textbooks/kinematics/index.html?target=p3m3" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a><a href="textbooks/kinematics/index.html?target=p3m4" class="ktopic-link" title="跳转到：科氏加速度">科氏加速度</a></div></div>
+          <div class="ktree-topic"><h5>刚体平面运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p4m1" class="ktopic-link" title="跳转到：基点法">基点法</a><a href="textbooks/kinematics/index.html?target=p4m2" class="ktopic-link" title="跳转到：速度投影法">速度投影法</a><a href="textbooks/kinematics/index.html?target=p4m3" class="ktopic-link" title="跳转到：瞬心法">瞬心法</a><a href="textbooks/kinematics/index.html?target=p4m4" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a></div></div>
+        </div>
+      </div>
+
+      <div class="ktree-module">
+        <a href="textbooks/dynamics/index.html" class="ktree-module-header s3" title="点击进入动力学知识框架">🚀 第三篇：动力学</a>
+        <div class="ktree-module-body">
+          <div class="ktree-topic"><h5>质点动力学</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn1-1" class="ktopic-link" title="跳转到：牛顿第二定律">牛顿第二定律</a><a href="textbooks/dynamics/index.html?target=dyn1-2" class="ktopic-link" title="跳转到：运动微分方程">运动微分方程</a><a href="textbooks/dynamics/index.html?target=dyn1-3" class="ktopic-link" title="跳转到：两类问题">两类问题</a></div></div>
+          <div class="ktree-topic"><h5>动量定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn2-1" class="ktopic-link" title="跳转到：动量与冲量">动量与冲量</a><a href="textbooks/dynamics/index.html?target=dyn2-2" class="ktopic-link" title="跳转到：质心运动定理">质心运动定理</a><a href="textbooks/dynamics/index.html?target=dyn2-3" class="ktopic-link" title="跳转到：变质量系统">变质量系统</a></div></div>
+          <div class="ktree-topic"><h5>动量矩定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn3-1" class="ktopic-link" title="跳转到：转动惯量">转动惯量</a><a href="textbooks/dynamics/index.html?target=dyn3-2" class="ktopic-link" title="跳转到：定轴转动方程">定轴转动方程</a><a href="textbooks/dynamics/index.html?target=dyn3-3" class="ktopic-link" title="跳转到：平面运动微分方程">平面运动微分方程</a></div></div>
+          <div class="ktree-topic"><h5>动能定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn4-1" class="ktopic-link" title="跳转到：功与动能">功与动能</a><a href="textbooks/dynamics/index.html?target=dyn4-2" class="ktopic-link" title="跳转到：动能定理">动能定理</a><a href="textbooks/dynamics/index.html?target=dyn4-3" class="ktopic-link" title="跳转到：机械能守恒">机械能守恒</a><a href="textbooks/dynamics/index.html?target=dyn4-4" class="ktopic-link" title="跳转到：普遍定理综合">普遍定理综合</a></div></div>
+        </div>
+      </div>
+
+      <div class="ktree-module">
+        <a href="textbooks/analytical/index.html" class="ktree-module-header s4" title="点击进入分析力学知识框架">🔬 第四篇：分析力学</a>
+        <div class="ktree-module-body">
+          <div class="ktree-topic"><h5>达朗贝尔原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=inertia-force" class="ktopic-link" title="跳转到：惯性力">惯性力</a><a href="textbooks/analytical/index.html?target=kinetostatic" class="ktopic-link" title="跳转到：动静法">动静法</a><a href="textbooks/analytical/index.html?target=rigid-inertia-system" class="ktopic-link" title="跳转到：刚体惯性力系简化">刚体惯性力系简化</a></div></div>
+          <div class="ktree-topic"><h5>虚位移原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=constraints" class="ktopic-link" title="跳转到：约束分类">约束分类</a><a href="textbooks/analytical/index.html?target=virtual-displacement-work" class="ktopic-link" title="跳转到：虚位移/虚功">虚位移/虚功</a><a href="textbooks/analytical/index.html?target=ideal-constraint" class="ktopic-link" title="跳转到：理想约束">理想约束</a><a href="textbooks/analytical/index.html?target=generalized-force" class="ktopic-link" title="跳转到：广义力">广义力</a></div></div>
+          <div class="ktree-topic"><h5>拉格朗日方程</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=general-dynamics-equation" class="ktopic-link" title="跳转到：动力学普遍方程">动力学普遍方程</a><a href="textbooks/analytical/index.html?target=lagrange-second-kind" class="ktopic-link" title="跳转到：第二类拉格朗日方程">第二类拉格朗日方程</a><a href="textbooks/analytical/index.html?target=energy-integral" class="ktopic-link" title="跳转到：能量积分">能量积分</a><a href="textbooks/analytical/index.html?target=cyclic-integral" class="ktopic-link" title="跳转到：循环积分">循环积分</a></div></div>
+          <div class="ktree-topic"><h5>振动</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=sdof-free" class="ktopic-link" title="跳转到：单自由度系统自由振动">单自由度系统自由振动</a><a href="textbooks/analytical/index.html?target=sdof-forced" class="ktopic-link" title="跳转到：单自由度系统受迫振动">单自由度系统受迫振动</a><a href="textbooks/analytical/index.html?target=two-dof-vibration" class="ktopic-link" title="跳转到：两自由度系统振动">两自由度系统振动</a><a href="textbooks/analytical/index.html?target=multi-dof-vibration" class="ktopic-link" title="跳转到：多自由度系统（拓展）">多自由度系统</a><a href="textbooks/analytical/index.html?target=rigid-small-oscillation" class="ktopic-link" title="跳转到：刚体微幅振荡">刚体微幅振荡</a></div></div>
+          <div class="ktree-topic"><h5>碰撞</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=collision-concept" class="ktopic-link" title="跳转到：碰撞概念">碰撞概念</a><a href="textbooks/analytical/index.html?target=particle-collision" class="ktopic-link" title="跳转到：质点碰撞">质点碰撞</a><a href="textbooks/analytical/index.html?target=rigid-collision" class="ktopic-link" title="跳转到：刚体碰撞">刚体碰撞</a><a href="textbooks/analytical/index.html?target=collision-energy" class="ktopic-link" title="跳转到：碰撞能量">碰撞能量</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mind Map Promo -->
+  <a href="mindmap.html" style="display:block;margin:40px 0 12px;padding:36px 40px;
+    background:linear-gradient(135deg,#0a0e1a 0%,#111b38 30%,#1a1040 60%,#0d1628 100%);
+    border-radius:20px;text-decoration:none;position:relative;overflow:hidden;
+    border:1px solid rgba(124,58,237,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.3),0 0 0 1px rgba(167,139,250,0.08);
+    transition:all 0.4s ease;cursor:pointer"
+    onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 56px rgba(124,58,237,0.25),0 0 0 1px rgba(167,139,250,0.2)'"
+    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 40px rgba(0,0,0,0.3),0 0 0 1px rgba(167,139,250,0.08)'">
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:0.6">
+      <div style="position:absolute;width:4px;height:4px;border-radius:50%;background:#3b82f6;top:20%;left:15%;animation:float1 4s ease-in-out infinite"></div>
+      <div style="position:absolute;width:6px;height:6px;border-radius:50%;background:#a78bfa;top:60%;left:85%;animation:float2 5s ease-in-out infinite"></div>
+      <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:#f59e0b;top:75%;left:25%;animation:float3 3.5s ease-in-out infinite"></div>
+      <div style="position:absolute;width:5px;height:5px;border-radius:50%;background:#ef4444;top:30%;left:70%;animation:float1 4.5s ease-in-out infinite 1s"></div>
+      <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:#60a5fa;top:15%;left:55%;animation:float2 3s ease-in-out infinite 0.5s"></div>
+      <div style="position:absolute;width:4px;height:4px;border-radius:50%;background:#c4b5fd;top:50%;left:10%;animation:float3 5.5s ease-in-out infinite 1.5s"></div>
+    </div>
+    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:0.15" viewBox="0 0 1000 140" preserveAspectRatio="none">
+      <line x1="150" y1="30" x2="480" y2="80" stroke="#3b82f6" stroke-width="0.8"/>
+      <line x1="850" y1="90" x2="480" y2="80" stroke="#a78bfa" stroke-width="0.8"/>
+      <line x1="250" y1="100" x2="480" y2="80" stroke="#f59e0b" stroke-width="0.8"/>
+      <line x1="700" y1="25" x2="480" y2="80" stroke="#ef4444" stroke-width="0.8"/>
+      <circle cx="480" cy="80" r="28" fill="none" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+      <circle cx="480" cy="80" r="45" fill="none" stroke="rgba(167,139,250,0.15)" stroke-width="0.5"/>
+    </svg>
+    <div style="position:relative;z-index:1;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;
+        background:linear-gradient(135deg,rgba(124,58,237,0.3),rgba(167,139,250,0.15));
+        border:2px solid rgba(167,139,250,0.4);display:flex;align-items:center;justify-content:center;
+        box-shadow:0 0 40px rgba(124,58,237,0.25)">
+        <span style="font-size:2.4em">🧠</span>
+      </div>
+      <div style="flex:1;min-width:200px">
+        <h3 style="font-size:1.5em;font-weight:800;color:#fff;margin:0 0 6px;letter-spacing:1px">
+          <span style="background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">全知识体系 · 思维导图</span>
+        </h3>
+        <p style="font-size:0.9em;color:#94a3b8;margin:0 0 4px;line-height:1.6">
+          由主干到枝干由内向外分散排布 · 四大部分近百个知识节点 · 点击节点展开细节 · 叶子节点直达详细知识框架
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+          <span style="font-size:0.68em;padding:3px 10px;border-radius:10px;background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.25)">📐 静力学</span>
+          <span style="font-size:0.68em;padding:3px 10px;border-radius:10px;background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.25)">🏃 运动学</span>
+          <span style="font-size:0.68em;padding:3px 10px;border-radius:10px;background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25)">🚀 动力学</span>
+          <span style="font-size:0.68em;padding:3px 10px;border-radius:10px;background:rgba(167,139,250,0.15);color:#c4b5fd;border:1px solid rgba(167,139,250,0.25)">🔬 分析力学</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0">
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:14px 28px;
+          background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border-radius:25px;
+          font-weight:800;font-size:1em;letter-spacing:1px;box-shadow:0 6px 24px rgba(124,58,237,0.4);
+          transition:all 0.3s ease">进入导图 →</span>
+      </div>
+    </div>
+  </a>
+  <style>
+    @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-15px)}}
+    @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-18px,12px)}}
+    @keyframes float3{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,18px)}}
+  </style>
+
+  <!-- Study Path -->
+  <h3 style="text-align:center;margin-top:48px;margin-bottom:24px;font-size:1.4em">📋 推荐学习路径</h3>
+  <div class="study-path">
+    <div class="path-step"><div class="step-num">1</div><h5>静力学基础</h5><p>受力分析 → 力系简化 → 平衡方程 → 摩擦</p></div>
+    <div class="path-step"><div class="step-num">2</div><h5>运动学</h5><p>点的运动 → 刚体运动 → 合成运动 → 平面运动</p></div>
+    <div class="path-step"><div class="step-num">3</div><h5>动力学</h5><p>质点动力学 → 三大定理 → 综合应用</p></div>
+    <div class="path-step"><div class="step-num">4</div><h5>分析力学</h5><p>动静法 → 虚位移原理 → 拉格朗日方程 → 振动 → 碰撞</p></div>
+  </div>
+
+  <!-- Core Skills -->
+  <h3 style="text-align:center;margin-top:48px;margin-bottom:24px;font-size:1.4em">⭐ 五大核心能力</h3>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-icon">📝</div>
+      <h5>画受力图</h5>
+      <p>静力学一切分析的前提，约束类型与反力方向的准确判断</p>
+    </div>
+    <div class="skill-block">
+      <div class="skill-icon">⚖️</div>
+      <h5>列平衡方程</h5>
+      <p>平面与空间力系求解，整体法与分离体法的灵活运用</p>
+    </div>
+    <div class="skill-block">
+      <div class="skill-icon">🔄</div>
+      <h5>合成运动分析</h5>
+      <p>速度与加速度合成定理的熟练应用，科氏加速度计算</p>
+    </div>
+    <div class="skill-block">
+      <div class="skill-icon">📐</div>
+      <h5>平面运动求解</h5>
+      <p>基点法/瞬心法/投影法三种求速度方法的灵活选用</p>
+    </div>
+    <div class="skill-block">
+      <div class="skill-icon">⚡</div>
+      <h5>三大定理综合</h5>
+      <p>动量定理、动量矩定理、动能定理的联合应用求解复杂问题</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleCard(cardId) {
+  var card = document.getElementById(cardId);
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>

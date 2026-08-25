@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "user_id": "u_101",
+  "conversations": [
+    {
+      "id": "conv_1785509878854",
+      "user_id": "u_101",
+      "title": "功与能",
+      "created_at": "2026-07-31T22:59:23",
+      "updated_at": "2026-07-31T22:59:25",
+      "metadata": {}
+    },
+    {
+      "id": "conv_1785509312244",
+      "user_id": "u_101",
+      "title": "科氏加速度",
+      "created_at": "2026-07-31T22:49:04",
+      "updated_at": "2026-07-31T22:49:05",
+      "metadata": {}
+    }
+  ],
+  "messages": [
+    {
+      "id": "local_conv_1785509312244_0",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "role": "assistant",
+      "content": "您好！我是理论力学AI智能助教 🤖我可以帮助您：📐 解答问题：静力学、运动学、动力学、分析力学📝 逐步推导：公式证明、定理推导、解题过程💡 概念讲解：力学概念的物理意义与工程应用🔬 机构分析：运动学特性、速度加速度计算🔌 AI增强模式：在上方API设置中输入密钥，保存后即可启用🌐 联网搜索：超出知识库的问题可一键跳转搜索引擎请随时向我提问！",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:49:04"
+    },
+    {
+      "id": "local_conv_1785509312244_1",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "role": "user",
+      "content": "科氏加速度",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:49:04"
+    },
+    {
+      "id": "local_conv_1785509312244_2",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "role": "assistant",
+      "content": "🧠 AI思考过程（点击展开）【问题核心】科氏加速度是理论力学中牵连运动为转动时，动点相对运动与牵连转动相互耦合产生的附加加速度，属于点的复合运动分析范畴。【关键概念】牵连角速度 ωe​、相对速度 vr​、科氏加速度 aC​=2ωe​×vr​，以及其与牵连加速度、相对加速度的矢量合成关系。【回答思路】首先从加速度合成定理出发，说明科氏加速度产生的条件；然后给出其定义式、大小和方向判定；接着解释其物理本质（参考系旋转引起的速度方向变化和位置变化耦合）；最后结合工程实例说明其应用与影响。",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:49:05"
+    },
+    {
+      "id": "local_conv_1785509312244_3",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "role": "assistant",
+      "content": "一、核心概念科氏加速度（Coriolis acceleration）是点的复合运动中，当牵连运动为转动时，动点因具有相对速度 vr​ 而额外获得的一项加速度。它由法国工程师科里奥利（G.G. Coriolis）于1835年首次提出，是理论力学中牵连运动与相对运动相互耦合的典型体现。在加速度合成定理中，当牵连运动为平动时，动点的绝对加速度为aa​=ae​+ar​但当牵连运动为转动时，上式不再成立，必须补充科氏加速度项：aa​=ae​+ar​+aC​二、公式推导1. 速度合成与加速度合成设动系 O′x′y′z′ 以角速度 ωe​ 绕定轴转动，动点 M 在动系中的位置矢量为 r′，相对速度为 vr​=dtdr′​​rel​。速度合成定理（牵连运动为转动时）：va​=ve​+vr​=ωe​×r′+vr​对时间求绝对导数，利用泊松公式 dtdi​=ωe​×i（i 为动系单位矢量），可得：aa​=牵连加速度 ae​dtdωe​​×r′+ωe​×(ωe​×r′)​​+相对加速度 ar​dtdvr​​​rel​​​+科氏加速度 aC​2ωe​×vr​​​2. 科氏加速度定义式aC​=2ωe​×vr​​大小：aC​=2ωe​vr​sinθ其中 θ 为 ωe​ 与 vr​ 之间的夹角。方向：由右手定则确定——四指从 ωe​ 转向 vr​（取小于 180∘ 的角），拇指指向即为 aC​ 方向。3. 产生条件科氏加速度仅在同时满足以下两个条件时存在：牵连运动为转动（ωe​=0）；动点相对动系有相对运动（vr​=0），且 vr​ 不平行于 ωe​。若牵连运动为平动，或 vr​∥ωe​，则 aC​=0。三、物理意义科氏加速度的物理本质可从两个层面理解：相对速度方向的变化：动系转动使相对速度 vr​ 的方向在惯性空间中不断改变，产生一部分加速度；牵连速度的变化：动点因相对运动改变了其在动系中的位置，导致牵连速度 ωe​×r′ 发生变化，产生另一部分加速度。这两部分效应各贡献 ωe​×vr​，合计为 2ωe​×vr​。注意：科氏加速度是绝对加速度的组成部分，它并非真实力产生的加速度，而是惯性力（科氏力 FC​=−2mωe​×vr​）在非惯性系中的体现。四、工程应用| 应用领域 | 具体表现 ||---------|---------|| 地球自转 | 北半球河流右岸冲刷严重、信风偏转、傅科摆摆动平面旋转 || 导弹制导 | 远程弹道导弹需修正科氏力引起的横向偏差 || 旋转机械 | 汽轮机叶片、离心压缩机中气流相对叶轮运动产生科氏力，影响叶片强度 || 流量测量 | 科里奥利质量流量计利用振动管中流体产生的科氏力测量质量流量 || 陀螺仪 | 振动式陀螺仪利用科氏效应敏感角速度 |典型例题：地球表面纬度为 φ 处，一物体以速度 v 沿水平方向运动。地球自转角速度 ω=7.27×10−5rad/s，则科氏加速度大小为aC​=2ωvsinφ当 v=100m/s、φ=45∘ 时，aC​≈1.03×10−2m/s2，虽数值微小，但长时间累积可产生显著偏转。总结：科氏加速度是牵连转动与相对运动耦合的产物，其公式 aC​=2ωe​×vr​ 简洁而深刻，在航空航天、地球物理、精密测量等领域具有广泛而重要的应用。🌐 在搜索引擎中查看更多相关资料 →☆ 收藏🧩 跨领域相关知识🏃 运动学点的合成运动🔗 科氏加速度是加速度合成定理的核心项🏃 运动学相对运动🔗 动系转动时相对运动产生科氏加速度🏃 运动学速度瞬心🔗 瞬心随时间移动涉及科氏效应🏃 运动学刚体定点转动🔗 陀螺进动涉及科氏加速度的宏观表现📌 跳转至详细模块：→ 点的合成运动→ 相对运动→ 速度瞬心→ 刚体定点转动📷 M9: 刚体的运动效应初步认识📷 M54: 点的加速度合成与科氏加速度📖 电子课本参考：📖 M9 刚体的运动效应初步认识📖 M54 点的加速度合成与科氏加速度🖼️ 模块图表预览（点击放大）：🗂️ 浏览关联模块图表（2个有图）M9M54",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:49:05"
+    },
+    {
+      "id": "local_conv_1785509878854_0",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "assistant",
+      "content": "您好！我是理论力学AI智能助教 🤖我可以帮助您：📐 解答问题：静力学、运动学、动力学、分析力学📝 逐步推导：公式证明、定理推导、解题过程💡 概念讲解：力学概念的物理意义与工程应用🔬 机构分析：运动学特性、速度加速度计算🔌 AI增强模式：在上方API设置中输入密钥，保存后即可启用🌐 联网搜索：超出知识库的问题可一键跳转搜索引擎请随时向我提问！",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_1",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "user",
+      "content": "功与能",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_2",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "assistant",
+      "content": "🧠 AI思考过程（点击展开）【问题核心】本题属于理论力学中的动力学普遍定理部分，核心是理解功与能的概念及其相互关系，以及动能定理、势能、机械能守恒定律的适用条件。【关键概念】功（力在位移上的累积效应）、动能（物体因运动而具有的能量）、势能（物体因位置或形变而具有的能量）、机械能守恒（动能与势能之和在特定条件下保持不变）。【回答思路】首先明确功和能的定义及量纲，然后推导质点动能定理，引出势能概念，最后讨论机械能守恒定律的条件，并说明其在工程中的应用。",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_3",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "assistant",
+      "content": "【问题核心】本题属于理论力学中的动力学普遍定理部分，核心是理解功与能的概念及其相互关系，以及动能定理、势能、机械能守恒定律的适用条件。【关键概念】功（力在位移上的累积效应）、动能（物体因运动而具有的能量）、势能（物体因位置或形变而具有的能量）、机械能守恒（动能与势能之和在特定条件下保持不变）。【回答思路】首先明确功和能的定义及量纲，然后推导质点动能定理，引出势能概念，最后讨论机械能守恒定律的条件，并说明其在工程中的应用。功与能1. 核心概念功（Work）：力对物体作用的空间累积效应，定义为力与位移的点积。功是过程量，与路径有关。动能（Kinetic Energy）：物体因机械运动而具有的能量，T=21​mv2，是状态量。势能（Potential Energy）：物体因在保守力场中的位置或自身形变而具有的能量，如重力势能 V=mgh，弹性势能 V=21​kx2。势能是状态量，仅对保守力有定义。机械能（Mechanical Energy）：动能与势能之和 E=T+V。关联：功是能量转化的量度。外力对系统做功，将改变系统的机械能（或转化为其他形式的能）。动能定理将功与动能变化联系起来，而机械能守恒定律则揭示了在特定条件下动能与势能的相互转化。2. 公式推导（1）质点的动能定理设质量为 m 的质点，在合力 F 作用下，沿曲线从位置 M1​ 运动到 M2​。由牛顿第二定律 F=ma=mdtdv​，两边点乘位移 dr=vdt：F⋅dr=mdtdv​⋅vdt=mv⋅dv注意到 d(21​mv2)=21​md(v⋅v)=mv⋅dv，因此：δW=F⋅dr=d(21​mv2)沿路径积分，得到质点动能定理：W12​=∫M1​M2​​F⋅dr=21​mv22​−21​mv12​=T2​−T1​物理意义：合力对质点所做的功等于质点动能的增量。功是能量变化的量度。（2）势能与保守力若力 F 是保守力（做功与路径无关，只与起止位置有关），则可引入势能函数 V(x,y,z)，满足：F=−∇V=−(∂x∂V​i+∂y∂V​j+∂z∂V​k)此时，保守力做功等于势能减少量：W12cons​=V1​−V2​=−(V2​−V1​)（3）机械能守恒定律若质点只受保守力作用（或非保守力做功为零），则动能定理可写为：T2​−T1​=W12cons​=V1​−V2​整理得：T1​+V1​=T2​+V2​即机械能守恒：E=T+V=常量为什么成立？ 因为保守力做功与路径无关，其效果仅改变动能与势能之间的分配，而总机械能保持不变。若存在非保守力（如摩擦力），则 W12non−cons​=(T2​+V2​)−(T1​+V1​)=0，机械能不守恒，部分机械能转化为内能。3. 物理意义功是过程量，能是状态量：功描述力在空间上的累积效应，而动能和势能描述物体在某一时刻的机械运动状态。动能定理的普适性：无论力是保守力还是非保守力，动能定理均成立，它给出了力对空间累积效果与运动状态变化之间的定量关系。机械能守恒的条件：系统内只有保守力做功（或非保守力做功总和为零）。这是自然界能量守恒与转化定律在机械运动中的特例。4. 工程应用机构动力学分析：在曲柄连杆机构、凸轮机构中，利用动能定理可求解在已知外力作用下构件的角速度变化，避免复杂的加速度分析。冲击与碰撞问题：汽车碰撞安全设计中，通过计算碰撞前后的动能差，估算吸能结构的变形能，指导缓冲装置设计。振动系统分析：单自由度弹簧-质量系统，利用机械能守恒可直接写出运动方程 T+V=const，进而求出固有频率 ωn​=k/m​。能量法求解：在结构力学中，虚功原理和能量法（如卡氏定理）是求解复杂结构位移和内力分布的重要工具，其理论基础正是功与能的相互关系。总结：功与能是理论力学中联系力与运动状态的桥梁。动能定理给出了功与动能变化的定量关系，势能概念揭示了保守力场的特性，而机械能守恒定律则提供了解决动力学问题的简便途径——当满足守恒条件时，无需积分加速度，直接由初末状态即可求解速度或位置。🌐 在搜索引擎中查看更多相关资料 →☆ 收藏🧩 跨领域相关知识⚡ 动力学动能定理🔗 功和能的核心定理⚡ 动力学功率与效率🔗 功率=功/时间，效率=有用功/总功⚖️ 静力学摩擦力🔗 摩擦力的功恒为负，导致能量损失📌 跳转至详细模块：→ 动能定理→ 功率与效率→ 摩擦力📷 M2: 力的定义与作用效果📷 M61: 动能定理与机械能守恒📖 电子课本参考：📖 M2 力的定义与作用效果📖 M61 动能定理与机械能守恒🖼️ 模块图表预览（点击放大）：🗂️ 浏览关联模块图表（2个有图）M2M61",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_4",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "user",
+      "content": "功率与效率",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_5",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "assistant",
+      "content": "🧠 AI思考过程（点击展开）【问题核心】本题属于理论力学中动力学普遍定理的应用，核心是区分功率（做功快慢）与效率（能量利用比例）两个概念。【关键概念】功率（瞬时功率 P=F⋅v 或 P=Mω）、机械效率（η=P输出​/P输入​）、功与能转化。【回答思路】先给出功率的力学定义与计算式，再引入效率的定义并说明其与功率的关系，最后通过工程实例说明两者的区别与联系。",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:24"
+    },
+    {
+      "id": "local_conv_1785509878854_6",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "role": "assistant",
+      "content": "一、功率（Power）1. 定义 功率是描述力（或力矩）做功快慢的物理量，即单位时间内所做的功。2. 一般表达式 对于质点或刚体，若力 F 作用点速度为 v，则瞬时功率为 P=dtdW​=F⋅v对于转动刚体，若力矩为 M，角速度为 ω，则 P=Mω3. 物理意义 功率是标量，但可正可负。P>0 表示力对物体做正功（输入能量），P<0 表示物体克服阻力做功（输出能量）。功率反映能量转化的速率，与功的大小无直接关系——做功多不一定功率大，还要看时间。二、效率（Efficiency）1. 定义 效率是机械或系统输出的有用功率与输入总功率之比，表示能量利用的有效程度：η=P输入​P输出​​=P总​P有用​​由于摩擦、发热等不可避免的损耗，实际中恒有 0<η<1。2. 与功率的关系 效率是无量纲比值，不随时间变化（对稳态系统而言），而功率是有量纲的速率量。 两者通过能量守恒联系：P输入​=P输出​+P损耗​，故 η=1−P输入​P损耗​​3. 串联系统的总效率 若多个机械依次串联，总效率为各级效率之积：η总​=η1​⋅η2​⋯ηn​这说明每增加一级传动，总效率会显著下降。三、工程应用与辨析例1：电动机提升重物 电动机输入电功率 P电​=UI 输出机械功率 P机​=Fv=mgv 效率 η=UImgv​ 若电机功率大但效率低，则大量能量以热形式损耗；反之，效率高但功率小则提升速度慢。功率决定能力上限，效率决定经济性。例2：汽车爬坡 发动机输出功率 P=Fv，爬坡需增大牵引力 F，故需降低车速 v（功率一定时）。 传动系统效率越低，同样功率下实际驱动力越小，爬坡能力下降。关键区别总结 | 概念 | 物理量类型 | 单位 | 关注点 ||------|-----------|------|--------|| 功率 | 速率量 | W（瓦特） | 做功快慢 || 效率 | 比值（无量纲） | 无 | 能量利用程度 |结论：功率描述“多快”做功，效率描述“多省”能量。二者独立又关联——提高效率可在不增加输入功率的情况下增大有用功率输出。🌐 在搜索引擎中查看更多相关资料 →☆ 收藏🧩 跨领域相关知识⚡ 动力学动能定理🔗 功率方程是动能定理的微分形式⚡ 动力学功与能🔗 功率是功的时间变化率⚖️ 静力学摩擦力🔗 摩擦是功率损耗的主要原因📌 跳转至详细模块：→ 动能定理→ 功与能→ 摩擦力📷 M2: 力的定义与作用效果📖 电子课本参考：📖 M2 力的定义与作用效果🖼️ 模块图表预览（点击放大）：🗂️ 浏览关联模块图表（1个有图）M2",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:59:25"
+    }
+  ],
+  "learning_events": [],
+  "concepts": [
+    {
+      "id": "concept_19fb8a69ad1_de736eb5",
+      "concept_key": "coriolis_acceleration",
+      "name": "科氏加速度",
+      "type": "CONCEPT",
+      "confidence": 1,
+      "source_message_ids": [
+        "local_conv_1785509312244_1"
+      ],
+      "created_at": "2026-07-31T22:49:14",
+      "updated_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "concept_19fb8a69ad1_e4c84338",
+      "concept_key": "acceleration_composition_theorem",
+      "name": "加速度合成定理",
+      "type": "CONCEPT",
+      "confidence": 0.8,
+      "source_message_ids": [
+        "local_conv_1785509312244_2",
+        "local_conv_1785509312244_3"
+      ],
+      "created_at": "2026-07-31T22:49:14",
+      "updated_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "concept_19fb8a69ad1_d9b74b7a",
+      "concept_key": "relative_motion",
+      "name": "相对运动",
+      "type": "CONCEPT",
+      "confidence": 0.7,
+      "source_message_ids": [
+        "local_conv_1785509312244_2",
+        "local_conv_1785509312244_3"
+      ],
+      "created_at": "2026-07-31T22:49:14",
+      "updated_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "concept_19fb8a69ad1_d5624deb",
+      "concept_key": "transport_motion",
+      "name": "牵连运动",
+      "type": "CONCEPT",
+      "confidence": 0.7,
+      "source_message_ids": [
+        "local_conv_1785509312244_2",
+        "local_conv_1785509312244_3"
+      ],
+      "created_at": "2026-07-31T22:49:14",
+      "updated_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "concept_19fbabc545f_9e7f5fab",
+      "concept_key": "work",
+      "name": "功",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_3"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "concept_19fbabc5460_aa7ebc3d",
+      "concept_key": "kinetic_energy",
+      "name": "动能",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_3"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "concept_19fbabc5460_0d90d420",
+      "concept_key": "potential_energy",
+      "name": "势能",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_3"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "concept_19fbabc5460_af485325",
+      "concept_key": "mechanical_energy_conservation",
+      "name": "机械能守恒",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_3"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "concept_19fbabc5460_cb6fec23",
+      "concept_key": "power",
+      "name": "功率",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_4",
+        "local_conv_1785509878854_6"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "concept_19fbabc5460_a887e5fd",
+      "concept_key": "efficiency",
+      "name": "效率",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509878854_4",
+        "local_conv_1785509878854_6"
+      ],
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:32:12"
+    }
+  ],
+  "concept_relations": [
+    {
+      "id": "relation_19fb8a69ad1_65dbab02",
+      "source_concept_id": "coriolis_acceleration",
+      "target_concept_id": "acceleration_composition_theorem",
+      "relation_type": "APPLIES_TO",
+      "description": "科氏加速度是加速度合成定理中牵连运动为转动时的附加项。",
+      "confidence": 0.9,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509312244",
+      "created_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "relation_19fb8a69ad1_5dc60e30",
+      "source_concept_id": "coriolis_acceleration",
+      "target_concept_id": "relative_motion",
+      "relation_type": "RELATED_TO",
+      "description": "科氏加速度依赖于动点的相对速度。",
+      "confidence": 0.9,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509312244",
+      "created_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "relation_19fb8a69ad1_85176cda",
+      "source_concept_id": "coriolis_acceleration",
+      "target_concept_id": "transport_motion",
+      "relation_type": "RELATED_TO",
+      "description": "科氏加速度仅在牵连运动为转动时存在。",
+      "confidence": 0.9,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509312244",
+      "created_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "relation_19fbabc5460_b29eee49",
+      "source_concept_id": "work",
+      "target_concept_id": "kinetic_energy",
+      "relation_type": "RELATED_TO",
+      "description": "动能定理将功与动能变化联系起来",
+      "confidence": 0.95,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509878854",
+      "created_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "relation_19fbabc5460_68204dc8",
+      "source_concept_id": "potential_energy",
+      "target_concept_id": "mechanical_energy_conservation",
+      "relation_type": "PREREQUISITE_OF",
+      "description": "势能概念是机械能守恒定律的基础",
+      "confidence": 0.9,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509878854",
+      "created_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "relation_19fbabc5460_ce408be1",
+      "source_concept_id": "work",
+      "target_concept_id": "power",
+      "relation_type": "RELATED_TO",
+      "description": "功率是功的时间变化率",
+      "confidence": 0.95,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509878854",
+      "created_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "relation_19fbabc5460_3c9523dc",
+      "source_concept_id": "power",
+      "target_concept_id": "efficiency",
+      "relation_type": "RELATED_TO",
+      "description": "效率通过功率关系定义：η=P_有用/P_总",
+      "confidence": 0.95,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509878854",
+      "created_at": "2026-08-01T08:32:12"
+    }
+  ],
+  "user_thoughts": [
+    {
+      "id": "thought_19fb8a69ad1_573fb991",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "content": "用户询问“科氏加速度”，表明对该主题感兴趣或需要帮助。",
+      "thought_type": "explicit",
+      "source_message_ids": [
+        "local_conv_1785509312244_1"
+      ],
+      "confidence": 0.9,
+      "created_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "thought_19fbabc5460_35e35fd4",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "content": "用户主动询问“功与能”主题",
+      "thought_type": "explicit",
+      "source_message_ids": [
+        "local_conv_1785509878854_1"
+      ],
+      "confidence": 1,
+      "created_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "thought_19fbabc5460_c8ad34a5",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "content": "用户主动询问“功率与效率”主题",
+      "thought_type": "explicit",
+      "source_message_ids": [
+        "local_conv_1785509878854_4"
+      ],
+      "confidence": 1,
+      "created_at": "2026-08-01T08:32:12"
+    },
+    {
+      "id": "thought_19fbabc5460_63bdb100",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "content": "用户可能正在学习理论力学中动力学普遍定理部分",
+      "thought_type": "inferred",
+      "source_message_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_4"
+      ],
+      "confidence": 0.6,
+      "created_at": "2026-08-01T08:32:12"
+    }
+  ],
+  "misconceptions": [],
+  "user_concept_states": [
+    {
+      "id": "state_19fb8a69ad1_d1ae6674",
+      "user_id": "u_101",
+      "concept_id": null,
+      "conversation_id": "conv_1785509312244",
+      "ability_type": "concept_understanding",
+      "mastery_level": "unknown",
+      "evidence_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "incorrect_count": 0,
+      "hint_count": 0,
+      "evidence_ids": [
+        "local_conv_1785509312244_1"
+      ],
+      "confidence": 0.5,
+      "last_updated_at": "2026-07-31T22:49:14"
+    },
+    {
+      "id": "state_19fbabc5460_602c29c2",
+      "user_id": "u_101",
+      "concept_id": null,
+      "conversation_id": "conv_1785509878854",
+      "ability_type": "concept_understanding",
+      "mastery_level": "unknown",
+      "evidence_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "incorrect_count": 0,
+      "hint_count": 0,
+      "evidence_ids": [
+        "local_conv_1785509878854_1",
+        "local_conv_1785509878854_4"
+      ],
+      "confidence": 0.5,
+      "last_updated_at": "2026-08-01T08:32:12"
+    }
+  ],
+  "learning_notes": [
+    {
+      "id": "note_19fbabc5460_f4d32915",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509878854",
+      "title": "功与能、功率与效率学习记录",
+      "markdown_content": "## 学习笔记\n\n### 核心结论\n- **功**：力对物体作用的空间累积效应，是过程量，与路径有关。\n- **动能**：物体因机械运动而具有的能量，T=1/2 mv²，是状态量。\n- **势能**：物体因在保守力场中的位置或形变而具有的能量，仅对保守力有定义。\n- **机械能守恒**：系统内只有保守力做功时，动能与势能之和保持不变。\n- **功率**：描述做功快慢的物理量，P=F·v 或 P=Mω。\n- **效率**：有用功率与输入总功率之比，η=P_有用/P_总，恒小于1。\n\n### 用户原话\n- “功与能”\n- “功率与效率”\n\n### 待验证问题\n- 用户是否理解动能定理的推导过程？\n- 用户是否能够区分保守力与非保守力？\n- 用户是否掌握功率与效率在实际问题中的应用？\n\n### 下一步建议\n- 通过具体例题（如滑块沿斜面下滑、汽车爬坡）检验用户对动能定理和功率计算的应用能力。\n- 询问用户是否理解机械能守恒的适用条件。",
+      "structured_content": {
+        "title": "功与能、功率与效率学习记录",
+        "summary": "用户先后询问了“功与能”和“功率与效率”两个主题，AI助手提供了详细的理论讲解、公式推导、物理意义和工程应用示例。用户未提出具体问题或展示解题过程，仅进行了概念性提问。",
+        "markdown_content": "## 学习笔记\n\n### 核心结论\n- **功**：力对物体作用的空间累积效应，是过程量，与路径有关。\n- **动能**：物体因机械运动而具有的能量，T=1/2 mv²，是状态量。\n- **势能**：物体因在保守力场中的位置或形变而具有的能量，仅对保守力有定义。\n- **机械能守恒**：系统内只有保守力做功时，动能与势能之和保持不变。\n- **功率**：描述做功快慢的物理量，P=F·v 或 P=Mω。\n- **效率**：有用功率与输入总功率之比，η=P_有用/P_总，恒小于1。\n\n### 用户原话\n- “功与能”\n- “功率与效率”\n\n### 待验证问题\n- 用户是否理解动能定理的推导过程？\n- 用户是否能够区分保守力与非保守力？\n- 用户是否掌握功率与效率在实际问题中的应用？\n\n### 下一步建议\n- 通过具体例题（如滑块沿斜面下滑、汽车爬坡）检验用户对动能定理和功率计算的应用能力。\n- 询问用户是否理解机械能守恒的适用条件。",
+        "concepts": [
+          {
+            "concept_key": "work",
+            "name": "功",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_3"
+            ]
+          },
+          {
+            "concept_key": "kinetic_energy",
+            "name": "动能",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_3"
+            ]
+          },
+          {
+            "concept_key": "potential_energy",
+            "name": "势能",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_3"
+            ]
+          },
+          {
+            "concept_key": "mechanical_energy_conservation",
+            "name": "机械能守恒",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_3"
+            ]
+          },
+          {
+            "concept_key": "power",
+            "name": "功率",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_4",
+              "local_conv_1785509878854_6"
+            ]
+          },
+          {
+            "concept_key": "efficiency",
+            "name": "效率",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509878854_4",
+              "local_conv_1785509878854_6"
+            ]
+          }
+        ],
+        "concept_relations": [
+          {
+            "source_concept_key": "work",
+            "target_concept_key": "kinetic_energy",
+            "relation_type": "RELATED_TO",
+            "description": "动能定理将功与动能变化联系起来",
+            "confidence": 0.95
+          },
+          {
+            "source_concept_key": "potential_energy",
+            "target_concept_key": "mechanical_energy_conservation",
+            "relation_type": "PREREQUISITE_OF",
+            "description": "势能概念是机械能守恒定律的基础",
+            "confidence": 0.9
+          },
+          {
+            "source_concept_key": "work",
+            "target_concept_key": "power",
+            "relation_type": "RELATED_TO",
+            "description": "功率是功的时间变化率",
+            "confidence": 0.95
+          },
+          {
+            "source_concept_key": "power",
+            "target_concept_key": "efficiency",
+            "relation_type": "RELATED_TO",
+            "description": "效率通过功率关系定义：η=P_有用/P_总",
+            "confidence": 0.95
+          }
+        ],
+        "user_thoughts": [
+          {
+            "type": "explicit",
+            "content": "用户主动询问“功与能”主题",
+            "confidence": 1,
+            "source_message_ids": [
+              "local_conv_1785509878854_1"
+            ]
+          },
+          {
+            "type": "explicit",
+            "content": "用户主动询问“功率与效率”主题",
+            "confidence": 1,
+            "source_message_ids": [
+              "local_conv_1785509878854_4"
+            ]
+          },
+          {
+            "type": "inferred",
+            "content": "用户可能正在学习理论力学中动力学普遍定理部分",
+            "confidence": 0.6,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_4"
+            ]
+          }
+        ],
+        "misconceptions": [],
+        "ability_evidence": [
+          {
+            "ability_type": "concept_understanding",
+            "result": "unknown",
+            "confidence": 0.5,
+            "source_message_ids": [
+              "local_conv_1785509878854_1",
+              "local_conv_1785509878854_4"
+            ]
+          }
+        ],
+        "suggested_actions": [
+          {
+            "type": "micro_practice",
+            "title": "动能定理应用练习",
+            "reason": "通过具体例题检验用户对动能定理的理解和应用能力"
+          },
+          {
+            "type": "micro_practice",
+            "title": "功率计算练习",
+            "reason": "通过具体计算题检验用户对功率公式的掌握程度"
+          },
+          {
+            "type": "ask_ai_followup",
+            "title": "询问机械能守恒条件",
+            "reason": "确认用户是否理解机械能守恒的适用条件"
+          }
+        ]
+      },
+      "version": 1,
+      "status": "confirmed",
+      "created_at": "2026-08-01T08:32:12",
+      "updated_at": "2026-08-01T08:36:31"
+    },
+    {
+      "id": "note_19fb8a69ad1_7b234a8a",
+      "user_id": "u_101",
+      "conversation_id": "conv_1785509312244",
+      "title": "科氏加速度概念学习",
+      "markdown_content": "## 核心结论\n- 科氏加速度是点的复合运动中，当牵连运动为转动且动点有相对运动时产生的附加加速度。\n- 公式：\\( a_C = 2\\omega_e \\times v_r \\)，大小 \\( a_C = 2\\omega_e v_r \\sin\\theta \\)，方向由右手定则确定。\n- 产生条件：牵连运动为转动（\\(\\omega_e \\neq 0\\)），且相对速度 \\(v_r\\) 不平行于 \\(\\omega_e\\)。\n- 物理本质：相对速度方向变化和牵连速度变化两部分效应的耦合。\n- 应用：地球自转、导弹制导、旋转机械、科里奥利流量计、陀螺仪等。\n\n## 用户原话\n- “科氏加速度”\n\n## 待验证问题\n- 用户对科氏加速度的具体疑问（如公式推导、方向判断、应用场景）尚未明确。\n- 用户是否掌握加速度合成定理的基础（牵连运动平动时的合成）未知。\n\n## 下一步\n- 建议用户提出具体例题或疑问，以便针对性讲解。\n- 可练习科氏加速度方向判断和大小计算。",
+      "structured_content": {
+        "title": "科氏加速度概念学习",
+        "summary": "用户询问科氏加速度，助手详细讲解了科氏加速度的定义、公式推导、物理意义、产生条件及工程应用，并提供了典型例题。用户仅提出主题，未展示具体问题或解答过程。",
+        "markdown_content": "## 核心结论\n- 科氏加速度是点的复合运动中，当牵连运动为转动且动点有相对运动时产生的附加加速度。\n- 公式：\\( a_C = 2\\omega_e \\times v_r \\)，大小 \\( a_C = 2\\omega_e v_r \\sin\\theta \\)，方向由右手定则确定。\n- 产生条件：牵连运动为转动（\\(\\omega_e \\neq 0\\)），且相对速度 \\(v_r\\) 不平行于 \\(\\omega_e\\)。\n- 物理本质：相对速度方向变化和牵连速度变化两部分效应的耦合。\n- 应用：地球自转、导弹制导、旋转机械、科里奥利流量计、陀螺仪等。\n\n## 用户原话\n- “科氏加速度”\n\n## 待验证问题\n- 用户对科氏加速度的具体疑问（如公式推导、方向判断、应用场景）尚未明确。\n- 用户是否掌握加速度合成定理的基础（牵连运动平动时的合成）未知。\n\n## 下一步\n- 建议用户提出具体例题或疑问，以便针对性讲解。\n- 可练习科氏加速度方向判断和大小计算。",
+        "concepts": [
+          {
+            "concept_key": "coriolis_acceleration",
+            "name": "科氏加速度",
+            "confidence": 1,
+            "source_message_ids": [
+              "local_conv_1785509312244_1"
+            ]
+          },
+          {
+            "concept_key": "acceleration_composition_theorem",
+            "name": "加速度合成定理",
+            "confidence": 0.8,
+            "source_message_ids": [
+              "local_conv_1785509312244_2",
+              "local_conv_1785509312244_3"
+            ]
+          },
+          {
+            "concept_key": "relative_motion",
+            "name": "相对运动",
+            "confidence": 0.7,
+            "source_message_ids": [
+              "local_conv_1785509312244_2",
+              "local_conv_1785509312244_3"
+            ]
+          },
+          {
+            "concept_key": "transport_motion",
+            "name": "牵连运动",
+            "confidence": 0.7,
+            "source_message_ids": [
+              "local_conv_1785509312244_2",
+              "local_conv_1785509312244_3"
+            ]
+          }
+        ],
+        "concept_relations": [
+          {
+            "source_concept_key": "coriolis_acceleration",
+            "target_concept_key": "acceleration_composition_theorem",
+            "relation_type": "APPLIES_TO",
+            "description": "科氏加速度是加速度合成定理中牵连运动为转动时的附加项。",
+            "confidence": 0.9
+          },
+          {
+            "source_concept_key": "coriolis_acceleration",
+            "target_concept_key": "relative_motion",
+            "relation_type": "RELATED_TO",
+            "description": "科氏加速度依赖于动点的相对速度。",
+            "confidence": 0.9
+          },
+          {
+            "source_concept_key": "coriolis_acceleration",
+            "target_concept_key": "transport_motion",
+            "relation_type": "RELATED_TO",
+            "description": "科氏加速度仅在牵连运动为转动时存在。",
+            "confidence": 0.9
+          }
+        ],
+        "user_thoughts": [
+          {
+            "type": "explicit",
+            "content": "用户询问“科氏加速度”，表明对该主题感兴趣或需要帮助。",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509312244_1"
+            ]
+          }
+        ],
+        "misconceptions": [],
+        "ability_evidence": [
+          {
+            "ability_type": "concept_understanding",
+            "result": "unknown",
+            "confidence": 0.5,
+            "source_message_ids": [
+              "local_conv_1785509312244_1"
+            ]
+          }
+        ],
+        "suggested_actions": [
+          {
+            "type": "ask_ai_followup",
+            "title": "请用户提出具体问题或例题",
+            "reason": "用户仅给出主题，需要明确其具体疑惑点，以便针对性辅导。"
+          },
+          {
+            "type": "micro_practice",
+            "title": "练习科氏加速度方向判断",
+            "reason": "科氏加速度方向容易混淆，建议通过典型例题巩固。"
+          }
+        ]
+      },
+      "version": 1,
+      "status": "confirmed",
+      "created_at": "2026-07-31T22:49:14",
+      "updated_at": "2026-08-01T08:33:18"
+    }
+  ],
+  "weaknesses": [],
+  "updated_at": "2026-08-01T08:36:31"
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fbfdff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.4;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:4;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:4;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="16" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="42" class="t h">第3页拓展：可传性与平移定理的边界</text>
+<circle cx="145" cy="185" r="48" fill="#f4f9ff" stroke="#2d6fb7" stroke-width="3"/>
+<line x1="70" y1="185" x2="230" y2="185" class="arrR"/><text x="235" y="190" class="t s">同一作用线移动</text>
+<rect x="70" y="260" width="210" height="54" rx="12" class="green"/><text x="175" y="294" text-anchor="middle" class="t xs">可传性：不需附加力偶</text>
+<circle cx="520" cy="185" r="48" fill="#f4f9ff" stroke="#2d6fb7" stroke-width="3"/>
+<line x1="470" y1="150" x2="610" y2="105" class="arrR"/>
+<line x1="520" y1="185" x2="640" y2="185" class="arrB"/><path d="M565 210 A38 38 0 1 1 535 155" class="arrB"/>
+<rect x="410" y="260" width="260" height="54" rx="12" class="warn"/><text x="540" y="294" text-anchor="middle" class="t xs">任意点平移：需附加力偶</text>
+<text x="110" y="355" class="t xs">解题技巧：先判断是否仍在同一作用线上；不在同一作用线就不能只用可传性。</text>
+
+</svg>

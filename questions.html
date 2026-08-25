@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理论力学题库 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root {
+  --primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;
+  --accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;
+  --text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;
+  --shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+  --radius:12px;--radius-sm:8px;--transition:0.3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all var(--transition);position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
+
+.page-header{background:linear-gradient(135deg,rgba(13,59,158,0.78),rgba(26,86,219,0.7)),url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80') center/cover no-repeat;color:#fff;padding:80px 32px 48px;text-align:center}
+.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
+.page-header p{opacity:0.9;font-size:1.05em}
+
+.container{max-width:1240px;margin:0 auto;padding:40px 24px}
+
+/* Filter bar */
+.filter-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 24px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:28px;border:1px solid var(--border)}
+.filter-bar select,.filter-bar input{padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:0.9em;font-family:inherit;outline:none;background:var(--bg)}
+.filter-bar select:focus,.filter-bar input:focus{border-color:var(--primary)}
+.filter-bar input{flex:1;min-width:200px}
+.filter-bar .filter-tag{padding:8px 16px;border-radius:20px;font-size:0.85em;cursor:pointer;border:1px solid var(--border);background:#fff;transition:all var(--transition);font-family:inherit}
+.filter-tag:hover,.filter-tag.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.filter-bar .btn-upload{padding:10px 22px;border-radius:20px;font-size:0.85em;cursor:pointer;border:none;background:linear-gradient(135deg,#e67e22,#f0a030);color:#fff;font-weight:600;transition:all var(--transition);font-family:inherit;margin-left:auto}
+.filter-bar .btn-upload:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(230,126,34,0.3)}
+
+/* Question cards */
+.question-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.question-card{background:var(--card-bg);border-radius:var(--radius);padding:28px;border:1px solid var(--border);transition:all var(--transition);cursor:pointer}
+.question-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.question-card .q-number{font-size:0.75em;color:var(--primary);font-weight:700;letter-spacing:1px;margin-bottom:8px}
+.question-card h3{font-size:1.05em;font-weight:700;margin-bottom:10px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
+.question-card .q-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.q-diff{font-size:0.72em;font-weight:700;padding:4px 12px;border-radius:12px;letter-spacing:0.5px}
+.q-diff.easy{background:#e6f7ec;color:#27ae60}
+.q-diff.medium{background:#fef3e2;color:#e67e22}
+.q-diff.hard{background:#fde8e8;color:#e74c3c}
+.q-tag{font-size:0.72em;padding:3px 10px;background:var(--bg);border-radius:10px;color:var(--text-lighter);border:1px solid var(--border)}
+.q-stats{font-size:0.78em;color:var(--text-lighter);margin-left:auto}
+.empty-state{text-align:center;padding:60px;color:var(--text-lighter);grid-column:1/-1}
+.empty-state p{font-size:1.1em;margin-bottom:8px}
+
+/* Stats panel */
+.stats-panel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.stat-card{background:var(--card-bg);border-radius:var(--radius);padding:20px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.stat-card .stat-val{font-size:2em;font-weight:800;color:var(--primary)}
+.stat-card .stat-lbl{font-size:0.82em;color:var(--text-lighter);margin-top:4px}
+
+/* Detail modal overlay */
+.modal-overlay{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity var(--transition)}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-dialog{background:#fff;border-radius:var(--radius);width:92%;max-width:800px;max-height:88vh;overflow-y:auto;padding:0;box-shadow:0 20px 60px rgba(0,0,0,0.3);display:flex;flex-direction:column}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:10;border-radius:var(--radius) var(--radius) 0 0}
+.modal-header .modal-q-title{font-size:0.9em;color:var(--text-light);font-weight:600;flex:1;margin-right:16px}
+.modal-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:1.2em;display:flex;align-items:center;justify-content:center;transition:all var(--transition);flex-shrink:0}
+.modal-close:hover{background:#fde8e8;border-color:#e74c3c;color:#e74c3c}
+.modal-body{padding:24px;flex:1;overflow-y:auto}
+.modal-footer{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 24px;border-top:1px solid var(--border);font-size:0.78em;color:var(--text-lighter);position:sticky;bottom:0;background:#fff;border-radius:0 0 var(--radius) var(--radius)}
+
+/* Content blocks in detail modal */
+.detail-content{margin-bottom:20px;line-height:1.8;font-size:0.95em}
+.detail-figure{text-align:center;margin-bottom:20px}
+.detail-figure img{max-width:100%;max-height:320px;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.detail-divider{height:1px;background:var(--border);margin:20px 0}
+.reveal-section{display:none;margin-top:16px}
+.reveal-section.visible{display:block}
+.btn-reveal{display:inline-block;padding:10px 28px;border-radius:20px;font-size:0.9em;font-weight:600;cursor:pointer;border:none;transition:all var(--transition);font-family:inherit;letter-spacing:0.5px}
+.btn-reveal.btn-answer{background:var(--primary);color:#fff}
+.btn-reveal.btn-answer:hover{background:var(--primary-dark)}
+.btn-reveal.btn-explain{background:#27ae60;color:#fff}
+.btn-reveal.btn-explain:hover{background:#1e8449}
+.answer-content{background:#fef9f0;border-left:3px solid var(--accent);padding:16px 20px;border-radius:0 8px 8px 0;line-height:1.8;font-size:0.92em;margin-top:12px}
+.explain-content{background:#f0faf4;border-left:3px solid #27ae60;padding:16px 20px;border-radius:0 8px 8px 0;line-height:1.8;font-size:0.92em;margin-top:12px}
+
+/* Upload modal */
+.upload-modal{width:92%;max-width:700px}
+.upload-body{padding:24px;overflow-y:auto;max-height:65vh}
+.form-row{display:flex;gap:16px;flex-wrap:wrap}
+.form-group{flex:1;min-width:200px;margin-bottom:16px}
+.form-group label{display:block;font-size:0.85em;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group label .req{color:#e74c3c}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:0.9em;font-family:inherit;outline:none;transition:border-color var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary)}
+.form-group textarea{min-height:90px;resize:vertical}
+.form-group .char-count{font-size:0.72em;color:var(--text-lighter);text-align:right;margin-top:2px}
+.kp-checkboxes{display:flex;flex-wrap:wrap;gap:6px}
+.kp-checkboxes label{display:flex;align-items:center;gap:4px;font-size:0.82em;font-weight:400;cursor:pointer;padding:4px 12px;border:1px solid var(--border);border-radius:14px;transition:all var(--transition);background:#fff}
+.kp-checkboxes input:checked+span{color:var(--primary)}
+.kp-checkboxes label:has(input:checked){background:var(--primary-light);border-color:var(--primary)}
+.form-group input[type=file]{padding:8px;font-size:0.82em}
+.img-preview{max-width:200px;max-height:120px;border-radius:6px;border:1px solid var(--border);margin-top:8px;display:none}
+
+/* Delete button on cards */
+.card-delete-btn{position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;border:1px solid transparent;background:transparent;color:var(--text-lighter);font-size:1.1em;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--transition);z-index:5;line-height:1}
+.card-delete-btn:hover{background:#fde8e8;border-color:#e74c3c;color:#e74c3c}
+.question-card{position:relative}
+.modal-delete-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:1em;display:flex;align-items:center;justify-content:center;transition:all var(--transition);flex-shrink:0;margin-right:8px}
+.modal-delete-btn:hover{background:#fde8e8;border-color:#e74c3c;color:#e74c3c}
+
+/* Image upload in form fields */
+.img-insert-btn{display:inline-block;padding:5px 14px;border-radius:14px;font-size:0.78em;cursor:pointer;border:1px dashed var(--border);background:var(--bg);color:var(--text-light);transition:all var(--transition);font-family:inherit;margin-top:6px}
+.img-insert-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
+.field-img-previews{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.field-img-preview{position:relative;display:inline-block}
+.field-img-preview img{max-width:140px;max-height:100px;border-radius:6px;border:1px solid var(--border)}
+.field-img-preview .img-remove{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:#e74c3c;color:#fff;border:none;cursor:pointer;font-size:0.7em;display:flex;align-items:center;justify-content:center;line-height:1}
+
+/* Pagination */
+.pagination{display:flex;gap:6px;justify-content:center;align-items:center;padding:28px 0 8px}
+.pagination button{width:34px;height:34px;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);cursor:pointer;font-size:0.85em;color:var(--text);transition:all var(--transition);font-family:inherit}
+.pagination button:hover{border-color:var(--primary);color:var(--primary)}
+.pagination button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.pagination button:disabled{opacity:0.4;cursor:default;pointer-events:none}
+.pagination .ellipsis{color:var(--text-lighter);font-size:0.8em;padding:0 2px}
+
+@media(max-width:768px){
+  .question-grid{grid-template-columns:1fr}
+  .stats-panel{grid-template-columns:repeat(2,1fr)}
+  .filter-bar{flex-direction:column}
+  .filter-bar .btn-upload{margin-left:0;width:100%}
+  .form-row{flex-direction:column}
+  .page-header{padding:70px 16px 24px}
+  .page-header h1{font-size:1.5em}
+  .container{padding:16px 10px}
+  .back-home{padding:8px 14px;font-size:0.78em;top:8px;left:8px}
+}
+@media(max-width:480px){
+  .stats-panel{grid-template-columns:1fr}
+  .page-header{padding:56px 12px 18px}
+  .page-header h1{font-size:1.2em}
+  .container{padding:10px 6px}
+  .question-card{padding:12px}
+  .question-card h3{font-size:0.9em}
+  .question-card p{font-size:0.78em}
+  .filter-bar input,.filter-bar select{padding:8px 10px;font-size:0.78em}
+  .modal-content{width:95%;padding:16px}
+  .stat-card{padding:12px}
+  .stat-card .stat-num{font-size:1.4em}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-home">← 返回主页</a>
+
+<header class="page-header">
+  <h1>📝 理论力学题库</h1>
+  <p>涵盖静力学 · 运动学 · 动力学 · 分析力学 | <span id="totalCount">--</span> 精选习题</p>
+</header>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-panel">
+    <div class="stat-card"><div class="stat-val" id="statTotal">--</div><div class="stat-lbl">总题量</div></div>
+    <div class="stat-card"><div class="stat-val" id="statModules">--</div><div class="stat-lbl">知识模块</div></div>
+    <div class="stat-card"><div class="stat-val">3</div><div class="stat-lbl">难度等级</div></div>
+    <div class="stat-card"><div class="stat-val" id="statKP">--</div><div class="stat-lbl">核心知识点</div></div>
+  </div>
+
+  <!-- Filter -->
+  <div class="filter-bar">
+    <input type="text" placeholder="🔍 搜索题目、知识点…" id="qSearch" oninput="filterQuestions()">
+    <select id="qModule" onchange="filterQuestions()">
+      <option value="all">全部模块</option>
+      <option value="静力学">静力学</option>
+      <option value="运动学">运动学</option>
+      <option value="动力学">动力学</option>
+      <option value="分析力学">分析力学</option>
+    </select>
+    <select id="qDifficulty" onchange="filterQuestions()">
+      <option value="all">全部难度</option>
+      <option value="easy">基础</option>
+      <option value="medium">中等</option>
+      <option value="hard">困难</option>
+    </select>
+    <select id="qKP" onchange="filterQuestions()">
+      <option value="all">全部知识点</option>
+    </select>
+    <button class="filter-tag" onclick="resetFilter()">重置筛选</button>
+    <button class="btn-upload" onclick="openUploadModal()">✏️ 上传新题</button>
+  </div>
+
+  <!-- Questions -->
+  <div class="question-grid" id="questionGrid"></div>
+  <div class="pagination" id="questionPagination"></div>
+
+</div>
+
+<!-- ====== Question Detail Modal ====== -->
+<div class="modal-overlay" id="detailOverlay" onclick="closeDetail(event)">
+  <div class="modal-dialog" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-q-title" id="modalTitle">题目综述</div>
+      <button class="modal-delete-btn" id="modalDeleteBtn" onclick="deleteQuestionFromModal()" title="删除此题">🗑</button>
+      <button class="modal-close" onclick="closeDetailDirect()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<!-- ====== Upload Modal ====== -->
+<div class="modal-overlay" id="uploadOverlay" onclick="closeUpload(event)">
+  <div class="modal-dialog upload-modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-q-title">✏️ 上传新题目</div>
+      <button class="modal-close" onclick="closeUploadDirect()">✕</button>
+    </div>
+    <div class="upload-body">
+      <div class="form-group" style="border:2px dashed transparent;border-radius:8px;padding:8px;transition:all 0.2s" ondrop="handleDrop(event,'upContent','upContentPreviews')" ondragover="event.preventDefault();this.style.borderColor='#3b82f6';this.style.background='#f0f7ff'" ondragleave="this.style.borderColor='';this.style.background=''">
+        <label><span class="req">*</span> 题目内容（文字或图片）<span style="font-weight:400;font-size:0.8em;color:#8899aa;margin-left:8px">📥 拖拽图片上传</span></label>
+        <textarea id="upContent" placeholder="输入题目完整描述，可包含文字说明…"></textarea>
+        <input type="file" id="upContentImgInput" accept=".jpg,.jpeg,.png,.gif,.webp" style="display:none" onchange="insertImageToField('upContent','upContentImgInput','upContentPreviews')">
+        <button type="button" class="img-insert-btn" onclick="document.getElementById('upContentImgInput').click()">🖼 插入图片</button>
+        <div class="field-img-previews" id="upContentPreviews"></div>
+        <input type="hidden" id="upContentImgs" value="">
+      </div>
+      <div class="form-group">
+        <label>题目图例（图片）</label>
+        <input type="file" id="upFigure" accept=".jpg,.jpeg,.png,.pdf" onchange="previewFigure(this)">
+        <img class="img-preview" id="figurePreview">
+      </div>
+      <div class="form-group">
+        <label><span class="req">*</span> 题目所涵盖知识点（可多选）</label>
+        <div class="kp-checkboxes" id="kpCheckboxes">
+          <label><input type="checkbox" value="受力分析"><span>受力分析</span></label>
+          <label><input type="checkbox" value="平衡方程"><span>平衡方程</span></label>
+          <label><input type="checkbox" value="平面力系"><span>平面力系</span></label>
+          <label><input type="checkbox" value="空间力系"><span>空间力系</span></label>
+          <label><input type="checkbox" value="摩擦"><span>摩擦</span></label>
+          <label><input type="checkbox" value="桁架"><span>桁架</span></label>
+          <label><input type="checkbox" value="点的运动学"><span>点的运动学</span></label>
+          <label><input type="checkbox" value="刚体平动"><span>刚体平动</span></label>
+          <label><input type="checkbox" value="刚体转动"><span>刚体转动</span></label>
+          <label><input type="checkbox" value="平面运动"><span>平面运动</span></label>
+          <label><input type="checkbox" value="合成运动"><span>合成运动</span></label>
+          <label><input type="checkbox" value="科氏加速度"><span>科氏加速度</span></label>
+          <label><input type="checkbox" value="速度瞬心"><span>速度瞬心</span></label>
+          <label><input type="checkbox" value="质点动力学"><span>质点动力学</span></label>
+          <label><input type="checkbox" value="动量定理"><span>动量定理</span></label>
+          <label><input type="checkbox" value="动量矩定理"><span>动量矩定理</span></label>
+          <label><input type="checkbox" value="动能定理"><span>动能定理</span></label>
+          <label><input type="checkbox" value="碰撞"><span>碰撞</span></label>
+          <label><input type="checkbox" value="达朗贝尔原理"><span>达朗贝尔原理</span></label>
+          <label><input type="checkbox" value="虚位移原理"><span>虚位移原理</span></label>
+          <label><input type="checkbox" value="拉格朗日方程"><span>拉格朗日方程</span></label>
+          <label><input type="checkbox" value="哈密顿原理"><span>哈密顿原理</span></label>
+          <label><input type="checkbox" value="振动"><span>振动</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label><span class="req">*</span> 题目所属模块</label><select id="upModule"><option value="">请选择</option><option value="静力学">静力学</option><option value="运动学">运动学</option><option value="动力学">动力学</option><option value="分析力学">分析力学</option></select></div>
+        <div class="form-group"><label><span class="req">*</span> 题目难度</label><select id="upDifficulty"><option value="">请选择</option><option value="easy">基础</option><option value="medium">中等</option><option value="hard">困难</option></select></div>
+      </div>
+      <div class="form-group" style="border:2px dashed transparent;border-radius:8px;padding:8px;transition:all 0.2s" ondrop="handleDrop(event,'upAnswer','upAnswerPreviews')" ondragover="event.preventDefault();this.style.borderColor='#3b82f6';this.style.background='#f0f7ff'" ondragleave="this.style.borderColor='';this.style.background=''"><label><span class="req">*</span> 答案<span style="font-weight:400;font-size:0.8em;color:#8899aa;margin-left:8px">📥 拖拽图片上传</span></label><textarea id="upAnswer" placeholder="输入标准答案，支持HTML格式…"></textarea>
+        <input type="file" id="upAnswerImgInput" accept=".jpg,.jpeg,.png,.gif,.webp" style="display:none" onchange="insertImageToField('upAnswer','upAnswerImgInput','upAnswerPreviews')">
+        <button type="button" class="img-insert-btn" onclick="document.getElementById('upAnswerImgInput').click()">🖼 插入图片</button>
+        <div class="field-img-previews" id="upAnswerPreviews"></div>
+        <input type="hidden" id="upAnswerImgs" value="">
+      </div>
+      <div class="form-group" style="border:2px dashed transparent;border-radius:8px;padding:8px;transition:all 0.2s" ondrop="handleDrop(event,'upExplanation','upExplanationPreviews')" ondragover="event.preventDefault();this.style.borderColor='#3b82f6';this.style.background='#f0f7ff'" ondragleave="this.style.borderColor='';this.style.background=''"><label><span class="req">*</span> 题目解析<span style="font-weight:400;font-size:0.8em;color:#8899aa;margin-left:8px">📥 拖拽图片上传</span></label><textarea id="upExplanation" placeholder="输入详细解析…"></textarea>
+        <input type="file" id="upExplanationImgInput" accept=".jpg,.jpeg,.png,.gif,.webp" style="display:none" onchange="insertImageToField('upExplanation','upExplanationImgInput','upExplanationPreviews')">
+        <button type="button" class="img-insert-btn" onclick="document.getElementById('upExplanationImgInput').click()">🖼 插入图片</button>
+        <div class="field-img-previews" id="upExplanationPreviews"></div>
+        <input type="hidden" id="upExplanationImgs" value="">
+      </div>
+    </div>
+    <div style="padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn-reveal" style="background:#fff;border:1px solid var(--border);color:var(--text)" onclick="closeUploadDirect()">取消</button>
+      <button class="btn-reveal btn-answer" onclick="submitUpload()">提交题目</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== Data Loading ====================
+const DATA_BASE = 'qdata/';
+let allQuestions = [];
+let currentDetailId = null;
+let currentPage = 1;
+let PER_PAGE = 20;
+let currentFilteredQuestions = [];
+
+async function loadQuestions() {
+  allQuestions = [];
+  // 1) Load from static qdata files
+  try {
+    const resp = await fetch(DATA_BASE + 'index.json?_=' + Date.now());
+    if (resp.ok) {
+      const indexData = await resp.json();
+      const promises = (indexData.questions||[]).map(async (q) => {
+        try {
+          const dr = await fetch(DATA_BASE + q.id + '/data.json?_=' + Date.now());
+          if (dr.ok) return await dr.json();
+        } catch(e) {}
+        return {...q, content:'', figure:'', answer:'', explanation:''};
+      });
+      allQuestions = await Promise.all(promises);
+    }
+  } catch(e) {}
+  // 2) Load from Netlify API (cloud-synced questions)
+  try {
+    const apiResp = await fetch('/api/list?_=' + Date.now());
+    if (apiResp.ok) {
+      const apiData = await apiResp.json();
+      if (apiData.ok && apiData.questions) {
+        var ids = {}; allQuestions.forEach(function(q){ids[q.id]=1});
+        for (var i=0; i<apiData.questions.length; i++) {
+          var q = apiData.questions[i];
+          if (!ids[q.id]) { allQuestions.push(q); ids[q.id]=1; }
+        }
+      }
+    }
+  } catch(e) {}
+  // 3) Load from localStorage (uploads that failed to sync to server)
+  loadFromLocalStorage();
+  // 4) Fallback
+  if (allQuestions.length === 0) { allQuestions = getEmbeddedQuestions(); }
+  updateStats();
+  renderQuestions(allQuestions);
+}
+
+// Embedded fallback (minimal versions of the 12 questions)
+function getEmbeddedQuestions() {
+  // Fallback: return empty array; questions are loaded from qdata/index.json
+  return [];
+}
+
+// ==================== Render ====================
+function moduleLink(name) {
+  var map = {
+    '静力学': 'textbooks/statics/textbook.html',
+    '运动学': 'textbooks/kinematics/index.html',
+    '动力学': 'textbooks/dynamics/index.html',
+    '分析力学': 'textbooks/analytical/index.html'
+  };
+  return map[name] || '#';
+}
+function kpLink(kp) {
+  var map = {
+    // ===== 静力学 =====
+    '受力分析':'textbooks/statics/textbook.html?target=m28','受力图':'textbooks/statics/textbook.html?target=m28',
+    '约束':'textbooks/statics/textbook.html?target=m27','约束反力':'textbooks/statics/textbook.html?target=m27','约束类型':'textbooks/statics/textbook.html?target=m27',
+    '平衡方程':'textbooks/statics/textbook.html?target=m53','平面力系':'textbooks/statics/textbook.html?target=m51','平面任意力系':'textbooks/statics/textbook.html?target=m51',
+    '空间力系':'textbooks/statics/textbook.html?target=m56','桁架':'textbooks/statics/textbook.html?target=m66','平面桁架':'textbooks/statics/textbook.html?target=m66',
+    '摩擦':'textbooks/statics/textbook.html?target=m77','滑动摩擦':'textbooks/statics/textbook.html?target=m77','摩擦角':'textbooks/statics/textbook.html?target=m82','自锁':'textbooks/statics/textbook.html?target=m87','滚动摩阻':'textbooks/statics/textbook.html?target=m92','节点法':'textbooks/statics/textbook.html?target=m67','截面法':'textbooks/statics/textbook.html?target=m68',
+    '静力学公理':'textbooks/statics/textbook.html?target=m31','二力平衡':'textbooks/statics/textbook.html?target=m32',
+    '力的平移定理':'textbooks/statics/textbook.html?target=m37','力偶':'textbooks/statics/textbook.html?target=m26',
+    '力矩':'textbooks/statics/textbook.html?target=m21','力臂':'textbooks/statics/textbook.html?target=m21',
+    '力的分解':'textbooks/statics/textbook.html?target=m16','主矢':'textbooks/statics/textbook.html?target=m52','主矩':'textbooks/statics/textbook.html?target=m52',
+    '物体系':'textbooks/statics/textbook.html?target=m61','物体系平衡':'textbooks/statics/textbook.html?target=m61',
+    // ===== 运动学 =====
+    '点的运动学':'textbooks/kinematics/index.html?target=p1m1','矢量法':'textbooks/kinematics/index.html?target=p1m1',
+    '直角坐标法':'textbooks/kinematics/index.html?target=p1m2','自然法':'textbooks/kinematics/index.html?target=p1m3',
+    '切向加速度':'textbooks/kinematics/index.html?target=p1m4','法向加速度':'textbooks/kinematics/index.html?target=p1m4',
+    '刚体平动':'textbooks/kinematics/index.html?target=p2m1','平动':'textbooks/kinematics/index.html?target=p2m1',
+    '刚体转动':'textbooks/kinematics/index.html?target=p2m2','定轴转动':'textbooks/kinematics/index.html?target=p2m2',
+    '角速度':'textbooks/kinematics/index.html?target=p2m3','角加速度':'textbooks/kinematics/index.html?target=p2m3',
+    '合成运动':'textbooks/kinematics/index.html?target=p3m1','点的合成运动':'textbooks/kinematics/index.html?target=p3m1',
+    '平面运动':'textbooks/kinematics/index.html?target=p4m1','刚体平面运动':'textbooks/kinematics/index.html?target=p4m1',
+    '科氏加速度':'textbooks/kinematics/index.html?target=p3m3','加速度合成':'textbooks/kinematics/index.html?target=p3m3',
+    '速度瞬心':'textbooks/kinematics/index.html?target=p4m3','瞬心':'textbooks/kinematics/index.html?target=p4m3','瞬心法':'textbooks/kinematics/index.html?target=p4m3',
+    '基点法':'textbooks/kinematics/index.html?target=p4m1','速度投影':'textbooks/kinematics/index.html?target=p4m2','投影法':'textbooks/kinematics/index.html?target=p4m2',
+    '动点':'textbooks/kinematics/index.html?target=p3m1','动系':'textbooks/kinematics/index.html?target=p3m1',
+    // ===== 动力学 =====
+    '质点动力学':'textbooks/dynamics/index.html?target=dyn1-1','牛顿第二定律':'textbooks/dynamics/index.html?target=dyn1-1',
+    '运动微分方程':'textbooks/dynamics/index.html?target=dyn1-2','两类问题':'textbooks/dynamics/index.html?target=dyn1-3',
+    '动量定理':'textbooks/dynamics/index.html?target=dyn2-1','动量':'textbooks/dynamics/index.html?target=dyn2-1','冲量':'textbooks/dynamics/index.html?target=dyn2-1',
+    '质心':'textbooks/dynamics/index.html?target=dyn2-2','质心运动':'textbooks/dynamics/index.html?target=dyn2-2','变质量':'textbooks/dynamics/index.html?target=dyn2-3',
+    '动量矩定理':'textbooks/dynamics/index.html?target=dyn3-1','动量矩':'textbooks/dynamics/index.html?target=dyn3-1',
+    '转动惯量':'textbooks/dynamics/index.html?target=dyn3-1','平行轴定理':'textbooks/dynamics/index.html?target=dyn3-1',
+    '定轴转动方程':'textbooks/dynamics/index.html?target=dyn3-2','平面运动微分方程':'textbooks/dynamics/index.html?target=dyn3-3',
+    '动能定理':'textbooks/dynamics/index.html?target=dyn4-2','功':'textbooks/dynamics/index.html?target=dyn4-1','动能':'textbooks/dynamics/index.html?target=dyn4-1',
+    '机械能守恒':'textbooks/dynamics/index.html?target=dyn4-3','机械能':'textbooks/dynamics/index.html?target=dyn4-3','普遍定理':'textbooks/dynamics/index.html?target=dyn4-4',
+    // ===== 分析力学 =====
+    '碰撞':'textbooks/analytical/index.html?target=collision-concept','恢复系数':'textbooks/analytical/index.html?target=collision-concept',
+    '质点碰撞':'textbooks/analytical/index.html?target=particle-collision','刚体碰撞':'textbooks/analytical/index.html?target=rigid-collision',
+    '振动':'textbooks/analytical/index.html?target=sdof-free','自由振动':'textbooks/analytical/index.html?target=sdof-free',
+    '受迫振动':'textbooks/analytical/index.html?target=sdof-forced','共振':'textbooks/analytical/index.html?target=sdof-forced',
+    '固有频率':'textbooks/analytical/index.html?target=sdof-free','阻尼':'textbooks/analytical/index.html?target=sdof-forced',
+    '两自由度':'textbooks/analytical/index.html?target=two-dof-vibration','多自由度':'textbooks/analytical/index.html?target=multi-dof-vibration',
+    '达朗贝尔':'textbooks/analytical/index.html?target=inertia-force','达朗贝尔原理':'textbooks/analytical/index.html?target=inertia-force',
+    '动静法':'textbooks/analytical/index.html?target=kinetostatic','惯性力':'textbooks/analytical/index.html?target=inertia-force',
+    '虚位移':'textbooks/analytical/index.html?target=virtual-displacement-work','虚位移原理':'textbooks/analytical/index.html?target=virtual-displacement-work',
+    '虚功':'textbooks/analytical/index.html?target=virtual-displacement-work','理想约束':'textbooks/analytical/index.html?target=ideal-constraint',
+    '广义力':'textbooks/analytical/index.html?target=generalized-force','广义坐标':'textbooks/analytical/index.html?target=lagrange-second-kind',
+    '拉格朗日':'textbooks/analytical/index.html?target=lagrange-second-kind','拉格朗日方程':'textbooks/analytical/index.html?target=lagrange-second-kind',
+    '动力学普遍方程':'textbooks/analytical/index.html?target=general-dynamics-equation',
+    '能量积分':'textbooks/analytical/index.html?target=energy-integral','循环积分':'textbooks/analytical/index.html?target=cyclic-integral',
+    '微幅振荡':'textbooks/analytical/index.html?target=rigid-small-oscillation','约束分类':'textbooks/analytical/index.html?target=constraints',
+  };
+  if (map[kp]) return map[kp];
+  var keys = Object.keys(map);
+  for (var i = 0; i < keys.length; i++) { if (kp.indexOf(keys[i]) >= 0 || keys[i].indexOf(kp) >= 0) return map[keys[i]]; }
+  return 'search.html?q=' + encodeURIComponent(kp);
+}
+function renderQuestions(data) {
+  currentFilteredQuestions = data;
+  var grid = document.getElementById('questionGrid');
+  var total = Math.ceil(data.length / PER_PAGE);
+  if (currentPage > total) currentPage = total || 1;
+
+  if (data.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><p>😕 没有找到匹配的题目</p><small>请尝试调整筛选条件</small></div>';
+    document.getElementById('questionPagination').innerHTML = '';
+    return;
+  }
+
+  var page = data.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
+  grid.innerHTML = page.map(function(q) {
+    var diffLabel = q.difficulty==='easy'?'基础':q.difficulty==='medium'?'中等':'困难';
+    var kps = (q.knowledge_points||[]).map(function(t){return '<a class="q-tag" href="'+kpLink(t)+'" target="_blank" onclick="event.stopPropagation()" title="跳转到知识点：'+t+'" style="text-decoration:none">'+t+'</a>';}).join('');
+    return '<div class="question-card" onclick="openDetail(\''+q.id+'\')" data-module="'+q.module+'" data-difficulty="'+q.difficulty+'">'
+      + '<button class="card-delete-btn" onclick="event.stopPropagation();deleteQuestion(\''+q.id+'\')" title="删除此题">×</button>'
+      + '<div class="q-number">题目名称</div>'
+      + '<h3>'+q.title+'</h3>'
+      + '<div class="q-meta">'
+      + '<span class="q-diff '+q.difficulty+'">'+diffLabel+'</span>'
+      + kps
+      + '<a class="q-stats" href="'+moduleLink(q.module)+'" target="_blank" onclick="event.stopPropagation()" title="点击跳转到知识框架：'+q.module+'" style="text-decoration:none;color:var(--text-lighter);transition:color 0.2s" onmouseover="this.style.color=\'var(--primary)\'" onmouseout="this.style.color=\'var(--text-lighter)\'">📁 '+q.module+'</a>'
+      + '</div></div>';
+  }).join('');
+
+  renderQuestionPagination(total);
+}
+
+// ==================== Question Pagination ====================
+function renderQuestionPagination(total) {
+  var pg = document.getElementById('questionPagination');
+  if (total <= 1) { pg.innerHTML = ''; return; }
+  var h = '';
+  h += '<button ' + (currentPage === 1 ? 'disabled' : 'onclick="goQuestionPage(' + (currentPage - 1) + ')"') + '>◀</button>';
+  for (var i = 1; i <= total; i++) {
+    if (total > 7 && i > 3 && i < total - 1 && i !== currentPage && Math.abs(i - currentPage) > 2) {
+      if (i === 4 || i === total - 2) h += '<span class="ellipsis">…</span>';
+      continue;
+    }
+    h += '<button ' + (i === currentPage ? 'class="active"' : 'onclick="goQuestionPage(' + i + ')"') + '>' + i + '</button>';
+  }
+  h += '<button ' + (currentPage === total ? 'disabled' : 'onclick="goQuestionPage(' + (currentPage + 1) + ')"') + '>▶</button>';
+  pg.innerHTML = h;
+}
+
+function goQuestionPage(n) {
+  currentPage = n;
+  renderQuestions(currentFilteredQuestions);
+  document.getElementById('questionGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateStats() {
+  document.getElementById('totalCount').textContent = allQuestions.length;
+  document.getElementById('statTotal').textContent = allQuestions.length;
+  var modules = new Set(allQuestions.map(function(q){return q.module;}));
+  document.getElementById('statModules').textContent = modules.size;
+  var kps = new Set();
+  allQuestions.forEach(function(q){(q.knowledge_points||[]).forEach(function(k){kps.add(k);})});
+  document.getElementById('statKP').textContent = kps.size + '+';
+}
+
+function updateKPOptions() {
+  var select = document.getElementById('qKP');
+  var currentVal = select.value;
+  var kps = new Set();
+  allQuestions.forEach(function(q){(q.knowledge_points||[]).forEach(function(k){kps.add(k);})});
+  var sorted = Array.from(kps).sort();
+  select.innerHTML = '<option value="all">全部知识点</option>';
+  sorted.forEach(function(kp) {
+    select.innerHTML += '<option value="'+kp+'">'+kp+'</option>';
+  });
+  select.value = currentVal;
+}
+
+// ==================== Filter ====================
+function filterQuestions() {
+  currentPage = 1;
+  var search = document.getElementById('qSearch').value.toLowerCase();
+  var mod = document.getElementById('qModule').value;
+  var diff = document.getElementById('qDifficulty').value;
+  var kp = document.getElementById('qKP').value;
+  var filtered = allQuestions;
+  if (search) filtered = filtered.filter(function(q) {
+    return q.title.toLowerCase().indexOf(search)>=0 ||
+      (q.content||'').toLowerCase().indexOf(search)>=0 ||
+      (q.knowledge_points||[]).some(function(t){return t.indexOf(search)>=0;}) ||
+      q.module.indexOf(search)>=0;
+  });
+  if (mod !== 'all') filtered = filtered.filter(function(q){return q.module===mod;});
+  if (diff !== 'all') filtered = filtered.filter(function(q){return q.difficulty===diff;});
+  if (kp !== 'all') filtered = filtered.filter(function(q){
+    return (q.knowledge_points||[]).indexOf(kp) >= 0;
+  });
+  renderQuestions(filtered);
+}
+
+function resetFilter() {
+  currentPage = 1;
+  document.getElementById('qSearch').value = '';
+  document.getElementById('qModule').value = 'all';
+  document.getElementById('qDifficulty').value = 'all';
+  document.getElementById('qKP').value = 'all';
+  renderQuestions(allQuestions);
+}
+
+// ==================== Detail Modal ====================
+function openDetail(qid) {
+  var q = null;
+  for (var i=0; i<allQuestions.length; i++) {
+    if (allQuestions[i].id === qid) { q = allQuestions[i]; break; }
+  }
+  if (!q) return;
+  currentDetailId = qid;
+
+  // If question was loaded from API (index-only, no content), fetch full data
+  if (!q.content && !q._figureData && !q._localOnly) {
+    fetch('/api/question/' + qid + '?_=' + Date.now())
+      .then(function(r) { if (r.ok) return r.json(); throw new Error(); })
+      .then(function(full) {
+        // Merge full data into allQuestions
+        for (var i = 0; i < allQuestions.length; i++) {
+          if (allQuestions[i].id === qid) {
+            allQuestions[i].content = full.content || '';
+            allQuestions[i].answer = full.answer || '';
+            allQuestions[i].explanation = full.explanation || '';
+            allQuestions[i].figure = full.figure || '';
+            allQuestions[i]._figureData = full._figureData || full.figure || '';
+            break;
+          }
+        }
+        renderDetail(qid);
+      })
+      .catch(function() {
+        // API not available — show what we have
+        renderDetail(qid);
+      });
+  } else {
+    renderDetail(qid);
+  }
+}
+
+function renderDetail(qid) {
+  var q = null;
+  for (var i=0; i<allQuestions.length; i++) {
+    if (allQuestions[i].id === qid) { q = allQuestions[i]; break; }
+  }
+  if (!q) return;
+
+  // Build body - support both folder files, uploaded base64 images, and API-loaded images
+  var figureSrc = '';
+  if (q._figureData) { figureSrc = q._figureData; }
+  else if (q.figure) { figureSrc = DATA_BASE + qid + '/' + q.figure; }
+  var figureHtml = '';
+  if (figureSrc) {
+    figureHtml = '<div class="detail-figure"><img src="'+figureSrc+'" alt="题目图例" onerror="this.style.display=\'none\'"></div>';
+  }
+
+  document.getElementById('modalTitle').textContent = q.title;
+
+  var bodyHtml =
+    '<div class="detail-content">'+q.content+'</div>' +
+    figureHtml +
+    '<div class="detail-divider"></div>' +
+    '<div style="text-align:center">' +
+    '<button class="btn-reveal btn-answer" id="btnShowAnswer" onclick="revealAnswer()">📋 查看答案</button>' +
+    '</div>' +
+    '<div class="reveal-section" id="answerSection">' +
+    '<div class="answer-content">'+q.answer+'</div>' +
+    '<div style="text-align:center;margin-top:14px">' +
+    '<button class="btn-reveal btn-explain" id="btnShowExplain" onclick="revealExplanation()">📖 查看解析</button>' +
+    '</div>' +
+    '</div>' +
+    '<div class="reveal-section" id="explainSection">' +
+    '<div class="explain-content">'+q.explanation+'</div>' +
+    '</div>';
+
+  document.getElementById('modalBody').innerHTML = bodyHtml;
+
+  // Footer with meta
+  var diffLabel = q.difficulty==='easy'?'基础':q.difficulty==='medium'?'中等':'困难';
+  var kps = (q.knowledge_points||[]).map(function(t){return '<a class="q-tag" href="'+kpLink(t)+'" target="_blank" title="跳转到知识点：'+t+'" style="text-decoration:none">'+t+'</a>';}).join(' ');
+  document.getElementById('modalFooter').innerHTML =
+    '<span class="q-diff '+q.difficulty+'">'+diffLabel+'</span> ' +
+    kps +
+    '<a class="q-stats" href="'+moduleLink(q.module)+'" target="_blank" style="margin-left:auto;text-decoration:none;color:var(--text-lighter)" onmouseover="this.style.color=\'var(--primary)\'" onmouseout="this.style.color=\'var(--text-lighter)\'" title="在新窗口打开知识框架：'+q.module+'">📁 '+q.module+' ↗</a>';
+
+  document.getElementById('detailOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function revealAnswer() {
+  document.getElementById('answerSection').classList.add('visible');
+  document.getElementById('btnShowAnswer').style.display = 'none';
+}
+
+function revealExplanation() {
+  document.getElementById('explainSection').classList.add('visible');
+  document.getElementById('btnShowExplain').style.display = 'none';
+}
+
+function closeDetail(e) {
+  if (e.target === document.getElementById('detailOverlay')) closeDetailDirect();
+}
+
+function closeDetailDirect() {
+  document.getElementById('detailOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+  currentDetailId = null;
+}
+
+// ==================== Upload Modal ====================
+function isQuestionAdmin() { try { var u=JSON.parse(localStorage.getItem('current_user')||'{}'); return u.role==='admin'; } catch(e) { return false; } }
+function openUploadModal() { if (!isQuestionAdmin()) { alert('仅管理员可上传题目'); return; }
+  document.getElementById('uploadOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeUpload(e) {
+  if (e.target === document.getElementById('uploadOverlay')) closeUploadDirect();
+}
+
+function closeUploadDirect() {
+  document.getElementById('uploadOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function previewFigure(input) {
+  var preview = document.getElementById('figurePreview');
+  if (input.files && input.files[0]) {
+    compressImage(input.files[0], function(dataUri) {
+      if (dataUri) { preview.src = dataUri; preview.style.display = 'block'; }
+    });
+  }
+}
+
+function submitUpload() {
+  if (!isQuestionAdmin()) { alert('仅管理员可上传题目'); return; }
+  var content = document.getElementById('upContent').value.trim();
+  var module = document.getElementById('upModule').value;
+  var difficulty = document.getElementById('upDifficulty').value;
+  var answer = document.getElementById('upAnswer').value.trim();
+  var explanation = document.getElementById('upExplanation').value.trim();
+
+  // Validate required fields
+  if (!content) { alert('请输入题目内容'); return; }
+  if (!module) { alert('请选择题目所属模块'); return; }
+  if (!difficulty) { alert('请选择题难度'); return; }
+  if (!answer) { alert('请输入答案'); return; }
+  if (!explanation) { alert('请输入题目解析'); return; }
+
+  // Auto-generate title from content (first line or first 30 chars)
+  var title = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  if (title.length > 30) title = title.substring(0, 30) + '…';
+
+  // Collect knowledge points
+  var kps = [];
+  document.querySelectorAll('#kpCheckboxes input:checked').forEach(function(cb){ kps.push(cb.value); });
+  if (kps.length === 0) { alert('请至少选择一个知识点'); return; }
+
+  // Handle figure (compress before upload)
+  var figureFile = document.getElementById('upFigure').files[0];
+  if (figureFile) {
+    compressImage(figureFile, function(dataUri) {
+      saveUploadedQuestion(title, content, figureFile.name, dataUri, kps, answer, explanation, difficulty, module);
+    });
+  } else {
+    saveUploadedQuestion(title, content, '', null, kps, answer, explanation, difficulty, module);
+  }
+}
+
+function saveUploadedQuestion(title, content, figureName, figureData, kps, answer, explanation, difficulty, module) {
+  // Build payload for backend API
+  var payload = {
+    content: content,
+    module: module,
+    difficulty: difficulty,
+    answer: answer,
+    explanation: explanation,
+    knowledge_points: kps
+  };
+  if (figureData) payload._figureData = figureData;
+  // Attach field images
+  if (_fieldImages['upContent'] && _fieldImages['upContent'].length > 0) {
+    payload._contentImages = _fieldImages['upContent'].map(function(img) { return img.data; });
+  }
+  if (_fieldImages['upAnswer'] && _fieldImages['upAnswer'].length > 0) {
+    payload._answerImages = _fieldImages['upAnswer'].map(function(img) { return img.data; });
+  }
+  if (_fieldImages['upExplanation'] && _fieldImages['upExplanation'].length > 0) {
+    payload._explanationImages = _fieldImages['upExplanation'].map(function(img) { return img.data; });
+  }
+
+  // Check payload size before sending (Netlify limit: 6MB)
+  var payloadStr = JSON.stringify(payload);
+  var payloadMB = (payloadStr.length / (1024 * 1024)).toFixed(2);
+  if (payloadStr.length > 5.5 * 1024 * 1024) {
+    alert('上传数据过大(' + payloadMB + 'MB)，超过服务器6MB限制。图片已自动压缩，如仍超限请减少图片数量或缩小原图。题目将保存至本地。');
+  }
+  // Try backend API first
+  fetch('/api/upload', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: payloadStr
+  })
+  .then(function(resp) {
+    if (resp.ok) return resp.json();
+    if (resp.status === 413) throw new Error('图片总大小超过服务器限制(6MB)，请压缩图片后重试');
+    throw new Error('服务器错误(' + resp.status + ')');
+  })
+  .then(function(result) {
+    if (result.ok) {
+      closeUploadDirect();
+      resetUploadForm();
+      return reloadQuestions();
+    } else {
+      throw new Error(result.message || '上传失败');
+    }
+  })
+  .then(function() {
+    alert('题目已成功上传至服务器！\n\n题目：' + title + '\n\n数据已持久化到云端，所有用户可见。');
+  })
+  .catch(function(err) {
+    var errMsg = err.message || '未知错误';
+    console.warn('后端不可用，使用本地存储:', errMsg);
+    var maxId = 0;
+    allQuestions.forEach(function(q) {
+      var n = parseInt(q.id.replace('q_',''));
+      if (n > maxId) maxId = n;
+    });
+    var newId = 'q_' + String(maxId + 1).padStart(3, '0');
+
+    var newQ = {
+      id: newId, title: title, content: content,
+      figure: figureName || '', knowledge_points: kps,
+      answer: answer, explanation: explanation,
+      difficulty: difficulty, module: module
+    };
+    if (figureData) newQ._figureData = figureData;
+
+    allQuestions.push(newQ);
+    saveToLocalStorage();
+
+    closeUploadDirect();
+    resetUploadForm();
+    updateStats();
+    updateKPOptions();
+    renderQuestions(allQuestions);
+    alert('题目已保存至本地！\n\n编号：' + newId + '\n题目：' + title + '\n\n原因：' + errMsg + '\n\n⚠️ 数据暂存本地浏览器，刷新页面仍可保留。');
+  });
+}
+
+function reloadQuestions() {
+  // Reload all questions from qdata folder
+  return loadQuestions().then(function() {
+    var deletedIds = getDeletedIds();
+    allQuestions = allQuestions.filter(function(q) { return deletedIds.indexOf(q.id) === -1; });
+    loadFromLocalStorage();
+    allQuestions = allQuestions.filter(function(q) { return deletedIds.indexOf(q.id) === -1; });
+    // Sync localStorage to match current state (removes any resurrected deleted questions)
+    saveToLocalStorage();
+    updateStats();
+    updateKPOptions();
+    renderQuestions(allQuestions);
+  });
+}
+
+function saveToLocalStorage() {
+  var toSave = allQuestions.map(function(q) {
+    return {
+      id: q.id, title: q.title, content: q.content,
+      figure: q.figure, _figureData: q._figureData || '',
+      knowledge_points: q.knowledge_points, answer: q.answer,
+      explanation: q.explanation, difficulty: q.difficulty, module: q.module
+    };
+  });
+  try {
+    localStorage.setItem('question_bank_uploads', JSON.stringify(toSave));
+  } catch(e) {
+    console.warn('localStorage full, some data may not be saved');
+  }
+}
+
+function loadFromLocalStorage() {
+  try {
+    var deletedIds = getDeletedIds();
+    var saved = localStorage.getItem('question_bank_uploads');
+    if (saved) {
+      var data = JSON.parse(saved);
+      data.forEach(function(q) {
+        // Skip deleted questions
+        if (deletedIds.indexOf(q.id) !== -1) return;
+        // Merge with loaded questions, avoiding duplicates
+        var exists = false;
+        for (var i=0; i<allQuestions.length; i++) {
+          if (allQuestions[i].id === q.id) { exists = true; break; }
+        }
+        if (!exists) allQuestions.push(q);
+      });
+    }
+  } catch(e) {}
+}
+
+function resetUploadForm() {
+  document.getElementById('upContent').value = '';
+  document.getElementById('upFigure').value = '';
+  document.getElementById('upAnswer').value = '';
+  document.getElementById('upExplanation').value = '';
+  document.getElementById('upModule').value = '';
+  document.getElementById('upDifficulty').value = '';
+  document.querySelectorAll('#kpCheckboxes input:checked').forEach(function(cb){cb.checked=false;});
+  document.getElementById('figurePreview').style.display = 'none';
+  // Clear field images
+  _fieldImages = {};
+  ['upContent','upAnswer','upExplanation'].forEach(function(fid) {
+    var previewsId = fid + 'Previews';
+    var el = document.getElementById(previewsId);
+    if (el) el.innerHTML = '';
+  });
+}
+
+// ==================== Delete ====================
+function getDeletedIds() {
+  try {
+    var raw = localStorage.getItem('question_bank_deleted_ids');
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+function addDeletedId(qid) {
+  var ids = getDeletedIds();
+  if (ids.indexOf(qid) === -1) ids.push(qid);
+  try { localStorage.setItem('question_bank_deleted_ids', JSON.stringify(ids)); } catch(e) {}
+}
+
+function deleteQuestion(qid) {
+  if (!isQuestionAdmin()) { alert('仅管理员可删除题目'); return; }
+  if (!confirm('确定要删除题目 ' + qid + ' 吗？此操作不可恢复。')) return;
+
+  // Always mark as deleted (persistent exclusion list)
+  addDeletedId(qid);
+  // Always remove from localStorage question bank
+  removeFromLocalStorage(qid);
+
+  // Remove from allQuestions immediately (optimistic UI)
+  allQuestions = allQuestions.filter(function(q) { return q.id !== qid; });
+  updateStats();
+  updateKPOptions();
+  renderQuestions(allQuestions);
+  if (currentDetailId === qid) closeDetailDirect();
+
+  // Try backend API
+  fetch('/api/delete/' + qid, { method: 'DELETE' })
+  .then(function(resp) {
+    if (resp.ok) {
+      console.log('题目 ' + qid + ' 已从服务器删除');
+      // Reload to get fresh server state (deletedIds + localStorage cleanup already done above)
+      reloadQuestions();
+    } else {
+      console.warn('服务器删除返回非200:', resp.status);
+    }
+  })
+  .catch(function(err) {
+    // Backend unavailable — deletion is already persisted locally
+    console.warn('后端不可用，删除已保存至本地记录:', err.message);
+    saveToLocalStorage();
+  });
+}
+
+// Remove a specific question from localStorage question bank
+function removeFromLocalStorage(qid) {
+  try {
+    var raw = localStorage.getItem('question_bank_uploads');
+    if (raw) {
+      var data = JSON.parse(raw);
+      data = data.filter(function(q) { return q.id !== qid; });
+      localStorage.setItem('question_bank_uploads', JSON.stringify(data));
+    }
+    // Also clean pending sync list
+    var pendingRaw = localStorage.getItem('question_bank_pending_sync');
+    if (pendingRaw) {
+      var pending = JSON.parse(pendingRaw);
+      pending = pending.filter(function(item) {
+        // Match by content+module since pending items may not have IDs yet
+        return true; // Can't reliably match without IDs, keep all
+      });
+      localStorage.setItem('question_bank_pending_sync', JSON.stringify(pending));
+    }
+  } catch(e) {}
+}
+
+function deleteQuestionFromModal() {
+  if (!currentDetailId) return;
+  deleteQuestion(currentDetailId);
+}
+
+// ==================== Image Insert for Upload ====================
+// Store uploaded field images temporarily during form editing
+var _fieldImages = {};
+
+// Compress image before base64: max 1200px wide, JPEG quality 0.7, reduces size ~80%
+function compressImage(file, callback) {
+  if (!file.type.match(/image\//)) { callback(null); return; }
+  var img = new Image();
+  var url = URL.createObjectURL(file);
+  img.onload = function() {
+    URL.revokeObjectURL(url);
+    var maxW = 1200, maxH = 1200;
+    var w = img.width, h = img.height;
+    if (w > maxW || h > maxH) { var ratio = Math.min(maxW/w, maxH/h); w = Math.round(w*ratio); h = Math.round(h*ratio); }
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    var dataUri = canvas.toDataURL('image/jpeg', 0.7);
+    callback(dataUri);
+  };
+  img.onerror = function() { URL.revokeObjectURL(url); callback(null); };
+  img.src = url;
+}
+
+function insertImageToField(fieldId, inputId, previewsId) {
+  var input = document.getElementById(inputId);
+  if (!input.files || !input.files[0]) return;
+  var file = input.files[0];
+  if (file.size > 10 * 1024 * 1024) { alert('图片大小不能超过10MB'); input.value = ''; return; }
+  compressImage(file, function(dataUri) {
+    if (!dataUri) { alert('图片处理失败，请尝试其他格式'); input.value = ''; return; }
+    if (!_fieldImages[fieldId]) _fieldImages[fieldId] = [];
+    _fieldImages[fieldId].push({ name: file.name, data: dataUri });
+    var ta = document.getElementById(fieldId);
+    ta.value = ta.value + (ta.value ? '\n' : '') + '<img src="' + dataUri + '" alt="' + file.name + '" style="max-width:100%">';
+    renderFieldPreviews(fieldId, previewsId);
+    input.value = '';
+  });
+}
+
+function renderFieldPreviews(fieldId, previewsId) {
+  var container = document.getElementById(previewsId);
+  if (!container) return;
+  var imgs = _fieldImages[fieldId] || [];
+  container.innerHTML = imgs.map(function(img, idx) {
+    return '<div class="field-img-preview">'
+      + '<img src="' + img.data + '" alt="' + img.name + '">'
+      + '<button class="img-remove" onclick="removeFieldImage(\'' + fieldId + '\',\'' + previewsId + '\',' + idx + ')">×</button>'
+      + '</div>';
+  }).join('');
+}
+
+function removeFieldImage(fieldId, previewsId, idx) {
+  if (!_fieldImages[fieldId]) return;
+  _fieldImages[fieldId].splice(idx, 1);
+  // Rebuild textarea content from remaining images
+  var ta = document.getElementById(fieldId);
+  // Remove old img tags from textarea content (keep text)
+  ta.value = ta.value.replace(/<img[^>]*>/g, '').replace(/\n\n+/g, '\n').trim();
+  // Re-append remaining images
+  var imgs = _fieldImages[fieldId] || [];
+  imgs.forEach(function(img) {
+    ta.value = ta.value + (ta.value ? '\n' : '') + '<img src="' + img.data + '" alt="' + img.name + '" style="max-width:100%">';
+  });
+  renderFieldPreviews(fieldId, previewsId);
+}
+
+// ==================== Drag-drop image upload ====================
+function handleDrop(e, fieldId, previewsId) {
+  e.preventDefault();
+  var file = e.dataTransfer.files[0];
+  if (!file || !file.type.match(/image\//)) { alert('请拖入图片文件'); return; }
+  if (file.size > 10 * 1024 * 1024) { alert('图片不能超过10MB'); return; }
+  compressImage(file, function(dataUri) {
+    if (!dataUri) { alert('图片处理失败'); return; }
+    if (!_fieldImages[fieldId]) _fieldImages[fieldId] = [];
+    _fieldImages[fieldId].push({ name: file.name, data: dataUri });
+    var ta = document.getElementById(fieldId);
+    ta.value = ta.value + (ta.value ? '\n' : '') + '<img src="' + dataUri + '" alt="' + file.name + '" style="max-width:100%">';
+    renderFieldPreviews(fieldId, previewsId);
+  });
+}
+
+// ==================== Init ====================
+loadQuestions().then(function() {
+  // Filter out deleted questions before loading from localStorage
+  var deletedIds = getDeletedIds();
+  allQuestions = allQuestions.filter(function(q) { return deletedIds.indexOf(q.id) === -1; });
+  loadFromLocalStorage();
+  // Also filter localStorage-loaded questions
+  allQuestions = allQuestions.filter(function(q) { return deletedIds.indexOf(q.id) === -1; });
+  // Clean up localStorage to match (removes any questions that were server-deleted)
+  saveToLocalStorage();
+
+  updateStats();
+  updateKPOptions();
+  renderQuestions(allQuestions);
+  if (isQuestionAdmin()) {
+    var ub = document.querySelector('.btn-upload'); if (ub) ub.style.display = '';
+  } else {
+    var css = '.card-delete-btn,.modal-delete-btn{display:none!important}';
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+  }
+	  	});
+  syncPendingToServer();
+
+function syncPendingToServer() {
+  var pending = [];
+  try { var r = localStorage.getItem('question_bank_pending_sync'); pending = r ? JSON.parse(r) : []; } catch(e) { return; }
+  if (pending.length === 0) return;
+  var item = pending[0];
+  fetch('/api/upload', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: item.title, content: item.content, module: item.module, difficulty: item.difficulty, answer: item.answer, explanation: item.explanation, knowledge_points: item.knowledge_points || [] })
+  }).then(function(r) { if (r.ok) return r.json(); throw new Error(); })
+  .then(function(d) {
+    if (d.ok) { pending.shift(); localStorage.setItem('question_bank_pending_sync', JSON.stringify(pending)); reloadQuestions(); }
+  }).catch(function() {});
+}
+
+</script>
+</body>
+</html>

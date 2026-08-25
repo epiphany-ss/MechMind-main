@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手绘任意曲线 → 自动生成连杆机构</title>
+<style>
+:root {
+  --bg:#0f172a; --panel:#1e293b; --border:#334155;
+  --text:#e2e8f0; --muted:#94a3b8; --accent:#38bdf8;
+  --green:#4ade80; --red:#f87171; --orange:#fb923c;
+  --accent2:#818cf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);height:100vh;overflow:hidden;
+  user-select:none;-webkit-user-select:none;
+}
+.app{display:flex;flex-direction:column;height:100vh;}
+
+/* Header */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 24px;background:var(--panel);border-bottom:1px solid var(--border);
+  flex-shrink:0;z-index:10;
+}
+.header .logo{font-size:18px;font-weight:700;}
+.header .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header .badge{font-size:11px;color:var(--muted);background:#1e3a5f;padding:3px 10px;border-radius:10px;}
+.nav-link{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:6px 14px;background:rgba(255,255,255,0.08);color:var(--text);
+  text-decoration:none;border-radius:20px;font-size:12px;font-weight:500;
+  border:1px solid var(--border);transition:all .2s;white-space:nowrap;
+}
+.nav-link:hover{background:rgba(56,189,248,0.15);border-color:var(--accent);color:var(--accent);}
+
+/* Main */
+.main{display:flex;flex:1;overflow:hidden;}
+
+/* Canvas panel */
+.canvas-wrap{
+  flex:1;position:relative;background:var(--bg);
+  background-image:
+    linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+  display:flex;align-items:center;justify-content:center;
+}
+canvas{display:block;cursor:crosshair;border-radius:8px;}
+
+/* Control panel */
+.controls{
+  width:340px;background:var(--panel);border-left:1px solid var(--border);
+  padding:24px 20px;display:flex;flex-direction:column;gap:18px;
+  overflow-y:auto;flex-shrink:0;
+}
+.controls h3{font-size:15px;color:var(--accent);margin-bottom:2px;}
+.controls .hint{font-size:12px;color:var(--muted);line-height:1.6;}
+.controls .hint kbd{
+  background:#253349;padding:2px 6px;border-radius:4px;font-size:11px;
+  border:1px solid var(--border);
+}
+
+.btn{
+  display:block;width:100%;padding:12px;border:none;border-radius:8px;
+  font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.btn:active{transform:scale(.97);}
+.btn-generate{background:var(--green);color:#0f172a;}
+.btn-generate:hover{box-shadow:0 4px 16px rgba(74,222,128,.3);}
+.btn-generate:disabled{opacity:.4;cursor:not-allowed;}
+.btn-reset{background:var(--red);color:#fff;}
+.btn-reset:hover{box-shadow:0 4px 16px rgba(248,113,113,.3);}
+.btn-animate{background:var(--accent2);color:#fff;}
+.btn-animate:hover{box-shadow:0 4px 16px rgba(129,140,248,.3);}
+.btn-animate:disabled{opacity:.4;cursor:not-allowed;}
+
+.param-group{
+  background:rgba(15,23,42,.5);border:1px solid var(--border);
+  border-radius:8px;padding:14px 16px;
+}
+.param-group .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.param-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;}
+.param-row .val{color:var(--accent);font-family:"SF Mono","Fira Code",monospace;}
+
+.status{font-size:12px;padding:8px 12px;border-radius:6px;text-align:center;}
+.status-info{background:rgba(56,189,248,.1);color:var(--accent);}
+.status-ok{background:rgba(74,222,128,.1);color:var(--green);}
+.status-err{background:rgba(248,113,113,.1);color:var(--red);}
+
+.fallback-actions{display:flex;gap:8px;margin-top:12px;}
+.btn-small{
+  flex:1;padding:8px 10px;border:none;border-radius:6px;
+  font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;
+}
+.btn-small-primary{background:var(--accent);color:#082f49;}
+.btn-small-secondary{background:#334155;color:var(--text);}
+.btn-small:active{transform:scale(.98);}
+
+.speed-row{display:flex;align-items:center;gap:10px;font-size:13px;}
+.speed-row input[type=range]{flex:1;accent-color:var(--accent);}
+
+/* responsive */
+@media(max-width:768px){
+  .main{flex-direction:column;}
+  .controls{width:100%;max-height:40vh;flex-shrink:1;}
+}
+
+/* animation for progress */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.pulsing{animation:pulse 1s infinite;}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="header">
+    <div class="logo">✏️ 手绘曲线 → <span>四连杆机构</span></div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="index.html" class="nav-link">🏠 返回主页</a>
+      <a href="mechanism.html" class="nav-link">⚙️ 返回交互展示</a>
+      <div class="badge">单电机驱动 · 自动综合</div>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- Canvas -->
+    <div class="canvas-wrap" id="canvasWrap">
+      <canvas id="mainCanvas"></canvas>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls" id="controls">
+      <div>
+        <h3>📐 使用说明</h3>
+        <p class="hint">
+          在左侧画布上<strong>按住鼠标拖拽</strong>绘制一条闭合曲线（起点与终点自动连接），然后点击「生成机构」。
+          <br><br>
+          快捷键：<kbd>G</kbd> 生成 &nbsp; <kbd>R</kbd> 重置 &nbsp; <kbd>Space</kbd> 播放/暂停
+        </p>
+      </div>
+
+      <button class="btn btn-generate" id="btnGenerate" onclick="generate()">⚙️ 生成机构（约束拟合）</button>
+      <button class="btn btn-reset" id="btnReset" onclick="resetAll()">🗑️ 清除曲线 & 重置</button>
+      <button class="btn btn-animate" id="btnAnimate" onclick="toggleAnimation()" disabled>▶️ 播放动画</button>
+
+      <div class="speed-row">
+        <span>🐢</span>
+        <input type="range" id="speedSlider" min="0.5" max="3" step="0.1" value="1" oninput="speed=parseFloat(this.value)">
+        <span>🐇</span>
+        <span style="font-size:12px;color:var(--muted);">速度 ×<span id="speedLabel">1.0</span></span>
+      </div>
+
+      <div id="statusArea" class="status status-info">
+        👆 先在左侧画布上绘制一条曲线
+      </div>
+
+      <div class="param-group" id="paramGroup" style="display:none;">
+        <div class="label">🔧 机构参数（最优解）</div>
+        <div id="paramContent"></div>
+        <div style="margin-top:8px;font-size:11px;color:var(--muted);">
+          拟合误差：<span id="errorDisplay" style="color:var(--accent);">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  GLOBALS
+// ============================================================
+const canvas = document.getElementById('mainCanvas');
+const ctx = canvas.getContext('2d');
+const wrap = document.getElementById('canvasWrap');
+
+let W, H;                // canvas pixel dimensions
+let drawnPoints = [];    // raw mouse points
+let targetCurve = null;  // smoothed, closed, sampled points (Float64 pairs)
+let bestLinkage = null;  // best found FourBarLinkage instance
+let isDrawing = false;
+let isAnimating = false;
+let animRaf = null;
+let animAngle = 0;       // current crank angle (radians)
+let speed = 1.0;
+let hasResult = false;
+let optimizationToken = 0;
+let approximateCandidate = null;
+
+const TARGET_RMS = 120;
+const N_TARGET_POINTS = 96;
+const ACCEPTABLE_ERROR = 54;
+const ACCEPTABLE_RMS_ERROR = 20;
+const ACCEPTABLE_P95_ERROR = 38;
+const ACCEPTABLE_MAX_ERROR = 56;
+const ACCEPTABLE_RADIUS_ERROR = 18;
+const ACCEPTABLE_TURN_ERROR = 0.62;
+const MIN_FIT_CONFIDENCE = 72;
+const WARN_ERROR = 36;
+
+// ============================================================
+//  RESIZE
+// ============================================================
+function resize() {
+  const rect = wrap.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  W = rect.width - 8; H = rect.height - 8;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.scale(dpr, dpr);
+  // redraw
+  drawAll();
+}
+window.addEventListener('resize', resize);
+
+// ============================================================
+//  DRAWING INPUT
+// ============================================================
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+}
+
+canvas.addEventListener('mousedown', e => {
+  if (e.button !== 0) return;
+  if (hasResult) return; // don't draw over result
+  isDrawing = true;
+  drawnPoints = [];
+  const p = getPos(e);
+  drawnPoints.push(p);
+  drawAll();
+});
+
+canvas.addEventListener('mousemove', e => {
+  if (!isDrawing) return;
+  const p = getPos(e);
+  drawnPoints.push(p);
+  drawAll();
+});
+
+canvas.addEventListener('mouseup', () => {
+  if (!isDrawing) return;
+  isDrawing = false;
+  acceptDrawnCurve();
+  drawAll();
+});
+
+canvas.addEventListener('mouseleave', () => {
+  if (isDrawing) {
+    isDrawing = false;
+    acceptDrawnCurve();
+    drawAll();
+  }
+});
+
+// Touch support
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  if (hasResult) return;
+  isDrawing = true;
+  drawnPoints = [];
+  const p = getPos(e.touches[0]);
+  drawnPoints.push(p);
+  drawAll();
+}, {passive:false});
+
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (!isDrawing) return;
+  const p = getPos(e.touches[0]);
+  drawnPoints.push(p);
+  drawAll();
+}, {passive:false});
+
+canvas.addEventListener('touchend', e => {
+  e.preventDefault();
+  if (!isDrawing) return;
+  isDrawing = false;
+  acceptDrawnCurve();
+  drawAll();
+});
+
+function acceptDrawnCurve() {
+  const curve = processCurve(drawnPoints);
+  if (!curve) {
+    targetCurve = null;
+    document.getElementById('btnGenerate').disabled = true;
+    setStatus('err', '⚠️ 曲线信息不足：请画一个更大、更完整的闭合轮廓');
+    return;
+  }
+
+  targetCurve = curve;
+  const warning = curve._warning ? `（${curve._warning}）` : '';
+  setStatus('info', `✅ 已采集 ${drawnPoints.length} 个点 → 规范采样 ${curve.length/2} 点${warning}，点击「生成机构」`);
+  document.getElementById('btnGenerate').disabled = false;
+}
+
+// ============================================================
+//  CURVE PROCESSING
+// ============================================================
+function processCurve(rawPoints) {
+  if (!rawPoints || rawPoints.length < 12) return null;
+
+  // Remove jitter points so shaky input does not dominate the fitted shape.
+  const simplified = [rawPoints[0]];
+  for (let i = 1; i < rawPoints.length; i++) {
+    const prev = simplified[simplified.length - 1];
+    const dx = rawPoints[i].x - prev.x;
+    const dy = rawPoints[i].y - prev.y;
+    if (Math.hypot(dx, dy) >= 2) simplified.push(rawPoints[i]);
+  }
+  if (simplified.length < 10) return null;
+
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const p of simplified) {
+    minX = Math.min(minX, p.x); minY = Math.min(minY, p.y);
+    maxX = Math.max(maxX, p.x); maxY = Math.max(maxY, p.y);
+  }
+  const bboxW = maxX - minX;
+  const bboxH = maxY - minY;
+  if (Math.max(bboxW, bboxH) < 36 || Math.min(bboxW, bboxH) < 12) return null;
+
+  // 1. Smooth with moving average
+  const windowSize = Math.max(2, Math.floor(simplified.length / 40));
+  let smoothed = [];
+  for (let i = 0; i < simplified.length; i++) {
+    let sx = 0, sy = 0, count = 0;
+    for (let j = Math.max(0, i - windowSize); j <= Math.min(simplified.length - 1, i + windowSize); j++) {
+      sx += simplified[j].x; sy += simplified[j].y; count++;
+    }
+    smoothed.push({ x: sx / count, y: sy / count });
+  }
+
+  // 2. Close the curve (first point → last point)
+  // Already closed by drawing, but ensure first and last are connected
+
+  // 3. Compute arc-length parameterization
+  const N_TARGET = 64;
+  let cumLen = [0];
+  for (let i = 1; i < smoothed.length; i++) {
+    const dx = smoothed[i].x - smoothed[i-1].x;
+    const dy = smoothed[i].y - smoothed[i-1].y;
+    cumLen.push(cumLen[i-1] + Math.sqrt(dx*dx + dy*dy));
+  }
+  // Close the loop
+  const dxClose = smoothed[0].x - smoothed[smoothed.length-1].x;
+  const dyClose = smoothed[0].y - smoothed[smoothed.length-1].y;
+  const closeLen = Math.sqrt(dxClose*dxClose + dyClose*dyClose);
+  const drawnLen = cumLen[smoothed.length-1];
+  const totalLen = drawnLen + closeLen;
+
+  if (totalLen < 80) return null; // too small or too sparse for reliable synthesis
+  const closeRatio = closeLen / Math.max(totalLen, 1);
+  const warning = closeRatio > 0.28 ? '首尾距离较大，已自动闭合，结果可信度会降低' : '';
+
+  // 4. Sample N_TARGET points at equal arc-length intervals
+  const result = new Float64Array(N_TARGET_POINTS * 2);
+  for (let i = 0; i < N_TARGET_POINTS; i++) {
+    const targetDist = (totalLen * i) / N_TARGET_POINTS;
+    // Find segment
+    let seg = 0;
+    for (let j = 1; j < smoothed.length; j++) {
+      if (cumLen[j] >= targetDist) { seg = j - 1; break; }
+    }
+    if (targetDist >= cumLen[smoothed.length-1]) {
+      // In the closing segment
+      const localT = (targetDist - cumLen[smoothed.length-1]) / (totalLen - cumLen[smoothed.length-1]);
+      result[i*2] = smoothed[smoothed.length-1].x + localT * (smoothed[0].x - smoothed[smoothed.length-1].x);
+      result[i*2+1] = smoothed[smoothed.length-1].y + localT * (smoothed[0].y - smoothed[smoothed.length-1].y);
+    } else {
+      const segLen = cumLen[seg+1] - cumLen[seg];
+      const localT = segLen > 0 ? (targetDist - cumLen[seg]) / segLen : 0;
+      result[i*2] = smoothed[seg].x + localT * (smoothed[seg+1].x - smoothed[seg].x);
+      result[i*2+1] = smoothed[seg].y + localT * (smoothed[seg+1].y - smoothed[seg].y);
+    }
+  }
+
+  // 5. Center the curve at origin (for matching)
+  let cx = 0, cy = 0;
+  for (let i = 0; i < N_TARGET_POINTS; i++) { cx += result[i*2]; cy += result[i*2+1]; }
+  cx /= N_TARGET_POINTS; cy /= N_TARGET_POINTS;
+  for (let i = 0; i < N_TARGET_POINTS; i++) { result[i*2] -= cx; result[i*2+1] -= cy; }
+
+  // 6. Normalize scale (RMS distance = reference scale)
+  let rms = 0;
+  for (let i = 0; i < N_TARGET_POINTS; i++) {
+    rms += result[i*2]*result[i*2] + result[i*2+1]*result[i*2+1];
+  }
+  rms = Math.sqrt(rms / N_TARGET_POINTS);
+  const targetScale = TARGET_RMS; // reference scale in canvas units
+  if (rms > 0.001) {
+    const scaleFactor = targetScale / rms;
+    for (let i = 0; i < N_TARGET_POINTS; i++) { result[i*2] *= scaleFactor; result[i*2+1] *= scaleFactor; }
+  }
+
+  // Store the centroid and scale for later use (to transform back for display)
+  result._cx = cx;
+  result._cy = cy;
+  result._scale = rms > 0.001 ? targetScale / rms : 1;
+  result._warning = warning;
+  result._bboxRatio = Math.max(bboxW, bboxH) / Math.max(Math.min(bboxW, bboxH), 1);
+  result._closeRatio = closeRatio;
+
+  return result;
+}
+
+// ============================================================
+//  FOUR-BAR LINKAGE KINEMATICS
+// ============================================================
+class FourBarLinkage {
+  // Parameters (in normalized coordinates)
+  // o2x, o2y: fixed pivot 1
+  // o4x, o4y: fixed pivot 2
+  // l2: crank length
+  // l3: coupler length
+  // l4: rocker length
+  // u, v: coupler point in coupler local frame
+  constructor(o2x, o2y, o4x, o4y, l2, l3, l4, u, v) {
+    this.o2x = o2x; this.o2y = o2y;
+    this.o4x = o4x; this.o4y = o4y;
+    this.l2 = l2; this.l3 = l3; this.l4 = l4;
+    this.u = u; this.v = v;
+    this.groundLen = Math.sqrt((o4x-o2x)*(o4x-o2x) + (o4y-o2y)*(o4y-o2y));
+  }
+
+  // Solve for coupler point at crank angle theta2
+  // Returns {px, py, ax, ay, bx, by, valid}
+  solveAt(theta2) {
+    const ax = this.o2x + this.l2 * Math.cos(theta2);
+    const ay = this.o2y + this.l2 * Math.sin(theta2);
+
+    // Circle intersection: circle centered at A radius l3, circle centered at O4 radius l4
+    const dx = this.o4x - ax;
+    const dy = this.o4y - ay;
+    const d = Math.sqrt(dx*dx + dy*dy);
+
+    if (d > this.l3 + this.l4 + 1e-9 || d < Math.abs(this.l3 - this.l4) - 1e-9) {
+      return { valid: false };
+    }
+
+    // Use open branch (positive h — h is the perpendicular offset)
+    const a_int = (this.l3*this.l3 - this.l4*this.l4 + d*d) / (2*d);
+    const hSq = this.l3*this.l3 - a_int*a_int;
+    const h = hSq > 0 ? Math.sqrt(hSq) : 0;
+
+    const midX = ax + a_int * dx / d;
+    const midY = ay + a_int * dy / d;
+
+    // Open branch: coupler triangle points "outward" from O2O4 line
+    // Two branches: +h and -h perpendicular directions
+    const perpX = -dy / d;
+    const perpY = dx / d;
+
+    const bx1 = midX + h * perpX;
+    const by1 = midY + h * perpY;
+    const bx2 = midX - h * perpX;
+    const by2 = midY - h * perpY;
+
+    // Choose branch: prefer the one that gives consistent results
+    // For crank-rocker open branch, use the "elbow up" configuration
+    // We'll use branch 1 (positive h) by default
+    const bx = bx1, by = by1;
+
+    // Coupler point in global frame
+    // Coupler link direction: from A to B
+    const cbx = bx - ax;
+    const cby = by - ay;
+    const clen = Math.sqrt(cbx*cbx + cby*cby);
+    if (clen < 1e-9) return { valid: false };
+
+    // Local frame: u along coupler direction, v perpendicular
+    const ux = cbx / clen;
+    const uy = cby / clen;
+    const vx = -uy;
+    const vy = ux;
+
+    const px = ax + this.u * ux + this.v * vx;
+    const py = ay + this.u * uy + this.v * vy;
+
+    return { valid: true, px, py, ax, ay, bx, by };
+  }
+
+  // Generate coupler curve (N points for full crank rotation)
+  getCouplerCurve(N) {
+    const points = new Float64Array(N * 2);
+    let validCount = 0;
+    for (let i = 0; i < N; i++) {
+      const theta = (2 * Math.PI * i) / N;
+      const sol = this.solveAt(theta);
+      if (sol.valid) {
+        points[i*2] = sol.px;
+        points[i*2+1] = sol.py;
+        validCount++;
+      } else {
+        points[i*2] = NaN;
+        points[i*2+1] = NaN;
+      }
+    }
+    if (validCount < N * 0.9) return null; // not enough valid points
+    return points;
+  }
+}
+
+// ============================================================
+//  GRASHOF CONDITION CHECK
+// ============================================================
+function isGrashofCrankRocker(l2, l3, l4, ground) {
+  const links = [l2, l3, l4, ground].sort((a,b)=>a-b);
+  const s = links[0], l = links[3], p = links[1], q = links[2];
+  // Grashof: s + l <= p + q (with tolerance)
+  if (s + l > p + q + 0.01) return false;
+  // For a reliable rotating input, prefer crank or ground as the shortest link.
+  if (Math.abs(l2 - s) > 1e-6 && Math.abs(ground - s) > 1e-6) return false;
+  return true;
+}
+
+// ============================================================
+//  CONSTRAINED PARAMETER GENERATOR
+// ============================================================
+function makeSeedFromCurve(curve) {
+  let seed = 2166136261;
+  for (let i = 0; i < curve.length; i += 4) {
+    seed ^= Math.round((curve[i] + 512) * 10);
+    seed = Math.imul(seed, 16777619);
+  }
+  return seed >>> 0;
+}
+
+function createRng(seed) {
+  let state = seed >>> 0;
+  return function rng() {
+    state = Math.imul(1664525, state) + 1013904223;
+    return ((state >>> 0) / 4294967296);
+  };
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function randomParams(scale, rng, anchor) {
+  // scale: reference size for the mechanism
+  const s = scale || 1;
+  const rand = rng || Math.random;
+
+  for (let attempt = 0; attempt < 24; attempt++) {
+    const candidate = anchor ? mutateParams(anchor, rand, s) : randomParamsRaw(s, rand);
+    if (isPlausibleMechanism(candidate)) return candidate;
+  }
+
+  return fallbackParams(s);
+}
+
+function randomParamsRaw(s, rand) {
+  // Keep the space realistic. Very long links can numerically mimic many
+  // shapes while producing a mechanism that is visually unrelated.
+  const ground = lerp(0.65 * s, 1.85 * s, rand());
+  const l2 = lerp(0.16 * s, 0.52 * s, rand());
+  const l3 = lerp(0.55 * s, 1.85 * s, rand());
+  const l4 = lerp(0.45 * s, 1.75 * s, rand());
+
+  // Coupler point in coupler frame. Limit extension to avoid accidental
+  // near-matches from a tracing point far away from the actual linkage.
+  const u = lerp(-0.15 * l3, 1.15 * l3, rand());
+  const v = lerp(-0.65 * l3, 0.65 * l3, rand());
+
+  // Fixed pivot positions
+  const tilt = lerp(-0.22 * s, 0.22 * s, rand());
+  const yBase = lerp(-0.18 * s, 0.18 * s, rand());
+  const o2x = -ground / 2;
+  const o2y = yBase - tilt / 2;
+  const o4x = ground / 2;
+  const o4y = yBase + tilt / 2;
+
+  return { o2x, o2y, o4x, o4y, l2, l3, l4, u, v, ground };
+}
+
+function fallbackParams(s) {
+  const ground = 0.9 * s;
+  const l2 = 0.22 * s;
+  const l3 = 1.0 * s;
+  const l4 = 0.9 * s;
+  const o2x = -ground / 2;
+  const o2y = 0;
+  const o4x = ground / 2;
+  const o4y = 0;
+  const u = 0.55 * l3;
+  const v = 0.22 * l3;
+  return { o2x, o2y, o4x, o4y, l2, l3, l4, u, v, ground };
+}
+
+function mutateParams(anchor, rng, scale) {
+  const jitter = (value, ratio, min, max) => {
+    const next = value + (rng() - 0.5) * 2 * scale * ratio;
+    return Math.max(min, Math.min(max, next));
+  };
+
+  const ground = jitter(anchor.groundLen, 0.16, 0.55 * scale, 2.05 * scale);
+  const l2 = jitter(anchor.l2, 0.07, 0.12 * scale, 0.62 * scale);
+  const l3 = jitter(anchor.l3, 0.12, 0.42 * scale, 2.1 * scale);
+  const l4 = jitter(anchor.l4, 0.12, 0.36 * scale, 2.0 * scale);
+  const u = Math.max(-0.22 * l3, Math.min(1.22 * l3, anchor.u + (rng() - 0.5) * 0.35 * scale));
+  const v = Math.max(-0.78 * l3, Math.min(0.78 * l3, anchor.v + (rng() - 0.5) * 0.35 * scale));
+  const cx = (anchor.o2x + anchor.o4x) / 2;
+  const cy = (anchor.o2y + anchor.o4y) / 2;
+  const tilt = (anchor.o4y - anchor.o2y) + (rng() - 0.5) * 0.16 * scale;
+  const o2x = cx - ground / 2;
+  const o4x = cx + ground / 2;
+  const o2y = cy - tilt / 2;
+  const o4y = cy + tilt / 2;
+
+  return { o2x, o2y, o4x, o4y, l2, l3, l4, u, v, ground };
+}
+
+function isPlausibleMechanism(params) {
+  const groundLen = Math.hypot(params.o4x - params.o2x, params.o4y - params.o2y);
+  if (!isGrashofCrankRocker(params.l2, params.l3, params.l4, groundLen)) return false;
+
+  const links = [params.l2, params.l3, params.l4, groundLen];
+  const minLink = Math.min(...links);
+  const maxLink = Math.max(...links);
+  if (minLink < 12 || maxLink / minLink > 5.2) return false;
+  if (Math.hypot(params.u, params.v) > params.l3 * 1.38) return false;
+  if (Math.abs(params.v) > params.l3 * 0.82) return false;
+  return true;
+}
+
+// ============================================================
+//  CURVE MATCHING
+// ============================================================
+function curveStats(curve, N) {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  let length = 0;
+  let rms = 0;
+  for (let i = 0; i < N; i++) {
+    const x = curve[i*2], y = curve[i*2+1];
+    if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+    minX = Math.min(minX, x); minY = Math.min(minY, y);
+    maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
+    rms += x*x + y*y;
+    const j = (i + 1) % N;
+    const nx = curve[j*2], ny = curve[j*2+1];
+    if (Number.isFinite(nx) && Number.isFinite(ny)) length += Math.hypot(nx - x, ny - y);
+  }
+  const w = Math.max(maxX - minX, 1);
+  const h = Math.max(maxY - minY, 1);
+  return {
+    ratio: Math.max(w, h) / Math.max(Math.min(w, h), 1),
+    length,
+    rms: Math.sqrt(rms / N),
+  };
+}
+
+function curveDescriptors(curve, N) {
+  if (curve._descriptors) return curve._descriptors;
+
+  const radius = new Float64Array(N);
+  const turn = new Float64Array(N);
+  let radiusMean = 0;
+
+  for (let i = 0; i < N; i++) {
+    const x = curve[i*2], y = curve[i*2+1];
+    const r = Math.hypot(x, y);
+    radius[i] = r;
+    radiusMean += r;
+
+    const prev = (i - 1 + N) % N;
+    const next = (i + 1) % N;
+    const ax = curve[i*2] - curve[prev*2];
+    const ay = curve[i*2+1] - curve[prev*2+1];
+    const bx = curve[next*2] - curve[i*2];
+    const by = curve[next*2+1] - curve[i*2+1];
+    const cross = ax * by - ay * bx;
+    const dot = ax * bx + ay * by;
+    turn[i] = Math.atan2(cross, dot);
+  }
+
+  radiusMean /= N;
+  const descriptors = { radius, turn, radiusMean };
+  curve._descriptors = descriptors;
+  return descriptors;
+}
+
+function matchCurves(target, coupler, N) {
+  // target and coupler are Float64Arrays of length N*2
+  // Both should be centered at origin
+  // Returns { error, offset, couplerCentered }
+
+  // First, center the coupler curve
+  let ccx = 0, ccy = 0;
+  let validN = 0;
+  for (let i = 0; i < N; i++) {
+    if (!isNaN(coupler[i*2])) {
+      ccx += coupler[i*2];
+      ccy += coupler[i*2+1];
+      validN++;
+    }
+  }
+  if (validN < N * 0.8) return { error: Infinity, offset: 0 };
+  ccx /= validN; ccy /= validN;
+
+  // Center and scale the coupler curve. Manufacturing scale may vary; the
+  // synthesized shape is judged in normalized target space.
+  const cc = new Float64Array(N * 2);
+  let couplerRms = 0;
+  for (let i = 0; i < N; i++) {
+    const x = coupler[i*2] - ccx;
+    const y = coupler[i*2+1] - ccy;
+    cc[i*2] = x;
+    cc[i*2+1] = y;
+    couplerRms += x*x + y*y;
+  }
+  couplerRms = Math.sqrt(couplerRms / validN);
+  if (!Number.isFinite(couplerRms) || couplerRms < 5) return { error: Infinity, offset: 0 };
+
+  const scaleApplied = TARGET_RMS / couplerRms;
+  for (let i = 0; i < N; i++) {
+    cc[i*2] *= scaleApplied;
+    cc[i*2+1] *= scaleApplied;
+  }
+
+  const targetStats = curveStats(target, N);
+  const couplerStats = curveStats(cc, N);
+  const targetDesc = curveDescriptors(target, N);
+  const couplerDesc = curveDescriptors(cc, N);
+  const ratioPenalty = Math.abs(Math.log(couplerStats.ratio / targetStats.ratio)) * 16;
+  const lengthPenalty = Math.abs(Math.log(couplerStats.length / targetStats.length)) * 10;
+
+  // Match by trying all starting offsets
+  let bestScore = Infinity;
+  let bestRawError = Infinity;
+  let bestP95Error = Infinity;
+  let bestMaxError = Infinity;
+  let bestRadiusError = Infinity;
+  let bestTurnError = Infinity;
+  let bestOffset = 0;
+  let bestDirection = 1;
+
+  for (const direction of [1, -1]) {
+    for (let offset = 0; offset < N; offset++) {
+      let error = 0;
+      let maxSq = 0;
+      const largestSq = [0, 0, 0, 0, 0];
+      let radiusError = 0;
+      let turnError = 0;
+      for (let i = 0; i < N; i++) {
+        const j = direction === 1 ? (i + offset) % N : (offset - i + N) % N;
+        if (!Number.isFinite(cc[j*2])) { error += 1e6; continue; }
+        const dx = target[i*2] - cc[j*2];
+        const dy = target[i*2+1] - cc[j*2+1];
+        const dSq = dx*dx + dy*dy;
+        error += dSq;
+        maxSq = Math.max(maxSq, dSq);
+        if (dSq > largestSq[4]) {
+          largestSq[4] = dSq;
+          for (let k = 4; k > 0 && largestSq[k] > largestSq[k-1]; k--) {
+            const temp = largestSq[k-1];
+            largestSq[k-1] = largestSq[k];
+            largestSq[k] = temp;
+          }
+        }
+
+        const dr = targetDesc.radius[i] - couplerDesc.radius[j];
+        radiusError += dr * dr;
+
+        const ct = direction === 1 ? couplerDesc.turn[j] : -couplerDesc.turn[j];
+        const dt = targetDesc.turn[i] - ct;
+        turnError += dt * dt;
+      }
+      const rawError = Math.sqrt(error / N);
+      const maxError = Math.sqrt(maxSq);
+      const p95Error = Math.sqrt(largestSq[4]);
+      const radiusRms = Math.sqrt(radiusError / N);
+      const turnRms = Math.sqrt(turnError / N);
+      const score = rawError
+        + maxError * 0.35
+        + p95Error * 0.55
+        + radiusRms * 0.45
+        + turnRms * 18
+        + ratioPenalty
+        + lengthPenalty;
+
+      if (score < bestScore) {
+        bestScore = score;
+        bestRawError = rawError;
+        bestP95Error = p95Error;
+        bestMaxError = maxError;
+        bestRadiusError = radiusRms;
+        bestTurnError = turnRms;
+        bestOffset = offset;
+        bestDirection = direction;
+      }
+    }
+  }
+
+  return {
+    error: bestScore,
+    rawError: bestRawError,
+    p95Error: bestP95Error,
+    maxError: bestMaxError,
+    radiusError: bestRadiusError,
+    turnError: bestTurnError,
+    ratioPenalty,
+    lengthPenalty,
+    offset: bestOffset,
+    direction: bestDirection,
+    couplerCentered: cc,
+    centroidX: ccx,
+    centroidY: ccy,
+    displayScale: scaleApplied,
+  };
+}
+
+function isTrustedResult(result) {
+  return !!result
+    && result.error <= ACCEPTABLE_ERROR
+    && result.rawError <= ACCEPTABLE_RMS_ERROR
+    && result.p95Error <= ACCEPTABLE_P95_ERROR
+    && result.maxError <= ACCEPTABLE_MAX_ERROR
+    && result.radiusError <= ACCEPTABLE_RADIUS_ERROR
+    && result.turnError <= ACCEPTABLE_TURN_ERROR
+    && fitConfidence(result) >= MIN_FIT_CONFIDENCE;
+}
+
+function fitConfidence(result) {
+  if (!result || !Number.isFinite(result.error)) return 0;
+  const penalties = [
+    result.rawError / ACCEPTABLE_RMS_ERROR,
+    result.p95Error / ACCEPTABLE_P95_ERROR,
+    result.maxError / ACCEPTABLE_MAX_ERROR,
+    result.radiusError / ACCEPTABLE_RADIUS_ERROR,
+    result.turnError / ACCEPTABLE_TURN_ERROR,
+    result.error / ACCEPTABLE_ERROR,
+  ];
+  const worst = Math.max(...penalties.filter(Number.isFinite));
+  return Math.max(0, Math.min(100, 100 - Math.max(0, worst - 0.35) * 52));
+}
+
+function rejectionReason(result) {
+  if (!result) return '没有找到有效候选';
+  const checks = [
+    { label: '平均误差', value: result.rawError, limit: ACCEPTABLE_RMS_ERROR, suffix: ' px' },
+    { label: '95% 偏差', value: result.p95Error, limit: ACCEPTABLE_P95_ERROR, suffix: ' px' },
+    { label: '局部最大偏差', value: result.maxError, limit: ACCEPTABLE_MAX_ERROR, suffix: ' px' },
+    { label: '轮廓差异', value: result.radiusError, limit: ACCEPTABLE_RADIUS_ERROR, suffix: ' px' },
+    { label: '转角差异', value: result.turnError, limit: ACCEPTABLE_TURN_ERROR, suffix: '' },
+    { label: '综合误差', value: result.error, limit: ACCEPTABLE_ERROR, suffix: '' },
+  ];
+  let worst = checks[0];
+  let worstRatio = -Infinity;
+  for (const check of checks) {
+    const ratio = check.value / check.limit;
+    if (ratio > worstRatio) {
+      worst = check;
+      worstRatio = ratio;
+    }
+  }
+  const confidence = fitConfidence(result);
+  if (confidence < MIN_FIT_CONFIDENCE && worstRatio <= 1) {
+    return `可信度 ${confidence.toFixed(0)} 分不足`;
+  }
+  return `${worst.label} ${worst.value.toFixed(worst.suffix ? 1 : 2)}${worst.suffix} 超过阈值 ${worst.limit}${worst.suffix}`;
+}
+
+// ============================================================
+//  OPTIMIZATION
+// ============================================================
+// ============================================================
+//  ASYNC OPTIMIZATION (non-blocking via setTimeout chunks)
+// ============================================================
+function generate() {
+  if (!targetCurve) {
+    setStatus('err', '⚠️ 请先在画布上绘制一条曲线');
+    return;
+  }
+
+  const token = ++optimizationToken;
+  if (isAnimating) stopAnimation();
+
+  const btnGen = document.getElementById('btnGenerate');
+  const btnAnim = document.getElementById('btnAnimate');
+  btnGen.disabled = true;
+  btnAnim.disabled = true;
+  hasResult = false;
+  bestLinkage = null;
+  approximateCandidate = null;
+  document.getElementById('paramGroup').style.display = 'none';
+
+  setStatus('info', '⏳ 正在约束搜索可实现的连杆参数... (可能需要几秒)');
+  drawAll();
+
+  const NUM_SAMPLES = 70000;
+  const REFINE_START = 52000;
+  const rng = createRng(makeSeedFromCurve(targetCurve));
+
+  // Run optimization in chunks to not block UI
+  const chunkSize = 3500;
+  let currentSample = 0;
+  let bestSoFar = null;
+
+  function runChunk() {
+    if (token !== optimizationToken) return;
+    const endSample = Math.min(currentSample + chunkSize, NUM_SAMPLES);
+    const N = targetCurve.length / 2;
+    // Target curve was normalized to TARGET_RMS in processCurve; use that as reference scale.
+    const scale = TARGET_RMS;
+    let validCount = bestSoFar ? bestSoFar.validSamples : 0;
+
+    for (let s = currentSample; s < endSample; s++) {
+      const params = randomParams(scale, rng, (s >= REFINE_START && bestSoFar) ? bestSoFar.linkage : null);
+      if (!isPlausibleMechanism(params)) continue;
+
+      const linkage = new FourBarLinkage(
+        params.o2x, params.o2y, params.o4x, params.o4y,
+        params.l2, params.l3, params.l4, params.u, params.v
+      );
+
+      const couplerCurve = linkage.getCouplerCurve(N);
+      if (!couplerCurve) continue;
+
+      const match = matchCurves(targetCurve, couplerCurve, N);
+      if (!isFinite(match.error)) continue;
+
+      validCount++;
+
+      if (!bestSoFar || match.error < bestSoFar.error) {
+        bestSoFar = {
+          linkage, error: match.error, rawError: match.rawError,
+          p95Error: match.p95Error, maxError: match.maxError,
+          radiusError: match.radiusError, turnError: match.turnError,
+          ratioPenalty: match.ratioPenalty, lengthPenalty: match.lengthPenalty,
+          offset: match.offset, direction: match.direction,
+          couplerCentered: match.couplerCentered,
+          centroidX: match.centroidX, centroidY: match.centroidY,
+          displayScale: match.displayScale,
+          validSamples: validCount,
+        };
+      }
+    }
+    if (bestSoFar) bestSoFar.validSamples = validCount;
+
+    currentSample = endSample;
+
+    if (currentSample < NUM_SAMPLES) {
+      const pct = Math.round(currentSample / NUM_SAMPLES * 100);
+      setStatus('info', `⏳ 约束搜索中... ${pct}% (有效机构 ${bestSoFar?.validSamples || 0} 个，当前误差: ${bestSoFar?.error?.toFixed(1) || '--'})`);
+      // Redraw with current best
+      if (isTrustedResult(bestSoFar)) {
+        bestLinkage = bestSoFar;
+        hasResult = true;
+        drawAll();
+      } else {
+        bestLinkage = null;
+        hasResult = false;
+        drawAll();
+      }
+      setTimeout(runChunk, 0);
+    } else {
+      // Done
+      finishOptimization(bestSoFar, btnGen, btnAnim);
+    }
+  }
+
+  setTimeout(runChunk, 50);
+}
+
+function finishOptimization(result, btnGen, btnAnim) {
+  if (!result) {
+    approximateCandidate = null;
+    setStatus('err', '❌ 未找到有效的连杆机构，请尝试绘制更简单的曲线（如圆、椭圆、水滴形等）');
+    btnGen.disabled = false;
+    drawAll();
+    return;
+  }
+
+  if (!isTrustedResult(result)) {
+    approximateCandidate = result;
+    bestLinkage = null;
+    hasResult = false;
+    const reason = rejectionReason(result);
+    setStatus('err', `⚠️ 未找到可信拟合：${reason}。是否改为查看轨迹相近的模型？`);
+    btnGen.disabled = false;
+    btnAnim.disabled = true;
+    document.getElementById('errorDisplay').textContent = result.error.toFixed(1) + ' px (未通过)';
+    document.getElementById('paramContent').innerHTML = `
+      <div class="param-row"><span>搜索结果</span><span class="val">不采用</span></div>
+      <div class="param-row"><span>可信度</span><span class="val">${fitConfidence(result).toFixed(0)} / 100</span></div>
+      <div class="param-row"><span>有效机构数</span><span class="val">${result.validSamples || 0}</span></div>
+      <div class="param-row"><span>综合误差</span><span class="val">${result.error.toFixed(1)}</span></div>
+      <div class="param-row"><span>点位误差</span><span class="val">${(result.rawError || result.error).toFixed(1)}</span></div>
+      <div class="param-row"><span>95% 偏差</span><span class="val">${(result.p95Error || 0).toFixed(1)}</span></div>
+      <div class="param-row"><span>最大偏差</span><span class="val">${(result.maxError || 0).toFixed(1)}</span></div>
+      <div class="param-row"><span>轮廓差异</span><span class="val">${(result.radiusError || 0).toFixed(1)}</span></div>
+      <div class="param-row"><span>转角差异</span><span class="val">${(result.turnError || 0).toFixed(2)}</span></div>
+      <div class="fallback-actions">
+        <button class="btn-small btn-small-primary" onclick="acceptApproximateResult()">查看相近轨迹</button>
+        <button class="btn-small btn-small-secondary" onclick="resetAll()">重新绘制</button>
+      </div>
+    `;
+    document.getElementById('paramGroup').style.display = 'block';
+    drawAll();
+    return;
+  }
+
+  bestLinkage = result;
+  approximateCandidate = null;
+  hasResult = true;
+  // Start animation at the best-matching phase offset
+  const N_curve = targetCurve.length / 2;
+  animAngle = (2 * Math.PI * result.offset) / N_curve;
+
+  const qualityText = result.error <= WARN_ERROR ? '可信拟合' : '可用拟合，建议人工复核';
+  setStatus('ok', `✅ 搜索完成：${qualityText}。有效机构 ${result.validSamples || '?'} 个，综合误差 ${result.error.toFixed(1)} px`);
+  btnGen.disabled = false;
+  btnAnim.disabled = false;
+  document.getElementById('errorDisplay').textContent = `${result.rawError.toFixed(1)} px RMS / ${result.maxError.toFixed(1)} px max`;
+
+  // Display parameters
+  const l = bestLinkage.linkage;
+  const paramContent = document.getElementById('paramContent');
+  paramContent.innerHTML = `
+    <div class="param-row"><span>地面杆长</span><span class="val">${l.groundLen.toFixed(1)}</span></div>
+    <div class="param-row"><span>曲柄长度 L₂</span><span class="val">${l.l2.toFixed(1)}</span></div>
+    <div class="param-row"><span>连杆长度 L₃</span><span class="val">${l.l3.toFixed(1)}</span></div>
+    <div class="param-row"><span>摇杆长度 L₄</span><span class="val">${l.l4.toFixed(1)}</span></div>
+    <div class="param-row"><span>耦合点 (u, v)</span><span class="val">(${l.u.toFixed(1)}, ${l.v.toFixed(1)})</span></div>
+    <div class="param-row"><span>固定铰链 O₂</span><span class="val">(${l.o2x.toFixed(1)}, ${l.o2y.toFixed(1)})</span></div>
+    <div class="param-row"><span>固定铰链 O₄</span><span class="val">(${l.o4x.toFixed(1)}, ${l.o4y.toFixed(1)})</span></div>
+    <div class="param-row"><span>可信度</span><span class="val">${fitConfidence(bestLinkage).toFixed(0)} / 100</span></div>
+    <div class="param-row"><span>显示缩放</span><span class="val">×${(bestLinkage.displayScale || 1).toFixed(2)}</span></div>
+    <div class="param-row"><span>95% 偏差</span><span class="val">${(bestLinkage.p95Error || 0).toFixed(1)}</span></div>
+    <div class="param-row"><span>最大偏差</span><span class="val">${(bestLinkage.maxError || 0).toFixed(1)}</span></div>
+    <div class="param-row"><span>轮廓差异</span><span class="val">${(bestLinkage.radiusError || 0).toFixed(1)}</span></div>
+    <div class="param-row"><span>最佳相位偏移</span><span class="val">${(bestLinkage.offset / targetCurve.length * 2 * 360).toFixed(1)}°</span></div>
+  `;
+  document.getElementById('paramGroup').style.display = 'block';
+
+  drawAll();
+
+  // Auto-start animation
+  setTimeout(() => toggleAnimation(true), 300);
+}
+
+function acceptApproximateResult() {
+  if (!approximateCandidate) return;
+  if (isAnimating) stopAnimation();
+
+  bestLinkage = approximateCandidate;
+  hasResult = true;
+  const btnAnim = document.getElementById('btnAnimate');
+  btnAnim.disabled = false;
+
+  const N_curve = targetCurve.length / 2;
+  animAngle = (2 * Math.PI * bestLinkage.offset) / N_curve;
+
+  setStatus('info', `ℹ️ 已显示轨迹相近模型：该结果未通过严格判定，仅供比较参考。可信度 ${fitConfidence(bestLinkage).toFixed(0)} / 100`);
+  document.getElementById('errorDisplay').textContent = `${bestLinkage.rawError.toFixed(1)} px RMS / ${bestLinkage.maxError.toFixed(1)} px max（近似）`;
+
+  const l = bestLinkage.linkage;
+  const paramContent = document.getElementById('paramContent');
+  paramContent.innerHTML = `
+    <div class="param-row"><span>搜索结果</span><span class="val">近似模型</span></div>
+    <div class="param-row"><span>严格判定</span><span class="val">未通过</span></div>
+    <div class="param-row"><span>可信度</span><span class="val">${fitConfidence(bestLinkage).toFixed(0)} / 100</span></div>
+    <div class="param-row"><span>失败原因</span><span class="val">${rejectionReason(bestLinkage)}</span></div>
+    <div class="param-row"><span>地面杆长</span><span class="val">${l.groundLen.toFixed(1)}</span></div>
+    <div class="param-row"><span>曲柄长度 L₂</span><span class="val">${l.l2.toFixed(1)}</span></div>
+    <div class="param-row"><span>连杆长度 L₃</span><span class="val">${l.l3.toFixed(1)}</span></div>
+    <div class="param-row"><span>摇杆长度 L₄</span><span class="val">${l.l4.toFixed(1)}</span></div>
+    <div class="param-row"><span>95% 偏差</span><span class="val">${(bestLinkage.p95Error || 0).toFixed(1)}</span></div>
+    <div class="param-row"><span>最大偏差</span><span class="val">${(bestLinkage.maxError || 0).toFixed(1)}</span></div>
+    <div class="param-row"><span>轮廓差异</span><span class="val">${(bestLinkage.radiusError || 0).toFixed(1)}</span></div>
+    <div class="fallback-actions">
+      <button class="btn-small btn-small-primary" onclick="toggleAnimation(true)">播放近似模型</button>
+      <button class="btn-small btn-small-secondary" onclick="resetAll()">重新绘制</button>
+    </div>
+  `;
+  document.getElementById('paramGroup').style.display = 'block';
+  drawAll();
+}
+
+// ============================================================
+//  ANIMATION
+// ============================================================
+function toggleAnimation(forceStart) {
+  if (isAnimating && !forceStart) {
+    stopAnimation();
+    return;
+  }
+  if (!bestLinkage) return;
+
+  isAnimating = true;
+  document.getElementById('btnAnimate').textContent = '⏸️ 暂停动画';
+  document.getElementById('btnAnimate').style.background = 'var(--orange)';
+  animate();
+}
+
+function stopAnimation() {
+  isAnimating = false;
+  if (animRaf) cancelAnimationFrame(animRaf);
+  animRaf = null;
+  document.getElementById('btnAnimate').textContent = '▶️ 播放动画';
+  document.getElementById('btnAnimate').style.background = 'var(--accent2)';
+}
+
+function animate() {
+  if (!isAnimating) return;
+
+  const direction = bestLinkage?.direction || 1;
+  const angularSpeed = 0.02 * speed * direction; // radians per frame at 60fps
+  animAngle += angularSpeed;
+  if (animAngle > 2 * Math.PI) animAngle -= 2 * Math.PI;
+  if (animAngle < 0) animAngle += 2 * Math.PI;
+
+  drawAll();
+  animRaf = requestAnimationFrame(animate);
+}
+
+// ============================================================
+//  RENDERING
+// ============================================================
+function drawAll() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Compute center offset for drawing (canvas center)
+  const cx = W / 2;
+  const cy = H / 2;
+
+  // Draw target curve
+  if (targetCurve) {
+    const N = targetCurve.length / 2;
+    // Draw target curve outline (thin dashed)
+    ctx.save();
+    ctx.strokeStyle = 'rgba(248,113,113,0.6)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath();
+    for (let i = 0; i <= N; i++) {
+      const idx = i % N;
+      const x = cx + targetCurve[idx*2];
+      const y = cy + targetCurve[idx*2+1];
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // Draw small dots on target curve
+    ctx.fillStyle = 'rgba(248,113,113,0.35)';
+    for (let i = 0; i < N; i += 4) {
+      ctx.beginPath();
+      ctx.arc(cx + targetCurve[i*2], cy + targetCurve[i*2+1], 2, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  // Draw linkage result
+  if (hasResult && bestLinkage) {
+    const linkage = bestLinkage.linkage;
+
+    // Best coupler curve (blue)
+    if (bestLinkage.couplerCentered) {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(56,189,248,0.7)';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      const cc = bestLinkage.couplerCentered;
+      const Ncc = cc.length / 2;
+      for (let i = 0; i <= Ncc; i++) {
+        const idx = i % Ncc;
+        if (isNaN(cc[idx*2])) continue;
+        const x = cx + cc[idx*2];
+        const y = cy + cc[idx*2+1];
+        if (i === 0 || isNaN(cc[((i-1)%Ncc)*2])) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Current linkage state
+    const sol = linkage.solveAt(animAngle);
+    if (sol.valid) {
+      // Use the same transform as matchCurves(), so visible links agree with
+      // the fitted coupler curve rather than drifting from the blue trace.
+      const cX = bestLinkage.centroidX || 0;
+      const cY = bestLinkage.centroidY || 0;
+      const displayScale = bestLinkage.displayScale || 1;
+      const tx = x => cx + (x - cX) * displayScale;
+      const ty = y => cy + (y - cY) * displayScale;
+
+      const o2x = tx(linkage.o2x);
+      const o2y = ty(linkage.o2y);
+      const o4x = tx(linkage.o4x);
+      const o4y = ty(linkage.o4y);
+      const ax = tx(sol.ax);
+      const ay = ty(sol.ay);
+      const bx = tx(sol.bx);
+      const by = ty(sol.by);
+      const px = tx(sol.px);
+      const py = ty(sol.py);
+
+      // Ground link (fixed frame) — dashed to distinguish from moving links
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.setLineDash([10, 6]);
+      ctx.beginPath();
+      ctx.moveTo(o2x, o2y);
+      ctx.lineTo(o4x, o4y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Ground symbol at fixed pivots
+      // Draw ground base below O2 and O4
+      for (const gpt of [{x: o2x, y: o2y}, {x: o4x, y: o4y}]) {
+        const gy = gpt.y + 12;
+        ctx.strokeStyle = '#64748b';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        // Horizontal ground line
+        ctx.beginPath();
+        ctx.moveTo(gpt.x - 18, gy);
+        ctx.lineTo(gpt.x + 18, gy);
+        ctx.stroke();
+        // Hatch lines
+        ctx.lineWidth = 2;
+        for (let hi = -2; hi <= 2; hi++) {
+          const hx = gpt.x + hi * 6;
+          ctx.beginPath();
+          ctx.moveTo(hx, gy);
+          ctx.lineTo(hx - 4, gy + 7);
+          ctx.stroke();
+        }
+      }
+
+      // Crank (O2 → A) - orange
+      ctx.strokeStyle = '#fb923c';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(o2x, o2y);
+      ctx.lineTo(ax, ay);
+      ctx.stroke();
+
+      // Coupler (A → B) - purple
+      ctx.strokeStyle = '#a78bfa';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      ctx.lineTo(bx, by);
+      ctx.stroke();
+
+      // Coupler extension to point P (dashed)
+      ctx.strokeStyle = 'rgba(167,139,250,0.5)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Rocker (B → O4) - cyan
+      ctx.strokeStyle = '#22d3ee';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(bx, by);
+      ctx.lineTo(o4x, o4y);
+      ctx.stroke();
+
+      // Joints
+      const joints = [
+        { x: o2x, y: o2y, color: '#fff', r: 7, label: 'O₂' },
+        { x: o4x, y: o4y, color: '#fff', r: 7, label: 'O₄' },
+        { x: ax, y: ay, color: '#fb923c', r: 5, label: 'A' },
+        { x: bx, y: by, color: '#22d3ee', r: 5, label: 'B' },
+      ];
+
+      for (const j of joints) {
+        // Outer ring
+        ctx.fillStyle = j.color;
+        ctx.beginPath();
+        ctx.arc(j.x, j.y, j.r, 0, Math.PI*2);
+        ctx.fill();
+        // Inner
+        ctx.fillStyle = '#1e293b';
+        ctx.beginPath();
+        ctx.arc(j.x, j.y, j.r * 0.5, 0, Math.PI*2);
+        ctx.fill();
+        // Label
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(j.label, j.x, j.y - j.r - 5);
+      }
+
+      // Coupler point P (the tracing point) - bright green with glow
+      ctx.shadowColor = '#4ade80';
+      ctx.shadowBlur = 12;
+      ctx.fillStyle = '#4ade80';
+      ctx.beginPath();
+      ctx.arc(px, py, 6, 0, Math.PI*2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Trailing trace of coupler point
+      if (isAnimating) {
+        if (!window._trace) window._trace = [];
+        window._trace.push({ x: px, y: py });
+        if (window._trace.length > 200) window._trace.shift();
+
+        ctx.strokeStyle = 'rgba(74,222,128,0.3)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let i = 0; i < window._trace.length; i++) {
+          if (i === 0) ctx.moveTo(window._trace[i].x, window._trace[i].y);
+          else ctx.lineTo(window._trace[i].x, window._trace[i].y);
+        }
+        ctx.stroke();
+      }
+
+      // Crank rotation indicator (arc at O2)
+      ctx.strokeStyle = 'rgba(251,146,60,0.5)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(o2x, o2y, linkage.l2 * displayScale + 15, -0.3, animAngle - 0.3);
+      ctx.stroke();
+
+      // Arrow at end of indicator
+      const arrowAngle = animAngle - 0.3;
+      const arrowX = o2x + (linkage.l2 * displayScale + 15) * Math.cos(arrowAngle);
+      const arrowY = o2y + (linkage.l2 * displayScale + 15) * Math.sin(arrowAngle);
+      ctx.fillStyle = '#fb923c';
+      ctx.beginPath();
+      const arrowSize = 6;
+      ctx.moveTo(arrowX, arrowY);
+      ctx.lineTo(
+        arrowX - arrowSize * Math.cos(arrowAngle - 2.3),
+        arrowY - arrowSize * Math.sin(arrowAngle - 2.3)
+      );
+      ctx.lineTo(
+        arrowX - arrowSize * Math.cos(arrowAngle + 2.3),
+        arrowY - arrowSize * Math.sin(arrowAngle + 2.3)
+      );
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // Draw legend
+    if (hasResult && bestLinkage) {
+      const lx = 16, ly = 16;
+      const items = [
+        { color: 'rgba(248,113,113,0.6)', dash: [6,4], label: '目标曲线（手绘）' },
+        { color: 'rgba(56,189,248,0.7)', dash: [], label: '拟合连杆曲线' },
+        { color: '#fb923c', dash: [], label: '曲柄 (L₂)' },
+        { color: '#a78bfa', dash: [], label: '连杆 (L₃)' },
+        { color: '#22d3ee', dash: [], label: '摇杆 (L₄)' },
+        { color: '#64748b', dash: [10,6], label: '固定机架' },
+      ];
+      ctx.fillStyle = 'rgba(15,23,42,0.85)';
+      ctx.strokeStyle = 'rgba(51,65,85,0.8)';
+      ctx.lineWidth = 1;
+      const boxW = 180, boxH = items.length * 18 + 18;
+      // Manual rounded rect
+      const rr = 8;
+      ctx.beginPath();
+      ctx.moveTo(lx + rr, ly);
+      ctx.lineTo(lx + boxW - rr, ly);
+      ctx.arcTo(lx + boxW, ly, lx + boxW, ly + rr, rr);
+      ctx.lineTo(lx + boxW, ly + boxH - rr);
+      ctx.arcTo(lx + boxW, ly + boxH, lx + boxW - rr, ly + boxH, rr);
+      ctx.lineTo(lx + rr, ly + boxH);
+      ctx.arcTo(lx, ly + boxH, lx, ly + boxH - rr, rr);
+      ctx.lineTo(lx, ly + rr);
+      ctx.arcTo(lx, ly, lx + rr, ly, rr);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.textAlign = 'left';
+      ctx.font = '11px sans-serif';
+      for (let i = 0; i < items.length; i++) {
+        const iy = ly + 16 + i * 18;
+        ctx.strokeStyle = items[i].color;
+        ctx.lineWidth = 2;
+        ctx.setLineDash(items[i].dash);
+        ctx.beginPath();
+        ctx.moveTo(lx + 10, iy);
+        ctx.lineTo(lx + 34, iy);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#e2e8f0';
+        ctx.fillText(items[i].label, lx + 40, iy + 4);
+      }
+    }
+  }
+
+  // Draw in-progress drawing
+  if (isDrawing && drawnPoints.length > 1) {
+    ctx.strokeStyle = '#f87171';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(drawnPoints[0].x, drawnPoints[0].y);
+    for (let i = 1; i < drawnPoints.length; i++) {
+      ctx.lineTo(drawnPoints[i].x, drawnPoints[i].y);
+    }
+    ctx.stroke();
+  }
+
+  // Draw hint text if nothing on canvas
+  if (!targetCurve && !isDrawing && !hasResult) {
+    ctx.fillStyle = 'rgba(148,163,184,0.5)';
+    ctx.font = '18px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('在此绘制任意闭合曲线', cx, cy - 10);
+    ctx.font = '13px sans-serif';
+    ctx.fillText('按住鼠标拖拽绘制，松手后点击「生成机构」', cx, cy + 20);
+  }
+}
+
+// ============================================================
+//  UTILS
+// ============================================================
+function setStatus(type, msg) {
+  const el = document.getElementById('statusArea');
+  el.textContent = msg;
+  el.className = 'status status-' + type;
+}
+
+function resetAll() {
+  optimizationToken++;
+  stopAnimation();
+  drawnPoints = [];
+  targetCurve = null;
+  bestLinkage = null;
+  approximateCandidate = null;
+  hasResult = false;
+  animAngle = 0;
+  window._trace = [];
+  document.getElementById('btnGenerate').disabled = true;
+  document.getElementById('btnAnimate').disabled = true;
+  document.getElementById('paramGroup').style.display = 'none';
+  setStatus('info', '👆 请在左侧画布上绘制一条曲线');
+  drawAll();
+}
+
+// Speed slider
+document.getElementById('speedSlider').addEventListener('input', function() {
+  speed = parseFloat(this.value);
+  document.getElementById('speedLabel').textContent = speed.toFixed(1);
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  switch(e.key.toLowerCase()) {
+    case 'g': generate(); break;
+    case 'r': resetAll(); break;
+    case ' ': e.preventDefault(); toggleAnimation(); break;
+  }
+});
+
+// ============================================================
+//  INIT
+// ============================================================
+resize();
+resetAll();
+</script>
+
+</body>
+</html>

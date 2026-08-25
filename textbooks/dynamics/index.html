@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学理论力学知识体系梳理（三）——动力学</title><style>
+    :root{--blue:#0d579a;--blue2:#064985;--line:#cfe2f4;--ink:#132c45;--sub:#49677f;--warn:#c62828;--shadow:0 14px 32px rgba(11,76,135,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+    body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
+    a{text-decoration:none;color:var(--blue)}
+    .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
+    .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
+    .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
+    .toc ol{list-style:none;margin:8px 0 0;padding:0}.toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}.toc li a:hover{background:#eaf4ff}
+    .main{min-width:0}.hero{background:linear-gradient(180deg,#f4f9ff,#e8f4ff);border:1px solid #d5e8f7;border-radius:24px;padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
+    .eyebrow{display:inline-block;background:#e2f1ff;color:var(--blue);border:1px solid #bddbf5;border-radius:999px;padding:5px 12px;font-weight:900;letter-spacing:2px;font-size:13px}
+    .hero h1{font-size:34px;margin:10px 0 8px;line-height:1.2;color:#0b3f76}.hero p{margin:0;color:#34536d;max-width:1100px;font-weight:600}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;margin-top:22px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.hero-card h3{margin:0 0 8px;color:#0b3f76}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{background:var(--blue2);color:#fff;border-radius:9px;padding:9px 14px;font-weight:900;font-size:14px}
+    .pills{display:flex;flex-wrap:wrap;gap:9px}.pills span{background:#f1f8ff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:#0f4d88;font-weight:800}
+    .page-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}.page-tabs a{background:#fff;border:1px solid #b9d8f1;border-radius:999px;padding:8px 14px;font-weight:900;box-shadow:0 4px 12px rgba(11,76,135,.08)}
+    .overview{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:24px;box-shadow:var(--shadow)}.overview h2{margin:0 0 16px;color:#0b3f76;font-size:26px}
+    .overall-map{margin:0 0 18px;border:1px solid var(--line);border-radius:18px;padding:12px;background:#f8fbff}.overall-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}
+    .page-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.page-card{display:block;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:14px;min-height:160px;color:var(--ink)}
+    .page-card h3{margin:0;color:#0b3f76}.page-card h4{margin:6px 0;color:#0d3c68}.page-card p{font-size:13.5px;color:#425f77;margin:0 0 10px}.page-card strong{font-size:13px;color:var(--blue)}
+    .page-section{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:28px;box-shadow:var(--shadow)}
+    .page-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}.page-num{background:linear-gradient(135deg,var(--blue2),#0c64b3);color:#fff;border-radius:16px;padding:14px 16px;font-size:22px;font-weight:900}
+    .page-head h2{margin:0;color:#0b3f76;font-size:30px}.page-head p{margin:4px 0 0;color:#48657c}
+    .big-map{border:1px dashed #b9d5ee;border-radius:16px;background:#f8fbff;padding:10px 12px;margin-bottom:18px}.big-map summary{cursor:pointer;font-weight:900;color:#0b4f8a}.big-map figure{margin:12px 0 0}.big-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}.big-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    .module-guide{background:linear-gradient(135deg,var(--blue2),#0b66b3);color:#fff;border-radius:12px;padding:13px 16px;margin:12px 0 22px;font-weight:900}
+    .module{border:1px solid var(--line);border-left:7px solid var(--blue);border-radius:20px;padding:18px;margin:20px 0;background:#fff}.module-title-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}.module-index{background:var(--blue2);color:#fff;border-radius:12px;padding:10px 14px;font-weight:900;font-size:18px}.module h3{margin:0;color:#0b3f76;font-size:24px}
+    .mini-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}.mini-tags span{background:#fff4d9;border:1px solid #f0d897;color:#8a5b00;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+    .focus-bar{background:var(--blue2);color:#fff;border-radius:10px;padding:12px 14px;margin-bottom:18px;font-weight:900}.module-main{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:start}.module-left{min-width:0}
+    .fine-detail-zone{margin:0;border:0;background:transparent;padding:0;box-shadow:none}.fine-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .fine-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}.fine-card h5{display:inline-block;margin:0 0 8px;background:var(--blue2);color:#fff;border-radius:8px;padding:5px 10px;font-size:14px}.fine-card p{margin:6px 0}.fine-card ul{margin:6px 0 0;padding-left:18px}.fine-card li{margin:4px 0}.fine-card.warn h5{background:var(--warn)}.fine-card.practice-help h5{background:#2b7a53}
+    .fine-formula{display:block;margin:8px 0 0;padding:9px 11px;border:1px dashed #9fc4ee;border-radius:10px;background:#f4f7ff;color:#673ab7;font-family:"Times New Roman","Microsoft YaHei",serif;font-weight:900;font-size:18px}
+    .fine-summary{border:1px solid var(--line);background:#f6fbff;border-radius:12px;padding:12px;margin-top:12px;color:#31536d;font-weight:800}
+    .module-map{margin:0;background:#f7fbff;border:1px solid var(--line);border-radius:18px;padding:12px}.map-label{font-size:13px;font-weight:900;color:#0b3f76;margin-bottom:7px}.module-map img{width:100%;display:block;border-radius:12px;border:1px solid #d7e7f6}.module-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    @media(max-width:1200px){.layout,.hero-grid,.module-main{grid-template-columns:1fr}.sidebar{position:static;height:auto}.page-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.page-cards,.fine-grid{grid-template-columns:1fr}.layout{padding:12px}.hero h1{font-size:26px}}
+    @media print{.sidebar,.btns,.page-tabs{display:none}.layout{display:block;max-width:none}.page-section,.module,.overview,.hero{box-shadow:none;break-inside:avoid}}
+    </style></head>
+<body><a href="../../knowledge_framework.html" style="position:fixed;top:12px;right:170px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(5,150,105,0.25);transition:all 0.2s" onmouseover="this.style.background="#047857";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="#059669";this.style.transform="translateY(0)"">← 返回知识框架</a><a href="../../index.html" style="position:fixed;top:12px;right:16px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--blue);color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(8,60,122,0.25);transition:all 0.2s" onmouseover="this.style.background="var(--blue2)";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="var(--blue)";this.style.transform="translateY(0)"">🏠 返回平台首页</a><div class="layout">
+<aside class="sidebar"><h2>子目录导航</h2><div class="nav-note">建议使用方式：先看每页的大图总览，再阅读每个模块的“重点一句话”和配图；练习区可按需展开。</div><a class="home-link" href="#top">回到首页</a><nav class="toc"><details open><summary>第1页｜一、质点动力学</summary><ol><li><a href="#dyn1-1"><span>1.1</span>牛顿第二定律</a></li><li><a href="#dyn1-2"><span>1.2</span>运动微分方程</a></li><li><a href="#dyn1-3"><span>1.3</span>两类问题</a></li></ol></details><details open><summary>第2页｜二、动量定理</summary><ol><li><a href="#dyn2-1"><span>2.1</span>动量与冲量</a></li><li><a href="#dyn2-2"><span>2.2</span>质心运动定理</a></li><li><a href="#dyn2-3"><span>2.3</span>变质量系统</a></li></ol></details><details open><summary>第3页｜三、动量矩定理</summary><ol><li><a href="#dyn3-1"><span>3.1</span>转动惯量</a></li><li><a href="#dyn3-2"><span>3.2</span>定轴转动方程</a></li><li><a href="#dyn3-3"><span>3.3</span>平面运动微分方程</a></li></ol></details><details open><summary>第4页｜四、动能定理</summary><ol><li><a href="#dyn4-1"><span>4.1</span>功与动能</a></li><li><a href="#dyn4-2"><span>4.2</span>动能定理</a></li><li><a href="#dyn4-3"><span>4.3</span>机械能守恒</a></li><li><a href="#dyn4-4"><span>4.4</span>普遍定理综合</a></li></ol></details></nav></aside>
+<main class="main" id="top">
+<header class="hero"><span class="eyebrow">THEORETICAL MECHANICS · （三）</span><h1>大学理论力学知识体系梳理（三）—— 动力学</h1><p>这是第三部分“动力学”的第一部分风格统一版：左侧子目录导航、首页总览卡片、每页模块化学习区、配图讲解、公式拆解和练习区统一排版。</p>
+<div class="hero-grid"><section class="hero-card"><h3>推荐学习路线</h3><p>1. 先看页卡总览：把章节结构建立起来。</p><p>2. 再读模块卡片：抓“学习目标、公式拆解、解题流程、易错难点”。</p><p>3. 最后做练习：用小练巩固公式和方法选择。</p><div class="btns"><a class="btn" href="#" onclick="window.print();return false;">打印 / 导出 PDF</a><a class="btn" href="#overview">查看全篇总图</a></div></section>
+<section class="hero-card"><h3>本版重点优化</h3><div class="pills"><span>统一第一部分风格</span><span>模块内容细化</span><span>总图与子图保留</span><span>练习区完整</span><span>13 个子模块</span></div></section></div></header>
+<div class="page-tabs"><a href="#dyn1">第1页</a><a href="#dyn2">第2页</a><a href="#dyn3">第3页</a><a href="#dyn4">第4页</a></div>
+<section class="overview" id="overview"><h2>四大模块内容总览（含图片与子模块）</h2><figure class="overall-map"><img src="assets/动力学知识总图.png" alt="动力学知识总图" loading="lazy"></figure><div class="page-cards">
+        <a class="page-card" href="#dyn1">
+          <h3>第1页</h3>
+          <h4>一、质点动力学</h4>
+          <p>围绕“力如何改变质点运动”展开，重点建立牛顿第二定律、运动微分方程和两类动力学问题的解题框架。</p>
+          <strong>含 3 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#dyn2">
+          <h3>第2页</h3>
+          <h4>二、动量定理</h4>
+          <p>本节抓住“力对时间的累积作用”这一主线，特别适合碰撞、打击、喷流、变质量系统等问题。</p>
+          <strong>含 3 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#dyn3">
+          <h3>第3页</h3>
+          <h4>三、动量矩定理</h4>
+          <p>这一部分处理转动动力学：力矩如何改变角速度，质量分布如何影响转动难易。</p>
+          <strong>含 3 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#dyn4">
+          <h3>第4页</h3>
+          <h4>四、动能定理</h4>
+          <p>本节围绕“力对位移的累积作用”展开，尤其适合处理速度、位移、高度、弹簧压缩量等标量结果。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        </div></section>
+
+        <section class="page-section" id="dyn1">
+          <div class="page-head">
+            <div class="page-num">一、</div>
+            <div>
+              <h2>一、质点动力学</h2>
+              <p>围绕“力如何改变质点运动”展开，重点建立牛顿第二定律、运动微分方程和两类动力学问题的解题框架。</p>
+            </div>
+          </div>
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/动力学知识总图.png" alt="一、质点动力学知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+          <div class="module-guide"><strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的目标、公式拆解、解题流程、易错点与练习。</div>
+          
+            <article class="module" id="dyn1-1">
+              <div class="module-title-row">
+                <div class="module-index">1.1</div>
+                <div>
+                  <h3>牛顿第二定律</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：牛顿第二定律是动力学的核心桥梁：左边来自受力分析，右边来自运动学加速度。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>掌握“受力图—坐标轴—分量方程—加速度”的完整链条。能从受力判断运动，也能从加速度反推未知力。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>ΣF 表示合外力，不是任意一个力。</li><li>m 是质量，体现惯性大小。</li><li>a 是相对惯性参考系的加速度。</li></ul><span class="fine-formula">ΣF = ma</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>确定研究对象，只研究一个物体或一个系统。</li><li>画完整受力图，所有外力不能漏。</li><li>选坐标轴，优先沿运动方向或约束方向。</li><li>列 ΣF_x=ma_x、ΣF_y=ma_y。</li><li>联立运动学或约束条件求未知量。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>斜面滑块：沿斜面、垂直斜面分解。</li><li>电梯问题：支持力与加速度方向相关。</li><li>圆周运动：法向合力提供向心加速度。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>把速度方向当成合力方向。</li><li>漏掉摩擦力或支持力。</li><li>研究对象不清，误把内力画进来。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>看到“求加速度/求拉力/求支持力”，优先想到牛顿第二定律。</li><li>若加速度为 0，立即退化为静力平衡。</li><li>算出负值不要慌，说明实际方向与假设相反。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>图中方块表示研究对象，四周箭头表示作用力和加速度方向。 支持力 N 常垂直于接触面，重力 mg 始终竖直向下，摩擦力则与相对运动趋势相反。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 质量 5 kg 的物体受水平合力 15 N，求加速度。 提示： 直接套用 a=ΣF/m。 参考答案： a=15/5=3 m/s²，方向与合力相同。</p></div></div><div class="fine-summary">一句话：牛顿第二定律不是单独记公式，而是把受力分析和运动学加速度连成一条解题链。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/牛顿第二定律学习海报.png" alt="牛顿第二定律知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn1-2">
+              <div class="module-title-row">
+                <div class="module-index">1.2</div>
+                <div>
+                  <h3>运动微分方程</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：动力学建模的最终数学形式，常常就是一个或几个微分方程。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>能够从受力规律建立关于位置或速度的微分方程，并理解初始条件为什么不可缺少。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>r 是位置函数，v=r˙，a=r¨。</li><li>F(r,v,t) 表示力可能依赖位置、速度和时间。</li><li>方程是二阶的，所以需要初始位置和初始速度。</li></ul><span class="fine-formula">m r¨ = F(r,v,t)</span></div><div class="fine-card case"><h5>建模流程</h5><ul><li>选坐标并规定正方向。</li><li>写受力表达，例如重力、弹簧力、阻尼力。</li><li>用 x¨ 或 r¨ 替换加速度。</li><li>写初始条件 x(0)、v(0)。</li><li>根据题目求解析解或进行定性分析。</li></ul></div><div class="fine-card compare"><h5>典型模型</h5><ul><li>自由落体：y¨=-g。</li><li>弹簧振子：mx¨+kx=0。</li><li>阻尼系统：mx¨+cx˙+kx=0。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>只写 ΣF=ma，却没有写成关于 x(t) 的方程。</li><li>积分后忘记初始条件。</li><li>阻力方向与速度方向相反，符号容易错。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>若题中给“力随 x 或 v 变化”，优先想到微分方程。</li><li>若只求速度与位移关系，可以考虑动能定理更省事。</li><li>建立方程后先检查量纲。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>图中的曲线表示位置随时间变化；切线含有速度信息，曲率变化体现加速度特征。 把 r、v、a 通过导数关系连接起来，是从运动学过渡到动力学的关键。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 竖直上抛，忽略阻力，取向上为正，建立运动微分方程。 提示： 唯一外力是重力 -mg。 参考答案： m y¨=-mg，所以 y¨=-g。</p></div></div><div class="fine-summary">一句话：运动微分方程是把“力学规律”翻译成“数学方程”的工具。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/运动微分方程学习指南.png" alt="运动微分方程知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn1-3">
+              <div class="module-title-row">
+                <div class="module-index">1.3</div>
+                <div>
+                  <h3>两类问题</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：很多同学感觉动力学题杂乱，是因为没有先判断题目属于哪一类。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>读题后能迅速判断是“由运动求力”还是“由力求运动”，并选择对应路线。</p></div><div class="fine-card formula"><h5>类型对照</h5><ul><li>第一类：已知运动规律，求产生该运动的力。</li><li>第二类：已知受力规律，求运动规律。</li><li>二者都以牛顿第二定律为核心。</li></ul><span class="fine-formula">运动 ⇄ 受力</span></div><div class="fine-card case"><h5>第一类流程</h5><ul><li>由 x(t) 或 r(t) 求 v、a。</li><li>画受力图。</li><li>代入 ΣF=ma 反求未知力。</li></ul></div><div class="fine-card compare"><h5>第二类流程</h5><ul><li>画受力图并写力的表达式。</li><li>建立运动微分方程。</li><li>积分并代入初始条件。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>已知速度不等于已知加速度。</li><li>第二类问题漏掉积分常数。</li><li>混合题没有分阶段处理。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>题目给轨迹/位移/速度函数，多半第一类。</li><li>题目给重力、弹簧力、阻力、推力，多半第二类。</li><li>复杂题先分阶段，再分别判断类型。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>上面的流程图强调“已知运动求力”主要依赖求导；下面的流程图强调“已知力求运动”主要依赖积分或解方程。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 已知 x=2t²，质点质量 3 kg，求合力。 提示： 先求加速度 a=x¨。 参考答案： a=4，所以 F=ma=12 N。</p></div></div><div class="fine-summary">一句话：先判断题型方向，再展开计算，动力学题就不会乱。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/动力学问题类型与解法指南.png" alt="两类问题知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="dyn2">
+          <div class="page-head">
+            <div class="page-num">二、</div>
+            <div>
+              <h2>二、动量定理</h2>
+              <p>本节抓住“力对时间的累积作用”这一主线，特别适合碰撞、打击、喷流、变质量系统等问题。</p>
+            </div>
+          </div>
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/动量与冲量定理学习图.png" alt="二、动量定理知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+          <div class="module-guide"><strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的目标、公式拆解、解题流程、易错点与练习。</div>
+          
+            <article class="module" id="dyn2-1">
+              <div class="module-title-row">
+                <div class="module-index">2.1</div>
+                <div>
+                  <h3>动量与冲量</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：动量定理的关键字不是“力”，而是“时间累积”。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>理解动量和冲量的矢量性质，能用动量定理处理碰撞、打击和短时作用问题。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>p=mv 是运动状态量。</li><li>I=∫Fdt 是力对时间的累积。</li><li>合外力冲量等于动量变化。</li></ul><span class="fine-formula">I = ∫Fdt = Δp</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>选研究对象或系统。</li><li>规定正方向。</li><li>写初、末动量。</li><li>计算外力冲量，或判断是否可忽略。</li><li>列动量定理方程。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>小球反弹求冲量。</li><li>碰撞过程求共同速度。</li><li>由作用时间求平均冲击力。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>动量是矢量，反向运动要带负号。</li><li>动量守恒不是默认成立，要看外力冲量。</li><li>碰撞阶段常常不能用机械能守恒。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>看到“碰撞、冲击、瞬间、平均力”，优先想动量定理。</li><li>若外力冲量远小于内力冲量，可考虑动量守恒。</li><li>注意分量守恒，某方向守恒不代表所有方向都守恒。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>曲线下面积表示冲量，右边箭头表示动量方向与大小。 如果物体反弹，末动量方向改变，动量变化要特别注意符号。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 0.5 kg 小球以 10 m/s 向右运动，反弹后以 6 m/s 向左运动，求动量变化。 提示： 取向右为正，末速度为 -6 m/s。 参考答案： Δp=0.5×(-6)-0.5×10=-8 kg·m/s。</p></div></div><div class="fine-summary">一句话：动量定理看的是“力在时间上积累了多少效果”。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/动量与冲量学习海报.png" alt="动量与冲量知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn2-2">
+              <div class="module-title-row">
+                <div class="module-index">2.2</div>
+                <div>
+                  <h3>质心运动定理</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：系统内部力彼此成对出现，按牛顿第三定律抵消，因此整体动量变化只看外力。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>会把复杂质点系或刚体整体等效到质心运动，理解内力不改变质心运动。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>ΣF_ext 是系统外力合力。</li><li>M 是系统总质量。</li><li>a_C 是质心加速度。</li></ul><span class="fine-formula">ΣF_ext = M a_C</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>确定系统边界。</li><li>只画外力，忽略系统内部相互作用。</li><li>求外力合力。</li><li>代入质心运动方程。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>爆炸碎片质心运动。</li><li>多物体系统整体加速度。</li><li>刚体平面运动中的质心平动方程。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>把内力当成外力。</li><li>认为质心必须在物体内部。</li><li>用质心定理去求系统内部相对运动。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>如果系统内部很复杂，先问：整体外力合力是多少？</li><li>外力为零时，质心保持静止或匀速直线运动。</li><li>刚体平面运动中，先写 ΣF=ma_C。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>图中多个小圆点表示系统内部各部分，中心小圆点 C 表示质心。 不管内部怎么散开，只要外力合力确定，质心的加速度就确定。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 光滑水平面上两个小车由压缩弹簧弹开，系统初始静止，质心如何运动？ 提示： 水平方向外力合力为零。 参考答案： 质心保持静止。</p></div></div><div class="fine-summary">一句话：系统内部怎么折腾，质心只听外力合力的。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/质心运动定理学习指南.png" alt="质心运动定理知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn2-3">
+              <div class="module-title-row">
+                <div class="module-index">2.3</div>
+                <div>
+                  <h3>变质量系统</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：变质量系统是动量思想的延伸，本质仍是“谁带走了多少动量”。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>理解质量流入/流出带来的动量通量，避免直接误套 F=ma。</p></div><div class="fine-card formula"><h5>核心理解</h5><ul><li>系统质量变化时，动量变化来自速度变化和质量变化两部分。</li><li>质量流携带动量进入或离开系统。</li><li>必须先说明研究系统边界。</li></ul><span class="fine-formula">外力 + 动量通量 = 动量变化</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>画系统边界。</li><li>标出质量流入或流出方向。</li><li>区分相对速度与绝对速度。</li><li>列动量平衡关系。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>火箭喷气推进。</li><li>传送带接收散料。</li><li>水枪、喷气装置反冲。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>直接写 F=ma。</li><li>把喷气相对火箭速度当作对地速度。</li><li>系统边界选取不清，导致符号混乱。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>看到“喷出、吸入、流入、流出、质量变化”，马上警惕变质量问题。</li><li>先判断动量流方向，再判断主体受力方向。</li><li>用物理直觉检查反冲方向。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>左侧箭头表示喷出质量流，右侧箭头表示主体运动方向。 真正起作用的是质量流所携带的动量，而不只是“质量减少”本身。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 火箭向后喷气时，火箭本体受推力方向如何？ 提示： 利用反冲原理判断。 参考答案： 火箭受到向前推力。</p></div></div><div class="fine-summary">一句话：变质量问题的核心不是质量变了，而是质量流带走或带入了动量。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/变质量系统动量定理简介.png" alt="变质量系统知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="dyn3">
+          <div class="page-head">
+            <div class="page-num">三、</div>
+            <div>
+              <h2>三、动量矩定理</h2>
+              <p>这一部分处理转动动力学：力矩如何改变角速度，质量分布如何影响转动难易。</p>
+            </div>
+          </div>
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/动量矩定理学习图.png" alt="三、动量矩定理知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+          <div class="module-guide"><strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的目标、公式拆解、解题流程、易错点与练习。</div>
+          
+            <article class="module" id="dyn3-1">
+              <div class="module-title-row">
+                <div class="module-index">3.1</div>
+                <div>
+                  <h3>转动惯量</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：转动惯量告诉你：让物体“转起来”有多难。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>理解转动惯量是转动中的惯性量，会判断质量分布对转动难易的影响。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>r 是质量元到转轴的垂直距离。</li><li>r² 说明远离转轴的质量贡献更大。</li><li>I 与转轴有关，不能脱离转轴谈 I。</li></ul><span class="fine-formula">I = ∫r²dm</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>先确定转轴。</li><li>判断物体形状是否规则。</li><li>规则物体查表。</li><li>非质心轴使用平行轴定理。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>质点绕轴转动。</li><li>细杆、圆盘、圆环绕不同轴转动。</li><li>滚动体总动能计算。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>没有说明转轴。</li><li>把长度当成所有质量元的 r。</li><li>忘记单位 kg·m²。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>比较两个物体谁更难转：看质量是否更远离轴。</li><li>圆环通常比同质量同半径圆盘转动惯量更大。</li><li>滚动问题常需要 I 和 ω=v/R 配合。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>圆形轮廓表示刚体，竖直线表示转轴，虚线段 r 表示某质量元到轴的垂直距离。 公式中的 r² 说明“远离轴”的质量贡献会被放大。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 质点质量 m 距转轴 r，转动惯量是多少？ 提示： 点质量直接套定义。 参考答案： I=mr²。</p></div></div><div class="fine-summary">一句话：转动惯量越大，物体越不容易改变转动状态。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/转动惯量学习指南.png" alt="转动惯量知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn3-2">
+              <div class="module-title-row">
+                <div class="module-index">3.2</div>
+                <div>
+                  <h3>定轴转动方程</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：和“平动看合力”类似，转动问题要抓住“看力矩”。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>会用力矩方程分析绕固定轴转动的刚体，理解力矩与角加速度关系。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>ΣM_O 是外力对固定轴 O 的合力矩。</li><li>I_O 必须是对同一轴的转动惯量。</li><li>α 的正负由约定转向决定。</li></ul><span class="fine-formula">ΣM_O = I_O α</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>选转轴和正方向。</li><li>计算每个外力对轴力矩。</li><li>确定 I_O。</li><li>列 ΣM_O=I_Oα。</li><li>结合角运动学求 θ、ω、α。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>滑轮受拉力。</li><li>门绕铰链转动。</li><li>飞轮受制动力矩减速。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>把力直接相加而不是取力矩。</li><li>力臂取错，没有取垂直距离。</li><li>力矩正负号混乱。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>过轴的约束反力对轴力矩为零，可不用求。</li><li>力越远离轴、越接近切向，转动效果越强。</li><li>若合力矩为零，角速度保持不变。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>竖线表示固定转轴，橙色箭头 F 是外力，紫色弧箭头表示由力产生的转动趋势。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 某转轮对固定轴转动惯量 I=4 kg·m²，受合力矩 20 N·m，求 α。 提示： 直接用 α=ΣM/I。 参考答案： α=20/4=5 rad/s²。</p></div></div><div class="fine-summary">一句话：平动看合力，定轴转动看合力矩。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/定轴转动方程解析图.png" alt="定轴转动方程知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn3-3">
+              <div class="module-title-row">
+                <div class="module-index">3.3</div>
+                <div>
+                  <h3>平面运动微分方程</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：这是刚体动力学中综合性最强的一类方程。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>掌握刚体平面运动中“质心平动 + 绕质心转动”的双方程结构。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>ΣF=ma_C 描述质心平动。</li><li>ΣM_C=I_Cα 描述绕质心转动。</li><li>还常需运动学约束，如纯滚动 a_C=Rα。</li></ul><span class="fine-formula">ΣF=ma_C，ΣM_C=I_Cα</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>找质心 C。</li><li>画刚体受力图。</li><li>列 x、y 方向质心方程。</li><li>对质心列力矩方程。</li><li>补充滚动或几何约束。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>圆轮纯滚动。</li><li>杆件平面运动动力学。</li><li>偏心轮、滚子、连杆机构。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>只写平动方程漏掉转动方程。</li><li>忽略摩擦力虽然可能不做功，但能提供力矩。</li><li>取矩点选错导致方程不完整。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>初学优先对质心取矩，公式最稳定。</li><li>滚动题一定检查是否有无滑约束。</li><li>求约束力时通常不能只用能量法。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>蓝色箭头表示质心加速度，紫色弧箭头表示角加速度。 看到这种图，就要立刻想到“先平动、再转动、再约束”。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 纯滚动圆轮半径 R，质心加速度 a_C 与角加速度 α 的关系是什么？ 提示： 调用纯滚动约束。 参考答案： a_C=Rα。</p></div></div><div class="fine-summary">一句话：平面刚体既会整体移动，也会转动，所以要两套方程一起用。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/刚体平面运动动力学学习海报.png" alt="平面运动微分方程知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="dyn4">
+          <div class="page-head">
+            <div class="page-num">四、</div>
+            <div>
+              <h2>四、动能定理</h2>
+              <p>本节围绕“力对位移的累积作用”展开，尤其适合处理速度、位移、高度、弹簧压缩量等标量结果。</p>
+            </div>
+          </div>
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/动能定理知识图谱.png" alt="四、动能定理知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+          <div class="module-guide"><strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的目标、公式拆解、解题流程、易错点与练习。</div>
+          
+            <article class="module" id="dyn4-1">
+              <div class="module-title-row">
+                <div class="module-index">4.1</div>
+                <div>
+                  <h3>功与动能</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：功和动能构成了能量法的入口。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>理解功是力沿位移方向的累积，动能是运动状态的标量描述。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>F·dr 表示只有沿位移方向的力分量做功。</li><li>T=1/2mv² 只与速度大小有关。</li><li>刚体还可能有转动动能。</li></ul><span class="fine-formula">W=∫F·dr，T=1/2mv²</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>确定研究过程。</li><li>列出所有力。</li><li>判断每个力是否做功及正负。</li><li>写动能表达。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>斜面下滑。</li><li>摩擦制动。</li><li>弹簧做功。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>认为有力就一定做功。</li><li>支持力是否做功判断错误。</li><li>摩擦力做功符号写错。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>位移方向是判断功正负的关键。</li><li>光滑约束反力常不做功。</li><li>求速度大小时优先考虑动能方法。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>曲线路径表示物体运动路径，箭头 F 表示外力，二者夹角决定功的正负。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 15 N 的恒力沿位移方向推动物体 2 m，求做功。 提示： 恒力同向位移，W=Fs。 参考答案： W=30 J。</p></div></div><div class="fine-summary">一句话：功看力在位移方向上的“有效累积”。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/功与动能概念解析图.png" alt="功与动能知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn4-2">
+              <div class="module-title-row">
+                <div class="module-index">4.2</div>
+                <div>
+                  <h3>动能定理</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：动能定理是求“末速度”“最大高度”“停止距离”最常用的方法之一。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>能用合外力做功直接求动能变化，尤其会处理速度、位移和停止距离问题。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>T₂-T₁ 是动能变化。</li><li>W₁₂ 是从初态到末态外力总功。</li><li>它是标量方程，方向信息较少。</li></ul><span class="fine-formula">T₂ - T₁ = W₁₂</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>确定初态和末态。</li><li>写 T₁、T₂。</li><li>计算各外力做功。</li><li>列 T₂-T₁=W。</li><li>求速度、距离或功。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>物体下滑求末速度。</li><li>刹车距离。</li><li>弹簧推动物体。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>刚体题漏转动动能。</li><li>把不做功的约束力算进去。</li><li>摩擦功正负弄反。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>题目只问速度大小或位移时，动能定理往往最省。</li><li>若问力或加速度，则可能还需牛顿方程。</li><li>复杂过程可分段列动能定理。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>图中的两个状态框强调：动能定理最看重“前后状态比较”，而不是过程函数。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 质量 2 kg 的物体由静止出发，外力总功 16 J，求末速度。 提示： 由 T₂=16 J。 参考答案： 1/2·2·v²=16，所以 v=4 m/s。</p></div></div><div class="fine-summary">一句话：动能定理用“功”绕开过程中的加速度细节。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/动能定理学习海报.png" alt="动能定理知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn4-3">
+              <div class="module-title-row">
+                <div class="module-index">4.3</div>
+                <div>
+                  <h3>机械能守恒</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：机械能守恒是动能定理在特定条件下的进一步简化。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>会判断机械能是否守恒，并用初末机械能相等求速度、高度或弹簧压缩量。</p></div><div class="fine-card formula"><h5>公式拆解</h5><ul><li>T 是动能。</li><li>V 是势能，如重力势能、弹性势能。</li><li>非保守力做功为零时，T+V 不变。</li></ul><span class="fine-formula">T + V = 常数</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>判断是否只有保守力做功。</li><li>选择零势能面。</li><li>写初态 T₁+V₁。</li><li>写末态 T₂+V₂。</li><li>联立求未知量。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>自由落体。</li><li>光滑轨道小球。</li><li>弹簧振子。</li><li>无滑滚动能量转化。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>有摩擦仍强行守恒。</li><li>势能零点前后不统一。</li><li>刚体滚动漏写转动动能。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>先问：有没有摩擦、阻力、非弹性碰撞？</li><li>守恒不是默认成立，要先验证条件。</li><li>若不守恒，用动能定理加非保守力功修正。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>小球沿曲线运动时，高度变化对应势能变化，速度变化对应动能变化。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 物体从高度 h 静止下落，忽略阻力，求落地速度。 提示： 机械能守恒：mgh=1/2mv²。 参考答案： v=√(2gh)。</p></div></div><div class="fine-summary">一句话：机械能守恒是动能定理的特殊情况，条件判断比套公式更重要。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/机械能守恒知识体系图.png" alt="机械能守恒知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="dyn4-4">
+              <div class="module-title-row">
+                <div class="module-index">4.4</div>
+                <div>
+                  <h3>普遍定理综合</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+              <div class="focus-bar">本模块重点：普遍定理综合其实是在训练“方法选择能力”。</div>
+              <div class="module-main">
+                <div class="module-left"><section class="fine-detail-zone"><div class="fine-grid"><div class="fine-card flow"><h5>学习目标</h5><p>能根据题目特征选择动量、动量矩或动能定理，并能对复杂问题分阶段处理。</p></div><div class="fine-card formula"><h5>方法对照</h5><ul><li>时间短、冲击碰撞：动量定理。</li><li>绕点或绕轴转动：动量矩定理。</li><li>速度、位移、高度：动能定理。</li></ul><span class="fine-formula">动量 / 动量矩 / 动能</span></div><div class="fine-card case"><h5>解题流程</h5><ul><li>审题找关键词。</li><li>分阶段：碰撞阶段、运动阶段、能量转化阶段。</li><li>判断每阶段守恒条件。</li><li>选择最省的定理。</li><li>检查结果单位和极限情况。</li></ul></div><div class="fine-card compare"><h5>典型题型</h5><ul><li>子弹击杆。</li><li>碰撞后上升。</li><li>滚动体下滑。</li><li>弹簧压缩与释放。</li></ul></div><div class="fine-card warn"><h5>易错难点</h5><ul><li>一个公式套全题。</li><li>碰撞阶段误用机械能守恒。</li><li>没有判断外力冲量或外力矩是否可忽略。</li></ul></div><div class="fine-card exam"><h5>考试技巧</h5><ul><li>碰撞瞬间先想动量/动量矩。</li><li>碰撞后运动通常再用能量。</li><li>固定轴冲击题优先对轴用动量矩。</li></ul></div><div class="fine-card image-help"><h5>图文理解补充</h5><p>三块并列卡片分别对应时间、转动、位移三条主线，帮助快速判断方法。</p></div><div class="fine-card practice-help"><h5>巩固小练习</h5><p>题目： 子弹击入可绕固定轴转动的细杆，碰撞瞬间求角速度应优先用什么？ 提示： 碰撞时间极短，且绕固定轴转动。 参考答案： 优先用对固定轴的动量矩定理（或守恒）。</p></div></div><div class="fine-summary">一句话：综合题的关键不是会多少公式，而是知道每一阶段该用哪一个定理。</div></section></div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/动力学定理综述海报.png" alt="普遍定理综合知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+</main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+<script>var modName="动力学";var secIds=['dyn1', 'dyn2', 'dyn3', 'dyn4'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../questions.html?module=动力学";btn.target="_blank";btn.textContent="📝 查看动力学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+</body></html>

@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学理论力学知识体系梳理（四）——分析力学</title>
+<style>
+    :root{
+      --blue:#0d579a; --blue2:#064985; --light:#eef6ff; --line:#cfe2f4;
+      --ink:#132c45; --sub:#49677f; --warn:#c62828; --shadow:0 14px 32px rgba(11,76,135,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:70px}
+    body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
+    a{text-decoration:none;color:var(--blue)}
+    .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
+    .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
+    .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}
+    .toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
+    .toc ol{list-style:none;margin:8px 0 0;padding:0}
+    .toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}
+    .toc li a:hover{background:#eaf4ff}
+    .main{min-width:0}
+    .hero{background:linear-gradient(180deg,#f4f9ff,#e8f4ff);border:1px solid #d5e8f7;border-radius:24px;padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
+    .eyebrow{display:inline-block;background:#e2f1ff;color:var(--blue);border:1px solid #bddbf5;border-radius:999px;padding:5px 12px;font-weight:900;letter-spacing:2px;font-size:13px}
+    .hero h1{font-size:34px;margin:10px 0 8px;line-height:1.2;color:#0b3f76}
+    .hero p{margin:0;color:#34536d;max-width:1100px;font-weight:600}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;margin-top:22px}
+    .hero-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+    .hero-card h3{margin:0 0 8px;color:#0b3f76}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{background:var(--blue2);color:#fff;border-radius:9px;padding:9px 14px;font-weight:900;font-size:14px}
+    .pills{display:flex;flex-wrap:wrap;gap:9px}
+    .pills span{background:#f1f8ff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:#0f4d88;font-weight:800}
+    .page-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+    .page-tabs a{background:#fff;border:1px solid #b9d8f1;border-radius:999px;padding:8px 14px;font-weight:900;box-shadow:0 4px 12px rgba(11,76,135,.08)}
+    .overview{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:24px;box-shadow:var(--shadow)}
+    .overview h2{margin:0 0 16px;color:#0b3f76;font-size:26px}
+    .overall-map{margin:0 0 18px;border:1px solid var(--line);border-radius:18px;padding:12px;background:#f8fbff}
+    .overall-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}
+    .page-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .page-card{display:block;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:14px;min-height:170px;color:var(--ink)}
+    .page-card h3{margin:0;color:#0b3f76}.page-card h4{margin:6px 0;color:#0d3c68}.page-card p{font-size:13.5px;color:#425f77;margin:0 0 10px}.page-card strong{font-size:13px;color:var(--blue)}
+    .page-section{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:28px;box-shadow:var(--shadow)}
+    .page-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+    .page-num{background:linear-gradient(135deg,var(--blue2),#0c64b3);color:#fff;border-radius:16px;padding:14px 16px;font-size:22px;font-weight:900}
+    .page-head h2{margin:0;color:#0b3f76;font-size:30px}.page-head p{margin:4px 0 0;color:#48657c}
+    .big-map{border:1px dashed #b9d5ee;border-radius:16px;background:#f8fbff;padding:10px 12px;margin-bottom:18px}
+    .big-map summary{cursor:pointer;font-weight:900;color:#0b4f8a}
+    .big-map figure{margin:12px 0 0}.big-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}.big-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    .module-guide{background:linear-gradient(135deg,var(--blue2),#0b66b3);color:#fff;border-radius:12px;padding:13px 16px;margin:12px 0 22px;font-weight:900}
+    .module{border:1px solid var(--line);border-left:7px solid var(--blue);border-radius:20px;padding:18px;margin:20px 0;background:#fff}
+    .module-title-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .module-index{background:var(--blue2);color:#fff;border-radius:12px;padding:10px 14px;font-weight:900;font-size:18px}
+    .module h3{margin:0;color:#0b3f76;font-size:24px}
+    .mini-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}.mini-tags span{background:#fff4d9;border:1px solid #f0d897;color:#8a5b00;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+    .focus-bar{background:var(--blue2);color:#fff;border-radius:10px;padding:12px 14px;margin-bottom:18px;font-weight:900}
+    .module-main{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:start}
+    .module-left{min-width:0}
+    .deep-module{margin:0;border:0;background:transparent;padding:0;box-shadow:none}
+    .deep-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .deep-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+    .deep-card h5{display:inline-block;margin:0 0 8px;background:var(--blue2);color:#fff;border-radius:8px;padding:5px 10px;font-size:14px}
+    .deep-card p{margin:6px 0}.deep-card ul{margin:6px 0 0;padding-left:18px}.deep-card li{margin:4px 0}
+    .deep-card.warn h5{background:var(--warn)} .deep-card.practice h5{background:#2b7a53}
+    .deep-formula{margin:8px 0 0;padding:9px 11px;border:1px dashed #9fc4ee;border-radius:10px;background:#f4f7ff;color:#673ab7;font-family:"Times New Roman","Microsoft YaHei",serif;font-weight:900;font-size:18px}
+    .deep-summary{border:1px solid var(--line);background:#f6fbff;border-radius:12px;padding:12px;margin-top:12px;color:#31536d;font-weight:800}
+    .module-map{margin:0;background:#f7fbff;border:1px solid var(--line);border-radius:18px;padding:12px}
+    .map-label{font-size:13px;font-weight:900;color:#0b3f76;margin-bottom:7px}
+    .module-map img{width:100%;display:block;border-radius:12px;border:1px solid #d7e7f6}
+    .module-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    @media(max-width:1200px){.layout,.hero-grid,.module-main{grid-template-columns:1fr}.sidebar{position:static;height:auto}.page-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.page-cards,.deep-grid{grid-template-columns:1fr}.layout{padding:12px}.hero h1{font-size:26px}}
+    @media print{.sidebar,.btns,.page-tabs{display:none}.layout{display:block;max-width:none}.page-section,.module,.overview,.hero{box-shadow:none;break-inside:avoid}}
+    </style>
+</head>
+<body><a href="../../knowledge_framework.html" style="position:fixed;top:12px;right:170px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(5,150,105,0.25);transition:all 0.2s" onmouseover="this.style.background="#047857";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="#059669";this.style.transform="translateY(0)"">← 返回知识框架</a><a href="../../index.html" style="position:fixed;top:12px;right:16px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--blue);color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(8,60,122,0.25);transition:all 0.2s" onmouseover="this.style.background="var(--blue2)";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="var(--blue)";this.style.transform="translateY(0)"">🏠 返回平台首页</a>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>子目录导航</h2>
+    <div class="nav-note">建议使用方式：先看每页的大图总览，再阅读每个模块的“重点一句话”和配图；练习区可按需展开。</div>
+    <a class="home-link" href="#top">回到首页</a>
+    <nav class="toc">
+        <details open>
+          <summary>第1页｜达朗贝尔原理</summary>
+          <ol><li><a href="#inertia-force"><span>1.1</span>惯性力</a></li><li><a href="#kinetostatic"><span>1.2</span>动静法</a></li><li><a href="#rigid-inertia-system"><span>1.3</span>刚体惯性力系简化</a></li></ol>
+        </details>
+        
+        <details open>
+          <summary>第2页｜虚位移原理</summary>
+          <ol><li><a href="#constraints"><span>2.1</span>约束分类</a></li><li><a href="#virtual-displacement-work"><span>2.2</span>虚位移 / 虚功</a></li><li><a href="#ideal-constraint"><span>2.3</span>理想约束</a></li><li><a href="#generalized-force"><span>2.4</span>广义力</a></li></ol>
+        </details>
+        
+        <details open>
+          <summary>第3页｜拉格朗日方程</summary>
+          <ol><li><a href="#general-dynamics-equation"><span>3.1</span>动力学普遍方程</a></li><li><a href="#lagrange-second-kind"><span>3.2</span>第二类拉格朗日方程</a></li><li><a href="#energy-integral"><span>3.3</span>能量积分</a></li><li><a href="#cyclic-integral"><span>3.4</span>循环积分</a></li></ol>
+        </details>
+        
+        <details open>
+          <summary>第4页｜振动</summary>
+          <ol><li><a href="#sdof-free"><span>4.1</span>单自由度系统自由振动</a></li><li><a href="#sdof-forced"><span>4.2</span>单自由度系统受迫振动</a></li><li><a href="#two-dof-vibration"><span>4.3</span>两自由度系统振动</a></li><li><a href="#multi-dof-vibration"><span>4.4</span>多自由度系统（拓展）</a></li><li><a href="#rigid-small-oscillation"><span>4.5</span>刚体微幅振荡</a></li></ol>
+        </details>
+        
+        <details open>
+          <summary>第5页｜碰撞</summary>
+          <ol><li><a href="#collision-concept"><span>5.1</span>碰撞概念</a></li><li><a href="#particle-collision"><span>5.2</span>质点碰撞</a></li><li><a href="#rigid-collision"><span>5.3</span>刚体碰撞</a></li><li><a href="#collision-energy"><span>5.4</span>碰撞能量</a></li></ol>
+        </details>
+        </nav>
+  </aside>
+
+  <main class="main" id="top">
+    <header class="hero">
+      <span class="eyebrow">THEORETICAL MECHANICS · （四）</span>
+      <h1>大学理论力学知识体系梳理（四）—— 分析力学</h1>
+      <p>这是第四部分“分析力学”的第一部分风格统一版：左侧子目录导航、首页总览卡片、每页模块化学习区、配图讲解、公式说明和练习区统一排版。</p>
+      <div class="hero-grid">
+        <section class="hero-card">
+          <h3>推荐学习路线</h3>
+          <p>1. 先看页卡总览：把章节结构建立起来。</p>
+          <p>2. 再读模块卡片：抓“内容核心、知识点关联、难点易错点、解题技巧”。</p>
+          <p>3. 最后做练习：用课后小练巩固公式与方法选择。</p>
+          <div class="btns">
+            <a class="btn" href="#" onclick="window.print();return false;">打印 / 导出 PDF</a>
+            <a class="btn" href="#overview">查看全篇总图</a>
+          </div>
+        </section>
+        <section class="hero-card">
+          <h3>本版重点优化</h3>
+          <div class="pills">
+            <span>统一第一部分风格</span><span>模块内容细化</span><span>总图与子图保留</span><span>练习区完整</span><span>20 个子模块</span>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <div class="page-tabs"><a href="#dalambert">第1页</a><a href="#virtual-work">第2页</a><a href="#lagrange">第3页</a><a href="#vibration">第4页</a><a href="#collision">第5页</a></div>
+
+    <section class="overview" id="overview">
+      <h2>五大模块内容总览（含图片与子模块）</h2>
+      <figure class="overall-map">
+        <img src="assets/分析力学知识总图.png" alt="分析力学知识总图" loading="lazy">
+      </figure>
+      <div class="page-cards">
+        <a class="page-card" href="#dalambert">
+          <h3>第1页</h3>
+          <h4>达朗贝尔原理</h4>
+          <p>把动力学问题通过惯性力转化为形式上的静力平衡问题，是分析力学从牛顿方程走向普遍原理的重要桥梁。</p>
+          <strong>含 3 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#virtual-work">
+          <h3>第2页</h3>
+          <h4>虚位移原理</h4>
+          <p>用“允许的虚位移”与“虚功为零”处理受约束系统，核心优势是自动消去理想约束力。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#lagrange">
+          <h3>第3页</h3>
+          <h4>拉格朗日方程</h4>
+          <p>以广义坐标和能量表达为核心，系统化处理多自由度、复杂约束与非直角坐标系统。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#vibration">
+          <h3>第4页</h3>
+          <h4>振动</h4>
+          <p>研究系统在平衡位置附近的往复运动，重点包括自由振动、受迫振动、模态与微幅振荡。</p>
+          <strong>含 5 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#collision">
+          <h3>第5页</h3>
+          <h4>碰撞</h4>
+          <p>研究极短时间内速度突变的过程，动量守恒、恢复系数和能量损失是核心。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        </div>
+    </section>
+
+    
+        <section class="page-section" id="dalambert">
+          <div class="page-head">
+            <div class="page-num">一、</div>
+            <div>
+              <h2>达朗贝尔原理</h2>
+              <p>把动力学问题通过惯性力转化为形式上的静力平衡问题，是分析力学从牛顿方程走向普遍原理的重要桥梁。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/达朗贝尔原理知识总图.png" alt="达朗贝尔原理知识总图" loading="lazy">
+              <figcaption>看图提示：先看公式主线与图示结构，再进入下方每个子模块。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的核心定义、关联知识、易错点、解题技巧与课后小练。
+          </div>
+          
+            <article class="module" id="inertia-force">
+              <div class="module-title-row">
+                <div class="module-index">1.1</div>
+                <div>
+                  <h3>惯性力</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：在非惯性描述或动静法中引入的假想力，方向与加速度相反，大小为 ma。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>惯性力是达朗贝尔原理中引入的辅助量，目的是把“受力导致加速度”的动力学问题改写成“形式平衡”的问题。</p><p>它不是真实存在的相互作用力，而是为了在加速参考系或动静法中建立等效平衡而引入的假想力。</p><p>惯性力的大小等于质量乘加速度，方向与加速度相反。</p>
+<div class="deep-formula">F_in=-ma</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>连接达朗贝尔原理与动静法：补加惯性力后可按静力学平衡处理。</li><li>与牛顿第二定律对应：ΣF=ma 可改写为 ΣF+F_in=0。</li><li>刚体惯性力系简化中，质点惯性力推广为刚体的惯性主矢和惯性主矩。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>不要把惯性力和牛顿第三定律中的反作用力混淆。</li><li>惯性力方向与加速度方向相反，不是与速度方向相反。</li><li>只在特定分析方法中引入，不是物体间真实接触或场作用。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先由运动状态判断加速度方向。</li><li>在受力图之外补画惯性力，方向取 -a。</li><li>再按静力平衡形式列 ΣF=0 或 ΣM=0。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>质量 m 的滑块在小车上随车向右加速 a，若用随车参考系分析，惯性力方向如何？</p>
+<p><strong>参考答案：</strong>答案：惯性力大小为 ma，方向向左。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>抓住一句话：惯性力是把动力学问题转化为静力学形式的工具。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/惯性力分析与应用图解.png" alt="惯性力知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="kinetostatic">
+              <div class="module-title-row">
+                <div class="module-index">1.2</div>
+                <div>
+                  <h3>动静法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：给运动物体补加惯性力后，按静力平衡形式列方程求解。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>动静法的核心是“先动后静”：先根据运动情况确定加速度，再补加惯性力，把问题转化为等效平衡问题。</p><p>它适合求加速运动中的约束反力、支座反力、杆件内力等。</p><p>形式上像静力平衡，但物理本质仍然是动力学问题。</p>
+<div class="deep-formula">ΣF+F_in=0, \quad ΣM+M_in=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>以惯性力为基础，是达朗贝尔原理的直接应用。</li><li>与静力学平衡方程形式相同，但比静力学多了惯性力或惯性力偶。</li><li>在刚体系统中常与刚体惯性力系简化配合使用。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>不能把真实受力图和等效平衡图混在一起。</li><li>惯性力必须与加速度对应，不能凭感觉添加。</li><li>若刚体有角加速度，除惯性力外还可能需要惯性力偶矩。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>画真实受力图。</li><li>由运动学关系求加速度或角加速度。</li><li>补加惯性力/惯性力偶。</li><li>按静力平衡方程求未知量。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>斜面上的滑块沿斜面向下加速 a，用动静法应补加什么力？</p>
+<p><strong>参考答案：</strong>答案：沿斜面向上补加惯性力 ma。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>动静法的口诀：先求加速度，再加惯性力，最后列平衡。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/动静法分析与应用指南.png" alt="动静法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="rigid-inertia-system">
+              <div class="module-title-row">
+                <div class="module-index">1.3</div>
+                <div>
+                  <h3>刚体惯性力系简化</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：将刚体上分布的惯性力系简化为一个主矢和一个主矩，便于刚体动力学建模。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>刚体由无数质点组成，各质点惯性力形成一个分布力系。</p><p>为了简化分析，可把分布惯性力系等效为作用于质心的惯性主矢和绕质心的惯性主矩。</p><p>这使刚体动力学可以用类似静力学的力系简化方法处理。</p>
+<div class="deep-formula">F_{in}=-m a_C,\quad M_C^{in}=-I_C\alpha</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是惯性力从质点到刚体的推广。</li><li>与刚体平面运动方程对应：ΣF=ma_C，ΣM_C=I_Cα。</li><li>与动静法结合后，可将刚体动力学题转成等效平衡题。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>平动刚体只有惯性主矢，转动刚体还要考虑惯性主矩。</li><li>取矩点不同时，惯性力偶矩表达会变化。</li><li>不能把 I_C、I_O 或不同轴的转动惯量混用。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>判断刚体运动形式：平动、定轴转动或平面运动。</li><li>求质心加速度 a_C 和角加速度 α。</li><li>写出惯性主矢和惯性主矩。</li><li>把它们加入等效受力图后列平衡方程。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>一圆盘绕固定中心轴角加速度为 α，转动惯量为 I_O，惯性力偶矩是多少？</p>
+<p><strong>参考答案：</strong>答案：M_O^{in}=-I_O α，方向与角加速度相反。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>复杂分布惯性力不用逐点处理，等效为“一个力 + 一个力偶”即可。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/刚体惯性力系简化解析.png" alt="刚体惯性力系简化知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="virtual-work">
+          <div class="page-head">
+            <div class="page-num">二、</div>
+            <div>
+              <h2>虚位移原理</h2>
+              <p>用“允许的虚位移”与“虚功为零”处理受约束系统，核心优势是自动消去理想约束力。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/理论力学虚位移原理图.png" alt="虚位移原理知识总图" loading="lazy">
+              <figcaption>看图提示：先看公式主线与图示结构，再进入下方每个子模块。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的核心定义、关联知识、易错点、解题技巧与课后小练。
+          </div>
+          
+            <article class="module" id="constraints">
+              <div class="module-title-row">
+                <div class="module-index">2.1</div>
+                <div>
+                  <h3>约束分类</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：按可积性、时间显含性、作用形式等方式识别约束，是建立广义坐标的前提。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>约束是限制系统运动自由度的条件。</p><p>完整约束可用坐标关系表示，非完整约束通常含速度微分关系且不能积分成单纯位置关系。</p><p>正确识别约束类型，决定了广义坐标选取和后续方程建立方式。</p>
+<div class="deep-formula">f(q,t)=0,\quad A(q,t)\dot q+b(q,t)=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>约束分类是虚位移原理、理想约束和拉格朗日方程的前置基础。</li><li>完整约束可减少独立广义坐标数。</li><li>非完整约束通常需要额外约束方程或乘子方法处理。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>滚动约束不一定都是完整约束，要看是否可积。</li><li>非定常约束显含时间，虚位移与真实位移的区别更加重要。</li><li>单边约束只在接触或不等式满足时成立。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先判断约束是否能写成位置方程。</li><li>再判断是否显含时间。</li><li>最后判断是双边等式约束还是单边不等式约束。</li><li>据此确定自由度数和独立广义坐标。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>小球被限制在半径 R 的光滑圆环上运动，属于什么约束？</p>
+<p><strong>参考答案：</strong>答案：完整、定常、双边约束。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>约束识别正确，后面的虚位移、广义坐标和拉格朗日方程才不会跑偏。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/分析力学约束分类概述.png" alt="约束分类知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="virtual-displacement-work">
+              <div class="module-title-row">
+                <div class="module-index">2.2</div>
+                <div>
+                  <h3>虚位移 / 虚功</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：虚位移是在某一瞬时满足约束的无限小可能位移，虚功是力在虚位移上的功。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>虚位移是在某一瞬时、满足约束条件的无限小可能位移。</p><p>虚功是力在虚位移上的功，反映力对允许运动趋势的作用。</p><p>虚位移不是实际位移，不包含时间演化过程。</p>
+<div class="deep-formula">\delta W=\sum_i F_i\cdot \delta r_i</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>虚位移原理用虚功为零判断平衡。</li><li>广义力就是虚功在广义坐标上的系数。</li><li>理想约束的约束反力虚功为零，因此可被自动消去。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>不能把 δr 写成 dr 或 vdt。</li><li>虚位移必须满足约束，不是任意小位移。</li><li>虚功不是实际做功，它只用于瞬时的可能位移分析。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先画出系统允许的虚位移方向。</li><li>计算各力在虚位移方向上的投影。</li><li>把所有虚功相加，并根据平衡或方程要求列式。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>光滑圆环上的小球，重力对切向虚位移是否可能做虚功？</p>
+<p><strong>参考答案：</strong>答案：可能做虚功；但法向约束反力不做虚功。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>虚位移关注的是“此刻能怎么动”，虚功关注的是“力对这种可能运动的作用”。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/虚位移与虚功分析概念图.png" alt="虚位移 / 虚功知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="ideal-constraint">
+              <div class="module-title-row">
+                <div class="module-index">2.3</div>
+                <div>
+                  <h3>理想约束</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：若约束反力对任意允许虚位移不做功，则该约束为理想约束。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>理想约束是指约束反力在任意允许虚位移上所做虚功为零。</p><p>它使虚位移原理能绕开未知约束反力，直接建立主动力平衡或动力学方程。</p><p>常见理想约束包括光滑面、光滑铰链、不可伸长轻绳等理想模型。</p>
+<div class="deep-formula">\delta W_c=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是虚位移原理中消去约束力的关键条件。</li><li>在拉格朗日方程推导中，理想约束保证约束反力不显式出现。</li><li>与广义力相关：非理想约束或摩擦力不能随意忽略。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>有摩擦的接触通常不是理想约束。</li><li>不能把“不做虚功”误解成“约束反力不存在”。</li><li>必须检查约束反力方向是否与允许虚位移方向正交。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先判断允许虚位移方向。</li><li>再判断约束反力方向。</li><li>若二者始终正交，则可认为约束理想。</li><li>建立虚功方程时可消去该约束力。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>光滑水平面上的支持力对水平虚位移是否做虚功？</p>
+<p><strong>参考答案：</strong>答案：不做虚功，因此该支持约束可视为理想约束。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>理想约束的价值在于“有约束力，但它不进入虚功方程”。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/理想约束与虚功分析图解.png" alt="理想约束知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="generalized-force">
+              <div class="module-title-row">
+                <div class="module-index">2.4</div>
+                <div>
+                  <h3>广义力</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：广义力是外力在广义坐标方向上的等效力，是虚功在广义坐标下的系数。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>广义力是与广义坐标对应的等效力。</p><p>它不一定是普通意义上的力，也可能是力矩、等效驱动力或某种投影量。</p><p>只要它乘以对应广义虚位移后能表示虚功，就可称为广义力。</p>
+<div class="deep-formula">\delta W=\sum_j Q_j\delta q_j</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>从虚功表达自然引出广义力。</li><li>第二类拉格朗日方程右端的非保守项就是非保守广义力。</li><li>保守力对应的广义力可由势能求偏导得到。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>广义力不能简单等同于外力大小。</li><li>不同广义坐标对应的广义力形式不同。</li><li>符号必须与广义坐标正方向保持一致。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>选定广义坐标 q_j。</li><li>写出质点位置对 q_j 的依赖。</li><li>计算外力虚功。</li><li>把虚功整理成 ΣQ_jδq_j，读出 Q_j。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>单摆以 θ 为广义坐标，重力对应的广义力是什么方向？</p>
+<p><strong>参考答案：</strong>答案：与 θ 增大方向相反，常写为 Q_θ=-mgl sinθ。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>广义力就是把真实力投影到广义坐标方向上的“等效驱动力”。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/广义力学基础与应用解析.png" alt="广义力知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="lagrange">
+          <div class="page-head">
+            <div class="page-num">三、</div>
+            <div>
+              <h2>拉格朗日方程</h2>
+              <p>以广义坐标和能量表达为核心，系统化处理多自由度、复杂约束与非直角坐标系统。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/拉格朗日方程学习图解.png" alt="拉格朗日方程知识总图" loading="lazy">
+              <figcaption>看图提示：先看公式主线与图示结构，再进入下方每个子模块。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的核心定义、关联知识、易错点、解题技巧与课后小练。
+          </div>
+          
+            <article class="module" id="general-dynamics-equation">
+              <div class="module-title-row">
+                <div class="module-index">3.1</div>
+                <div>
+                  <h3>动力学普遍方程</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：由达朗贝尔原理和虚位移原理结合得到，是拉格朗日方程的出发点。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>动力学普遍方程把达朗贝尔原理和虚位移原理结合起来。</p><p>在理想约束条件下，约束反力虚功为零，方程只含主动力和惯性力。</p><p>它是从牛顿力学走向拉格朗日方程的中间桥梁。</p>
+<div class="deep-formula">\sum_i(F_i-m_i a_i)\cdot\delta r_i=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>由达朗贝尔原理引入惯性力。</li><li>由虚位移原理消去理想约束反力。</li><li>进一步用广义坐标表示后可推出第二类拉格朗日方程。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>不要漏写惯性力虚功。</li><li>虚位移必须满足约束，否则约束反力虚功不能消去。</li><li>广义坐标不独立时，不能直接令每个 δq 系数为零。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>确认约束为理想约束。</li><li>写主动力虚功和惯性力虚功。</li><li>将位置虚位移用广义虚位移表示。</li><li>整理得到广义形式的动力学方程。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>为什么动力学普遍方程中通常不出现理想约束反力？</p>
+<p><strong>参考答案：</strong>答案：因为理想约束反力对任意允许虚位移的虚功为零。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>动力学普遍方程的本质是：主动力虚功 + 惯性力虚功 = 0。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/分析力学_动力学普遍方程.png" alt="动力学普遍方程知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="lagrange-second-kind">
+              <div class="module-title-row">
+                <div class="module-index">3.2</div>
+                <div>
+                  <h3>第二类拉格朗日方程</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：用最少独立广义坐标描述系统，建立标准化运动微分方程。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>第二类拉格朗日方程用独立广义坐标建立动力学方程。</p><p>对于保守系统，取 L=T-V，右端非保守广义力为零。</p><p>它特别适合复杂约束、多自由度、非直角坐标系统。</p>
+<div class="deep-formula">\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_j}\right)-\frac{\partial L}{\partial q_j}=Q_j^{(nc)}</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>由动力学普遍方程推导而来。</li><li>广义力进入右端，非保守作用可通过 Q_j^{(nc)} 表示。</li><li>能量积分和循环积分都建立在拉格朗日函数结构之上。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>求偏导时 q 和 q˙ 要视为独立变量。</li><li>T、V 必须用同一组广义坐标表达。</li><li>非保守力如阻尼、驱动力不能随意并入势能。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>选取最少独立广义坐标。</li><li>写出动能 T 和势能 V。</li><li>构造 L=T-V。</li><li>代入拉格朗日方程并整理运动方程。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>弹簧振子取 x 为广义坐标，T=1/2mx˙²，V=1/2kx²，拉格朗日方程结果是什么？</p>
+<p><strong>参考答案：</strong>答案：mx¨+kx=0。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>拉格朗日方程的强大之处在于：用能量和广义坐标替代繁琐的约束力分析。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/第二类拉格朗日方程解析图.png" alt="第二类拉格朗日方程知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="energy-integral">
+              <div class="module-title-row">
+                <div class="module-index">3.3</div>
+                <div>
+                  <h3>能量积分</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：当拉格朗日函数不显含时间时，可得到能量型守恒量。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>能量积分是拉格朗日函数不显含时间时产生的守恒量。</p><p>在许多自然机械系统中，它对应总机械能守恒。</p><p>它能减少求解微分方程的难度，并帮助判断运动范围。</p>
+<div class="deep-formula">H=\sum_j\dot q_j\frac{\partial L}{\partial \dot q_j}-L=常数</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与第二类拉格朗日方程相连，是由时间平移对称性产生的守恒量。</li><li>与机械能守恒对应，但并非任何情况下 H 都等于 T+V。</li><li>与循环积分类似，都是对称性导致的第一积分。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>L 显含时间时通常不存在简单能量积分。</li><li>存在非保守力或外部驱动时不能强行守恒。</li><li>H 是否等于机械能要看坐标和势能是否满足条件。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>检查 L 是否显含时间。</li><li>计算广义动量 ∂L/∂q˙_j。</li><li>构造 H 并判断是否为常数。</li><li>利用 H=常数分析速度、转折点或运动范围。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>无阻尼弹簧振子是否存在能量积分？</p>
+<p><strong>参考答案：</strong>答案：存在，E=1/2mx˙²+1/2kx² 为常数。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>能量积分来自时间不显含，常用于把二阶方程降为一阶关系。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/分析力学能量积分讲解海报.png" alt="能量积分知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="cyclic-integral">
+              <div class="module-title-row">
+                <div class="module-index">3.4</div>
+                <div>
+                  <h3>循环积分</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：若某广义坐标不出现在 L 中，则其对应广义动量守恒。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>若某个广义坐标不出现在拉格朗日函数中，它就是循环坐标。</p><p>循环坐标对应的广义动量守恒，这就是循环积分。</p><p>它反映了系统在该坐标方向上的对称性。</p>
+<div class="deep-formula">\frac{\partial L}{\partial q_k}=0\Rightarrow p_k=\frac{\partial L}{\partial \dot q_k}=常数</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与第二类拉格朗日方程直接相连。</li><li>与 Noether 思想一致：对称性对应守恒量。</li><li>常见守恒量包括线动量、角动量和某些广义动量。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>循环坐标是 L 不含该坐标，不是该坐标数值不变。</li><li>若 L 含 q_k 但不明显，需要化简后再判断。</li><li>存在非保守广义力时，对应动量不一定守恒。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>写出 L(q,q˙,t)。</li><li>逐项检查是否出现某个 q_k。</li><li>若不出现，则写 p_k=∂L/∂q˙_k=常数。</li><li>用守恒量降低方程阶数。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>中心力场中极角 θ 常是循环坐标，对应什么守恒？</p>
+<p><strong>参考答案：</strong>答案：角动量守恒。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>循环积分的记忆点：不显含坐标，就守恒对应广义动量。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/循环积分与拉格朗日力学.png" alt="循环积分知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="vibration">
+          <div class="page-head">
+            <div class="page-num">四、</div>
+            <div>
+              <h2>振动</h2>
+              <p>研究系统在平衡位置附近的往复运动，重点包括自由振动、受迫振动、模态与微幅振荡。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/振动学知识总图.png" alt="振动知识总图" loading="lazy">
+              <figcaption>看图提示：先看公式主线与图示结构，再进入下方每个子模块。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的核心定义、关联知识、易错点、解题技巧与课后小练。
+          </div>
+          
+            <article class="module" id="sdof-free">
+              <div class="module-title-row">
+                <div class="module-index">4.1</div>
+                <div>
+                  <h3>单自由度系统自由振动</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：无外力作用下，系统离开平衡位置后进行简谐运动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>单自由度自由振动是最基本的振动模型。</p><p>系统在无外力作用下偏离平衡位置后，由恢复力驱动做简谐运动。</p><p>固有频率只由系统质量和刚度决定，与初始位移大小无关。</p>
+<div class="deep-formula">m\ddot x+kx=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是受迫振动、多自由度振动和刚体微幅振荡的基础模型。</li><li>与能量守恒相连：动能与势能周期转化。</li><li>与线性微分方程理论直接相关。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>振幅由初始条件决定，不决定固有频率。</li><li>周期 T 和频率 f、角频率 ω_n 不要混淆。</li><li>自由振动不含外力项，不能把 F(t) 写入方程。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>建立位移坐标 x。</li><li>由弹簧力写出方程 mx¨+kx=0。</li><li>求固有频率 ω_n=√(k/m)。</li><li>用初始条件确定振幅和相位。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>m=2kg，k=800N/m，求固有角频率。</p>
+<p><strong>参考答案：</strong>答案：ω_n=√(800/2)=20 rad/s。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>自由振动的核心：无外力、固有频率、简谐响应。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/单自由度系统自由振动分析.png" alt="单自由度系统自由振动知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="sdof-forced">
+              <div class="module-title-row">
+                <div class="module-index">4.2</div>
+                <div>
+                  <h3>单自由度系统受迫振动</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：系统在周期外力作用下产生瞬态响应和稳态响应，共振是其核心现象。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>受迫振动研究系统在外部周期激励下的响应。</p><p>总响应通常由瞬态响应和稳态响应组成，长期后稳态响应占主导。</p><p>当激励频率接近固有频率时，可能出现共振。</p>
+<div class="deep-formula">m\ddot x+c\dot x+kx=F_0\cos\omega t</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>以自由振动为基础，加入外力与阻尼。</li><li>与工程减振、隔振和共振控制密切相关。</li><li>多自由度系统受迫振动可看作多个模态受迫响应叠加。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>受迫振动的稳态频率等于外力频率，不一定等于固有频率。</li><li>阻尼会降低共振峰并改变相位。</li><li>共振并不只看频率，还要看阻尼与激励方向。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>写标准方程。</li><li>求系统参数 ω_n、阻尼比 ζ、频率比 r。</li><li>分析幅频特性和相位差。</li><li>判断是否接近共振并给出减振措施。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>若激励频率接近系统固有频率，且阻尼很小，会发生什么？</p>
+<p><strong>参考答案：</strong>答案：振幅显著增大，出现共振现象。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>受迫振动的主线：外力频率、阻尼和共振峰。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/单自由度系统受迫振动分析.png" alt="单自由度系统受迫振动知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="two-dof-vibration">
+              <div class="module-title-row">
+                <div class="module-index">4.3</div>
+                <div>
+                  <h3>两自由度系统振动</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：两个独立广义坐标构成耦合振动系统，核心是求固有频率和主振型。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>两自由度系统有两个独立坐标，通常表现为耦合振动。</p><p>求解重点是固有频率和主振型。</p><p>一般响应可看成多个主振型的线性组合。</p>
+<div class="deep-formula">M\ddot x+Kx=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是多自由度振动的最小完整模型。</li><li>与矩阵特征值问题相连。</li><li>与模态分析思想直接对应。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>两个质量块不一定就是两个自由度，关键看独立坐标数。</li><li>耦合刚度项符号容易写错。</li><li>主振型是比例关系，不是唯一数值。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>选独立坐标 x1、x2。</li><li>建立质量矩阵 M 和刚度矩阵 K。</li><li>解 det(K-ω²M)=0。</li><li>求主振型并进行模态叠加。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>两自由度系统通常有几个固有频率？</p>
+<p><strong>参考答案：</strong>答案：通常有两个固有频率，对应两个主振型。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>两自由度系统的核心：矩阵方程、固有频率、主振型。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/两自由度系统振动解析图.png" alt="两自由度系统振动知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="multi-dof-vibration">
+              <div class="module-title-row">
+                <div class="module-index">4.4</div>
+                <div>
+                  <h3>多自由度系统（拓展）</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：用矩阵方程描述多个自由度系统，模态分析是核心方法。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>多自由度系统用矩阵形式统一表示复杂结构的振动。</p><p>其核心思想是将复杂耦合问题通过模态分析转化为若干近似独立的单自由度问题。</p><p>工程上常用于建筑、机械、航空结构等振动分析。</p>
+<div class="deep-formula">M\ddot x+C\dot x+Kx=F(t)</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是两自由度系统的推广。</li><li>与有限元方法、结构动力学和模态试验密切相关。</li><li>无阻尼自由振动可通过特征值问题得到模态。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>自由度数由独立坐标决定，不等于构件数量。</li><li>矩阵 M、C、K 的维度必须一致。</li><li>边界条件改变会显著改变固有频率和模态。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>确定自由度并建立坐标向量。</li><li>写出质量、阻尼、刚度矩阵。</li><li>求固有频率和模态向量。</li><li>用模态叠加分析响应。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>一个 n 自由度无阻尼系统通常有多少个固有频率？</p>
+<p><strong>参考答案：</strong>答案：通常有 n 个固有频率。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>多自由度振动的本质是：把复杂系统写成矩阵，再用模态理解运动。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/多自由度系统学习指南.png" alt="多自由度系统（拓展）知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="rigid-small-oscillation">
+              <div class="module-title-row">
+                <div class="module-index">4.5</div>
+                <div>
+                  <h3>刚体微幅振荡</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：刚体在稳定平衡位置附近小角度摆动时，可线性化为简谐振动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>刚体微幅振荡是刚体在稳定平衡位置附近的小角度振动。</p><p>当角度很小时，sinθ≈θ，非线性转动方程可线性化为简谐振动方程。</p><p>典型对象包括物理摆、刚体杆、构件绕固定点摆动等。</p>
+<div class="deep-formula">I_O\ddot\theta+mgl\theta=0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与单自由度自由振动形式一致，只是平动变量 x 换成转角 θ。</li><li>与刚体转动动力学相连：ΣM_O=I_Oα。</li><li>与小振动理论相连，是非线性系统线性化的典型例子。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>小角度近似有适用范围，角度过大误差明显。</li><li>I_O 必须是绕转轴 O 的转动惯量。</li><li>l 是转轴到重心的距离，不一定是杆长。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>确定转轴和重心位置。</li><li>写重力对转轴的力矩。</li><li>小角度线性化 sinθ≈θ。</li><li>求固有频率与周期。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>均匀细杆长 L，绕端点微幅摆动，重心距端点多少？</p>
+<p><strong>参考答案：</strong>答案：l=L/2。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>刚体微幅振荡就是“转动版”的单自由度简谐振动。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/刚体微幅振荡分析图.png" alt="刚体微幅振荡知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="collision">
+          <div class="page-head">
+            <div class="page-num">五、</div>
+            <div>
+              <h2>碰撞</h2>
+              <p>研究极短时间内速度突变的过程，动量守恒、恢复系数和能量损失是核心。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/碰撞力学知识总图.png" alt="碰撞知识总图" loading="lazy">
+              <figcaption>看图提示：先看公式主线与图示结构，再进入下方每个子模块。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的核心定义、关联知识、易错点、解题技巧与课后小练。
+          </div>
+          
+            <article class="module" id="collision-concept">
+              <div class="module-title-row">
+                <div class="module-index">5.1</div>
+                <div>
+                  <h3>碰撞概念</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：碰撞是短时间、大内力、速度突变的过程，动量常守恒而机械能不一定守恒。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>碰撞是极短时间内发生的强烈相互作用过程。</p><p>由于时间很短，外力冲量常可忽略，系统动量常近似守恒。</p><p>但机械能是否守恒取决于碰撞类型和恢复系数。</p>
+<div class="deep-formula">J=\int F\,dt</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与动量定理直接相关。</li><li>恢复系数连接碰撞前后法向相对速度。</li><li>碰撞能量分析进一步判断机械能损失。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>碰撞中动量守恒不等于机械能守恒。</li><li>恢复系数只沿碰撞法线方向定义。</li><li>碰撞方向和速度正负号必须先规定清楚。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>确定碰撞方向或法线方向。</li><li>判断外力冲量是否可忽略。</li><li>列动量方程。</li><li>根据需要加入恢复系数方程。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>完全非弹性碰撞中，两物体碰后有什么速度特征？</p>
+<p><strong>参考答案：</strong>答案：碰后粘在一起或具有相同速度。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>碰撞题第一反应：时间短、冲量大、动量常守恒、能量要另判。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/碰撞概念学习指南.png" alt="碰撞概念知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="particle-collision">
+              <div class="module-title-row">
+                <div class="module-index">5.2</div>
+                <div>
+                  <h3>质点碰撞</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：质点碰撞常沿碰撞法线方向列动量守恒与恢复系数方程。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>质点碰撞通常沿碰撞法线方向分析。</p><p>正碰可直接按一维动量守恒与恢复系数列方程。</p><p>斜碰需要把速度分解到法向和切向方向。</p>
+<div class="deep-formula">m_1u_1+m_2u_2=m_1v_1+m_2v_2</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>是碰撞概念的基本模型。</li><li>与恢复系数方程配合可求碰后速度。</li><li>刚体碰撞在质点碰撞基础上进一步考虑转动。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>速度方向统一前不要代公式。</li><li>斜碰不能直接套一维正碰公式。</li><li>切向分量在无摩擦时通常不变，不用恢复系数。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>选碰撞法线为正方向。</li><li>写动量守恒方程。</li><li>写恢复系数方程。</li><li>联立求碰后速度。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>两质点一维碰撞已知 m1,m2,u1,u2,e，通常需要几条方程求 v1,v2？</p>
+<p><strong>参考答案：</strong>答案：两条方程：动量守恒和恢复系数方程。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>质点碰撞的关键是方向统一和恢复系数方程。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/质点碰撞分析与公式解释.png" alt="质点碰撞知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="rigid-collision">
+              <div class="module-title-row">
+                <div class="module-index">5.3</div>
+                <div>
+                  <h3>刚体碰撞</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：刚体碰撞中线速度和角速度同时突变，常用动量矩定理处理。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>刚体碰撞中不仅质心速度可能突变，角速度也可能突变。</p><p>冲量对参考点的矩会改变刚体角动量。</p><p>适当选取取矩点可以消去未知碰撞冲量或约束冲量。</p>
+<div class="deep-formula">H_O^+-H_O^- = J_M</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与动量矩定理紧密相关。</li><li>与质点碰撞相比，多了角速度和转动惯量。</li><li>与碰撞能量部分相连，碰撞后机械能通常减少。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>不能只用质心动量守恒解决所有刚体碰撞。</li><li>参考点选错会导致未知冲量过多。</li><li>恢复系数通常只用于接触点法向相对速度。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>画碰撞瞬间示意图。</li><li>选合适参考点取矩。</li><li>列冲量—动量矩关系。</li><li>必要时加入恢复系数与接触点速度关系。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>杆绕固定轴摆动撞墙，求碰后角速度时优先考虑哪个定理？</p>
+<p><strong>参考答案：</strong>答案：优先对固定轴列动量矩定理。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>刚体碰撞题的核心是“冲量 + 角动量 + 接触点速度”。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/刚体碰撞分析概述.png" alt="刚体碰撞知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="collision-energy">
+              <div class="module-title-row">
+                <div class="module-index">5.4</div>
+                <div>
+                  <h3>碰撞能量</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：碰撞中动量常守恒，但机械能通常损失，恢复系数越小能量损失越大。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>碰撞过程中动量常可守恒，但机械能一般不守恒。</p><p>损失的机械能转化为内能、声能、形变能等。</p><p>恢复系数越小，碰撞越不弹性，能量损失越大。</p>
+<div class="deep-formula">\Delta E=E_{before}-E_{after}\ge 0</div>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>与恢复系数直接相关。</li><li>与质点碰撞和刚体碰撞中的碰后速度求解配合使用。</li><li>与动能定理不同，碰撞阶段通常更适合用冲量和动量分析。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>能量损失不是能量消失，而是转化为其他形式。</li><li>e=1 时机械能守恒，但 e&lt;1 时通常有损失。</li><li>动量守恒与机械能守恒条件不同，不要混淆。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先用动量和恢复系数求碰后速度。</li><li>计算碰撞前后动能。</li><li>比较能量变化并判断损失大小。</li><li>结合 e 判断碰撞类型。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>完全非弹性碰撞的机械能损失通常是最大还是最小？</p>
+<p><strong>参考答案：</strong>答案：通常最大。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>碰撞能量的判断：动量常守恒，机械能看恢复系数和碰撞类型。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：先看上方知识图解建立直观印象，再用本区完成“公式含义—知识关联—易错辨析—做题流程”的闭环。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/碰撞能量解析与应用.png" alt="碰撞能量知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、典型示意、知识关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+  </main>
+</div>
+<script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+
+<script>var modName="分析力学";var secIds=['dalambert', 'virtual-work', 'lagrange', 'vibration', 'collision'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../questions.html?module=分析力学";btn.target="_blank";btn.textContent="📝 查看分析力学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+</body>
+</html>

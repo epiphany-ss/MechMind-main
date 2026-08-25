@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:800;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.3;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="18" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="44" class="t h">扩展：力的平移定理与力系简化的桥梁作用</text>
+<circle cx="125" cy="250" r="5" fill="#17385f"/><text x="105" y="275" class="t s">A</text>
+<line x1="125" y1="250" x2="260" y2="150" class="arrR"/><text x="270" y="150" class="t s">F</text>
+<text x="325" y="205" class="t h">≡</text>
+<circle cx="440" cy="250" r="5" fill="#17385f"/><text x="420" y="275" class="t s">O</text>
+<line x1="440" y1="250" x2="575" y2="150" class="arrR"/><text x="585" y="150" class="t s">F</text>
+<path d="M515 275 A38 38 0 1 1 480 218" class="arrB"/><text x="532" y="285" class="t s">M₀=F·d</text>
+<rect x="75" y="80" width="610" height="54" rx="12" class="blue"/><text x="100" y="113" class="t xs">单个力：移到 O 点 + 附加力偶；多个力：全部移到 O 点 → 主矢 R + 主矩 M₀</text>
+<rect x="90" y="330" width="580" height="45" rx="12" class="warn"/><text x="110" y="358" class="t xs">易错：d 是点 O 到力作用线的垂距，不是点到作用点的距离。</text>
+
+</svg>

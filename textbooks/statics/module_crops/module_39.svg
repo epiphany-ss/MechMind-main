@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">平移定理与其他知识的联系</text>
+<rect x="275" y="82" width="170" height="54" rx="14" class="bb"/><text x="360" y="116" text-anchor="middle" class="t m">平移定理</text>
+<rect x="60" y="185" width="160" height="54" rx="14" class="b"/><text x="140" y="219" text-anchor="middle" class="t m">可传性原理</text>
+<rect x="280" y="185" width="160" height="54" rx="14" class="b"/><text x="360" y="219" text-anchor="middle" class="t m">力偶</text>
+<rect x="500" y="185" width="160" height="54" rx="14" class="b"/><text x="580" y="219" text-anchor="middle" class="t m">力系简化</text>
+<line x1="300" y1="136" x2="150" y2="185" class="line"/><line x1="360" y1="136" x2="360" y2="185" class="line"/><line x1="420" y1="136" x2="560" y2="185" class="line"/>
+<rect x="180" y="300" width="360" height="70" rx="16" class="gb"/><text x="360" y="330" text-anchor="middle" class="t s">把多个力平移到同一点后，可求主矢 R 与主矩 M_O</text><text x="360" y="358" text-anchor="middle" class="t s">这就是平面一般力系简化的常见思路</text>
+
+    </svg>

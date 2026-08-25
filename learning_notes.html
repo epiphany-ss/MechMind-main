@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学习记录 - 理论力学研究平台</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#172033;font-family:"Microsoft YaHei",sans-serif}.head{background:linear-gradient(135deg,#123b8f,#2563eb);color:#fff;padding:28px max(20px,calc((100% - 980px)/2));display:flex;justify-content:space-between;gap:18px}.head h1{margin:0}.head a{color:#fff;text-decoration:none}.wrap{max-width:980px;margin:24px auto;padding:0 16px}.note{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:16px}.note h2{margin:0 0 6px}.note-link{color:#172033;text-decoration:none}.note-link:hover{color:#2563eb}.meta{color:#64748b;font-size:.85em}.note textarea{width:100%;min-height:180px;margin-top:14px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;line-height:1.6}.btn{border:0;border-radius:7px;padding:9px 13px;margin:8px 8px 0 0;cursor:pointer}.primary{background:#2563eb;color:#fff}.secondary{background:#e0ecff;color:#1d4ed8}.empty{background:#fff;padding:40px;text-align:center;color:#64748b;border-radius:12px}
+</style>
+<style>.add-btn{border:0;border-radius:50%;width:38px;height:38px;background:#fff;color:#2563eb;font-size:25px;line-height:38px;cursor:pointer;margin-right:10px}.head-actions{display:flex;align-items:center}</style>
+</head>
+<body>
+<header class="head"><div><h1>📚 学习记录</h1><p>查看、编辑并确认 AI 整理的个人学习笔记</p></div><div class="head-actions"><button class="add-btn" onclick="openCreate()" title="新建笔记">＋</button><a href="personal_knowledge.html">返回知识网络 →</a></div></header>
+<div id="createBox" style="display:none;max-width:980px;margin:20px auto 0;padding:0 16px"><section class="note"><h2>新建个人学习笔记</h2><input id="newTitle" placeholder="笔记标题" style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit"><textarea id="newBody" placeholder="输入 Markdown 内容……\n\n例如：\n## 核心结论\n- 约束反力的数量取决于约束限制的自由度。" style="width:100%;min-height:240px;margin-top:12px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;line-height:1.6"></textarea><br><button class="btn primary" onclick="createNote()">保存并加入知识网络</button><button class="btn secondary" onclick="closeCreate()">取消</button></section></div>
+<main class="wrap" id="list"></main>
+<script src="js/learning-memory-api.js"></script>
+<script>
+const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'null')||{}}catch(e){return{}}})();
+let notes=[];
+function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){document.getElementById('list').innerHTML=notes.length?notes.map(n=>`<article class="note"><h2><a class="note-link" href="learning_note_detail.html?id=${encodeURIComponent(n.id)}">${esc(n.title)}</a></h2><div class="meta">状态：${esc(n.status)} · 更新时间：${esc(n.updated_at||n.created_at)}</div><p class="meta">点击标题打开 Markdown 阅读页面</p><textarea id="body_${n.id}">${esc(n.markdown_content||'')}</textarea><br><button class="btn primary" onclick="save('${n.id}')">保存编辑</button><button class="btn secondary" onclick="confirmNote('${n.id}')">确认笔记</button><div class="meta">来源会话：${esc(n.conversation_id||'未知')}</div></article>`).join(''):'<div class="empty">暂时没有学习笔记，请先在 AI 学习助手中点击“整理本次学习”。</div>'}
+async function save(id){const n=notes.find(x=>x.id===id);try{const r=await LearningMemoryAPI.updateNote(user,id,{markdown_content:document.getElementById('body_'+id).value,status:'edited'});Object.assign(n,r.note);render()}catch(e){alert(e.message)}}
+function openCreate(){document.getElementById('createBox').style.display='block';document.getElementById('newTitle').focus()}
+function closeCreate(){document.getElementById('createBox').style.display='none'}
+async function createNote(){const title=document.getElementById('newTitle').value.trim(),body=document.getElementById('newBody').value;if(!title){alert('请输入笔记标题');return}try{const r=await LearningMemoryAPI.createNote(user,{title:title,markdown_content:body});notes.unshift(r.note);document.getElementById('newTitle').value='';document.getElementById('newBody').value='';closeCreate();render();alert('笔记已保存，并将在个人知识网络中显示为节点')}catch(e){alert('创建失败：'+e.message)}}
+async function confirmNote(id){try{const r=await LearningMemoryAPI.confirmNote(user,id);Object.assign(notes.find(x=>x.id===id),r.note);render()}catch(e){alert(e.message)}}
+async function init(){try{const r=await LearningMemoryAPI.listNotes(user);notes=r.notes||[];render()}catch(e){document.getElementById('list').innerHTML='<div class="empty">加载失败：'+esc(e.message)+'</div>'}}init();
+</script>
+</body>
+</html>

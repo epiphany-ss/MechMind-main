@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:800;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.3;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="18" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="44" class="t h">扩展：空间力系的方向与符号检查</text>
+<line x1="150" y1="300" x2="520" y2="300" class="arrR"/><text x="535" y="305" class="t s">x</text>
+<line x1="150" y1="300" x2="150" y2="95" class="arrB"/><text x="138" y="82" class="t s">z</text>
+<line x1="150" y1="300" x2="350" y2="155" class="arrB"/><text x="360" y="155" class="t s">y</text>
+<line x1="150" y1="300" x2="460" y2="120" class="arrR"/><text x="472" y="120" class="t s">F</text>
+<rect x="470" y="185" width="230" height="92" rx="12" class="blue"/>
+<text x="490" y="215" class="t xs">检查顺序：</text><text x="490" y="242" class="t xs">① 坐标正向是否统一</text><text x="490" y="268" class="t xs">② 分量符号是否一致</text>
+<rect x="95" y="340" width="570" height="45" rx="12" class="warn"/><text x="115" y="368" class="t xs">空间题最怕“方向乱”，所以先定坐标，再分解，再列方程。</text>
+
+</svg>

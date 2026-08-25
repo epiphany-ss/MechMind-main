@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="318" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="28" y="38" class="t h">题图：两个力大小相等、方向相反，但不共线</text>
+<rect x="170" y="120" width="320" height="90" rx="16" class="box"/>
+<text x="305" y="175" class="t m">同一刚体</text>
+<line x1="110" y1="145" x2="170" y2="145" class="arrR"/><text x="92" y="136" class="t s">F₁</text>
+<line x1="550" y1="185" x2="490" y2="185" class="arrR"/><text x="556" y="176" class="t s">F₂</text>
+<line x1="88" y1="145" x2="620" y2="145" class="dash"/>
+<line x1="88" y1="185" x2="620" y2="185" class="dash"/>
+<rect x="70" y="245" width="620" height="44" rx="12" class="warn"/>
+<text x="86" y="273" class="t xs">观察：两力不在同一直线上，会形成力偶，因此刚体不能平衡。</text>
+
+</svg>

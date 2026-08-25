@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.s{font-size:18px}
+.xs{font-size:15px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.5;stroke-dasharray:7 6;fill:none}
+.arrR{stroke:#d94141;stroke-width:4;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:4;fill:none;marker-end:url(#ab)}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="318" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="28" y="38" class="t h">题图：两端铰接直杆的二力构件判断</text>
+<circle cx="120" cy="170" r="12" fill="#d8e8f8" stroke="#2d6fb7" stroke-width="3"/>
+<circle cx="620" cy="170" r="12" fill="#d8e8f8" stroke="#2d6fb7" stroke-width="3"/>
+<rect x="130" y="152" width="480" height="36" rx="12" class="box"/>
+<line x1="55" y1="170" x2="115" y2="170" class="arrR"/><text x="35" y="160" class="t s">F₁</text>
+<line x1="685" y1="170" x2="625" y2="170" class="arrR"/><text x="690" y="160" class="t s">F₂</text>
+<text x="325" y="145" class="t s">杆件</text>
+<text x="105" y="208" class="t xs">铰 A</text><text x="605" y="208" class="t xs">铰 B</text>
+<rect x="45" y="236" width="670" height="52" rx="12" class="note"/>
+<text x="62" y="268" class="t xs">提示：若忽略自重，杆件仅受两端两个力，则两力必须沿杆轴线共线，说明该杆是典型二力构件。</text>
+
+</svg>

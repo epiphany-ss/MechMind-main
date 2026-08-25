@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:800;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.3;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="18" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="44" class="t h">扩展：物体系平衡的拆分选择</text>
+<rect x="90" y="130" width="190" height="70" rx="12" class="box"/><text x="150" y="170" class="t s">整体图</text>
+<rect x="480" y="130" width="190" height="70" rx="12" class="box"/><text x="530" y="170" class="t s">局部图</text>
+<line x1="280" y1="165" x2="480" y2="165" class="arrB"/><text x="330" y="150" class="t xs">拆分</text>
+<circle cx="380" cy="165" r="10" fill="#eef6ff" stroke="#2d6fb7" stroke-width="2"/><text x="365" y="205" class="t xs">连接处 C</text>
+<rect x="75" y="250" width="610" height="84" rx="14" class="green"/>
+<text x="100" y="282" class="t xs">整体图：连接处内力抵消，适合求外部反力。</text>
+<text x="100" y="310" class="t xs">局部图：连接力成为外力，适合求内部连接力。</text>
+<rect x="90" y="355" width="580" height="42" rx="12" class="warn"/><text x="110" y="382" class="t xs">拆分原则：先拆未知量少、受力关系清楚的部分。</text>
+
+</svg>

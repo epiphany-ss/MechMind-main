@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">加减平衡力系公理</text>
+<rect x="60" y="120" width="180" height="90" rx="16" class="b"/><text x="150" y="170" text-anchor="middle" class="t m">原力系 S</text>
+<text x="285" y="172" text-anchor="middle" class="t h">+</text>
+<rect x="340" y="120" width="180" height="90" rx="16" class="gb"/><text x="430" y="158" text-anchor="middle" class="t m">平衡力系 B</text><text x="430" y="184" text-anchor="middle" class="t xs">（合力与合矩均为零）</text>
+<text x="565" y="172" text-anchor="middle" class="t h">≡</text>
+<rect x="610" y="120" width="70" height="90" rx="16" class="bb"/><text x="645" y="172" text-anchor="middle" class="t m">S</text>
+<text x="70" y="270" class="t s">含义：在不改变刚体外效应的前提下，可以有目的地加入或移去一个平衡力系。</text>
+<rect x="65" y="304" width="610" height="86" rx="16" class="bb"/><text x="90" y="336" class="t s">典型用途：</text><text x="90" y="364" class="t s">① 把复杂力系整理为便于求解的形式；② 为力的平移定理提供逻辑基础；</text><text x="90" y="390" class="t s">③ 在受力图中引入辅助力，建立等效系统。</text>
+
+    </svg>

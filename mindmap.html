@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理论力学知识框架 · 思维导图</title>
+<style>
+:root {
+  --bg: #060b14;
+  --c0: #3b82f6; --c0g: #1d4ed8; --c0s: rgba(59,130,246,0.5);
+  --c1: #f59e0b; --c1g: #d97706; --c1s: rgba(245,158,11,0.5);
+  --c2: #ef4444; --c2g: #dc2626; --c2s: rgba(239,68,68,0.5);
+  --c3: #a78bfa; --c3g: #7c3aed; --c3s: rgba(167,139,250,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:#e2e8f0;overflow:hidden;height:100vh;user-select:none;cursor:grab}
+body:active{cursor:grabbing}
+body.panning{cursor:grabbing}
+
+#starCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#svgLayer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
+#svgLayer path{pointer-events:none}
+#nodeLayer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
+
+.node-wrap{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;transition:filter 0.3s}
+.node-wrap:hover{filter:brightness(1.3)}
+.node-wrap .pill{padding:7px 16px;border-radius:22px;font-weight:700;text-align:center;white-space:nowrap;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);border:2px solid transparent;position:relative}
+.node-wrap:hover .pill{transform:scale(1.08)}
+
+.node-wrap.root .pill{font-size:22px;padding:20px 36px;border-radius:36px;
+  background:radial-gradient(ellipse at center,rgba(59,130,246,0.3),transparent 70%),linear-gradient(135deg,#0f2b5c,#0d3b9e);
+  color:#fff;border-color:rgba(96,165,250,0.6);letter-spacing:3px;
+  box-shadow:0 0 40px rgba(59,130,246,0.35),0 0 80px rgba(59,130,246,0.15),inset 0 1px 0 rgba(255,255,255,0.1)}
+.node-wrap.root .pill::after{content:'';position:absolute;inset:-3px;border-radius:38px;background:conic-gradient(from 0deg,#3b82f6,#8b5cf6,#3b82f6);opacity:0.3;z-index:-1;animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.node-wrap.lv1 .pill{font-size:17px;padding:12px 28px;border-radius:26px;letter-spacing:1px}
+.node-wrap.lv1 .pill.c0{background:linear-gradient(135deg,var(--c0g),var(--c0));color:#fff;border-color:#60a5fa;box-shadow:0 0 24px var(--c0s)}
+.node-wrap.lv1 .pill.c1{background:linear-gradient(135deg,var(--c1g),var(--c1));color:#fff;border-color:#fbbf24;box-shadow:0 0 24px var(--c1s)}
+.node-wrap.lv1 .pill.c2{background:linear-gradient(135deg,var(--c2g),var(--c2));color:#fff;border-color:#f87171;box-shadow:0 0 24px var(--c2s)}
+.node-wrap.lv1 .pill.c3{background:linear-gradient(135deg,var(--c3g),var(--c3));color:#fff;border-color:#c4b5fd;box-shadow:0 0 24px var(--c3s)}
+
+.node-wrap.lv2 .pill{font-size:13px;padding:6px 16px;border-radius:18px;
+  background:rgba(20,30,50,0.92);color:#cbd5e1;border-color:rgba(100,116,139,0.3);backdrop-filter:blur(4px)}
+.node-wrap.lv2 .pill.c0{border-color:rgba(59,130,246,0.4);color:#93c5fd}
+.node-wrap.lv2 .pill.c1{border-color:rgba(245,158,11,0.4);color:#fcd34d}
+.node-wrap.lv2 .pill.c2{border-color:rgba(239,68,68,0.4);color:#fca5a5}
+.node-wrap.lv2 .pill.c3{border-color:rgba(167,139,250,0.4);color:#c4b5fd}
+
+.node-wrap.lv3 .pill{font-size:11px;padding:4px 12px;border-radius:14px;
+  background:rgba(15,23,42,0.85);color:#94a3b8;border-color:rgba(71,85,105,0.2)}
+.node-wrap.lv3 .pill.c0{border-color:rgba(59,130,246,0.25);color:#60a5fa}
+.node-wrap.lv3 .pill.c1{border-color:rgba(245,158,11,0.25);color:#fbbf24}
+.node-wrap.lv3 .pill.c2{border-color:rgba(239,68,68,0.25);color:#f87171}
+.node-wrap.lv3 .pill.c3{border-color:rgba(167,139,250,0.25);color:#a78bfa}
+
+.node-wrap.lv4 .pill{font-size:10px;padding:3px 10px;border-radius:12px;
+  background:rgba(15,23,42,0.7);color:#64748b;border-color:rgba(51,65,85,0.15)}
+
+.node-wrap.has-kids .pill::after{content:' +';font-size:0.8em;opacity:0.4;margin-left:3px}
+.node-wrap.expanded .pill::after{content:' −';font-size:0.8em;opacity:0.4;margin-left:3px}
+.node-wrap.leaf .pill::after{content:' ↗';font-size:0.8em;opacity:0.4;margin-left:3px}
+.node-wrap.leaf .pill{cursor:pointer}
+
+/* Tooltip */
+#tooltip{position:fixed;z-index:20;pointer-events:none;
+  background:rgba(10,16,28,0.95);border:1px solid rgba(100,116,139,0.3);border-radius:10px;
+  padding:10px 14px;font-size:12px;color:#e2e8f0;max-width:300px;display:none;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);backdrop-filter:blur(8px)}
+#tooltip .tt-title{font-weight:700;color:#fbbf24;margin-bottom:4px}
+#tooltip .tt-desc{color:#94a3b8;font-size:11px}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.75);
+  display:none;justify-content:center;align-items:center;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex}
+.modal{background:linear-gradient(160deg,#111b2e,#1a2740);
+  border:1px solid rgba(100,116,139,0.35);border-radius:20px;padding:32px 36px;
+  max-width:640px;width:92%;max-height:82vh;overflow-y:auto;
+  box-shadow:0 24px 72px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.05);
+  animation:modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+@keyframes modalIn{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-thumb{background:rgba(100,116,139,0.3);border-radius:4px}
+.modal h3{font-size:1.4em;margin-bottom:6px;color:#fff;display:flex;align-items:center;gap:8px}
+.modal .badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:0.55em;font-weight:800;letter-spacing:1px}
+.badge-s{background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
+.badge-k{background:rgba(245,158,11,0.2);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)}
+.badge-d{background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.3)}
+.badge-a{background:rgba(167,139,250,0.2);color:#c4b5fd;border:1px solid rgba(167,139,250,0.3)}
+.modal .breadcrumb{font-size:0.75em;color:#64748b;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(100,116,139,0.15)}
+.modal .detail-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.modal .detail-list li{padding:8px 12px;background:rgba(30,41,59,0.5);border-radius:8px;font-size:0.85em;color:#cbd5e1;border:1px solid rgba(100,116,139,0.1)}
+.modal .detail-list li::before{content:'▸ ';color:#60a5fa;font-size:0.8em}
+.modal .link-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.modal .link-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;
+  background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;border-radius:22px;
+  text-decoration:none;font-size:0.88em;font-weight:700;transition:all 0.25s;
+  box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.modal .link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(59,130,246,0.5);filter:brightness(1.15)}
+.modal .close-btn{position:absolute;top:14px;right:18px;background:rgba(100,116,139,0.15);
+  border:none;color:#94a3b8;font-size:1.3em;cursor:pointer;width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal .close-btn:hover{background:rgba(239,68,68,0.3);color:#f87171}
+
+/* Legend & Controls */
+.legend{position:fixed;bottom:22px;left:22px;z-index:10;font-size:11px;color:#64748b;display:flex;gap:18px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend .dot{width:9px;height:9px;border-radius:50%;box-shadow:0 0 8px currentColor}
+.controls{position:fixed;bottom:20px;right:20px;z-index:10;display:flex;gap:8px}
+.controls button{padding:7px 16px;border-radius:16px;border:1px solid rgba(100,116,139,0.25);
+  background:rgba(20,30,50,0.85);color:#cbd5e1;cursor:pointer;font-size:12px;
+  transition:all 0.2s;backdrop-filter:blur(4px)}
+.controls button:hover{background:rgba(59,130,246,0.2);border-color:#3b82f6;color:#fff}
+
+.tip{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:10;
+  font-size:12px;color:#475569;pointer-events:none;letter-spacing:0.5px}
+
+/* Nav buttons */
+.nav-btns{position:fixed;top:16px;left:16px;z-index:50;display:flex;gap:8px}
+.nav-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;
+  border-radius:20px;font-weight:700;font-size:0.82em;text-decoration:none;
+  transition:all 0.2s;cursor:pointer;border:none}
+.nav-btn.home{background:rgba(59,130,246,0.85);color:#fff;box-shadow:0 4px 12px rgba(59,130,246,0.3)}
+.nav-btn.home:hover{background:#3b82f6;transform:translateY(-2px);box-shadow:0 6px 16px rgba(59,130,246,0.45)}
+.nav-btn.back{background:rgba(30,41,59,0.85);color:#cbd5e1;border:1px solid rgba(100,116,139,0.3);backdrop-filter:blur(4px)}
+.nav-btn.back:hover{background:rgba(51,65,85,0.9);color:#fff;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<div class="nav-btns">
+  <a href="index.html" class="nav-btn home">← 返回主页</a>
+  <a href="knowledge_framework.html" class="nav-btn back">↩ 返回知识框架</a>
+</div>
+
+<canvas id="starCanvas"></canvas>
+<svg id="svgLayer"></svg>
+<div id="nodeLayer"></div>
+<div id="tooltip"></div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="dot" style="background:#3b82f6;color:#3b82f6"></span>静力学</span>
+  <span><span class="dot" style="background:#f59e0b;color:#f59e0b"></span>运动学</span>
+  <span><span class="dot" style="background:#ef4444;color:#ef4444"></span>动力学</span>
+  <span><span class="dot" style="background:#a78bfa;color:#a78bfa"></span>分析力学</span>
+</div>
+<div class="controls">
+  <button onclick="expandAll()">📖 全部展开</button>
+  <button onclick="collapseToLv(1)">📋 收起细节</button>
+  <button onclick="resetView()">🔄 重置</button>
+</div>
+<div class="tip">🖱 拖拽平移 · 滚轮缩放 · 点击节点展开 · 点击叶子查看详情</div>
+
+<script>
+// ==================== STARFIELD BACKGROUND ====================
+(function(){
+  const c=document.getElementById('starCanvas'),ctx=c.getContext('2d');
+  let W,H,stars=[],dust=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+
+  for(let i=0;i<280;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+0.3,
+    twinkle:Math.random()*Math.PI*2,speed:Math.random()*0.02+0.005,alpha:Math.random()});
+  for(let i=0;i<40;i++) dust.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*60+20,
+    vx:(Math.random()-0.5)*0.15,vy:(Math.random()-0.5)*0.15,alpha:Math.random()*0.03+0.01,
+    hue:200+Math.random()*60});
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Gradient bg
+    const g=ctx.createRadialGradient(W*0.3,H*0.3,0,W*0.5,H*0.5,Math.max(W,H)*0.8);
+    g.addColorStop(0,'#0a1628');g.addColorStop(0.5,'#060e1c');g.addColorStop(1,'#020810');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+
+    // Dust
+    dust.forEach(d=>{
+      d.x+=d.vx;d.y+=d.vy;
+      if(d.x<-d.r)d.x=W+d.r;if(d.x>W+d.r)d.x=-d.r;
+      if(d.y<-d.r)d.y=H+d.r;if(d.y>H+d.r)d.y=-d.r;
+      const g2=ctx.createRadialGradient(d.x,d.y,0,d.x,d.y,d.r);
+      g2.addColorStop(0,`hsla(${d.hue},50%,40%,${d.alpha})`);
+      g2.addColorStop(1,'transparent');
+      ctx.fillStyle=g2;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fill();
+    });
+
+    // Stars
+    stars.forEach(s=>{
+      s.twinkle+=s.speed;
+      const a=(Math.sin(s.twinkle)*0.5+0.5)*0.7+0.3;
+      ctx.fillStyle=`rgba(200,220,255,${a*s.alpha})`;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();
+      if(s.r>1.2){ctx.fillStyle=`rgba(200,220,255,${a*s.alpha*0.3})`;
+        ctx.beginPath();ctx.arc(s.x,s.y,s.r*2.5,0,Math.PI*2);ctx.fill()}
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ==================== DATA ====================
+const COLORS=['c0','c1','c2','c3'];
+const BRANCH_COLORS=['#3b82f6','#f59e0b','#ef4444','#a78bfa'];
+const BADGES=['badge-s','badge-k','badge-d','badge-a'];
+const SECTIONS=['静力学','运动学','动力学','分析力学'];
+
+const treeData={id:'root',label:'理论力学',color:-1,children:[
+  {id:'statics',label:'一、静力学',color:0,desc:'物体在力系作用下如何保持平衡？',children:[
+    {id:'s1',label:'基本概念与模型',children:[
+      {id:'s1a',label:'力定义与三要素',detail:['力使物体产生平动/转动趋势','大小(N)·方向·作用点']},
+      {id:'s1b',label:'刚体/质点/变形体',detail:['刚体:保留尺寸忽略变形(静力学主模型)','质点:忽略尺寸 变形体:考虑形变']},
+      {id:'s1c',label:'力的可传性',detail:['沿同一作用线移动外效应不变','仅适用于刚体']},
+      {id:'s1d',label:'静力学四大公理',detail:['二力平衡·加减平衡力系','平行四边形法则·作用反作用']}
+    ]},
+    {id:'s2',label:'力的运算与简化',children:[
+      {id:'s2a',label:'力的分解与投影',detail:['力是矢量·平行四边形法则','正交分解:Fx=Fcosθ Fy=Fsinθ']},
+      {id:'s2b',label:'力矩与力臂',detail:['M_O=F·d d为垂直距离','右手定则·逆时针为正','求矩三法:直接/分量/叉乘']},
+      {id:'s2c',label:'力偶',detail:['等值反向平行力','力偶矩与取矩点无关']},
+      {id:'s2d',label:'力的平移定理',detail:['F@A≡F@O+M_O','平移产生附加力偶','通向力系简化']}
+    ]},
+    {id:'s3',label:'约束与受力分析',children:[
+      {id:'s3a',label:'常见约束类型',detail:['光滑面·铰链·固定端','链杆·滑动支座']},
+      {id:'s3b',label:'受力图绘制规范',detail:['取分离体→画主动力','根据约束类型画反力','标注符号与方向']}
+    ]},
+    {id:'s4',label:'力系的平衡',children:[
+      {id:'s4a',label:'平面任意力系',detail:['主矢R=∑F 主矩M_O=∑M_O','ΣFx=0 ΣFy=0 ΣM_O=0','分布载荷等效处理']},
+      {id:'s4b',label:'空间力系',detail:['方向余弦三分量分解','6个平衡方程:3平动+3转动']},
+      {id:'s4c',label:'物体系平衡',detail:['整体求外反力→局部求连接力','拆分策略:从已知力物体入手']},
+      {id:'s4d',label:'平面桁架',detail:['节点法:逐节点求多数杆力','截面法:切面求指定杆力','零杆判断:提前简化结构']}
+    ]},
+    {id:'s5',label:'摩擦',children:[
+      {id:'s5a',label:'滑动摩擦',detail:['静摩擦力与动摩擦力','库仑摩擦定律','摩擦系数']},
+      {id:'s5b',label:'摩擦角',detail:['摩擦角的几何意义','摩擦角与摩擦系数的关系','摩擦锥概念']},
+      {id:'s5c',label:'自锁',detail:['自锁条件与判断','斜面自锁分析','工程中的自锁应用']},
+      {id:'s5d',label:'滚动摩阻',detail:['滚动摩阻的形成机理','滚动摩阻力偶矩','与滑动摩擦的对比']}
+    ]}
+  ]},
+  {id:'kinematics',label:'二、运动学',color:1,desc:'物体如何运动？（不问"为什么"）',children:[
+    {id:'k1',label:'一、点的运动学',children:[
+      {id:'k1a',label:'矢量法',detail:['r(t)描述位置','v=dr/dt a=dv/dt','最一般描述方式']},
+      {id:'k1b',label:'直角坐标法',detail:['x(t) y(t) z(t)','ax=d²x/dt²','最便于计算']},
+      {id:'k1c',label:'自然法',detail:['弧长s描述','at改变速率','an=v²/ρ改变方向']},
+      {id:'k1d',label:'切向/法向加速度',detail:['at∥v an⊥v指向曲率中心','a=√(at²+an²)']}
+    ]},
+    {id:'k2',label:'二、刚体的基本运动',children:[
+      {id:'k2a',label:'平动',detail:['各点v a相同','姿态不变','可用一点代表整体']},
+      {id:'k2b',label:'定轴转动',detail:['角量相同线量v=rω','at=rα an=rω²']},
+      {id:'k2c',label:'角速度/角加速度',detail:['θ→ω=dθ/dt→α=dω/dt','与x→v→a类比']}
+    ]},
+    {id:'k3',label:'三、点的合成运动 ★',children:[
+      {id:'k3a',label:'动点/动系选择',detail:['动点=研究对象','静系=地面','动系=运动物体固连']},
+      {id:'k3b',label:'速度合成',detail:['va=ve+vr','va绝对 ve牵连 vr相对','矢量三角形']},
+      {id:'k3c',label:'加速度合成',detail:['aa=ae+ar+ac','动系转动多科氏项']},
+      {id:'k3d',label:'科氏加速度',detail:['ac=2ωe×vr','条件:ωe≠0且vr≠0']}
+    ]},
+    {id:'k4',label:'四、刚体平面运动 ★',children:[
+      {id:'k4a',label:'基点法',detail:['vB=vA+vB/A','vB/A⊥AB','最通用方法']},
+      {id:'k4b',label:'速度投影法',detail:['两点速度连线方向投影相等','刚体不可变形']},
+      {id:'k4c',label:'瞬心法',detail:['瞬心I瞬时速度为零','v=ω·IP','纯滚动:接触点=瞬心']},
+      {id:'k4d',label:'加速度合成',detail:['aB=aA+aB/Aᵗ+aB/Aⁿ','比速度多法向项']}
+    ]}
+  ]},
+  {id:'dynamics',label:'三、动力学',color:2,desc:'力如何改变运动？运动背后需要什么力？',children:[
+    {id:'d1',label:'一、质点动力学',children:[
+      {id:'d1a',label:'牛顿第二定律',detail:['ΣF=ma','解题链:受力图→坐标轴→方程→加速度']},
+      {id:'d1b',label:'运动微分方程',detail:['mr̈=F(r,v,t)','二阶需两个初始条件']},
+      {id:'d1c',label:'两类问题',detail:['已知运动→求力(求导)','已知力→求运动(积分)']}
+    ]},
+    {id:'d2',label:'二、动量定理',children:[
+      {id:'d2a',label:'动量与冲量',detail:['p=mv I=∫Fdt','I=Δp','适合碰撞打击']},
+      {id:'d2b',label:'质心运动定理',detail:['ΣF_ext=Ma_C','内力不改变质心运动']},
+      {id:'d2c',label:'变质量系统',detail:['质量流携带动量','火箭推进','不能直接套F=ma']}
+    ]},
+    {id:'d3',label:'三、动量矩定理',children:[
+      {id:'d3a',label:'转动惯量',detail:['I=∫r²dm','平行轴定理:I=I_C+md²']},
+      {id:'d3b',label:'定轴转动方程',detail:['ΣM_O=I_Oα','转动版ΣF=ma']},
+      {id:'d3c',label:'平面运动微分方程',detail:['ΣF=ma_C + ΣM_C=I_Cα','纯滚动a_C=Rα']}
+    ]},
+    {id:'d4',label:'四、动能定理',children:[
+      {id:'d4a',label:'功与动能',detail:['W=∫F·dr','T=½mv²','均为标量']},
+      {id:'d4b',label:'动能定理',detail:['T₂-T₁=W₁₂','标量方程','求速度/位移最省']},
+      {id:'d4c',label:'机械能守恒',detail:['T+V=常数','仅保守力做功','有摩擦则用动能定理']},
+      {id:'d4d',label:'普遍定理综合',detail:['时间短→动量','转动→动量矩','位移→动能']}
+    ]}
+  ]},
+  {id:'analytical',label:'四、分析力学',color:3,desc:'用更普遍的原理处理复杂约束系统',children:[
+    {id:'a1',label:'一、达朗贝尔原理',children:[
+      {id:'a1a',label:'惯性力',detail:['Fin=-ma（假想力）','方向与a相反','化动力为静力']},
+      {id:'a1b',label:'动静法',detail:['求a→补惯性力→列平衡','适合求加速约束反力']},
+      {id:'a1c',label:'惯性力系简化',detail:['Fin=-ma_C','MC^in=-I_Cα']}
+    ]},
+    {id:'a2',label:'二、虚位移原理',children:[
+      {id:'a2a',label:'约束分类',detail:['完整/非完整','定常/非定常','双边/单边']},
+      {id:'a2b',label:'虚位移/虚功',detail:['δr:满足约束的可能位移','δW=ΣF_i·δr_i']},
+      {id:'a2c',label:'理想约束',detail:['约束反力虚功为零','自动消去约束力']},
+      {id:'a2d',label:'广义力',detail:['Q_j=ΣF_i·∂r_i/∂q_j']}
+    ]},
+    {id:'a3',label:'三、拉格朗日方程',children:[
+      {id:'a3a',label:'动力学普遍方程',detail:['Σ(F_i-ma_i)·δr_i=0','达朗贝尔+虚位移']},
+      {id:'a3b',label:'第二类拉格朗日方程',detail:['d/dt(∂L/∂q̇)-∂L/∂q=Q','L=T-V']},
+      {id:'a3c',label:'能量积分',detail:['L不显含t→广义能量守恒']},
+      {id:'a3d',label:'循环积分',detail:['L不含某q→对应广义动量守恒','角度→角动量守恒']}
+    ]},
+    {id:'a4',label:'四、振动',children:[
+      {id:'a4a',label:'单自由度自由振动',detail:['mẍ+kx=0','ω_n=√(k/m)']},
+      {id:'a4b',label:'单自由度受迫振动',detail:['mẍ+cẋ+kx=F₀sinωt','共振:ω≈ω_n']},
+      {id:'a4c',label:'两自由度振动',detail:['两个固有频率和主振型','耦合振动']},
+      {id:'a4d',label:'多自由度系统',detail:['Mẍ+Kx=F','模态分析']},
+      {id:'a4e',label:'刚体微幅振荡',detail:['小角度摆动','sinθ≈θ线性化']}
+    ]},
+    {id:'a5',label:'五、碰撞',children:[
+      {id:'a5a',label:'碰撞概念',detail:['极短时间速度突变','e=分离速度/接近速度']},
+      {id:'a5b',label:'质点碰撞',detail:['动量守恒+恢复系数','e=1弹性 e=0塑性']},
+      {id:'a5c',label:'刚体碰撞',detail:['需考虑转动','动量矩守恒','撞击中心']},
+      {id:'a5d',label:'碰撞能量',detail:['弹性碰撞动能守恒','塑性碰撞损失最大']}
+    ]}
+  ]}
+]};
+
+// Textbook link mapping - approximate per-section
+const TB_LINKS={
+  // Statics
+  s1a:'textbooks/statics/textbook.html?target=m3',s1b:'textbooks/statics/textbook.html?target=m6',
+  s1c:'textbooks/statics/textbook.html?target=m12',s1d:'textbooks/statics/textbook.html?target=m31',
+  s2a:'textbooks/statics/textbook.html?target=m17',s2b:'textbooks/statics/textbook.html?target=m21',
+  s2c:'textbooks/statics/textbook.html?target=m26',s2d:'textbooks/statics/textbook.html?target=m37',
+  s3a:'textbooks/statics/textbook.html?target=m27',s3b:'textbooks/statics/textbook.html?target=m28',
+  s4a:'textbooks/statics/textbook.html?target=m51',s4b:'textbooks/statics/textbook.html?target=m56',
+  s4c:'textbooks/statics/textbook.html?target=m61',s4d:'textbooks/statics/textbook.html?target=m66',
+  s5a:'textbooks/statics/textbook.html?target=m77',s5b:'textbooks/statics/textbook.html?target=m82',
+  s5c:'textbooks/statics/textbook.html?target=m87',s5d:'textbooks/statics/textbook.html?target=m92',
+  // Kinematics
+  k1a:'textbooks/kinematics/index.html?target=p1m1',k1b:'textbooks/kinematics/index.html?target=p1m2',
+  k1c:'textbooks/kinematics/index.html?target=p1m3',k1d:'textbooks/kinematics/index.html?target=p1m4',
+  k2a:'textbooks/kinematics/index.html?target=p2m1',k2b:'textbooks/kinematics/index.html?target=p2m2',
+  k2c:'textbooks/kinematics/index.html?target=p2m3',
+  k3a:'textbooks/kinematics/index.html?target=p3m1',k3b:'textbooks/kinematics/index.html?target=p3m2',
+  k3c:'textbooks/kinematics/index.html?target=p3m3',k3d:'textbooks/kinematics/index.html?target=p3m4',
+  k4a:'textbooks/kinematics/index.html?target=p4m1',k4b:'textbooks/kinematics/index.html?target=p4m2',
+  k4c:'textbooks/kinematics/index.html?target=p4m3',k4d:'textbooks/kinematics/index.html?target=p4m4',
+  // Dynamics
+  d1a:'textbooks/dynamics/index.html?target=dyn1-1',d1b:'textbooks/dynamics/index.html?target=dyn1-2',
+  d1c:'textbooks/dynamics/index.html?target=dyn1-3',
+  d2a:'textbooks/dynamics/index.html?target=dyn2-1',d2b:'textbooks/dynamics/index.html?target=dyn2-2',
+  d2c:'textbooks/dynamics/index.html?target=dyn2-3',
+  d3a:'textbooks/dynamics/index.html?target=dyn3-1',d3b:'textbooks/dynamics/index.html?target=dyn3-2',
+  d3c:'textbooks/dynamics/index.html?target=dyn3-3',
+  d4a:'textbooks/dynamics/index.html?target=dyn4-1',d4b:'textbooks/dynamics/index.html?target=dyn4-2',
+  d4c:'textbooks/dynamics/index.html?target=dyn4-3',d4d:'textbooks/dynamics/index.html?target=dyn4-4',
+  // Analytical
+  a1a:'textbooks/analytical/index.html?target=inertia-force',a1b:'textbooks/analytical/index.html?target=kinetostatic',
+  a1c:'textbooks/analytical/index.html?target=rigid-inertia-system',
+  a2a:'textbooks/analytical/index.html?target=constraints',a2b:'textbooks/analytical/index.html?target=virtual-displacement-work',
+  a2c:'textbooks/analytical/index.html?target=ideal-constraint',a2d:'textbooks/analytical/index.html?target=generalized-force',
+  a3a:'textbooks/analytical/index.html?target=general-dynamics-equation',a3b:'textbooks/analytical/index.html?target=lagrange-second-kind',
+  a3c:'textbooks/analytical/index.html?target=energy-integral',a3d:'textbooks/analytical/index.html?target=cyclic-integral',
+  a4a:'textbooks/analytical/index.html?target=sdof-free',a4b:'textbooks/analytical/index.html?target=sdof-forced',
+  a4c:'textbooks/analytical/index.html?target=two-dof-vibration',a4d:'textbooks/analytical/index.html?target=multi-dof-vibration',
+  a4e:'textbooks/analytical/index.html?target=rigid-small-oscillation',
+  a5a:'textbooks/analytical/index.html?target=collision-concept',a5b:'textbooks/analytical/index.html?target=particle-collision',
+  a5c:'textbooks/analytical/index.html?target=rigid-collision',a5d:'textbooks/analytical/index.html?target=collision-energy',
+};
+
+// ==================== STATE ====================
+let expanded=new Set(['root']);
+let panX=0,panY=0,scale=1;
+let isPanning=false,startX,startY;
+const INITIAL_LEVEL=1;
+
+// Init: show root + 4 branches
+treeData.children.forEach(c=>expanded.add(c.id));
+
+// ==================== LAYOUT ====================
+function getLayout(){
+  const w=window.innerWidth,h=window.innerHeight,cx=w/2,cy=h/2;
+  const pos=new Map();
+  const angles=[Math.PI*0.78,Math.PI*0.22,-Math.PI*0.22,-Math.PI*0.78];
+
+  function place(node,ang,rad,span,lv){
+    const x=cx+rad*Math.cos(ang)+panX,y=cy+rad*Math.sin(ang)+panY;
+    pos.set(node.id,{x,y,lv,node});
+    if(!node.children||!expanded.has(node.id))return;
+    const n=node.children.length;
+    const cr=rad+(lv===0?180:lv===1?150:lv===2?125:105);
+    const ca=span*0.82;
+    const sa=ang-ca/2;
+    const gap=n>1?ca/(n-1):0;
+    node.children.forEach((c,i)=>place(c,n===1?ang:sa+i*gap,cr,gap,lv+1));
+  }
+  pos.set('root',{x:cx+panX,y:cy+panY,lv:0,node:treeData});
+  treeData.children.forEach((c,i)=>place(c,angles[i],170,Math.PI*0.38,1));
+  return{pos,cx,cy};
+}
+
+// ==================== RENDER ====================
+const svgL=document.getElementById('svgLayer');
+const nodeL=document.getElementById('nodeLayer');
+
+function render(){
+  const{pos}=getLayout();
+  // SVG paths
+  let paths='';
+  function drawPaths(node,pc){
+    if(!pos.has(node.id))return;
+    const p=pos.get(node.id);
+    if(node.children&&expanded.has(node.id)){
+      node.children.forEach(c=>{
+        if(!pos.has(c.id))return;
+        const cp=pos.get(c.id);
+        const dx=cp.x-p.x,dy=cp.y-p.y;
+        const mx=p.x+dx*0.45,my=p.y+dy*0.45;
+        const lw=cp.lv<=2?2.5:cp.lv<=3?1.5:0.8;
+        const op=cp.lv<=2?0.45:cp.lv<=3?0.22:0.1;
+        const clr=pc>=0?BRANCH_COLORS[pc]:'#64748b';
+        paths+=`<path d="M${p.x},${p.y} Q${mx},${my} ${cp.x},${cp.y}" stroke="${clr}" stroke-width="${lw}" fill="none" opacity="${op}" stroke-linecap="round"/>`;
+        drawPaths(c,pc>=0?pc:node.color);
+      });
+    }
+  }
+  treeData.children.forEach((c,i)=>drawPaths(c,i));
+  svgL.innerHTML=paths;
+
+  // HTML nodes
+  let html='';
+  pos.forEach((p,id)=>{
+    const n=p.node;
+    const lvCls=p.lv===0?'root':`lv${Math.min(p.lv,4)}`;
+    const cCls=n.color>=0?` ${COLORS[n.color]}`:'';
+    const isExp=expanded.has(id);
+    const hasKids=n.children&&n.children.length>0;
+    const kidCls=hasKids?(isExp?'expanded':'has-kids'):'leaf';
+    html+=`<div class="node-wrap ${lvCls} ${kidCls}" id="n_${id}" style="left:${p.x}px;top:${p.y}px" data-id="${id}" data-lv="${p.lv}" onclick="handleClick('${id}')" onmouseenter="showTT(event,'${id}')" onmouseleave="hideTT()"><span class="pill${cCls}">${n.label}</span></div>`;
+  });
+  nodeL.innerHTML=html;
+
+  // Update parent refs for visibility
+  function setParent(node,pid){node.parentId=pid;if(node.children)node.children.forEach(c=>setParent(c,node.id))}
+  treeData.children.forEach(c=>setParent(c,'root'));
+}
+
+// ==================== INTERACTION ====================
+function handleClick(id){
+  const n=findNode(treeData,id);if(!n)return;
+  if(n.children&&n.children.length>0){
+    if(expanded.has(id))collapse(id);
+    else{expanded.add(id);n.children.forEach(c=>expanded.add(c.id))}
+    render();
+  }else{showModal(n)}
+}
+function collapse(id){
+  expanded.delete(id);
+  const n=findNode(treeData,id);
+  if(n&&n.children)n.children.forEach(c=>collapse(c.id));
+}
+function findNode(t,id){
+  if(t.id===id)return t;
+  if(t.children)for(const c of t.children){const r=findNode(c,id);if(r)return r}
+  return null;
+}
+
+// ==================== MODAL ====================
+function showModal(node){
+  const path=[];(function fp(t,id,p){if(t.id===id){path.push(...p,t);return true}if(t.children)for(const c of t.children)if(fp(c,id,[...p,t]))return true;return false})(treeData,node.id,[]);
+  const bc=path.slice(1).map(n=>n.label).join(' › ');
+  const topSect=path[1]||{};
+  const sectKey=topSect.id||'';
+  const badgeCls=topSect.color>=0?BADGES[topSect.color]:'badge-s';
+  const sectName=topSect.color>=0?SECTIONS[topSect.color]:'';
+  const link=TB_LINKS[node.id]||TB_LINKS['s1a'];
+
+  let det='';
+  if(node.detail&&node.detail.length>0)det='<ul class="detail-list">'+node.detail.map(d=>`<li>${d}</li>`).join('')+'</ul>';
+
+  document.getElementById('modalContent').innerHTML=`
+    <h3>${node.label}<span class="badge ${badgeCls}">${sectName}</span></h3>
+    <div class="breadcrumb">${bc}</div>
+    ${det}
+    <div class="link-row">
+      <a class="link-btn" href="${link}" target="_blank">📖 查看详细知识框架 →</a>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
+
+// ==================== TOOLTIP ====================
+function showTT(e,id){
+  const n=findNode(treeData,id);if(!n)return;
+  const tt=document.getElementById('tooltip');
+  if((!n.children||n.children.length===0)&&n.detail){tt.innerHTML=`<div class="tt-title">${n.label}</div><div class="tt-desc">${n.detail.join(' · ')} · 点击查看详情</div>`;tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px'}
+  else if(n.desc){tt.innerHTML=`<div class="tt-title">${n.label}</div><div class="tt-desc">${n.desc} · 点击展开</div>`;tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px'}
+  else{tt.style.display='none'}
+}
+function hideTT(){document.getElementById('tooltip').style.display='none'}
+
+// ==================== PAN/ZOOM ====================
+window.addEventListener('mousedown',e=>{if(e.target.closest('.node-wrap')||e.target.closest('.modal-overlay'))return;isPanning=true;startX=e.clientX-panX;startY=e.clientY-panY;document.body.classList.add('panning')});
+window.addEventListener('mousemove',e=>{if(!isPanning)return;panX=e.clientX-startX;panY=e.clientY-startY;render()});
+window.addEventListener('mouseup',()=>{isPanning=false;document.body.classList.remove('panning')});
+window.addEventListener('wheel',e=>{e.preventDefault();const d=e.deltaY>0?0.9:1.1;scale=Math.max(0.3,Math.min(3,scale*d));panX=e.clientX-(e.clientX-panX)*d;panY=e.clientY-(e.clientY-panY)*d;render()},{passive:false});
+
+// ==================== CONTROLS ====================
+function expandAll(){(function add(n){expanded.add(n.id);if(n.children)n.children.forEach(add)})(treeData);render()}
+function collapseToLv(lv){expanded.clear();expanded.add('root');(function add(n,l){if(l<=lv){expanded.add(n.id);if(n.children)n.children.forEach(c=>add(c,l+1))}})(treeData,0);render()}
+function resetView(){panX=0;panY=0;scale=1;expanded.clear();expanded.add('root');treeData.children.forEach(c=>expanded.add(c.id));render()}
+
+// ==================== INIT ====================
+render();
+</script>
+</body>
+</html>

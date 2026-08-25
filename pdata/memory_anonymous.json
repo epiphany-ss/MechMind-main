@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "user_id": "anonymous",
+  "conversations": [
+    {
+      "id": "conv_1785509015529",
+      "user_id": "anonymous",
+      "title": "悬臂梁在集中力作用下的挠度怎么计算？",
+      "created_at": "2026-07-31T22:44:02",
+      "updated_at": "2026-07-31T22:44:03",
+      "metadata": {}
+    }
+  ],
+  "messages": [
+    {
+      "id": "local_conv_1785509015529_0",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "role": "assistant",
+      "content": "您好！我是理论力学AI智能助教 🤖我可以帮助您：📐 解答问题：静力学、运动学、动力学、分析力学📝 逐步推导：公式证明、定理推导、解题过程💡 概念讲解：力学概念的物理意义与工程应用🔬 机构分析：运动学特性、速度加速度计算🔌 AI增强模式：在上方API设置中输入密钥，保存后即可启用🌐 联网搜索：超出知识库的问题可一键跳转搜索引擎请随时向我提问！",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:44:02"
+    },
+    {
+      "id": "local_conv_1785509015529_1",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "role": "user",
+      "content": "悬臂梁在集中力作用下的挠度怎么计算？",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:44:02"
+    },
+    {
+      "id": "local_conv_1785509015529_2",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "role": "assistant",
+      "content": "画受力图（Free Body Diagram）是力学分析的第一步，也是最关键的一步。 📋 画受力图的标准步骤： 1️⃣ 选取研究对象：明确分析哪个物体（整体或单个构件） 2️⃣ 解除约束：将研究对象从周围物体中分离出来 3️⃣ 画主动力：标出所有已知外力（重力、载荷、推力等） 4️⃣ 画约束反力：根据约束类型确定反力方向和数量 常见约束类型及反力： • 柔索（绳索/链条）→ 沿柔索方向的拉力（1个未知量） • 光滑接触面 → 沿法线方向的压力（1个未知量） • 光滑铰链/轴承 → 两个正交分力（2个未知量） • 固定铰支座 → 两个正交分力（2个未知量） • 滚动支座 → 垂直于支承面的一个力（1个未知量） • 固定端 → 两个分力 + 一个力偶（3个未知量） • 二力杆 → 沿杆轴线的一个力（1个未知量） ⚠️ 常见错误：多画力、少画力、方向错误、约束类型判断错误、内力外力混淆。⚠️ 以上答案来自本地知识库的部分匹配，可能与您的问题不完全对应。建议：① 更精确地描述您的问题（使用专业术语）② 点击此处搜索完整解答 →☆ 收藏🧩 跨领域相关知识⚖️ 静力学平衡方程🔗 受力图是列平衡方程的前提⚖️ 静力学二力杆🔗 识别二力杆可简化受力图⚖️ 静力学桁架🔗 桁架分析依赖正确的节点受力图🔬 分析力学虚位移原理🔗 两者均涉及约束反力的处理方式📝 相关习题（至多3道）📝 习题M32 第1题点击查看题目图📝 习题M34 第1题点击查看题目图📋 查看更多习题 →跳转到完整题库📌 跳转至详细模块：→ 平衡方程→ 二力杆→ 桁架→ 虚位移原理📷 M27: 约束与约束反力📷 M28: 怎样画受力图📷 M29: 受力图的适用范围与常见错误📖 电子课本参考：📖 M27 约束与约束反力📖 M28 怎样画受力图📖 M29 受力图的适用范围与常见错误🖼️ 模块图表预览（点击放大）：🗂️ 浏览关联模块图表（3个有图）M27M28M29",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:44:03"
+    },
+    {
+      "id": "local_conv_1785509015529_3",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "role": "user",
+      "content": "刚体平面运动",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:44:03"
+    },
+    {
+      "id": "local_conv_1785509015529_4",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "role": "assistant",
+      "content": "刚体平面运动的速度分析方法： 1️⃣ 基点法（速度合成法）： \boldsymbol{v}_B = \boldsymbol{v}_A + \boldsymbol{v}_{BA} 其中 \boldsymbol{v}_{BA} = \boldsymbol{omega} imes \boldsymbol{r}_{AB}，大小 =omegacdotAB，方向 perpAB 2️⃣ 速度投影定理： \boldsymbol{v}_B cdot \boldsymbol{e}_{AB} = \boldsymbol{v}_A cdot \boldsymbol{e}_{AB} 任意两点在连线方向上的速度投影相等（刚体不变形的推论） 3️⃣ 速度瞬心法： |\boldsymbol{v}_P| = omega cdot |IP|（I为瞬心，P为刚体上任意点） 方向：perpIP 加速度分析：\boldsymbol{a}_B = \boldsymbol{a}_A + \boldsymbol{a}_{BA}^t + \boldsymbol{a}_{BA}^n（切向+法向分量） 常见结构：四杆机构、曲柄滑块、行星轮系。☆ 收藏🧩 跨领域相关知识🏃 运动学速度瞬心🔗 瞬心法是最简便的平面运动速度解法🏃 运动学点的合成运动🔗 基点法本质是点的合成运动⚡ 动力学动能定理🔗 平面运动动能=平动+转动两部分⚡ 动力学转动惯量🔗 平面运动转动部分需转动惯量📝 相关习题（至多3道）📝 习题M35 第3题点击查看题目图📋 查看更多习题 →跳转到完整题库📌 跳转至详细模块：→ 速度瞬心→ 点的合成运动→ 动能定理→ 转动惯量📷 M9: 刚体的运动效应初步认识📷 M55: 刚体平面运动的速度分析📷 M56: 刚体平面运动的加速度分析📷 M57: 运动学综合应用——机构分析📖 电子课本参考：📖 M9 刚体的运动效应初步认识📖 M55 刚体平面运动的速度分析📖 M56 刚体平面运动的加速度分析📖 M57 运动学综合应用——机构分析🖼️ 模块图表预览（点击放大）：🗂️ 浏览关联模块图表（4个有图）M9M55M56M57",
+      "content_type": "text",
+      "metadata": {},
+      "created_at": "2026-07-31T22:44:03"
+    }
+  ],
+  "learning_events": [],
+  "concepts": [
+    {
+      "id": "concept_19fb8a20260_a60e26c8",
+      "concept_key": "cantilever_beam_deflection",
+      "name": "悬臂梁挠度",
+      "type": "CONCEPT",
+      "confidence": 0.8,
+      "source_message_ids": [
+        "local_conv_1785509015529_1"
+      ],
+      "created_at": "2026-07-31T22:44:13",
+      "updated_at": "2026-07-31T22:44:13"
+    },
+    {
+      "id": "concept_19fb8a20261_93e0b60d",
+      "concept_key": "rigid_body_plane_motion",
+      "name": "刚体平面运动",
+      "type": "CONCEPT",
+      "confidence": 0.9,
+      "source_message_ids": [
+        "local_conv_1785509015529_3"
+      ],
+      "created_at": "2026-07-31T22:44:13",
+      "updated_at": "2026-07-31T22:44:13"
+    },
+    {
+      "id": "concept_19fb8a20261_fe702f70",
+      "concept_key": "free_body_diagram",
+      "name": "受力图",
+      "type": "CONCEPT",
+      "confidence": 0.7,
+      "source_message_ids": [
+        "local_conv_1785509015529_2"
+      ],
+      "created_at": "2026-07-31T22:44:13",
+      "updated_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "concept_relations": [
+    {
+      "id": "relation_19fb8a20261_fa9e61aa",
+      "source_concept_id": "free_body_diagram",
+      "target_concept_id": "cantilever_beam_deflection",
+      "relation_type": "PREREQUISITE_OF",
+      "description": "受力图是进行力学分析的基础，但挠度计算需要材料力学知识。",
+      "confidence": 0.5,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509015529",
+      "created_at": "2026-07-31T22:44:13"
+    },
+    {
+      "id": "relation_19fb8a20261_1108c63a",
+      "source_concept_id": "rigid_body_plane_motion",
+      "target_concept_id": "free_body_diagram",
+      "relation_type": "RELATED_TO",
+      "description": "刚体平面运动分析中需要画受力图来确定力和运动的关系。",
+      "confidence": 0.6,
+      "source_type": "ai",
+      "conversation_id": "conv_1785509015529",
+      "created_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "user_thoughts": [
+    {
+      "id": "thought_19fb8a20261_1242a702",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "content": "悬臂梁在集中力作用下的挠度怎么计算？",
+      "thought_type": "explicit",
+      "source_message_ids": [
+        "local_conv_1785509015529_1"
+      ],
+      "confidence": 1,
+      "created_at": "2026-07-31T22:44:13"
+    },
+    {
+      "id": "thought_19fb8a20261_87555f8e",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "content": "刚体平面运动",
+      "thought_type": "explicit",
+      "source_message_ids": [
+        "local_conv_1785509015529_3"
+      ],
+      "confidence": 1,
+      "created_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "misconception_19fb8a20261_5b93205c",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "concept_ids": [],
+      "error_code": "E01",
+      "description": "AI将悬臂梁挠度问题错误地理解为受力图问题，可能误导用户认为挠度计算与受力图直接相关，但实际挠度计算属于材料力学范畴。",
+      "status": "suspected",
+      "evidence_ids": [
+        "local_conv_1785509015529_2"
+      ],
+      "confidence": 0.7,
+      "first_detected_at": "2026-07-31T22:44:13",
+      "last_detected_at": "2026-07-31T22:44:13",
+      "occurrence_count": 1
+    }
+  ],
+  "user_concept_states": [
+    {
+      "id": "state_19fb8a20261_bc7c8baa",
+      "user_id": "anonymous",
+      "concept_id": null,
+      "conversation_id": "conv_1785509015529",
+      "ability_type": "concept_understanding",
+      "mastery_level": "partial",
+      "evidence_count": 1,
+      "correct_count": 0,
+      "partial_count": 1,
+      "incorrect_count": 0,
+      "hint_count": 0,
+      "evidence_ids": [
+        "local_conv_1785509015529_3"
+      ],
+      "confidence": 0.6,
+      "last_updated_at": "2026-07-31T22:44:13"
+    },
+    {
+      "id": "state_19fb8a20261_9892ff08",
+      "user_id": "anonymous",
+      "concept_id": null,
+      "conversation_id": "conv_1785509015529",
+      "ability_type": "constraint_identification",
+      "mastery_level": "unknown",
+      "evidence_count": 1,
+      "correct_count": 0,
+      "partial_count": 0,
+      "incorrect_count": 0,
+      "hint_count": 0,
+      "evidence_ids": [],
+      "confidence": 0.3,
+      "last_updated_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "learning_notes": [
+    {
+      "id": "note_19fb8a20261_b2f771b8",
+      "user_id": "anonymous",
+      "conversation_id": "conv_1785509015529",
+      "title": "工程力学学习对话整理",
+      "markdown_content": "## 学习笔记\n\n### 1. 悬臂梁挠度问题（未解决）\n- **用户提问**：悬臂梁在集中力作用下的挠度怎么计算？\n- **AI回应**：错误地提供了受力图绘制步骤，未涉及挠度计算。\n- **核心结论**：悬臂梁在集中力作用下的挠度计算通常使用积分法或叠加法，公式为 \\( w = \\frac{F x^2}{6EI}(3L - x) \\)（自由端最大挠度 \\( w_{max} = \\frac{F L^3}{3EI} \\)）。\n- **待验证**：需确认公式的适用条件（线弹性、小变形等）。\n\n### 2. 刚体平面运动\n- **用户提问**：刚体平面运动\n- **AI回应**：提供了速度分析和加速度分析的方法。\n- **核心结论**：\n  - 速度分析：基点法、速度投影定理、速度瞬心法。\n  - 加速度分析：基点法，\\( a_B = a_A + a_{BA}^t + a_{BA}^n \\)。\n- **下一步**：建议练习典型机构（如四杆机构、曲柄滑块）的速度和加速度计算。\n\n### 3. 用户原话\n- \"悬臂梁在集中力作用下的挠度怎么计算？\"\n- \"刚体平面运动\"\n\n### 4. 待验证问题\n- 悬臂梁挠度公式的具体推导和适用条件。\n- 刚体平面运动中瞬心法的具体应用条件。\n\n### 5. 下一步行动\n- 复习材料力学中梁的挠度计算方法。\n- 练习刚体平面运动的速度和加速度分析例题。",
+      "structured_content": {
+        "title": "工程力学学习对话整理",
+        "summary": "用户询问了悬臂梁在集中力作用下的挠度计算，但AI助手错误地提供了受力图的绘制方法，未直接回答问题。随后用户提出“刚体平面运动”，AI助手给出了速度分析和加速度分析的方法概述。整体对话中，用户表现出对特定力学主题的求知，但AI的回应存在答非所问的情况。",
+        "markdown_content": "## 学习笔记\n\n### 1. 悬臂梁挠度问题（未解决）\n- **用户提问**：悬臂梁在集中力作用下的挠度怎么计算？\n- **AI回应**：错误地提供了受力图绘制步骤，未涉及挠度计算。\n- **核心结论**：悬臂梁在集中力作用下的挠度计算通常使用积分法或叠加法，公式为 \\( w = \\frac{F x^2}{6EI}(3L - x) \\)（自由端最大挠度 \\( w_{max} = \\frac{F L^3}{3EI} \\)）。\n- **待验证**：需确认公式的适用条件（线弹性、小变形等）。\n\n### 2. 刚体平面运动\n- **用户提问**：刚体平面运动\n- **AI回应**：提供了速度分析和加速度分析的方法。\n- **核心结论**：\n  - 速度分析：基点法、速度投影定理、速度瞬心法。\n  - 加速度分析：基点法，\\( a_B = a_A + a_{BA}^t + a_{BA}^n \\)。\n- **下一步**：建议练习典型机构（如四杆机构、曲柄滑块）的速度和加速度计算。\n\n### 3. 用户原话\n- \"悬臂梁在集中力作用下的挠度怎么计算？\"\n- \"刚体平面运动\"\n\n### 4. 待验证问题\n- 悬臂梁挠度公式的具体推导和适用条件。\n- 刚体平面运动中瞬心法的具体应用条件。\n\n### 5. 下一步行动\n- 复习材料力学中梁的挠度计算方法。\n- 练习刚体平面运动的速度和加速度分析例题。",
+        "concepts": [
+          {
+            "concept_key": "cantilever_beam_deflection",
+            "name": "悬臂梁挠度",
+            "confidence": 0.8,
+            "source_message_ids": [
+              "local_conv_1785509015529_1"
+            ]
+          },
+          {
+            "concept_key": "rigid_body_plane_motion",
+            "name": "刚体平面运动",
+            "confidence": 0.9,
+            "source_message_ids": [
+              "local_conv_1785509015529_3"
+            ]
+          },
+          {
+            "concept_key": "free_body_diagram",
+            "name": "受力图",
+            "confidence": 0.7,
+            "source_message_ids": [
+              "local_conv_1785509015529_2"
+            ]
+          }
+        ],
+        "concept_relations": [
+          {
+            "source_concept_key": "free_body_diagram",
+            "target_concept_key": "cantilever_beam_deflection",
+            "relation_type": "PREREQUISITE_OF",
+            "description": "受力图是进行力学分析的基础，但挠度计算需要材料力学知识。",
+            "confidence": 0.5
+          },
+          {
+            "source_concept_key": "rigid_body_plane_motion",
+            "target_concept_key": "free_body_diagram",
+            "relation_type": "RELATED_TO",
+            "description": "刚体平面运动分析中需要画受力图来确定力和运动的关系。",
+            "confidence": 0.6
+          }
+        ],
+        "user_thoughts": [
+          {
+            "type": "explicit",
+            "content": "悬臂梁在集中力作用下的挠度怎么计算？",
+            "confidence": 1,
+            "source_message_ids": [
+              "local_conv_1785509015529_1"
+            ]
+          },
+          {
+            "type": "explicit",
+            "content": "刚体平面运动",
+            "confidence": 1,
+            "source_message_ids": [
+              "local_conv_1785509015529_3"
+            ]
+          }
+        ],
+        "misconceptions": [
+          {
+            "error_code": "E01",
+            "description": "AI将悬臂梁挠度问题错误地理解为受力图问题，可能误导用户认为挠度计算与受力图直接相关，但实际挠度计算属于材料力学范畴。",
+            "status": "suspected",
+            "confidence": 0.7,
+            "source_message_ids": [
+              "local_conv_1785509015529_2"
+            ]
+          }
+        ],
+        "ability_evidence": [
+          {
+            "ability_type": "concept_understanding",
+            "result": "partial",
+            "confidence": 0.6,
+            "source_message_ids": [
+              "local_conv_1785509015529_3"
+            ]
+          },
+          {
+            "ability_type": "constraint_identification",
+            "result": "unknown",
+            "confidence": 0.3,
+            "source_message_ids": []
+          }
+        ],
+        "suggested_actions": [
+          {
+            "type": "review_note",
+            "title": "复习悬臂梁挠度计算",
+            "reason": "用户询问挠度计算但未得到直接回答，需要补充材料力学中梁的挠度知识。"
+          },
+          {
+            "type": "micro_practice",
+            "title": "练习刚体平面运动例题",
+            "reason": "用户对刚体平面运动感兴趣，通过练习可巩固速度与加速度分析方法。"
+          },
+          {
+            "type": "ask_ai_followup",
+            "title": "追问悬臂梁挠度具体公式",
+            "reason": "用户需要明确挠度计算公式和适用条件。"
+          }
+        ]
+      },
+      "version": 1,
+      "status": "draft",
+      "created_at": "2026-07-31T22:44:13",
+      "updated_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "weakness_19fb8a20261_c6c56345",
+      "user_id": "anonymous",
+      "misconception_id": "misconception_19fb8a20261_5b93205c",
+      "level": "suspected",
+      "score": null,
+      "reasons": "本次对话提取到待验证的错误理解",
+      "evidence_ids": [
+        "local_conv_1785509015529_2"
+      ],
+      "recommendation_id": null,
+      "user_feedback": "unknown",
+      "created_at": "2026-07-31T22:44:13",
+      "updated_at": "2026-07-31T22:44:13"
+    }
+  ],
+  "updated_at": "2026-07-31T22:44:13"
+}

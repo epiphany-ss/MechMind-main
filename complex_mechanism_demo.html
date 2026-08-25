@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复合机构演示库 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{--bg:#1a1a2e;--panel:#16213e;--text:#e0e0e0;--muted:#8899bb;--accent:#4cc9f0;--line:#2a3a5c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',sans-serif}
+.back{position:fixed;top:16px;left:16px;z-index:5;text-decoration:none;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:10px 18px;font-weight:700}
+.hero{padding:84px 28px 34px;text-align:center;background:linear-gradient(135deg,#0d1a35,#1a2540);border-bottom:1px solid var(--line)}
+.hero h1{font-size:2.2em;margin-bottom:10px;letter-spacing:1px}.hero p{color:var(--muted)}
+.grid{max-width:1180px;margin:0 auto;padding:34px 20px 56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;transition:.2s;min-height:210px}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 32px rgba(0,0,0,.24)}
+.tag{display:inline-block;color:#101827;background:var(--accent);border-radius:14px;padding:3px 10px;font-size:.72em;font-weight:800;margin-bottom:14px}
+.card h2{font-size:1.18em;color:#fff;margin-bottom:10px}.card p{color:#aab7cf;font-size:.9em;line-height:1.7}
+.parts{margin-top:16px;display:flex;gap:7px;flex-wrap:wrap}.parts span{font-size:.72em;color:#cfe8ff;border:1px solid #345074;border-radius:12px;padding:3px 9px;background:rgba(76,201,240,.06)}
+.note{max-width:980px;margin:0 auto 40px;padding:18px 22px;background:rgba(76,201,240,.08);border-left:3px solid var(--accent);color:#bcd0e8;line-height:1.7}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:1.6em}}
+</style>
+</head>
+<body>
+<a class="back" href="index.html">← 返回主页</a>
+<header class="hero">
+  <h1>复合机构运动学分析库</h1>
+  <p>由已有机构模块组成机械上合理的复合总成，强调输入轴、减速级、分流轴和执行机构之间的传动关系。</p>
+</header>
+<main class="grid">
+  <a class="card" href="complex_dual_slider.html">
+    <span class="tag">并联复合</span>
+    <h2>行星减速 + 双曲柄滑块并联系统</h2>
+    <p>行星减速输出通过分流轴驱动两个相位相差 180° 的曲柄滑块，形成双输出往复机构总成。</p>
+    <div class="parts"><span>行星减速</span><span>曲柄滑块 ×2</span><span>相位差</span></div>
+  </a>
+  <a class="card" href="complex_series_slider_guide.html">
+    <span class="tag">串联复合</span>
+    <h2>行星减速 + 曲柄滑块 + 曲柄导杆串联系统</h2>
+    <p>减速输出驱动滑块往复，再通过连杆参考带动导杆摆动，形成串联执行机构。</p>
+    <div class="parts"><span>行星减速</span><span>曲柄滑块</span><span>曲柄导杆</span></div>
+  </a>
+  <a class="card" href="complex_dual_scotch.html">
+    <span class="tag">相位合成</span>
+    <h2>双正弦机构相位合成系统</h2>
+    <p>同轴上的两只正交偏心曲柄驱动两个滑框，构成二维简谐合成机构。</p>
+    <div class="parts"><span>正弦机构 ×2</span><span>90° 相位差</span><span>轨迹合成</span></div>
+  </a>
+  <a class="card" href="complex_dual_guide.html">
+    <span class="tag">参数对比</span>
+    <h2>双曲柄导杆科氏加速度对比系统</h2>
+    <p>同一输入轴经不同传动比驱动两组导杆输出，用于比较科氏加速度变化。</p>
+    <div class="parts"><span>曲柄导杆 ×2</span><span>科氏加速度</span><span>参数影响</span></div>
+  </a>
+</main>
+<section class="note">
+  第一批复合演示按“合理组合”实现：每个案例都显示明确的输入、传动连接和输出执行机构。后续可以继续加入凸轮-滑块、齿轮-连杆、双导杆同步等新总成。
+</section>
+</body>
+</html>

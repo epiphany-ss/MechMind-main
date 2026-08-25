@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#17385f}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.s{font-size:16px}
+.xs{font-size:14px}
+.box{fill:#fbfdff;stroke:#c7dcef;stroke-width:2}
+.blue{fill:#eef6ff;stroke:#2d6fb7;stroke-width:2}
+.green{fill:#f3fbf5;stroke:#3a9b5d;stroke-width:2}
+.warn{fill:#fff8f2;stroke:#e8b36f;stroke-width:2}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.dash{stroke:#8aaed3;stroke-width:2.4;stroke-dasharray:7 5;fill:none}
+.arrR{stroke:#d94141;stroke-width:4;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:4;fill:none;marker-end:url(#ab)}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="418" rx="16" fill="#fff" stroke="#d6e5f3" stroke-width="2"/>
+
+<text x="32" y="42" class="t h">第6页拓展：受力图检查清单</text>
+<rect x="70" y="85" width="180" height="58" rx="14" class="blue"/><text x="160" y="120" text-anchor="middle" class="t s">选研究对象</text>
+<rect x="290" y="85" width="180" height="58" rx="14" class="blue"/><text x="380" y="120" text-anchor="middle" class="t s">解除约束</text>
+<rect x="510" y="85" width="180" height="58" rx="14" class="blue"/><text x="600" y="120" text-anchor="middle" class="t s">补反力</text>
+<line x1="250" y1="114" x2="290" y2="114" class="line"/><line x1="470" y1="114" x2="510" y2="114" class="line"/>
+<rect x="120" y="205" width="520" height="90" rx="14" class="green"/>
+<text x="145" y="238" class="t xs">检查：是否漏重力？是否把内力画进整体图？</text>
+<text x="145" y="266" class="t xs">检查：柔索是否画拉力？光滑面是否只画法向力？固定端是否有力矩？</text>
+<rect x="85" y="335" width="590" height="46" rx="12" class="warn"/><text x="105" y="363" class="t xs">解题技巧：受力图画错，后面方程大概率也会错；所以先慢后快。</text>
+
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1055" height="760" viewBox="0 0 1055 760">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="1053" height="758" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<rect x="20" y="18" width="1015" height="60" rx="16" class="bb"/>
+<text x="508" y="56" text-anchor="middle" class="t h">第8页｜力的平移定理</text>
+<rect x="400" y="100" width="280" height="78" rx="18" class="bb"/>
+<text x="540" y="147" text-anchor="middle" class="t h">力的平移定理</text>
+<rect x="70" y="115" width="240" height="78" rx="16" class="b"/>
+<text x="190" y="148" text-anchor="middle" class="t m">内容</text>
+<text x="190" y="170" text-anchor="middle" class="t xs">把力平移到任意点时，需附加力偶</text>
+<line x1="310" y1="153" x2="400" y2="140" class="line"/>
+<rect x="760" y="115" width="220" height="78" rx="16" class="b"/>
+<text x="870" y="148" text-anchor="middle" class="t m">数学表达</text>
+<text x="870" y="170" text-anchor="middle" class="t xs">F@A ≡ F@O + M_O</text>
+<line x1="760" y1="153" x2="680" y2="140" class="line"/>
+<rect x="110" y="250" width="300" height="170" rx="16" class="b"/>
+<text x="260" y="288" text-anchor="middle" class="t m">关键关系</text>
+<text x="135" y="322" class="t s">• M_O = r_OA × F</text>
+<text x="135" y="352" class="t s">• 平面问题中：M_O = F d</text>
+<text x="135" y="382" class="t s">• 若 O 在作用线上，则 d = 0，</text>
+<text x="153" y="410" class="t s">  平移定理退化为可传性原理</text>
+<rect x="470" y="235" width="500" height="200" rx="16" class="gb"/>
+<text x="720" y="272" text-anchor="middle" class="t h">应用价值</text>
+<text x="500" y="312" class="t s">1. 把多力统一平移到同一点，便于求主矢与主矩</text>
+<text x="500" y="345" class="t s">2. 看清“一个偏心力 = 一个中心力 + 一个力偶”</text>
+<text x="500" y="378" class="t s">3. 是平面一般力系简化、支座反力计算的重要过渡工具</text>
+<rect x="100" y="500" width="850" height="190" rx="18" class="bb"/>
+<text x="525" y="540" text-anchor="middle" class="t h">与已有知识的关系</text>
+<text x="135" y="578" class="t s">力的可传性：只允许沿同一作用线移动，且不引入力偶</text>
+<text x="135" y="612" class="t s">力的平移定理：允许移到任意指定点，但必须补上一个附加力偶</text>
+<text x="135" y="646" class="t s">因此，平移定理比可传性更一般；可传性是平移定理的特殊情形</text>
+<text x="527" y="745" text-anchor="middle" class="t h">第8页 / 扩展专题</text>
+
+    </svg>

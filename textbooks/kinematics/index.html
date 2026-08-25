@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学理论力学知识体系梳理（二）——运动学</title><style>
+    :root{--blue:#0d579a;--blue2:#064985;--line:#cfe2f4;--ink:#132c45;--sub:#49677f;--warn:#c62828;--shadow:0 14px 32px rgba(11,76,135,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+    body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
+    a{text-decoration:none;color:var(--blue)}
+    .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
+    .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
+    .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
+    .toc ol{list-style:none;margin:8px 0 0;padding:0}.toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}.toc li a:hover{background:#eaf4ff}
+    .main{min-width:0}.hero{background:linear-gradient(180deg,#f4f9ff,#e8f4ff);border:1px solid #d5e8f7;border-radius:24px;padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
+    .eyebrow{display:inline-block;background:#e2f1ff;color:var(--blue);border:1px solid #bddbf5;border-radius:999px;padding:5px 12px;font-weight:900;letter-spacing:2px;font-size:13px}
+    .hero h1{font-size:34px;margin:10px 0 8px;line-height:1.2;color:#0b3f76}.hero p{margin:0;color:#34536d;max-width:1100px;font-weight:600}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:18px;margin-top:22px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.hero-card h3{margin:0 0 8px;color:#0b3f76}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{background:var(--blue2);color:#fff;border-radius:9px;padding:9px 14px;font-weight:900;font-size:14px}
+    .pills{display:flex;flex-wrap:wrap;gap:9px}.pills span{background:#f1f8ff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:#0f4d88;font-weight:800}
+    .page-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}.page-tabs a{background:#fff;border:1px solid #b9d8f1;border-radius:999px;padding:8px 14px;font-weight:900;box-shadow:0 4px 12px rgba(11,76,135,.08)}
+    .overview{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:24px;box-shadow:var(--shadow)}.overview h2{margin:0 0 16px;color:#0b3f76;font-size:26px}
+    .overall-map{margin:0 0 18px;border:1px solid var(--line);border-radius:18px;padding:12px;background:#f8fbff}.overall-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}
+    .page-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.page-card{display:block;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:14px;min-height:160px;color:var(--ink)}
+    .page-card h3{margin:0;color:#0b3f76}.page-card h4{margin:6px 0;color:#0d3c68}.page-card p{font-size:13.5px;color:#425f77;margin:0 0 10px}.page-card strong{font-size:13px;color:var(--blue)}
+    .page-section{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:28px;box-shadow:var(--shadow)}
+    .page-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}.page-num{background:linear-gradient(135deg,var(--blue2),#0c64b3);color:#fff;border-radius:16px;padding:14px 16px;font-size:22px;font-weight:900}
+    .page-head h2{margin:0;color:#0b3f76;font-size:30px}.page-head p{margin:4px 0 0;color:#48657c}
+    .big-map{border:1px dashed #b9d5ee;border-radius:16px;background:#f8fbff;padding:10px 12px;margin-bottom:18px}.big-map summary{cursor:pointer;font-weight:900;color:#0b4f8a}.big-map figure{margin:12px 0 0}.big-map img{width:100%;display:block;border-radius:14px;border:1px solid #d8e7f4}.big-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    .module-guide{background:linear-gradient(135deg,var(--blue2),#0b66b3);color:#fff;border-radius:12px;padding:13px 16px;margin:12px 0 22px;font-weight:900}
+    .module{border:1px solid var(--line);border-left:7px solid var(--blue);border-radius:20px;padding:18px;margin:20px 0;background:#fff}.module-title-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}.module-index{background:var(--blue2);color:#fff;border-radius:12px;padding:10px 14px;font-weight:900;font-size:18px}.module h3{margin:0;color:#0b3f76;font-size:24px}
+    .mini-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}.mini-tags span{background:#fff4d9;border:1px solid #f0d897;color:#8a5b00;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+    .focus-bar{background:var(--blue2);color:#fff;border-radius:10px;padding:12px 14px;margin-bottom:18px;font-weight:900}.module-main{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:start}.module-left{min-width:0}
+    .deep-layout{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.deep-block{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;box-shadow:none;margin:0}.deep-block h4{display:inline-block;margin:0 0 8px;background:var(--blue2);color:#fff;border-radius:8px;padding:5px 10px;font-size:14px}.deep-block p{margin:6px 0}.deep-block ul{margin:6px 0 0;padding-left:18px}.deep-block li{margin:4px 0}.deep-warn h4{background:var(--warn)}.deep-practice h4{background:#2b7a53}.answer-card,.formula-card{border:1px dashed #9fc4ee;background:#f4f7ff;border-radius:10px;padding:9px 11px;margin-top:8px;color:#31536d}
+    .module-map{margin:0;background:#f7fbff;border:1px solid var(--line);border-radius:18px;padding:12px}.map-label{font-size:13px;font-weight:900;color:#0b3f76;margin-bottom:7px}.module-map img{width:100%;display:block;border-radius:12px;border:1px solid #d7e7f6}.module-map figcaption{font-size:13px;color:#55728a;margin-top:8px}
+    @media(max-width:1200px){.layout,.hero-grid,.module-main{grid-template-columns:1fr}.sidebar{position:static;height:auto}.page-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.page-cards,.deep-layout{grid-template-columns:1fr}.layout{padding:12px}.hero h1{font-size:26px}}
+    @media print{.sidebar,.btns,.page-tabs{display:none}.layout{display:block;max-width:none}.page-section,.module,.overview,.hero{box-shadow:none;break-inside:avoid}}
+    </style></head>
+<body><a href="../../knowledge_framework.html" style="position:fixed;top:12px;right:170px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(5,150,105,0.25);transition:all 0.2s" onmouseover="this.style.background="#047857";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="#059669";this.style.transform="translateY(0)"">← 返回知识框架</a><a href="../../index.html" style="position:fixed;top:12px;right:16px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--blue);color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(8,60,122,0.25);transition:all 0.2s" onmouseover="this.style.background="var(--blue2)";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="var(--blue)";this.style.transform="translateY(0)"">🏠 返回平台首页</a><div class="layout">
+<aside class="sidebar"><h2>子目录导航</h2><div class="nav-note">建议使用方式：先看每页的大图总览，再阅读每个模块的“重点一句话”和配图；练习区可按需展开。</div><a class="home-link" href="#top">回到首页</a><nav class="toc"><details open><summary>第1页｜一、点的运动学</summary><ol><li><a href="#p1m1"><span>1.1</span>矢量法</a></li><li><a href="#p1m2"><span>1.2</span>直角坐标法</a></li><li><a href="#p1m3"><span>1.3</span>自然法</a></li><li><a href="#p1m4"><span>1.4</span>切向/法向加速度</a></li></ol></details><details open><summary>第2页｜二、刚体的基本运动</summary><ol><li><a href="#p2m1"><span>2.1</span>平动</a></li><li><a href="#p2m2"><span>2.2</span>定轴转动</a></li><li><a href="#p2m3"><span>2.3</span>角速度/角加速度</a></li></ol></details><details open><summary>第3页｜三、点的合成运动 ★</summary><ol><li><a href="#p3m1"><span>3.1</span>动点/动系选择</a></li><li><a href="#p3m2"><span>3.2</span>速度合成 vₐ=vₑ+vᵣ</a></li><li><a href="#p3m3"><span>3.3</span>加速度合成</a></li><li><a href="#p3m4"><span>3.4</span>科氏加速度</a></li></ol></details><details open><summary>第4页｜四、刚体平面运动 ★</summary><ol><li><a href="#p4m1"><span>4.1</span>基点法</a></li><li><a href="#p4m2"><span>4.2</span>速度投影法</a></li><li><a href="#p4m3"><span>4.3</span>瞬心法</a></li><li><a href="#p4m4"><span>4.4</span>加速度合成</a></li></ol></details></nav></aside>
+<main class="main" id="top">
+<header class="hero"><span class="eyebrow">THEORETICAL MECHANICS · （二）</span><h1>大学理论力学知识体系梳理（二）—— 运动学</h1><p>这是第二部分“运动学”的第一部分风格统一版：左侧子目录导航、首页总览卡片、每页模块化学习区、配图讲解、详细讲解和练习区统一排版。</p>
+<div class="hero-grid"><section class="hero-card"><h3>推荐学习路线</h3><p>1. 先看页卡总览：把点的运动、刚体运动、合成运动和平面运动建立起来。</p><p>2. 再读模块卡片：抓“详细讲解、应用场景、知识关联、易错提醒”。</p><p>3. 最后做练习：用小练巩固公式、图像和方法选择。</p><div class="btns"><a class="btn" href="#" onclick="window.print();return false;">打印 / 导出 PDF</a><a class="btn" href="#overview">查看全篇总图</a></div></section>
+<section class="hero-card"><h3>本版重点优化</h3><div class="pills"><span>统一第一部分风格</span><span>模块内容细化</span><span>总图与子图保留</span><span>练习区完整</span><span>15 个子模块</span></div></section></div></header>
+<div class="page-tabs"><a href="#part1">第1页</a><a href="#part2">第2页</a><a href="#part3">第3页</a><a href="#part4">第4页</a></div>
+<section class="overview" id="overview"><h2>四大模块内容总览（含图片与子模块）</h2><figure class="overall-map"><img src="assets/运动学知识总图.png" alt="运动学知识总图" loading="lazy"></figure><div class="page-cards">
+        <a class="page-card" href="#part1">
+          <h3>第1页</h3>
+          <h4>一、点的运动学</h4>
+          <p>点的运动学研究质点位置、速度、加速度随时间变化的规律，是整个运动学的基础。四种方法本质上都是对同一运动的不同表达：矢量法最一般，直角坐标法最便于计算，自然法最贴合轨迹，切向/法向加速度揭示曲线运动本质。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#part2">
+          <h3>第2页</h3>
+          <h4>二、刚体的基本运动</h4>
+          <p>刚体的基本运动把点运动学推广到刚体整体。平动强调姿态不变，各点速度、加速度相同；定轴转动强调绕固定轴旋转，各点角量相同而线量随半径改变；角速度/角加速度描述转动变化。</p>
+          <strong>含 3 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#part3">
+          <h3>第3页</h3>
+          <h4>三、点的合成运动 ★</h4>
+          <p>点的合成运动是运动学重点与难点。它研究同一动点相对于静系、动系的不同运动描述，核心是选对动点和动系，再建立绝对运动、相对运动、牵连运动之间的速度与加速度合成关系。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        
+        <a class="page-card" href="#part4">
+          <h3>第4页</h3>
+          <h4>四、刚体平面运动 ★</h4>
+          <p>刚体平面运动是运动学的综合重点。它可以看成随基点的平动与绕基点的转动叠加，速度分析常用基点法、速度投影法、瞬心法；加速度分析则以基点加速度合成公式为核心。</p>
+          <strong>含 4 个子模块</strong>
+        </a>
+        </div></section>
+
+        <section class="page-section" id="part1">
+          <div class="page-head">
+            <div class="page-num">一、</div>
+            <div>
+              <h2>一、点的运动学</h2>
+              <p>点的运动学研究质点位置、速度、加速度随时间变化的规律，是整个运动学的基础。四种方法本质上都是对同一运动的不同表达：矢量法最一般，直角坐标法最便于计算，自然法最贴合轨迹，切向/法向加速度揭示曲线运动本质。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/点的运动学知识总图.png" alt="一、点的运动学知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的详细讲解、应用场景、知识关联、扩展理解、解题技巧、易错提醒和小练习。
+          </div>
+          
+            <article class="module" id="p1m1">
+              <div class="module-title-row">
+                <div class="module-index">1.1</div>
+                <div>
+                  <h3>矢量法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：以位置矢量 r(t) 为核心，用对时间求导统一得到速度和加速度。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>矢量法用位置矢量 r(t) 描述动点 P 在空间中的位置，r 的端点随时间扫出的曲线就是点的轨迹。</p><p>加速度 a 是速度矢量对时间的一阶导数，既可以反映速度大小改变，也可以反映速度方向改变。曲线运动中，a 往往不与 v 同向。</p><div class="deep-formula-card">学习抓手：先把点的位置写成矢量，再通过连续求导得到速度、加速度；重点训练“矢量既有大小又有方向”的意识。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>空间轨迹分析：如机械臂末端、无人机路径、卫星轨道上的点运动。</li><li>参数方程运动：题目直接给出 r(t)，可以机械地求 v(t)、a(t)。</li><li>方向判断题：利用速度沿轨迹切线、加速度表示速度变化的性质判断物理意义。</li><li>为刚体运动打基础：刚体上任一点最终也要回到点的速度、加速度分析。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>直角坐标法就是把 r、v、a 分别投影到 x、y、z 轴上。</li><li>自然法是把加速度重新分解到轨迹切向和法向上。</li><li>点的合成运动仍然使用矢量叠加，如 vₐ=vₑ+vᵣ。</li><li>刚体平面运动的基点法本质上也是矢量法的应用。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>学习矢量法时不要只记公式，更要理解“求导会同时改变大小和方向”。</p><p>矢量法能把位移、速度、加速度统一成一套语言，是后续动力学受力分析的基础。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先画参考点 O 和动点 P，明确 r 的方向。</li><li>先求矢量表达，再求大小；不要先把方向丢掉。</li><li>速度方向沿轨迹切线，加速度方向看速度矢量如何变化。</li><li>结果要写单位，速度 m/s，加速度 m/s²。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把路程当位移：路程只有大小，位移有方向。</li><li>把速度方向画成指向圆心：那通常是法向加速度方向，不是速度方向。</li><li>只算大小不判断方向，导致物理意义不完整。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>已知 r(t)=2t i+(t²+1)j，求 t=2s 时速度和加速度。</p><div class="answer-card"><strong>参考答案：</strong>v=2i+2t j，t=2 时 v=2i+4j；a=2j。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/矢量法运动学知识总结.png" alt="矢量法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p1m2">
+              <div class="module-title-row">
+                <div class="module-index">1.2</div>
+                <div>
+                  <h3>直角坐标法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：把点的运动分解到固定坐标轴方向，适合计算和列式。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>直角坐标法在固定坐标系 Oxyz 中，用 x(t)、y(t)、z(t) 三个坐标函数描述点的位置。</p><p>加速度分量由坐标函数二阶导数得到：aₓ=d²x/dt²，aᵧ=d²y/dt²，a_z=d²z/dt²。</p><div class="deep-formula-card">学习抓手：把复杂运动拆成坐标分量，用普通函数求导处理，是最常用、最稳的计算方法。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>平面抛体运动：水平与竖直方向分开处理。</li><li>空间路径计算：机械臂、车辆路径、粒子轨迹。</li><li>轨迹消参：由 x(t)、y(t) 消去 t 得到 y=f(x)。</li><li>求速度方向角：用 vₓ、vᵧ 计算方向。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>矢量法提供总体表达，坐标法提供分量计算。</li><li>与解析几何关系密切，常需要消参求轨迹。</li><li>与自然法可互相验证：坐标法算出的总加速度可再分解为切向/法向。</li><li>刚体平面运动中也常用坐标分量列方程。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>坐标法不是只适合直线运动，只要坐标函数能写出，就可用于曲线运动。</p><p>有时可以先用坐标法算结果，再用图像或物理意义检查方向。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先确定坐标轴正方向，避免正负号混乱。</li><li>分别求各分量，最后再合成大小。</li><li>速度大小用 |v|=√(vₓ²+vᵧ²+v_z²)。</li><li>不要把坐标 x 与位移、路程混为一谈。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>漏写某一方向分量，尤其空间问题中的 z 分量。</li><li>把速度一阶导和加速度二阶导写反。</li><li>合成大小时直接相加，而不是平方和开方。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>已知 x=t²，y=3t，求 t=2s 时速度大小。</p><div class="answer-card"><strong>参考答案：</strong>t=2 时 vₓ=4，vᵧ=3，所以 |v|=5 m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/运动学知识总图.png" alt="直角坐标法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p1m3">
+              <div class="module-title-row">
+                <div class="module-index">1.3</div>
+                <div>
+                  <h3>自然法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：沿轨迹建立切向、法向，用弧长 s 和曲率半径 ρ 描述曲线运动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>自然法以轨迹为基础，用弧长 s 描述点沿曲线走了多远。</p><p>加速度分成切向 aₜ 和法向 aₙ：切向分量改变速率，法向分量改变速度方向。</p><div class="deep-formula-card">学习抓手：沿轨迹本身建立坐标，用切向和法向理解曲线运动，尤其适合已知轨迹形状或曲率半径的问题。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>汽车过弯、列车转弯、过山车轨道等曲线运动。</li><li>圆周运动是自然法最典型特例，此时 ρ=R。</li><li>已知速度随弧长或时间变化时，自然法比坐标法更直观。</li><li>分析轨迹曲率对安全速度、离心趋势的影响。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>切向/法向加速度模块是自然法的核心展开。</li><li>圆周运动公式 aₙ=v²/R 来自自然法。</li><li>刚体定轴转动中点的圆周运动可直接套自然法思想。</li><li>坐标法可算总加速度，自然法解释其方向和组成。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>曲率半径越小，轨迹弯得越急，同样速度下法向加速度越大。</p><p>速度大小不变并不代表加速度为零，因为方向变化也会产生加速度。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先判断轨迹是直线、圆还是一般曲线。</li><li>切向方向沿速度方向，法向方向指向曲率中心。</li><li>先求 v，再求 aₜ 和 aₙ。</li><li>圆周运动中直接令 ρ=R。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把法向方向画成任意垂直方向，实际应指向曲率中心。</li><li>把曲率半径 ρ 和圆半径 R 混淆。</li><li>忽略 aₙ，误以为匀速曲线运动无加速度。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>某点沿半径 R=5m 的圆周匀速运动，速度 v=10m/s，求法向加速度。</p><div class="answer-card"><strong>参考答案：</strong>aₙ=100/5=20m/s²，方向指向圆心。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/自然法知识总图.png" alt="自然法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p1m4">
+              <div class="module-title-row">
+                <div class="module-index">1.4</div>
+                <div>
+                  <h3>切向/法向加速度</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：切向加速度改变速度大小，法向加速度改变速度方向。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>切向加速度 aₜ 与速度方向共线或反向，决定速率增加、减小或保持不变。</p><p>总加速度 a 是 aₜ 与 aₙ 的矢量和，两者在自然坐标系中互相垂直。</p><div class="deep-formula-card">学习抓手：把总加速度拆成“改变速度大小”的切向分量和“改变速度方向”的法向分量，是理解曲线运动的钥匙。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>汽车转弯时的向心加速度分析。</li><li>匀速圆周运动与变速圆周运动区分。</li><li>机械臂末端沿曲线轨迹运动的加速度分析。</li><li>轨道交通、过山车、飞机转弯安全分析。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>自然法提供 t-n 坐标基础。</li><li>定轴转动中 aₜ=rα、aₙ=rω² 与本模块完全对应。</li><li>刚体平面运动加速度合成中也有切向与法向项。</li><li>动力学中，法向加速度常对应向心力需求。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>判断加速度方向时，不要只看速度大小，还要看轨迹是否弯曲。</p><p>总加速度方向一般既不沿速度，也不指向圆心，而是由两分量合成。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先判断速度大小是否变化，决定 aₜ。</li><li>再判断轨迹是否弯曲，决定 aₙ。</li><li>画出互相垂直的分量，再合成总加速度。</li><li>注意 aₙ 永远指向曲率中心。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>认为加速度一定与速度同向。</li><li>认为匀速运动一定没有加速度。</li><li>把 aₜ 与 aₙ 的物理作用混淆。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>某点作曲线运动，aₜ=6m/s²，aₙ=8m/s²，求总加速度大小。</p><div class="answer-card"><strong>参考答案：</strong>a=√(6²+8²)=10m/s²。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/切向与法向加速度知识图.png" alt="切向/法向加速度知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="part2">
+          <div class="page-head">
+            <div class="page-num">二、</div>
+            <div>
+              <h2>二、刚体的基本运动</h2>
+              <p>刚体的基本运动把点运动学推广到刚体整体。平动强调姿态不变，各点速度、加速度相同；定轴转动强调绕固定轴旋转，各点角量相同而线量随半径改变；角速度/角加速度描述转动变化。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/刚体运动知识总览.png" alt="二、刚体的基本运动知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的详细讲解、应用场景、知识关联、扩展理解、解题技巧、易错提醒和小练习。
+          </div>
+          
+            <article class="module" id="p2m1">
+              <div class="module-title-row">
+                <div class="module-index">2.1</div>
+                <div>
+                  <h3>平动</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：刚体内任意直线在运动中始终保持平行，刚体姿态不变。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>刚体平动时，刚体内任意一条直线在运动过程中始终与初始位置平行。</p><p>同一瞬时刚体上所有点的速度相同、加速度相同。</p><div class="deep-formula-card">学习抓手：抓住“姿态不变”这个核心，平动刚体可以用任意一点代表整体运动。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>电梯整体升降。</li><li>传送带上的箱体不翻转平移。</li><li>导轨滑块沿直线或曲线移动。</li><li>工程中把复杂刚体运动简化成一点运动。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>平动是刚体基本运动之一。</li><li>与质点运动联系最紧密，可用一点代表整体。</li><li>一般平面运动可以分解为基点平动加绕基点转动。</li><li>与定轴转动对比：平动无角速度，定轴转动有角速度。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>判断平动时不要只看某一点轨迹是否直线，而要看刚体的方向是否保持不变。</p><p>平动模型常用于简化工程计算。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>观察刚体前后姿态是否一致。</li><li>任选一点求速度、加速度即可代表整体。</li><li>如果各点速度方向和大小都相同，通常是平动。</li><li>题中说“无转动”时优先考虑平动模型。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把直线运动等同于平动。</li><li>忽略曲线平动也属于平动。</li><li>明明刚体姿态改变，却仍按平动处理。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>刚体作平动，A 点加速度为 2m/s² 向上，B 点加速度是多少？</p><div class="answer-card"><strong>参考答案：</strong>B 点加速度为 2m/s² 向上。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/平动运动学知识总图.png" alt="平动知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p2m2">
+              <div class="module-title-row">
+                <div class="module-index">2.2</div>
+                <div>
+                  <h3>定轴转动</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：刚体绕空间中一条固定轴转动，轴外各点绕轴作圆周运动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>定轴转动是刚体绕一条固定不动的轴转动，轴上各点保持静止。</p><p>同一刚体在同一时刻具有相同的角速度 ω 和角加速度 α。</p><div class="deep-formula-card">学习抓手：定轴转动先找固定轴，再找半径 r；同一刚体角量相同，线量随 r 改变。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>门绕铰链转动。</li><li>飞轮、皮带轮、电机转子旋转。</li><li>齿轮、转盘、风扇叶片运动。</li><li>刚体动力学中转动惯量与转矩分析的前置基础。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>刚体上任一点都可看作圆周运动。</li><li>线量公式来自自然法中的切向/法向加速度。</li><li>角速度/角加速度是定轴转动的核心变量。</li><li>平面运动中的瞬心法常把瞬时运动等效成绕一点转动。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>半径越大，线速度和法向加速度越大，所以轮缘点比靠近轴的点运动更剧烈。</p><p>定轴转动把“整体角量”和“点的线量”连接起来。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先确定转轴位置，轴不能随意选。</li><li>半径 r 是点到转轴的垂直距离。</li><li>比较线速度大小时只比较 r，因为同一刚体 ω 相同。</li><li>注意 aₙ 指向转轴或圆心。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>认为同一刚体上所有点线速度相同。</li><li>把半径 r 取成任意两点距离。</li><li>把切向加速度和法向加速度方向画反。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>某转盘 ω=8rad/s，P 点到转轴距离 r=0.25m，求 P 点线速度。</p><div class="answer-card"><strong>参考答案：</strong>v=0.25×8=2m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/定轴转动知识总结图.png" alt="定轴转动知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p2m3">
+              <div class="module-title-row">
+                <div class="module-index">2.3</div>
+                <div>
+                  <h3>角速度/角加速度</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：角速度描述转得多快，角加速度描述角速度变化得多快。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>角位移 θ 表示刚体从参考位置转过的角度，单位通常为 rad。</p><p>角加速度 α=dω/dt，表示角速度变化快慢，也就是“转得快慢如何变化”。</p><div class="deep-formula-card">学习抓手：把 θ、ω、α 看成转动版的 x、v、a，先理解导数关系，再联系线速度和线加速度。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>电机从静止启动到稳定转速。</li><li>飞轮加速、减速过程。</li><li>车辆轮胎角速度与车速换算。</li><li>转动机构的启动时间、转角计算。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>与直线运动中的 x、v、a 完全类比。</li><li>与定轴转动的线量关系 v=rω、aₜ=rα、aₙ=rω² 相连。</li><li>刚体平面运动中角速度、角加速度仍是描述转动分量的核心。</li><li>动力学中转矩与角加速度直接相关。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>角速度的方向常用右手定则确定，平面问题中可用逆时针为正。</p><p>角量必须用弧度制才能与线量公式直接配合。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先规定正方向，再写 θ(t)。</li><li>θ 对时间求导得 ω，ω 再求导得 α。</li><li>不要把 rad/s 当作 m/s。</li><li>求线量时必须乘半径 r。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>角度用“度”直接代入公式。</li><li>把 α 与切向加速度 aₜ 混为一谈。</li><li>忽略角速度正负号，只看大小。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>已知 θ=3t²+2t，求 t=1s 时 ω 和 α。</p><div class="answer-card"><strong>参考答案：</strong>ω=6t+2，t=1 时 ω=8rad/s；α=6rad/s²。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/旋转运动学知识图解.png" alt="角速度/角加速度知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="part3">
+          <div class="page-head">
+            <div class="page-num">三、</div>
+            <div>
+              <h2>三、点的合成运动 ★</h2>
+              <p>点的合成运动是运动学重点与难点。它研究同一动点相对于静系、动系的不同运动描述，核心是选对动点和动系，再建立绝对运动、相对运动、牵连运动之间的速度与加速度合成关系。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/点的合成运动知识图解.png" alt="三、点的合成运动 ★知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的详细讲解、应用场景、知识关联、扩展理解、解题技巧、易错提醒和小练习。
+          </div>
+          
+            <article class="module" id="p3m1">
+              <div class="module-title-row">
+                <div class="module-index">3.1</div>
+                <div>
+                  <h3>动点/动系选择</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：合成运动解题的第一步不是列公式，而是选对动点和动系。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>动点是题目真正要研究的点，通常是滑块、套筒、接触点或某机构上的特定点。</p><p>静系通常取地面、机架或固定坐标系，用来描述绝对运动。</p><div class="deep-formula-card">学习抓手：合成运动先别急着套公式，第一步必须选准动点、动系和静系。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>滑块沿转杆滑动。</li><li>人在车厢内行走。</li><li>套筒沿转动杆运动。</li><li>船上人、传送带上物体、旋转平台上的点。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>速度合成和加速度合成都依赖动点/动系选择。</li><li>转动动系会引出科氏加速度。</li><li>与刚体平面运动中选择基点思想相似。</li><li>本质上仍是矢量法在不同参考系中的应用。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>同一道题可能有多种选系方法，但好的选系能让相对运动变成直线、匀速或已知方向。</p><p>选系能力是合成运动题目的核心门槛。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先圈出题目要求的点作为动点。</li><li>选择与约束槽、杆、转盘固连的动系。</li><li>用一句话写清楚三种运动。</li><li>检查相对运动是否真的变简单。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把运动物体当成动点，忘了动点必须是一个点。</li><li>动系和静系混淆，导致 vₑ、vᵣ 含义颠倒。</li><li>没有说明参考系就直接写公式。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>滑块 P 在绕 O 转动的杆上滑动，研究 P 的运动，动系怎么选更方便？</p><div class="answer-card"><strong>参考答案：</strong>动点选 P，动系选与杆固连并随杆转动的坐标系。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/力学理论_运动学知识总图.png" alt="动点/动系选择知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p3m2">
+              <div class="module-title-row">
+                <div class="module-index">3.2</div>
+                <div>
+                  <h3>速度合成 vₐ=vₑ+vᵣ</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：绝对速度等于牵连速度与相对速度的矢量和。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>绝对速度 vₐ 是动点相对于静系的速度，也就是地面观察者看到的真实速度。</p><p>牵连速度 vₑ 是动系带着动点一起运动所产生的速度。</p><div class="deep-formula-card">学习抓手：速度合成就是速度矢量三角形：绝对速度 = 牵连速度 + 相对速度。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>人在运动传送带上行走。</li><li>滑块沿旋转杆移动。</li><li>船在流水中航行。</li><li>机构中滑块相对槽的速度分析。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>动点/动系选择决定 vₑ 和 vᵣ 的含义。</li><li>加速度合成是在速度合成基础上继续求导。</li><li>与刚体平面运动基点法一样都是矢量叠加。</li><li>与直角坐标法结合可列分量方程求未知量。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>速度合成不是“大小相加”，而是矢量相加。若两个速度垂直，可以用勾股；若有夹角，则要用余弦定理或分量法。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先画已知方向的 vᵣ。</li><li>再画动系带动产生的 vₑ。</li><li>首尾相接得到 vₐ。</li><li>未知量多时列 x、y 分量方程。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>直接把速度大小加起来。</li><li>把 vₑ 和 vᵣ 方向画反。</li><li>忽略速度是相对于哪个参考系而言。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>vₑ=6m/s 向右，vᵣ=8m/s 向上，求 vₐ 大小。</p><div class="answer-card"><strong>参考答案：</strong>vₐ=√(6²+8²)=10m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/速度合成知识图解析.png" alt="速度合成 vₐ=vₑ+vᵣ知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p3m3">
+              <div class="module-title-row">
+                <div class="module-index">3.3</div>
+                <div>
+                  <h3>加速度合成</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：加速度合成比速度合成多出科氏项，特别是动系转动时更要注意。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>绝对加速度 aₐ 是动点相对于静系的加速度。</p><p>相对加速度 aᵣ 是动点相对动系运动产生的加速度。</p><div class="deep-formula-card">学习抓手：加速度合成比速度合成多一层判断：动系是否转动、相对速度是否存在。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>转杆上滑块的加速度。</li><li>旋转平台上移动物体。</li><li>导槽机构中滑块加速度。</li><li>复杂机械系统中相对运动分析。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>与速度合成配套，但不能简单把速度公式直接求导后漏掉科氏项。</li><li>科氏加速度由动系转动和相对速度共同决定。</li><li>牵连加速度常用定轴转动公式计算。</li><li>最终仍需要矢量分解或作图合成。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>加速度合成题通常难在方向：牵连、相对、科氏各项方向不同，必须逐项判断。</p><p>若相对速度为零，即使动系转动，也没有科氏加速度。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先判断动系是否转动。</li><li>再判断 vᵣ 是否为零。</li><li>逐项画出 aₑ、aᵣ、a_c。</li><li>最后用矢量图或坐标分量合成。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>漏掉科氏加速度。</li><li>把牵连加速度和相对加速度混在一起。</li><li>没有先判断条件就机械套公式。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>若动系转动角速度不为零，但某瞬时 vᵣ=0，科氏加速度是多少？</p><div class="answer-card"><strong>参考答案：</strong>因为 vᵣ=0，所以 a_c=0。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/点的合成运动知识图解.png" alt="加速度合成知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p3m4">
+              <div class="module-title-row">
+                <div class="module-index">3.4</div>
+                <div>
+                  <h3>科氏加速度</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：科氏加速度只在动系转动且动点有相对速度时出现。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>科氏加速度只在动系有角速度且动点相对动系有速度时出现。</p><p>方向由叉乘 2ωₑ×vᵣ 决定，平面问题常用右手定则或旋转 90° 判断。</p><div class="deep-formula-card">学习抓手：科氏加速度专门处理“转动动系中的相对运动”，出现条件和方向判断最重要。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>滑块沿旋转杆滑动。</li><li>旋转圆盘上的径向运动。</li><li>地球自转参考系中的运动偏转。</li><li>高速旋转机械中滑动部件分析。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>是加速度合成中的特殊项。</li><li>需要角速度/角加速度知识作为基础。</li><li>方向判断依赖矢量叉乘或右手定则。</li><li>与非惯性系动力学中的惯性力有进一步联系。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>科氏加速度不是因为有某个额外接触力才出现，而是因为参考系在转动。</p><p>在工程中漏掉科氏项会导致加速度和受力分析明显错误。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>记住两个条件：ωₑ≠0，vᵣ≠0。</li><li>先判大小，再判方向。</li><li>平面转动中可把 vᵣ 按 ω 的转向转 90° 得方向。</li><li>单位仍是 m/s²，不要和角加速度单位混淆。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>只要动系转动就认为一定有科氏加速度。</li><li>方向判断不使用右手定则。</li><li>把科氏加速度与向心加速度混淆。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>ωₑ=4rad/s，vᵣ=2m/s 且二者垂直，求 a_c 大小。</p><div class="answer-card"><strong>参考答案：</strong>a_c=2×4×2=16m/s²。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/科氏加速度学习图解.png" alt="科氏加速度知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+        <section class="page-section" id="part4">
+          <div class="page-head">
+            <div class="page-num">四、</div>
+            <div>
+              <h2>四、刚体平面运动 ★</h2>
+              <p>刚体平面运动是运动学的综合重点。它可以看成随基点的平动与绕基点的转动叠加，速度分析常用基点法、速度投影法、瞬心法；加速度分析则以基点加速度合成公式为核心。</p>
+            </div>
+          </div>
+
+          <details class="big-map" open>
+            <summary>展开查看本页知识总图（放大版）</summary>
+            <figure>
+              <img src="assets/刚体平面运动知识图.png" alt="四、刚体平面运动 ★知识总图" loading="lazy">
+              <figcaption>章节总图：先建立本页知识的主干结构，再进入每个子模块学习。</figcaption>
+            </figure>
+          </details>
+
+          <div class="module-guide">
+            <strong>本模块重点：</strong>先根据总图建立章节主线，再逐个学习子模块的详细讲解、应用场景、知识关联、扩展理解、解题技巧、易错提醒和小练习。
+          </div>
+          
+            <article class="module" id="p4m1">
+              <div class="module-title-row">
+                <div class="module-index">4.1</div>
+                <div>
+                  <h3>基点法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：把刚体平面运动分解为基点平动与绕基点转动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>选刚体上一点 A 作为基点，则刚体上任一点 B 的运动可看作 A 点整体平动加上 B 绕 A 的相对转动。</p><p>加速度关系还需考虑切向项 α×r_BA 和法向项 ω×(ω×r_BA)。</p><div class="deep-formula-card">学习抓手：基点法把平面运动拆成“基点平动 + 绕基点转动”，是刚体平面运动最通用的方法。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>连杆机构速度、加速度分析。</li><li>曲柄滑块机构。</li><li>车轮平面运动。</li><li>机械臂杆件某一点速度求解。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>与平动有关：基点运动代表整体平移部分。</li><li>与定轴转动有关：相对基点部分是转动。</li><li>与速度投影法、瞬心法可相互验证。</li><li>与合成运动思想相似，都是分解再合成。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>基点不是固定点，而是你选来简化计算的参考点。</p><p>选好基点能让题目从复杂变简单。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>优先选已知速度或加速度的点。</li><li>相对速度垂直于连线 AB。</li><li>相对法向加速度沿 BA 指向基点 A。</li><li>列方程前先画方向图。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把基点误认为必须静止。</li><li>相对速度方向没有垂直 AB。</li><li>加速度题漏掉法向项。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>AB=0.6m，ω=5rad/s，求 B 相对 A 的速度大小。</p><div class="answer-card"><strong>参考答案：</strong>v_B/A=5×0.6=3m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/基点法在刚体平面运动中的应用.png" alt="基点法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p4m2">
+              <div class="module-title-row">
+                <div class="module-index">4.2</div>
+                <div>
+                  <h3>速度投影法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：刚体上任意两点速度在两点连线方向上的投影相等。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>刚体上任意两点距离保持不变，因此两点沿连线方向不能相互靠近或远离。</p><p>速度投影法适合已知速度方向、要求速度大小的题。</p><div class="deep-formula-card">学习抓手：速度投影法用“刚体不伸长不缩短”快速建立两点速度关系。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>连杆两端速度关系。</li><li>滑块-杆机构速度求解。</li><li>已知一端速度方向求另一端速度大小。</li><li>快速判断机构速度约束。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>来源于刚体不可变形条件。</li><li>与基点法等价，是其在连线方向上的投影结果。</li><li>与瞬心法同属速度分析方法。</li><li>不能直接替代加速度分析。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>速度投影法在考试中非常省时间，尤其当两点速度方向都已知时。</p><p>若方向图画错，投影方程也会错。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>连接两点 AB。</li><li>分别把 v_A、v_B 投影到 AB 方向。</li><li>写出投影相等关系。</li><li>注意正负号和夹角方向。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>认为两点速度大小相等，其实只是连线方向投影相等。</li><li>投影方向选错。</li><li>把速度投影法用于加速度题。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>杆 AB 水平，A 点速度在 AB 方向分量为 2m/s，求 B 点速度在 AB 方向分量。</p><div class="answer-card"><strong>参考答案：</strong>B 点在 AB 方向速度分量也为 2m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/速度投影法知识总图.png" alt="速度投影法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p4m3">
+              <div class="module-title-row">
+                <div class="module-index">4.3</div>
+                <div>
+                  <h3>瞬心法</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：平面运动刚体在某一瞬时可看成绕瞬时速度中心转动。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>瞬心是刚体在某一瞬时速度为零的点，记作 I。</p><p>速度大小满足 v=ω·IP，离瞬心越远，速度越大。</p><div class="deep-formula-card">学习抓手：瞬心法把平面运动某一瞬间等效成绕一点转动，用于速度分析特别直观。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>车轮纯滚动时接触点为瞬心。</li><li>杆件两点速度方向已知时求速度大小。</li><li>连杆机构的瞬时速度分析。</li><li>复杂平面机构的速度快速求解。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>与定轴转动相似，只是瞬时转轴位置可能变化。</li><li>与速度投影法、基点法结果一致。</li><li>只能直接用于速度，不能直接用于加速度。</li><li>纯平动可看作瞬心在无穷远。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>瞬心法的难点不是公式，而是找到 I。通常通过已知速度方向作垂线，垂线交点就是瞬心。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>已知某点速度方向，就过该点作速度方向的垂线。</li><li>两条垂线交点为瞬心。</li><li>用速度大小与距离成正比求未知速度。</li><li>不要用瞬心法直接求加速度。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>把瞬心当成固定铰点。</li><li>速度垂线画错。</li><li>用瞬心法求加速度，漏掉切向/法向项。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>纯滚动轮半径 R=0.3m，角速度 ω=10rad/s，轮心速度是多少？</p><div class="answer-card"><strong>参考答案：</strong>v_O=ωR=3m/s。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/运动学瞬心法知识总图.png" alt="瞬心法知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+            <article class="module" id="p4m4">
+              <div class="module-title-row">
+                <div class="module-index">4.4</div>
+                <div>
+                  <h3>加速度合成</h3>
+                  <div class="mini-tags"><span>导学总览</span><span>对应子目录模块</span><span>图文讲解</span></div>
+                </div>
+              </div>
+
+              <div class="focus-bar">本模块重点：平面运动中一点加速度等于基点加速度加相对切向和法向加速度。</div>
+
+              <div class="module-main">
+                <div class="module-left">
+                  <div class="deep-layout"><section class="deep-block deep-explain"><h4>① 详细讲解：把概念讲透</h4><p>以 A 为基点时，B 点加速度由三部分组成：A 点加速度、B 绕 A 转动的切向加速度、B 绕 A 转动的法向加速度。</p><p>法向分量由角速度 ω 引起，方向沿 BA 指向基点 A，大小为 ω²·AB。</p><div class="deep-formula-card">学习抓手：刚体平面运动加速度合成要分清基点加速度、切向分量、法向分量。</div></section><div class="deep-two-col"><section class="deep-block deep-app"><h4>② 应用场景：看到题目知道怎么用</h4><ul><li>连杆机构加速度求解。</li><li>曲柄滑块机构分析。</li><li>机器人关节杆件加速度。</li><li>平面刚体动力学前的运动学准备。</li></ul></section><section class="deep-block deep-rel"><h4>③ 知识关联：和前后内容连起来</h4><ul><li>是基点法在加速度层面的展开。</li><li>切向/法向分量与自然法完全对应。</li><li>定轴转动公式 aₜ=rα、aₙ=rω² 是它的局部形式。</li><li>后续动力学中受力计算需要准确加速度。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-ext"><h4>④ 扩展理解：从公式走到物理意义</h4><p>速度题只需要一个相对速度项，而加速度题要同时考虑切向和法向，因此更容易漏项。</p><p>方向图比公式更重要，画错方向会导致全题崩盘。</p></section><section class="deep-block deep-tips"><h4>⑤ 解题技巧：考试时按这个流程来</h4><ul><li>先选基点 A，写 a_A。</li><li>画切向分量：垂直 AB，方向由 α 判断。</li><li>画法向分量：沿 BA 指向基点。</li><li>最后用分量法合成 a_B。</li></ul></section></div><div class="deep-two-col"><section class="deep-block deep-warn"><h4>⑥ 易错提醒：这些坑最容易扣分</h4><ul><li>漏掉法向加速度。</li><li>把法向方向画成远离基点。</li><li>把 α 和 ω 混用。</li><li>只求大小不判断方向。</li></ul></section><section class="deep-block deep-practice"><h4>⑦ 小练习：学完马上巩固</h4><p><strong>题目：</strong>AB=0.5m，ω=4rad/s，α=6rad/s²，求相对切向和法向加速度大小。</p><div class="answer-card"><strong>参考答案：</strong>aₜ=6×0.5=3m/s²；aₙ=16×0.5=8m/s²。</div></section></div></div>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/加速度合成知识总图.png" alt="加速度合成知识图解" loading="lazy">
+                  <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
+                </figure>
+              </div>
+            </article>
+            
+        </section>
+        
+</main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+<script>var modName="运动学";var secIds=['part1', 'part2', 'part3', 'part4'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../questions.html?module=运动学";btn.target="_blank";btn.textContent="📝 查看运动学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+</body></html>

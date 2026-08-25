@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+    <style>
+      .t{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif; fill:#163a63}
+      .h{font-size:22px;font-weight:700;fill:#0a4d95}
+      .m{font-size:18px;font-weight:700}
+      .s{font-size:15px}
+      .xs{font-size:13px}
+      .b{fill:#fff;stroke:#2a67b2;stroke-width:2}
+      .bb{fill:#eef6ff;stroke:#2a67b2;stroke-width:2}
+      .rb{fill:#fff6f6;stroke:#d64545;stroke-width:2}
+      .gb{fill:#f2fbf2;stroke:#2f8f4e;stroke-width:2}
+      .line{stroke:#2a67b2;stroke-width:2.5;fill:none}
+      .dline{stroke:#d64545;stroke-width:2.5;stroke-dasharray:8 6;fill:none}
+      .arr{stroke:#e53935;stroke-width:3.5;fill:none;marker-end:url(#arrowR)}
+      .arrb{stroke:#2a67b2;stroke-width:3;fill:none;marker-end:url(#arrowB)}
+    </style>
+    <defs>
+      <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#e53935"/></marker>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,3 L0,6 Z" fill="#2a67b2"/></marker>
+    </defs>
+    <rect x="1" y="1" width="718" height="428" rx="18" ry="18" fill="#fbfdff" stroke="#c6dbef" stroke-width="2"/>
+    
+<text x="40" y="48" class="t h">平行四边形法则</text>
+<circle cx="180" cy="240" r="5" fill="#163a63"/>
+<line x1="180" y1="240" x2="320" y2="175" class="arr"/>
+<line x1="180" y1="240" x2="270" y2="95" class="arrb"/>
+<text x="326" y="170" class="t m">F₁</text><text x="278" y="88" class="t m">F₂</text>
+<line x1="320" y1="175" x2="410" y2="30" class="line"/>
+<line x1="270" y1="95" x2="410" y2="30" class="line"/>
+<line x1="180" y1="240" x2="410" y2="30" class="arr"/>
+<text x="420" y="30" class="t m">R</text>
+<text x="65" y="330" class="t s">同一点上的两个力 F₁ 与 F₂，可用其平行四边形对角线表示的合力 R 等效替代。</text>
+<rect x="60" y="354" width="610" height="44" rx="12" class="gb"/><text x="365" y="382" text-anchor="middle" class="t s">用途：力的合成与分解，是建立分量法与平衡方程的几何基础</text>
+
+    </svg>

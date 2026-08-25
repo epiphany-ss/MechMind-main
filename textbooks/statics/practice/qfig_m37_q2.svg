@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340">
+<style>
+.t{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; fill:#1d3d61}
+.h{font-size:22px;font-weight:700;fill:#0a4d95}
+.m{font-size:18px;font-weight:700}
+.s{font-size:16px}
+.xs{font-size:14px}
+.line{stroke:#2d6fb7;stroke-width:3;fill:none}
+.arrR{stroke:#d94141;stroke-width:3.8;fill:none;marker-end:url(#ar)}
+.arrB{stroke:#2d6fb7;stroke-width:3.8;fill:none;marker-end:url(#ab)}
+.dash{stroke:#8aaed3;stroke-width:2.2;stroke-dasharray:7 5;fill:none}
+.box{fill:#fafdff;stroke:#c9dff1;stroke-width:2}
+.note{fill:#eef6ff;stroke:#c9dff1;stroke-width:1.5}
+.warn{fill:#fff8f2;stroke:#efc28d;stroke-width:1.5}
+</style>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#d94141"/></marker>
+<marker id="ab" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#2d6fb7"/></marker>
+</defs>
+<rect x="1" y="1" width="758" height="338" rx="16" ry="16" fill="#ffffff" stroke="#d7e6f3" stroke-width="2"/>
+
+<text x="28" y="38" class="t h">题图：把 A 点的力平移到 O 点</text>
+<circle cx="180" cy="235" r="5" fill="#1d3d61"/><text x="160" y="260" class="t s">O</text>
+<circle cx="430" cy="145" r="5" fill="#1d3d61"/><text x="440" y="140" class="t s">A</text>
+<line x1="430" y1="145" x2="610" y2="95" class="arrR"/><text x="620" y="98" class="t s">F</text>
+<line x1="180" y1="235" x2="430" y2="235" class="dash"/><line x1="430" y1="235" x2="430" y2="145" class="dash"/>
+<rect x="80" y="275" width="610" height="44" rx="12" class="note"/>
+<text x="96" y="303" class="t xs">先求“原力 F 对新点 O 的矩 Mₒ”，再把它写成 O 点处的同向等值力 + 一个附加力偶。</text>
+
+</svg>
