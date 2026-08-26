@@ -253,7 +253,7 @@ function showReviewModal(label){
     '<h3>🌐 网页相关内容</h3>'+
     '<div class="detail-block"><div class="web-links">'+
       '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材知识点</a>'+
-      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
+      '<a href="ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced" target="_blank">🤖 AI 智能提问</a>'+
       '<a href="http://localhost:8090" target="_blank">📝 相关题库</a>'+
       '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
       '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
@@ -324,7 +324,7 @@ function showKnowledgePoint(label){
     '<div class="detail-block"><div class="web-links">'+
       '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材章节</a>'+
       '<a href="http://localhost:8090?q='+encodeURIComponent(node.label)+'" target="_blank">📝 题库</a>'+
-      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
+      '<a href="ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced" target="_blank">🤖 AI 智能提问（增强模式）</a>'+
       '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
       '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
     '</div></div>'+
@@ -1808,7 +1808,7 @@ const CONCEPT_LINKS={
   '刚体转动':'textbooks/kinematics/index.html?target=p2m1',
   '质心':'textbooks/dynamics/index.html?target=dyn2-2'
 };
-function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('search.html?q='+encodeURIComponent(label));}
+function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('ai_qa.html?q='+encodeURIComponent(label)+'&mode=enhanced');}
 function siteHasContent(label){return !!(CONCEPT_LINKS[label]||SITE_LINKS[label]);}
 function statusLabel(s){return s==='mastered'?'已掌握':s==='familiar'?'已熟悉':s==='learning'?'学习中（薄弱）':'未知';}
 function statusColor(s){return s==='mastered'?'#22c55e':s==='familiar'?'#3b82f6':s==='learning'?'#f97316':'#94a3b8';}

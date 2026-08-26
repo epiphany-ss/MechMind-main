@@ -2972,8 +2972,26 @@ n = 质点数，s = 完整约束方程数<br>
       renderSidebar();
       scrollToBottom();
       initFavorites();
+      handleUrlQuestion();
     }
     init();
+
+    // ==================== URL 直达提问（支持 ?q= 与 mode=enhanced）====================
+    // 从个人知识网络等页面跳转而来时，自动填入问题并按AI增强模式提问
+    function handleUrlQuestion() {
+      try {
+        const sp = new URLSearchParams(location.search);
+        const text = (sp.get('q') || sp.get('question') || '').trim();
+        if (!text) return;
+        document.getElementById('chatInput').value = text;
+        const enhanced = sp.get('mode') === 'enhanced' || sp.get('enhanced') === '1';
+        if (enhanced && !apiConfigured) {
+          showToast('💡 已请求AI增强模式，但尚未配置API密钥，本次将使用本地知识库回答');
+        }
+        history.replaceState(null, '', location.pathname);
+        setTimeout(function(){ sendMessage(); }, 300);
+      } catch (e) { console.error('URL直达提问处理失败:', e); }
+    }
 
     // ==================== API 配置 ====================
     function saveAPIConfig() {

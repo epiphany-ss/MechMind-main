@@ -917,7 +917,19 @@ def main():
     print(f'  按 Ctrl+C 停止服务器')
     print(f'==========================================')
 
-    server = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
+    try:
+        server = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
+    except OSError as e:
+        print('\n[错误] 无法监听端口 %d: %s' % (PORT, e))
+        print('该端口可能已被其他程序（如旧副本的服务器）占用。')
+        print('解决办法：使用「启动平台.bat」一键启动，它会自动关闭残留的旧服务器；')
+        print('或先在任务管理器中结束占用该端口的进程，再重新启动。')
+        print('按回车键退出…')
+        try:
+            input()
+        except (KeyboardInterrupt, EOFError):
+            pass
+        sys.exit(1)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
