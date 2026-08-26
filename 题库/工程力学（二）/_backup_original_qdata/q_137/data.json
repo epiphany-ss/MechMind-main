@@ -1,0 +1,17 @@
+{
+  "id": "q_137",
+  "overview": "解除B支座后B、D两点虚位移之比",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>为了用虚位移原理求解系统B处反力，则需将B支座解除，代以适当的约束力，其时B点的虚位移与D点的虚位移大小之比 $\\delta r_B:\\delta r_D=$____。<br>(A) 1:1；<br>(B) 1:2；<br>(C) 2:1；<br>(D) 4:3；<br>(E) 3:2。</p>",
+  "answer": "<p>E（$\\delta r_B:\\delta r_D=3:2$）</p>",
+  "explanation": "<p>【AI 生成】解除B支座后系统变为单自由度机构，作虚位移图，由各构件的转动中心与杠杆比例关系可得 $\\delta r_B:\\delta r_D=3:2$，故答案选 E。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

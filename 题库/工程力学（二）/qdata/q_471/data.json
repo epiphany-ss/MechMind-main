@@ -1,0 +1,21 @@
+{
+  "id": "q_471",
+  "overview": "求内啮合行星轮相对曲柄的角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>在图示内啮合行星齿轮转动系中，齿轮Ⅱ固定不动。已知齿轮Ⅰ和Ⅱ的半径各为 $r_1$ 和 $r_2$，曲柄OA以匀角速度 $\\omega$ 逆时针转动，则齿轮Ⅰ对曲柄OA的相对角速度 $\\omega_{1r}$ 应为______。</p>\n<p>(A) $\\omega_{1r}=(r_2/r_1)\\omega$（逆时针）；&nbsp;&nbsp;(B) $\\omega_{1r}=(r_2/r_1)\\omega$（顺时针）；<br>\n(C) $\\omega_{1r}=((r_1+r_2)/r_1)\\omega$（逆时针）；&nbsp;&nbsp;(D) $\\omega_{1r}=((r_1+r_2)/r_1)\\omega$（顺时针）。</p><img src=\"qdata/q_471/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】在曲柄（动系）内观察，齿轮Ⅱ以 $(-\\omega)$ 绕O转动。齿轮Ⅰ与Ⅱ内啮合，啮合点处二者相对速度相等：$\\omega_{1r}r_1=\\omega r_2$，故 $\\omega_{1r}=(r_2/r_1)\\omega$。内啮合时两轮转向相同，齿轮Ⅱ在动系中为顺时针，故齿轮Ⅰ相对曲柄也为顺时针，选(B)。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

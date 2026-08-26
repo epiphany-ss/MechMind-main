@@ -1,0 +1,20 @@
+{
+  "id": "q_151",
+  "overview": "含弹簧机构平衡时求距离x",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>机构如图所示，$AB=BC=l$，$BD=BE=b$；弹簧的刚度系数为k，当AC=a时，弹簧内拉力为零。设在C处作用一水平力F，机构处于平衡，试用虚位移原理求A、C间的距离x。</p><img src=\"qdata/q_151/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x=a+\\dfrac{F l^2}{2kb^2}$</p>",
+  "explanation": "<p>【AI 生成】设 $AC=2l\\cos\\theta$，D、E 在 AB、BC 上距 B 为 $b$，弹簧长度 $DE=2b\\cos\\theta$。当 $AC=a$ 时弹簧无拉力，故原长 $2b\\cos\\theta_0=\\dfrac{ba}{l}$，伸长量 $e=2b\\cos\\theta-\\dfrac{ba}{l}$。给虚位移 $\\delta\\theta$，$C$ 点水平虚位移 $\\delta x_C=-l\\sin\\theta\\,\\delta\\theta$，$\\delta e=-2b\\sin\\theta\\,\\delta\\theta$。虚功方程 $-F\\,l\\sin\\theta\\,\\delta\\theta-k e\\cdot\\delta e=0$，即 $-Fl\\sin\\theta+2kbe\\sin\\theta=0$，得 $e=\\dfrac{Fl}{2kb}$。于是 $2b\\cos\\theta=\\dfrac{ba}{l}+\\dfrac{Fl}{2kb}$，故 $x=2l\\cos\\theta=a+\\dfrac{Fl^2}{2kb^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

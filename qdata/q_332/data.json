@@ -1,0 +1,21 @@
+{
+  "id": "q_332",
+  "overview": "求固定端A处的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示结构，已知 $M=80$kN·m，$P=120$kN，$q=30$kN/m，$a=2$m。A 为固定端。试求固定端 A 处的约束力。</p>",
+  "answer": "<p>$R_{Ax}=0$，$R_{Ay}=P+q\\cdot2a=120+120=240$kN（↑），$M_A=M+P\\cdot2a+q\\cdot2a\\cdot a=80+480+240=800$kN·m。</p>",
+  "explanation": "<p>【AI 生成】取整体。均布载荷合力 $Q=q\\cdot2a=30\\times4=120$kN 作用于距 A 为 $a=2$m 处。$\\sum F_x=0$：$R_{Ax}=0$；$\\sum F_y=0$：$R_{Ay}=P+Q=240$kN；$\\sum M_A=0$：$M_A=M+P\\cdot2a+Q\\cdot a=80+120\\times4+120\\times2=800$kN·m（转向与荷载产生的力矩相反）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求固定端A处的约束力",
+  "module": "静力学"
+}

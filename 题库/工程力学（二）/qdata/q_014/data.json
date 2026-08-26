@@ -1,0 +1,18 @@
+{
+  "id": "q_014",
+  "overview": "判断二力平衡公理表述",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>作用在同一刚体上的任意两个力平衡的必要与充分条件是：两个力的作用线相同，大小相等，方向相反。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】这正是二力平衡公理：同一刚体上两力平衡的充要条件是两力等值、反向、共线。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册"
+}

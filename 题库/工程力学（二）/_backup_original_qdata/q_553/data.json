@@ -1,0 +1,19 @@
+{
+  "id": "q_553",
+  "overview": "求人跳离车子后车的速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示质量为100kg的车在光滑的直线轨道上以$v_2=1$m/s的速度匀速运动。今有一质量为50kg的人从高处跳到车上，其速度为$v_1=2$m/s，与水平面成$60°$角。随后此人又从车上向后跳下，他跳离车子后相对车子的速度为$v_r=1$m/s，方向与水平面成$30°$角，求人跳离车子后车的速度$u$。</p><img src=\"qdata/q_553/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$u=1.29\\,\\text{m/s}$$<br>方向沿车原来前进方向。</p>",
+  "explanation": "<p>【AI 生成】水平方向无外力，动量守恒。<br>第一步（人跳上车），取向右为正：<br>$$100\\times1+50\\times2\\cos60°=(100+50)v_{\\text{共}}$$<br>得 $v_{\\text{共}}=1$m/s。<br>第二步（人向后跳下），人相对车的水平速度分量为 $-v_r\\cos30°=-0.866$m/s，设车速度为$u$，则<br>$$150\\times1=100u+50(u-1\\times\\cos30°)$$<br>$$150=150u-43.3\\;\\Rightarrow\\;u=\\frac{193.3}{150}=1.29\\,\\text{m/s}$$<br>车的速度为 $1.29$m/s，方向向前。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

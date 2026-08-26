@@ -1,0 +1,21 @@
+{
+  "id": "q_176",
+  "overview": "用动力学普遍方程建立圆盘-质点系统的运动微分方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "动力学普遍方程",
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $M$、半径为 $r$，盘缘上固结着一质量为 $m$ 的质点 $B$，无重杆 $OA$ 长为 $b$，$O$、$A$ 为铰链。试以动力学普遍方程建立系统的运动微分方程，以 $\\varphi$ 和 $\\theta$ 为广义坐标。</p>",
+  "answer": "<p>$$(M+m)b^2\\ddot\\varphi+mbr\\ddot\\theta\\cos(\\varphi-\\theta)+mbr\\dot\\theta^2\\sin(\\varphi-\\theta)+(M+m)gb\\sin\\varphi=0$$ $$\\frac{1}{2}(M+2m)r^2\\ddot\\theta+mbr\\ddot\\varphi\\cos(\\varphi-\\theta)-mbr\\dot\\varphi^2\\sin(\\varphi-\\theta)+mgr\\sin\\theta=0$$</p>",
+  "explanation": "<p>【AI 生成】设 $\\varphi$ 为杆 $OA$ 与铅垂线的夹角，$\\theta$ 为质点 $B$ 相对圆盘转过的角度。圆盘中心 $A$ 的速度 $v_A=b\\dot\\varphi$；质点 $B$ 的速度满足 $v_B^2=b^2\\dot\\varphi^2+r^2\\dot\\theta^2+2br\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$。系统的动能与势能为 $$T=\\frac{1}{2}(M+m)b^2\\dot\\varphi^2+\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)r^2\\dot\\theta^2+mbr\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$$ $$V=-(M+m)gb\\cos\\varphi-mgr\\cos\\theta$$ 代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot q_j}-\\frac{\\partial L}{\\partial q_j}=0$（$L=T-V$），对 $\\varphi$ 与 $\\theta$ 分别求导整理，即得两个运动微分方程。这就是用动力学普遍方程（达朗贝尔—拉格朗日原理）建立的结果，与拉格朗日方程所得结果一致。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "用动力学普遍方程建立圆盘-质点系统的运动微分方程",
+  "module": "分析力学"
+}

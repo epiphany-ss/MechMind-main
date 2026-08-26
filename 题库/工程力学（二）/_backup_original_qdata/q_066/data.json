@@ -1,0 +1,18 @@
+{
+  "id": "q_066",
+  "overview": "两铰接杆自高h落下求C点着地速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>两均质杆 $AC$ 和 $BC$ 各重 $P$，长均为 $L$，$C$ 端铰接，放在光滑水平面上如图所示，当 $C$ 点距地面的高度为 $h$ 时，以无初速度释放，杆系在铅直平面内落下。试求 $C$ 点将到达水平面时的速度。</p>",
+  "answer": "<p>$v_C=\\sqrt{3gh}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 系统关于铅垂线对称，$C$ 点铅垂下落，两杆对 $C$ 的速度反对称。每根杆绕 $C$ 转动，$C$ 点着地时杆与水平面夹角趋于零。<br>(2) 动能：每根杆绕 $C$ 转动的角速度为 $\\omega$，杆对 $C$ 的转动惯量 $J_C=\\frac13\\cdot\\frac{P}{g}L^2$。$T=2\\cdot\\frac12J_C\\omega^2$。<br>(3) 着地瞬间，杆与地面夹角为 $0$，两杆 $A$、$B$ 端在水平面上相距 $2L$；由几何，$C$ 点速度为 $v_C=L\\omega$（每杆端点 $A$、$B$ 的水平速度与 $C$ 速度的关系：$v_A=v_C+L\\omega$ 等）。落下的高度使质心降低：两杆质心各降低 $\\frac h2$。<br>(4) 机械能守恒：$2\\cdot P\\cdot\\frac h2=\\frac12\\cdot 2\\cdot\\frac13\\cdot\\frac{P}{g}L^2\\omega^2+\\frac12\\cdot 2\\cdot\\frac{P}{g}\\left(\\frac{L\\omega}{2}\\right)^2$，化简得 $v_C=L\\omega=\\sqrt{3gh}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

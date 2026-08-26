@@ -1,0 +1,22 @@
+{
+  "id": "q_531",
+  "overview": "跨过滑轮两重物达同高度所需时间",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "easy",
+  "content": "<p>如图所示，两物体各重 $P_1$ 和 $P_2$，用长为 $l$ 的绳连接，此绳跨过一半径为 $r$ 的滑轮。如开始时两物体的高差为 $h$，且 $P_1>P_2$，不计滑轮与绳的质量，求由静止释放后，两物体达到相同高度时所需的时间。</p><img src=\"qdata/q_531/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$t=\\sqrt{\\dfrac{h(P_1+P_2)}{g(P_1-P_2)}}$</p>",
+  "explanation": "<p>【AI 生成】两物体由同一根绳连接，加速度大小相同。设绳的拉力为 $T$，对 $P_1$、$P_2$ 分别有 $$\\frac{P_1}{g}a=P_1-T,\\qquad \\frac{P_2}{g}a=T-P_2。$$ 两式相加消去 $T$ 得 $$a=\\frac{P_1-P_2}{P_1+P_2}g。$$ 两物体高差由 $h$ 减为零，各自需移动 $s=\\dfrac{h}{2}$。由 $s=\\dfrac{1}{2}at^2$ 得 $$t=\\sqrt{\\frac{2s}{a}}=\\sqrt{\\frac{h(P_1+P_2)}{g(P_1-P_2)}}。$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "跨过滑轮两重物达同高度所需时间",
+  "module": "动力学"
+}

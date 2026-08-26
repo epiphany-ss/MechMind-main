@@ -1,0 +1,21 @@
+{
+  "id": "q_555",
+  "overview": "求四连杆机构底座的铅垂反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示四连杆机构中，各部分都是均质的，各杆质量均为$m$，$O_1A=O_2B=AB=O_1O_2=L$；固定在地面上的底座质量为$M$，杆$O_1A$以匀角速度$\\omega$转动。试求在$t$瞬时（$\\theta=\\omega t$）地面对底座的铅垂反力。</p>",
+  "answer": "<p>$$F_N=(3m+M)g-2mL\\omega^2\\sin\\theta=(3m+M)g-2mL\\omega^2\\sin(\\omega t)$$<br>方向竖直向上。</p>",
+  "explanation": "<p>【AI 生成】四连杆机构中$O_1A=O_2B=AB=O_1O_2=L$，为平行四边形机构。三根杆各质点铅垂坐标：$O_1A$杆质心 $(L/2)\\sin\\theta$，$O_2B$杆质心 $(L/2)\\sin\\theta$，$AB$杆质心 $L\\sin\\theta$。因$\\omega$为常数，质心铅垂加速度分别为<br>$$a_{y1}=a_{y2}=-\\frac{L}{2}\\omega^2\\sin\\theta,\\qquad a_{y3}=-L\\omega^2\\sin\\theta$$<br>系统质心铅垂加速度<br>$$a_C=\\frac{m(a_{y1}+a_{y2}+a_{y3})+M\\cdot0}{3m+M}=-\\frac{2mL\\omega^2\\sin\\theta}{3m+M}$$<br>对整体列质心运动定理：$F_N-(3m+M)g=(3m+M)a_C$，故<br>$$F_N=(3m+M)g-2mL\\omega^2\\sin(\\omega t)$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "求四连杆机构底座的铅垂反力",
+  "module": "动力学"
+}

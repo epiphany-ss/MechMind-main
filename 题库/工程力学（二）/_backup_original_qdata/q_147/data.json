@@ -1,0 +1,19 @@
+{
+  "id": "q_147",
+  "overview": "求A、D两点虚位移间的关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，若 $OA=r$，$BD=2l$，$CE=l$，$\\angle OAB=90^\\circ$，$\\angle CED=30^\\circ$，则A、D点虚位移间的关系为 $\\delta r_A:\\delta r_D=$____。</p><img src=\"qdata/q_147/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\delta r_A:\\delta r_D=2:1$</p>",
+  "explanation": "<p>【AI 生成】设曲柄 OA 的虚转角为 $\\delta\\theta$，则 $\\delta r_A=r\\,\\delta\\theta$。由 $\\angle OAB=90^\\circ$，AB 垂直于 OA，A 的虚位移沿 AB 方向，由速度投影定理 B 点沿 AB 方向的虚位移等于 $\\delta r_A$；再经 BD 杆（长 $2l$）与 ED、CE 杆（$CE=l$，$\\angle CED=30^\\circ$）的投影关系，逐步传递得 $\\delta r_D=\\dfrac{1}{2}\\delta r_A$，故 $\\delta r_A:\\delta r_D=2:1$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

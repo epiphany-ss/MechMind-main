@@ -1,0 +1,21 @@
+{
+  "id": "q_462",
+  "overview": "求正方形板平动时动点M的相对与牵连加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平动",
+    "点的合成运动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>正方形板ABCD作平动，A点的运动方程为 $x_A=6\\cos(2t)$，$y_A=4\\sin(2t)$，点M沿AC以 $S=3t^2$ 的规律运动（x、y和S以厘米计，t以秒计）。则当 $t=\\pi/2$ 秒时，点M的相对加速度大小为______ $\\text{cm/s}^2$，牵连加速度大小为______ $\\text{cm/s}^2$。</p>\n<p>(A) 0；&nbsp;&nbsp;(B) 6；&nbsp;&nbsp;(C) 24；&nbsp;&nbsp;(D) $6\\sqrt{2}$。</p><img src=\"qdata/q_462/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>相对加速度为(B) 6；牵连加速度为(C) 24。</p>",
+  "explanation": "<p>【AI 生成】相对加速度：M沿AC作直线运动，$a_r=\\ddot{S}=6\\,\\text{cm/s}^2$（沿AC方向）。牵连加速度：板作平动，各点加速度等于A点加速度，$a_e=\\ddot{x}_A\\hat i+\\ddot{y}_A\\hat j=(-24\\cos2t)\\hat i+(-16\\sin2t)\\hat j$。当 $t=\\pi/2$ 时，$\\ddot{x}_A=-24\\cos\\pi=24$，$\\ddot{y}_A=-16\\sin\\pi=0$，故 $a_e=24\\,\\text{cm/s}^2$（沿x轴正向）。即相对加速度取(B)6，牵连加速度取(C)24。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

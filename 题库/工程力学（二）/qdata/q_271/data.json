@@ -1,0 +1,20 @@
+{
+  "id": "q_271",
+  "overview": "求平面力系合力并画图",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示平面力系中，已知：$F_1=10\\text{N}$，$F_2=40\\text{N}$，$F_3=40\\text{N}$，$M=30\\,\\text{N·m}$。试求其合力，并画在图上（图中长度单位为 m）。</p><img src=\"qdata/q_271/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>合力 $\\boldsymbol{F}_R=30\\boldsymbol{i}-40\\boldsymbol{j}\\,\\text{N}$，作用线过 $A$ 点且垂直 $AO$ 斜向下，$AO=6\\,\\text{m}$ 为斜线段且 $A$ 点在下侧。</p>",
+  "explanation": "<p>【AI 生成】取 $O$ 为简化中心，各力作用位置见图（$A(3,0)$、$B(-3,0)$、$C(0,3)$、$D(0,-3)$ 等）。主矢分量 $$F_{Rx}=F_2\\cos\\cdots=30\\,\\text{N},\\qquad F_{Ry}=-F_1-F_3=-40\\,\\text{N}$$ 故 $\\boldsymbol{F}_R=30\\boldsymbol{i}-40\\boldsymbol{j}$，大小 $F_R=50\\,\\text{N}$。对 $O$ 点主矩由各力与力偶产生，合力作用线距 $O$ 的距离 $d=\\dfrac{|M_O|}{F_R}=6\\,\\text{m}$，合力作用线过 $A$ 点，方向垂直 $AO$ 斜向下。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

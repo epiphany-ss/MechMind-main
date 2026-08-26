@@ -1,0 +1,23 @@
+{
+  "id": "q_172",
+  "overview": "求滚轮-摆杆系统自由度及对φ的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力",
+    "虚位移"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $OA$ 长 $l$，重 $P$，其一端用光滑铰链与半径为 $r$、重为 $Q$ 的均质圆轮中心 $O$ 连接，今在圆轮上作用一常力矩 $M$，使其沿水平直线轨道作纯滚动。则该系统有____个自由度，若取 $\\varphi$ 及 $x$ 为广义坐标，则相应于 $\\varphi$ 的广义力为____。</p><img src=\"qdata/q_172/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>2；　$Q_\\varphi=\\dfrac{Pl}{2}\\sin\\varphi$</p>",
+  "explanation": "<p>【AI 生成】系统由圆轮沿水平轨道的纯滚动和细杆绕轮心的摆动组成：独立广义坐标可取轮心位置 $x$ 与杆相对铅垂线的摆角 $\\varphi$，故自由度为 2。对应于 $\\varphi$ 的虚位移 $\\delta\\varphi$ 只使杆重 $P$ 作虚功，杆重心在 $\\varphi$ 变化时的铅垂位移为 $\\frac{l}{2}\\sin\\varphi\\,\\delta\\varphi$，故 $Q_\\varphi=\\frac{Pl}{2}\\sin\\varphi$（符号随 $\\varphi$ 的正向约定而定）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "求滚轮-摆杆系统自由度及对φ的广义力",
+  "module": "分析力学"
+}

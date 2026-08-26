@@ -1,0 +1,21 @@
+{
+  "id": "q_062",
+  "overview": "圆盘杆滑块系统的动量与动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>设圆盘、杆和滑块的质量都是 $m$，均质圆盘半径为 $r$，可在斜面上作纯滚动，杆 $AB$ 平行于斜面，若滑块 $A$ 以速度 $v$ 向上运动，则系统的动量为____；动能为____。</p><img src=\"qdata/q_062/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\boldsymbol{P}=3mv$（方向沿斜面向上）；$T=\\dfrac{7}{4}mv^2$</p>",
+  "explanation": "<p>【AI 生成】滑块、杆和圆盘质心均以速度 $v$ 沿斜面向上运动，圆盘纯滚动 $\\omega=v/r$。<br>动量：$P=mv+mv+mv=3mv$（沿斜面向上）。<br>动能：$T=\\frac12mv^2+\\frac12mv^2+\\left[\\frac12mv^2+\\frac12\\cdot\\frac12mr^2\\cdot\\dfrac{v^2}{r^2}\\right]=\\frac72\\cdot\\frac12mv^2=\\frac74mv^2$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

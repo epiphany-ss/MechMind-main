@@ -1,0 +1,21 @@
+{
+  "id": "q_069",
+  "overview": "提升设备求物体A沿斜面上升加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示提升设备中，鼓轮的内、外半径分别为 $r$、$R$，对 $O$ 轴的转动惯量为 $J$，物体 $A$ 重 $P$，物体 $B$ 重 $Q$，光滑斜面的倾角为 $\\alpha$。若在鼓轮上作用矩为 $M$ 的常力偶，当系统从静止开始运动时，试求物体 $A$ 沿斜面上升的加速度（设绳的倾斜段与斜面平行）。</p><img src=\"qdata/q_069/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a=\\dfrac{Rg\\,(M-PR\\sin\\alpha+Qr)}{gJ+PR^2+Qr^2}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 设物体 $A$ 速度为 $v$（沿斜面上行），则 $v_A=R\\omega$（绳在外半径 $R$），$v_B=r\\omega$（绳在内半径 $r$），$\\omega=\\dfrac vR$。<br>(2) 动能：$T=\\frac12J\\omega^2+\\frac12\\frac{P}{g}v^2+\\frac12\\frac{Q}{g}\\left(\\frac rR v\\right)^2=\\frac{v^2}{2}\\left(\\frac{J}{R^2}+\\frac{P}{g}+\\frac{Qr^2}{gR^2}\\right)$。<br>(3) 功率：$P_m=M\\omega-P\\sin\\alpha\\,v+Q\\frac rR v=\\frac vR\\left(M-PR\\sin\\alpha+Qr\\right)$。<br>(4) 由功率方程 $\\dfrac{dT}{dt}=P_m$：$v\\frac{dv}{dt}\\left(\\frac{J}{R^2}+\\frac{P}{g}+\\frac{Qr^2}{gR^2}\\right)=\\frac vR\\left(M-PR\\sin\\alpha+Qr\\right)$。<br>(5) 解得 $a=\\dfrac{Rg(M-PR\\sin\\alpha+Qr)}{gJ+PR^2+Qr^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

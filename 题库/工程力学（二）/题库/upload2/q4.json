@@ -1,0 +1,16 @@
+{
+  "overview": "求力偶矩M作用下结构中支座A的约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>在图2-16a所示结构中，各构件的自重略去不计，在构件BC上作用一力偶矩为M的力偶，各尺寸如图。求支座A的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_A=\\sqrt{2}F_C=\\frac{\\sqrt{2}M}{l}$（方向如图）。</p>",
+  "explanation": "<p>解：</p><p>（1）研究对象为BC，受力如图所示。为构成约束力偶，有</p><p>$$F_B=F_C$$</p><p>$$\\sum M=0：\\ F_B\\cdot l+M=0$$</p><p>故</p><p>$$F_B=F_C=\\frac{M}{l}$$</p><p>（2）研究对象为ADC，受力如图所示。</p><p>$$\\sum F_x=0：\\ -F_C'+F_A\\cos45^\\circ=0$$</p><p>$$F_A=\\sqrt{2}F_C=\\frac{\\sqrt{2}M}{l}$$（方向如图）</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q4_5.png",
+    "题库/qbank2_figs/q4_0.png"
+  ]
+}

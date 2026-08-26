@@ -1,0 +1,11 @@
+{
+  "overview": "由秤的读数确定机床重心的位置",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": ["空间力系"],
+  "difficulty": "medium",
+  "content": "<p>图所示机床重 $50\\ \\mathrm{kN}$，当水平放置时（$\\theta = 0^\\circ$）秤上读数为 $15\\ \\mathrm{kN}$，当 $\\theta = 20^\\circ$ 时秤上读数为 $10\\ \\mathrm{kN}$，试确定机床重心的位置。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>机床重心位置：$x_C = 0.72\\ \\mathrm{m}$，$y_C = 0.659\\ \\mathrm{m}$。</p>",
+  "explanation": "<p>设机床相对水平地面倾斜 $\\theta$ 角时仍处于平衡，其受力如图所示。又设机床重心 $C$ 的坐标为 $x_C$、$y_C$，则对 $B$ 点取矩：</p><p>$\\sum M_B = 0$：$50\\cos\\theta \\cdot x_C - 50\\sin\\theta \\cdot y_C - F\\cos\\theta \\cdot 2.4\\ \\mathrm{m} = 0$　(1)</p><p>当 $\\theta = 0^\\circ$ 时，$F = 15\\ \\mathrm{kN}$，代入式 (1)，得 $x_C = 0.72\\ \\mathrm{m}$。</p><p>当 $\\theta = 20^\\circ$ 时，$F = 10\\ \\mathrm{kN}$，且 $x_C = 0.72\\ \\mathrm{m}$，代入式 (1)，得 $y_C = 0.659\\ \\mathrm{m}$。</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": ["题库/qbank2_figs/q19_0.jpeg", "题库/qbank2_figs/q19_1.png", "题库/qbank2_figs/q19_2.png"]
+}

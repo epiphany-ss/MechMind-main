@@ -1,0 +1,17 @@
+{
+  "id": "q_102",
+  "overview": "求定轴转动杆惯性力合力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $AB$ 长 $l$、重 $P$，与铅垂轴固结成角 $\\beta=30°$，并以匀角速度 $\\omega$ 转动，则惯性力系的合力的大小等于____。 (A) $\\dfrac{P\\omega^2 l}{8g}$； (B) $\\dfrac{P\\omega^2 l}{2g}$； (C) $\\dfrac{P\\omega^2 l}{2g}$； (D) $\\dfrac{P\\omega^2 l}{4g}$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】惯性力系合力即惯性力系主矢 $F_I=m a_C=\\dfrac{P}{g}\\omega^2\\cdot\\dfrac{l}{2}\\sin\\beta$，代入 $\\beta=30°$、$\\sin30°=\\frac{1}{2}$，得 $F_I=\\dfrac{P\\omega^2l}{4g}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

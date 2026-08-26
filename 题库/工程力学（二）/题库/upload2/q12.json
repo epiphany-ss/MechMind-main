@@ -1,0 +1,16 @@
+{
+  "overview": "用最简便方法求平面桁架杆BD及BE的内力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>平面桁架尺寸如图所示（尺寸单位为 m），载荷 F1=240 kN，F2=720 kN。试用最简便的方法求杆 BD 及 BE 的内力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>杆 BD 的内力 $F_{BD}=240\\ \\mathrm{kN}$（压）；杆 BE 的内力 $F_{BE}=86.53\\ \\mathrm{kN}$（拉）。</p>",
+  "explanation": "<p>解：将杆 BD、BE 截断，得受力图。由受力图得 $\\cos\\theta=\\dfrac{2}{\\sqrt{13}}$，$\\sin\\theta=\\dfrac{3}{\\sqrt{13}}$。</p><p>对 C 取矩，$\\sum M_C=0$：$F_{BD}\\times 3 + F_2\\times 1 = 0$，得 $F_{BD}=-240\\ \\mathrm{kN}$（压）。</p><p>再取矩，$\\sum M=0$：$F_1\\times 1 + F_{BD}\\times 2 + F_{BE}\\cos\\theta\\times 2 + F_{BE}\\sin\\theta\\times 2 = 0$，得 $F_{BE}=86.53\\ \\mathrm{kN}$（拉）。</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q12_0.jpeg",
+    "题库/qbank2_figs/q12_1.png"
+  ]
+}

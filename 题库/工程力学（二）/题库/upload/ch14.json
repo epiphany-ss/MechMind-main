@@ -1,0 +1,167 @@
+{
+  "chapter": 14,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断自由振动周期与初始条件的关系",
+      "question_type": "判断题",
+      "knowledge_points": ["振动"],
+      "difficulty": "easy",
+      "content": "<p>一质量—弹簧线性系统作自由振动，其振动的周期与初始条件有关，而振幅与初始条件无关。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】自由振动周期 $T=2\\pi\\sqrt{m/k}$ 只由质量与弹簧刚度决定，与初始条件无关；而振幅由初始位移和初始速度决定，与初始条件有关。题述恰好颠倒。</p>"
+    },
+    {
+      "overview": "判断仅受线性阻力是否产生衰减振动",
+      "question_type": "判断题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>如果质点只受到线性阻力的作用则必产生衰减振动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】衰减振动是振幅随时间衰减的往复运动，须有恢复力与阻尼力同时存在。若质点只受线性阻力而无弹性恢复力，运动只会逐渐减速至停止，不产生往复振动，故题述错误。</p>"
+    },
+    {
+      "overview": "判断弹簧并联时的当量弹簧刚度",
+      "question_type": "判断题",
+      "knowledge_points": ["振动"],
+      "difficulty": "easy",
+      "content": "<p>4 根弹簧系数均为 $k$ 的弹簧并联时，其当量弹簧系数 $k'=\\dfrac{k}{4}$。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】弹簧并联时当量刚度为各弹簧刚度之和，故 $k'=k+k+k+k=4k$，而不是 $k/4$，题述错误。</p>"
+    },
+    {
+      "overview": "比较两弹簧质量系统的固有频率",
+      "question_type": "选择题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>图示两振动系统，如物块的质量和弹簧的刚性系数均相等，则此两种情况自由振动的固有频率&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 相同；&nbsp;&nbsp;(B) 不同；&nbsp;&nbsp;(C) 由质量和刚性系数尚不能确定。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch121_idx556_0.png"],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】两系统均为单自由度质量—弹簧系统，固有频率 $\\omega_n=\\sqrt{k/m}$ 只由质量与弹簧刚度决定。重力只改变静平衡位置而不影响固有频率，故两种情况频率相同，选 A。</p>"
+    },
+    {
+      "overview": "求受迫振动中振幅最大的装置",
+      "question_type": "选择题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>已知质量 $m=200\\,\\mathrm{kg}$，弹簧刚度 $k=100\\,\\mathrm{N/cm}$，设地面振动可表示为 $y=0.1\\sin(10t)$（$y$ 以 cm、$t$ 以 s 计）。则&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 图(a)装置振幅最大；&nbsp;&nbsp;(B) 图(b)装置振幅最大；<br>(C) 图(c)装置振幅最大；&nbsp;&nbsp;(D) 三种装置振动情况一样。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】$k=100\\,\\mathrm{N/cm}=10^4\\,\\mathrm{N/m}$。图(a)单弹簧：$\\omega_a=\\sqrt{k/m}=\\sqrt{10^4/200}=7.07\\,\\mathrm{rad/s}$；图(b)两弹簧并联：$k_b=2k$，$\\omega_b=\\sqrt{2k/m}=\\sqrt{2\\times10^4/200}=10\\,\\mathrm{rad/s}$，恰等于激振频率 $p=10\\,\\mathrm{rad/s}$，发生共振，振幅最大；图(c)四弹簧并联：$\\omega_c=\\sqrt{4k/m}=14.14\\,\\mathrm{rad/s}$，远离共振。故选 B。</p>"
+    },
+    {
+      "overview": "判断改变自由振动频率的措施",
+      "question_type": "选择题",
+      "knowledge_points": ["振动"],
+      "difficulty": "easy",
+      "content": "<p>一个弹簧—质量系统，在线性恢复力作用下作自由振动，今欲改变其频率，可采取如下措施&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 改变物体质量或改变弹簧刚度；<br>(B) 改变初始条件；<br>(C) 改变以下三种状态的任意一种：物体质量、弹簧刚度、初始条件。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】自由振动固有频率 $\\omega_n=\\sqrt{k/m}$ 仅取决于质量和弹簧刚度，与初始条件无关，故选 A。</p>"
+    },
+    {
+      "overview": "求四弹簧系统的等效刚度与固有频率",
+      "question_type": "填空题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>将刚度分别为 $k_1$、$k_2$、$k_3$、$k_4$ 的四根弹簧与质量为 $m$ 的物块联接成图示弹簧—质量系统，则四根弹簧的等效刚度为________；系统的固有频率为________。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch122_idx559_0.png"],
+      "answer": "<p>$k_{eq}=\\dfrac{k_1k_2}{k_1+k_2}+\\dfrac{k_3k_4}{k_3+k_4}$；$\\omega_n=\\sqrt{\\dfrac{k_{eq}}{m}}$</p>",
+      "explanation": "<p>【AI 生成】图中 $k_1$ 与 $k_2$ 串联，等效刚度 $k_{12}=\\dfrac{k_1k_2}{k_1+k_2}$；$k_3$ 与 $k_4$ 串联，等效刚度 $k_{34}=\\dfrac{k_3k_4}{k_3+k_4}$；两串联组再并联共同支承物块，故 $k_{eq}=k_{12}+k_{34}$，固有频率 $\\omega_n=\\sqrt{k_{eq}/m}$。</p>"
+    },
+    {
+      "overview": "求弹簧截半后系统的固有频率",
+      "question_type": "填空题",
+      "knowledge_points": ["振动"],
+      "difficulty": "easy",
+      "content": "<p>重物 A 的质量为 $m$，悬挂在刚度为 $k$ 的铅垂弹簧上。若将弹簧截去一半，则系统的固有频率为________。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega_n'=\\sqrt{\\dfrac{2k}{m}}=\\sqrt{2}\\,\\sqrt{\\dfrac{k}{m}}$</p>",
+      "explanation": "<p>【AI 生成】弹簧刚度与自然长度成反比，截去一半后其刚度变为 $k'=2k$，故系统固有频率 $\\omega_n'=\\sqrt{2k/m}$，为原来的 $\\sqrt{2}$ 倍。</p>"
+    },
+    {
+      "overview": "求双弹簧系统固有频率与共振条件",
+      "question_type": "填空题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>质量为 $m$ 的物块，用二根刚性系数分别为 $k_1$ 和 $k_2$ 的弹簧连接，不计阻尼，则系统的固有频率为 $\\omega_0=$________；若物体受到干扰力 $F=H\\sin pt$ 的作用，则系统受迫振动的频率为________，在________条件下，系统将发生共振。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega_0=\\sqrt{\\dfrac{k_1+k_2}{m}}$；受迫振动频率为 $p$；当 $p=\\omega_0=\\sqrt{\\dfrac{k_1+k_2}{m}}$ 时发生共振</p>",
+      "explanation": "<p>【AI 生成】两弹簧分别连于物块两侧，共同作用时相当于并联，等效刚度 $k_{eq}=k_1+k_2$，故固有频率 $\\omega_0=\\sqrt{(k_1+k_2)/m}$。无阻尼受迫振动以干扰力频率 $p$ 作稳态振动；当干扰力频率等于系统固有频率，即 $p=\\omega_0$ 时发生共振。</p>"
+    },
+    {
+      "overview": "比较四振系自振周期并求最长者",
+      "question_type": "计算题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>在图示四个振系中，已知：物块的质量均为 $M$，各个弹簧的刚性系数均为 $k$。试问哪个系统的自振周期最长，其周期为多少？</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch122_idx562_0.png"],
+      "answer": "<p>弹簧串联的振系（等效刚度 $k/2$）自振周期最长，$T_{\\max}=2\\pi\\sqrt{\\dfrac{2M}{k}}$。</p>",
+      "explanation": "<p>【AI 生成】自振周期 $T=2\\pi\\sqrt{M/k_{eq}}$，等效刚度越小周期越长。弹簧并联时当量刚度增大，串联时减小；图中弹簧串联的振系 $k_{eq}=k/2$ 最小，故其周期最长：$$T_{\\max}=2\\pi\\sqrt{\\frac{M}{k/2}}=2\\pi\\sqrt{\\frac{2M}{k}}$$</p>"
+    },
+    {
+      "overview": "求齿轮齿条振动系统的自振周期",
+      "question_type": "计算题",
+      "knowledge_points": ["振动", "转动惯量"],
+      "difficulty": "hard",
+      "content": "<p>在图示振系中，已知：齿轮 A 重 $P$、半径为 $r$，齿条 B 重 $Q$，两弹簧的刚性系数为 $k_1$、$k_2$；齿轮 A 可视为均质圆盘。试求齿条作振动的周期。</p>",
+      "figures": [],
+      "answer": "<p>$T=2\\pi\\sqrt{\\dfrac{Q+P/2}{g(k_1+k_2)}}$</p>",
+      "explanation": "<p>【AI 生成】取齿条位移 $x$ 为广义坐标，齿轮与齿条啮合无滑动，齿轮转角 $\\theta=x/r$。齿轮为均质圆盘，$J_A=\\frac{1}{2}\\frac{P}{g}r^2$。系统动能$$T=\\frac{1}{2}\\frac{Q}{g}\\dot{x}^2+\\frac{1}{2}J_A\\dot{\\theta}^2=\\frac{1}{2}\\left(\\frac{Q}{g}+\\frac{P}{2g}\\right)\\dot{x}^2$$势能$$V=\\frac{1}{2}(k_1+k_2)x^2$$故等效质量 $m_{eq}=Q/g+P/(2g)$，等效刚度 $k_{eq}=k_1+k_2$，固有频率 $\\omega_n=\\sqrt{\\dfrac{k_1+k_2}{Q/g+P/(2g)}}=\\sqrt{\\dfrac{g(k_1+k_2)}{Q+P/2}}$，周期$$T=\\frac{2\\pi}{\\omega_n}=2\\pi\\sqrt{\\frac{Q+P/2}{g(k_1+k_2)}}$$</p>"
+    },
+    {
+      "overview": "求杆轮重物组合系统的固有频率",
+      "question_type": "计算题",
+      "knowledge_points": ["振动", "动能定理"],
+      "difficulty": "hard",
+      "content": "<p>在图示振动系统中，已知：均质细杆 AB 的质量为 $m_1$，弹簧的刚性系数为 $k$，均质圆轮 O 的质量为 $m_2$，重物 D 质量为 $m_3$。当系统处于静平衡位置时，杆 AB 沿铅垂方向。试求该系统微振动的固有频率。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch123_idx564_0.png"],
+      "answer": "<p>$\\omega_n=\\sqrt{\\dfrac{k}{m_1/3+m_2/2+m_3}}$</p>",
+      "explanation": "<p>【AI 生成】设杆 AB 绕 A 端铰支作微小转动，转角为 $\\theta$（以静平衡位置为基准），杆端 B 的水平位移近似为 $L\\theta$。弹簧伸长量 $\\Delta=L\\theta$，势能 $V=\\frac{1}{2}kL^2\\theta^2$。杆绕 A 端转动惯量 $J_A=\\frac{1}{3}m_1L^2$；绳随 B 端移动，$\\dot{x}=L\\dot{\\theta}$，圆轮角速度 $\\dot{\\phi}=\\dot{x}/r=L\\dot{\\theta}/r$，$J_O=\\frac{1}{2}m_2r^2$。动能$$T=\\frac{1}{2}J_A\\dot{\\theta}^2+\\frac{1}{2}J_O\\dot{\\phi}^2+\\frac{1}{2}m_3\\dot{x}^2=\\frac{L^2}{2}\\left(\\frac{m_1}{3}+\\frac{m_2}{2}+m_3\\right)\\dot{\\theta}^2$$由能量守恒 $\\omega_n^2=\\dfrac{V}{\\frac{1}{2}J_{eq}\\dot{\\theta}^2}$，得$$\\omega_n=\\sqrt{\\frac{k}{m_1/3+m_2/2+m_3}}$$</p>"
+    },
+    {
+      "overview": "求阻尼系统方程临界阻尼与阻尼频率",
+      "question_type": "计算题",
+      "knowledge_points": ["振动", "质点动力学"],
+      "difficulty": "medium",
+      "content": "<p>在图示振动系统中，已知：质点的质量为 $m$，弹簧的刚性系数为 $k$，阻尼器的阻尼系数为 $C$，刚杆的质量不计。试求：(1) 系统的运动微分方程；(2) 临界阻尼系数 $C_c$；(3) 有阻尼时的固有频率。</p>",
+      "figures": [],
+      "answer": "<p>(1) $m\\ddot{x}+C\\dot{x}+kx=0$；(2) $C_c=2\\sqrt{km}$；(3) $\\omega_d=\\sqrt{\\dfrac{k}{m}-\\left(\\dfrac{C}{2m}\\right)^2}$</p>",
+      "explanation": "<p>【AI 生成】刚杆质量不计，可取质点位移 $x$ 为广义坐标，系统简化为单自由度质量—弹簧—阻尼器系统。由牛顿第二定律$$m\\ddot{x}+C\\dot{x}+kx=0$$令阻尼比 $\\xi=\\dfrac{C}{2\\sqrt{km}}$，临界阻尼系数$$C_c=2\\sqrt{km}$$欠阻尼（$\\xi<1$）时有阻尼固有频率$$\\omega_d=\\sqrt{\\frac{k}{m}-\\left(\\frac{C}{2m}\\right)^2}=\\omega_n\\sqrt{1-\\xi^2}$$</p>"
+    },
+    {
+      "overview": "求细杆受迫振动的稳态振幅",
+      "question_type": "计算题",
+      "knowledge_points": ["振动", "质点动力学"],
+      "difficulty": "hard",
+      "content": "<p>一匀质细杆的长 $L=40\\,\\mathrm{cm}$，重 $G=20\\,\\mathrm{N}$，激振力 $F(t)=H\\sin\\omega t$，其中 $H=2\\,\\mathrm{N}$，$\\omega=4\\pi\\,\\mathrm{rad/s}$。试求该杆作稳态微幅振动的振幅。</p>",
+      "figures": [],
+      "answer": "<p>角振幅 $\\Theta\\approx0.0152\\,\\mathrm{rad}$（约 $0.87°$）</p>",
+      "explanation": "<p>【AI 生成】杆绕端点 O 作物理摆微振动，转角为 $\\theta$，转动惯量 $J_O=\\frac{1}{3}\\frac{G}{g}L^2=\\frac{1}{3}\\times\\frac{20}{9.8}\\times0.4^2=0.1088\\,\\mathrm{kg\\cdot m^2}$。重力恢复力矩 $M_g=-G\\frac{L}{2}\\theta$，故固有频率$$\\omega_n=\\sqrt{\\frac{GL/2}{J_O}}=\\sqrt{\\frac{3g}{2L}}=\\sqrt{\\frac{3\\times9.8}{2\\times0.4}}=6.06\\,\\mathrm{rad/s}$$设激振力作用于距 O 为 $L/4$ 处，干扰力矩幅值 $M_0=H\\cdot\\frac{L}{4}=2\\times0.1=0.2\\,\\mathrm{N\\cdot m}$，激振频率 $\\omega=4\\pi=12.57\\,\\mathrm{rad/s}$。稳态角振幅$$\\Theta=\\frac{M_0/J_O}{|\\omega_n^2-\\omega^2|}=\\frac{0.2/0.1088}{|36.75-157.9|}\\approx0.0152\\,\\mathrm{rad}$$</p>"
+    },
+    {
+      "overview": "求悬臂梁弹簧组合系统的固有频率",
+      "question_type": "计算题",
+      "knowledge_points": ["振动"],
+      "difficulty": "medium",
+      "content": "<p>图示系统由两悬臂梁和两弹簧及物块组成。已知：物块的质量为 $m$，两悬臂梁的等效刚性系数分别为 $k_1$ 和 $k_3$，两弹簧的刚性系数分别为 $k_2$ 和 $k_4$；不计悬臂梁和弹簧的质量。试求该系统的固有频率。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch124_idx567_0.png"],
+      "answer": "<p>$\\omega_n=\\sqrt{\\dfrac{1}{m}\\left(\\dfrac{k_1k_2}{k_1+k_2}+\\dfrac{k_3k_4}{k_3+k_4}\\right)}$</p>",
+      "explanation": "<p>【AI 生成】左侧悬臂梁与弹簧依次相连，属串联，等效刚度 $k_L=\\dfrac{k_1k_2}{k_1+k_2}$；右侧悬臂梁与弹簧亦为串联，等效刚度 $k_R=\\dfrac{k_3k_4}{k_3+k_4}$。左、右两支路共同支承物块，属并联，故总等效刚度$$k_{eq}=k_L+k_R=\\frac{k_1k_2}{k_1+k_2}+\\frac{k_3k_4}{k_3+k_4}$$固有频率$$\\omega_n=\\sqrt{\\frac{k_{eq}}{m}}=\\sqrt{\\frac{1}{m}\\left(\\frac{k_1k_2}{k_1+k_2}+\\frac{k_3k_4}{k_3+k_4}\\right)}$$</p>"
+    },
+    {
+      "overview": "求圆管内小球阻尼振动的运动规律",
+      "question_type": "计算题",
+      "knowledge_points": ["振动", "质点动力学"],
+      "difficulty": "hard",
+      "content": "<p>半径 $r=49\\,\\mathrm{cm}$ 的圆管位于铅垂面中，管内放一质量为 $m$ 的小球，该球在平衡位置 A 获得初速度 $v_0=20\\,\\mathrm{cm/s}$，如图示，而后作微振动。设运动时的阻力 $F_R=-4mv$，$v$ 为小球的速度。试求小球的运动规律。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch124_idx568_0.png"],
+      "answer": "<p>角位移 $\\theta(t)=0.102\\,e^{-2t}\\sin(4t)\\,\\mathrm{rad}$，即沿管弧长 $s(t)=5e^{-2t}\\sin(4t)\\,\\mathrm{cm}$</p>",
+      "explanation": "<p>【AI 生成】小球在竖直圆管内沿圆弧运动，相当于摆长为 $r$ 的单摆。取角位移 $\\theta$（自最低点 A 计），切向运动方程为$$mr\\ddot{\\theta}=-mg\\sin\\theta-F_R=-mg\\theta-4mr\\dot{\\theta}$$即$$\\ddot{\\theta}+4\\dot{\\theta}+\\frac{g}{r}\\theta=0$$代入 $r=0.49\\,\\mathrm{m}$、$g=9.8\\,\\mathrm{m/s^2}$，得 $\\ddot{\\theta}+4\\dot{\\theta}+20\\theta=0$，故 $n=2\\,\\mathrm{s^{-1}}$，$\\omega_n=\\sqrt{20}=4.47\\,\\mathrm{rad/s}$，阻尼固有频率 $\\omega_d=\\sqrt{\\omega_n^2-n^2}=\\sqrt{20-4}=4\\,\\mathrm{rad/s}$。初条件 $\\theta(0)=0$，$\\dot{\\theta}(0)=v_0/r=0.2/0.49=0.408\\,\\mathrm{rad/s}$，通解 $\\theta(t)=e^{-2t}(C_1\\cos4t+C_2\\sin4t)$，代入得 $C_1=0$，$C_2=\\dot{\\theta}(0)/4=0.102$，故$$\\theta(t)=0.102\\,e^{-2t}\\sin(4t)\\,\\mathrm{rad}$$$$s(t)=r\\theta(t)=0.49\\times0.102\\,e^{-2t}\\sin(4t)=5e^{-2t}\\sin(4t)\\,\\mathrm{cm}$$</p>"
+    }
+  ]
+}

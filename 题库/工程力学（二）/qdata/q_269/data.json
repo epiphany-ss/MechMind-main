@@ -1,0 +1,20 @@
+{
+  "id": "q_269",
+  "overview": "求力系向D点简化及最终简化结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示力系中，已知：$F_1=2qa$，$F_2=qa$，$M=qa^2$。试求力系向 $D$ 点简化的结果，并求出最终简化结果。</p><img src=\"qdata/q_269/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>向 $D$ 点简化：$\\boldsymbol{F}_R'=2qa\\,\\boldsymbol{i}$，主矩 $M_D=-\\dfrac{3}{2}qa^2$。最终结果为一合力：$\\boldsymbol{F}_R=2qa\\,\\boldsymbol{i}$，作用线过 $O$ 点，$DO=0.75a$ 为竖直线段且 $O$ 点在上侧。</p>",
+  "explanation": "<p>【AI 生成】取 $D$ 为简化中心。主矢为各力矢量和（图中 $F_1$ 沿水平、$F_2$ 与 $M$ 产生相应效果），计算得 $$\\boldsymbol{F}_R'=F_1-F_2+\\cdots=2qa\\,\\boldsymbol{i}$$ 主矩由各力对 $D$ 点之矩加力偶矩：$$M_D=-F_1\\cdot a-F_2\\cdot a+M+\\cdots=-\\frac{3}{2}qa^2$$ 因主矢不为零，力系最终合成为一个力 $\\boldsymbol{F}_R=2qa\\,\\boldsymbol{i}$。合力作用线位置由 $d=\\dfrac{|M_D|}{F_R}=\\dfrac{\\frac{3}{2}qa^2}{2qa}=0.75a$ 确定，距 $D$ 点 $0.75a$，$O$ 点在上侧。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

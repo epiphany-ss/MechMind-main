@@ -1,0 +1,17 @@
+{
+  "id": "q_341",
+  "overview": "求空间薄板的绳拉力及轴承A、B约束反力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>重为 P 的均质薄板可绕水平轴 AB 转动，A 为球铰，B 为蝶形铰链，今用绳索 CE 将板支撑在水平位置，并在板平面内作用一力偶。设 $a=3$m，$b=4$m，$h=5$m，$P=1000$N，$M=2000$N·m。试求绳的拉力及轴承 A、B 处的约束反力。</p>",
+  "answer": "<p>$T=500\\sqrt2\\approx707$N；$A_x=300$N，$A_y\\approx1066.7$N，$A_z=500$N；$B_y\\approx-666.7$N，$B_z=0$。</p>",
+  "explanation": "<p>【AI 生成】取板 ABCD（AB=$a=3$m 为 x 轴，AD=$b=4$m 为 y 轴，板面水平），A 为球铰（$A_x,A_y,A_z$），B 为蝶形铰（仅 $B_y,B_z$），绳 CE 从 $C(3,4,0)$ 到 $E(0,0,h)$，方向余弦 $(-3,-4,5)/(5\\sqrt2)$。①$\\sum M_x=0$：$\\frac{20T}{5\\sqrt2}-P\\frac{b}{2}=0\\Rightarrow T=500\\sqrt2$N。②$\\sum M_y=0$：$P\\frac{a}{2}-\\frac{15T}{5\\sqrt2}-3B_z=0\\Rightarrow B_z=0$。③$\\sum M_z=0$：$3B_y+M=0\\Rightarrow B_y=-\\frac{2000}{3}$N。④$\\sum F_x=0$：$A_x=\\frac{3T}{5\\sqrt2}=300$N；$\\sum F_y=0$：$A_y=\\frac{4T}{5\\sqrt2}-B_y=\\frac{3200}{3}$N；$\\sum F_z=0$：$A_z=P-\\frac{T}{\\sqrt2}=500$N。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

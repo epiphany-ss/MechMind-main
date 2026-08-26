@@ -1,0 +1,19 @@
+{
+  "id": "q_045",
+  "overview": "判断定轴转动刚体是否没有动量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "动量矩定理",
+    "动能定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>作定轴转动的刚体，在运动时只有动能和动量矩，而没有动量。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】定轴转动刚体的动量 $\\boldsymbol{p}=m\\boldsymbol{v}_C$，只要质心不在转轴上，$\\boldsymbol{v}_C\\neq 0$，动量就不为零；仅在质心恰好位于转轴这一特殊情形下动量才为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36"
+}

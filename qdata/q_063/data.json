@@ -1,0 +1,22 @@
+{
+  "id": "q_063",
+  "overview": "圆盘固结于杆绕O转动求动量矩与动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>半径为 $r$ 的均质圆盘，质量为 $m_1$，固结在长 $4r$、质量为 $m_2$ 的均质直杆上。系统绕水平轴 $O$ 转动，图示瞬时有角速度 $\\omega$，则系统对 $O$ 点的动量矩的大小为____；动能为____。</p>",
+  "answer": "<p>$L_O=\\left(\\dfrac{33}{2}m_1+\\dfrac{16}{3}m_2\\right)r^2\\omega$；$T=\\left(\\dfrac{33}{4}m_1+\\dfrac{8}{3}m_2\\right)r^2\\omega^2$</p>",
+  "explanation": "<p>【AI 生成】杆对 $O$（端点）转动惯量 $J_{O,杆}=\\frac{m_2(4r)^2}{3}=\\frac{16}{3}m_2r^2$；圆盘（质心在 $4r$ 处）对 $O$ 的转动惯量 $J_{O,盘}=\\frac12m_1r^2+m_1(4r)^2=\\frac{33}{2}m_1r^2$。故 $L_O=J_O\\omega=\\left(\\frac{33}{2}m_1+\\frac{16}{3}m_2\\right)r^2\\omega$，$T=\\frac12J_O\\omega^2=\\left(\\frac{33}{4}m_1+\\frac{8}{3}m_2\\right)r^2\\omega^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "圆盘固结于杆绕O转动求动量矩与动能",
+  "module": "动力学"
+}

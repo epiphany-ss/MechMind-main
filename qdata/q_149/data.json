@@ -1,0 +1,23 @@
+{
+  "id": "q_149",
+  "overview": "曲柄连杆机构中转矩与水平力的关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图中，曲柄OA长为r，连杆AB长为l。当曲柄OA位于水平位置时，连杆AB与水平面夹角为 $\\varphi$。试用虚位移原理求在此位置平衡时转矩M和水平力F之间的关系。</p><img src=\"qdata/q_149/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$M=F\\,r\\tan\\varphi$</p>",
+  "explanation": "<p>【AI 生成】设曲柄 OA 的虚转角为 $\\delta\\theta$，滑块 B 沿水平导槽运动的虚位移为 $\\delta x_B$。曲柄端点 A 的坐标：$A=(r\\cos\\theta,\\,h+r\\sin\\theta)$，B 点在水平线上。由连杆长度不变条件取变分，在曲柄水平（$\\theta=0$）位置得 $\\delta x_B=-r\\tan\\varphi\\,\\delta\\theta$。虚功方程：$M\\,\\delta\\theta+F\\,\\delta x_B=0$，代入得 $M=F\\,r\\tan\\varphi$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册",
+  "title": "曲柄连杆机构中转矩与水平力的关系",
+  "module": "分析力学"
+}

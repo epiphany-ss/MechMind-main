@@ -1,0 +1,23 @@
+{
+  "id": "q_590",
+  "overview": "求力F作用下平板的加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，质量为m、半径为R的均质圆盘，置于质量为M的平板上，沿平板加一常力F。设平板与地面间的摩擦系数为f，平板与圆盘间的接触是足够粗糙的，求平板的加速度。</p><img src=\"qdata/q_590/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_p=\\dfrac{F-f(M+m)g}{M+m/3}$</p>",
+  "explanation": "<p>【AI 生成】设平板加速度$a_p$（向右），圆盘质心加速度$a_d$，圆盘角加速度$\\alpha$（逆时针）。圆盘纯滚动（与平板无滑动）：$a_d+\\alpha R=a_p$。圆盘：$F_f=ma_d$，$F_fR=\\frac{1}{2}mR^2\\alpha$，故$a_d=\\frac{R\\alpha}{2}$，进而$a_d=\\frac{a_p}{3}$，$F_f=\\frac{ma_p}{3}$。平板受拉力F、圆盘给它的摩擦力$F_f$（向左）及地面滑动摩擦力$f(M+m)g$（向左）：$$F-\\frac{ma_p}{3}-f(M+m)g=Ma_p$$故$$a_p=\\frac{F-f(M+m)g}{M+m/3}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "求力F作用下平板的加速度",
+  "module": "动力学"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_169",
+  "overview": "计算水平面行星齿轮机构对φ的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图示在水平面内运动的行星齿轮机构，已知固定齿轮半径为 $R$，均质行星齿轮半径为 $r$、质量为 $m$，均质杆 $OA$ 质量为 $m_1$，杆受矩为 $M$ 的力偶作用而运动，若取 $\\varphi$ 为广义坐标，则相应的广义力为____。<br>(A) $mg(R+r)$；　(B) $(m+m_1)g$；　(C) $M$；　(D) $\\dfrac{m_1g(R+r)}{2}+mg(R+r)$。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】机构在水平面内运动，所有构件的重力均沿铅垂方向，在水平面内的虚位移上不作虚功；只有作用在杆上的力偶 $M$ 作虚功 $\\delta W=M\\delta\\varphi$，故 $Q_\\varphi=M$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

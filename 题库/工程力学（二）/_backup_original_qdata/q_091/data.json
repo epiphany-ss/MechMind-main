@@ -1,0 +1,21 @@
+{
+  "id": "q_091",
+  "overview": "均质平板角轮下落求角速度角加速度反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示边长为 $0.25\\,\\mathrm{m}$，质量为 $2.0\\,\\mathrm{kg}$ 的均质平板，在 $O$ 点装有不计质量的角轮，角轮可在光滑水平面上运动，初瞬时在图示位置并且静止。求平板的 $A$ 点即将着地时，平板的角速度、角加速度及角轮处的约束力。</p><img src=\"qdata/q_091/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=6.24\\,\\mathrm{rad/s}$；$\\alpha=23.67\\,\\mathrm{rad/s^2}$；$F_N=3.94\\,\\mathrm{N}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 平板绕 $O$（角轮）转动，$A$ 点着地时质心 $C$ 下降 $\\Delta h=\\frac a2$（$a=0.25\\,\\mathrm{m}$）。平板对 $O$ 的转动惯量 $J_O=\\frac16ma^2+m\\cdot OC^2$。<br>(2) 机械能守恒：$mg\\Delta h=\\frac12J_O\\omega^2$，代入 $m=2.0$、$a=0.25$ 得 $\\omega=6.24\\,\\mathrm{rad/s}$。<br>(3) 由动能定理求导或对 $O$ 取矩得角加速度 $\\alpha=23.67\\,\\mathrm{rad/s^2}$。<br>(4) 对平板用达朗贝尔原理（惯性力与惯性力偶），对 $O$ 取矩得角轮约束力 $F_N=3.94\\,\\mathrm{N}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

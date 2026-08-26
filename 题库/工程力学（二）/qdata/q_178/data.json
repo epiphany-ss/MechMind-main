@@ -1,0 +1,18 @@
+{
+  "id": "q_178",
+  "overview": "用拉氏方程求光滑墙上杆-物块系统的微分方程及角速度",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：匀质杆 $AB$ 长 $b$、质量为 $M$，物块 $A$ 和 $B$ 质量均为 $m$，可沿光滑墙与水平地面运动。试求：(1) 以 $\\theta$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 设 $t=0$ 时，$\\theta=30^\\circ$，$\\dot\\theta=0$，杆 $AB$ 下滑至 $\\theta=60^\\circ$ 时的角速度 $\\omega$。</p>",
+  "answer": "<p>(1) $$\\frac{1}{3}(M+3m)b^2\\ddot\\theta-\\frac{1}{2}(M+2m)gb\\sin\\theta=0$$<br>(2) $$\\omega=\\sqrt{\\frac{3(\\sqrt3-1)(M+2m)g}{2(M+3m)b}}$$</p>",
+  "explanation": "<p>【AI 生成】设 $\\theta$ 为杆 $AB$ 与铅垂墙面的夹角。杆两端分别沿竖直墙与水平地面滑动，杆端点 $A$ 高度 $y_A=b\\cos\\theta$。系统动能（杆平动+转动，两物块平动）为 $$T=\\frac{1}{2}M\\left(\\frac{b\\dot\\theta}{2}\\right)^2+\\frac{1}{2}\\cdot\\frac{1}{12}Mb^2\\dot\\theta^2+\\frac{1}{2}m(b\\dot\\theta\\sin\\theta)^2+\\frac{1}{2}m(b\\dot\\theta\\cos\\theta)^2=\\frac{1}{6}(M+3m)b^2\\dot\\theta^2$$ 势能 $V=(\\frac{M}{2}+m)gb\\cos\\theta$。由拉格朗日方程得 $$\\frac{1}{3}(M+3m)b^2\\ddot\\theta-\\frac{1}{2}(M+2m)gb\\sin\\theta=0$$<br>(2) 系统保守，机械能守恒。$t=0$ 时 $\\theta=30^\\circ,\\dot\\theta=0$：$$E=\\frac{1}{2}(M+2m)gb\\cos30^\\circ=\\frac{\\sqrt3}{4}(M+2m)gb$$ 下滑至 $\\theta=60^\\circ$ 时 $$\\frac{1}{6}(M+3m)b^2\\omega^2+\\frac{1}{4}(M+2m)gb=\\frac{\\sqrt3}{4}(M+2m)gb$$ 解得 $$\\omega=\\sqrt{\\frac{3(\\sqrt3-1)(M+2m)g}{2(M+3m)b}}$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册"
+}

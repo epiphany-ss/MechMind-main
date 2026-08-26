@@ -1,0 +1,17 @@
+{
+  "id": "q_163",
+  "overview": "判断第二类拉格朗日方程一般表达式",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>第二类拉格朗日方程的一般表达式为 $\\dfrac{d}{dt}\\dfrac{\\partial T}{\\partial \\dot q_j}-\\dfrac{\\partial T}{\\partial q_j}=Q_j\\quad(j=1,2,\\cdots,k)$。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】这正是第二类拉格朗日方程的普遍形式，其中 $T$ 为系统动能，$Q_j$ 为对应广义坐标 $q_j$ 的广义力，$k$ 为自由度数目。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_034",
+  "overview": "判断未知方向约束反力的画法",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "受力分析",
+    "约束与约束反力"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>受力图中，除了光滑接触面约束和柔索约束，关于力的方向的画法，正确的是____。<br>(A) 先假设为负方向；<br>(B) 随便画出约束反力的方向；<br>(C) 先假设为正方向；<br>(D) 根据物体可能的运动趋势判断出约束反力的正确方向。</p><img src=\"qdata/q_034/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】对于方向未知的约束反力（如铰链反力），通常先假设为正方向（一般取坐标轴正方向）画出受力图，再由平衡方程求出其数值，若为负值则说明实际方向与假设相反。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36"
+}

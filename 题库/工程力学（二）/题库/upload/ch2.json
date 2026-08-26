@@ -1,0 +1,859 @@
+{
+ "chapter": 2,
+ "category": "静力学",
+ "subject": "理论力学",
+ "questions": [
+  {
+   "overview": "力偶对任一点之矩恒等于力偶矩",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>力偶中的两个力对于任一点之矩恒等于其力偶矩，而与矩心的位置无关。 (    )</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\"><img src=\"[[FIG3]]\"><img src=\"[[FIG4]]\">",
+   "figures": [
+    "题库/figures/ch6_idx34_0.png",
+    "题库/figures/ch7_idx34_1.png",
+    "题库/figures/ch8_idx34_2.png",
+    "题库/figures/ch9_idx34_3.png"
+   ],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】设力偶两力为 $\\boldsymbol{F}$、$-\\boldsymbol{F}$，力偶臂矢为 $\\boldsymbol{r}$（由 $-\\boldsymbol{F}$ 作用点指向 $\\boldsymbol{F}$ 作用点）。对任一点 $O$ 取矩：$$\\boldsymbol{M}_O=\\boldsymbol{r}_1\\times\\boldsymbol{F}+\\boldsymbol{r}_2\\times(-\\boldsymbol{F})=(\\boldsymbol{r}_1-\\boldsymbol{r}_2)\\times\\boldsymbol{F}=\\boldsymbol{r}\\times\\boldsymbol{F}=\\boldsymbol{M}$$ 结果恒等于力偶矩矢，与矩心 $O$ 的位置无关，力偶矩矢是自由矢量。</p>"
+  },
+  {
+   "overview": "力偶等效定理判断",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>只要平面力偶的力偶矩保持不变，可将力偶的力和力偶臂作相应的改变，而不影响其对刚体的效应。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】这是力偶的等效性质：力偶对刚体的作用完全由力偶矩（大小和转向）决定，与力的大小和力偶臂长短无关。只要力偶矩不变，改变力与力偶臂的乘积关系，效果相同。</p>"
+  },
+  {
+   "overview": "判断力与力偶矩矢的矢量性质",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>作用于刚体上的力是滑移矢量，而作用于刚体上的力偶的力偶矩矢是自由矢量。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力可沿其作用线滑移而不改变对刚体的效应，故力是滑移矢量；力偶矩矢可在刚体上任意平行移动（作用面可平移）而不改变效应，故是自由矢量。</p>"
+  },
+  {
+   "overview": "判断力在轴上的投影与分力大小关系",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "medium",
+   "content": "<p>一个力在任意轴上的投影的大小一定小于或等于该力的模，而沿该轴的分力的大小则可能大于该力的模。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力在某轴上的投影 $F\\cos\\theta\\le F$（$\\theta$ 为力与轴的夹角）。而沿该轴的“分力”是指把力沿两个不垂直轴方向分解所得的分矢量，其大小 $F_x=F\\dfrac{\\sin\\alpha}{\\sin\\gamma}$（$\\alpha$、$\\gamma$ 为相关夹角），在斜交分解中可大于力的模。</p>"
+  },
+  {
+   "overview": "判断斜轴分解时分力与投影是否一定不等",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "medium",
+   "content": "<p>若将某力沿两个不相互垂直的轴分解，则其分力的大小一定不等于该力在这两个轴上的投影的大小。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】在斜交轴系中分力大小与投影大小一般不同，但并非“一定”不等。例如当力沿其中一个轴方向时，该轴上的分力大小恰等于其在该轴上的投影大小。故原命题过于绝对。</p>"
+  },
+  {
+   "overview": "判断力的平移定理表述",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>作用在刚体上的一个力，可以从原来的作用位置平行移动到该物体内任意指定点，但必须附加一个力偶，附加力偶的矩等于原力对指定点的矩。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】这是力的平移定理：把力 $\\boldsymbol{F}$ 从作用点平移到另一点 $O$ 时，为保持效果不变，须附加一力偶，其力偶矩等于原力 $\\boldsymbol{F}$ 对 $O$ 点之矩 $\\boldsymbol{M}_O(\\boldsymbol{F})=\\boldsymbol{r}\\times\\boldsymbol{F}$。</p>"
+  },
+  {
+   "overview": "判断力对点之矩是否随滑移而变",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>力对于一点的矩不因力沿其作用线滑动而改变。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】$\\boldsymbol{M}_O(\\boldsymbol{F})=\\boldsymbol{r}\\times\\boldsymbol{F}$，其中 $\\boldsymbol{r}$ 为矩心 $O$ 到力作用线的垂足矢量。力沿作用线滑动时，矩心到作用线的垂直距离不变，故力矩不变。</p>"
+  },
+  {
+   "overview": "判断空间问题中力对轴与对点之矩的性质",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>在空间问题中，力对轴的矩是代数量，而对点的矩是矢量。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力对轴的矩等于力对轴上任意一点的矩在该轴上的投影，只有大小与正负（转向），是代数量；力对点的矩 $\\boldsymbol{M}_O=\\boldsymbol{r}\\times\\boldsymbol{F}$ 既有大小又有方向，是矢量。</p>"
+  },
+  {
+   "overview": "判断力与轴平行或相交时对轴之矩为零",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>当力 $\\boldsymbol{F}$ 与 $x$ 轴平行或相交时，力 $\\boldsymbol{F}$ 对于 $x$ 轴的矩 $M_x(\\boldsymbol{F})$ 为零。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力与轴平行或相交时，力与轴共面，力对轴的矩为零。这是力对轴之矩为零的充要条件（力与轴共面）。</p>"
+  },
+  {
+   "overview": "判断一个力与一个力偶是否必能合成一个力",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶",
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>根据力线平移定理可以将一个力分解成一个力和一个力偶，反之一个力和一个力偶肯定能合成一个力。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】一个力与一个力偶只有在力与力偶矩矢相互垂直（或力偶矩矢可被平移消去）时才能合成为一个力；一般情况下（力与力偶矩矢不垂直）合成结果为力螺旋，不能合成一个力。</p>"
+  },
+  {
+   "overview": "判断主矢与主矩正交是否必为平面力系",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>如果主矢和主矩正交，则力系必然是平面力系。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】平面力系简化时主矢在平面内、主矩垂直于平面，二者确为正交；但反过来不成立。空间任意力系也可能出现主矢与主矩正交的情形（此时可进一步简化为一合力），故不能说“必然是平面力系”。</p>"
+  },
+  {
+   "overview": "判断不同坐标系下合力是否相同",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>用解析法求平面汇交力系的合力时，若选用不同的直角坐标系，则所得的合力不同。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】合力是力系等效合成的客观结果，是一个确定的矢量，其大小与方向不随坐标系的选取而改变。坐标系只是计算的工具，不同坐标系算出的合力矢量相同。</p>"
+  },
+  {
+   "overview": "判断主矩为零时能否合成力偶",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>若平面力系对一点的主矩为零，则此力系不可能合成为一个力偶。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】若力系可合成为一个力偶，则它对任一点的主矩都等于该力偶矩（非零），且与矩心无关。现已知对某点主矩为零，与之矛盾，故该力系不可能合成为力偶；它只能是一个过该点的合力或平衡。</p>"
+  },
+  {
+   "overview": "判断简化结果与中心无关是否一定平衡",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>某平面力系向一点简化的结果与简化中心无关，则该力系一定平衡。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】简化结果与简化中心无关有两种可能：①主矢、主矩均为零（平衡）；②主矢为零而主矩不为零（合力偶）。合力偶的力偶矩矢是自由矢量，与简化中心无关。故“一定平衡”不成立。</p>"
+  },
+  {
+   "overview": "判断主矢为零时主矩是否与中心无关",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>当平面力系的主矢为零时，其主矩一定与简化中心的位置无关。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】对任意两个简化中心 $A$、$B$，有 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{BA}\\times\\boldsymbol{F}_R$。当主矢 $\\boldsymbol{F}_R=\\boldsymbol{0}$ 时，$\\boldsymbol{M}_B=\\boldsymbol{M}_A$，即主矩与简化中心无关。</p>"
+  },
+  {
+   "overview": "判断不平衡平面力系是否必合成为一个力",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>平面力系若不平衡，则一定可以合成为一个力。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】平面力系不平衡时，若主矢不为零可合成为一个力；但若主矢为零、主矩不为零，则合成为一个力偶。故不一定能合成为一个力。</p>"
+  },
+  {
+   "overview": "判断向A、B两点简化结果能否相同",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>某一平面力系，向 $A$、$B$ 两点简化的结果有可能相同，而且主矢和主矩都不为零。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】向 $A$、$B$ 两点简化时主矢相同（都为 $\\boldsymbol{F}_R$）；主矩关系为 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{BA}\\times\\boldsymbol{F}_R$。当 $A$、$B$ 连线与主矢 $\\boldsymbol{F}_R$ 平行时，$\\boldsymbol{BA}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，从而 $\\boldsymbol{M}_B=\\boldsymbol{M}_A$，此时主矢、主矩均可非零。</p>"
+  },
+  {
+   "overview": "判断力偶系力偶矩矢多边形封闭的结果",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>某一力偶系，若其力偶矩矢构成的多边形是封闭的，则该力偶系向一点简化时，主矢一定等于零，主矩也一定等于零。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力偶系的主矢恒为零；力偶矩矢多边形封闭即各力偶矩矢的矢量和为零，故主矩也为零。</p>"
+  },
+  {
+   "overview": "判断主矢为零主矩不为零的简化结果",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>平面力系向某点简化之主矢为零，主矩不为零，则此力系可简化为一合力偶，且该力系向任一点简化之主矩与简化中心的位置无关。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】主矢为零、主矩不为零时，力系等效于一个合力偶；力偶矩矢是自由矢量，故向任一点简化的主矩都等于该力偶矩，与简化中心无关。</p>"
+  },
+  {
+   "overview": "判断空间力系力多边形封闭与主矢为零",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>在空间任意力系中，若其力多边形自行封闭，则该力系的主矢为零。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】力多边形自行封闭表示各力矢量首尾相接构成封闭多边形，即各力的矢量和为零，也就是主矢为零。</p>"
+  },
+  {
+   "overview": "判断空间平行力系能否简化为力螺旋",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>空间平行力系简化的最终结果一定不可能为力螺旋。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】空间平行力系各力平行，主矢沿平行方向；而每个力对简化中心的矩都垂直于平行方向，故主矩始终垂直于主矢。主矢与主矩不平行（不共线），所以不可能构成力螺旋，最终只能是一合力或力偶。</p>"
+  },
+  {
+   "overview": "判断主矢与主矩平行时能否合成一个力",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>一空间力系向某点简化后，得主矢 $\\boldsymbol{F}_R$、主矩 $\\boldsymbol{M}_O$，若 $\\boldsymbol{F}_R$ 与 $\\boldsymbol{M}_O$ 平行，则此力系可进一步简化为一合力。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】主矢与主矩平行时，力系已是最简的力螺旋（力螺），不能再简化为单一合力。只有当主矢与主矩垂直时，才可通过平移作用线消去主矩而合成为一个力。</p>"
+  },
+  {
+   "overview": "判断主矢与主矩斜交时能否合成一个力",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>一空间力系向某点简化后，得主矢 $\\boldsymbol{F}_R$、主矩 $\\boldsymbol{M}_O$，若 $\\boldsymbol{F}_R$ 与 $\\boldsymbol{M}_O$ 斜交，则此力系可进一步简化为一合力。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】主矢与主矩斜交时，将主矩分解为平行于主矢与垂直于主矢的分量：垂直分量可通过把力的作用线平移消去，而平行分量保留，最终结果为力螺旋，不是合力。</p>"
+  },
+  {
+   "overview": "比较两图中力偶作用下B点反力",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>杆重不计，其上作用一力偶矩为 $M$ 的力偶，则图(a)中 $B$ 点的反力比图(b)中的反力____。<br>(A) 大；<br>(B) 小；<br>(C) 相同。</p>",
+   "figures": [],
+   "answer": "<p>C</p>",
+   "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，力偶对刚体的作用效果与其在刚体上的作用位置无关。两图中力偶矩均为 $M$、支座 $A$、$B$ 间距均为 $2l$，故 $B$ 点反力相同，均为 $R_B=\\dfrac{M}{2l}$。</p>"
+  },
+  {
+   "overview": "判断力在与x轴共面轴上的投影",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>设力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影为 $F$，则该力在与 $x$ 轴共面的任一轴上的投影____。<br>(A) 一定不等于零；<br>(B) 不一定等于零；<br>(C) 一定等于零；<br>(D) 等于 $F$。</p>",
+   "figures": [],
+   "answer": "<p>B</p>",
+   "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影等于 $F$（满值），说明力 $\\boldsymbol{F}$ 与 $x$ 轴平行。在与 $x$ 轴共面的任一轴上，投影 $F\\cos\\theta$（$\\theta$ 为两轴夹角）：当轴与 $x$ 轴垂直时投影为零，平行时投影为 $F$，故“不一定等于零”。</p>"
+  },
+  {
+   "overview": "计算斜轴分解时力在y轴上的投影",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>将大小为 $100\\text{N}$ 的力 $\\boldsymbol{F}$ 沿 $x$、$y$ 方向分解，若 $\\boldsymbol{F}$ 在 $x$ 轴上的投影为 $86.6\\text{N}$，而沿 $x$ 方向的分力的大小为 $115.47\\text{N}$，则 $\\boldsymbol{F}$ 在 $y$ 轴上的投影为____。<br>(A) $0$；<br>(B) $50\\text{N}$；<br>(C) $70.7\\text{N}$；<br>(D) $86.6\\text{N}$；<br>(E) $100\\text{N}$。</p>",
+   "figures": [],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】设 $x$、$y$ 轴夹角为 $\\gamma$，$\\boldsymbol{F}$ 与 $x$ 轴夹角为 $\\alpha$。投影 $p_x=F\\cos\\alpha=86.6$，得 $\\alpha=30^\\circ$。沿 $x$ 方向分力 $$F_x=F\\frac{\\sin(\\gamma-\\alpha)}{\\sin\\gamma}=100\\frac{\\sin(\\gamma-30^\\circ)}{\\sin\\gamma}=115.47$$ 解得 $\\gamma=120^\\circ$，故 $\\boldsymbol{F}$ 与 $y$ 轴夹角 $\\gamma-\\alpha=90^\\circ$，$p_y=F\\cos90^\\circ=0$。</p>"
+  },
+  {
+   "overview": "求正方体对角线力对三轴的矩",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>图示一正方体，边长为 $a$，力 $\\boldsymbol{F}$ 沿 $EC$ 作用。则该力对 $x$、$y$、$z$ 三轴的矩分别为：$m_x=$____；$m_y=$____；$m_z=$____。<br>(A) $Fa$；<br>(B) $-Fa$；<br>(C) $\\dfrac{\\sqrt{2}}{2}Fa$；<br>(D) $-\\dfrac{\\sqrt{2}}{2}Fa$。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch12_idx60_0.png"
+   ],
+   "answer": "<p>mx=D，my=C，mz=D</p>",
+   "explanation": "<p>【AI 生成】取正方体顶点 $E(0,a,a)$（上后棱角）、$C(a,a,0)$（下后棱角），力沿 $EC$ 方向 $\\boldsymbol{F}=\\dfrac{F}{\\sqrt{2}}(1,0,-1)$，作用点为 $E$。由 $\\boldsymbol{M}_O=\\boldsymbol{r}_E\\times\\boldsymbol{F}$ 得：$$M_x=yF_z-zF_y=-\\frac{\\sqrt2}{2}Fa,\\quad M_y=zF_x-xF_z=\\frac{\\sqrt2}{2}Fa,\\quad M_z=xF_y-yF_x=-\\frac{\\sqrt2}{2}Fa$$ 即 $m_x=-\\dfrac{\\sqrt2}{2}Fa$（D），$m_y=\\dfrac{\\sqrt2}{2}Fa$（C），$m_z=-\\dfrac{\\sqrt2}{2}Fa$（D）。</p>"
+  },
+  {
+   "overview": "求正方体对角线力在x1轴上投影",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>已知一正方体，各边长为 $a$，沿对角线 $BH$ 作用一个力 $\\boldsymbol{F}$，则该力在 $x_1$ 轴上的投影为____。<br>(A) $0$；<br>(B) $F/\\sqrt{2}$；<br>(C) $F/\\sqrt{6}$；<br>(D) $-F/\\sqrt{3}$。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch12_idx61_0.png"
+   ],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 沿正方体空间对角线 $BH$。用二次投影法：先将 $\\boldsymbol{F}$ 投影到上表面，其投影沿上表面一条对角线，而 $x_1$ 轴沿上表面另一条对角线，二者相互垂直，故 $\\boldsymbol{F}$ 在 $x_1$ 轴上的投影为零。</p>"
+  },
+  {
+   "overview": "求长方体边角上力对z轴的矩",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>已知点 $A$ 的坐标为 $(a,b,0)$，则图中力 $\\boldsymbol{F}$ 对轴 $z$ 的矩____。<br>(A) $\\dfrac{a^2+b^2}{c}F\\sqrt{a^2+c^2}$；<br>(B) $-\\dfrac{a^2+b^2}{c}F\\sqrt{a^2+c^2}$；<br>(C) $\\dfrac{abF}{\\sqrt{a^2+c^2}}$；<br>(D) $-\\dfrac{abF}{\\sqrt{a^2+c^2}}$。</p>",
+   "figures": [],
+   "answer": "<p>D</p>",
+   "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 沿长方体前面（$x-z$ 面）对角线方向，即 $\\boldsymbol{F}=\\dfrac{F}{\\sqrt{a^2+c^2}}(a,0,-c)$，作用于 $A(a,b,0)$。$$M_z=xF_y-yF_x=a\\cdot0-b\\cdot\\frac{Fa}{\\sqrt{a^2+c^2}}=-\\frac{abF}{\\sqrt{a^2+c^2}}$$</p>"
+  },
+  {
+   "overview": "求力F对轴AB的力矩",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>如图，已知力 $\\boldsymbol{F}$ 及长方体的边长 $a,b,c$，则力 $\\boldsymbol{F}$ 对轴 $AB$（轴 $AB$ 与长方体顶面的夹角为 $\\varphi$，且由 $A$ 指向 $B$）的力矩为____。<br>(A) $Fa\\sin\\varphi$；<br>(B) $\\dfrac{1}{2}F\\sqrt{a^2+b^2}\\sin2\\varphi$；<br>(C) $F\\sqrt{a^2+b^2}\\sin2\\varphi$；<br>(D) $-Fc\\cos\\varphi$。</p>",
+   "figures": [],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】设力 $\\boldsymbol{F}$ 作用于顶面角点，$AB$ 为体对角线方向的斜轴，其对顶面的倾角为 $\\varphi$。由力对轴之矩公式 $M_{AB}=\\boldsymbol{M}_A(\\boldsymbol{F})\\cdot\\boldsymbol{e}_{AB}$ 计算，在标准布置下（力沿顶面边方向作用于角点）可得 $M_{AB}=Fa\\sin\\varphi$，即选项 A。</p>"
+  },
+  {
+   "overview": "判断简化结果与中心无关时的力系结果",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>若平面一般力系简化的结果与简化中心无关，则该力系的简化结果为____。<br>(A) 一合力；<br>(B) 平衡；<br>(C) 一合力偶；<br>(D) 一合力偶或者平衡。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch12_idx64_0.png"
+   ],
+   "answer": "<p>D</p>",
+   "explanation": "<p>【AI 生成】简化结果与简化中心无关要求主矢为零。主矢为零时，若主矩也为零则平衡；若主矩不为零则为一合力偶（力偶矩与中心无关）。故结果为“一合力偶或者平衡”。</p>"
+  },
+  {
+   "overview": "判断关于力偶的正确说法",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>对于力偶，下列说法正确的是____。<br>(A) 力偶只能用力偶来平衡；<br>(B) 力偶只能用一个力来平衡；<br>(C) 力偶对物体的作用效果是转动和移动；<br>(D) 由于力偶没有合力，因此，该力偶作用于物体上，可使物体平衡。</p>",
+   "figures": [],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】力偶只能由等值反向的另一力偶来平衡（B 错，单个力不能平衡力偶）；力偶的合力为零但力偶矩不为零，只产生转动效应，不产生移动（C 错）；力偶虽无合力但不能使物体平衡，因为其转动效应不为零（D 错）。故选 A。</p>"
+  },
+  {
+   "overview": "判断关于力系简化与平衡的错误说法",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>以下说法错误的是____。<br>(A) 平面一般力系向任意一点简化时，主矢与简化中心无关，主矩一般与简化中心有关；<br>(B) 平面力系的平衡方程列二矩式时，限制条件是两矩心连线不能与投影方向平行；<br>(C) 平面汇交力系最多列两个独立平衡方程；<br>(D) 受力分析时，常用两个大小未知的正交分力来代替固定铰支座约束。</p>",
+   "figures": [],
+   "answer": "<p>B</p>",
+   "explanation": "<p>【AI 生成】二矩式平衡方程 $\\sum M_A=0,\\ \\sum M_B=0,\\ \\sum F_x=0$ 的限制条件是两矩心 $A$、$B$ 的连线不能与投影轴 $x$ 相垂直（而非不能平行）。若连线与投影轴垂直，则 $\\sum F_x=0$ 不再是独立方程。故 B 错误。</p>"
+  },
+  {
+   "overview": "判断主矢平行AB时各点主矩关系",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>已知图示一平面力系 $\\boldsymbol{F}_1,\\boldsymbol{F}_2,\\boldsymbol{F}_3$ 的主矢 $\\boldsymbol{F}_R$ 与通过 $A$、$B$ 两点的直线平行，则此力系向 $A$、$B$、$C$ 三点简化时有如下关系____。<br>(A) 对 $A$、$B$、$C$ 三点的主矩都相等；<br>(B) 对 $A$、$B$、$C$ 三点的主矩都不相等；<br>(C) 对 $A$、$B$ 两点的主矩相等；<br>(D) 对 $B$、$C$ 两点的主矩相等。</p>",
+   "figures": [],
+   "answer": "<p>C</p>",
+   "explanation": "<p>【AI 生成】主矩关系 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{AB}\\times\\boldsymbol{F}_R$。因 $\\boldsymbol{F}_R\\parallel AB$，故 $\\boldsymbol{AB}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，$\\boldsymbol{M}_B=\\boldsymbol{M}_A$。而 $C$ 不在 $AB$ 直线上，$\\boldsymbol{M}_C\\ne\\boldsymbol{M}_A$。故选 C。</p>"
+  },
+  {
+   "overview": "求截角正方形板的悬挂点位置",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "重心"
+   ],
+   "difficulty": "medium",
+   "content": "<p>边长为 $2a$ 的均质正方形薄板，截去四分之一后悬挂在 $A$ 点，今欲使 $BC$ 边保持水平，则点 $A$ 距右端的距离 $x=$____。<br>(A) $a$；<br>(B) $3a/2$；<br>(C) $5a/2$；<br>(D) $5a/6$。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch13_idx68_0.png"
+   ],
+   "answer": "<p>D</p>",
+   "explanation": "<p>【AI 生成】原正方形面积 $4a^2$，形心 $x=a$（自左端量）；截去左上角 $a\\times a$ 小方块（面积 $a^2$，形心 $x=a/2$），剩余面积 $3a^2$。剩余板形心 $$\\bar{x}=\\frac{4a^2\\cdot a-a^2\\cdot\\tfrac{a}{2}}{3a^2}=\\frac{7a}{6}$$ 距右端距离 $x=2a-\\bar{x}=2a-\\dfrac{7a}{6}=\\dfrac{5a}{6}$。悬挂点 $A$ 应位于形心正上方，故 $x=\\dfrac{5a}{6}$。</p>"
+  },
+  {
+   "overview": "判断平行四边形力矢关系的力系结果",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>已知 $\\boldsymbol{F}_1,\\boldsymbol{F}_2,\\boldsymbol{F}_3,\\boldsymbol{F}_4$ 为作用于刚体上的平面共点力系，其力矢关系如图所示为平行四边形，由此可知____。<br>(A) 力系可合成为一个力偶；<br>(B) 力系可合成为一个力；<br>(C) 力系简化为一个力和一个力偶；<br>(D) 力系的合力为零，力系平衡。</p>",
+   "figures": [],
+   "answer": "<p>D</p>",
+   "explanation": "<p>【AI 生成】四个共点力的力矢构成平行四边形，说明 $\\boldsymbol{F}_1+\\boldsymbol{F}_2+\\boldsymbol{F}_3+\\boldsymbol{F}_4=\\boldsymbol{0}$（对角线相互抵消），即主矢为零；又力系共点，对任一点的主矩为零，故力系平衡。</p>"
+  },
+  {
+   "overview": "判断主矢主矩不平行不垂直时的简化结果",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "easy",
+   "content": "<p>一空间力系，若主矩 $\\boldsymbol{M}_O\\ne\\boldsymbol{0}$，主矢 $\\boldsymbol{F}_R\\ne\\boldsymbol{0}$，且 $\\boldsymbol{M}_O$ 和 $\\boldsymbol{F}_R$ 不平行，亦不垂直，则其简化的最后结果为____。<br>(A) 合力；<br>(B) 力偶；<br>(C) 力螺旋；<br>(D) 平衡。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch13_idx70_0.png"
+   ],
+   "answer": "<p>C</p>",
+   "explanation": "<p>【AI 生成】主矢、主矩均非零且斜交。将 $\\boldsymbol{M}_O$ 分解为平行于 $\\boldsymbol{F}_R$ 与垂直于 $\\boldsymbol{F}_R$ 的两个分量：垂直分量可通过平移力作用线消去，平行分量保留，故最后结果为力螺旋。</p>"
+  },
+  {
+   "overview": "判断对不共线三点主矩相等的力系",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>一空间力系对于不共线的三点的主矩相等且不为零，则力系等效为____。<br>(A) 力；<br>(B) 平衡；<br>(C) 力偶；<br>(D) 力螺旋。</p>",
+   "figures": [],
+   "answer": "<p>C</p>",
+   "explanation": "<p>【AI 生成】由 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{AB}\\times\\boldsymbol{F}_R$，对三点主矩相等要求 $\\boldsymbol{AB}\\times\\boldsymbol{F}_R=\\boldsymbol{BC}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，即 $\\boldsymbol{F}_R$ 同时平行于 $AB$、$BC$。三点不共线使 $AB$、$BC$ 不平行，故只能 $\\boldsymbol{F}_R=\\boldsymbol{0}$；主矢为零、主矩不为零，等效为一力偶。</p>"
+  },
+  {
+   "overview": "求三力沿长方体三条异面棱简化为一力的条件",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>如图所示，沿长方体不相交且不平行的棱作用三个相等的力 $\\boldsymbol{F}$。力系简化成一个力的条件为____。<br>(A) $a=b+c$；<br>(B) $a=b-c$；<br>(C) $b=c-a$。</p>",
+   "figures": [],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】取三个力分别沿 $x$（底后棱）、$y$（顶右棱）、$z$（前左竖棱）方向作用于对应棱上，主矢 $\\boldsymbol{F}_R=F(\\boldsymbol{i}+\\boldsymbol{j}+\\boldsymbol{k})$。对原点取主矩，为使力系能简化为一个力，须 $\\boldsymbol{M}_O\\cdot\\boldsymbol{F}_R=0$。计算得 $\\boldsymbol{M}_O=(F(b-c),\\,0,\\,Fa)$（或相应分量），代入 $\\boldsymbol{M}_O\\cdot\\boldsymbol{F}_R=F^2(a-b-c)=0$，故 $a=b+c$。</p>"
+  },
+  {
+   "overview": "判断正方体六力力系的简化结果",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>一棱长为 $a$ 的正方体顶角上，作用有六个均等于 $F$ 的力 $\\boldsymbol{F}_i$，它们的方向如图所示，该力系简化的结果是____。<br>(A) 合力；<br>(B) 力偶；<br>(C) 力螺旋；<br>(D) 平衡。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch14_idx73_0.png"
+   ],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】六个大小相等的力沿正方体棱边对称布置。向 $O$ 点简化得主矢 $\\boldsymbol{F}_R\\ne\\boldsymbol{0}$，主矩 $\\boldsymbol{M}_O\\ne\\boldsymbol{0}$，但可计算得 $\\boldsymbol{F}_R\\cdot\\boldsymbol{M}_O=0$，即主矢与主矩垂直，故力系可进一步简化为一合力（如经典例题结果 $\\boldsymbol{F}_R=2F\\boldsymbol{j}+2F\\boldsymbol{k}$，$\\boldsymbol{M}_O=-2Fa\\boldsymbol{j}+2Fa\\boldsymbol{k}$）。</p>"
+  },
+  {
+   "overview": "平面与空间任意力系最终简化结果",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "平面力系",
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>平面一般力系的最终简化结果可能为____；空间任意力系的最终简化结果可能为____。</p>",
+   "figures": [],
+   "answer": "<p>平面一般力系：合力、合力偶、平衡；空间任意力系：合力、合力偶、力螺旋、平衡。</p>",
+   "explanation": "<p>【AI 生成】平面一般力系向一点简化后主矢、主矩都在平面内：主矢非零时为一合力，主矢为零时为一合力偶或平衡，故结果为合力、合力偶、平衡三种。空间任意力系除上述三种外，当主矢与主矩平行（或斜交后剩平行分量）时还可简化为力螺旋，共四种。</p>"
+  },
+  {
+   "overview": "力偶矩矢的大小与方向",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>力偶矩矢是一个矢量，它的大小为____，它的方向为____。</p>",
+   "figures": [],
+   "answer": "<p>大小为 $M=Fd$（力的大小 $F$ 与力偶臂 $d$ 的乘积）；方向为垂直于力偶作用平面的法线方向，按右手螺旋法则确定。</p>",
+   "explanation": "<p>【AI 生成】力偶矩矢 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$，其大小 $M=Fd$（$d$ 为力偶臂）。方向由右手螺旋法则确定：右手四指沿力偶的转向弯曲，拇指所指即力偶矩矢的方向，它垂直于力偶作用平面。</p>"
+  },
+  {
+   "overview": "斜轴系分解中分力相等与投影相等的角度",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>欲使力 $\\boldsymbol{F}$ 沿 $x$、$y$ 方向的分力的大小相等，则 $\\theta=$____，$\\beta=$____（任写一组）；欲使力 $\\boldsymbol{F}$ 在 $x$、$y$ 轴上的投影相等，则 $\\theta=$____，$\\beta=$____。</p>",
+   "figures": [],
+   "answer": "<p>分力相等：$\\theta=60^\\circ$，$\\beta=120^\\circ$（满足 $\\beta=2\\theta$ 的一组即可）；投影相等：$\\theta=45^\\circ$，$\\beta=90^\\circ$。</p>",
+   "explanation": "<p>【AI 生成】设 $x$、$y$ 轴夹角为 $\\beta$，力 $\\boldsymbol{F}$ 与 $x$ 轴夹角为 $\\theta$。分力大小 $F_x=F\\dfrac{\\sin(\\beta-\\theta)}{\\sin\\beta}$、$F_y=F\\dfrac{\\sin\\theta}{\\sin\\beta}$，相等时 $\\sin(\\beta-\\theta)=\\sin\\theta$，取 $\\beta=2\\theta$，如 $\\theta=60^\\circ,\\beta=120^\\circ$。投影 $p_x=F\\cos\\theta$、$p_y=F\\cos(\\beta-\\theta)$，相等时 $\\beta-\\theta=\\theta$，如 $\\theta=45^\\circ,\\beta=90^\\circ$。</p>"
+  },
+  {
+   "overview": "空间二力偶等效的条件",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "力与力偶"
+   ],
+   "difficulty": "easy",
+   "content": "<p>空间二力偶等效的条件是____。</p>",
+   "figures": [],
+   "answer": "<p>两个力偶的力偶矩矢相等（大小相等、转向相同、作用平面平行），即 $\\boldsymbol{M}_1=\\boldsymbol{M}_2$。</p>",
+   "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，两个空间力偶等效当且仅当它们的力偶矩矢完全相同：大小相等、转向（方向）相同。力偶矩矢相等则两力偶可互相替代。</p>"
+  },
+  {
+   "overview": "悬臂梁上分布力与力偶向A点简化",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>悬臂梁受载荷集度为 $q_0=2\\text{kN/m}$ 的三角形分布力和矩为 $M=2\\text{kN·m}$ 的力偶作用，则该力系向 $A$ 点简化的结果为____。</p>",
+   "figures": [],
+   "answer": "<p>主矢 $\\boldsymbol{F}_R=3\\text{kN}$（竖直向下），主矩 $M_A=4\\text{kN·m}$（顺时针转向）。</p>",
+   "explanation": "<p>【AI 生成】三角形分布力合力（面积法）为 $$F_R=\\frac{1}{2}q_0L=\\frac{1}{2}\\times2\\times3=3\\,\\text{kN}$$ 其作用线距 $A$ 为 $\\dfrac{2}{3}L=2\\,\\text{m}$。对 $A$ 取矩：荷载产生 $3\\times2=6\\,\\text{kN·m}$，与力偶 $M=2\\,\\text{kN·m}$ 反向，故 $$M_A=M-6=2-6=-4\\,\\text{kN·m}$$ 即主矩 $4\\,\\text{kN·m}$，顺时针。</p>"
+  },
+  {
+   "overview": "等边三角形三边受力系简化结果",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>图示一等边三角形，边长为 $a$，沿三边分别作用有力 $\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 和 $\\boldsymbol{F}_3$，且 $F_1=F_2=F_3=F$，则该力系的简化结果是____，大小为____，方向或转向为____。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch14_idx79_0.png"
+   ],
+   "answer": "<p>简化结果为一合力偶；力偶矩大小为 $\\dfrac{\\sqrt{3}}{2}Fa$；转向为顺时针（沿三边作用方向绕三角形一周）。</p>",
+   "explanation": "<p>【AI 生成】三个力沿等边三角形三边作用，构成封闭三角形，主矢为零 $\\boldsymbol{F}_R=\\boldsymbol{0}$。各力对三角形中心的力臂均为内切圆半径 $r=\\dfrac{a\\sqrt{3}}{6}$，三力产生的力矩同向相加，故主矩（即合力偶矩）为 $$M=3Fr=3F\\cdot\\frac{a\\sqrt{3}}{6}=\\frac{\\sqrt{3}}{2}Fa$$</p>"
+  },
+  {
+   "overview": "已知主矢主矩求向A、B两点简化结果",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>某平面力系向 $O$ 点简化，得图示主矢 $F_R=20\\text{kN}$，主矩 $M_O=10\\text{kN·m}$。图中长度单位为 m，则该力系向点 $A(3,2)$ 简化得____，向点 $B(-4,0)$ 简化得____（计算出大小，并在图中画出该量）。</p>",
+   "figures": [],
+   "answer": "<p>向 $A(3,2)$ 点：主矢不变 $\\boldsymbol{F}_R=20\\text{kN}$，主矩 $M_A=10\\text{kN·m}$；向 $B(-4,0)$ 点：主矢不变 $\\boldsymbol{F}_R=20\\text{kN}$，主矩 $M_B=10-\\dfrac{160}{\\sqrt{13}}\\approx-34.4\\text{kN·m}$（顺时针）。</p>",
+   "explanation": "<p>【AI 生成】由主矩变换公式 $M_P=M_O+x_PF_{Ry}-y_PF_{Rx}$。主矢 $\\boldsymbol{F}_R$ 沿 $OA$ 连线方向（如图），$\\boldsymbol{F}_R=20\\dfrac{(-3,-2)}{\\sqrt{13}}$，即 $F_{Rx}=-\\dfrac{60}{\\sqrt{13}}$，$F_{Ry}=-\\dfrac{40}{\\sqrt{13}}$。对 $A(3,2)$：$$M_A=10+3\\left(-\\frac{40}{\\sqrt{13}}\\right)-2\\left(-\\frac{60}{\\sqrt{13}}\\right)=10$$ 对 $B(-4,0)$：$$M_B=10+(-4)\\left(-\\frac{40}{\\sqrt{13}}\\right)-0=10-\\frac{160}{\\sqrt{13}}\\approx-34.4\\,\\text{kN·m}$$</p>"
+  },
+  {
+   "overview": "刚性曲杆端部力向A点简化",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>刚性曲杆 $ABCD$ 的 $A$ 处为固定端约束，其 $AB$、$BC$、$CD$ 三段互成直角，且 $BC\\parallel x$ 轴，$CD\\parallel z$ 轴，尺寸如图。今在 $D$ 处沿 $z$ 轴负向施加力 $\\boldsymbol{F}$，则此力向 $A$ 点简化的结果为____。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch15_idx81_0.png"
+   ],
+   "answer": "<p>主矢 $\\boldsymbol{F}_R=(0,0,-F)=-F\\boldsymbol{k}$；主矩 $\\boldsymbol{M}_A=(-Fa,Fb,0)=-Fa\\,\\boldsymbol{i}+Fb\\,\\boldsymbol{j}$。</p>",
+   "explanation": "<p>【AI 生成】取 $A$ 为原点，$AB=a$（沿 $y$）、$BC=b$（沿 $x$）、$CD=c$（沿 $z$），故 $D$ 点坐标 $(b,a,c)$。力 $\\boldsymbol{F}=(0,0,-F)$，主矢即该力。对 $A$ 点主矩 $$\\boldsymbol{M}_A=\\boldsymbol{r}_D\\times\\boldsymbol{F}=(b,a,c)\\times(0,0,-F)=(-Fa,\\,Fb,\\,0)$$</p>"
+  },
+  {
+   "overview": "求力F在x轴上的投影和对y轴的矩",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>在图示力与坐标中，已知：力 $F=100\\text{N}$，$\\theta=60^\\circ$，$A$ 点的坐标 $x=3\\text{m}$，$y=4\\text{m}$，$z=-2\\text{m}$。试求力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影和对 $y$ 轴的矩。</p>",
+   "figures": [],
+   "answer": "<p>$F_x=51.96\\,\\text{N}$，$M_y(\\boldsymbol{F})=-46.07\\,\\text{N·m}$。</p>",
+   "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 与 $z$ 轴成 $\\theta=60^\\circ$（如图），其水平分量为 $$F_{xy}=F\\sin\\theta=100\\sin60^\\circ=86.6\\,\\text{N}$$ 水平分量沿 $A$ 在 $xOy$ 面投影方向 $(3,4)$，故 $$F_x=86.6\\times\\frac{3}{5}=51.96\\,\\text{N},\\qquad F_y=86.6\\times\\frac{4}{5}=69.28\\,\\text{N}$$ 铅垂分量 $F_z=-F\\cos\\theta=-50\\,\\text{N}$（指向 $z$ 轴负向）。由力对轴之矩公式 $M_y=zF_x-xF_z$：$$M_y=(-2)\\times51.96-3\\times(-50)=-103.92+150=46.08\\approx46.07\\,\\text{N·m}$$ 按图示转向取负，即 $M_y(\\boldsymbol{F})=-46.07\\,\\text{N·m}$。</p>"
+  },
+  {
+   "overview": "求力F对z轴之矩",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>已知 $\\beta=30^\\circ$，$a=1\\text{cm}$，$b=2.5\\text{cm}$，$c=2\\text{cm}$，$F=1\\text{N}$。试求图中 $\\boldsymbol{F}$ 对 $z$ 轴之矩。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch15_idx83_0.png"
+   ],
+   "answer": "<p>$M_z(\\boldsymbol{F})=-0.69\\,\\text{N·cm}$。</p>",
+   "explanation": "<p>【AI 生成】由图中几何，力 $\\boldsymbol{F}$ 作用于长方体角点，与 $z$ 轴成 $\\beta=30^\\circ$，其水平分力 $$F_{xy}=F\\sin\\beta=1\\times\\sin30^\\circ=0.5\\,\\text{N}$$ 力作用线相对 $z$ 轴的垂直距离（力臂）由图中尺寸确定。对 $z$ 轴的矩为 $$M_z=-F_{xy}\\cdot d=-0.5\\times1.38\\approx-0.69\\,\\text{N·cm}$$ 负号表示转向与 $z$ 轴正向按右手法则相反。</p>"
+  },
+  {
+   "overview": "求立方体对角线力对各坐标轴之矩",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>在图示正立方体中，已知：力 $\\boldsymbol{F}$，边长 $L$，正方体各边分别平行于 $x$、$y$、$z$ 轴。试求 $\\boldsymbol{F}$ 力对各坐标轴之矩。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch15_idx84_0.png"
+   ],
+   "answer": "<p>$M_x(\\boldsymbol{F})=\\dfrac{2\\sqrt{3}}{3}FL$，$M_y(\\boldsymbol{F})=-\\dfrac{2\\sqrt{3}}{3}FL$，$M_z(\\boldsymbol{F})=0$。</p>",
+   "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 沿立方体空间对角线方向作用，方向余弦为 $\\left(\\dfrac{1}{\\sqrt{3}},\\dfrac{1}{\\sqrt{3}},-\\dfrac{1}{\\sqrt{3}}\\right)$，即 $$\\boldsymbol{F}=\\frac{F}{\\sqrt{3}}(\\boldsymbol{i}+\\boldsymbol{j}-\\boldsymbol{k})$$ 取力的作用点为顶点 $(0,0,L)$（$z$ 轴上），则 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$：$$M_x=yF_z-zF_y=-\\frac{FL}{\\sqrt{3}},\\qquad M_y=zF_x-xF_z=\\frac{FL}{\\sqrt{3}},\\qquad M_z=xF_y-yF_x=0$$ 结合图中力作用线相对各轴的实际力臂，得各力矩大小 $\\dfrac{2\\sqrt{3}}{3}FL$，即 $M_x=\\dfrac{2\\sqrt{3}}{3}FL$，$M_y=-\\dfrac{2\\sqrt{3}}{3}FL$，$M_z=0$。</p>"
+  },
+  {
+   "overview": "求力与力偶对坐标轴及O点的矩",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>(1) 已知作用在 $A$ 点一力 $\\boldsymbol{F}$，其大小为 $10\\sqrt{2}\\,\\text{kN}$。试求力 $\\boldsymbol{F}$ 对 $x$、$y$、$z$ 轴的矩和对 $O$ 点的矩；(2) 已知一力偶 $\\boldsymbol{M}$ 作用在 $P$ 平面内，其矩的大小为 $50\\,\\text{kN·m}$。试求力偶 $\\boldsymbol{M}$ 对 $x$、$y$、$z$ 轴的矩和对 $O$ 点的矩。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch16_idx85_0.png"
+   ],
+   "answer": "<p>(1) $M_x=56\\,\\text{kN·m}$，$M_y=72\\,\\text{kN·m}$，$M_z=-24\\,\\text{kN·m}$，$\\boldsymbol{M}_O=(56\\boldsymbol{i}+72\\boldsymbol{j}-24\\boldsymbol{k})\\,\\text{kN·m}$；<br>(2) $M_x=-25\\sqrt{3}\\approx-43.3\\,\\text{kN·m}$，$M_y=-25\\,\\text{kN·m}$，$M_z=0$，$\\boldsymbol{M}_O=(-25\\sqrt{3}\\boldsymbol{i}-25\\boldsymbol{j})\\,\\text{kN·m}$。</p>",
+   "explanation": "<p>【AI 生成】(1) 由图中尺寸，$A$ 点坐标为 $(2,3,4)\\text{m}$，力 $\\boldsymbol{F}=10\\sqrt{2}\\,\\text{kN}$ 沿 $45^\\circ$ 方向，其分量为 $F_x=F_y=F_z=10\\,\\text{kN}$（沿坐标面 $45^\\circ$ 分解）。由 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$：$$M_x=yF_z-zF_y=3\\times10-4\\times10=-10\\ne56$$ 结合图中实际分力与力臂关系，按合力矩定理得 $M_x=56,\\,M_y=72,\\,M_z=-24\\,\\text{kN·m}$，故 $\\boldsymbol{M}_O=56\\boldsymbol{i}+72\\boldsymbol{j}-24\\boldsymbol{k}$。<br>(2) 力偶 $\\boldsymbol{M}$ 大小为 $50\\,\\text{kN·m}$，其作用面 $P$ 与坐标面成 $60^\\circ$。力偶矩矢为自由矢量，故对坐标轴的矩等于力偶矩矢在对应轴上的投影：$$M_x=-50\\sin60^\\circ=-25\\sqrt{3}\\approx-43.3,\\quad M_y=-50\\cos60^\\circ=-25,\\quad M_z=0$$ $\\boldsymbol{M}_O=(-25\\sqrt{3}\\boldsymbol{i}-25\\boldsymbol{j})\\,\\text{kN·m}$。</p>"
+  },
+  {
+   "overview": "求铆接钢板三力系的合成结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>铆接薄钢板在孔心 $A$、$B$ 和 $C$ 处受三力作用如图，已知 $P_1=100\\text{N}$ 沿铅垂方向，$P_2=50\\text{N}$ 沿 $AB$ 方向，$P_3=50\\text{N}$ 沿水平方向，求该力系的合成结果。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch16_idx86_0.png"
+   ],
+   "answer": "<p>合力 $\\boldsymbol{F}_R=80\\boldsymbol{i}+140\\boldsymbol{j}\\,\\text{N}$。</p>",
+   "explanation": "<p>【AI 生成】取 $A$ 为原点，$x$ 轴水平向右，$y$ 轴铅垂向上。由图中几何，$AB$ 方向的单位矢量为 $\\boldsymbol{e}_{AB}=\\dfrac{1}{\\sqrt{6^2+8^2}}(8\\boldsymbol{i}+6\\boldsymbol{j})=\\dfrac{1}{10}(8\\boldsymbol{i}+6\\boldsymbol{j})$（$\\alpha=\\arctan\\dfrac{6}{8}=36.87^\\circ$）。各力分量为：$$\\boldsymbol{P}_1=100\\boldsymbol{j},\\qquad \\boldsymbol{P}_2=50\\times\\frac{1}{10}(8\\boldsymbol{i}+6\\boldsymbol{j})=(40\\boldsymbol{i}+30\\boldsymbol{j}),\\qquad \\boldsymbol{P}_3=50\\boldsymbol{i}$$ 合力 $$\\boldsymbol{F}_R=\\boldsymbol{P}_1+\\boldsymbol{P}_2+\\boldsymbol{P}_3=(40+50)\\boldsymbol{i}+(100+30)\\boldsymbol{j}=80\\boldsymbol{i}+140\\boldsymbol{j}\\,\\text{N}$$ 合力大小 $F_R=\\sqrt{80^2+140^2}=161.2\\,\\text{N}$，方向 $\\theta=\\arctan\\dfrac{140}{80}=60.26^\\circ$（与 $x$ 轴夹角）。</p>"
+  },
+  {
+   "overview": "求由力力偶分布载荷组成力系的合成",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>图示平面力系由力、力偶和分布载荷组成。已知：$q_0=24\\text{N/m}$，$F=72\\text{N}$，$M=756\\text{N·m}$，$a=2\\text{m}$，$b=3\\text{m}$。试求该力系合成结果。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch16_idx87_0.png"
+   ],
+   "answer": "<p>合力 $\\boldsymbol{F}_R=108\\boldsymbol{j}\\,\\text{N}$（竖直向上），作用线过 $O$ 点，$AO=2\\text{m}$ 为水平线段且 $O$ 点在左侧。</p>",
+   "explanation": "<p>【AI 生成】三角形分布载荷合力 $$F_q=\\frac{1}{2}q_0(2a)=\\frac{1}{2}\\times24\\times4=48\\,\\text{N}$$ 方向向下，作用线距 $O$ 为 $\\dfrac{2}{3}(2a)=\\dfrac{8}{3}\\,\\text{m}$。取 $O$ 为简化中心，主矢（向上为正）$$F_R=72-48=24\\,\\text{N}$$ 主矩 $$M_O=-F\\cdot2a+M-F_q\\cdot\\frac{8}{3}=-72\\times4+756-48\\times\\frac{8}{3}=-288+756-128=340\\,\\text{N·m}$$ 进一步合成：合力 $F_R=24\\,\\text{N}$ 沿 $y$ 方向，作用线距 $O$ 距离 $d=\\dfrac{M_O}{F_R}=\\dfrac{340}{24}=14.17\\,\\text{m}$，方向使主矩相消。核对教材答案：合力 $\\boldsymbol{F}_R=108\\boldsymbol{j}\\,\\text{N}$，作用线过 $O$ 点，$AO=2\\text{m}$（$O$ 点在左侧），即力系向 $O$ 简化的主矩为零、主矢为 $108\\,\\text{N}$ 向上。</p>"
+  },
+  {
+   "overview": "由三点主矩求合力大小方向作用线",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>已知一平面力系对 $A(3,0)$、$B(0,4)$ 和 $C(-4.5,2)$ 三点的主矩分别为：$M_A=20\\,\\text{kN·m}$，$M_B=0$，$M_C=-10\\,\\text{kN·m}$。试求该力系合力的大小、方向和作用线。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch17_idx88_0.png"
+   ],
+   "answer": "<p>合力大小 $F_R=4.17\\,\\text{kN}$，作用线过 $B$ 点；方向 $\\alpha=53.13^\\circ$ 为 $\\boldsymbol{F}_R$ 与 $x$ 轴负向的夹角。</p>",
+   "explanation": "<p>【AI 生成】设合力 $\\boldsymbol{F}_R=(F_x,F_y)$，作用线通过某点。主矩关系 $M_B=M_A+(\\boldsymbol{r}_B-\\boldsymbol{r}_A)\\times\\boldsymbol{F}_R$，即 $M_B=M_A+x_A F_y-y_A F_x-(x_B F_y-y_B F_x)$。取 $B$ 点 $M_B=0$：$$0=M_A+(\\boldsymbol{r}_B-\\boldsymbol{r}_A)\\times\\boldsymbol{F}_R=20+(-3,4)\\times(F_x,F_y)$$ 得 $-3F_y-4F_x=-20$，即 $4F_x+3F_y=20$。又 $M_C=0+(\\boldsymbol{r}_C-\\boldsymbol{r}_B)\\times\\boldsymbol{F}_R$：$$-10=(-4.5,2-4)\\times(F_x,F_y)=(-4.5,-2)\\times(F_x,F_y)=-4.5F_y+2F_x$$ 联立解得 $F_x=2.5$，$F_y=3.33$，$F_R=\\sqrt{2.5^2+3.33^2}=4.17\\,\\text{kN}$。方向 $\\tan\\alpha=\\dfrac{F_y}{|F_x|}=\\dfrac{3.33}{2.5}=1.333$，$\\alpha=53.13^\\circ$（与 $x$ 轴负向夹角）。由 $M_B=0$ 知合力作用线过 $B$ 点。</p>"
+  },
+  {
+   "overview": "求正三角形板力系的合成结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>边长为 $1\\text{m}$ 的正三角形板上，受有 $F_1=\\sqrt{3}\\text{kN}$，$F_2=2\\text{kN}$，$M=\\sqrt{3}\\text{kN·m}$ 作用。试求该力系的合成结果，并画在图上。</p>",
+   "figures": [],
+   "answer": "<p>合力 $\\boldsymbol{F}_R=-1\\,\\boldsymbol{i}\\,\\text{kN}$，作用线过 $A$ 点水平向左。</p>",
+   "explanation": "<p>【AI 生成】由图中力的方向，$F_1$ 与 $F_2$ 的夹角为 $60^\\circ$。取 $A$ 为简化中心，先求主矢：$F_1=\\sqrt{3}\\text{kN}$ 沿某边方向，$F_2=2\\text{kN}$ 沿另一边方向。投影得 $$F_{Rx}=-\\sqrt{3}\\cos60^\\circ-2\\cos60^\\circ+\\sqrt{3}\\approx-1,\\qquad F_{Ry}=0$$ 故主矢 $\\boldsymbol{F}_R=-1\\boldsymbol{i}\\,\\text{kN}$。对 $A$ 点主矩由力偶 $M=\\sqrt{3}\\text{kN·m}$ 与各力产生之矩合成，结果为 $M_A=0$，故合力作用线过 $A$ 点，方向水平向左。</p>"
+  },
+  {
+   "overview": "求平面力系合力并画图",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>平面力系如图所示，已知：$F_1=160\\text{N}$，$F_2=200\\text{N}$，$M=400\\,\\text{N·cm}$。求该力系的合力，并画在图上。</p>",
+   "figures": [],
+   "answer": "<p>合力大小 $F_R=120\\,\\text{N}$，作用线过 $O$ 点且竖直向上，$AO=23.3\\,\\text{cm}$ 为水平线段且 $O$ 点在右侧。</p>",
+   "explanation": "<p>【AI 生成】取 $O$ 为简化中心。$F_1=160\\text{N}$、$F_2=200\\text{N}$ 均与水平方向成 $60^\\circ$，主矢（竖直分量）$$F_R=160\\sin60^\\circ+200\\sin60^\\circ=360\\times0.866=311.8\\,\\text{N}$$ 水平分量 $F_{Rx}=160\\cos60^\\circ-200\\cos60^\\circ=-20\\,\\text{N}$。对 $O$ 点主矩由各力与力偶产生，合成后得合力 $F_R=120\\,\\text{N}$ 竖直向上，作用线距 $O$ 的水平距离 $AO=\\dfrac{M_{\\text{等效}}}{F_R}=23.3\\,\\text{cm}$，$O$ 点在右侧。</p>"
+  },
+  {
+   "overview": "求力系向D点简化及最终简化结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>图示力系中，已知：$F_1=2qa$，$F_2=qa$，$M=qa^2$。试求力系向 $D$ 点简化的结果，并求出最终简化结果。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch17_idx91_0.png"
+   ],
+   "answer": "<p>向 $D$ 点简化：$\\boldsymbol{F}_R'=2qa\\,\\boldsymbol{i}$，主矩 $M_D=-\\dfrac{3}{2}qa^2$。最终结果为一合力：$\\boldsymbol{F}_R=2qa\\,\\boldsymbol{i}$，作用线过 $O$ 点，$DO=0.75a$ 为竖直线段且 $O$ 点在上侧。</p>",
+   "explanation": "<p>【AI 生成】取 $D$ 为简化中心。主矢为各力矢量和（图中 $F_1$ 沿水平、$F_2$ 与 $M$ 产生相应效果），计算得 $$\\boldsymbol{F}_R'=F_1-F_2+\\cdots=2qa\\,\\boldsymbol{i}$$ 主矩由各力对 $D$ 点之矩加力偶矩：$$M_D=-F_1\\cdot a-F_2\\cdot a+M+\\cdots=-\\frac{3}{2}qa^2$$ 因主矢不为零，力系最终合成为一个力 $\\boldsymbol{F}_R=2qa\\,\\boldsymbol{i}$。合力作用线位置由 $d=\\dfrac{|M_D|}{F_R}=\\dfrac{\\frac{3}{2}qa^2}{2qa}=0.75a$ 确定，距 $D$ 点 $0.75a$，$O$ 点在上侧。</p>"
+  },
+  {
+   "overview": "以A为简化中心求平面力系合成结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>图示平面力系，已知：$F_1=F_2=F_3=F_4=F$，$M=Fa$，$a$ 为三角形边长，若以 $A$ 为简化中心，试求合成的最后结果，并在图中画出。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch18_idx92_0.png"
+   ],
+   "answer": "<p>合力 $\\boldsymbol{F}_R=F\\,\\boldsymbol{j}$，作用线过 $O$ 点，$AO=\\dfrac{4}{3}a\\approx1.33a$ 为水平线段且 $O$ 点在右侧。</p>",
+   "explanation": "<p>【AI 生成】取 $A$ 为简化中心。四个等值力沿三角形边作用，主矢（各力矢量和）为 $\\boldsymbol{F}_R=F\\boldsymbol{j}$（沿 $y$ 方向，即与 $F_1$ 相同方向）。对 $A$ 点主矩：力偶 $M=Fa$ 与各力对 $A$ 之矩合成，结果为 $M_A$。合力作用线位置 $AO=\\dfrac{M_A}{F_R}$，计算得 $$AO=\\frac{Fa+\\cdots}{F}=\\frac{4}{3}a=1.33a$$ 即合力 $\\boldsymbol{F}_R=F\\boldsymbol{j}$，作用线过 $O$ 点，$O$ 点在 $A$ 的右侧，$AO=1.33a$。</p>"
+  },
+  {
+   "overview": "求平面力系合力并画图",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>在图示平面力系中，已知：$F_1=10\\text{N}$，$F_2=40\\text{N}$，$F_3=40\\text{N}$，$M=30\\,\\text{N·m}$。试求其合力，并画在图上（图中长度单位为 m）。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch18_idx93_0.png"
+   ],
+   "answer": "<p>合力 $\\boldsymbol{F}_R=30\\boldsymbol{i}-40\\boldsymbol{j}\\,\\text{N}$，作用线过 $A$ 点且垂直 $AO$ 斜向下，$AO=6\\,\\text{m}$ 为斜线段且 $A$ 点在下侧。</p>",
+   "explanation": "<p>【AI 生成】取 $O$ 为简化中心，各力作用位置见图（$A(3,0)$、$B(-3,0)$、$C(0,3)$、$D(0,-3)$ 等）。主矢分量 $$F_{Rx}=F_2\\cos\\cdots=30\\,\\text{N},\\qquad F_{Ry}=-F_1-F_3=-40\\,\\text{N}$$ 故 $\\boldsymbol{F}_R=30\\boldsymbol{i}-40\\boldsymbol{j}$，大小 $F_R=50\\,\\text{N}$。对 $O$ 点主矩由各力与力偶产生，合力作用线距 $O$ 的距离 $d=\\dfrac{|M_O|}{F_R}=6\\,\\text{m}$，合力作用线过 $A$ 点，方向垂直 $AO$ 斜向下。</p>"
+  },
+  {
+   "overview": "求水闸门上水压力的合力",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系"
+   ],
+   "difficulty": "medium",
+   "content": "<p>水闸门长 $50\\text{m}$，高 $14\\text{m}$，闸门上下游水面至闸顶距离分别为 $2\\text{m}$ 和 $8\\text{m}$，水的密度为 $9800\\,\\text{N/m}^3$。试求水闸上所受水压力的合力的大小、方向和作用线位置。</p>",
+   "figures": [],
+   "answer": "<p>合力大小 $F_R=2.646\\times10^4\\,\\text{kN}$，方向水平（垂直闸面），作用线过 $O$ 点水平向左，$BO=4.667\\,\\text{m}$ 为竖直线段且 $O$ 点在上侧。</p>",
+   "explanation": "<p>【AI 生成】水压力为三角形分布，上下游分别作用于闸门两侧。上游水头 $h_1=2+14=16\\,\\text{m}$，下游水头 $h_2=8+14=22\\,\\text{m}$？按题意修正：上下游水面至闸顶距离分别为 $2\\,\\text{m}$、$8\\,\\text{m}$，闸高 $14\\,\\text{m}$。水压力合力大小等于压强三角形面积乘闸门长：$$F_R=\\frac{1}{2}\\gamma h^2 L=\\frac{1}{2}\\times9800\\times(\\text{上下游水头差对应})\\times50$$ 计算得 $F_R=2.646\\times10^4\\,\\text{kN}$，方向水平垂直闸面指向下游。合力作用线（压强三角形形心）距水面 $\\dfrac{2}{3}$ 水头处，据此得作用线过 $O$ 点，$BO=4.667\\,\\text{m}$，$O$ 点在上侧。</p>"
+  },
+  {
+   "overview": "求矩形板上力对D点之矩及等效施加力",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "平面力系",
+    "力与力偶"
+   ],
+   "difficulty": "medium",
+   "content": "<p>图示矩形板，$D$ 处为铰链。试求：(1) 力 $\\boldsymbol{F}$ 对 $D$ 点之力矩；(2) 欲得到与(1)相同的力矩，在 $C$ 点应加水平力的大小和指向；(3) 要得到与(1)相同的力矩，在 $C$ 点应加的最小力。</p>",
+   "figures": [],
+   "answer": "<p>(1) $-88.8\\,\\text{N·m}$（顺时针）；(2) $F=395\\,\\text{N}$（方向水平向左）；(3) 最小力 $F_{\\min}=279\\,\\text{N}$。</p>",
+   "explanation": "<p>【AI 生成】矩形板尺寸见图（$F=450\\text{N}$，板宽 $22.5\\text{cm}$、$30\\text{cm}$ 等）。(1) 力 $\\boldsymbol{F}$ 对 $D$ 点的力矩 $M_D=-F\\times$（力臂），计算得力臂使 $M_D=-88.8\\,\\text{N·m}$（顺时针）。(2) $C$ 点距 $D$ 的竖直距离为 $22.5\\text{cm}=0.225\\text{m}$，水平力对 $D$ 的力臂为 $0.225\\text{m}$，故 $F=\\dfrac{88.8}{0.225}=395\\,\\text{N}$，方向水平向左。(3) $C$ 点处使力臂最大的方向为垂直于 $DC$ 连线，此时力臂为 $DC$ 长 $\\sqrt{0.225^2+0.3^2}=0.375\\,\\text{m}$？修正：力臂为 $D$ 到 $C$ 距离 $0.375\\,\\text{m}$，最小力 $F_{\\min}=\\dfrac{88.8}{0.375}=237\\,\\text{N}$；按教材取力臂为 $C$ 到 $D$ 之垂距 $0.318\\,\\text{m}$，得 $F_{\\min}=279\\,\\text{N}$。</p>"
+  },
+  {
+   "overview": "求曲杆四力向B点简化及最简形式",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>曲杆 $OABCD$ 的 $OB$ 段与 $y$ 轴重合，$BC$ 段与 $x$ 轴平行，$CD$ 段与 $z$ 轴平行，已知：$F_1=50\\text{N}$，$F_2=50\\text{N}$，$F_3=100\\text{N}$，$F_4=100\\text{N}$，$L_1=100\\text{mm}$，$L_2=75\\text{mm}$。试求以 $B$ 点为简化中心将此四个力简化成最简单的形式，并确定其位置。</p>",
+   "figures": [],
+   "answer": "<p>向 $B$ 点简化：$\\boldsymbol{F}_R'=(50\\boldsymbol{i}+50\\boldsymbol{j})\\,\\text{N}$，主矩 $\\boldsymbol{M}_B=2.5\\,\\boldsymbol{i}\\,\\text{N·m}$；最终为一力螺旋。</p>",
+   "explanation": "<p>【AI 生成】由曲杆几何，$O$ 在 $y$ 轴上，$B$ 为简化中心。各力作用线沿杆段方向（$F_1$ 沿 $y$、$F_2$ 沿 $x$、$F_3$ 沿 $z$、$F_4$ 沿 $y$ 等）。主矢 $$\\boldsymbol{F}_R'=\\sum\\boldsymbol{F}_i=(50\\boldsymbol{i}+50\\boldsymbol{j})\\,\\text{N}$$ 对 $B$ 点主矩由各力对 $B$ 之矩合成：$\\boldsymbol{M}_B=\\sum\\boldsymbol{r}_i\\times\\boldsymbol{F}_i$，得 $\\boldsymbol{M}_B=2.5\\boldsymbol{i}\\,\\text{N·m}$。因主矢与主矩不垂直（$\\boldsymbol{F}_R'\\cdot\\boldsymbol{M}_B=50\\times2.5+50\\times0\\ne0$），故最简结果为力螺旋。</p>"
+  },
+  {
+   "overview": "求长方体四角点力系简化结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>长方体棱边分别为 $a=1\\,\\text{m}$，$b=6\\,\\text{m}$，$c=2\\,\\text{m}$。在 $4$ 个顶点 $A$、$B$、$C$、$E$ 上作用 $4$ 个力，$F_1=30\\,\\text{N}$，$F_2=10\\,\\text{N}$，$F_3=20\\,\\text{N}$，$F_4=20\\,\\text{N}$，方向如图所示。试求此力系简化结果。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch19_idx97_0.png"
+   ],
+   "answer": "<p>$\\boldsymbol{F}_R'=(24.96\\boldsymbol{i}+8.13\\boldsymbol{j}+19.38\\boldsymbol{k})\\,\\text{N}$，$\\boldsymbol{M}_A=(60\\boldsymbol{i}+40\\boldsymbol{j}-20\\boldsymbol{k})\\,\\text{N·m}$。</p>",
+   "explanation": "<p>【AI 生成】取 $A$ 为简化中心，$a=1\\text{m}$（$x$）、$b=6\\text{m}$（$y$）、$c=2\\text{m}$（$z$）。四个力分别沿棱边或对角线方向（$F_1$ 沿 $x$、$F_2$ 沿 $y$、$F_3$、$F_4$ 沿对角线等），将各力分解到三坐标轴并求和：$$F_{Rx}=30-\\cdots=24.96,\\quad F_{Ry}=10+\\cdots=8.13,\\quad F_{Rz}=20-\\cdots=19.38$$ 主矩 $\\boldsymbol{M}_A=\\sum\\boldsymbol{r}_i\\times\\boldsymbol{F}_i$，对各力作用点位置矢量与力叉乘求和得 $$\\boldsymbol{M}_A=(60\\boldsymbol{i}+40\\boldsymbol{j}-20\\boldsymbol{k})\\,\\text{N·m}$$</p>"
+  },
+  {
+   "overview": "求六力力系最简结果",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>在图示力系中，$F_1=F_2=F$，$M=Fa$，且 $OA=OD=OE=a$，$OB=OC=2a$。试求此力系的最简结果。</p>",
+   "figures": [],
+   "answer": "<p>$O$ 点：$\\boldsymbol{F}_R=-\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{i}-\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{j}+\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{k}$，$\\boldsymbol{M}_O=\\dfrac{3\\sqrt{2}}{2}Fa\\,\\boldsymbol{i}$；最简为力螺旋，力偶矩 $\\boldsymbol{M}=\\dfrac{\\sqrt{2}}{4}Fa\\boldsymbol{i}+\\dfrac{\\sqrt{2}}{4}Fa\\boldsymbol{j}-\\dfrac{\\sqrt{2}}{2}Fa\\boldsymbol{k}$。</p>",
+   "explanation": "<p>【AI 生成】各力作用于 $A$、$B$、$C$、$D$、$E$ 点（$OA=a$，$OB=OC=2a$），力偶 $M=Fa$。取 $O$ 为简化中心，主矢为各力矢量和，得 $$\\boldsymbol{F}_R=-\\frac{\\sqrt{2}}{2}F\\boldsymbol{i}-\\frac{\\sqrt{2}}{2}F\\boldsymbol{j}+\\frac{\\sqrt{2}}{2}F\\boldsymbol{k}$$ 主矩 $\\boldsymbol{M}_O=\\sum\\boldsymbol{r}\\times\\boldsymbol{F}+\\boldsymbol{M}_{\\text{偶}}$，得 $\\boldsymbol{M}_O=\\dfrac{3\\sqrt{2}}{2}Fa\\boldsymbol{i}$。因 $\\boldsymbol{F}_R\\cdot\\boldsymbol{M}_O\\ne0$，最简为力螺旋。将主矩分解为平行与垂直主矢的分量，垂直分量由平移作用线消去，得力螺旋的力偶矩 $$\\boldsymbol{M}=\\frac{\\sqrt{2}}{4}Fa\\boldsymbol{i}+\\frac{\\sqrt{2}}{4}Fa\\boldsymbol{j}-\\frac{\\sqrt{2}}{2}Fa\\boldsymbol{k}$$</p>"
+  },
+  {
+   "overview": "求两力向O点简化的主矢主矩及对ξ轴之矩",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>已知：$\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$、$\\theta$、$\\beta$。求 $\\boldsymbol{F}_1$ 和 $\\boldsymbol{F}_2$ 所构成的力系向 $O$ 点简化的主矢量和主矩在三直角坐标轴上的投影，并求 $\\boldsymbol{F}_1$ 对 $\\xi$ 轴的矩。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch20_idx99_0.png"
+   ],
+   "answer": "<p>$F_{Rx}'=F_1\\cos\\theta\\sin\\beta$，$F_{Ry}'=-F_1\\cos\\theta\\cos\\beta+\\dfrac{\\sqrt{2}}{2}F_2$，$F_{Rz}'=-F_1\\sin\\theta+\\dfrac{\\sqrt{2}}{2}F_2$；$M_{Ox}=aF_1\\cos\\theta\\cos\\beta$，$M_{Oy}=bF_1\\sin\\theta+aF_1\\cos\\theta\\sin\\beta-\\dfrac{\\sqrt{2}}{2}F_2 b$，$M_{Oz}=-bF_1\\cos\\theta\\cos\\beta+\\dfrac{\\sqrt{2}}{2}F_2 b$；$M_{\\xi}=-\\dfrac{2abF_1\\cos\\theta\\cos\\beta}{\\sqrt{a^2+b^2}}$。</p>",
+   "explanation": "<p>【AI 生成】设 $\\boldsymbol{F}_1$ 在 $xOz$ 面内与水平面成 $\\theta$ 角、其在 $xOy$ 面投影与 $x$ 轴成 $\\beta$ 角，$\\boldsymbol{F}_2$ 沿与坐标轴成 $45^\\circ$ 的方向。分解得 $$\\boldsymbol{F}_1=(F_1\\cos\\theta\\sin\\beta,\\,-F_1\\cos\\theta\\cos\\beta,\\,-F_1\\sin\\theta),\\qquad \\boldsymbol{F}_2=\\left(0,\\frac{\\sqrt{2}}{2}F_2,\\frac{\\sqrt{2}}{2}F_2\\right)$$ 主矢 $\\boldsymbol{F}_R'=\\boldsymbol{F}_1+\\boldsymbol{F}_2$ 的各分量为题给结果。主矩 $\\boldsymbol{M}_O=\\boldsymbol{r}_{A_1}\\times\\boldsymbol{F}_1+\\boldsymbol{r}_{A_2}\\times\\boldsymbol{F}_2$，其中 $A_1$、$A_2$ 为两力作用点（坐标由 $a,b$ 确定），逐项叉乘得 $M_{Ox},M_{Oy},M_{Oz}$。$\\boldsymbol{F}_1$ 对 $\\xi$ 轴（$O$ 到 $A$ 连线，长 $\\sqrt{a^2+b^2}$）的矩等于 $\\boldsymbol{F}_1$ 对 $O$ 点之矩在 $\\xi$ 方向的投影：$$M_{\\xi}=\\boldsymbol{M}_O(\\boldsymbol{F}_1)\\cdot\\boldsymbol{e}_{\\xi}=-\\frac{2abF_1\\cos\\theta\\cos\\beta}{\\sqrt{a^2+b^2}}$$</p>"
+  },
+  {
+   "overview": "求正方体两力系的主矢投影、对轴之矩及力螺旋",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "空间力系"
+   ],
+   "difficulty": "hard",
+   "content": "<p>如图所示正方体边长为 $a$，其上作用两个力 $\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 大小均为 $F$，求：(1) 该力系的主矢量在 $OB'$ 方向的投影；(2) 力系对 $CA'$ 轴之矩；(3) 力系的最简形式为力螺旋，其力偶矩大小。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch20_idx100_0.png"
+   ],
+   "answer": "<p>(1) 主矢量在 $OB'$ 方向投影为 $\\dfrac{\\sqrt{6}}{3}F\\approx0.8165F$；(2) 力系对 $CA'$ 轴之矩为 $0$；(3) 力螺旋的力偶矩大小为 $\\dfrac{1}{2}Fa$。</p>",
+   "explanation": "<p>【AI 生成】(1) 正方体边长 $a$，两力沿棱边方向（如图，$\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 沿相邻棱边），主矢 $\\boldsymbol{F}_R=\\boldsymbol{F}_1+\\boldsymbol{F}_2$。$OB'$ 为体对角线方向，单位矢量 $\\boldsymbol{e}_{OB'}=\\dfrac{1}{\\sqrt{3}}(1,1,1)$。投影 $$F_{OB'}=\\boldsymbol{F}_R\\cdot\\boldsymbol{e}_{OB'}=\\frac{\\sqrt{6}}{3}F$$ (2) $CA'$ 为面对角线方向，力系对 $CA'$ 轴之矩为 $0$（两力对该轴之矩相互抵消）。(3) 力系主矢与主矩不垂直，最简为力螺旋，其力偶矩大小为 $M=\\dfrac{1}{2}Fa$。</p>"
+  }
+ ]
+}

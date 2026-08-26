@@ -1,0 +1,20 @@
+{
+  "id": "q_461",
+  "overview": "求楔块B在斜面上运动的速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>三角形楔块B置于楔块A的斜面上，若A块以 $v_A=3\\,\\text{m/s}$ 的速度向左运动，$\\beta=30^\\circ$，则B块的速度 $v_B=\\underline{\\qquad}\\,\\text{m/s}$。</p>\n<p>(A) $\\sqrt{3}$；&nbsp;&nbsp;(B) $2/\\sqrt{3}$；&nbsp;&nbsp;(C) $3$；&nbsp;&nbsp;(D) $3/\\sqrt{3}$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】取B块为动点，A块为动系。B块受铅垂导轨约束只能沿铅垂方向运动，$v_B$ 铅垂；牵连速度 $v_e=v_A=3\\,\\text{m/s}$ 水平向左；相对速度 $v_r$ 沿斜面（与水平成 $\\beta=30^\\circ$）。由 $v_B=v_A+v_r$ 分解：水平方向 $v_r\\cos\\beta=v_A$，铅垂方向 $v_B=v_r\\sin\\beta$，故 $v_B=v_A\\tan\\beta=3\\tan30^\\circ=3/\\sqrt{3}=\\sqrt{3}\\,\\text{m/s}$，选(A)。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求楔块B在斜面上运动的速度",
+  "module": "运动学"
+}

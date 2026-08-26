@@ -1,0 +1,17 @@
+{
+  "overview": "求闸门启闭设备最小启门力偶矩M及轴O3约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "hard",
+  "content": "<p>图所示为 1 种闸门启闭设备的传动系统。已知各齿轮的半径分别为 $r_1$、$r_2$、$r_3$、$r_4$，鼓轮的半径为 $r$，闸门重力为 $P$，齿轮的压力角为 $\\theta$，不计各齿轮的自重，求最小的启门力偶矩 $M$ 及轴 $O_3$ 的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>最小的启门力偶矩：</p><p>$$M=\\frac{Pr\\,r_1r_3}{r_2r_4}$$</p><p>轴 $O_3$ 的约束力：</p><p>$$F_{O_3x}=\\frac{Pr}{r_4}\\tan\\theta,\\qquad F_{O_3y}=P\\left(1-\\frac{r}{r_4}\\right)$$</p>",
+  "explanation": "<p>解：</p><p><b>（1）轮 $O_3$（鼓轮与齿轮 $r_4$）受力如图所示</b></p><p>$\\sum M_{O_3}=0$：$P\\cdot r-F_2\\cos\\theta\\cdot r_4=0$，故</p><p>$$F_2=\\frac{Pr}{r_4\\cos\\theta}$$</p><p>$\\sum F_x=0$：$F_{O_3x}-F_2\\sin\\theta=0$，故</p><p>$$F_{O_3x}=F_2\\sin\\theta=\\frac{Pr}{r_4}\\tan\\theta$$</p><p>$\\sum F_y=0$：$F_{O_3y}+F_2\\cos\\theta-P=0$，故</p><p>$$F_{O_3y}=P-F_2\\cos\\theta=P\\left(1-\\frac{r}{r_4}\\right)$$</p><p><b>（2）轮 $O_1$（齿轮 $r_1$）受力如图所示</b></p><p>$\\sum M_{O_1}=0$：$-F_1\\cos\\theta\\cdot r_1+M=0$，故</p><p>$$M=F_1\\cos\\theta\\cdot r_1$$</p><p><b>（3）轮 $O_2$（齿轮 $r_2$、$r_3$）受力如图所示</b></p><p>$\\sum M_{O_2}=0$：$F_1\\cos\\theta\\cdot r_2-F_2\\cos\\theta\\cdot r_3=0$，故</p><p>$$F_1r_2=F_2r_3$$</p><p><b>（4）将（1）、（2）、（3）式代入</b>，得</p><p>$$M=F_1\\cos\\theta\\cdot r_1=\\frac{F_2r_3}{r_2}\\cos\\theta\\cdot r_1=\\frac{Pr}{r_4\\cos\\theta}\\cdot\\frac{r_3}{r_2}\\cos\\theta\\cdot r_1=\\frac{Pr\\,r_1r_3}{r_2r_4}$$</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": [
+    "题库/qbank2_figs/q10_3.png",
+    "题库/qbank2_figs/q10_0.png",
+    "题库/qbank2_figs/q10_1.png"
+  ]
+}

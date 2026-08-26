@@ -1,0 +1,22 @@
+{
+  "id": "q_022",
+  "overview": "判断柔索约束反力的方向",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "约束与约束反力"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>柔索类约束反力，其作用线沿柔索，指向不能任意假定，方向背离受力物体。 (    )</p><img src=\"qdata/q_022/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】柔索只能承受拉力，其约束反力沿柔索背离受力物体，方向是确定的，不能任意假定。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36",
+  "source": "练习册",
+  "title": "判断柔索约束反力的方向",
+  "module": "静力学"
+}

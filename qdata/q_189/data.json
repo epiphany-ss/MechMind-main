@@ -1,0 +1,22 @@
+{
+  "id": "q_189",
+  "overview": "求四弹簧系统的等效刚度与固有频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>将刚度分别为 $k_1$、$k_2$、$k_3$、$k_4$ 的四根弹簧与质量为 $m$ 的物块联接成图示弹簧—质量系统，则四根弹簧的等效刚度为________；系统的固有频率为________。</p><img src=\"qdata/q_189/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$k_{eq}=\\dfrac{k_1k_2}{k_1+k_2}+\\dfrac{k_3k_4}{k_3+k_4}$；$\\omega_n=\\sqrt{\\dfrac{k_{eq}}{m}}$</p>",
+  "explanation": "<p>【AI 生成】图中 $k_1$ 与 $k_2$ 串联，等效刚度 $k_{12}=\\dfrac{k_1k_2}{k_1+k_2}$；$k_3$ 与 $k_4$ 串联，等效刚度 $k_{34}=\\dfrac{k_3k_4}{k_3+k_4}$；两串联组再并联共同支承物块，故 $k_{eq}=k_{12}+k_{34}$，固有频率 $\\omega_n=\\sqrt{k_{eq}/m}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "求四弹簧系统的等效刚度与固有频率",
+  "module": "动力学"
+}

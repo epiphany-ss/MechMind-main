@@ -1,0 +1,22 @@
+{
+  "id": "q_396",
+  "overview": "求动点沿轨道的加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，动点 M 沿轨道 OABC 运动，OA 段为直线，AB 与 BC 段分别为四分之一圆弧。已知点 M 的运动方程为 $s=30t+5t^2$（m），求 $t=0,\\ 1,\\ 2$s 时点 M 的加速度。</p><img src=\"qdata/q_396/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$t=0$：$a=10$ m/s$^2$；$t=1$s：$a_\\tau=10$ m/s$^2$，$a_n=106.7$ m/s$^2$；$t=2$s：$a_\\tau=10$ m/s$^2$，$a_n=83.3$ m/s$^2$</p>",
+  "explanation": "<p>【AI 生成】$v=\\dot s=30+10t$，$a_\\tau=\\ddot s=10\\,\\mathrm{m/s^2}$（常量）。图示 AB 弧半径 $R_1=15$ m，BC 弧半径 $R_2=30$ m。</p><p>$t=0$ 时点在 OA 直线上，$a_n=0$，故</p><p>$$a=a_\\tau=10\\,\\mathrm{m/s^2}$$</p><p>$t=1$s 时 $s=35$ m、$v=40$ m/s，点在 AB 弧上：</p><p>$$a_\\tau=10\\,\\mathrm{m/s^2},\\qquad a_n=\\frac{v^2}{R_1}=\\frac{40^2}{15}\\approx106.7\\,\\mathrm{m/s^2}$$</p><p>$t=2$s 时 $s=80$ m、$v=50$ m/s，点在 BC 弧上：</p><p>$$a_\\tau=10\\,\\mathrm{m/s^2},\\qquad a_n=\\frac{v^2}{R_2}=\\frac{50^2}{30}\\approx83.3\\,\\mathrm{m/s^2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求动点沿轨道的加速度",
+  "module": "运动学"
+}

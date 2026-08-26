@@ -1,0 +1,20 @@
+{
+  "id": "q_438",
+  "overview": "求B点、滑块C速度及BC杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面机构如图，已知：曲柄$OA=r$，角速度为$\\omega$，$BF=BC=L$，滑块$C$可沿铅直槽滑动。在图示位置时，连杆$AB$位于水平，$\\theta=45^\\circ$，$\\varphi=45^\\circ$。试求该瞬时：(1) $B$点的速度；(2) 滑块$C$的速度；(3) $BC$杆的角速度。</p><img src=\"qdata/q_438/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=\\sqrt2\\,\\omega r$；$v_C=2\\omega r$（沿铅垂槽向下）；$\\omega_{BC}=\\dfrac{\\sqrt2\\,\\omega r}{L}$</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega r$，方向垂直于$OA$；$AB$水平，故$A$、$B$等高，$v_{Bx}=v_{Ax}=\\omega r$。<br>由$BF=L$（$F$为固定铰）且$\\theta=45^\\circ$，$v_B\\perp BF$，结合$v_{Bx}=\\omega r$得：$$v_B=\\sqrt2\\,\\omega r\\qquad(\\text{方向与水平成}45^\\circ)$$<br>$BC=L$与铅垂成$\\varphi=45^\\circ$，滑块$C$沿铅垂槽运动，由速度投影定理：$$v_C\\cos45^\\circ=v_B\\;\\Rightarrow\\;v_C=2\\omega r$$<br>再由$\\boldsymbol{v}_C=\\boldsymbol{v}_B+\\boldsymbol{\\omega}_{BC}\\times\\boldsymbol{r}_{BC}$：$$\\omega_{BC}=\\dfrac{v_B}{L}=\\dfrac{\\sqrt2\\,\\omega r}{L}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

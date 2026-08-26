@@ -1,0 +1,20 @@
+{
+  "id": "q_009",
+  "overview": "判断刚体是否为理想化模型",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>刚体是真实物体的一种抽象化的力学模型，在自然界中并不存在。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】刚体把物体的变形忽略不计，是对真实物体的一种抽象，自然界中不存在绝对不变形的物体。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册",
+  "title": "判断刚体是否为理想化模型",
+  "module": "静力学"
+}

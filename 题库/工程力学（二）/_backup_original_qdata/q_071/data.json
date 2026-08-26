@@ -1,0 +1,21 @@
+{
+  "id": "q_071",
+  "overview": "求圆盘微振动微分方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，均质圆盘质量为 $m_1$，半径为 $r$，可绕定轴 $O$ 转动，重物 $A$ 的质量为 $m_2$。弹簧水平，刚度系数为 $k$，图示 $OB$ 铅直时系统处于平衡位置，求圆盘微振动的微分方程。</p><img src=\"qdata/q_071/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\ddot\\varphi+\\dfrac{2ka^2}{(m_1+2m_2)r^2}\\varphi=0$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 取 $\\varphi$ 为圆盘绕 $O$ 的微小转角。$A$ 点速度 $v_A=r\\dot\\varphi$，弹簧端点 $B$（距 $O$ 为 $a$）处变形 $a\\varphi$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12m_1r^2\\dot\\varphi^2+\\frac12m_2r^2\\dot\\varphi^2=\\frac14(m_1+2m_2)r^2\\dot\\varphi^2$。<br>(3) 势能（相对平衡位置）：$V=\\frac12ka^2\\varphi^2$。<br>(4) 拉格朗日方程：$\\dfrac{d}{dt}\\dfrac{\\partial T}{\\partial\\dot\\varphi}+\\dfrac{\\partial V}{\\partial\\varphi}=0$，即 $\\frac12(m_1+2m_2)r^2\\ddot\\varphi+ka^2\\varphi=0$。<br>(5) 得 $\\ddot\\varphi+\\dfrac{2ka^2}{(m_1+2m_2)r^2}\\varphi=0$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

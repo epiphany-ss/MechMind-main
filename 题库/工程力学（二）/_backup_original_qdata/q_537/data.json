@@ -1,0 +1,17 @@
+{
+  "id": "q_537",
+  "overview": "判断系统动量守恒时各部分动量是否不变",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>若质点系的动量守恒，则其中每一部分的动量都必须保持不变。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】系统总动量守恒只要求 $\\sum m_i\\boldsymbol{v}_i$ 为常矢量；系统各部分之间可以通过内力交换动量，因此每一部分的动量是可以变化的。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

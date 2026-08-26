@@ -1,0 +1,22 @@
+{
+  "id": "q_293",
+  "overview": "判断平面平衡力系的独立平衡方程",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>对于作用在 Oxy 平面内的平面平衡力系，其独立的平衡方程是____。<br>(A) $\\sum M_A=0$，$\\sum M_B=0$，$\\sum M_C=0$；<br>(B) $\\sum M_B=0$，$\\sum M_O=0$，$\\sum F_x=0$；<br>(C) $\\sum M_A=0$，$\\sum M_B=0$，$\\sum M_O=0$；<br>(D) $\\sum F_x=0$，$\\sum F_y=0$，$\\sum F_{AB}=0$。</p><img src=\"qdata/q_293/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】平面一般力系可取三矩式方程，只要三个矩心不共线即独立，故(A)成立。由图中 O 位于 A、B 连线上，使(C)不独立；B、O 连线竖直（⊥x），使(B)不独立；(D)中 $\\sum F_{AB}=0$ 是 $\\sum F_x,\\sum F_y$ 的线性组合，故(A)为独立平衡方程。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "判断平面平衡力系的独立平衡方程",
+  "module": "静力学"
+}

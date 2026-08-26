@@ -1,0 +1,20 @@
+{
+  "id": "q_093",
+  "overview": "圆盘弹簧系统求最右位置与角加速度摩擦力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：匀质圆盘的质量为 $m$、半径为 $r$，可沿水平面作纯滚动，刚度系数为 $k$ 的弹簧一端固定于 $B$，另一端与圆盘中心 $O$ 相连，运动开始时弹簧处于原长，此时圆盘角速度为 $\\omega_0$。试求：(1) 圆盘向右运动能到达的最右位置；(2) 圆盘到达最右位置时的角加速度 $\\alpha$ 及圆盘与水平面间的摩擦力。</p><img src=\"qdata/q_093/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$s_{\\max}=\\omega_0r\\sqrt{\\dfrac{3m}{2k}}$；$\\alpha=\\omega_0\\sqrt{\\dfrac{2k}{3m}}$；$F=\\omega_0r\\sqrt{\\dfrac{km}{6}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 圆盘纯滚动 $v_O=r\\omega_0$。初动能 $T_0=\\frac12mv_O^2+\\frac12\\cdot\\frac12mr^2\\omega_0^2=\\frac34mr^2\\omega_0^2$。<br>(2) 弹簧伸长 $s$ 时势能 $\\frac12ks^2$。最右位置速度为零：$\\frac34mr^2\\omega_0^2=\\frac12ks_{\\max}^2\\Rightarrow s_{\\max}=\\omega_0r\\sqrt{\\dfrac{3m}{2k}}$。<br>(3) 最右位置弹簧力 $F_s=ks_{\\max}$，$m a_O=F_s-f$，$J_O\\alpha=fr$，$a_O=r\\alpha$，$J_O=\\frac12mr^2$。联立得 $\\alpha=\\dfrac{2ks_{\\max}}{3mr}=\\omega_0\\sqrt{\\dfrac{2k}{3m}}$。<br>(4) 摩擦力 $f=\\frac12mr\\alpha=\\dfrac{ks_{\\max}}{3}=\\omega_0r\\sqrt{\\dfrac{km}{6}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_264",
+  "overview": "求铆接钢板三力系的合成结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>铆接薄钢板在孔心 $A$、$B$ 和 $C$ 处受三力作用如图，已知 $P_1=100\\text{N}$ 沿铅垂方向，$P_2=50\\text{N}$ 沿 $AB$ 方向，$P_3=50\\text{N}$ 沿水平方向，求该力系的合成结果。</p><img src=\"qdata/q_264/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>合力 $\\boldsymbol{F}_R=80\\boldsymbol{i}+140\\boldsymbol{j}\\,\\text{N}$。</p>",
+  "explanation": "<p>【AI 生成】取 $A$ 为原点，$x$ 轴水平向右，$y$ 轴铅垂向上。由图中几何，$AB$ 方向的单位矢量为 $\\boldsymbol{e}_{AB}=\\dfrac{1}{\\sqrt{6^2+8^2}}(8\\boldsymbol{i}+6\\boldsymbol{j})=\\dfrac{1}{10}(8\\boldsymbol{i}+6\\boldsymbol{j})$（$\\alpha=\\arctan\\dfrac{6}{8}=36.87^\\circ$）。各力分量为：$$\\boldsymbol{P}_1=100\\boldsymbol{j},\\qquad \\boldsymbol{P}_2=50\\times\\frac{1}{10}(8\\boldsymbol{i}+6\\boldsymbol{j})=(40\\boldsymbol{i}+30\\boldsymbol{j}),\\qquad \\boldsymbol{P}_3=50\\boldsymbol{i}$$ 合力 $$\\boldsymbol{F}_R=\\boldsymbol{P}_1+\\boldsymbol{P}_2+\\boldsymbol{P}_3=(40+50)\\boldsymbol{i}+(100+30)\\boldsymbol{j}=80\\boldsymbol{i}+140\\boldsymbol{j}\\,\\text{N}$$ 合力大小 $F_R=\\sqrt{80^2+140^2}=161.2\\,\\text{N}$，方向 $\\theta=\\arctan\\dfrac{140}{80}=60.26^\\circ$（与 $x$ 轴夹角）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

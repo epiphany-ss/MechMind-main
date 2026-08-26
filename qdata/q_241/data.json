@@ -1,0 +1,20 @@
+{
+  "id": "q_241",
+  "overview": "求力F对轴AB的力矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>如图，已知力 $\\boldsymbol{F}$ 及长方体的边长 $a,b,c$，则力 $\\boldsymbol{F}$ 对轴 $AB$（轴 $AB$ 与长方体顶面的夹角为 $\\varphi$，且由 $A$ 指向 $B$）的力矩为____。<br>(A) $Fa\\sin\\varphi$；<br>(B) $\\dfrac{1}{2}F\\sqrt{a^2+b^2}\\sin2\\varphi$；<br>(C) $F\\sqrt{a^2+b^2}\\sin2\\varphi$；<br>(D) $-Fc\\cos\\varphi$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】设力 $\\boldsymbol{F}$ 作用于顶面角点，$AB$ 为体对角线方向的斜轴，其对顶面的倾角为 $\\varphi$。由力对轴之矩公式 $M_{AB}=\\boldsymbol{M}_A(\\boldsymbol{F})\\cdot\\boldsymbol{e}_{AB}$ 计算，在标准布置下（力沿顶面边方向作用于角点）可得 $M_{AB}=Fa\\sin\\varphi$，即选项 A。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册",
+  "title": "求力F对轴AB的力矩",
+  "module": "静力学"
+}

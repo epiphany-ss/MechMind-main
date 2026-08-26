@@ -1,0 +1,21 @@
+{
+  "id": "q_512",
+  "overview": "平板圆槽机构求小球绝对加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平板H在图示平面内可绕垂直于图面的O轴转动，平板上刻有半径为r的圆槽，今有一小球M在槽内以速度u相对平板作匀速率运动。当小球M经过O点时，平板处于图示位置，角速度为 $\\omega$，角加速度为 $\\alpha$。试求该瞬时小球M的绝对加速度。</p><img src=\"qdata/q_512/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_M=a_e+a_r+a_C$，$a_e^t=\\alpha r$，$a_e^n=\\omega^2 r$，$a_r=u^2/r$，$a_C=2\\omega u$（方向见图，矢量合成）。</p>",
+  "explanation": "<p>【AI 生成】取M为动点，平板为动系。<br>（1）牵连加速度：M与O重合时，M在平板上重合点距O为r，$a_e^n=\\omega^2 r$（指向O），$a_e^t=\\alpha r$（垂直r）。<br>（2）相对加速度：M沿圆槽匀速运动，$a_r=v^2/\\rho=u^2/r$，指向圆槽圆心。<br>（3）科氏加速度：$a_C=2\\omega\\times u$，大小 $2\\omega u$，方向垂直 $u$ 与 $\\omega$ 决定的平面（图面内，垂直 $v_r$）。<br>（4）$a_M=a_e+a_r+a_C$，按各方向矢量合成。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册"
+}

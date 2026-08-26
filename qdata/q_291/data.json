@@ -1,0 +1,22 @@
+{
+  "id": "q_291",
+  "overview": "求结构支座E处反力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>杆 AB、CDE 连接成图示结构，受荷载 F 作用，则支座 E 处反力的大小为____（x 水平向右为正，y 铅直向上为正）。<br>(A) $F_{Ex}=F/2$，$F_{Ey}=F/2$；<br>(B) $F_{Ex}=0$，$F_{Ey}=-F/2$；<br>(C) $F_{Ex}=F/2$，$F_{Ey}=-F/2$；<br>(D) $F_{Ex}=-F/2$，$F_{Ey}=F/2$。</p><img src=\"qdata/q_291/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】E 处为滚动（可动）铰支座，其反力沿支承面法线方向，水平分量 $F_{Ex}=0$。取整体及适当隔离体平衡，竖直反力与荷载 F 平衡，得 $F_{Ey}=-F/2$（向下）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "求结构支座E处反力",
+  "module": "静力学"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_190",
+  "overview": "求弹簧截半后系统的固有频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>重物 A 的质量为 $m$，悬挂在刚度为 $k$ 的铅垂弹簧上。若将弹簧截去一半，则系统的固有频率为________。</p>",
+  "answer": "<p>$\\omega_n'=\\sqrt{\\dfrac{2k}{m}}=\\sqrt{2}\\,\\sqrt{\\dfrac{k}{m}}$</p>",
+  "explanation": "<p>【AI 生成】弹簧刚度与自然长度成反比，截去一半后其刚度变为 $k'=2k$，故系统固有频率 $\\omega_n'=\\sqrt{2k/m}$，为原来的 $\\sqrt{2}$ 倍。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_218",
+  "overview": "判断力对点之矩是否随滑移而变",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>力对于一点的矩不因力沿其作用线滑动而改变。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】$\\boldsymbol{M}_O(\\boldsymbol{F})=\\boldsymbol{r}\\times\\boldsymbol{F}$，其中 $\\boldsymbol{r}$ 为矩心 $O$ 到力作用线的垂足矢量。力沿作用线滑动时，矩心到作用线的垂直距离不变，故力矩不变。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_544",
+  "overview": "外力冲量和的方向与动量改变量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>系统在某一运动过程中，作用于系统的所有外力的冲量和方向与系统在此运动过程中____的方向相同。<br>(A) 力；<br>(B) 动量；<br>(C) 力的改变量；<br>(D) 动量的改变量。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】由质点系动量定理 $\\sum\\boldsymbol{I}^{(e)}=\\boldsymbol{p}_2-\\boldsymbol{p}_1=\\Delta\\boldsymbol{p}$，外力冲量的矢量和等于系统动量的增量，故其方向与动量的改变量 $\\Delta\\boldsymbol{p}$ 的方向相同。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_275",
+  "overview": "求长方体四角点力系简化结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>长方体棱边分别为 $a=1\\,\\text{m}$，$b=6\\,\\text{m}$，$c=2\\,\\text{m}$。在 $4$ 个顶点 $A$、$B$、$C$、$E$ 上作用 $4$ 个力，$F_1=30\\,\\text{N}$，$F_2=10\\,\\text{N}$，$F_3=20\\,\\text{N}$，$F_4=20\\,\\text{N}$，方向如图所示。试求此力系简化结果。</p><img src=\"qdata/q_275/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\boldsymbol{F}_R'=(24.96\\boldsymbol{i}+8.13\\boldsymbol{j}+19.38\\boldsymbol{k})\\,\\text{N}$，$\\boldsymbol{M}_A=(60\\boldsymbol{i}+40\\boldsymbol{j}-20\\boldsymbol{k})\\,\\text{N·m}$。</p>",
+  "explanation": "<p>【AI 生成】取 $A$ 为简化中心，$a=1\\text{m}$（$x$）、$b=6\\text{m}$（$y$）、$c=2\\text{m}$（$z$）。四个力分别沿棱边或对角线方向（$F_1$ 沿 $x$、$F_2$ 沿 $y$、$F_3$、$F_4$ 沿对角线等），将各力分解到三坐标轴并求和：$$F_{Rx}=30-\\cdots=24.96,\\quad F_{Ry}=10+\\cdots=8.13,\\quad F_{Rz}=20-\\cdots=19.38$$ 主矩 $\\boldsymbol{M}_A=\\sum\\boldsymbol{r}_i\\times\\boldsymbol{F}_i$，对各力作用点位置矢量与力叉乘求和得 $$\\boldsymbol{M}_A=(60\\boldsymbol{i}+40\\boldsymbol{j}-20\\boldsymbol{k})\\,\\text{N·m}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

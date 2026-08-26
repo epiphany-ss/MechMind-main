@@ -1,0 +1,20 @@
+{
+  "id": "q_256",
+  "overview": "悬臂梁上分布力与力偶向A点简化",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>悬臂梁受载荷集度为 $q_0=2\\text{kN/m}$ 的三角形分布力和矩为 $M=2\\text{kN·m}$ 的力偶作用，则该力系向 $A$ 点简化的结果为____。</p>",
+  "answer": "<p>主矢 $\\boldsymbol{F}_R=3\\text{kN}$（竖直向下），主矩 $M_A=4\\text{kN·m}$（顺时针转向）。</p>",
+  "explanation": "<p>【AI 生成】三角形分布力合力（面积法）为 $$F_R=\\frac{1}{2}q_0L=\\frac{1}{2}\\times2\\times3=3\\,\\text{kN}$$ 其作用线距 $A$ 为 $\\dfrac{2}{3}L=2\\,\\text{m}$。对 $A$ 取矩：荷载产生 $3\\times2=6\\,\\text{kN·m}$，与力偶 $M=2\\,\\text{kN·m}$ 反向，故 $$M_A=M-6=2-6=-4\\,\\text{kN·m}$$ 即主矩 $4\\,\\text{kN·m}$，顺时针。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册",
+  "title": "悬臂梁上分布力与力偶向A点简化",
+  "module": "静力学"
+}

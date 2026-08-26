@@ -1,0 +1,19 @@
+{
+  "id": "q_251",
+  "overview": "判断正方体六力力系的简化结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>一棱长为 $a$ 的正方体顶角上，作用有六个均等于 $F$ 的力 $\\boldsymbol{F}_i$，它们的方向如图所示，该力系简化的结果是____。<br>(A) 合力；<br>(B) 力偶；<br>(C) 力螺旋；<br>(D) 平衡。</p><img src=\"qdata/q_251/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】六个大小相等的力沿正方体棱边对称布置。向 $O$ 点简化得主矢 $\\boldsymbol{F}_R\\ne\\boldsymbol{0}$，主矩 $\\boldsymbol{M}_O\\ne\\boldsymbol{0}$，但可计算得 $\\boldsymbol{F}_R\\cdot\\boldsymbol{M}_O=0$，即主矢与主矩垂直，故力系可进一步简化为一合力（如经典例题结果 $\\boldsymbol{F}_R=2F\\boldsymbol{j}+2F\\boldsymbol{k}$，$\\boldsymbol{M}_O=-2Fa\\boldsymbol{j}+2Fa\\boldsymbol{k}$）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

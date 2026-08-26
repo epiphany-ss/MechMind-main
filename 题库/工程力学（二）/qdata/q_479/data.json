@@ -1,0 +1,21 @@
+{
+  "id": "q_479",
+  "overview": "弯杆圆盘机构求E点绝对速度和科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知：直角弯杆ABCD以匀角速度 $\\omega_1=2\\,\\text{rad/s}$ 绕A轴转动，AD＝3m，$r=\\sqrt{3}\\,\\text{m}$，圆盘以匀角速度 $\\omega_2=3\\,\\text{rad/s}$ 绕轴D相对弯杆转动。在图示位置时，AD杆水平，ED杆铅垂。试用点的合成运动方法，以杆为动坐标系，求该瞬时轮上E点的绝对速度和科氏加速度。</p><img src=\"qdata/q_479/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_E=\\sqrt{111}\\,\\text{m/s}$（若 $\\omega_1$、$\\omega_2$ 同向，$v_E\\approx10.5\\,\\text{m/s}$）；$a_C=12\\sqrt{3}\\,\\text{m/s}^2$。</p>",
+  "explanation": "<p>【AI 生成】取E为动点，直角弯杆为动系。<br>（1）牵连速度：AD水平、DE铅垂，$AE=\\sqrt{AD^2+DE^2}=\\sqrt{3^2+(\\sqrt3)^2}=2\\sqrt3$ m。$v_e=\\omega_1\\cdot AE=2\\times2\\sqrt3=4\\sqrt3$ m/s，方向垂直于AE。<br>（2）相对速度：E相对弯杆绕D转动，$v_r=\\omega_2\\cdot DE=3\\times\\sqrt3=3\\sqrt3$ m/s，方向垂直于DE（水平）。<br>（3）$v_E=v_e+v_r$。设AD沿x、ED沿y，$v_e=(2\\sqrt3,\\,6)$ m/s，$v_r=(3\\sqrt3,\\,0)$ m/s，$v_E=(5\\sqrt3,\\,6)$ m/s，故 $v_E=\\sqrt{(5\\sqrt3)^2+6^2}=\\sqrt{75+36}=\\sqrt{111}$ m/s。<br>（4）科氏加速度：$a_C=2\\omega_1\\times v_r$，$\\omega_1\\perp v_r$，故 $a_C=2\\omega_1 v_r=2\\times2\\times3\\sqrt3=12\\sqrt3$ m/s$^2$，方向垂直于 $v_r$（由右手定则，即沿ED铅垂方向）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册"
+}

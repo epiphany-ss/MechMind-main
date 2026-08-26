@@ -1,0 +1,20 @@
+{
+  "id": "q_242",
+  "overview": "判断简化结果与中心无关时的力系结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>若平面一般力系简化的结果与简化中心无关，则该力系的简化结果为____。<br>(A) 一合力；<br>(B) 平衡；<br>(C) 一合力偶；<br>(D) 一合力偶或者平衡。</p><img src=\"qdata/q_242/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】简化结果与简化中心无关要求主矢为零。主矢为零时，若主矩也为零则平衡；若主矩不为零则为一合力偶（力偶矩与中心无关）。故结果为“一合力偶或者平衡”。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

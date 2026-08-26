@@ -1,0 +1,21 @@
+{
+  "id": "q_031",
+  "overview": "判断机构中的二力构件",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "受力分析",
+    "约束与约束反力"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图示机构中各杆自重均不计，其中二力构件有____。<br>(A) BC 杆；<br>(B) BC 杆和 AB 杆；<br>(C) BC 杆和 AD 杆；<br>(D) BC 杆、AB 杆和 AD 杆。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】二力构件是两端铰接、不计自重且只受两个铰链力作用而平衡的构件，其受力沿两铰链连线。图示机构中 BC 杆、AD 杆两端铰接且不受其他外力，为二力构件；AB 杆上作用有外力，不是二力构件。</p>",
+  "media": [],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36",
+  "source": "练习册",
+  "title": "判断机构中的二力构件",
+  "module": "静力学"
+}

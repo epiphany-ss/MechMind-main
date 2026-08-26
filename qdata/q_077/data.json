@@ -1,0 +1,23 @@
+{
+  "id": "q_077",
+  "overview": "鼓轮弹簧系统求物体B速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示系统中，已知：鼓轮 $A$ 的质量 $m=438\\,\\mathrm{kg}$，半径 $R=20\\,\\mathrm{cm}$、$r=10\\,\\mathrm{cm}$，对质心 $G$ 的回转半径为 $\\rho=15\\,\\mathrm{cm}$，物体 $B$ 的质量为 $m_B=146\\,\\mathrm{kg}$，与水平面之间的摩擦系数 $f=0.3$，弹簧刚度系数 $k=36\\,\\mathrm{N/cm}$，初始时弹簧为自然状态，系统从静止开始释放，定滑轮质量不计，试求物体 $B$ 向左移动距离 $s=30\\,\\mathrm{cm}$ 时的速度 $v_B$。</p><img src=\"qdata/q_077/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=1.36\\,\\mathrm{m/s}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 鼓轮在水平面上纯滚动：$v_G=R\\omega_G$（若鼓轮绕 $G$ 转动角速度 $\\omega_G$），绳绕小半径 $r$，$v_B=v_G+r\\omega_G$。<br>(2) 动能：$T=\\frac12m\\rho^2\\omega_G^2+\\frac12mv_G^2+\\frac12m_Bv_B^2$。<br>(3) 功：$B$ 受摩擦力 $-fm_Bgs$，弹簧被拉长 $\\delta=s$ 作功 $-\\frac12ks^2$。<br>(4) 动能定理：$T=-fm_Bgs-\\frac12ks^2$（初速为零），代入 $m=438$、$R=0.2$、$r=0.1$、$\\rho=0.15$、$m_B=146$、$f=0.3$、$k=3600\\,\\mathrm{N/m}$、$s=0.3$，解得 $v_B=1.36\\,\\mathrm{m/s}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "鼓轮弹簧系统求物体B速度",
+  "module": "动力学"
+}

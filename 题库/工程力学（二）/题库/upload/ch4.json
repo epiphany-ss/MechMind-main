@@ -1,0 +1,710 @@
+{
+  "chapter": 4,
+  "category": "运动学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断直角坐标法的适用范围",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>描述点的运动常采用矢量法、直角坐标法和自然法。矢量法能同时表示出点的运动参数的大小和方向，运算简捷，故常应用于理论推证；自然法中把点的运动与其轨迹的几何性质密切结合起来，使得点的各运动参数的物理意义清楚，所以已知点的运动轨迹时，往往采用自然法；采用直角坐标法不需要预先知道点的运动轨迹。因此无论是否已知点的运动轨迹，都可以应用直角坐标法。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】直角坐标法中，点的速度、加速度由运动方程的坐标对时间求导得到，无需预先知道运动轨迹，故无论是否已知轨迹都可用直角坐标法描述点的运动。</p>"
+    },
+    {
+      "overview": "判断动点速度的方向",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>动点速度的方向总是和运动方向一致。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】速度方向沿轨迹的切线方向，即点在该瞬时的运动方向，两者始终一致。</p>"
+    },
+    {
+      "overview": "判断速度分量为常数时加速度是否为零",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>在直角坐标系中，如果速度 $v$ 的投影 $v_x,\\ v_y,\\ v_z$ 均为常数，则其加速度 $a$ 为零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】$a_x=\\dot v_x=0$，$a_y=\\dot v_y=0$，$a_z=\\dot v_z=0$，故 $a=0$。</p>"
+    },
+    {
+      "overview": "判断加速度在副法线上的投影",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>由于加速度 $a$ 永远位于轨迹上动点处的密切面内，故 $a$ 在副法线上的投影恒等于零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】加速度位于密切面内，而副法线垂直于密切面，故 $a$ 在副法线上的投影恒为零（$a_b=0$）。</p>"
+    },
+    {
+      "overview": "判断切向加速度的作用",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>切向加速度只表示速度方向的变化率，而与速度的大小无关。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】切向加速度 $a_\\tau=dv/dt$ 表示速度大小（速率）变化的快慢；反映速度方向变化的是法向加速度 $a_n=v^2/\\rho$。</p>"
+    },
+    {
+      "overview": "判断一条直线平行能否判断平动",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体平动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在刚体运动过程中，若其上有一条直线始终平行于它的初始位置，这种刚体的运动就是平动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】平动要求刚体内任意直线均保持与初始位置平行；只有一条直线保持平行不足以判定为平动，例如定轴转动刚体上平行于转轴的直线始终平行，但刚体作转动。</p>"
+    },
+    {
+      "overview": "判断某瞬时切法向加速度均为零的结论",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在某瞬时，点的切向加速度和法向加速度都等于零，则该点一定作匀速直线运动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】某瞬时 $a_\\tau=a_n=0$ 只说明该瞬时速度大小不变、曲率半径无穷大，不能推断全过程为匀速直线运动。</p>"
+    },
+    {
+      "overview": "判断某瞬时法向加速度为零能否确定轨迹",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一动点如果在某一瞬时的法向加速度等于零，而其切向加速度不等于零，尚不能确定该点是作直线运动还是作曲线运动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】$a_n=v^2/\\rho$，若瞬时 $v=0$（速度反向点）则 $a_n=0$ 而点仍在作曲线运动；故某瞬时 $a_n=0$ 不能断定轨迹为直线。</p>"
+    },
+    {
+      "overview": "判断轨迹方程能否反求运动方程",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一般情况下，根据点的运动方程可求得轨迹方程；反之，由点的轨迹方程也可求得运动方程。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】由运动方程消去时间 t 可得轨迹方程；但轨迹方程只给出几何路径，不包含时间对应关系，一般不能反求出运动方程。</p>"
+    },
+    {
+      "overview": "判断曲线运动时切向加速度的相关说法",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>点作曲线运动时，下述说法是否正确：</p><p>(1) 若切向加速度为正，则点作加速运动； (    )</p><p>(2) 若切向加速度与速度符号相同，则点作加速运动； (    )</p><p>(3) 若切向加速度为零，则速度为常矢量。 (    )</p>",
+      "figures": [],
+      "answer": "<p>(1) 错；(2) 对；(3) 错</p>",
+      "explanation": "<p>【AI 生成】(1) 加速与否取决于 $a_\\tau$ 与 $v$ 是否同号，$a_\\tau>0$ 而 $v<0$ 时点为减速运动；(2) $a_\\tau$ 与 $v$ 同号时 $d|v|/dt>0$，点为加速运动；(3) $a_\\tau=0$ 只说明速率不变，速度方向可能改变（如匀速圆周运动），故速度不是常矢量。</p>"
+    },
+    {
+      "overview": "判断由直角坐标运动方程确定速度和加速度",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>已知直角坐标描述的点的运动方程为 $x=f_1(t),\\ y=f_2(t),\\ z=f_3(t)$，则任一瞬时点的速度、加速度即可确定。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由 $v_x=\\dot x,\\ v_y=\\dot y,\\ v_z=\\dot z$ 和 $a_x=\\ddot x$ 等，任一瞬时的速度和加速度均可由运动方程求导得到。</p>"
+    },
+    {
+      "overview": "判断平动刚体一点运动已知其余点运动是否确定",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体平动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>刚体平动时，若刚体上任一点的运动已知，则其它各点的运动随之确定。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】刚体平动时各点轨迹形状相同、且各点在同一瞬时的速度和加速度完全相同，故一点运动已知即可确定其它各点运动。</p>"
+    },
+    {
+      "overview": "判断自然坐标系中速度恒定时加速度是否为零",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>在自然坐标系中，如果速度 $v$ = 常数，则加速度 $a$ 为零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】$v$ 为常数只说明 $a_\\tau=0$，但法向加速度 $a_n=v^2/\\rho$ 一般不为零（如匀速圆周运动），故加速度不一定为零。</p>"
+    },
+    {
+      "overview": "判断平动刚体各点轨迹的形状",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体平动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>平动刚体上各点的运动轨迹可以是直线，可以是平面曲线，也可以是空间任意曲线。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】刚体平动时各点轨迹为全等的曲线，可为直线、平面曲线或空间曲线，故说法正确。</p>"
+    },
+    {
+      "overview": "判断定轴转动刚体同一半径上速度加速度方向",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>定轴转动刚体的任一半径上各点的速度矢量相互平行，加速度矢量也相互平行。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】同一半径上各点速度 $v=\\omega r$ 均垂直于半径，方向相同；加速度 $a=-\\omega^2 r\\boldsymbol e_r+\\alpha r\\boldsymbol e_\\theta$，各分量方向相同，故总加速度方向也相同、相互平行。</p>"
+    },
+    {
+      "overview": "判断摩擦轮外接触传动接触点速度与切向加速度",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>两个半径不等的摩擦轮外接触传动，如果不出现打滑现象，则任瞬时两轮接触点的速度相等，切向加速度也相等。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】无相对滑动时接触点既属于轮一又属于轮二，其速度相同；且随时间的接触点速度变化率（切向加速度）也相同。</p>"
+    },
+    {
+      "overview": "判断角速度公式是否适用于一般转动",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>刚体作定轴转动时，任一瞬时 $t$ 的角速度 $\\omega = \\omega_0 + \\alpha t$（式中 $\\omega_0$ 为初角速度，$\\alpha$ 为 $t$ 瞬时的角加速度）。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】$\\omega=\\omega_0+\\alpha t$ 仅在角加速度 $\\alpha$ 为常量的匀变速转动中成立；一般转动中 $\\alpha$ 随时间变化，不能使用该式。</p>"
+    },
+    {
+      "overview": "判断啮合齿轮角速度与齿数的关系",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>互相啮合的两齿轮，其角速度与齿数成正比。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】啮合齿轮无滑动时 $\\omega_1 r_1=\\omega_2 r_2$，而齿数 $z\\propto r$，故 $\\omega_1/\\omega_2=z_2/z_1$，角速度与齿数成反比而非正比。</p>"
+    },
+    {
+      "overview": "判断各点作圆周运动是否必为定轴转动",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动",
+        "刚体平动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>若刚体内各点均作圆周运动，则此刚体的运动必是定轴转动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】若刚体平动且各点沿等半径同圆心的圆周运动（如沿圆弧整体平动），各点均作圆周运动但刚体并非绕定轴转动。</p>"
+    },
+    {
+      "overview": "判断定轴转动加速度方向与矢径的关系",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>刚体绕定轴 $OZ$ 转动，其上任一点 $M$ 的矢径和加速度分别为 $\\overrightarrow{OM}$、$a_\\tau$、$a_n$，则 $a_\\tau$ 必垂直于 $OM$，$a_n$ 必沿 $OM$ 指向 $O$ 点。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】$a_\\tau=\\boldsymbol\\alpha\\times\\boldsymbol r$ 垂直于矢径，$a_n=-\\omega^2\\boldsymbol r$ 沿矢径指向转轴（O 点），故说法正确。</p>"
+    },
+    {
+      "overview": "求曲线运动2s末的速度大小",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一点作曲线运动，开始时速度 $v_0=10\\,\\mathrm{m/s}$，某瞬时切向加速度 $a_\\tau=4\\,\\mathrm{m/s^2}$，则 2s 末该点的速度的大小为 。</p><p>(A) 2 m/s； (B) 18 m/s； (C) 12 m/s； (D) 无法确定。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】题目只给出某瞬时的切向加速度，未说明其在整个 2s 内是否恒定，不能由 $v=v_0+a_\\tau t$ 求末速度，故选（D）无法确定。</p>"
+    },
+    {
+      "overview": "求直线运动一秒后的速度大小",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知点沿 $x$ 轴作直线运动，某瞬时速度为 $v_x=\\dot x=2\\,\\mathrm{m/s}$，瞬时加速度为 $a_x=\\ddot x=-2\\,\\mathrm{m/s^2}$，则一秒钟以后点的速度的大小 。</p><p>(A) 等于零； (B) 等于 $-2\\,\\mathrm{(m/s)}$； (C) 等于 $-4\\,\\mathrm{(m/s)}$； (D) 无法确定。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】仅给出某瞬时的速度与加速度，加速度是否恒定未知，故一秒钟后的速度无法确定，选（D）。</p>"
+    },
+    {
+      "overview": "求直线运动某时刻的速度大小",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>点作直线运动，已知某瞬时加速度为 $a=-2\\,\\mathrm{m/s^2}$，$t=1$s 时速度为 $v_1=2\\,\\mathrm{m/s}$，则当 $t=2$s 时，该点的速度的大小为 。</p><p>(A) 0； (B) $-2\\,\\mathrm{m/s}$； (C) $4\\,\\mathrm{m/s}$； (D) 无法确定。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】题设只给出某瞬时的加速度，未指明其为常值，故 $t=2$s 时的速度无法确定，选（D）。</p>"
+    },
+    {
+      "overview": "求按规律运动的路程",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>若某点按 $S=8-2t^2$（$S$ 以米计，$t$ 以秒计）的规律运动，则 $t=3$ 秒时点经过的路程为 。</p><p>(A) 10 m； (B) 8 m； (C) 18 m； (D) 8 m 至 18 m 以外的一个数值。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】$v=dS/dt=-4t<0\\ (t>0)$，点始终沿同一方向运动。$S(0)=8$，$S(3)=8-18=-10$，路程 $=|S(3)-S(0)|=18$ m，故选（C）。</p>"
+    },
+    {
+      "overview": "自然法加速度在副法线上的投影",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>用自然法研究点的运动时，点的加速度在副法线上的投影 。</p><p>(A) 可能为零； (B) 一定为零； (C) 一定不为零。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】加速度 $\\boldsymbol a=a_\\tau\\boldsymbol e_\\tau+a_n\\boldsymbol e_n$ 恒在密切面内，副法线垂直于密切面，故 $a_b=0$ 一定为零。</p>"
+    },
+    {
+      "overview": "恒加速度矢量对应何种运动",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>点作曲线运动如图所示。若点在不同位置时的加速度 $a_1=a_2=a_3$ 是一个恒矢量，则该点作 。</p><p>(A) 匀速运动； (B) 匀变速运动； (C) 变速运动。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch39_idx190_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】加速度为常矢量即加速度的大小和方向均不变，这样的运动称为匀变速运动，故选（B）。</p>"
+    },
+    {
+      "overview": "判断圆盘边缘各点运动是否可能",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>圆盘作定轴转动，若某瞬时其边缘上 A、B、C 三点的速度、加速度如图所示，则 的运动是不可能的。</p><p>(A) 点A、B； (B) 点A、C； (C) 点B、C； (D) 点A、B、C。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】定轴转动圆盘边缘各点速度沿圆周切线，加速度必须含有指向圆心的法向分量（$a_n=\\omega^2 R$）。图中 A 点加速度沿切线方向（无向心分量），与速度同时存在相矛盾；B 点速度箭头双向、方向不确定，故 A、B 两点的运动不可能；C 点加速度指向圆心，符合匀角速度转动。</p>"
+    },
+    {
+      "overview": "求直角刚杆B点的速度与加速度分量",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>直角刚杆 OAB 在图示瞬时有 $\\omega=2\\,\\mathrm{rad/s}$，$\\alpha=5\\,\\mathrm{rad/s^2}$，若 OA=40cm，AB=30cm，则 B 点的速度的大小为 cm/s，法向加速度的大小为 cm/s$^2$，切向加速度的大小为 cm/s$^2$。</p><p>(A) 100； (B) 160； (C) 200； (D) 250。</p>",
+      "figures": [],
+      "answer": "<p>速度 100（A）；法向加速度 200（C）；切向加速度 250（D）</p>",
+      "explanation": "<p>【AI 生成】$OB=\\sqrt{OA^2+AB^2}=50$ cm。$v_B=\\omega\\cdot OB=2\\times50=100$ cm/s；$a_n=\\omega^2\\cdot OB=4\\times50=200$ cm/s$^2$；$a_\\tau=\\alpha\\cdot OB=5\\times50=250$ cm/s$^2$。</p>"
+    },
+    {
+      "overview": "判断杆端加速度各情况下的角速度与角加速度",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>杆 OA 绕定轴 O 转动，某瞬时杆端 A 点的加速度 $a$ 分别如图(a)、(b)、(c)所示。则该瞬时 的角速度为零， 的角加速度为零。</p><p>(A) 图(a)系统； (B) 图(b)系统； (C) 图(c)系统。</p>",
+      "figures": [],
+      "answer": "<p>角速度为零：图(a)（A）；角加速度为零：图(c)（C）</p>",
+      "explanation": "<p>【AI 生成】$a_n=\\omega^2\\cdot OA$ 沿杆指向 O，$a_\\tau=\\alpha\\cdot OA$ 垂直于杆。图(a)中 $a$ 垂直于杆，$a_n=0$，故 $\\omega=0$；图(c)中 $a$ 沿杆指向 O，$a_\\tau=0$，故 $\\alpha=0$；图(b)中 $a$ 与杆成角，二者均不为零。</p>"
+    },
+    {
+      "overview": "求直角刚杆B点加速度的坐标投影",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>直角刚杆 OAB 可绕固定轴 O 在图示平面内转动，已知 OA=40cm，AB=30cm，$\\omega=2\\,\\mathrm{rad/s}$，$\\alpha=1\\,\\mathrm{rad/s^2}$。则图示瞬时，B 点的加速度在 $x$ 向的投影为 cm/s$^2$，在 $y$ 向的投影为 cm/s$^2$。</p><p>(A) 40； (B) 200； (C) 50； (D) $-200$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch40_idx194_0.png"
+      ],
+      "answer": "<p>$x$ 向投影 50（C）；$y$ 向投影 $-200$（D）</p>",
+      "explanation": "<p>【AI 生成】$OB=50$ cm。法向加速度 $a_n=\\omega^2\\cdot OB=200$ cm/s$^2$ 沿 OB 指向 O（图示 B 在 O 正上方，故沿 $-y$ 向）；切向加速度 $a_\\tau=\\alpha\\cdot OB=50$ cm/s$^2$ 垂直于 OB（沿 $+x$ 向）。故 $a_{Bx}=50$，$a_{By}=-200$ cm/s$^2$。</p>"
+    },
+    {
+      "overview": "比较同一半径上两点的加速度大小与夹角",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图所示的圆半径为 $R$，绕过点 O 的中心轴作定轴转动，其角速度为 $\\omega$，角加速度为 $\\alpha$。记同一半径上的两点 A、B 的加速度分别为 $a_A$、$a_B$（OA=$R$，OB=$R/2$），它们与半径的夹角分别为 $\\theta$、$\\beta$。则 $a_A$、$a_B$ 的大小关系，$\\theta$、$\\beta$ 的大小关系，正确的是 。</p><p>(A) $a_A=2a_B,\\ \\theta=2\\beta$； (B) $a_A=2a_B,\\ \\theta=\\beta$； (C) $a_A=a_B,\\ \\theta=2\\beta$； (D) $a_A=a_B,\\ \\theta=\\beta$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch40_idx196_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】$a=r\\sqrt{\\omega^4+\\alpha^2}$，故 $a_A=2a_B$；加速度与半径夹角满足 $\\tan\\theta=a_\\tau/a_n=\\alpha/\\omega^2$，与半径 $r$ 无关，故 $\\theta=\\beta$，选（B）。</p>"
+    },
+    {
+      "overview": "判断定轴转动的加速与减速条件",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>刚体绕定轴转动， 。</p><p>(A) 当转角 $\\varphi>0$ 时，角速度 $\\omega$ 为正；</p><p>(B) 当角速度 $\\omega>0$ 时，角加速度 $\\varepsilon$ 为正；</p><p>(C) 当 $\\omega$ 与 $\\varepsilon$ 同号时为加速转动，当 $\\omega$ 与 $\\varepsilon$ 异号时为减速转动；</p><p>(D) 当 $\\varepsilon>0$ 时为加速转动，当 $\\varepsilon<0$ 时为减速转动。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】加速与减速由角速度与角加速度是否同号决定：同号角速度大小增大，为加速转动；异号角速度大小减小，为减速转动。（C）正确。</p>"
+    },
+    {
+      "overview": "定轴转动切向加速度与法向加速度的表达式",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>刚体作定轴转动时，切向加速度为 ，法向加速度为 。</p><p>(A) $\\boldsymbol r\\times\\boldsymbol\\alpha$； (B) $\\boldsymbol\\alpha\\times\\boldsymbol r$； (C) $\\boldsymbol\\omega\\times\\boldsymbol v$； (D) $\\boldsymbol v\\times\\boldsymbol\\omega$。</p>",
+      "figures": [],
+      "answer": "<p>切向加速度（B）$\\boldsymbol\\alpha\\times\\boldsymbol r$；法向加速度（C）$\\boldsymbol\\omega\\times\\boldsymbol v$</p>",
+      "explanation": "<p>【AI 生成】定轴转动中 $\\boldsymbol a_\\tau=\\boldsymbol\\alpha\\times\\boldsymbol r$，$\\boldsymbol a_n=\\boldsymbol\\omega\\times\\boldsymbol v$（指向转轴，大小为 $\\omega^2 r$）。</p>"
+    },
+    {
+      "overview": "求小环M的运动方程",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>杆 AB 绕 A 轴以 $\\varphi=5t$（$\\varphi$ 以 rad 计，$t$ 以 s 计）的规律转动，其上一小环 M 将杆 AB 和半径为 $R$（以 m 计）的固定大圆环连在一起，若以直角坐标 Oxy 为参考系，则小环 M 的运动方程为 。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch40_idx198_0.png"
+      ],
+      "answer": "<p>$x=R\\cos(10t)$，$y=R\\sin(10t)$</p>",
+      "explanation": "<p>【AI 生成】设 O 为圆心，A 位于圆周左端（OA=$R$）。杆 AB 与圆交点 M 在圆周上，由几何关系 $\\angle AOM=2\\varphi$，故 $x=R\\cos 2\\varphi=R\\cos 10t$，$y=R\\sin 2\\varphi=R\\sin 10t$。</p>"
+    },
+    {
+      "overview": "求曲柄滑块机构中M点的速度与加速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示曲柄滑块机构中，曲柄 OC 绕 O 轴转动，$\\varphi=\\omega t$（$\\omega$ 为常量）。滑块 A、B 可分别沿通过 O 点且相互垂直的两直槽滑动。若 AC=CB=OC=$L$，MB=$d$，则 M 点沿 $x$ 方向的速度的大小为 ，沿 $x$ 方向的加速度的大小为 。</p>",
+      "figures": [],
+      "answer": "<p>$v_x=d\\omega\\sin(\\omega t)$；$a_x=d\\omega^2\\cos(\\omega t)$</p>",
+      "explanation": "<p>【AI 生成】A、B 分别在 $x$、$y$ 轴上：$A=(2L\\cos\\varphi,0)$，$B=(0,2L\\sin\\varphi)$。M 在 AB 上且 MB=$d$，$x_M=d\\cos\\varphi$。求导得 $v_{Mx}=-d\\omega\\sin\\varphi$，$a_{Mx}=-d\\omega^2\\cos\\varphi$，故大小分别为 $d\\omega\\sin(\\omega t)$、$d\\omega^2\\cos(\\omega t)$。</p>"
+    },
+    {
+      "overview": "矢径端点与切法向加速度的物理意义",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>用矢量表示的动点的运动方程为 $\\boldsymbol r=\\boldsymbol r(t)$，当时间 $t$ 连续变化时，矢径 $\\boldsymbol r$ 的 就是动点的轨迹。用自然法表示动点的加速度时，加速度等于切向加速度和法向加速度的矢量和。其中切向加速度反映 ；法向加速度反映 。</p>",
+      "figures": [],
+      "answer": "<p>端点（矢端曲线）；速度大小变化的快慢；速度方向变化的快慢</p>",
+      "explanation": "<p>【AI 生成】动点矢径端点随 t 变化扫出的曲线即轨迹。切向加速度 $a_\\tau=dv/dt$ 反映速率（速度大小）变化率；法向加速度 $a_n=v^2/\\rho$ 反映速度方向变化的快慢。</p>"
+    },
+    {
+      "overview": "求圆周运动某时刻加速度的大小",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>点沿半径 $R=50$cm 的圆周运动，已知点的运动规律为 $S=Rt^3$（cm），则当 $t=1$s 时，该点的加速度的大小为 。</p>",
+      "figures": [],
+      "answer": "<p>$a=50\\sqrt{117}\\,\\mathrm{cm/s^2}\\approx 5.41\\,\\mathrm{m/s^2}$</p>",
+      "explanation": "<p>【AI 生成】$v=\\dot S=3Rt^2$，$a_\\tau=\\dot v=6Rt$。$t=1$s 时 $v=150$ cm/s，$a_\\tau=300$ cm/s$^2$，$a_n=v^2/R=450$ cm/s$^2$。$a=\\sqrt{a_\\tau^2+a_n^2}=\\sqrt{300^2+450^2}=50\\sqrt{117}\\approx540.8$ cm/s$^2$。</p>"
+    },
+    {
+      "overview": "定轴转动刚体上速度加速度相等的点",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在定轴转动的刚体上，(1)哪些点的速度大小相等？ ；(2)哪些点的加速度大小相等？ ；(3)哪些点的加速度的方向相同？ 。</p>",
+      "figures": [],
+      "answer": "<p>(1) 距转轴等距离（同一圆柱面）的点；(2) 距转轴等距离（同一圆柱面）的点；(3) 位于同一过转轴的直线（同一半径）上的点</p>",
+      "explanation": "<p>【AI 生成】$v=\\omega r$，$a=r\\sqrt{\\omega^4+\\alpha^2}$，故等 $r$ 的点速度、加速度大小相等；$\\boldsymbol a=-\\omega^2\\boldsymbol r+\\boldsymbol\\alpha\\times\\boldsymbol r$ 的方向只与矢径方向有关，同一半径（同方向）上的点加速度方向相同。</p>"
+    },
+    {
+      "overview": "求T字杆上C点的速度与加速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知直角 T 字杆某瞬时以角速度 $\\omega$、角加速度 $\\alpha$ 在图示平面内绕 O 转动，则 C 点的速度为 ，加速度为 （方向均应在图上表示）。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch41_idx203_0.png"
+      ],
+      "answer": "<p>$v_C=\\omega\\sqrt{a^2+b^2}$（垂直于 OC）；$a_C=\\sqrt{a^2+b^2}\\sqrt{\\omega^4+\\alpha^2}$（与 OC 夹角 $\\arctan(\\alpha/\\omega^2)$）</p>",
+      "explanation": "<p>【AI 生成】由图示尺寸，C 点到转轴 O 的距离 $OC=\\sqrt{a^2+b^2}$。定轴转动中 $v_C=\\omega\\cdot OC$，$a_C=OC\\cdot\\sqrt{\\omega^4+\\alpha^2}$，其中 $a_n=\\omega^2\\cdot OC$ 沿 OC 指向 O，$a_\\tau=\\alpha\\cdot OC$ 垂直于 OC。</p>"
+    },
+    {
+      "overview": "求正方形板转动轴到A点的距离",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知正方形板 ABCD 作定轴转动，转轴垂直于板面，A 点速度 $v_A=10\\,\\mathrm{cm/s}$，加速度 $a_A=10\\sqrt2\\,\\mathrm{cm/s^2}$，方向如图。则该板转动轴到 A 点距离 OA 为 cm。</p>",
+      "figures": [],
+      "answer": "<p>10</p>",
+      "explanation": "<p>【AI 生成】由图示 $a_A$ 与 $v_A$ 成 $45^\\circ$，且 $v_A\\perp OA$，故 $a_n=a_A\\cos45^\\circ=10$ cm/s$^2$。而 $a_n=\\omega^2\\cdot OA=\\omega v_A=10\\omega$，得 $\\omega=1$ rad/s，故 $OA=v_A/\\omega=10$ cm。</p>"
+    },
+    {
+      "overview": "判断轮系中角速度与齿数的关系",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "easy",
+      "content": "<p>定轴传动轮系中，如轮 1 的角速度已知，轮 3 的角速度的大小与轮 2 的齿数 关，与轮 1、轮 3 的齿数 关。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch41_idx205_0.png"
+      ],
+      "answer": "<p>无；有</p>",
+      "explanation": "<p>【AI 生成】轮 1、2 啮合：$\\omega_1 z_1=\\omega_2 z_2$；轮 2、3 啮合：$\\omega_2 z_2=\\omega_3 z_3$。联立得 $\\omega_3=\\omega_1 z_1/z_3$，中间轮 2 的齿数 $z_2$ 被消去，故与 $z_2$ 无关，与 $z_1$、$z_3$ 有关。</p>"
+    },
+    {
+      "overview": "建立摇杆上点C的运动方程并求速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动",
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如图所示，摇杆机构的滑杆 AB 以匀速 $u$ 向上运动，试建立摇杆 OC 上点 C 的运动方程，并求此点在 $\\varphi=\\pi/4$ 时的速度大小。假定初始瞬时 $\\varphi=0$，摇杆长 OC=$a$，距离 OD=$l$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch41_idx206_0.png"
+      ],
+      "answer": "<p>$S=a\\arctan\\dfrac{ut}{l}$；$\\varphi=\\pi/4$ 时 $v=\\dfrac{au}{2l}$</p>",
+      "explanation": "<p>【AI 生成】滑杆上移使接触点 A 升高 $ut$，摇杆与水平线的夹角 $\\varphi$ 满足 $\\tan\\varphi=ut/l$。C 点沿半径 $a$ 的圆弧运动，其弧坐标为</p><p>$$S=a\\varphi=a\\arctan\\frac{ut}{l}$$</p><p>对时间求导得 C 点速度</p><p>$$v=\\frac{dS}{dt}=\\frac{a\\cdot(u/l)}{1+(ut/l)^2}=a\\frac{u}{l}\\cos^2\\varphi$$</p><p>当 $\\varphi=\\pi/4$ 时 $\\cos^2(\\pi/4)=1/2$，故</p><p>$$v=\\frac{au}{2l}$$</p>"
+    },
+    {
+      "overview": "求十字滑块D的速度和相对速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如图所示，OA 和 $O_1B$ 两杆分别绕 O 和 $O_1$ 轴转动，用十字滑块 D 将两杆连接。在运动过程中，两杆保持相交成直角。已知：$OO_1=l$，$\\angle AOO_1=\\varphi=kt$，其中 $k$ 为常数。求滑块 D 的速度和相对于 OA 的速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch42_idx207_0.png"
+      ],
+      "answer": "<p>$v_D=lk$；$v_{Dr}=lk\\sin(kt)$（沿 OA 方向）</p>",
+      "explanation": "<p>【AI 生成】设 O 为原点，$O_1=(l,0)$，OA 沿 $\\varphi$ 方向，$O_1B$ 过 $O_1$ 且垂直于 OA。两杆交点 D 满足</p><p>$$OD=l\\cos\\varphi,\\qquad D=(l\\cos^2\\varphi,\\ l\\sin\\varphi\\cos\\varphi)$$</p><p>D 的速度</p><p>$$v_D=\\sqrt{\\dot x_D^2+\\dot y_D^2}=l|\\dot\\varphi|=lk$$</p><p>D 沿 OA 的相对速度为</p><p>$$v_{Dr}=\\frac{d(OD)}{dt}=-l\\sin\\varphi\\,\\dot\\varphi=-lk\\sin kt$$</p><p>故 $v_D=lk$，相对速度大小为 $lk\\sin(kt)$。</p>"
+    },
+    {
+      "overview": "摇杆滑道机构点M的运动方程与速度加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示摇杆滑道机构中的滑块 M 同时在固定的圆弧槽 BC 和摇杆 OA 的滑道中滑动。如弧 BC 的半径为 $R$，摇杆 OA 的轴 O 在弧 BC 的圆周上。摇杆 OA 绕 O 轴以等角速度 $\\omega$ 转动，当运动开始时，摇杆在水平位置。试分别用直角坐标法和自然法给出点 M 的运动方程，并求其速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch42_idx208_0.png"
+      ],
+      "answer": "<p>直角坐标法：$x=R\\cos 2\\omega t$，$y=R\\sin 2\\omega t$；自然法：$S=2R\\omega t$；$v=2R\\omega$（切向），$a=4R\\omega^2$（法向）</p>",
+      "explanation": "<p>【AI 生成】设圆弧槽圆心为 $O_1$，O 在圆周上（$OO_1=R$），M 在圆弧槽上，圆心角 $\\angle O_1OM=2\\omega t$。以 $O_1$ 为原点、初始 M 在 x 轴上，直角坐标法得</p><p>$$x=R\\cos 2\\omega t,\\qquad y=R\\sin 2\\omega t$$</p><p>自然法：M 沿半径 R 的圆弧运动，弧长与速度、加速度为</p><p>$$S=R\\cdot 2\\omega t=2R\\omega t,\\qquad v=\\dot S=2R\\omega$$</p><p>$$a_\\tau=0,\\qquad a_n=\\frac{v^2}{R}=4R\\omega^2$$</p><p>故全加速度 $a=a_n=4R\\omega^2$（法向，指向圆心）。</p>"
+    },
+    {
+      "overview": "求动点沿轨道的加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如图所示，动点 M 沿轨道 OABC 运动，OA 段为直线，AB 与 BC 段分别为四分之一圆弧。已知点 M 的运动方程为 $s=30t+5t^2$（m），求 $t=0,\\ 1,\\ 2$s 时点 M 的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch42_idx209_0.png"
+      ],
+      "answer": "<p>$t=0$：$a=10$ m/s$^2$；$t=1$s：$a_\\tau=10$ m/s$^2$，$a_n=106.7$ m/s$^2$；$t=2$s：$a_\\tau=10$ m/s$^2$，$a_n=83.3$ m/s$^2$</p>",
+      "explanation": "<p>【AI 生成】$v=\\dot s=30+10t$，$a_\\tau=\\ddot s=10\\,\\mathrm{m/s^2}$（常量）。图示 AB 弧半径 $R_1=15$ m，BC 弧半径 $R_2=30$ m。</p><p>$t=0$ 时点在 OA 直线上，$a_n=0$，故</p><p>$$a=a_\\tau=10\\,\\mathrm{m/s^2}$$</p><p>$t=1$s 时 $s=35$ m、$v=40$ m/s，点在 AB 弧上：</p><p>$$a_\\tau=10\\,\\mathrm{m/s^2},\\qquad a_n=\\frac{v^2}{R_1}=\\frac{40^2}{15}\\approx106.7\\,\\mathrm{m/s^2}$$</p><p>$t=2$s 时 $s=80$ m、$v=50$ m/s，点在 BC 弧上：</p><p>$$a_\\tau=10\\,\\mathrm{m/s^2},\\qquad a_n=\\frac{v^2}{R_2}=\\frac{50^2}{30}\\approx83.3\\,\\mathrm{m/s^2}$$</p>"
+    },
+    {
+      "overview": "求小环在C、D处的速度和加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "点的运动学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>小环 M 在铅垂面内沿曲杆 ABCE 从 A 点由静止开始运动，AB=$R$。在直线段 AB 上，小环的加速度为 $g$；在半径为 $R$ 的圆弧段 BCE 上，小环的切向加速度 $a_\\tau=g\\cos\\varphi$，曲杆尺寸如图，求小环在 C、D 两处的速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch42_idx210_0.png"
+      ],
+      "answer": "<p>$v_C=2\\sqrt{gR}$，$a_C=4g$；$v_D=1.848\\sqrt{gR}$，$a_D=3.487g$</p>",
+      "explanation": "<p>【AI 生成】AB 段作匀加速运动：</p><p>$$v_B^2=2gR$$</p><p>BC 为四分之一圆弧，$a_\\tau=g\\cos\\varphi$，$ds=R\\,d\\varphi$，由 $v\\,dv=a_\\tau ds$ 积分：</p><p>$$v_C^2=v_B^2+2\\int_0^{\\pi/2}g\\cos\\varphi\\cdot R\\,d\\varphi=2gR+2gR=4gR$$</p><p>$$v_C=2\\sqrt{gR}$$</p><p>C 处 $a_\\tau=g\\cos(\\pi/2)=0$，$a_C=a_n=v_C^2/R=4g$。</p><p>D 处 $\\varphi=\\pi/4$：</p><p>$$v_D^2=2gR+2gR\\sin\\frac{\\pi}{4}=gR(2+\\sqrt2),\\qquad v_D=1.848\\sqrt{gR}$$</p><p>$$a_\\tau=g\\cos45^\\circ=0.707g,\\qquad a_n=\\frac{v_D^2}{R}=3.414g$$</p><p>$$a_D=\\sqrt{a_\\tau^2+a_n^2}=3.487g$$</p>"
+    },
+    {
+      "overview": "求曲柄杆机构中导杆BC的运动规律与速度加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动",
+        "点的运动学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示曲柄杆机构中，滑杆上有一圆弧形滑道，其半径 $R=100$mm，圆心 $O_1$ 在导杆 BC 上。曲柄长 OA=100mm，以等角速度 $\\omega=4\\,\\mathrm{rad/s}$ 绕 O 轴转动。求导杆 BC 的运动规律以及当曲柄与水平线间的交角 $\\varphi$ 为 $30^\\circ$ 时，导杆 BC 的速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch43_idx211_0.png"
+      ],
+      "answer": "<p>$x=2R\\cos\\omega t=0.2\\cos 4t$（m）；$\\varphi=30^\\circ$ 时 $v=0.4\\,\\mathrm{m/s}$（←），$a=2.77\\,\\mathrm{m/s^2}$（←）</p>",
+      "explanation": "<p>【AI 生成】OA=$O_1A=R=100$mm，A 同时满足 $OA=R$ 与 $O_1A=R$。设 $O_1$ 的水平位移为 $x$，由等腰三角形 $OAO_1$ 得</p><p>$$x=2R\\cos\\varphi=2R\\cos\\omega t=0.2\\cos 4t\\ (\\mathrm{m})$$</p><p>导杆 BC 的速度、加速度为</p><p>$$v=\\dot x=-2R\\omega\\sin\\omega t,\\qquad a=\\ddot x=-2R\\omega^2\\cos\\omega t$$</p><p>$\\varphi=30^\\circ$ 时：$\\sin30^\\circ=1/2$，$\\cos30^\\circ=\\sqrt3/2$，故</p><p>$$v=-2\\times0.1\\times4\\times0.5=-0.4\\,\\mathrm{m/s}$$</p><p>$$a=-2\\times0.1\\times16\\times\\frac{\\sqrt3}{2}=-2.77\\,\\mathrm{m/s^2}$$</p><p>均指向左（←）。</p>"
+    },
+    {
+      "overview": "求搅拌机搅杆端点C的速度和轨迹",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动",
+        "刚体平动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知搅拌机的主动齿轮 $O_1$ 以 $n=950$ r/min 的转速转动。搅杆 ABC 用销钉 A、B 与齿轮 $O_2$、$O_3$ 相连，如图所示。且 AB=$O_2O_3$，$O_3A=O_2B=0.25$m，各齿轮齿数为 $z_1=20$，$z_2=50$，$z_3=50$，求搅杆端点 C 的速度和轨迹。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch43_idx212_0.png"
+      ],
+      "answer": "<p>$v_C=994\\,\\mathrm{cm/s}$；C 的轨迹为半径 0.25m 的圆</p>",
+      "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n}{60}=\\dfrac{2\\pi\\times950}{60}\\approx99.5$ rad/s。齿轮 1、2 啮合：</p><p>$$\\omega_2=\\omega_1\\frac{z_1}{z_2}=99.5\\times\\frac{20}{50}=39.8\\,\\mathrm{rad/s}$$</p><p>$z_2=z_3$，故 $\\omega_3=\\omega_2$。又 AB=$O_2O_3$、$O_3A=O_2B=0.25$m，$O_2ABO_3$ 为平行四边形，搅杆 ABC 作平动，各点速度相同：</p><p>$$v_C=v_A=\\omega_2\\cdot O_2A=39.8\\times0.25=9.95\\,\\mathrm{m/s}\\approx994\\,\\mathrm{cm/s}$$</p><p>平动刚体各点轨迹为全等的圆，故 C 的轨迹为半径 0.25m 的圆。</p>"
+    },
+    {
+      "overview": "求飞轮的转动方程与角速度关系",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>一飞轮绕固定轴 O 转动，其轮缘上任一点的全加速度在某段运动过程中与轮半径的交角恒为 $60^\\circ$。当运动开始时，其转角 $\\varphi$ 等于零，角速度为 $\\omega_0$。求飞轮的转动方程以及角速度与转角的关系。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch43_idx213_0.png"
+      ],
+      "answer": "<p>转动方程：$\\varphi=-\\dfrac{1}{\\sqrt3}\\ln(1-\\sqrt3\\,\\omega_0 t)$；角速度与转角关系：$\\omega=\\omega_0 e^{\\sqrt3\\varphi}$</p>",
+      "explanation": "<p>【AI 生成】全加速度与半径交角恒为 $60^\\circ$：</p><p>$$\\tan60^\\circ=\\frac{a_\\tau}{a_n}=\\frac{\\alpha R}{\\omega^2 R}=\\frac{\\alpha}{\\omega^2}=\\sqrt3,\\qquad \\alpha=\\sqrt3\\,\\omega^2$$</p><p>由 $\\alpha=\\dfrac{d\\omega}{dt}=\\sqrt3\\omega^2$ 分离变量积分：</p><p>$$\\frac{1}{\\omega}=\\frac{1}{\\omega_0}-\\sqrt3 t,\\qquad \\omega=\\frac{\\omega_0}{1-\\sqrt3\\,\\omega_0 t}$$</p><p>又 $\\omega\\dfrac{d\\omega}{d\\varphi}=\\sqrt3\\omega^2$，即 $\\dfrac{d\\omega}{\\omega}=\\sqrt3\\,d\\varphi$，积分得角速度与转角关系：</p><p>$$\\omega=\\omega_0 e^{\\sqrt3\\varphi}$$</p><p>转动方程由 $\\varphi=\\int\\omega\\,dt$ 得</p><p>$$\\varphi=-\\frac{1}{\\sqrt3}\\ln(1-\\sqrt3\\,\\omega_0 t)$$</p>"
+    },
+    {
+      "overview": "求电动绞车重物上升速度与皮带加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>电动绞车由皮带轮 Ⅰ 和 Ⅱ 以及鼓轮 Ⅲ 组成，鼓轮 Ⅲ 和皮带轮 Ⅱ 刚性地固定在同一轴上。各轮的半径分别为 $r_1=0.3$m，$r_2=0.75$m，$r_3=0.4$m，轮 Ⅰ 的转速为 $n_1=100$r/min。设皮带轮与皮带之间无滑动，求重物 P 上升的速度和皮带各段上点的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch44_idx214_0.png"
+      ],
+      "answer": "<p>$v_P=1.68\\,\\mathrm{m/s}$；$a_{AB}=a_{CD}=0$，$a_{BC}=13.16\\,\\mathrm{m/s^2}$，$a_{AD}=32.9\\,\\mathrm{m/s^2}$</p>",
+      "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n_1}{60}=\\dfrac{2\\pi\\times100}{60}=10.47$ rad/s，皮带速度</p><p>$$v=\\omega_1 r_1=10.47\\times0.3=3.14\\,\\mathrm{m/s}$$</p><p>轮 Ⅱ：$\\omega_2=\\dfrac{v}{r_2}=\\dfrac{3.14}{0.75}=4.19$ rad/s；轮 Ⅲ 与轮 Ⅱ 同轴，$\\omega_3=\\omega_2$，重物上升速度</p><p>$$v_P=\\omega_3 r_3=4.19\\times0.4=1.68\\,\\mathrm{m/s}$$</p><p>皮带直线段 AB、CD 上各点速度相同且皮带匀速，$a=0$。绕轮 Ⅱ 的弧段 BC 与绕轮 Ⅰ 的弧段 AD 的向心加速度为</p><p>$$a_{BC}=\\frac{v^2}{r_2}=\\frac{3.14^2}{0.75}=13.16\\,\\mathrm{m/s^2}$$</p><p>$$a_{AD}=\\frac{v^2}{r_1}=\\frac{3.14^2}{0.3}=32.9\\,\\mathrm{m/s^2}$$</p>"
+    },
+    {
+      "overview": "求仪表机构指针转角",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示仪表机构中，已知各齿轮的齿数为 $z_1=6$，$z_2=24$，$z_3=8$，$z_4=32$，齿轮 5 的半径 $R=4$cm。如齿条 BC 下移 1cm，求指针 OA 转过的角度 $\\varphi$。</p>",
+      "figures": [],
+      "answer": "<p>$\\varphi=4\\,\\mathrm{rad}$</p>",
+      "explanation": "<p>【AI 生成】齿条与齿轮 5 啮合，齿条下移 $s=1$cm，齿轮 5 转角</p><p>$$\\theta_5=\\frac{s}{R}=\\frac{1}{4}\\,\\mathrm{rad}$$</p><p>齿轮 5 与齿轮 4 同轴：$\\theta_4=\\theta_5=1/4$。齿轮 4 与齿轮 3 啮合、齿轮 3 与齿轮 2 同轴、齿轮 2 与齿轮 1 啮合，逐级传递：</p><p>$$\\theta_3=\\theta_4\\frac{z_4}{z_3}=\\frac14\\times\\frac{32}{8}=1$$</p><p>$$\\theta_1=\\theta_2\\frac{z_2}{z_1}=1\\times\\frac{24}{6}=4\\,\\mathrm{rad}$$</p><p>指针在齿轮 1 上，故指针 OA 转过 $\\varphi=4$ rad。</p>"
+    },
+    {
+      "overview": "求纸盘角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>纸盘由厚度为 $a$ 的纸条卷成，令纸盘的中心不动，而以等速 $v$ 拉纸条。求纸盘的角加速度（以半径 $r$ 的函数表示）。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch44_idx216_0.png"
+      ],
+      "answer": "<p>$\\alpha=\\dfrac{av^2}{2\\pi r^3}$</p>",
+      "explanation": "<p>【AI 生成】纸带无滑动，纸盘角速度 $\\omega=v/r$。拉出纸带使纸盘半径减小，单位时间拉出的纸带截面积为 $av$，故</p><p>$$\\frac{d(\\pi r^2)}{dt}=2\\pi r\\frac{dr}{dt}=-av,\\qquad \\frac{dr}{dt}=-\\frac{av}{2\\pi r}$$</p><p>纸盘角加速度</p><p>$$\\alpha=\\frac{d\\omega}{dt}=\\frac{d}{dt}\\left(\\frac{v}{r}\\right)=-\\frac{v}{r^2}\\frac{dr}{dt}=\\frac{av^2}{2\\pi r^3}$$</p>"
+    },
+    {
+      "overview": "求车床车刀切削工件的螺距",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>车床的传动装置如图所示。已知各齿轮的齿数分别为：$z_1=40$，$z_2=84$，$z_3=28$，$z_4=80$；带动刀具的丝杠的螺距为 $h_4=12$mm。求车刀切削工件的螺距 $h_1$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch44_idx217_0.png"
+      ],
+      "answer": "<p>$h_1=0.2\\,\\mathrm{cm}$</p>",
+      "explanation": "<p>【AI 生成】工件与齿轮 1 同转。工件每转一周（$\\theta_1=2\\pi$），丝杠（齿轮 4）转角为</p><p>$$\\theta_4=\\theta_1\\frac{z_1 z_3}{z_2 z_4}=2\\pi\\times\\frac{40\\times28}{84\\times80}=\\frac{2\\pi}{6}=\\frac{\\pi}{3}$$</p><p>刀具移动距离（丝杠螺距 $h_4=12$mm）</p><p>$$s=h_4\\frac{\\theta_4}{2\\pi}=12\\times\\frac{1}{6}=2\\,\\mathrm{mm}$$</p><p>工件每转一周刀具移动 2mm，即工件被切削的螺距 $h_1=2$mm$=0.2$cm。</p>"
+    },
+    {
+      "overview": "求齿轮2的角速度和角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动",
+        "刚体平动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示机构中齿轮 1 紧固在杆 AC 上，AB=$O_1O_2$，齿轮 1 和半径为 $r_2$ 的齿轮 2 啮合，齿轮 2 可绕 $O_2$ 轴转动且和曲柄 $O_2B$ 没有联系。设 $O_1A=O_2B=l$，$\\varphi=b\\sin\\omega t$，试确定 $t=\\pi/\\omega$ 时，齿轮 2 的角速度和角加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch45_idx218_0.png"
+      ],
+      "answer": "<p>$\\omega_2=0$；$\\alpha_2=-\\dfrac{b^2\\omega^2 l}{r_2}$</p>",
+      "explanation": "<p>【AI 生成】AB=$O_1O_2$ 且 $O_1A=O_2B=l$，故 $O_1ABO_2$ 为平行四边形，杆 AC 作平动。$\\varphi=b\\sin\\omega t$：</p><p>$$\\dot\\varphi=b\\omega\\cos\\omega t,\\qquad \\ddot\\varphi=-b\\omega^2\\sin\\omega t$$</p><p>当 $t=\\pi/\\omega$ 时 $\\varphi=0$，$\\dot\\varphi=-b\\omega$，$\\ddot\\varphi=0$。A 的速度 $v_A=l\\dot\\varphi$ 沿垂直于 $O_1A$ 的方向，此时恰沿两齿轮中心连线方向，故齿轮 2 切向速度为零：</p><p>$$\\omega_2=0$$</p><p>A 的加速度 $a_A=l\\dot\\varphi^2=b^2\\omega^2 l$ 沿 $O_1A$（切向分量），故齿轮 2 角加速度</p><p>$$\\alpha_2=-\\frac{a_A}{r_2}=-\\frac{b^2\\omega^2 l}{r_2}$$</p>"
+    },
+    {
+      "overview": "求摩擦传动机构轴Ⅱ的角加速度与全加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "刚体定轴转动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，摩擦传动机构的主动轴 Ⅰ 的转速为 $n=600$r/min。轴 Ⅰ 的轮盘与轴 Ⅱ 的轮盘接触，接触点按箭头 A 所示的方向移动。距离 $d$ 的变化规律为 $d=100-5t$，其中 $d$ 以 mm 计，$t$ 以 s 计。已知 $r=50$mm，$R=150$mm。求：(1) 以距离 $d$ 表示轴 Ⅱ 的角加速度；(2) 当 $d=r$ 时，轮 B 边缘上一点的全加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch45_idx219_0.png"
+      ],
+      "answer": "<p>(1) $\\alpha_2=\\dfrac{50\\pi}{d^2}\\,\\mathrm{rad/s^2}$（$d$ 以 cm 计）；(2) $a=592\\,\\mathrm{m/s^2}$</p>",
+      "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n}{60}=\\dfrac{2\\pi\\times600}{60}=20\\pi$ rad/s。接触点线速度 $v=\\omega_1 r$，轮 Ⅱ 接触半径为 $d$，故 $\\omega_2=\\omega_1 r/d$，$\\dot d=-0.5$ cm/s。轴 Ⅱ 角加速度</p><p>$$\\alpha_2=\\frac{d\\omega_2}{dt}=-\\frac{\\omega_1 r}{d^2}\\dot d=\\frac{20\\pi\\times5\\times0.5}{d^2}=\\frac{50\\pi}{d^2}\\,\\mathrm{rad/s^2}\\quad(d\\ \\text{以 cm 计})$$</p><p>(2) 当 $d=r=5$cm 时 $\\omega_2=\\omega_1 r/d=20\\pi$ rad/s。轮 B 边缘（半径 $R=0.15$m）法向加速度</p><p>$$a_n=\\omega_2^2 R=(20\\pi)^2\\times0.15=60\\pi^2\\approx592\\,\\mathrm{m/s^2}$$</p><p>切向加速度相对很小，全加速度 $a\\approx592\\,\\mathrm{m/s^2}$。</p>"
+    }
+  ]
+}

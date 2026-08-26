@@ -1,0 +1,20 @@
+{
+  "id": "q_572",
+  "overview": "求车轮沿地面平动时拉力F的值",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>在一重W的车轮轮轴上绕有软绳，绳的一端作用一水平力F。已知车轮半径为R，轮轴半径为r，车轮及轮轴对中心O的回转半径为$\\rho$，以及车轮与地面间的滑动摩擦因数为f，绳重和滚阻皆不计。当车轮沿地面作平动时，力F的值为____。</p><p>(A) $F=fWR/\\rho$；<br>(B) $F=fWR/r$；<br>(C) $F=fWr/\\rho$；<br>(D) $F=fW$。</p><img src=\"qdata/q_572/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】车轮作平动即无转动，对轮心O的力矩必须为零：拉力F对O之矩为$F\\cdot r$，滑动摩擦力$fW$作用在轮缘（距O为R），其矩为$fW\\cdot R$。由$Fr=fWR$得$F=fWR/r$，选B。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55"
+}

@@ -9,7 +9,7 @@ body{margin:0;background:#f5f7fb;color:#172033;font-family:"Microsoft YaHei",san
 <style>.add-btn{border:0;border-radius:50%;width:38px;height:38px;background:#fff;color:#2563eb;font-size:25px;line-height:38px;cursor:pointer;margin-right:10px}.head-actions{display:flex;align-items:center}</style>
 </head>
 <body>
-<header class="head"><div><h1>📚 学习记录</h1><p>查看、编辑并确认 AI 整理的个人学习笔记</p></div><div class="head-actions"><button class="add-btn" onclick="openCreate()" title="新建笔记">＋</button><a href="personal_knowledge.html">返回知识网络 →</a></div></header>
+<header class="head"><div><h1>📚 学习记录</h1><p>查看、编辑并确认 AI 整理的个人学习笔记</p></div><div class="head-actions"><button class="add-btn" onclick="openCreate()" title="新建笔记">＋</button><a href="personal_knowledge.html?v=20260826b">返回知识网络 →</a></div></header>
 <div id="createBox" style="display:none;max-width:980px;margin:20px auto 0;padding:0 16px"><section class="note"><h2>新建个人学习笔记</h2><input id="newTitle" placeholder="笔记标题" style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit"><textarea id="newBody" placeholder="输入 Markdown 内容……\n\n例如：\n## 核心结论\n- 约束反力的数量取决于约束限制的自由度。" style="width:100%;min-height:240px;margin-top:12px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;line-height:1.6"></textarea><br><button class="btn primary" onclick="createNote()">保存并加入知识网络</button><button class="btn secondary" onclick="closeCreate()">取消</button></section></div>
 <main class="wrap" id="list"></main>
 <script src="js/learning-memory-api.js"></script>

@@ -1,0 +1,16 @@
+{
+  "overview": "求刚架在水平力F作用下支座A、D的约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "easy",
+  "content": "<p>如图所示，刚架的点B作用一水平力F，刚架重量不计。求支座A、D的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_A=\\frac{\\sqrt{5}}{2}F=1.12F$（方向沿AC连线），$F_D=\\frac{1}{2}F=0.5F$（铅直向上）。</p>",
+  "explanation": "<p>解：研究对象为刚架。由三力平衡汇交定理，支座A的约束力 $F_A$ 必通过点C，方向如图所示。取坐标系Cxy，由平衡方程得</p><p>$$\\sum F_x=0：\\ F-F_A\\times\\frac{2}{\\sqrt{5}}=0$$　(1)</p><p>$$\\sum F_y=0：\\ F_D-F_A\\times\\frac{1}{\\sqrt{5}}=0$$　(2)</p><p>式(1)、(2)联立，解得</p><p>$$F_A=\\frac{\\sqrt{5}}{2}F=1.12F，\\quad F_D=\\frac{1}{2}F=0.5F$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q3_0.png",
+    "题库/qbank2_figs/q3_1.png"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_084",
+  "overview": "两正交铰接杆释放求角速度角加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>匀质直杆 $AB$ 和 $OD$，长度各为 $L$，质量各为 $m$，两杆在 $AB$ 的中点 $D$ 处铰接。$OD$ 可绕光滑水平固定轴 $O$ 转动。开始时 $OD$ 处于水平位置并与 $AB$ 垂直。当静止释放后，求杆 $OD$ 转过 $\\varphi$ 角时的角加速度和角速度。</p><img src=\"qdata/q_084/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=\\sqrt{\\dfrac{9g\\sin\\varphi}{4L}}$；$\\alpha=\\dfrac{9g\\cos\\varphi}{8L}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) $AB$ 在 $D$ 处铰接且质心在 $D$，重力与铰链力均过 $D$，对 $D$ 之矩为零，故 $AB$ 不转动，只随 $D$ 平动，$v_{AB}=v_D=L\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{mL^2}{3}\\omega^2+\\frac12m(L\\omega)^2=\\frac{2}{3}mL^2\\omega^2$。<br>(3) 重力功：$OD$ 质心下降 $\\frac L2\\sin\\varphi$，$AB$ 质心（在 $D$）下降 $L\\sin\\varphi$，$W=mg\\frac L2\\sin\\varphi+mgL\\sin\\varphi=\\frac32mgL\\sin\\varphi$。<br>(4) 动能定理：$\\frac{2}{3}mL^2\\omega^2=\\frac32mgL\\sin\\varphi\\Rightarrow \\omega=\\sqrt{\\dfrac{9g\\sin\\varphi}{4L}}$。<br>(5) 对 $\\varphi$ 求导：$2\\omega\\dfrac{d\\omega}{d\\varphi}=2\\alpha=\\dfrac{9g\\cos\\varphi}{4L}\\Rightarrow\\alpha=\\dfrac{9g\\cos\\varphi}{8L}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

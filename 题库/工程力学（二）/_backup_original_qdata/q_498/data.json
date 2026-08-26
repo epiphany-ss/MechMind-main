@@ -1,0 +1,21 @@
+{
+  "id": "q_498",
+  "overview": "平面机构求顶杆EFG速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知：OA＝r，AB＝2r，CD＝3r。在图示位置时，杆OA的角速度为 $\\omega$，OA⊥OC，AB⊥CD，$\\phi=60^\\circ$。试求该瞬时顶杆EFG的速度。</p><img src=\"qdata/q_498/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_{EFG}=\\omega_{CD}\\cdot CD$（由速度分析求出，顶杆铅垂运动）。</p>",
+  "explanation": "<p>【AI 生成】（1）$v_A=\\omega r$，方向垂直OA；OA⊥OC，故 $v_A$ 沿OC方向。<br>（2）AB杆作平面运动，AB=2r，由速度投影定 $v_B$；CD杆绕C转动，CD=3r，$v_D$ 垂直CD。<br>（3）由AB、CD的几何（AB⊥CD，$\\phi=60^\\circ$）与D点（AB与CD交点）速度相等条件，求得 $\\omega_{CD}$。<br>（4）顶杆EFG沿铅垂方向运动，$v_{EFG}$ 为D（或F）点速度的铅垂分量，$v_{EFG}=\\omega_{CD}\\cdot CD\\cos\\phi$ 等，代入得数值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

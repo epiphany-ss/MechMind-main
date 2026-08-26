@@ -1,0 +1,20 @@
+{
+  "id": "q_090",
+  "overview": "常力偶提升物B求加速度与支座反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：常力偶矩 $M=10\\,\\mathrm{kN\\cdot m}$，物 $B$ 重 $P=10\\,\\mathrm{kN}$，与斜面的动摩擦因数 $f'=0.1$；匀质轮的重 $Q=20\\,\\mathrm{kN}$、半径 $R=1\\,\\mathrm{m}$，悬臂梁长为 $OA=2R$。并设绳的伸长段与斜面平行，试求：(1) 物块 $B$ 上升的加速度；(2) 支座 $A$ 处的反力。（$\\sin10^\\circ=0.17$，$\\cos10^\\circ=0.99$）</p>",
+  "answer": "<p>$a_B=3.58\\,\\mathrm{m/s^2}$；$F_{Ax}=6.28\\,\\mathrm{kN}$，$F_{Ay}=21.10\\,\\mathrm{kN}$，$M_A=12.56\\,\\mathrm{kN\\cdot m}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 斜面倾角 $10^\\circ$。绳绕轮 $O$（半径 $R=1\\,\\mathrm{m}$），$v_B=R\\omega$。动能 $T=\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega^2+\\frac12\\frac{P}{g}v_B^2=\\frac{10}{g}v_B^2$（$Q=20,\\,P=10$）。<br>(2) 功率：$P_m=M\\omega-P\\sin10^\\circ v_B-f'P\\cos10^\\circ v_B=v_B\\left(M-P\\sin10^\\circ-f'P\\cos10^\\circ\\right)$。<br>(3) 由 $\\dfrac{dT}{dt}=P_m$：$\\dfrac{20}{g}a_B=10-1.7-0.99=7.31\\Rightarrow a_B=\\dfrac{7.31g}{20}=3.58\\,\\mathrm{m/s^2}$。<br>(4) 由达朗贝尔原理对支座 $A$ 列平衡，得 $F_{Ax}=6.28\\,\\mathrm{kN}$、$F_{Ay}=21.10\\,\\mathrm{kN}$、$M_A=12.56\\,\\mathrm{kN\\cdot m}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_474",
+  "overview": "求杆端A点的速度大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "速度瞬心"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>图示机构中，已知B物体的速度为v，则该瞬时杆端A点的速度的大小为______。</p><img src=\"qdata/q_474/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_A=2v$（O为固定点，$OA=2OB$，故 $v_A=\\omega\\cdot OA=2\\omega\\cdot OB=2v$）。</p>",
+  "explanation": "<p>【AI 生成】O为固定铰点，A、B为同一刚体（杆）上的两点，$OA=L$，$OB=\\dfrac{L}{2}$，杆绕O转动（图示 $\\angle AOB=30^\\circ$ 仅确定位置，不影响速度大小）。<br>B端随物体运动的速度为 $v$，故杆角速度 $\\omega=\\dfrac{v_B}{OB}=\\dfrac{v}{L/2}=\\dfrac{2v}{L}$。<br>于是A点速度 $v_A=\\omega\\cdot OA=\\dfrac{2v}{L}\\times L=2v$，方向垂直于OA。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51"
+}

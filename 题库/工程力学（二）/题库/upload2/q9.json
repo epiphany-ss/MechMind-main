@@ -1,0 +1,17 @@
+{
+  "overview": "求滑道连杆机构力偶矩M与角θ的关系",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "easy",
+  "content": "<p>图所示滑道连杆机构，在滑道连杆上作用着水平力 $F$。已知 $OA = r$，滑道倾角为 $\\beta$，机构重力和各处摩擦均不计。求当机构平衡时，作用在曲柄 OA 上的力偶矩 $M$ 与角 $\\theta$ 之间的关系。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$$M=Fr\\cdot\\frac{\\cos(\\beta-\\theta)}{\\sin\\beta}$$</p><img src=\"[[FIG2]]\">",
+  "explanation": "<p>解：</p><p><b>（1）滑道连杆受力分析</b></p><p>$\\sum F_x=0$：$F_N\\sin\\beta-F=0$，故</p><p>$$F_N=\\frac{F}{\\sin\\beta}$$</p><p><b>（2）曲柄 OA 及滑块 A 受力分析</b></p><p>$\\sum M_O=0$：$-M+F_N\\,r\\cos(\\beta-\\theta)=0$，故</p><p>$$M=F_N\\,r\\cos(\\beta-\\theta)$$</p><p>将式（1）代入式（2），得</p><p>$$M=Fr\\cdot\\frac{\\cos(\\beta-\\theta)}{\\sin\\beta}$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q9_0.jpeg",
+    "题库/qbank2_figs/q9_1.png",
+    "题库/qbank2_figs/q9_2.png"
+  ]
+}

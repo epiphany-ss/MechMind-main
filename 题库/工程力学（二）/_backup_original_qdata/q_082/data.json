@@ -1,0 +1,20 @@
+{
+  "id": "q_082",
+  "overview": "复合滑轮系统求物A速度与物B加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：物 $A$ 重 $P_1$，物 $B$ 重 $P_2$，均质定滑轮 $O$ 重 $W$，均质动滑轮 $C$ 重 $Q$，不变转矩 $M$，重物 $B$ 与斜面间的动摩擦系数为 $f'$。若轴承为光滑，绳与滑轮之间无相对滑动，绳的倾斜段与斜面平行，试求重物 $A$ 由静止下降 $S$ 距离时的速度 $v_A$ 和重物 $B$ 的加速度 $a_B$。</p><img src=\"qdata/q_082/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_A^2=\\dfrac{2\\left[P_1+Q(1+3f')R-M\\right]s}{2P_1+8P_2+3Q+\\dfrac{4W}{R}}$；$a_B=\\dfrac{P_1+Q(1+3f')R-M}{2\\left(2P_1+8P_2+3Q+\\dfrac{4W}{R}\\right)}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 动滑轮 $C$ 使绳速减半：$v_C=\\frac12v_A$，$v_B=\\frac12v_A$（绳的倾斜段与斜面平行）。定滑轮 $O$ 角速度 $\\omega_O=\\dfrac{v_A/2}{R}$。<br>(2) 动能：$T=\\frac12\\frac{P_1}{g}v_A^2+\\frac12\\frac{P_2}{g}\\left(\\frac{v_A}{2}\\right)^2+\\frac12\\frac{Q}{g}\\left(\\frac{v_A}{2}\\right)^2+\\frac12\\cdot\\frac12\\frac{W}{g}R^2\\omega_O^2$。<br>(3) 用动能定理 $\\dfrac{dT}{dt}=P_m$，主动力功率：$P_1v_A$（$A$ 重力）、$-P_2v_B\\sin\\alpha-f'P_2v_B\\cos\\alpha$（$B$ 重力与摩擦）、$M\\omega_O$（转矩）、$Q\\cdot\\frac{v_A}{2}$（动滑轮 $C$ 被提起）。<br>(4) 整理得 $v_A^2=\\dfrac{2\\left[P_1+Q(1+3f')R-M\\right]s}{2P_1+8P_2+3Q+\\dfrac{4W}{R}}$。<br>(5) 因 $v_B=\\frac12v_A$，$a_B=\\frac12a_A$，故 $a_B=\\dfrac{P_1+Q(1+3f')R-M}{2\\left(2P_1+8P_2+3Q+\\dfrac{4W}{R}\\right)}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

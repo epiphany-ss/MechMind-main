@@ -1,0 +1,20 @@
+{
+  "id": "q_011",
+  "overview": "判断理论力学是否只研究外效应",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>理论力学只研究力对物体的外效应。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】理论力学把物体视为刚体，只研究力的外效应（运动效应）；物体的变形（内效应）问题由材料力学研究。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册",
+  "title": "判断理论力学是否只研究外效应",
+  "module": "静力学"
+}

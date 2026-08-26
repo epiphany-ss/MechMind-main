@@ -1,0 +1,21 @@
+{
+  "id": "q_126",
+  "overview": "圆轮定滑轮物块系统",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示圆轮 $C$ 沿水平悬臂梁作纯滚动，用绳通过匀质定滑轮 $B$ 与物块 $D$ 相连。已知：二轮半径均为 $r$、重均为 $P$，物 $D$ 重为 $2P$，梁长为 $L$，自重不计。试用动静法求：(1) 重物 $D$ 开始下落时的加速度；(2) 支座 $A$ 的附加动反力。</p>",
+  "answer": "<p>(1) $a_D=\\dfrac{g}{2}$；(2) $F_{Ax}=\\dfrac{P}{2}$，$F_{Ay}=P$，$M_A=PL$</p>",
+  "explanation": "<p>【AI 生成】绳不可伸长，轮 $C$ 纯滚动，故 $a_C=a_D$。对轮 $C$：$T_C-F=\\dfrac{P}{g}a_C$，$F\\cdot r=\\dfrac{1}{2}\\dfrac{P}{g}r^2\\cdot\\dfrac{a_C}{r}$，得 $F=\\dfrac{1}{2}\\dfrac{P}{g}a_C$，$T_C=\\dfrac{3}{2}\\dfrac{P}{g}a_C$。对定滑轮 $B$：$(T_D-T_C)r=\\dfrac{1}{2}\\dfrac{P}{g}r^2\\cdot\\dfrac{a_D}{r}$。对物 $D$：$2P-T_D=\\dfrac{2P}{g}a_D$。联立解得 $a_D=\\dfrac{g}{2}$，$T_C=\\dfrac{3}{4}P$，$T_D=P$，$F=\\dfrac{P}{4}$。对梁（含轮与滑轮）用动静法，得附加动反力 $F_{Ax}=\\dfrac{P}{2}$，$F_{Ay}=P$，$M_A=PL$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册",
+  "title": "圆轮定滑轮物块系统",
+  "module": "动力学"
+}

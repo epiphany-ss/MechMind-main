@@ -1,0 +1,21 @@
+{
+  "id": "q_142",
+  "overview": "平行四边形机构中D、E虚位移比与力关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移",
+    "虚功"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>图示机构中 $O_1A$ 平行且等于 $O_2B$，当杆 $O_1A$ 处于水平位置时，$\\theta=$____°，不计摩擦。用虚位移原理求解时，D、E点虚位移的比值为 $\\delta r_D:\\delta r_E=$____，若已知力 $F_Q$，则平衡时力 $F_P$ 的大小为____。</p>",
+  "answer": "<p>$\\theta=0^\\circ$；$\\delta r_D:\\delta r_E=1:1$；$F_P=F_Q$</p>",
+  "explanation": "<p>【AI 生成】$O_1A\\parallel O_2B$ 且等长，构成平行四边形机构，当 $O_1A$ 水平时 $O_2B$ 亦水平，故 $\\theta=0^\\circ$。平行四边形机构作平动，其上各点虚位移完全相同，故 $\\delta r_D:\\delta r_E=1:1$。虚功方程 $F_P\\,\\delta r_D-F_Q\\,\\delta r_E=0$，代入 $\\delta r_D=\\delta r_E$ 得 $F_P=F_Q$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册",
+  "title": "平行四边形机构中D、E虚位移比与力关系",
+  "module": "分析力学"
+}

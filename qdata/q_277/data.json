@@ -1,0 +1,22 @@
+{
+  "id": "q_277",
+  "overview": "求两力向O点简化的主矢主矩及对ξ轴之矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知：$\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$、$\\theta$、$\\beta$。求 $\\boldsymbol{F}_1$ 和 $\\boldsymbol{F}_2$ 所构成的力系向 $O$ 点简化的主矢量和主矩在三直角坐标轴上的投影，并求 $\\boldsymbol{F}_1$ 对 $\\xi$ 轴的矩。</p><img src=\"qdata/q_277/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F_{Rx}'=F_1\\cos\\theta\\sin\\beta$，$F_{Ry}'=-F_1\\cos\\theta\\cos\\beta+\\dfrac{\\sqrt{2}}{2}F_2$，$F_{Rz}'=-F_1\\sin\\theta+\\dfrac{\\sqrt{2}}{2}F_2$；$M_{Ox}=aF_1\\cos\\theta\\cos\\beta$，$M_{Oy}=bF_1\\sin\\theta+aF_1\\cos\\theta\\sin\\beta-\\dfrac{\\sqrt{2}}{2}F_2 b$，$M_{Oz}=-bF_1\\cos\\theta\\cos\\beta+\\dfrac{\\sqrt{2}}{2}F_2 b$；$M_{\\xi}=-\\dfrac{2abF_1\\cos\\theta\\cos\\beta}{\\sqrt{a^2+b^2}}$。</p>",
+  "explanation": "<p>【AI 生成】设 $\\boldsymbol{F}_1$ 在 $xOz$ 面内与水平面成 $\\theta$ 角、其在 $xOy$ 面投影与 $x$ 轴成 $\\beta$ 角，$\\boldsymbol{F}_2$ 沿与坐标轴成 $45^\\circ$ 的方向。分解得 $$\\boldsymbol{F}_1=(F_1\\cos\\theta\\sin\\beta,\\,-F_1\\cos\\theta\\cos\\beta,\\,-F_1\\sin\\theta),\\qquad \\boldsymbol{F}_2=\\left(0,\\frac{\\sqrt{2}}{2}F_2,\\frac{\\sqrt{2}}{2}F_2\\right)$$ 主矢 $\\boldsymbol{F}_R'=\\boldsymbol{F}_1+\\boldsymbol{F}_2$ 的各分量为题给结果。主矩 $\\boldsymbol{M}_O=\\boldsymbol{r}_{A_1}\\times\\boldsymbol{F}_1+\\boldsymbol{r}_{A_2}\\times\\boldsymbol{F}_2$，其中 $A_1$、$A_2$ 为两力作用点（坐标由 $a,b$ 确定），逐项叉乘得 $M_{Ox},M_{Oy},M_{Oz}$。$\\boldsymbol{F}_1$ 对 $\\xi$ 轴（$O$ 到 $A$ 连线，长 $\\sqrt{a^2+b^2}$）的矩等于 $\\boldsymbol{F}_1$ 对 $O$ 点之矩在 $\\xi$ 方向的投影：$$M_{\\xi}=\\boldsymbol{M}_O(\\boldsymbol{F}_1)\\cdot\\boldsymbol{e}_{\\xi}=-\\frac{2abF_1\\cos\\theta\\cos\\beta}{\\sqrt{a^2+b^2}}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册",
+  "title": "求两力向O点简化的主矢主矩及对ξ轴之矩",
+  "module": "静力学"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_454",
+  "overview": "判断地球上任意运动物体是否都有科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>若考虑地球自转，则在地球上的任何地方运动的物体(视为质点)，都有科氏加速度。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】科氏加速度 $a_C=2\\omega\\times v_r$。当物体相对地球的速度方向与地球自转角速度 $\\omega$ 平行时（如沿地轴方向运动），或相对速度为零时，科氏加速度为零，并非任何地方都有。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

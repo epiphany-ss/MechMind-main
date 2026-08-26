@@ -1,0 +1,18 @@
+{
+  "id": "q_029",
+  "overview": "判断两汇交力合力大小可能的取值",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>作用在刚体上两个不在同一直线上且不为零的汇交力 $F_1$ 和 $F_2$，可求得其合力 $F_R=F_1+F_2$，则其合力的大小____。<br>(A) 必有 $F_R=F_1+F_2$；<br>(B) 不可能有 $F_R=F_2$；<br>(C) 必有 $F_R&gt;F_1$ 且 $F_R&gt;F_2$；<br>(D) 可能有 $F_R&lt;F_1$ 且 $F_R&lt;F_2$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】由 $F_R^2=F_1^2+F_2^2+2F_1F_2\\cos\\theta$，当两力夹角 $\\theta$ 接近 $180^\\circ$ 时合力可小于任一分力，故可能有 $F_R&lt;F_1$ 且 $F_R&lt;F_2$。A 仅在两力同向时成立；B、C 均不是必然结论。</p>",
+  "media": [],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36",
+  "source": "练习册"
+}

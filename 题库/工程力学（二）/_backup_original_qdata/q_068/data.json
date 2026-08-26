@@ -1,0 +1,19 @@
+{
+  "id": "q_068",
+  "overview": "OA与AB铰接系统求A点速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知均质杆 $OA$ 和 $AB$ 在 $A$ 点用光滑铰链连接，质量分别为 $m$ 和 $2m$，长度分别为 $l$ 和 $2l$。$OA$ 杆的 $O$ 端与光滑固定铰支座相连，$AB$ 杆的 $B$ 端放在光滑水平面上，初瞬时，$OA$ 杆处于水平方向，$AB$ 杆处于铅垂方向。如图所示，由于微小干扰，$AB$ 杆的 $B$ 端无初速地向右滑动，试求当 $OA$ 杆运动到铅垂位置时，$A$ 点的速度。</p>",
+  "answer": "<p>$v_A=\\sqrt{\\dfrac{9gl}{7}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 初始：$OA$ 水平、$AB$ 铅垂，系统静止。末态：$OA$ 铅垂。<br>(2) 水平方向无外力，水平动量守恒：$2m\\,v_{Bx}=0\\Rightarrow v_{Bx}=0$，故末态 $B$ 点速度铅垂。<br>(3) 末态 $A$ 点绕 $O$ 转动，$v_A$ 水平；由杆 $AB$ 上 $A$、$B$ 两点速度关系：$B$ 端水平速度为零，则 $AB$ 杆绕 $B$ 转动，$v_A=\\omega_{AB}\\cdot 2l$，$\\omega_{AB}=\\dfrac{v_A}{2l}$。$OA$ 杆角速度 $\\omega_{OA}=\\dfrac{v_A}{l}$。<br>(4) 质心降低：$OA$ 质心降低 $\\frac l2$，$AB$ 质心（在 $A$ 处）降低 $l$。机械能守恒：$mg\\frac l2+2mg\\,l=\\frac12\\frac{ml^2}{3}\\omega_{OA}^2+\\frac12(2m)v_A^2+\\frac12\\frac{2m(2l)^2}{12}\\omega_{AB}^2$。<br>(5) 代入 $\\omega_{OA}=\\dfrac{v_A}{l}$、$\\omega_{AB}=\\dfrac{v_A}{2l}$：$\\frac52mgl=\\frac{mv_A^2}{6}+mv_A^2+\\frac{mv_A^2}{12}=\\frac{7}{6}mv_A^2\\Rightarrow v_A=\\sqrt{\\dfrac{9gl}{7}}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

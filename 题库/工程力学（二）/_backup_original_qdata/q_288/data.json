@@ -1,0 +1,17 @@
+{
+  "id": "q_288",
+  "overview": "判断斜面上物体静止条件",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>一重 W 的物体自由地放在倾角为 $\\alpha$ 的斜面上，物体与斜面间的摩擦因数为 $f_s$，若 $\\tan\\alpha&lt;f_s$，则物体将静止在斜面上。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】$\\tan\\alpha&lt;f_s$ 即 $\\alpha&lt;\\varphi$（摩擦角），物体沿斜面下滑的驱动力 $W\\sin\\alpha$ 小于最大静摩擦力 $f_s W\\cos\\alpha$，故物体静止。</p>",
+  "media": [],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45"
+}

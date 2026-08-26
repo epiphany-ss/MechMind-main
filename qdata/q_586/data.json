@@ -1,0 +1,21 @@
+{
+  "id": "q_586",
+  "overview": "求焊成一体两杆释放时角加速度与O处约束力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，均质细杆OA和EC的质量分别为50kg和100kg，并在点A焊成一体（OA长1m水平，O端为固定铰支座；EC长2m铅垂，A为其中点）。若此结构在图示位置由静止状态释放，计算刚释放时，杆的角加速度及铰链O处的约束力（不计铰链摩擦）。</p>",
+  "answer": "<p>$\\alpha=\\dfrac{5}{6}g\\approx8.17\\ \\mathrm{rad/s^2}$（顺时针）；$O_x=0$，$O_y=\\dfrac{275}{6}g\\approx449\\ \\mathrm{N}$（铅垂向上）</p>",
+  "explanation": "<p>【AI 生成】设OA质量$m_1=50\\mathrm{kg}$、长$L_1=1\\mathrm{m}$，EC质量$m_2=100\\mathrm{kg}$、长$L_2=2\\mathrm{m}$。系统对O轴转动惯量：$$J_O=\\frac{m_1L_1^2}{3}+\\frac{m_2L_2^2}{12}+m_2L_1^2=\\frac{50}{3}+\\frac{400}{3}=150\\ \\mathrm{kg\\cdot m^2}$$重力对O之矩$\\sum M_O=m_1g\\cdot\\frac{L_1}{2}+m_2g\\cdot L_1=125g$。故$\\alpha=\\frac{125g}{150}=\\frac{5}{6}g$。系统质心距O：$x_G=\\frac{50\\times0.5+100\\times1}{150}=\\frac{5}{6}\\mathrm{m}$，$a_G=\\alpha x_G=\\frac{25g}{36}$（向下）。由质心运动定理$O_y-150g=-150\\cdot\\frac{25g}{36}$，得$O_y=\\frac{275}{6}g\\approx449\\mathrm{N}$（向上），$O_x=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "求焊成一体两杆释放时角加速度与O处约束力",
+  "module": "动力学"
+}

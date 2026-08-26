@@ -1,0 +1,21 @@
+{
+  "id": "q_417",
+  "overview": "判断ω=0瞬时垂直a0直线上点加速度指向",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "刚体平面运动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "hard",
+  "content": "<p>已知刚体作平面运动，某瞬时平面图形上一点$O$的加速度为$a_0$、角加速度为$\\alpha$，而角速度$\\omega=0$，则过$O$点并垂直$a_0$的直线上各点的加速度方向一定指向$O$点。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】当$\\omega=0$时$a_P=a_O+\\alpha\\times r_{OP}$。若$P$在过$O$垂直于$a_0$的直线上，则$r_{OP}\\perp a_0$，$\\alpha\\times r_{OP}$沿$a_0$方向，故$a_P$含有沿$a_0$的分量，并不一定指向$O$点。</p>",
+  "media": [],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "判断ω=0瞬时垂直a0直线上点加速度指向",
+  "module": "运动学"
+}

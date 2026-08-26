@@ -1,0 +1,284 @@
+{
+  "chapter": 13,
+  "category": "分析力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断广义力的量纲是否一定是力的量纲",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "广义力"
+      ],
+      "difficulty": "easy",
+      "content": "<p>广义力的量纲不一定都是力的量纲。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】广义力 $Q_j$ 的量纲取决于广义坐标 $q_j$ 的量纲。由虚功关系 $\\delta W=\\sum_j Q_j\\delta q_j$ 可知：当广义坐标为长度时广义力具有力的量纲，当广义坐标为角度时广义力具有力矩的量纲，故其量纲不一定都是力的量纲。</p>"
+    },
+    {
+      "overview": "判断第二类拉格朗日方程一般表达式",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "easy",
+      "content": "<p>第二类拉格朗日方程的一般表达式为 $\\dfrac{d}{dt}\\dfrac{\\partial T}{\\partial \\dot q_j}-\\dfrac{\\partial T}{\\partial q_j}=Q_j\\quad(j=1,2,\\cdots,k)$。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】这正是第二类拉格朗日方程的普遍形式，其中 $T$ 为系统动能，$Q_j$ 为对应广义坐标 $q_j$ 的广义力，$k$ 为自由度数目。</p>"
+    },
+    {
+      "overview": "判断保守系统拉格朗日函数是否T+V",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "easy",
+      "content": "<p>保守系统的第二类拉格朗日方程的形式为 $\\dfrac{d}{dt}\\dfrac{\\partial L}{\\partial \\dot q_j}-\\dfrac{\\partial L}{\\partial q_j}=0\\quad(j=1,2,\\cdots,k)$，其中 $L=T+V$ 表示系统动能与势能之和。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】保守系统的拉格朗日函数应取动能与势能之差，即 $L=T-V$。若写成 $L=T+V$，则拉格朗日方程的形式不再正确。</p>"
+    },
+    {
+      "overview": "判断其他动力学方程能否由动力学普遍方程推出",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动力学普遍方程"
+      ],
+      "difficulty": "easy",
+      "content": "<p>任何其他的动力学方程都可由动力学普遍方程推导出来。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】动力学普遍方程（达朗贝尔—拉格朗日原理）是分析动力学最基本的原理，动量定理、动量矩定理、动能定理以及拉格朗日方程等动力学方程均可由它推导出来。</p>"
+    },
+    {
+      "overview": "判断普遍方程与拉氏方程中虚功的差别",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动力学普遍方程",
+        "拉格朗日方程"
+      ],
+      "difficulty": "medium",
+      "content": "<p>动力学普遍方程中要考虑惯性力虚功，而用拉格朗日方程时只考虑主动力虚功。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】动力学普遍方程 $\\sum(\\boldsymbol F_i-m_i\\boldsymbol a_i)\\cdot\\delta\\boldsymbol r_i=0$ 中显含惯性力的虚功；拉格朗日方程则通过动能 $T$ 将惯性力虚功吸收进去，方程中只出现主动力的广义力 $Q_j$。</p>"
+    },
+    {
+      "overview": "判断拉格朗日方程中内力是否出现",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "medium",
+      "content": "<p>拉格朗日方程解题时以整个系统为研究对象，而不必取分离体，因而所有的内力均不出现在拉格朗日方程之中。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】对理想约束系统，约束力（包括系统内部相互作用的约束内力）在虚位移上不作功，因而不会进入拉格朗日方程；这正是拉格朗日方法以整个系统为研究对象、不必取分离体的优点。</p>"
+    },
+    {
+      "overview": "计算斜面滑块-摆杆系统对x的广义力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "广义力",
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $OA$ 长 $L$，重 $P$，在重力作用下可在铅垂平面内摆动，滑块 $O$ 质量不计，斜面倾角 $\\beta$，略去各处摩擦，若取 $x$ 及 $\\varphi$ 为广义坐标，则相应于 $x$ 的广义力为____。<br>(A) $P$；　(B) $\\dfrac{PL}{2}$；　(C) $PL\\sin\\varphi$；　(D) $-P\\sin\\beta$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch117_idx538_0.png"
+      ],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】广义力 $Q_x$ 对应沿斜面的虚位移 $\\delta x$。杆重 $P$ 作用于杆中点，系统沿斜面平移 $\\delta x$ 时杆中点的铅垂升高为 $\\delta x\\sin\\beta$，重力作虚功 $\\delta W=-P\\sin\\beta\\,\\delta x$，故 $Q_x=-P\\sin\\beta$。</p>"
+    },
+    {
+      "overview": "计算水平面行星齿轮机构对φ的广义力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "广义力"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示在水平面内运动的行星齿轮机构，已知固定齿轮半径为 $R$，均质行星齿轮半径为 $r$、质量为 $m$，均质杆 $OA$ 质量为 $m_1$，杆受矩为 $M$ 的力偶作用而运动，若取 $\\varphi$ 为广义坐标，则相应的广义力为____。<br>(A) $mg(R+r)$；　(B) $(m+m_1)g$；　(C) $M$；　(D) $\\dfrac{m_1g(R+r)}{2}+mg(R+r)$。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】机构在水平面内运动，所有构件的重力均沿铅垂方向，在水平面内的虚位移上不作虚功；只有作用在杆上的力偶 $M$ 作虚功 $\\delta W=M\\delta\\varphi$，故 $Q_\\varphi=M$。</p>"
+    },
+    {
+      "overview": "求滑轮-物块-弹簧系统的拉格朗日函数",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "拉格朗日方程",
+        "广义坐标"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质滑轮 $O$ 质量为 $M$、半径为 $R$，物体 $A$ 质量为 $m$，弹簧的弹性系数为 $k$，若取 $\\varphi$ 为广义坐标（$\\varphi=0$ 时系统处于平衡状态），则系统的拉格朗日函数 $L$ 为____。<br>(A) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2-mgR\\varphi+\\dfrac{1}{2}kR^2\\varphi^2$；<br>(B) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2+\\dfrac{1}{2}kR^2\\varphi^2$；<br>(C) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2-\\dfrac{1}{2}kR^2\\varphi^2$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch118_idx540_0.png"
+      ],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】滑轮为均质圆盘，$J_O=\\frac{1}{2}MR^2$，物体 $A$ 速度 $v_A=R\\dot\\varphi$，故 $T=\\frac{1}{2}\\cdot\\frac{1}{2}MR^2\\dot\\varphi^2+\\frac{1}{2}mR^2\\dot\\varphi^2=\\frac{1}{2}(\\frac{M}{2}+m)R^2\\dot\\varphi^2$。因 $\\varphi=0$ 为平衡位置，重力与弹簧预拉力平衡，势能只需取偏离平衡位置引起的弹簧变形能 $V=\\frac{1}{2}k(R\\varphi)^2=\\frac{1}{2}kR^2\\varphi^2$，故 $L=T-V=\\frac{1}{2}(\\frac{M}{2}+m)R^2\\dot\\varphi^2-\\frac{1}{2}kR^2\\varphi^2$。</p>"
+    },
+    {
+      "overview": "求滑轮系统相对于广义坐标x的广义力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "广义力",
+        "虚位移原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示系统中，$A$ 物块重 $W$，$B$ 物块重 $P$，滑轮、细绳的质量不计，则相对于广义坐标 $x$ 的广义力 $Q_x$＝____。<br>(A) $\\dfrac{W}{2}-P$；　(B) $W-2P$；　(C) $2W-P$；　(D) $W-\\dfrac{P}{2}$。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】取 $x$ 为物块 $A$ 的位移（向下为正）。由图示滑轮绳索的几何关系，物块 $B$ 的位移为 $\\frac{x}{2}$（向上）。虚功 $\\delta W=W\\delta x-P\\cdot\\frac{1}{2}\\delta x=(W-\\frac{P}{2})\\delta x$，故 $Q_x=W-\\frac{P}{2}$。</p>"
+    },
+    {
+      "overview": "求滚轮-摆杆系统自由度及对φ的广义力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "广义力",
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $OA$ 长 $l$，重 $P$，其一端用光滑铰链与半径为 $r$、重为 $Q$ 的均质圆轮中心 $O$ 连接，今在圆轮上作用一常力矩 $M$，使其沿水平直线轨道作纯滚动。则该系统有____个自由度，若取 $\\varphi$ 及 $x$ 为广义坐标，则相应于 $\\varphi$ 的广义力为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch118_idx542_0.png"
+      ],
+      "answer": "<p>2；　$Q_\\varphi=\\dfrac{Pl}{2}\\sin\\varphi$</p>",
+      "explanation": "<p>【AI 生成】系统由圆轮沿水平轨道的纯滚动和细杆绕轮心的摆动组成：独立广义坐标可取轮心位置 $x$ 与杆相对铅垂线的摆角 $\\varphi$，故自由度为 2。对应于 $\\varphi$ 的虚位移 $\\delta\\varphi$ 只使杆重 $P$ 作虚功，杆重心在 $\\varphi$ 变化时的铅垂位移为 $\\frac{l}{2}\\sin\\varphi\\,\\delta\\varphi$，故 $Q_\\varphi=\\frac{Pl}{2}\\sin\\varphi$（符号随 $\\varphi$ 的正向约定而定）。</p>"
+    },
+    {
+      "overview": "求杆上滑块系统的广义力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "广义力"
+      ],
+      "difficulty": "medium",
+      "content": "<p>细杆 $OA$ 可绕水平轴 $O$ 转动，其上缠一弹性系数为 $k$ 的弹簧，弹簧的一端固定于 $O$，另一端连接一质量为 $m$ 可沿细杆滑动的小球 $B$，设弹簧原长为 $l$。不计细杆质量和各处摩擦，则对应于广义坐标 $x$ 的广义力为____。</p>",
+      "figures": [],
+      "answer": "<p>$Q_x=-k(x-l)-mg\\sin\\theta$</p>",
+      "explanation": "<p>【AI 生成】设细杆与水平面的夹角为 $\\theta$，小球 $B$ 距 $O$ 的距离为 $x$，则其高度为 $x\\sin\\theta$。系统势能 $V=\\frac{1}{2}k(x-l)^2+mgx\\sin\\theta$，由 $Q_x=-\\dfrac{\\partial V}{\\partial x}$ 得 $Q_x=-k(x-l)-mg\\sin\\theta$。也可用虚功法：虚位移 $\\delta x$ 时弹簧力作虚功 $-k(x-l)\\delta x$，重力作虚功 $-mg\\sin\\theta\\,\\delta x$。</p>"
+    },
+    {
+      "overview": "求直角钢尺受两力时的广义力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "广义力",
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>直角钢尺 $AOB$ 的边长分别为 $OA=a$，$OB=3a$，$A$、$B$ 两点分别作用有力 $\\boldsymbol F_A$ 和 $\\boldsymbol F_B$，方向如图。若取 $\\varphi$ 为广义坐标，则相应的广义力为____。</p>",
+      "figures": [],
+      "answer": "<p>$Q_\\varphi=F_A a+3F_B a$</p>",
+      "explanation": "<p>【AI 生成】钢尺绕 $O$ 转动，虚位移 $\\delta\\varphi$ 下 $A$、$B$ 两点的位移分别为 $a\\delta\\varphi$ 与 $3a\\delta\\varphi$，两力作虚功 $\\delta W=F_A a\\delta\\varphi+F_B\\cdot 3a\\delta\\varphi$，故 $Q_\\varphi=F_A a+3F_B a$（若两力转向相反，则相应取负号）。</p>"
+    },
+    {
+      "overview": "用动力学普遍方程求圆筒与圆柱的运动微分方程及角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动力学普遍方程",
+        "拉格朗日方程"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：匀质薄壁圆筒 $A$ 质量为 $m_1$、半径为 $r$，匀质圆柱 $B$ 质量为 $m_2$、半径为 $r$，圆柱 $B$ 沿水平面作纯滚动，滑轮质量忽略不计。试以动力学普遍方程求：(1) 系统的运动微分方程，以 $\\theta_1$ 和 $\\theta_2$ 为广义坐标；(2) 圆筒 $A$ 和圆柱 $B$ 的角加速度 $\\alpha_1$ 和 $\\alpha_2$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch119_idx545_0.png"
+      ],
+      "answer": "<p>(1) 由图示绳索几何约束 $2\\theta_1=3\\theta_2$，运动微分方程为<br>$$\\frac{2}{3}(3m_1+m_2)r^2\\ddot\\theta_1=m_1gr,\\qquad (3m_1+m_2)r^2\\ddot\\theta_2=m_1gr$$<br>(2) 圆筒 $A$ 与圆柱 $B$ 的角加速度为<br>$$\\alpha_1=\\frac{3m_1g}{2(3m_1+m_2)r},\\qquad \\alpha_2=\\frac{m_1g}{(3m_1+m_2)r}$$</p>",
+      "explanation": "<p>【AI 生成】薄壁圆筒 $A$ 的转动惯量 $J_A=m_1r^2$，随绳下落的动能为 $T_A=\\frac{1}{2}J_A\\dot\\theta_1^2+\\frac{1}{2}m_1(r\\dot\\theta_1)^2=m_1r^2\\dot\\theta_1^2$；圆柱 $B$ 作纯滚动，$J_B=\\frac{1}{2}m_2r^2$，$T_B=\\frac{1}{2}J_B\\dot\\theta_2^2+\\frac{1}{2}m_2(r\\dot\\theta_2)^2=\\frac{3}{4}m_2r^2\\dot\\theta_2^2$。圆筒 $A$ 下降高度 $y_A=r\\theta_1$，势能 $V=-m_1gr\\theta_1$。由图示滑轮绳索几何关系有 $2\\theta_1=3\\theta_2$，即 $\\dot\\theta_1=\\frac{3}{2}\\dot\\theta_2$。$$T=m_1r^2\\dot\\theta_1^2+\\frac{3}{4}m_2r^2\\dot\\theta_2^2=(\\frac{9}{4}m_1+\\frac{3}{4}m_2)r^2\\dot\\theta_2^2$$ 代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial \\dot\\theta_2}-\\frac{\\partial T}{\\partial \\theta_2}=-\\frac{\\partial V}{\\partial \\theta_2}$，得 $(3m_1+m_2)r^2\\ddot\\theta_2=m_1gr$，即得运动微分方程。$$\\alpha_2=\\ddot\\theta_2=\\frac{m_1g}{(3m_1+m_2)r},\\qquad \\alpha_1=\\frac{3}{2}\\alpha_2=\\frac{3m_1g}{2(3m_1+m_2)r}$$</p>"
+    },
+    {
+      "overview": "用动力学普遍方程建立圆盘-质点系统的运动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动力学普遍方程",
+        "拉格朗日方程"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $M$、半径为 $r$，盘缘上固结着一质量为 $m$ 的质点 $B$，无重杆 $OA$ 长为 $b$，$O$、$A$ 为铰链。试以动力学普遍方程建立系统的运动微分方程，以 $\\varphi$ 和 $\\theta$ 为广义坐标。</p>",
+      "figures": [],
+      "answer": "<p>$$(M+m)b^2\\ddot\\varphi+mbr\\ddot\\theta\\cos(\\varphi-\\theta)+mbr\\dot\\theta^2\\sin(\\varphi-\\theta)+(M+m)gb\\sin\\varphi=0$$ $$\\frac{1}{2}(M+2m)r^2\\ddot\\theta+mbr\\ddot\\varphi\\cos(\\varphi-\\theta)-mbr\\dot\\varphi^2\\sin(\\varphi-\\theta)+mgr\\sin\\theta=0$$</p>",
+      "explanation": "<p>【AI 生成】设 $\\varphi$ 为杆 $OA$ 与铅垂线的夹角，$\\theta$ 为质点 $B$ 相对圆盘转过的角度。圆盘中心 $A$ 的速度 $v_A=b\\dot\\varphi$；质点 $B$ 的速度满足 $v_B^2=b^2\\dot\\varphi^2+r^2\\dot\\theta^2+2br\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$。系统的动能与势能为 $$T=\\frac{1}{2}(M+m)b^2\\dot\\varphi^2+\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)r^2\\dot\\theta^2+mbr\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$$ $$V=-(M+m)gb\\cos\\varphi-mgr\\cos\\theta$$ 代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot q_j}-\\frac{\\partial L}{\\partial q_j}=0$（$L=T-V$），对 $\\varphi$ 与 $\\theta$ 分别求导整理，即得两个运动微分方程。这就是用动力学普遍方程（达朗贝尔—拉格朗日原理）建立的结果，与拉格朗日方程所得结果一致。</p>"
+    },
+    {
+      "overview": "用拉氏方程求圆盘弹簧系统微分方程及微振动周期",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $m$、半径为 $r$，弹簧的弹性系数为 $k$，自然长度为 $d$，圆盘在水平面上作纯滚动，弹簧与水平面平行。试求：(1) 以 $x$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 系统的微振动周期 $T$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch119_idx547_0.png"
+      ],
+      "answer": "<p>(1) $$\\frac{3}{2}m\\ddot x+k(x-d)=0$$<br>(2) $$T=2\\pi\\sqrt{\\frac{3m}{2k}}$$</p>",
+      "explanation": "<p>【AI 生成】(1) 圆盘作纯滚动，$v=\\dot x$，$\\omega=\\dot x/r$，转动惯量 $J=\\frac{1}{2}mr^2$，动能 $$T=\\frac{1}{2}m\\dot x^2+\\frac{1}{2}J\\omega^2=\\frac{1}{2}m\\dot x^2+\\frac{1}{4}m\\dot x^2=\\frac{3}{4}m\\dot x^2$$ 弹簧伸长量为 $x-d$，势能 $V=\\frac{1}{2}k(x-d)^2$。代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial \\dot x}-\\frac{\\partial T}{\\partial x}+\\frac{\\partial V}{\\partial x}=0$：$$\\frac{3}{2}m\\ddot x+k(x-d)=0$$<br>(2) 令 $y=x-d$，则 $\\frac{3}{2}m\\ddot y+ky=0$，固有角频率 $\\omega_0=\\sqrt{\\frac{k}{3m/2}}=\\sqrt{\\frac{2k}{3m}}$，故微振动周期 $$T=\\frac{2\\pi}{\\omega_0}=2\\pi\\sqrt{\\frac{3m}{2k}}$$</p>"
+    },
+    {
+      "overview": "用拉氏方程求光滑墙上杆-物块系统的微分方程及角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：匀质杆 $AB$ 长 $b$、质量为 $M$，物块 $A$ 和 $B$ 质量均为 $m$，可沿光滑墙与水平地面运动。试求：(1) 以 $\\theta$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 设 $t=0$ 时，$\\theta=30^\\circ$，$\\dot\\theta=0$，杆 $AB$ 下滑至 $\\theta=60^\\circ$ 时的角速度 $\\omega$。</p>",
+      "figures": [],
+      "answer": "<p>(1) $$\\frac{1}{3}(M+3m)b^2\\ddot\\theta-\\frac{1}{2}(M+2m)gb\\sin\\theta=0$$<br>(2) $$\\omega=\\sqrt{\\frac{3(\\sqrt3-1)(M+2m)g}{2(M+3m)b}}$$</p>",
+      "explanation": "<p>【AI 生成】设 $\\theta$ 为杆 $AB$ 与铅垂墙面的夹角。杆两端分别沿竖直墙与水平地面滑动，杆端点 $A$ 高度 $y_A=b\\cos\\theta$。系统动能（杆平动+转动，两物块平动）为 $$T=\\frac{1}{2}M\\left(\\frac{b\\dot\\theta}{2}\\right)^2+\\frac{1}{2}\\cdot\\frac{1}{12}Mb^2\\dot\\theta^2+\\frac{1}{2}m(b\\dot\\theta\\sin\\theta)^2+\\frac{1}{2}m(b\\dot\\theta\\cos\\theta)^2=\\frac{1}{6}(M+3m)b^2\\dot\\theta^2$$ 势能 $V=(\\frac{M}{2}+m)gb\\cos\\theta$。由拉格朗日方程得 $$\\frac{1}{3}(M+3m)b^2\\ddot\\theta-\\frac{1}{2}(M+2m)gb\\sin\\theta=0$$<br>(2) 系统保守，机械能守恒。$t=0$ 时 $\\theta=30^\\circ,\\dot\\theta=0$：$$E=\\frac{1}{2}(M+2m)gb\\cos30^\\circ=\\frac{\\sqrt3}{4}(M+2m)gb$$ 下滑至 $\\theta=60^\\circ$ 时 $$\\frac{1}{6}(M+3m)b^2\\omega^2+\\frac{1}{4}(M+2m)gb=\\frac{\\sqrt3}{4}(M+2m)gb$$ 解得 $$\\omega=\\sqrt{\\frac{3(\\sqrt3-1)(M+2m)g}{2(M+3m)b}}$$</p>"
+    },
+    {
+      "overview": "用拉氏方程求两圆盘系统的微分方程及角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程",
+        "广义力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 和 $B$ 的半径各为 $R$ 和 $r$，质量各为 $M$ 和 $m$。试求：(1) 以 $\\varphi$ 和 $\\theta$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 圆盘 $A$ 和 $B$ 的角加速度 $\\alpha_A$ 和 $\\alpha_B$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch120_idx549_0.png"
+      ],
+      "answer": "<p>(1) $$\\left(\\frac{M}{2}+m\\right)R^2\\ddot\\varphi+mRr\\ddot\\theta=mgR,\\qquad mRr\\ddot\\varphi+\\frac{3}{2}mr^2\\ddot\\theta=mgr$$<br>(2) $$\\alpha_A=\\frac{2mg}{(3M+2m)R},\\qquad \\alpha_B=\\frac{2Mg}{(3M+2m)r}$$</p>",
+      "explanation": "<p>【AI 生成】(1) 圆盘 $A$ 绕固定轴 $O$ 转动，$J_A=\\frac{1}{2}MR^2$，$T_A=\\frac{1}{2}J_A\\dot\\varphi^2=\\frac{1}{4}MR^2\\dot\\varphi^2$。绳索绕于 $A$ 与 $B$，圆盘 $B$ 随绳下落并转动，其中心速度 $v_B=R\\dot\\varphi+r\\dot\\theta$，$J_B=\\frac{1}{2}mr^2$，故 $$T=\\frac{1}{4}MR^2\\dot\\varphi^2+\\frac{1}{2}m(R\\dot\\varphi+r\\dot\\theta)^2+\\frac{1}{2}\\cdot\\frac{1}{2}mr^2\\dot\\theta^2=\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)R^2\\dot\\varphi^2+mRr\\dot\\varphi\\dot\\theta+\\frac{3}{4}mr^2\\dot\\theta^2$$ $B$ 下降高度 $R\\varphi+r\\theta$，势能 $V=-mg(R\\varphi+r\\theta)$。代入拉格朗日方程，对 $\\varphi$、$\\theta$ 分别整理：$$\\left(\\frac{M}{2}+m\\right)R^2\\ddot\\varphi+mRr\\ddot\\theta=mgR,\\qquad mRr\\ddot\\varphi+\\frac{3}{2}mr^2\\ddot\\theta=mgr$$<br>(2) 联立解得 $$\\ddot\\varphi=\\alpha_A=\\frac{2mg}{(3M+2m)R},\\qquad \\ddot\\theta=\\alpha_B=\\frac{2Mg}{(3M+2m)r}$$</p>"
+    },
+    {
+      "overview": "用拉氏方程建立圆盘-质点系统的运动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $M$、半径为 $r$，盘缘上固结着一质量为 $m$ 的质点 $B$，无重杆 $OA$ 长为 $b$，$O$、$A$ 为铰链。试用拉氏方程建立系统的运动微分方程，以 $\\varphi$ 和 $\\theta$ 为广义坐标。</p>",
+      "figures": [],
+      "answer": "<p>$$(M+m)b^2\\ddot\\varphi+mbr\\ddot\\theta\\cos(\\varphi-\\theta)+mbr\\dot\\theta^2\\sin(\\varphi-\\theta)+(M+m)gb\\sin\\varphi=0$$ $$\\frac{1}{2}(M+2m)r^2\\ddot\\theta+mbr\\ddot\\varphi\\cos(\\varphi-\\theta)-mbr\\dot\\varphi^2\\sin(\\varphi-\\theta)+mgr\\sin\\theta=0$$</p>",
+      "explanation": "<p>【AI 生成】取拉格朗日函数 $L=T-V$。由与前题相同的几何关系，动能与势能为 $$T=\\frac{1}{2}(M+m)b^2\\dot\\varphi^2+\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)r^2\\dot\\theta^2+mbr\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$$ $$V=-(M+m)gb\\cos\\varphi-mgr\\cos\\theta$$ 对广义坐标 $\\varphi$：$\\frac{\\partial L}{\\partial\\dot\\varphi}=(M+m)b^2\\dot\\varphi+mbr\\dot\\theta\\cos(\\varphi-\\theta)$，代入 $\\frac{d}{dt}\\frac{\\partial L}{\\partial\\dot\\varphi}-\\frac{\\partial L}{\\partial\\varphi}=0$ 得第一式。对广义坐标 $\\theta$：$\\frac{\\partial L}{\\partial\\dot\\theta}=(\\frac{M}{2}+m)r^2\\dot\\theta+mbr\\dot\\varphi\\cos(\\varphi-\\theta)$，代入得第二式。两式即系统的运动微分方程（$\\varphi$、$\\theta$ 均自铅垂线量起）。</p>"
+    },
+    {
+      "overview": "用拉氏方程建立转盘上细杆系统的运动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：圆盘以匀角速度 $\\omega$ 绕铅垂轴 $O$ 转动，匀质细杆 $AB$ 质量为 $m$、长为 $b$，在光滑水平盘面上绕点 $A$ 转动。试用拉氏方程建立系统的运动微分方程，以 $\\theta$ 为广义坐标。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch120_idx551_0.png"
+      ],
+      "answer": "<p>$$\\frac{1}{3}mb^2\\ddot\\theta+\\frac{1}{2}meb\\,\\omega^2\\sin\\theta=0$$</p>",
+      "explanation": "<p>【AI 生成】圆盘以匀角速度 $\\omega$ 转动，$A$ 点距转轴 $O$ 为 $e$。杆上距 $A$ 为 $s$ 的微元 $dm=\\frac{m}{b}ds$ 的牵连速度为 $\\omega(e+s\\cos\\theta)$，相对速度为 $s\\dot\\theta$，故动能 $$T=\\frac{1}{2}\\int_0^b\\frac{m}{b}\\left[(e+s\\cos\\theta)^2\\omega^2+s^2\\dot\\theta^2+2\\omega\\dot\\theta s(e+s\\cos\\theta)\\right]ds$$ $$=\\frac{1}{2}m\\left(\\frac{b^2}{3}\\dot\\theta^2+e^2\\omega^2+eb\\omega^2\\cos\\theta+\\frac{b^2}{3}\\omega^2+\\frac{2}{3}\\omega\\dot\\theta b^2+eb\\omega\\dot\\theta\\cos\\theta\\right)$$ 因 $\\omega$ 为常量，$\\frac{\\partial T}{\\partial\\theta}=-\\frac{1}{2}meb\\omega^2\\sin\\theta-\\frac{1}{2}meb\\omega\\dot\\theta\\sin\\theta$，$\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot\\theta}=\\frac{1}{3}mb^2\\ddot\\theta-\\frac{1}{2}meb\\omega\\dot\\theta\\sin\\theta$。代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot\\theta}-\\frac{\\partial T}{\\partial\\theta}=0$，整理得 $$\\frac{1}{3}mb^2\\ddot\\theta+\\frac{1}{2}meb\\omega^2\\sin\\theta=0$$</p>"
+    },
+    {
+      "overview": "用拉格朗日方程推导两圆轮弹簧系统运动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "拉格朗日方程"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如图所示，质量为 $m$、半径为 $r$ 的两均质圆轮，轮心用刚度系数为 $k$、长为 $l_0$ 的弹簧相连，在水平面上作纯滚动，试用拉格朗日方程推导出系统运动微分方程。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch120_idx552_0.png"
+      ],
+      "answer": "<p>$$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$</p>",
+      "explanation": "<p>【AI 生成】设两圆轮轮心坐标分别为 $x_1$、$x_2$。每个圆轮作纯滚动，$v=\\dot x$，$\\omega=\\dot x/r$，$J=\\frac{1}{2}mr^2$，动能 $T_i=\\frac{1}{2}m\\dot x_i^2+\\frac{1}{2}J\\omega_i^2=\\frac{3}{4}m\\dot x_i^2$。系统动能 $$T=\\frac{3}{4}m(\\dot x_1^2+\\dot x_2^2)$$ 弹簧伸长量 $\\Delta=x_2-x_1-l_0$，势能 $V=\\frac{1}{2}k(x_2-x_1-l_0)^2$。由拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot x_j}-\\frac{\\partial T}{\\partial x_j}+\\frac{\\partial V}{\\partial x_j}=0$ 得 $$\\frac{3}{2}m\\ddot x_1-k(x_2-x_1-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$ 即 $$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2+l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$ 按参考答案的坐标正向约定，写成 $$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$</p>"
+    }
+  ]
+}

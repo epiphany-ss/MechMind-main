@@ -1,0 +1,18 @@
+{
+  "id": "q_114",
+  "overview": "平面运动杆惯性力系简化",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>匀质细杆支承如图，已知：杆长为 $L$、重为 $Q$，斜面倾角 $\\varphi=60°$。若杆与水平面夹角 $\\theta=30°$ 瞬时，$A$ 端的加速度为 $a_A$，杆的角速度为零，角加速度为 $\\alpha$。试求此瞬时杆上惯性力系的简化结果。</p>",
+  "answer": "<p>向质心 $C$ 简化：$F_{ICx}=\\dfrac{Q}{g}a_A$，$F_{ICy}=\\dfrac{1}{2}\\dfrac{Q}{g}L\\alpha$，$M_{IC}=\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$</p>",
+  "explanation": "<p>【AI 生成】杆作平面运动，质心加速度 $a_C=a_A+a_{CA}$，其中 $C$ 相对 $A$ 的切向加速度 $a_{CA}=\\dfrac{L}{2}\\alpha$（法向为零，因 $\\omega=0$）。惯性力系向质心 $C$ 简化：主矢 $F_{IC}=-\\dfrac{Q}{g}a_C$，其水平分量 $F_{ICx}=\\dfrac{Q}{g}a_A$、铅垂分量 $F_{ICy}=\\dfrac{1}{2}\\dfrac{Q}{g}L\\alpha$；主矩 $M_{IC}=-J_C\\alpha=-\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$，大小为 $\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$，转向与 $\\alpha$ 相反。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

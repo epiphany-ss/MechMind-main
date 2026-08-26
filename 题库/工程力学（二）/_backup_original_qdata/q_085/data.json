@@ -1,0 +1,20 @@
+{
+  "id": "q_085",
+  "overview": "杆端铰接圆盘释放求角速度角加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $OA$ 可绕水平轴 $O$ 转动，另一端 $A$ 铰接一个均质圆盘，圆盘可绕 $A$ 在铅直面自由旋转。已知，杆 $OA$ 长 $L$，重 $P$，圆盘半径 $R$，重 $Q$，摩擦不计。初始时，杆 $OA$ 水平并将系统静止释放。求杆转过 $\\varphi$ 角时的角速度和角加速度。</p><img src=\"qdata/q_085/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(P+2Q)g\\sin\\varphi}{(P+3Q)L}}$；$\\alpha=\\dfrac{3(P+2Q)g\\cos\\varphi}{2(P+3Q)L}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 圆盘在 $A$ 处铰接、质心在 $A$，无外力矩作用于其质心，圆盘不转动，仅随 $A$ 平动，$v_A=L\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{P}{g}\\frac{L^2}{3}\\omega^2+\\frac12\\frac{Q}{g}(L\\omega)^2=\\dfrac{(P+3Q)L^2}{6g}\\omega^2$。<br>(3) 重力功：杆质心下降 $\\frac L2\\sin\\varphi$，圆盘质心（在 $A$）下降 $L\\sin\\varphi$，$W=P\\frac L2\\sin\\varphi+QL\\sin\\varphi=\\dfrac{(P+2Q)L}{2}\\sin\\varphi$。<br>(4) 动能定理：$\\dfrac{(P+3Q)L^2}{6g}\\omega^2=\\dfrac{(P+2Q)L}{2}\\sin\\varphi\\Rightarrow \\omega=\\sqrt{\\dfrac{3(P+2Q)g\\sin\\varphi}{(P+3Q)L}}$。<br>(5) 求导得 $\\alpha=\\dfrac{3(P+2Q)g\\cos\\varphi}{2(P+3Q)L}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

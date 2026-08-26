@@ -1,0 +1,23 @@
+{
+  "id": "q_532",
+  "overview": "卷筒刹车时钢索最大伸长量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学",
+    "振动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>卷扬机使质量为 $m$ 的重物 $M$ 以匀速 $v$ 下降，若钢索的弹性系数为 $k$，求当卷筒突然刹车时，钢索的最大伸长量。</p><img src=\"qdata/q_532/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\delta_{\\max}=\\dfrac{mg}{k}+v\\sqrt{\\dfrac{m}{k}}$</p>",
+  "explanation": "<p>【AI 生成】匀速下降时钢索的静伸长量为 $\\delta_{st}=\\dfrac{mg}{k}$。以静平衡位置为参考点，刹车后重物作简谐振动，振幅 $A$ 由动能全部转化为弹性势能确定：$$\\frac{1}{2}mv^2=\\frac{1}{2}kA^2,\\qquad A=v\\sqrt{\\frac{m}{k}}。$$ 故钢索的最大伸长量 $$\\delta_{\\max}=\\delta_{st}+A=\\frac{mg}{k}+v\\sqrt{\\frac{m}{k}}。$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "卷筒刹车时钢索最大伸长量",
+  "module": "动力学"
+}

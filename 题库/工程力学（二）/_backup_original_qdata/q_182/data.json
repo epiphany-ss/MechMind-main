@@ -1,0 +1,19 @@
+{
+  "id": "q_182",
+  "overview": "用拉格朗日方程推导两圆轮弹簧系统运动微分方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，质量为 $m$、半径为 $r$ 的两均质圆轮，轮心用刚度系数为 $k$、长为 $l_0$ 的弹簧相连，在水平面上作纯滚动，试用拉格朗日方程推导出系统运动微分方程。</p><img src=\"qdata/q_182/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$</p>",
+  "explanation": "<p>【AI 生成】设两圆轮轮心坐标分别为 $x_1$、$x_2$。每个圆轮作纯滚动，$v=\\dot x$，$\\omega=\\dot x/r$，$J=\\frac{1}{2}mr^2$，动能 $T_i=\\frac{1}{2}m\\dot x_i^2+\\frac{1}{2}J\\omega_i^2=\\frac{3}{4}m\\dot x_i^2$。系统动能 $$T=\\frac{3}{4}m(\\dot x_1^2+\\dot x_2^2)$$ 弹簧伸长量 $\\Delta=x_2-x_1-l_0$，势能 $V=\\frac{1}{2}k(x_2-x_1-l_0)^2$。由拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot x_j}-\\frac{\\partial T}{\\partial x_j}+\\frac{\\partial V}{\\partial x_j}=0$ 得 $$\\frac{3}{2}m\\ddot x_1-k(x_2-x_1-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$ 即 $$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2+l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$ 按参考答案的坐标正向约定，写成 $$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2-l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

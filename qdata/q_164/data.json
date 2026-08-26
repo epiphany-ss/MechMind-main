@@ -1,0 +1,20 @@
+{
+  "id": "q_164",
+  "overview": "判断保守系统拉格朗日函数是否T+V",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>保守系统的第二类拉格朗日方程的形式为 $\\dfrac{d}{dt}\\dfrac{\\partial L}{\\partial \\dot q_j}-\\dfrac{\\partial L}{\\partial q_j}=0\\quad(j=1,2,\\cdots,k)$，其中 $L=T+V$ 表示系统动能与势能之和。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】保守系统的拉格朗日函数应取动能与势能之差，即 $L=T-V$。若写成 $L=T+V$，则拉格朗日方程的形式不再正确。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "判断保守系统拉格朗日函数是否T+V",
+  "module": "分析力学"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_522",
+  "overview": "三小球沿直槽滑至O点先后",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>在铅垂面内的一块圆板上刻有三道直槽 $AO$、$BO$、$CO$，三个质量相等的小球 $M_1$、$M_2$、$M_3$ 在重力作用下自静止开始同时从 $A$、$B$、$C$ 三点分别沿各直槽运动，不计摩擦，则 ____ 到达 $O$ 点。<br>(A) $M_1$ 小球先；<br>(B) $M_2$ 小球先；<br>(C) $M_3$ 小球先；<br>(D) 三球同时。</p><img src=\"qdata/q_522/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】小球沿竖直圆内任一弦自静止滑至最低点 $O$ 的时间均为 $t=2\\sqrt{R/g}$（$R$ 为圆半径），与弦的位置及小球质量无关，故三球同时到达 $O$ 点，选 D。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53"
+}

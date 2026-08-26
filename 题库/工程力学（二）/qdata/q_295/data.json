@@ -1,0 +1,20 @@
+{
+  "id": "q_295",
+  "overview": "判断正方体受等值反向力偶是否平衡",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>正方体受两个力偶作用，该两力偶矩矢等值、反向，即 $M_1=-M_2$，但不共线，则正方体____。<br>(A) 平衡；<br>(B) 不平衡；<br>(C) 因条件不足，难以判断是否平衡。</p><img src=\"qdata/q_295/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，两力偶矩矢等值反向则合力偶矩为零，力偶的合成与作用位置无关，故正方体平衡。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册"
+}

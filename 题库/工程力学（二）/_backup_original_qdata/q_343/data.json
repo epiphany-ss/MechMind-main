@@ -1,0 +1,20 @@
+{
+  "id": "q_343",
+  "overview": "求倾斜三角形板A、B、C处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系",
+    "重心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质等边三角形板 ABC 重 300kN，板与水平面夹角为 45°，在板平面上作用一力偶，其矩 $M=100$kN·m，板边长为 1m，A 点为球铰，B 点为径向轴承，C 受一铅垂连杆支承。试求 A、B、C 三处约束力。</p><img src=\"qdata/q_343/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$A_x=0$，$A_y\\approx70.7$kN，$A_z\\approx170.7$kN；$B_y\\approx-70.7$kN，$B_z\\approx29.3$kN；$C_z=100$kN（↑）。</p>",
+  "explanation": "<p>【AI 生成】设 AB=1m 沿 x 轴，C 在 $\\left(\\frac12,\\frac{\\sqrt3}{2\\sqrt2},\\frac{\\sqrt3}{2\\sqrt2}\\right)$，形心 $G(\\frac12,\\frac{\\sqrt3}{6\\sqrt2},\\frac{\\sqrt3}{6\\sqrt2})$，重力 300kN 铅垂。A 球铰、B 径向轴承（$B_y,B_z$）、C 铅垂链杆 $C_z$。①$\\sum M_x=0$：$300\\cdot\\frac{\\sqrt3}{6\\sqrt2}-C_z\\cdot\\frac{\\sqrt3}{2\\sqrt2}+M_x=0\\Rightarrow C_z=100$kN。②$\\sum M_z=0$：$3B_y+100\\cdot\\frac{1}{\\sqrt2}=0\\Rightarrow B_y=-70.7$kN。③$\\sum M_y=0$ 与 $\\sum F=0$ 得 $A_y=70.7$kN，$A_z\\approx170.7$kN，$B_z\\approx29.3$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

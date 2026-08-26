@@ -1,0 +1,22 @@
+{
+  "id": "q_246",
+  "overview": "求截角正方形板的悬挂点位置",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "重心"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>边长为 $2a$ 的均质正方形薄板，截去四分之一后悬挂在 $A$ 点，今欲使 $BC$ 边保持水平，则点 $A$ 距右端的距离 $x=$____。<br>(A) $a$；<br>(B) $3a/2$；<br>(C) $5a/2$；<br>(D) $5a/6$。</p><img src=\"qdata/q_246/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】原正方形面积 $4a^2$，形心 $x=a$（自左端量）；截去左上角 $a\\times a$ 小方块（面积 $a^2$，形心 $x=a/2$），剩余面积 $3a^2$。剩余板形心 $$\\bar{x}=\\frac{4a^2\\cdot a-a^2\\cdot\\tfrac{a}{2}}{3a^2}=\\frac{7a}{6}$$ 距右端距离 $x=2a-\\bar{x}=2a-\\dfrac{7a}{6}=\\dfrac{5a}{6}$。悬挂点 $A$ 应位于形心正上方，故 $x=\\dfrac{5a}{6}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册",
+  "title": "求截角正方形板的悬挂点位置",
+  "module": "静力学"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_399",
+  "overview": "求搅拌机搅杆端点C的速度和轨迹",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动",
+    "刚体平动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>已知搅拌机的主动齿轮 $O_1$ 以 $n=950$ r/min 的转速转动。搅杆 ABC 用销钉 A、B 与齿轮 $O_2$、$O_3$ 相连，如图所示。且 AB=$O_2O_3$，$O_3A=O_2B=0.25$m，各齿轮齿数为 $z_1=20$，$z_2=50$，$z_3=50$，求搅杆端点 C 的速度和轨迹。</p><img src=\"qdata/q_399/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_C=994\\,\\mathrm{cm/s}$；C 的轨迹为半径 0.25m 的圆</p>",
+  "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n}{60}=\\dfrac{2\\pi\\times950}{60}\\approx99.5$ rad/s。齿轮 1、2 啮合：</p><p>$$\\omega_2=\\omega_1\\frac{z_1}{z_2}=99.5\\times\\frac{20}{50}=39.8\\,\\mathrm{rad/s}$$</p><p>$z_2=z_3$，故 $\\omega_3=\\omega_2$。又 AB=$O_2O_3$、$O_3A=O_2B=0.25$m，$O_2ABO_3$ 为平行四边形，搅杆 ABC 作平动，各点速度相同：</p><p>$$v_C=v_A=\\omega_2\\cdot O_2A=39.8\\times0.25=9.95\\,\\mathrm{m/s}\\approx994\\,\\mathrm{cm/s}$$</p><p>平动刚体各点轨迹为全等的圆，故 C 的轨迹为半径 0.25m 的圆。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求搅拌机搅杆端点C的速度和轨迹",
+  "module": "运动学"
+}

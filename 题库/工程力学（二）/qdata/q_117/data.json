@@ -1,0 +1,19 @@
+{
+  "id": "q_117",
+  "overview": "纯滚动轮与物块的加速度和摩擦力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示系统中，已知：匀质轮 $C$ 重为 $Q$、半径为 $r$，在水平面上作纯滚动，物块 $A$ 重为 $P$，绳 $CE$ 段水平，定滑轮质量不计。试用动静法求：(1) 轮心 $C$ 的加速度；(2) 轮子与地面间的摩擦力。</p>",
+  "answer": "<p>(1) $a_C=\\dfrac{2Pg}{2P+3Q}$；(2) $F=\\dfrac{PQ}{2P+3Q}$</p>",
+  "explanation": "<p>【AI 生成】轮纯滚动，$\\alpha=\\dfrac{a_C}{r}$。对轮 $C$：$T-F=\\dfrac{Q}{g}a_C$；对轮心取矩 $F\\cdot r=\\dfrac{1}{2}\\dfrac{Q}{g}r^2\\alpha$，即 $F=\\dfrac{1}{2}\\dfrac{Q}{g}a_C$，故 $T=\\dfrac{3}{2}\\dfrac{Q}{g}a_C$。对物块 $A$：$P-T=\\dfrac{P}{g}a_C$。联立解得 $a_C=\\dfrac{2Pg}{2P+3Q}$，$F=\\dfrac{PQ}{2P+3Q}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

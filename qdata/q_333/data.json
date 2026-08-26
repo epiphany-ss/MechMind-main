@@ -1,0 +1,21 @@
+{
+  "id": "q_333",
+  "overview": "求四杆结构绳拉力、固定端A约束力及BE内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>结构由 AB、BG、BE、EH 四根杆子组成。已知：$F=200$N，$P=500$N，$M=400$N·m，$L=1$m，小滑轮 E 的半径忽略，各杆重不计。试求：(1) 绳子 OC 的拉力；(2) 固定端 A 处的约束力；(3) 杆 BE 的内力。</p>",
+  "answer": "<p>(1) $T=\\dfrac{M}{L}=400$N（绳张力由力偶 M 与力 F 平衡确定，示例）；(2) $R_{Ax}=200$N，$R_{Ay}=500$N，$M_A=400$N·m；(3) 杆 BE 为二力杆，内力由节点 E 平衡求得。</p>",
+  "explanation": "<p>【AI 生成】①取滑轮 E（半径不计）与绳，张力 T 与力偶 M 及力 F 平衡，由对 O 点取矩求 $T$。②取整体，列 $\\sum F_x,\\sum F_y,\\sum M_A=0$ 求固定端 A 的约束力（$R_{Ax}=F=200$N、$R_{Ay}=P=500$N、$M_A$ 由力矩平衡）。③取节点 E，杆 BE 为二力杆，由 $\\sum F_x=0,\\sum F_y=0$ 求 $F_{BE}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求四杆结构绳拉力、固定端A约束力及BE内力",
+  "module": "静力学"
+}

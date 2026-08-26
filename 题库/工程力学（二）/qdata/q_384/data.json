@@ -1,0 +1,18 @@
+{
+  "id": "q_384",
+  "overview": "定轴转动切向加速度与法向加速度的表达式",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>刚体作定轴转动时，切向加速度为 ，法向加速度为 。</p><p>(A) $\\boldsymbol r\\times\\boldsymbol\\alpha$； (B) $\\boldsymbol\\alpha\\times\\boldsymbol r$； (C) $\\boldsymbol\\omega\\times\\boldsymbol v$； (D) $\\boldsymbol v\\times\\boldsymbol\\omega$。</p>",
+  "answer": "<p>切向加速度（B）$\\boldsymbol\\alpha\\times\\boldsymbol r$；法向加速度（C）$\\boldsymbol\\omega\\times\\boldsymbol v$</p>",
+  "explanation": "<p>【AI 生成】定轴转动中 $\\boldsymbol a_\\tau=\\boldsymbol\\alpha\\times\\boldsymbol r$，$\\boldsymbol a_n=\\boldsymbol\\omega\\times\\boldsymbol v$（指向转轴，大小为 $\\omega^2 r$）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

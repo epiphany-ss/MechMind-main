@@ -1,0 +1,21 @@
+{
+  "id": "q_597",
+  "overview": "求绕绳圆柱在水平面上受拉时的加速度与角加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>质量为15kg，直径为30cm的匀质圆柱放在水平面上，圆柱与平面间的动摩擦系数为0.2。绕在圆柱上细线的引出端与水平面成角$\\theta=30^\\circ$，线端受一不变的拉力F的作用，F＝40N。求圆柱中心C的加速度和圆柱的角加速度。</p><img src=\"qdata/q_597/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_C\\approx0.62\\ \\mathrm{m/s^2}$（水平向右）；$\\alpha\\approx58\\ \\mathrm{rad/s^2}$（顺时针）</p>",
+  "explanation": "<p>【AI 生成】半径$r=0.15\\mathrm{m}$，$m=15\\mathrm{kg}$，$mg=147\\mathrm{N}$。拉力分解：$F\\cos\\theta=40\\cos30^\\circ=34.64\\mathrm{N}$（水平），$F\\sin\\theta=20\\mathrm{N}$（铅垂向上）。法向反力$N=mg-F\\sin\\theta=127\\mathrm{N}$，动摩擦力$F_f=0.2N=25.4\\mathrm{N}$（向左）。平移：$$F\\cos\\theta-F_f=ma_C\\Rightarrow a_C=\\frac{34.64-25.4}{15}=0.62\\ \\mathrm{m/s^2}$$转动（拉力与摩擦力对C的矩同向）：$$Fr+F_fr=\\frac{1}{2}mr^2\\alpha\\Rightarrow \\alpha=\\frac{(40+25.4)\\times0.15}{0.5\\times15\\times0.15^2}=58\\ \\mathrm{rad/s^2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_506",
+  "overview": "平行四边形板机构求动点M的速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平动",
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示，$O_1A＝O_2B＝R$, $O_1O_2＝AB$。已知：R=25cm，$\\phi=\\pi t^2/24$，动点M沿正方形板水平边按规律 $OM＝2t^3+3t$ 运动，式中 $\\phi$ 以rad计，OM以cm计，t以s计。试求 $t=2$s时，动点M的速度和加速度。</p>",
+  "answer": "<p>$v_M=\\sqrt{(v_e\\cos60^\\circ+v_r)^2+(v_e\\sin60^\\circ)^2}$，$v_e=\\dfrac{25\\pi}{6}\\approx13.1$ cm/s，$v_r=27$ cm/s，故 $v_M\\approx35.4$ cm/s；$a_M=a_e+a_r$（$a_e=\\dot\\phi^2R=\\dfrac{25\\pi^2}{36}\\approx6.85$ cm/s$^2$ 指向 $O_1$，$a_r=24$ cm/s$^2$ 沿板边，矢量合成）。</p>",
+  "explanation": "<p>【AI 生成】$O_1A=O_2B$、$O_1O_2=AB$ 为平行四边形机构，正方形板作平动。<br>（1）$\\phi=\\pi t^2/24$，$\\dot\\phi=\\pi t/12$，$\\ddot\\phi=\\pi/12$。$t=2$s时 $\\phi=\\pi/6$，$\\dot\\phi=\\pi/6$ rad/s。<br>（2）板平动，牵连速度 $v_e=v_A=\\dot\\phi R=\\dfrac{\\pi}{6}\\times25=\\dfrac{25\\pi}{6}\\approx13.1$ cm/s，方向垂直 $O_1A$（与水平成 $60^\\circ$）。牵连加速度 $a_e=\\dot\\phi^2 R=\\dfrac{\\pi^2}{36}\\times25=\\dfrac{25\\pi^2}{36}\\approx6.85$ cm/s$^2$ 指向 $O_1$。<br>（3）M沿板水平边运动，$v_r=\\dot{OM}=6t^2+3$，$t=2$s时 $v_r=27$ cm/s（水平），$a_r=\\ddot{OM}=12t=24$ cm/s$^2$（水平）。板平动，$a_C=0$。<br>（4）$v_M=v_e+v_r$，$v_e$ 与水平成 $60^\\circ$，故 $v_M=\\sqrt{(v_e\\cos60^\\circ+v_r)^2+(v_e\\sin60^\\circ)^2}\\approx35.4$ cm/s；$a_M=a_e+a_r$ 按矢量合成。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "平行四边形板机构求动点M的速度和加速度",
+  "module": "运动学"
+}

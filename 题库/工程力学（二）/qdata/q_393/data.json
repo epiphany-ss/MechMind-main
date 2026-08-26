@@ -1,0 +1,21 @@
+{
+  "id": "q_393",
+  "overview": "建立摇杆上点C的运动方程并求速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动",
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，摇杆机构的滑杆 AB 以匀速 $u$ 向上运动，试建立摇杆 OC 上点 C 的运动方程，并求此点在 $\\varphi=\\pi/4$ 时的速度大小。假定初始瞬时 $\\varphi=0$，摇杆长 OC=$a$，距离 OD=$l$。</p><img src=\"qdata/q_393/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$S=a\\arctan\\dfrac{ut}{l}$；$\\varphi=\\pi/4$ 时 $v=\\dfrac{au}{2l}$</p>",
+  "explanation": "<p>【AI 生成】滑杆上移使接触点 A 升高 $ut$，摇杆与水平线的夹角 $\\varphi$ 满足 $\\tan\\varphi=ut/l$。C 点沿半径 $a$ 的圆弧运动，其弧坐标为</p><p>$$S=a\\varphi=a\\arctan\\frac{ut}{l}$$</p><p>对时间求导得 C 点速度</p><p>$$v=\\frac{dS}{dt}=\\frac{a\\cdot(u/l)}{1+(ut/l)^2}=a\\frac{u}{l}\\cos^2\\varphi$$</p><p>当 $\\varphi=\\pi/4$ 时 $\\cos^2(\\pi/4)=1/2$，故</p><p>$$v=\\frac{au}{2l}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册"
+}

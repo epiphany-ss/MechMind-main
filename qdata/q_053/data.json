@@ -1,0 +1,23 @@
+{
+  "id": "q_053",
+  "overview": "均质杆端点速度已知求动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>已知均质杆长 $L$，质量为 $m$，端点 $B$ 的速度为 $v$，则 $AB$ 杆的动能为____。<br>(A) $\\frac16mv^2$；<br>(B) $\\frac12mv^2$；<br>(C) $\\frac23mv^2$；<br>(D) $\\frac13mv^2$。</p><img src=\"qdata/q_053/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】杆 $A$ 端沿铅垂墙、$B$ 端沿水平面滑下，$AB$ 与水平成 $30^\\circ$。由速度投影与瞬心法：$\\omega=\\dfrac{v}{L\\sin30^\\circ}=\\dfrac{2v}{L}$，质心速度 $v_C=\\omega\\cdot\\dfrac L2=v$，故 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{mL^2}{12}\\omega^2=\\frac12mv^2+\\frac16mv^2=\\frac23mv^2$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "均质杆端点速度已知求动能",
+  "module": "动力学"
+}

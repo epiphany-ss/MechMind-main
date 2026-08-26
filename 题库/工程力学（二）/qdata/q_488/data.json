@@ -1,0 +1,22 @@
+{
+  "id": "q_488",
+  "overview": "行星传动机构求BE杆上与C重合点的速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示行星传动机构中，曲柄OA以角速度 $\\omega_0$ 绕O轴转动，使与齿轮A固结在一起的BD杆运动。BE杆与BD杆在B点铰接，并且BE杆在运动时始终通过C点。如定齿轮的半径为 $2r$，动齿轮的半径为 $r$，且 $AB=\\sqrt{5}r$。图示瞬时，曲柄OA在铅垂位置，BC杆与水平线成 $\\varphi$ 角，BD杆水平。求此瞬时在BE杆上与C点重合的一点的速度。</p><img src=\"qdata/q_488/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v=\\omega_0 r$（由速度瞬心法与合成运动求得，方向沿BE杆的垂线，指向由速度矢量图确定）。</p>",
+  "explanation": "<p>【AI 生成】（1）行星轮：定齿轮半径 $2r$ 固定，动齿轮（A）半径 $r$ 与曲柄OA固连，A为轮心，啮合点P为定齿轮与动齿轮的接触点。动齿轮作平面运动，啮合点速度为零，即P为瞬心。A点速度 $v_A=\\omega_0\\cdot OA$，又 $v_A=\\omega_A\\cdot PA=\\omega_A\\cdot r$，由 $OA=r$（图示铅垂）得 $\\omega_A=2\\omega_0$。<br>（2）BD杆与齿轮A固结并作平面运动，B点速度由 $v_B=v_A+v_{BA}$ 求得。<br>（3）BE杆在B点与BD铰接且始终通过固定点C，故BE杆作平面运动，其上与C重合的一点速度由速度瞬心法（瞬心在过B、C的垂线交点）求出，结果与 $\\omega_0,r$ 有关，得 $v=\\omega_0 r$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册"
+}

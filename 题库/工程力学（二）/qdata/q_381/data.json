@@ -1,0 +1,20 @@
+{
+  "id": "q_381",
+  "overview": "求直角刚杆B点加速度的坐标投影",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>直角刚杆 OAB 可绕固定轴 O 在图示平面内转动，已知 OA=40cm，AB=30cm，$\\omega=2\\,\\mathrm{rad/s}$，$\\alpha=1\\,\\mathrm{rad/s^2}$。则图示瞬时，B 点的加速度在 $x$ 向的投影为 cm/s$^2$，在 $y$ 向的投影为 cm/s$^2$。</p><p>(A) 40； (B) 200； (C) 50； (D) $-200$。</p><img src=\"qdata/q_381/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x$ 向投影 50（C）；$y$ 向投影 $-200$（D）</p>",
+  "explanation": "<p>【AI 生成】$OB=50$ cm。法向加速度 $a_n=\\omega^2\\cdot OB=200$ cm/s$^2$ 沿 OB 指向 O（图示 B 在 O 正上方，故沿 $-y$ 向）；切向加速度 $a_\\tau=\\alpha\\cdot OB=50$ cm/s$^2$ 垂直于 OB（沿 $+x$ 向）。故 $a_{Bx}=50$，$a_{By}=-200$ cm/s$^2$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

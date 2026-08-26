@@ -1,0 +1,20 @@
+{
+  "id": "q_369",
+  "overview": "判断啮合齿轮角速度与齿数的关系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>互相啮合的两齿轮，其角速度与齿数成正比。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】啮合齿轮无滑动时 $\\omega_1 r_1=\\omega_2 r_2$，而齿数 $z\\propto r$，故 $\\omega_1/\\omega_2=z_2/z_1$，角速度与齿数成反比而非正比。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "判断啮合齿轮角速度与齿数的关系",
+  "module": "运动学"
+}

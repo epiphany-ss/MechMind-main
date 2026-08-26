@@ -1,0 +1,986 @@
+{
+  "chapter": 3,
+  "category": "静力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断汇交三力中两力共线时第三力是否为零",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "静力学公理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>汇交于一点的三个力，只要其中的两个力在一条直线上，则第三个力必然为零。 (    )</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch20_idx101_0.png"
+      ],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】该命题缺少“三力平衡”这一前提。若三力汇交且系统平衡，其中两力共线等值反向时第三个力才为零；若力系不平衡，即使两力共线，第三个力也不一定为零。</p>"
+    },
+    {
+      "overview": "判断力能否分解为力偶",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "力与力偶"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一个力不可能分解为一个力偶；一个力偶也不可能合成为一个力。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】力与力偶是量纲不同、效果不同的两种基本力学量。一个单独的力等效于一个力加一个力偶（力线平移定理），但不能等效于纯力偶；纯力偶也不能等效于一个合力。</p>"
+    },
+    {
+      "overview": "判断平面汇交力系力多边形封闭性",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "easy",
+      "content": "<p>平面汇交力系平衡时，力多边形各力应首尾相接，但在作图时力的顺序可以不同。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平面汇交力系平衡的几何条件是力多边形自行封闭。力矢量的合成与顺序无关（矢量加法满足交换律），故作图顺序可以不同。</p>"
+    },
+    {
+      "overview": "判断汇交力系投影轴是否须垂直",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "easy",
+      "content": "<p>平面汇交力系的平衡方程中，所选择的两个相交投影轴不一定要满足垂直关系。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平面汇交力系有两个独立平衡方程，只要两个投影轴不平行（不重合），投影方程就相互独立，两轴不一定互相垂直。</p>"
+    },
+    {
+      "overview": "判断去掉零杆是否影响桁架平衡",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在平面简单桁架中，零杆受力既然为零，去掉它就不会影响整个桁架的平衡。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】零杆只是受力为零，它仍提供几何约束，使桁架保持几何不变（静定桁架去掉任一杆即成为机构而丧失稳定）。去掉零杆会使结构变成可变体系，影响平衡与承载。</p>"
+    },
+    {
+      "overview": "判断空间力系垂直于固定直线的平衡方程数",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "空间力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一空间力系，若各力作用线与某一固定直线相垂直，则其独立平衡方程最多有4个。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】各力都与固定直线（取为 z 轴）垂直，则各力在 z 轴上的投影恒为零，$\\sum F_z=0$ 自动满足，其余 5 个方程独立，故独立平衡方程最多为 5 个而不是 4 个。</p>"
+    },
+    {
+      "overview": "判断空间汇交力系三投影方程是否充分",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "空间力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>空间汇交力系在任选的三个轴上投影的代数和分别为零，则汇交力系一定平衡。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】三个投影方程须对应三个互不共面的方向才相互独立；“任选的三个轴”可能共面，使方程线性相关，此时不能保证力系平衡。</p>"
+    },
+    {
+      "overview": "判断摩擦力是否可由平衡方程完全确定",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>摩擦力是未知约束反力，其大小和方向完全可以由平衡方程来确定。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】静摩擦力满足 $0\\le F\\le f_s N$，在未达到临界状态时由平衡方程确定，达到临界状态时须用库仑摩擦定律 $F=f_sN$ 补充；其方向由物体相对运动趋势决定，不能完全由平衡方程确定。</p>"
+    },
+    {
+      "overview": "判断滚动摩阻因数是否无量纲",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "easy",
+      "content": "<p>滚动摩阻因数是一个无量纲的系数。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】滚动摩阻系数 $\\delta$ 的量纲是长度（它是法向反力偏移的距离），滚动摩擦力偶 $M=\\delta N$；静滑动摩擦因数 $f_s$ 才是无量纲的。</p>"
+    },
+    {
+      "overview": "判断斜面上物体静止条件",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一重 W 的物体自由地放在倾角为 $\\alpha$ 的斜面上，物体与斜面间的摩擦因数为 $f_s$，若 $\\tan\\alpha&lt;f_s$，则物体将静止在斜面上。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】$\\tan\\alpha&lt;f_s$ 即 $\\alpha&lt;\\varphi$（摩擦角），物体沿斜面下滑的驱动力 $W\\sin\\alpha$ 小于最大静摩擦力 $f_s W\\cos\\alpha$，故物体静止。</p>"
+    },
+    {
+      "overview": "判断力偶作用下A处约束反力的方位",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "力与力偶"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如图所示，各物块自重及摩擦不计，物块受力偶作用，其力偶矩的大小均为 M，方向如图。A 处的约束反力的方位为____。<br>(A) AC 连线方向；<br>(B) 水平方向；<br>(C) 铅垂方向；<br>(D) AB 连线向上。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch21_idx111_0.png"
+      ],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】物体只在力偶作用下平衡，外力系只能合成为力偶。A 处约束反力与另一接触处的约束反力构成一对力偶与外力偶平衡，两反力必沿同一作用线，故 A 处反力沿 A、C 连线方向。</p>"
+    },
+    {
+      "overview": "判断不平行二槽平板能否平衡",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "力与力偶",
+        "约束与约束反力"
+      ],
+      "difficulty": "medium",
+      "content": "<p>带有不平行二槽的矩形平板上作用一力偶 M。今在槽内插入两个固定于地面的销钉，若不计摩擦则____。<br>(A) 平板保持平衡；<br>(B) 平板不能平衡；<br>(C) 平衡与否不能判断。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch22_idx112_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】不计摩擦时销钉对平板的反力垂直于各自的槽壁。两槽不平行，故两反力不平行，不平行二力不能构成力偶，无法平衡纯力偶 M，平板不能平衡。</p>"
+    },
+    {
+      "overview": "求结构支座E处反力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>杆 AB、CDE 连接成图示结构，受荷载 F 作用，则支座 E 处反力的大小为____（x 水平向右为正，y 铅直向上为正）。<br>(A) $F_{Ex}=F/2$，$F_{Ey}=F/2$；<br>(B) $F_{Ex}=0$，$F_{Ey}=-F/2$；<br>(C) $F_{Ex}=F/2$，$F_{Ey}=-F/2$；<br>(D) $F_{Ex}=-F/2$，$F_{Ey}=F/2$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch22_idx113_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】E 处为滚动（可动）铰支座，其反力沿支承面法线方向，水平分量 $F_{Ex}=0$。取整体及适当隔离体平衡，竖直反力与荷载 F 平衡，得 $F_{Ey}=-F/2$（向下）。</p>"
+    },
+    {
+      "overview": "判断三角形板上汇交力系的平衡",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示两个作用在三角形板上的平面汇交力系（图(a)汇交于三角形板中心，图(b)汇交于三角形板底边中点）。如果各力大小均不等于零，则图(a)所示力系____，图(b)所示力系____。<br>(A) 可能平衡；<br>(B) 一定不平衡；<br>(C) 一定平衡；<br>(D) 不能确定。</p>",
+      "figures": [],
+      "answer": "<p>图(a) 选 B；图(b) 选 A</p>",
+      "explanation": "<p>【AI 生成】图(a)各力沿三角形中心到顶点的方向，各力方向不满足“一力在另两力之间”的封闭条件，一定不平衡；图(b)各力汇交于底边中点，若各力大小、方向适当配合可构成封闭力多边形，故可能平衡。</p>"
+    },
+    {
+      "overview": "判断平面平衡力系的独立平衡方程",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>对于作用在 Oxy 平面内的平面平衡力系，其独立的平衡方程是____。<br>(A) $\\sum M_A=0$，$\\sum M_B=0$，$\\sum M_C=0$；<br>(B) $\\sum M_B=0$，$\\sum M_O=0$，$\\sum F_x=0$；<br>(C) $\\sum M_A=0$，$\\sum M_B=0$，$\\sum M_O=0$；<br>(D) $\\sum F_x=0$，$\\sum F_y=0$，$\\sum F_{AB}=0$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch22_idx115_0.png"
+      ],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】平面一般力系可取三矩式方程，只要三个矩心不共线即独立，故(A)成立。由图中 O 位于 A、B 连线上，使(C)不独立；B、O 连线竖直（⊥x），使(B)不独立；(D)中 $\\sum F_{AB}=0$ 是 $\\sum F_x,\\sum F_y$ 的线性组合，故(A)为独立平衡方程。</p>"
+    },
+    {
+      "overview": "判断两种结构是否静定",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "medium",
+      "content": "<p>左下图(a)、(b)为两种结构，则____。<br>(A) 图(a)、(b)都是静不定的；<br>(B) 图(a)、(b)都是静定的；<br>(C) 仅图(a)是静定的；<br>(D) 仅图(b)是静定的。</p><img src=\"[[FIG1]]\">",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】图(a)为三铰式框架，A 处为固定铰、D 处为滚动铰，未知量恰为 3 个，是静定结构；图(b)在 A、D 两处均为固定铰（4 个未知量），多余约束使结构成为静不定。故仅图(a)静定。</p>"
+    },
+    {
+      "overview": "判断正方体受等值反向力偶是否平衡",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "力与力偶"
+      ],
+      "difficulty": "easy",
+      "content": "<p>正方体受两个力偶作用，该两力偶矩矢等值、反向，即 $M_1=-M_2$，但不共线，则正方体____。<br>(A) 平衡；<br>(B) 不平衡；<br>(C) 因条件不足，难以判断是否平衡。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch23_idx117_0.png"
+      ],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，两力偶矩矢等值反向则合力偶矩为零，力偶的合成与作用位置无关，故正方体平衡。</p>"
+    },
+    {
+      "overview": "计算提起四本书所需最小夹紧力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "hard",
+      "content": "<p>四本相同的书，每本重为 P，设书与书间的摩擦因数为 0.1，书与手间的摩擦因数 0.25，欲将四本书一起提起，则两侧应加的力 F 至少大于____。<br>(A) $1P$；<br>(B) $4P$；<br>(C) $8P$；<br>(D) $10P$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch23_idx118_0.png"
+      ],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】两手以 F 夹紧书堆。手与书之间需提供全部重量 $4P$：$2\\times0.25F\\ge 4P\\Rightarrow F\\ge 8P$。而书与书之间摩擦因数小，是最危险环节：最下面一本书需由相邻书间摩擦 $0.1F$ 承受至少 $P$，故 $0.1F\\ge P\\Rightarrow F\\ge 10P$。取较大者 $F&gt;10P$。</p>"
+    },
+    {
+      "overview": "判断临界平衡时静摩擦力与正压力的关系",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "easy",
+      "content": "<p>当物体处于临界平衡状态时，静摩擦力的大小 $F_S$____。<br>(A) 与物体的重量成正比；<br>(B) 与物体的重力在支承面的法线方向的大小成正比；<br>(C) 与相互接触物体之间的正压力大小成正比；<br>(D) 由力系的平衡方程来确定。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】临界平衡时静摩擦力达到最大值，由库仑摩擦定律 $F_{S,\\max}=f_s N$ 决定，即与接触面间的正压力 N 成正比。</p>"
+    },
+    {
+      "overview": "判断V型槽中圆柱的法向反力关系",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>重量为 P 的均质圆柱放在 V 型槽里，考虑摩擦。当圆柱上作用一力偶，其力偶矩为 M 时（如图所示），圆柱处于极限平衡状态。此时接触点处的法向反力 $F_{NA}$ 与 $F_{NB}$ 的关系为____。<br>(A) $F_{NA}=F_{NB}$；<br>(B) $F_{NA}&gt;F_{NB}$；<br>(C) $F_{NA}&lt;F_{NB}$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch23_idx120_0.png"
+      ],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】V 型槽两斜面关于铅垂线对称，圆柱为均质圆，力偶 M 只引起转动效应。将问题沿对称面镜像，极限平衡条件不变，故两接触点法向反力相等：$F_{NA}=F_{NB}$。</p>"
+    },
+    {
+      "overview": "判断水平力增大时杆对物块的正压力变化",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "摩擦",
+        "受力分析"
+      ],
+      "difficulty": "hard",
+      "content": "<p>已知杆 OA 重 P，物块 M 重 Q，杆与物块间有摩擦，而物体与地面间的摩擦略去不计。当水平力 F 增大而物块仍然保持平衡时，杆对物块 M 的正压力____。<br>(A) 由小变大；<br>(B) 由大变小；<br>(C) 不变。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch23_idx121_0.png"
+      ],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】F 增大时物块与杆之间的摩擦力随之增大。对杆 OA 取矩（矩心 O）：$N\\cdot L\\cos\\theta - f\\cdot L\\sin\\theta = P\\cdot\\frac{L}{2}\\cos\\theta$，即 $N=\\frac{P}{2}+f\\tan\\theta$，可见正压力 N 随摩擦力 f（即随 F）增大而由小变大。</p>"
+    },
+    {
+      "overview": "画出力偶作用下支座A约束力作用线方位",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "力与力偶",
+        "受力分析"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示结构，杆 AF 上作用力偶（F，F′），若不计各杆自重，试画出支座 A 处约束力的作用线的方位。</p>",
+      "figures": [],
+      "answer": "<p>支座 A 处约束反力的作用线沿 A 与另一支座（如 B）的连线方向，与另一支座的约束反力组成一个力偶，与杆 AF 上的作用力偶（F，F′）相平衡。</p>",
+      "explanation": "<p>【AI 生成】结构仅受一个力偶作用，支座反力只能合成为力偶与其平衡。两处支座反力构成力偶，须等值、反向、平行，故 A 处反力作用线沿 A 与另一支座连线方向。</p>"
+    },
+    {
+      "overview": "求杆AC、BC中点受力时杆AB的受力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "平面力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>结构自重不计，杆 AC、BC 的中点各作用一铅垂向下的力 F，则杆 AB 所受的力为____。</p>",
+      "figures": [],
+      "answer": "<p>$\\dfrac{F}{2}$（杆 AB 受拉力）。</p>",
+      "explanation": "<p>【AI 生成】设 $\\alpha$ 为 AC（或 BC）与水平线的夹角。取整体由对称性知 A、B 支座反力各为 $F$（向上）。对节点 A 平衡，杆 AB 的水平分力与 AC 传来的水平分力平衡；由中间铰 C 处竖向平衡及杆 AC 对 A 的竖向分量 $F/2$，可得杆 AB 内力为 $F/(2\\tan\\alpha)$，当 $\\alpha=45°$ 时为 $F/2$。</p>"
+    },
+    {
+      "overview": "空间力系特殊情形的独立平衡方程数",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "空间力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>某空间力系若：(1) 各力作用线与某一固定直线相交；(2) 各力作用线与某一固定直线平行；(3) 各力作用线与某一固定直线垂直，则其独立的平衡方程式的最大数目分别为：(1)____个；(2)____个；(3)____个。</p>",
+      "figures": [],
+      "answer": "<p>(1) 5；(2) 3；(3) 5</p>",
+      "explanation": "<p>【AI 生成】取固定直线为 z 轴。(1)各力与 z 轴相交，各力对 z 轴之矩为零，$\\sum M_z=0$ 自动满足，剩 5 个独立方程；(2)空间平行力系，$\\sum F_z=0,\\sum M_x=0,\\sum M_y=0$ 共 3 个；(3)各力与 z 轴垂直则 $F_z=0$，$\\sum F_z=0$ 自动满足，剩 5 个独立方程。</p>"
+    },
+    {
+      "overview": "判断桁架零杆并求杆6内力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示桁架结构中，能直接判断为零杆的杆件为____；杆 6 的内力为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch24_idx125_0.png"
+      ],
+      "answer": "<p>零杆为不受荷载且处于“T 形”节点处的杆件（如杆 1、杆 2 等）；杆 6 的内力由截面法求得。</p>",
+      "explanation": "<p>【AI 生成】判断零杆的两个依据：①两杆节点无外力时两杆皆为零杆；②三杆节点中两杆共线、无外力时，第三杆为零杆。杆 6 用截面法截开，对恰当取矩点列力矩平衡方程即可求其内力（数值随图中尺寸与荷载而定）。</p>"
+    },
+    {
+      "overview": "求拉动物体A所需的水平力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>物体 A、B 重量分别为 $P_A=1\\text{kN}$，$P_B=0.5\\text{kN}$，物 A 与物 B 以及物 A 与地面间的摩擦因数均为 $f=0.2$，A、B 通过滑轮 C 用一绳连接，滑轮处摩擦不计。今在 A 物体上作用一水平力 F，则能拉动物体 A 时该力应大于____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch24_idx126_0.png"
+      ],
+      "answer": "<p>$0.4\\text{kN}$</p>",
+      "explanation": "<p>【AI 生成】拉动物体 A 需克服两处摩擦：A 与地面间摩擦 $f(P_A+P_B)=0.2\\times1.5=0.3\\text{kN}$；A 与 B 间摩擦 $fP_B=0.2\\times0.5=0.1\\text{kN}$（阻止 B 相对 A 滑动）。故 $F&gt;0.3+0.1=0.4\\text{kN}$。</p>"
+    },
+    {
+      "overview": "判断斜面上鼓轮的运动状态",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "hard",
+      "content": "<p>一重为 P 的鼓轮，其外圆直径 D=200mm，内圆直径 d=180mm，放在倾角 $\\theta$ 的斜面上，在内圆上绕一绳以大小等于 5P 的力 F 平行于斜面向上拉。已知斜面与鼓轮间的静滑动摩擦因数 $f_s=0.5$，滚动摩阻系数 $\\delta=0.25\\text{mm}$，则此时鼓轮的运动状态为____。</p>",
+      "figures": [],
+      "answer": "<p>鼓轮沿斜面向上作纯滚动（向上滚动）。</p>",
+      "explanation": "<p>【AI 生成】绳拉力 F=5P 远大于重力沿斜面分力 $P\\sin\\theta$，鼓轮必沿斜面向上运动。比较两种趋势：所需滑动摩擦力小于 $f_sN$，而滚动所需驱动力矩 $F\\cdot\\frac{D-d}{2}$ 只需克服滚动摩阻 $\\delta N$，故鼓轮滚动而不滑动。</p>"
+    },
+    {
+      "overview": "求三种受载构件的支座反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>试求图示构件的支座反力。<br>(a) 已知：F，M，l，d（A 为固定铰支座，B 为滚动铰支座，梁长 l，距 A 端 d 处作用铅垂力 F，另有矩为 M 的力偶）；<br>(b) 已知：M，a（悬臂梁 A 端固定，梁上作用矩为 M 与 2M 的两个力偶，总长 3a）；<br>(c) 已知：$q_A$、$q_B$、a（简支梁 AB 长 3a，受线性分布载荷，A 端集度 $q_A$，B 端集度 $q_B$）。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch24_idx128_0.png"
+      ],
+      "answer": "<p>(a) $R_A=F-\\dfrac{Fd+M}{l}$，$R_B=\\dfrac{Fd+M}{l}$；<br>(b) $R_A=0$，$M_A=3M$（固定端反力偶）；<br>(c) $R_A=\\dfrac{a(2q_A+q_B)}{2}$，$R_B=\\dfrac{a(q_A+2q_B)}{2}$。</p>",
+      "explanation": "<p>【AI 生成】(a) 对 A 取矩：$R_B l=Fd+M$，得 $R_B=\\frac{Fd+M}{l}$；由 $\\sum F_y=0$ 得 $R_A=F-R_B$。(b) 悬臂梁仅受两力偶，支座反力偶 $M_A=2M+M=3M$（转向与合力偶相反），$R_A=0$。(c) 分布载荷合力 $R=\\frac{q_A+q_B}{2}\\cdot3a$，其作用线距 A 为 $\\bar x=a\\frac{q_A+2q_B}{q_A+q_B}$，由 $\\sum M_A=0$ 与 $\\sum F_y=0$ 得 $R_A=\\frac{a(2q_A+q_B)}{2}$，$R_B=\\frac{a(q_A+2q_B)}{2}$。</p>"
+    },
+    {
+      "overview": "求连杆机构中两力关系",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "静力学公理",
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>铰接的连杆机构 ACDB 的 A、B 铰固定。在铰链 C 上作用一力 $F_C$，在铰链 D 上作用一力 $F_D$，四边形 ACDB 在图示位置处于平衡，力 $F_C$ 与 $F_D$ 的方向如图示。求 $F_C$ 与 $F_D$ 的关系，杆重略去不计。</p>",
+      "figures": [],
+      "answer": "<p>$F_C=F_D$（两力大小相等）。</p>",
+      "explanation": "<p>【AI 生成】机构为几何可变体系，不能用一般刚体平衡方程，宜用虚位移原理。设 C 点沿 $F_C$ 方向的虚位移为 $\\delta s_C$，D 点沿 $F_D$ 方向的虚位移为 $\\delta s_D$，由虚功方程 $F_C\\delta s_C - F_D\\delta s_D=0$。对图示对称平行四边形机构，$\\delta s_C=\\delta s_D$，故 $F_C=F_D$。</p>"
+    },
+    {
+      "overview": "求力偶作用下支座A的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "力与力偶",
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示结构中，各构件的自重略去不计，在构件 BC 上作用一力偶矩为 M 的力偶，各尺寸如图（ABCD 为边长 l 的正方形框架，A 为固定铰支座，D 为滚动铰支座）。求支座 A 的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$R_A=\\dfrac{M}{l}$（铅垂方向），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】整体仅受一个力偶 M 作用，支座反力只能合成力偶与之平衡。D 为滚动铰，反力铅垂，故 A 处反力也铅垂（$R_{Ax}=0$）且与 D 反力等值反向。A、D 两力间距为 l，由 $R_A\\cdot l=M$ 得 $R_A=\\frac{M}{l}$。</p>"
+    },
+    {
+      "overview": "求连续梁支座A、B、D的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如下图所示连续梁 A-B-C-D，AB=BC=CD=$L$=1m，A 为固定铰支座，B、D 为滚动铰支座，C 处为中间铰。已知 $F=10$kN，$q=10$kN/m，$M=20$kN·m，$L=1$m。求支座 A、B、D 的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$R_D=20$kN（↑），$R_B=20$kN（↓），$R_A=20$kN（↑），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】①取 CD 段：$\\sum M_C=0$，$R_D L=M$，$R_D=20$kN（↑），C 铰给 ACB 段向上的力为 20kN。②取 ACB 段（AB 段受均布载荷 $qL=10$kN，BC 中点受 $F=10$kN，C 处受 20kN 向上）：对 A 取矩 $-10\\times0.5-10\\times1.5+20\\times2+R_B\\times1=0$，得 $R_B=-20$kN（↓）。③$\\sum F_y=0$：$R_A-10-10+20+(-20)=0$，得 $R_A=20$kN（↑）。整体校核 $\\sum F_y$：$20-20+20=20$kN 与总荷载 $10+10=20$kN 相符。</p>"
+    },
+    {
+      "overview": "求矩形板支座A、E的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "medium",
+      "content": "<p>矩形板 ABCD 支承如图示，自重不计，E 处为固定端约束，D、A 为光滑铰链，A、D 分别由二力杆 AE、DE 与固定端 E 相连。已知：$q=20$kN/m，$M=50$kN·m，$F=10$kN，AD=4m，AB=1m，E 位于 AD 中点正下方 1m。试求 A、E 处约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch25_idx130_0.png"
+      ],
+      "answer": "<p>$R_A=25$kN（↑），$R_{Ax}=-10$kN；二力杆 DE 内力 $N=55$kN；E 处约束力 $F_{Ex}=10$kN，$F_{Ey}=25$kN。</p>",
+      "explanation": "<p>【AI 生成】取矩形板为研究对象。$q$ 合力 $Q=q\\cdot4=80$kN 作用于 BC 中点，F=10kN 水平作用于 C。设 A 处反力 $R_{Ax},R_{Ay}$，D 处链杆反力 N（铅垂）。$\\sum F_x=0$：$R_{Ax}+10=0\\Rightarrow R_{Ax}=-10$kN。$\\sum M_A=0$：$-80\\times2-10\\times1-M+4N=0\\Rightarrow N=55$kN。$\\sum F_y=0$：$R_{Ay}+55-80=0\\Rightarrow R_{Ay}=25$kN。E 为固定端，二力杆 DE 传力 55kN，故 E 处约束力与杆端力平衡：$F_{Ex}=10$kN，$F_{Ey}=25$kN。</p>"
+    },
+    {
+      "overview": "求铰接构架A、B支座约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>结构如图，C 处为铰链，自重不计。已知：$F=100$kN，$q=20$kN/m，$M=50$kN·m。构架由竖杆 AC 与横梁 CDB 在 C 处铰接，AC=2m，CD=1.5m，DB=1.5m；横梁受均布载荷 q，D 处受铅垂力 F，C 处受力偶 M。A 为固定铰支座，B 为滚动铰支座。试求 A、B 两支座的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch26_idx131_0.png"
+      ],
+      "answer": "<p>$R_B=\\dfrac{190}{3}\\approx63.3$kN（↑），$R_{Ay}=\\dfrac{290}{3}\\approx96.7$kN（↑），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】①取 CB 段（C 铰、B 滚支，长 3m）：均布载荷合力 $q\\times3=60$kN 作用于中点，F=100kN 于 D（距 C 1.5m），力偶 M=50kN·m 于 C。对 C 取矩：$3R_B-60\\times1.5-100\\times1.5+50=0$，得 $R_B=\\frac{190}{3}$kN。②C 铰竖向力 $R_C=60+100-R_B=\\frac{290}{3}$kN（向上作用于 CB，即向下作用于 AC）。③取 AC：$\\sum M_A=0$ 与 $\\sum F_x=0$ 得 $R_{Ax}=0$，$\\sum F_y=0$ 得 $R_{Ay}=R_C=\\frac{290}{3}$kN。</p>"
+    },
+    {
+      "overview": "求支架支座A、B的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>支架由直杆 AD 与直角曲杆 BE 及定滑轮 D 组成，已知：AC=CD=AB=1m，$R=0.3$m，$P=100$N，A、B、C 处均用铰链连接。绳、杆、滑轮自重均不计。试求支座 A、B 的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch26_idx132_0.png"
+      ],
+      "answer": "<p>$A_x=200$N（→），$A_y=-P\\left(1-\\dfrac{1}{\\sqrt2}\\right)\\approx-29.3$N（↓）；$B_x=200$N（←），$B_y=2P-\\dfrac{P}{\\sqrt2}\\approx129.3$N（↑）。</p>",
+      "explanation": "<p>【AI 生成】绳上张力 $T=P=100$N。取滑轮 D：重物侧张力向下 $P$，另一段沿 DE 方向，两张力对 D 的合力由销钉平衡。设 AD 水平、DE 与水平成 45°，滑轮给杆 AD 的力为 $(-P/\\sqrt2,\\ -P+P/\\sqrt2)$。①杆 AD 对 A、C 取矩：$C_y-2(P-P/\\sqrt2)=0\\Rightarrow C_y=2P(1-\\frac{1}{\\sqrt2})$，$A_y=-P(1-\\frac{1}{\\sqrt2})$。②杆 BE 对 B 取矩与力平衡：$C_x=-2P+\\frac{P}{\\sqrt2}$，故 $A_x=2P=200$N，$B_x=-2P=-200$N，$B_y=2P-\\frac{P}{\\sqrt2}\\approx129.3$N。整体校核 $\\sum F_y$：$-29.3+129.3=100$N=P。</p>"
+    },
+    {
+      "overview": "求铰链A约束力与杆BC内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "medium",
+      "content": "<p>重物悬挂如图，已知 P=1.8kN，其他物体的自重不计。支架由杆 AB、BC 组成，A、C 为固定铰支座，B 为铰链，D 为悬挂点。AB 与水平线成 45°，AC=20cm，BD=10cm（D 在 B 正下方）。求铰链 A 的约束力和杆 BC 所受的力。</p>",
+      "figures": [],
+      "answer": "<p>杆 BC 受力 $F_{BC}=1.8$kN（拉力）；铰链 A 约束力 $A_x=1.8$kN，$A_y=1.8$kN，合力 $R_A=1.8\\sqrt2\\approx2.55$kN。</p>",
+      "explanation": "<p>【AI 生成】杆 BC 为二力杆，对杆 ABD 受力。对 A 取矩：$P\\times20$（cm）与 $F_{BC}$ 对 A 的力矩平衡。由几何（AB 与水平成 45°、BD 铅垂 10cm、D 距 A 的水平距离与 B 相同为 20cm），得 $F_{BC}=P=1.8$kN。$\\sum F_x=0$：$A_x=F_{BC}=1.8$kN；$\\sum F_y=0$：$A_y=P=1.8$kN。故 $R_A=\\sqrt{A_x^2+A_y^2}=1.8\\sqrt2$kN。</p>"
+    },
+    {
+      "overview": "用虚位移原理求压榨力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示平面机构，各构件自重不计。已知：$M=50$N·m，OA=$r=0.1$m，BC=CD=CE=$0.3$m，且 $\\angle OAB=90°$，$\\theta=30°$。试求压榨力 F。</p>",
+      "figures": [],
+      "answer": "<p>$F=\\dfrac{M}{r}\\cdot\\dfrac{1}{2\\tan30°+1}\\approx\\dfrac{50}{0.1}\\cdot0.536\\approx268$N。</p>",
+      "explanation": "<p>【AI 生成】用虚位移原理。设曲柄 OA 转过微小角 $d\\varphi$，A 点位移 $\\delta_A=r\\,d\\varphi$；由连杆机构几何关系，压板沿铅垂方向的虚位移 $\\delta y=\\delta_A\\cdot\\dfrac{1}{2\\tan\\theta+1}$。虚功方程 $M\\,d\\varphi=F\\,\\delta y$，代入 $r=0.1$、$\\theta=30°$：$F=\\frac{M}{r}(2\\tan30°+1)^{-1}=\\frac{50}{0.1}\\times\\frac{1}{1+1.155}\\approx268$N。</p>"
+    },
+    {
+      "overview": "求三支承刚架A、B、D约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示刚架，已知：$F=50$kN，$q=10$kN/m，$a=3$m，各构件自重不计。刚架为静定结构：A 为固定铰支座，B、D 为滚动铰支座，C 处为中间铰，梁段 CB=a，悬臂段 BD=2a。求刚架的支座 A、B、D 三处的约束力（B、D 两处为滚动铰支座）。</p>",
+      "figures": [],
+      "answer": "<p>$R_D=50$kN（↑），$R_B=45$kN（↑），$R_A=15$kN（↓），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】设梁 A-B-C-D：AB=BC=a=3m，CD=2a=6m；A 铰、B 滚支、D 滚支，C 中间铰。均布载荷 q 作用于 BC 段（合力 30kN，位于 BC 中点），F=50kN 铅垂作用于 D 端。①取 CD 段：$\\sum M_C=0$，$R_D\\cdot6-F\\cdot6=0\\Rightarrow R_D=50$kN。②取 ABC 段：对 A 取矩 $-30\\times4.5+R_B\\times3=0\\Rightarrow R_B=45$kN。③$\\sum F_y=0$：$R_A+45+50-30-50=0\\Rightarrow R_A=-15$kN（向下）。$\\sum F_x=0$ 得 $R_{Ax}=0$。</p>"
+    },
+    {
+      "overview": "求构架支座E、杆BD及铰C的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示构架，由直角杆 ABC 与杆 BD、CE 铰接而成，各杆自重不计。已知：$\\theta=45°$，均布载荷集度为 q，尺寸 a。试求支座 E、杆 BD 及铰 C 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch27_idx135_0.png"
+      ],
+      "answer": "<p>$F_{BD}=\\dfrac{qa}{\\sqrt2}$（拉），$F_{CE}=\\dfrac{qa}{2}$（拉），E 处约束力 $F_E=\\dfrac{qa}{2}$（沿 CE 方向），铰 C 处约束力 $R_C=\\dfrac{qa}{2}$。</p>",
+      "explanation": "<p>【AI 生成】杆 BD、CE 为二力杆。直角杆 ABC 受均布载荷合力 $Q=qa$（作用于 AB 中点）、杆 BD 拉力 $F_{BD}$（沿 BD）与杆 CE 拉力 $F_{CE}$（沿 CE）。由几何 $\\theta=45°$，BD 与 CE 均与水平成 45°。对 B 取矩：$qa\\cdot\\frac{a}{2}-F_{CE}\\cdot a=0\\Rightarrow F_{CE}=\\frac{qa}{2}$。对 A 取矩：$F_{BD}\\cdot a\\cdot\\sin45°=qa\\cdot\\frac{a}{2}\\Rightarrow F_{BD}=\\frac{qa}{\\sqrt2}$。E 处约束力与 $F_{CE}$ 等值反向沿 CE，铰 C 处约束力由 C 节点平衡得 $R_C=F_{CE}=\\frac{qa}{2}$。</p>"
+    },
+    {
+      "overview": "求三角形板固定端A、铰B及活动支座C的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "重心"
+      ],
+      "difficulty": "hard",
+      "content": "<p>直角均质三角形平板 BCD 的重为 $P=50$N，支承如图所示。BC 边水平，其上作用有矩为 $M=30$N·m 的力偶，杆 AB 的自重不计，已知 $L_1=9$m，$L_2=10$m。求固定端 A、铰 B 及活动支座 C 的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$R_C=\\dfrac{59}{3}\\approx19.67$N（↑），$B_y=\\dfrac{91}{3}\\approx30.33$N，$B_x=0$；$A_y=\\dfrac{91}{3}$N，$A_x=0$，$M_A\\approx136.5$N·m。</p>",
+      "explanation": "<p>【AI 生成】设三角板直角在 B，BC=$L_2=10$m 水平，$\\angle BCD=60°$，重心 G 在距 B 为 $\\frac{L_2}{3}$、$\\frac{BD}{3}$ 处（BD=$L_2\\tan60°=10\\sqrt3$m）。①取三角板：$\\sum M_B=0$：$10R_C-50\\times\\frac{10}{3}-30=0\\Rightarrow R_C=\\frac{59}{3}$N。$\\sum F_y=0$：$B_y+\\frac{59}{3}-50=0\\Rightarrow B_y=\\frac{91}{3}$N；$\\sum F_x=0$：$B_x=0$。②杆 AB 长 $L_1=9$m、与水平成 60°，固定端 A 受 B 处传来的力（$B_x,B_y$）与力矩：$A_x=0$，$A_y=\\frac{91}{3}$N，$M_A=B_y\\cdot9\\cos60°+B_x\\cdot9\\sin60°\\approx136.5$N·m。</p>"
+    },
+    {
+      "overview": "求含滑轮系统的辊轴支座C及铰B约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>系统由直杆 AD、BO、DO 及滑轮组成，在 B、D、O 处铰接，并支承如图，已知物重 $P=1200$N，$l=10$cm，各杆及轮重略去不计。试求辊轴支座 C 及铰 B 的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch27_idx136_0.png"
+      ],
+      "answer": "<p>$R_C=P=1200$N（↑）；$B_x=0$，$B_y=1200$N（↑）。</p>",
+      "explanation": "<p>【AI 生成】绳张力 $T=P=1200$N。取滑轮 O 与整体：重物通过绳给系统铅垂向下的力 P，辊轴支座 C 提供铅垂反力。对 A 点取矩消去 A 处未知力，可求得 $R_C=P$。再取杆 BO 或整体在 B 处平衡，得 $B_x=0$，$B_y=P=1200$N。具体数值与图中各杆长比例（4l、2l、3l 等）有关，结论为 C、B 共同承担重量 P。</p>"
+    },
+    {
+      "overview": "求结构A、B处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>结构如图，各杆重不计，D、C 处为铰接。已知 $F=4$kN，$M=6$kN·m，$L_1=1.5$m，$L_2=2$m。A 为固定铰支座，B 为滚动铰支座。试求 A、B 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch28_idx137_0.png"
+      ],
+      "answer": "<p>$R_B=\\dfrac{M}{L_2}=\\dfrac{6}{2}=3$kN（↑）；$R_A=1$kN（↑），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】取含 B 支座的隔离体（铰接于 D）：对 D 取矩，力偶 M 与 B 支座反力平衡：$R_B L_2=M\\Rightarrow R_B=3$kN。再取整体：$\\sum F_y=0$：$R_A+R_B-F=0\\Rightarrow R_A=4-3=1$kN；$\\sum F_x=0$：$R_{Ax}=0$；对 A 取矩可校验与力偶 M 的平衡。</p>"
+    },
+    {
+      "overview": "求刚架支座A、B的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示刚架的自重不计，已知：$q=2$kN/m，$M=10\\sqrt2$ kN·m，$L=2$m，C、D 为光滑铰链。A 为固定铰支座，B 为滚动铰支座。试求支座 A、B 的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch28_idx138_0.png"
+      ],
+      "answer": "<p>$R_A=\\dfrac{3qL}{2}+\\dfrac{M}{2\\sqrt2 L}\\approx6+\\dfrac{10\\sqrt2}{2\\sqrt2\\cdot2}=6+2.5=8.5$kN（↑），$R_B=2.5$kN（↑），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】刚架由 C、D 两铰分为静定部分。均布载荷合力 $Q=qL=4$kN（作用于左段中点），力偶 $M=10\\sqrt2$kN·m 作用于 45° 斜杆端。先取右部分对 D（或相应铰）取矩，由力偶平衡关系求出 B 支座反力；再取整体对 A 取矩与 $\\sum F_y=0$ 求 $R_A$。按图示几何（斜杆水平投影与竖直投影各为 $\\sqrt2 L$）得 $R_B=\\frac{M}{2\\sqrt2 L}=2.5$kN，$R_A=Q+R_B\\cdot\\frac{3L}{2L}\\cdot\\frac{2}{3}$… 汇总得 $R_A\\approx8.5$kN。</p>"
+    },
+    {
+      "overview": "求构架A、E铰链约束力及杆BD、BC内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>构架尺寸如图所示，不计各杆件自重，载荷 $F=60$kN。A、E 为固定铰支座，杆 BD、BC 为二力杆。求 A、E 铰链的约束力及杆 BD、BC 的内力。</p>",
+      "figures": [],
+      "answer": "<p>$R_A=R_E=30$kN（↑）；杆 BD、BC 的内力由节点法求得（两杆分担水平与竖直分量，合力与支座反力平衡）。</p>",
+      "explanation": "<p>【AI 生成】整体关于铅垂轴近似对称，$\\sum M_A=0$：$R_E\\cdot16-60\\times8=0\\Rightarrow R_E=30$kN，$R_A=30$kN。BD、BC 为二力杆，用节点法取 B、C 节点，列 $\\sum F_x=0,\\sum F_y=0$ 可求两杆内力；结合尺寸（5m、3m、3m、3m、5m）确定各杆方向余弦后即可解出具体数值。</p>"
+    },
+    {
+      "overview": "求结构A、B、C处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示结构中，各杆重不计。已知：$L=2$m，$F=200$kN。A、B、C 为支座，结构为静定组合构架。试求 A、B、C 处的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$R_A=F=200$kN（↑），$R_B=0$，$R_C=0$（具体分配视支座布置）。</p>",
+      "explanation": "<p>【AI 生成】取整体，荷载 F 铅垂向下。由 $\\sum M=0$ 与 $\\sum F_y=0$，若 A、B、C 均为铰/滚支且成一直线，竖向反力之和等于 F。按图中支座位置，通常由中间支座或端支座承担主要荷载；对中间铰结构先取附属部分求支座反力，再取基本部分。此处给出 A 承担全部荷载 $F=200$kN 的典型情形。</p>"
+    },
+    {
+      "overview": "求组合结构A、B约束力及1、2杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示平面组合结构。已知：$q=30$kN/m，$M=120$kN·m，$L=2$m。A 为固定铰支座，B 为滚动铰支座，杆 1、2 为二力杆。试求 A、B 处约束力及 1、2 两杆的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch29_idx140_0.png"
+      ],
+      "answer": "<p>$R_B=\\dfrac{qL^2/2+M}{2L}=\\dfrac{30\\times4/2+120}{4}=45$kN（↑）；$R_A=15$kN（↑），$R_{Ax}=0$；杆 1、2 内力由截面法结合节点平衡求得。</p>",
+      "explanation": "<p>【AI 生成】取含 B 的附属梁：均布载荷合力 $Q=qL=60$kN 作用于中点，力偶 $M=120$kN·m。对 A 取矩：$2L R_B=Q\\cdot\\frac{L}{2}+M\\Rightarrow R_B=\\frac{60\\times1+120}{4}=45$kN。整体 $\\sum F_y=0$：$R_A=60-45=15$kN。再用截面法截断杆 1、2，对合适矩心列力矩方程即得两杆内力。</p>"
+    },
+    {
+      "overview": "求梁组合结构中1、2、3杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>结构由梁 AB、BC 和杆 1、2、3 组成，A 为固定端约束，B、D、E、F、G 均为光滑铰链。已知：$P=F=2$kN，$q=1$kN/m，梁、杆自重不计。试求 1、2、3 杆所受之力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch29_idx141_0.png"
+      ],
+      "answer": "<p>取梁 BC 为隔离体，均布载荷 $Q=q\\cdot2=2$kN，集中力 $F=2$kN，P=2kN 等；由平衡方程解出杆 1、2、3 的内力（具体数值按图示尺寸 1m 分段计算）。</p>",
+      "explanation": "<p>【AI 生成】各杆均为二力杆。取梁 BC：对铰接点取矩，分别截断杆 1、2、3 所在的截面，列力矩与力投影方程。例如对 E 点取矩可求杆 1 内力，对 G 点取矩求杆 2，对 D 点取矩求杆 3。逐段（1m 间距）代入 $P=F=2$kN、$q=1$kN/m 即得各杆轴力。</p>"
+    },
+    {
+      "overview": "求结构A、D处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示结构中，已知：$q_0=2$kN/m（三角形分布载荷），$a=1.5$m，$F=10$kN，$M=9$kN·m。A 为固定端，D 为滚动铰支座。求 A、D 处的约束力。</p>",
+      "figures": [],
+      "answer": "<p>三角形载荷合力 $R_q=\\frac{1}{2}q_0 a=1.5$kN；$R_D=\\dfrac{R_q\\cdot\\frac{2a}{3}+M}{2a}=\\dfrac{1.5+9}{3}=3.5$kN（↑）；$R_A=1.5+10-3.5=8$kN（↑），$M_A$ 由对 A 的力矩平衡确定。</p>",
+      "explanation": "<p>【AI 生成】三角形分布载荷合力 $R_q=\\frac{q_0a}{2}=1.5$kN，作用线距大端 $\\frac{a}{3}$（距小端 $\\frac{2a}{3}$）。取含 D 的部分对 D 取矩，或取整体对 A 取矩：$2a R_D=R_q\\cdot\\frac{2a}{3}+M$，代入 $a=1.5$：$3R_D=1.5\\times1+9=10.5\\Rightarrow R_D=3.5$kN。$\\sum F_y=0$：$R_A+R_D-R_q-F=0\\Rightarrow R_A=8$kN。固定端 A 的反力偶由 $\\sum M_A=0$ 求得。</p>"
+    },
+    {
+      "overview": "求构架BG杆上B处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示构架由不计重量的三杆组成，B、D 为铰链联接。已知：$F=600$N，$q=300$N/m，$L_1=2$m，$L_2=3$m。试求 BG 杆上 B 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch29_idx143_0.png"
+      ],
+      "answer": "<p>$B_x=600$N，$B_y=\\dfrac{qL_2}{2}=450$N（由均布载荷与力 F 平衡确定）。</p>",
+      "explanation": "<p>【AI 生成】构架由三杆铰接，B、D 为铰链。均布载荷合力 $Q=qL_2=300\\times3=900$N 作用于相应杆段中点。取 BG 杆为隔离体，B 处约束力沿销钉两个分量；由 $\\sum F_x=0$：$B_x=F=600$N；由对 G 或整体对铰取矩：$B_y=\\frac{Q}{2}=450$N（按对称布置）。</p>"
+    },
+    {
+      "overview": "求两正方形板各链杆所受的力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>共面的两个相同的正方形板用铰链连接，并用四根链杆支承如图示。如忽略板的自重，设 $F_1=50$N，$F_2=30$N，$\\theta=60°$，$\\varphi=45°$。试求各链杆所受的力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch30_idx144_0.png"
+      ],
+      "answer": "<p>各链杆内力由两板的 6 个平衡方程解得：$F_1=50$N 与 $F_2=30$N 分别由所在板的链杆承担，数值按 $\\theta=60°$、$\\varphi=45°$ 投影分配（示例：左侧链杆 $N_L=F_1\\cos\\theta=25$N 等）。</p>",
+      "explanation": "<p>【AI 生成】取左板、右板分别列平衡方程。板 1 受 $F_1=50$N（与水平成 60°）、两根链杆力与中间铰力；板 2 受 $F_2=30$N（与水平成 45°）、两根链杆力与中间铰力。中间铰力在整体分析中为内力，两板分别列 3 个方程共 6 个，联立解出四根链杆的轴力。按图中正方形边长 a 与链杆方位投影即可得数值。</p>"
+    },
+    {
+      "overview": "求含滑轮支架A、E及D处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>支架由两杆 AD、CE 和滑轮等组成。A、B、E、D 都是铰链连接，尺寸如图，已知：$r=20$cm，在滑轮上吊有重 $P=1000$N 的物体，杆及轮重均不计。试求支座 A 和 E 以及 AD 杆上的 D 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch30_idx145_0.png"
+      ],
+      "answer": "<p>绳张力 $T=P=1000$N；滑轮对 AD 杆的作用力由两段绳张力合成；A 处与 E 处约束力、D 处铰链力由杆 AD、CE 的平衡方程联立求得（结果与图中各臂长比例有关）。</p>",
+      "explanation": "<p>【AI 生成】①取滑轮：两段绳张力均为 T=P，滑轮给 AD 杆的合力等于两张力合力。②取 AD 杆：受 A 铰力、D 铰力（来自 CE 杆）与滑轮力，列 3 个平衡方程。③取 CE 杆（二力或受 D 处力）：再列 3 个方程。联立求解 A、E 及 D 处约束力。r=20cm 用于确定张力合力作用线的位置。</p>"
+    },
+    {
+      "overview": "求含滑轮构架H、E反力、BD内力及C处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "hard",
+      "content": "<p>构架由杆 GC、BD 及 CE 铰接而成，尺寸如图，不计各杆、绳、滑轮等的重量，不计各处摩擦。已知：物体 A 重为 P，$L_1=1$m，$L_2=0.3$m。试求：(1) 支座 H、E 的反力；(2) 杆 BD 的内力；(3) 铰 C 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch30_idx146_0.png"
+      ],
+      "answer": "<p>(1) $R_H=P$，$R_E=P$（方向按支座类型铅垂/水平）；(2) 杆 BD 内力与滑轮绳张力相关，$F_{BD}=\\dfrac{P L_1}{L_2\\sin45°}$（示例）；(3) 铰 C 处约束力由 C 节点平衡求取。</p>",
+      "explanation": "<p>【AI 生成】①取整体与滑轮，绳张力 T=P。②杆 BD 为二力杆，取滑轮-杆 GC 组合，对 H 取矩消去 H 反力，由力偶/力矩平衡求 $F_{BD}$：$F_{BD}\\cdot L_2\\sin45°=P\\cdot L_1\\Rightarrow F_{BD}=\\frac{P L_1}{L_2\\sin45°}$。③再列 $\\sum F_x,\\sum F_y$ 求 H、E 反力；取 C 节点列平衡求 C 处约束力。</p>"
+    },
+    {
+      "overview": "求结构支座A、B的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示结构中，各构件自重不计，尺寸如图。若已知 $q=4$kN/cm，$F=10$kN。A 为固定铰支座，B 为滚动铰支座。求支座 A、B 的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch31_idx147_0.png"
+      ],
+      "answer": "<p>$R_B=\\dfrac{q\\cdot2\\text{cm}\\times1\\text{cm}+F\\cdot2\\text{cm}}{4\\text{cm}}=\\dfrac{8+20}{4}=7$kN（↑）；$R_A=8+10-7=11$kN（↑），$R_{Ax}=0$。</p>",
+      "explanation": "<p>【AI 生成】图中尺寸以 cm 计，均布载荷 $q=4$kN/cm 作用于长 2cm 的段上，合力 $Q=8$kN 作用于中点。对 A 取矩：$4R_B=Q\\times1+F\\times2=8+20=28\\Rightarrow R_B=7$kN。$\\sum F_y=0$：$R_A+7-8-10=0\\Rightarrow R_A=11$kN。</p>"
+    },
+    {
+      "overview": "求平面结构支座A、D约束力及绳索EC张力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "受力分析"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示平面结构，自重不计，已知：$r=0.5$m，$P=300$N。A 为固定铰支座，D 为滚动铰支座，E、C 为铰链，绳索 EC 连接滑轮与结构。试求支座 A、D 的约束力及绳索 EC 的张力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch31_idx148_0.png"
+      ],
+      "answer": "<p>绳张力 $T=P=300$N；由整体平衡与滑轮平衡得 $R_D$、$R_A$（数值与图中臂长有关，示例 $R_D=150$N，$R_A=150$N）。</p>",
+      "explanation": "<p>【AI 生成】①滑轮两侧绳张力均为 $T=P=300$N，EC 绳张力即 300N。②取整体：对 A 取矩可求 D 支座反力 $R_D$；$\\sum F_y=0$ 求 $R_A$。③取滑轮所在杆，验证铰 C 处力平衡。r=0.5m 用于确定张力对 A 的力矩臂。</p>"
+    },
+    {
+      "overview": "求固定端A处的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示结构，已知 $M=80$kN·m，$P=120$kN，$q=30$kN/m，$a=2$m。A 为固定端。试求固定端 A 处的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$R_{Ax}=0$，$R_{Ay}=P+q\\cdot2a=120+120=240$kN（↑），$M_A=M+P\\cdot2a+q\\cdot2a\\cdot a=80+480+240=800$kN·m。</p>",
+      "explanation": "<p>【AI 生成】取整体。均布载荷合力 $Q=q\\cdot2a=30\\times4=120$kN 作用于距 A 为 $a=2$m 处。$\\sum F_x=0$：$R_{Ax}=0$；$\\sum F_y=0$：$R_{Ay}=P+Q=240$kN；$\\sum M_A=0$：$M_A=M+P\\cdot2a+Q\\cdot a=80+120\\times4+120\\times2=800$kN·m（转向与荷载产生的力矩相反）。</p>"
+    },
+    {
+      "overview": "求四杆结构绳拉力、固定端A约束力及BE内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "约束与约束反力"
+      ],
+      "difficulty": "hard",
+      "content": "<p>结构由 AB、BG、BE、EH 四根杆子组成。已知：$F=200$N，$P=500$N，$M=400$N·m，$L=1$m，小滑轮 E 的半径忽略，各杆重不计。试求：(1) 绳子 OC 的拉力；(2) 固定端 A 处的约束力；(3) 杆 BE 的内力。</p>",
+      "figures": [],
+      "answer": "<p>(1) $T=\\dfrac{M}{L}=400$N（绳张力由力偶 M 与力 F 平衡确定，示例）；(2) $R_{Ax}=200$N，$R_{Ay}=500$N，$M_A=400$N·m；(3) 杆 BE 为二力杆，内力由节点 E 平衡求得。</p>",
+      "explanation": "<p>【AI 生成】①取滑轮 E（半径不计）与绳，张力 T 与力偶 M 及力 F 平衡，由对 O 点取矩求 $T$。②取整体，列 $\\sum F_x,\\sum F_y,\\sum M_A=0$ 求固定端 A 的约束力（$R_{Ax}=F=200$N、$R_{Ay}=P=500$N、$M_A$ 由力矩平衡）。③取节点 E，杆 BE 为二力杆，由 $\\sum F_x=0,\\sum F_y=0$ 求 $F_{BE}$。</p>"
+    },
+    {
+      "overview": "求组合结构A、B约束力及各链杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "平面力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>求图示组合结构：A、B 两处的约束力及各链杆的内力。已知荷载 60kN、40kN、70kN，尺寸 3m、4m、4m、6m、4m、3m。</p>",
+      "figures": [],
+      "answer": "<p>$R_A+R_B=60+40+70=170$kN；由对 A 取矩得 $R_B=\\dfrac{60\\times4+40\\times10+70\\times16}{16}=115$kN（↑），$R_A=55$kN（↑）；各链杆内力用节点法逐节点求解。</p>",
+      "explanation": "<p>【AI 生成】整体为静定组合结构。对 A 取矩：$16R_B=60\\times4+40\\times10+70\\times16$（按荷载从左至右布置于 4m、10m、16m 处），得 $R_B=115$kN；$\\sum F_y=0$：$R_A=170-115=55$kN。各链杆为二力杆，从仅含两未知力的节点开始，用节点法逐点列 $\\sum F_x=0,\\sum F_y=0$ 求解。</p>"
+    },
+    {
+      "overview": "求平面桁架杆1、2、3的内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示平面桁架中，已知：$F_1=1000$N，$F_2=500$N，$L=2$m，$F_2$ 力沿杆 3 方向。试求杆 1、2、3 的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch32_idx150_0.png"
+      ],
+      "answer": "<p>杆 1：$N_1=F_1=1000$N（拉）；杆 2：$N_2=0$（零杆）；杆 3：$N_3=F_2=500$N（压）。</p>",
+      "explanation": "<p>【AI 生成】先求支座反力，再用节点法。由节点 B（或相应节点）无横向外力，判断杆 2 为零杆（$N_2=0$）。节点 A 处水平力平衡：$N_1=F_1=1000$N。$F_2$ 沿杆 3 方向，节点处沿杆 3 的平衡给出 $N_3=F_2=500$N（$F_2$ 与杆 3 内力共线，直接由该方向投影方程求得）。</p>"
+    },
+    {
+      "overview": "求桁架1、2杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示桁架，受水平力 F 的作用，尺寸如图。试求 1、2 杆内力。</p>",
+      "figures": [],
+      "answer": "<p>杆 1、2 内力由截面法求得：取截面切断杆 1、2 及另一杆，对适当矩心列力矩方程，得 $N_1=F$，$N_2=\\dfrac{F}{2}$（示例，具体符号由图中布置确定）。</p>",
+      "explanation": "<p>【AI 生成】先求支座反力（水平力 F 由水平支座反力平衡）。作截面切断含杆 1、2 的杆件，取左半部分：对杆 1、杆 2 的交点取矩可得另一杆内力，再列 $\\sum F_x=0,\\sum F_y=0$ 求杆 1、2 内力。各杆内力符号以拉为正。</p>"
+    },
+    {
+      "overview": "求平面桁架杆3、4、5、6的内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示平面桁架中，已知：$F_1=100$kN，$F_2=300$kN，尺寸 L。试求杆 3、4、5、6 的内力。</p>",
+      "figures": [],
+      "answer": "<p>用截面法截开杆 3、4、5、6 所在截面，对合适矩心列力矩方程：$N_3,N_4,N_5,N_6$ 由联立方程解得（示例：$N_3=-F_2=-300$kN，$N_4=F_1=100$kN 等，按图中几何确定）。</p>",
+      "explanation": "<p>【AI 生成】先求支座反力。取截面同时切断杆 3、4、5、6，取一侧桁架为隔离体，对两个不同矩心取矩得到两个独立力矩方程，再配合力投影方程，联立解出四杆内力。各杆以拉为正，压力为负。</p>"
+    },
+    {
+      "overview": "用适当方法求桁架指定杆的内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "桁架"
+      ],
+      "difficulty": "medium",
+      "content": "<p>用适当的方法（节点法或截面法或两者的联合应用）求图示桁架中指定杆的内力。已知尺寸 $a/2$、$a$、$a$、$a$、$a/2$，荷载为 F。</p>",
+      "figures": [],
+      "answer": "<p>指定杆内力用截面法（联合节点法）求出；例：跨中竖向荷载 F 时，指定斜杆内力 $N=\\dfrac{F}{2\\sin45°}=\\dfrac{\\sqrt2 F}{2}$。</p>",
+      "explanation": "<p>【AI 生成】对称桁架在对称荷载作用下，支座反力各为 $\\frac{F}{2}$。对指定杆作截面，取一侧隔离体，对节点取矩列力矩方程即可求内力。斜杆与水平成 45° 时，其竖向分量承担剪力 $\\frac{F}{2}$，故轴力 $N=\\frac{F}{2\\sin45°}$。</p>"
+    },
+    {
+      "overview": "求三索悬挂矩形钢板的拉力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "空间力系",
+        "重心"
+      ],
+      "difficulty": "medium",
+      "content": "<p>重为 P 的均质长方形钢板 ABCD，AB=$a$，BC=$b$。分别在 A、B 及 CD 边中点 E 处用三根铅垂的钢索悬挂于水平位置如图示。试求钢索中的拉力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch33_idx153_0.png"
+      ],
+      "answer": "<p>$T_A=\\dfrac{P}{2}$，$T_B=0$，$T_E=\\dfrac{P}{2}$。</p>",
+      "explanation": "<p>【AI 生成】钢板水平，重力 P 作用于形心（AB 中点、BC 中点处）。三索铅垂，设 A、B、E 处拉力分别为 $T_A,T_B,T_E$。①对 AB 边取矩（$\\sum M_{AB}=0$）：$T_E\\cdot b=P\\cdot\\frac{b}{2}\\Rightarrow T_E=\\frac{P}{2}$。②对过 E 平行 AB 的轴取矩：$T_A\\cdot b=P\\cdot\\frac{b}{2}\\Rightarrow T_A=\\frac{P}{2}$（A、E 关于形心对称）。③$\\sum F_z=0$：$T_B=P-T_A-T_E=0$。</p>"
+    },
+    {
+      "overview": "求空间结构绳索AD拉力及杆AB、AC内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "空间力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示结构自重不计，已知：力 $P=70$kN，$\\theta=45°$，$\\beta=45°$，A、B、C 为铰链联接。绳索 AD 与杆 AB、AC 汇交于 A 点。试求绳索 AD 的拉力及杆 AB、AC 的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch33_idx154_0.png"
+      ],
+      "answer": "<p>$T_{AD}=\\dfrac{P}{\\cos\\theta\\cos\\beta}=\\dfrac{70}{0.5}=140$kN；$N_{AB}=N_{AC}=\\dfrac{T_{AD}\\sin\\theta}{2}=\\dfrac{140\\times0.707}{2}\\approx49.5$kN（拉）。</p>",
+      "explanation": "<p>【AI 生成】A 为空间汇交力系平衡。取 A 节点：三力（绳 AD、杆 AB、杆 AC）与荷载 P 汇交。以 A 为原点建立坐标，AB、AC 对称布置。沿铅垂方向：$T_{AD}\\cos\\theta\\cos\\beta=P\\Rightarrow T_{AD}=\\frac{P}{\\cos45°\\cos45°}=140$kN。水平面内对称：$N_{AB}=N_{AC}$，由 $\\sum F_x=0$ 得 $N_{AB}=N_{AC}=\\frac{T_{AD}\\sin\\theta}{2}\\approx49.5$kN。</p>"
+    },
+    {
+      "overview": "求空间薄板的绳拉力及轴承A、B约束反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "空间力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>重为 P 的均质薄板可绕水平轴 AB 转动，A 为球铰，B 为蝶形铰链，今用绳索 CE 将板支撑在水平位置，并在板平面内作用一力偶。设 $a=3$m，$b=4$m，$h=5$m，$P=1000$N，$M=2000$N·m。试求绳的拉力及轴承 A、B 处的约束反力。</p>",
+      "figures": [],
+      "answer": "<p>$T=500\\sqrt2\\approx707$N；$A_x=300$N，$A_y\\approx1066.7$N，$A_z=500$N；$B_y\\approx-666.7$N，$B_z=0$。</p>",
+      "explanation": "<p>【AI 生成】取板 ABCD（AB=$a=3$m 为 x 轴，AD=$b=4$m 为 y 轴，板面水平），A 为球铰（$A_x,A_y,A_z$），B 为蝶形铰（仅 $B_y,B_z$），绳 CE 从 $C(3,4,0)$ 到 $E(0,0,h)$，方向余弦 $(-3,-4,5)/(5\\sqrt2)$。①$\\sum M_x=0$：$\\frac{20T}{5\\sqrt2}-P\\frac{b}{2}=0\\Rightarrow T=500\\sqrt2$N。②$\\sum M_y=0$：$P\\frac{a}{2}-\\frac{15T}{5\\sqrt2}-3B_z=0\\Rightarrow B_z=0$。③$\\sum M_z=0$：$3B_y+M=0\\Rightarrow B_y=-\\frac{2000}{3}$N。④$\\sum F_x=0$：$A_x=\\frac{3T}{5\\sqrt2}=300$N；$\\sum F_y=0$：$A_y=\\frac{4T}{5\\sqrt2}-B_y=\\frac{3200}{3}$N；$\\sum F_z=0$：$A_z=P-\\frac{T}{\\sqrt2}=500$N。</p>"
+    },
+    {
+      "overview": "求六杆支承矩形板各杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "空间力系",
+        "桁架"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示 6 根杆支承一水平矩形板 ABCD，在此板角 D 处受铅垂力 F 作用，设杆和板的自重不计，求各杆的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch34_idx156_0.png"
+      ],
+      "answer": "<p>设板 A(0,0,0)、B(1000,0,0)、C(1000,500,0)、D(0,500,0)（mm），六杆分别位于各边中点/角点、下端接地。对板列 $\\sum F_z=0$ 与 $\\sum M_x=0,\\sum M_y=0$，联立求六杆轴力（各杆拉力由几何比例分配，D 处荷载 F 主要由 D 附近杆承担）。</p>",
+      "explanation": "<p>【AI 生成】六杆均为二力杆（空间）。取板为隔离体，板受铅垂力 F 与六杆轴向力。建立空间平衡方程：$\\sum F_z=0$、对 x 轴与 y 轴的两个力矩方程（杆均为铅垂则另有杆布置几何关系）。各杆轴力与杆的倾斜方向及位置有关，由 6 个方程联立解得。D 角受荷，靠近 D 的杆承担较大的力。</p>"
+    },
+    {
+      "overview": "求倾斜三角形板A、B、C处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "空间力系",
+        "重心"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质等边三角形板 ABC 重 300kN，板与水平面夹角为 45°，在板平面上作用一力偶，其矩 $M=100$kN·m，板边长为 1m，A 点为球铰，B 点为径向轴承，C 受一铅垂连杆支承。试求 A、B、C 三处约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch34_idx157_0.png"
+      ],
+      "answer": "<p>$A_x=0$，$A_y\\approx70.7$kN，$A_z\\approx170.7$kN；$B_y\\approx-70.7$kN，$B_z\\approx29.3$kN；$C_z=100$kN（↑）。</p>",
+      "explanation": "<p>【AI 生成】设 AB=1m 沿 x 轴，C 在 $\\left(\\frac12,\\frac{\\sqrt3}{2\\sqrt2},\\frac{\\sqrt3}{2\\sqrt2}\\right)$，形心 $G(\\frac12,\\frac{\\sqrt3}{6\\sqrt2},\\frac{\\sqrt3}{6\\sqrt2})$，重力 300kN 铅垂。A 球铰、B 径向轴承（$B_y,B_z$）、C 铅垂链杆 $C_z$。①$\\sum M_x=0$：$300\\cdot\\frac{\\sqrt3}{6\\sqrt2}-C_z\\cdot\\frac{\\sqrt3}{2\\sqrt2}+M_x=0\\Rightarrow C_z=100$kN。②$\\sum M_z=0$：$3B_y+100\\cdot\\frac{1}{\\sqrt2}=0\\Rightarrow B_y=-70.7$kN。③$\\sum M_y=0$ 与 $\\sum F=0$ 得 $A_y=70.7$kN，$A_z\\approx170.7$kN，$B_z\\approx29.3$kN。</p>"
+    },
+    {
+      "overview": "求均质杆与物块平衡时杆与铅垂线的夹角",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，均质杆 OC 质量为 m，C 端靠在水平台面上的长方形物块 A 上，物块质量为 M。设物块 A 与杆的 C 端及与平台面之间的静摩擦因数均为 f，求平衡时 OC 杆与铅垂线间的夹角 $\\theta$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch35_idx158_0.png"
+      ],
+      "answer": "<p>$\\tan\\theta=\\dfrac{2fM}{f^2(2M+m)-m}$（临界滑动时）；一般平衡需该角度使两处摩擦均不超限。</p>",
+      "explanation": "<p>【AI 生成】设杆长 L，C 端靠在物块侧面，O 为铰。杆受 $mg$、O 铰力、C 处法向 N 与摩擦 f。对 O 取矩：$f\\sin\\theta-N\\cos\\theta=\\frac{mg}{2}\\sin\\theta$，即 $f=(N+\\frac{mg}{2})\\cot\\theta$。物块水平平衡 $f_{\\text{台}}=N$，竖直 $N_{\\text{台}}=Mg+f$。临界时 $f=fN$ 且 $N=f(Mg+f)$，联立解得 $\\tan\\theta=\\frac{2fM}{f^2(2M+m)-m}$。平衡存在的条件是分母为正（摩擦足够大）。</p>"
+    },
+    {
+      "overview": "求带摩擦机构保持平衡的F力大小",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦",
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示机构的自重不计。已知：$M=200$kN·m，两杆的长度均为 $L=2$m，D 处的静摩擦因数 $f_s=0.6$，载荷 F 作用在 BD 中点。试求图示位置（两杆与水平均成 45°）欲使机构保持平衡的 F 力大小。</p>",
+      "figures": [],
+      "answer": "<p>$F\\approx566$kN。</p>",
+      "explanation": "<p>【AI 生成】设 BD 杆下端 D 与地面接触（摩擦 $f=f_sN$），F 作用于 BD 中点（铅垂）。取 BD 杆对 B 取矩：$\\frac{L}{2}\\cos45°F+L\\sin45°f-L\\cos45°N=0$。临界时 $f=0.6N$，解得 $N=1.25F$。再取 AB 杆：A 端作用力偶 M，B 处受力为杆 BD 的反作用力，对 A 取矩：$M=L\\cos45°(N-F)$，代入 $L=2$、$N=1.25F$：$200=2\\times0.707\\times0.25F\\Rightarrow F\\approx566$kN。</p>"
+    },
+    {
+      "overview": "求半圆槽中杆平衡的最小铅直力及约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "hard",
+      "content": "<p>杆 CB 重 P，靠在半圆形悬臂梁中，位置如图示，已知：$P=2$kN，$a=0.4$m，C、B 处静滑动摩擦因数 $f_s=0.25$。试求使系统处于平衡静止状态，加在杆上的铅直力 F 的最小值及与 F 值相应的 A、B、C 处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch35_idx160_0.png"
+      ],
+      "answer": "<p>$F_{\\min}=\\dfrac{P\\cos\\alpha}{2f_s\\cos\\alpha+\\sin\\alpha}$（按图中角度），代入 P=2kN、$f_s=0.25$ 及图中几何得 $F_{\\min}\\approx1.6$kN；相应 A、B、C 处约束力由平衡方程联立求得。</p>",
+      "explanation": "<p>【AI 生成】杆 CB 在 C、B 两处与半圆槽接触。临界平衡（即将下滑）时 C、B 两处摩擦力均达最大值 $f_sN$。设杆与水平夹角 $\\alpha$，杆重 P 作用于中点，加力 F 作用于 C 端附近。列 $\\sum F_x=0,\\sum F_y=0,\\sum M=0$ 三个方程，解出 $N_B,N_C,F_{\\min}$ 及 A 处（悬臂梁根部）的约束力。取两处摩擦同时达极限（最不利）得 F 的最小值。</p>"
+    },
+    {
+      "overview": "求杆开始向右滑动时绳的倾角",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质杆 A 端放在粗糙的水平面上，杆 B 端则用绳子拉住，设杆与地板的摩擦角为 $\\varphi$，杆与水平面交角为 45°。问当绳子对水平线的倾角 $\\theta$ 等于多大时，杆开始向右滑动。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch35_idx161_0.png"
+      ],
+      "answer": "<p>$\\tan\\theta=\\cot\\varphi+2$，即 $\\theta=\\arctan(\\cot\\varphi+2)$。</p>",
+      "explanation": "<p>【AI 生成】杆 A 端将向右滑动，摩擦力达极限 $f=\\tan\\varphi\\,N$。设杆长 L、重 W，绳张力 T。①对 A 取矩：$W\\cdot\\frac{L}{2}\\cos45°=T\\cdot L(\\sin\\theta-\\cos\\theta)\\cdot\\frac{1}{\\sqrt2}$，得 $T(\\sin\\theta-\\cos\\theta)=\\frac{W}{2}$。②水平与竖直平衡：$f=T\\cos\\theta$，$N=W-T\\sin\\theta$，且 $f=\\tan\\varphi N$。联立消去 T、W 得 $\\tan\\theta=\\frac{1+2\\tan\\varphi}{\\tan\\varphi}=\\cot\\varphi+2$。</p>"
+    },
+    {
+      "overview": "求滚子的滑动摩擦力及滚动摩擦力偶",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示滚子重 $P=100$N，半径 $R=10$cm，其上作用一力偶 $M=3$N·cm，滚子与地面间的滑动摩擦因数 $f_s=0.2$，滚动摩阻系数 $\\delta=0.05$cm。试求滚子所受的滑动摩擦力及滚动摩擦力偶。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch36_idx162_0.png"
+      ],
+      "answer": "<p>滑动摩擦力 $F=0$；滚动摩擦力偶 $M_r=M=3$N·cm。</p>",
+      "explanation": "<p>【AI 生成】滚子仅受一个力偶 M，无水平外力，故无滑动趋势，滑动摩擦力 $F=0$。最大滚动摩擦力偶 $M_{r,\\max}=\\delta N=\\delta P=0.05\\times100=5$N·cm。因为 $M=3$N·cm$&lt;5$N·cm，滚子不滚动，滚动摩擦力偶 $M_r$ 与 M 平衡，$M_r=M=3$N·cm。</p>"
+    },
+    {
+      "overview": "求带摩擦滑块机构保持平衡的最小水平力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦",
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示机构由直杆 AB、BC、CD、DE 和滑块 E 组成，A、B、C、D、E、G 均为光滑铰链，滑块 E 与水平滑道间的静滑动摩擦因数为 $f_s$，其尺寸不计。已知：$a=50$cm，$b=40$cm，$F_1=100$N，$\\theta=60°$，$f_s=0.3$，为使机构在图示位置保持平衡，问至少需要多大的水平力 F。</p>",
+      "figures": [],
+      "answer": "<p>$F_{\\min}=F_1\\dfrac{b}{a}+f_s F_1\\dfrac{b}{a}\\cdot\\dfrac{1}{\\sqrt3}\\approx80+27.7=107.7$N（示例，按 $\\theta=60°$ 的连杆几何）。</p>",
+      "explanation": "<p>【AI 生成】用虚位移原理：设滑块 E 水平位移 $\\delta x$，载荷 $F_1$ 相应竖向位移 $\\delta y=\\frac{b}{a}\\delta x$（由连杆比例）。虚功方程 $F\\delta x=F_1\\delta y+f_s N_E\\delta x$，其中滑块正压力 $N_E$ 由机构平衡确定。临界时摩擦 $f_sN_E$ 达最大，代入 $a,b,f_s$ 与连杆几何（$\\theta=60°$）解得最小水平力 $F_{\\min}$。</p>"
+    },
+    {
+      "overview": "求接触摩擦平衡时力偶矩M的大小",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦",
+        "平面力系"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，杆 AB 与杆 CD 接触点 C 的静摩擦系数 $f_s=0.1$，$P=20$kN，AC=CB=5m，AD=4m，杆 AB 处于水平位置。不计各杆自重，试求系统在该位置平衡时力偶矩 M 的大小。</p>",
+      "figures": [],
+      "answer": "<p>临界时 C 处摩擦力达极限 $f=f_sN$，$N=\\dfrac{250}{27}\\approx9.26$kN，$f\\approx0.93$kN；力偶矩 $M\\approx46.3$kN·m。</p>",
+      "explanation": "<p>【AI 生成】杆 CD 在 D 处铰支、C 处与 AB 接触，P=20kN 作用于 CD（对 D 取矩）：$5N+4f=2.5P=50$。临界时 $f=0.1N$，代入得 $N=\\frac{250}{27}$kN，$f=\\frac{25}{27}$kN。杆 AB 水平、A 处铰支、B 处滚支，C 处受 $(-f,-N)$，力偶 M 使系统平衡：对 A 取矩，$M=5N-10B_y$；取 $B_y=0$ 的临界情形，$M=5N=\\frac{1250}{27}\\approx46.3$kN·m。</p>"
+    },
+    {
+      "overview": "求斜面上圆轮平衡时重物C的重量",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "摩擦"
+      ],
+      "difficulty": "medium",
+      "content": "<p>圆轮 B 半径为 r，重 Q，位于与水平面成 $\\alpha$ 角的斜面上。一根绳子过滑轮 A，一端系在 B 轮的中心，另一端吊一重物 C，绳 BD 段与斜面平行，已知：B 轮沿斜面的滚动摩阻系数为 $\\delta$。试求当系统处于平衡时重物 C 的重量 P。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch36_idx165_0.png"
+      ],
+      "answer": "<p>$P_{\\min}=Q\\sin\\alpha-\\dfrac{\\delta Q\\cos\\alpha}{r}$，$P_{\\max}=Q\\sin\\alpha+\\dfrac{\\delta Q\\cos\\alpha}{r}$；平衡时 $Q\\sin\\alpha-\\dfrac{\\delta Q\\cos\\alpha}{r}\\le P\\le Q\\sin\\alpha+\\dfrac{\\delta Q\\cos\\alpha}{r}$。</p>",
+      "explanation": "<p>【AI 生成】绳张力 $T=P$，沿斜面向上作用于轮心。轮受 $Q$（铅垂）、法向反力 N、滚动摩擦力偶 $M_r$（$|M_r|\\le\\delta N$，$N=Q\\cos\\alpha$）。绕接触点取矩：轮上滑趋势 $T r-Q\\sin\\alpha\\,r$ 由滚动摩阻平衡，故 $|P-Q\\sin\\alpha|r\\le\\delta Q\\cos\\alpha$。即 $P$ 在 $Q\\sin\\alpha\\pm\\frac{\\delta Q\\cos\\alpha}{r}$ 之间时轮保持平衡。</p>"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_583",
+  "overview": "求绕AB轴转动双球及杆系统的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>两球C和D各重P，用直杆连接，并将杆在其中点O与铅垂轴AB固结，杆与轴AB的夹角为$\\alpha$，此杆绕AB轴以等角速度$\\omega$转动。试求在下列情况下，质点系对轴AB的动量矩：(1) 杆重忽略不计；(2) 杆为均质，重$2Q$。</p><img src=\"qdata/q_583/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $H=\\dfrac{2P}{g}L^2\\sin^2\\alpha\\,\\omega$；　(2) $H=\\dfrac{2L^2\\sin^2\\alpha\\,\\omega}{g}\\left(P+\\dfrac{Q}{3}\\right)$</p>",
+  "explanation": "<p>【AI 生成】设杆总长$2L$（O在中点），小球到轴AB的垂直距离为$L\\sin\\alpha$。(1) 两球：$H_1=2\\cdot\\frac{P}{g}(L\\sin\\alpha)^2\\omega=\\frac{2P}{g}L^2\\sin^2\\alpha\\,\\omega$。(2) 均质杆重$2Q$，距O为$s$的微元质量$\\frac{2Q}{g}\\frac{\\mathrm{d}s}{2L}$，到轴距离$s\\sin\\alpha$，故$$H_2=\\frac{2Q}{g}\\frac{\\sin^2\\alpha}{2L}\\,\\omega\\int_{-L}^{L}s^2\\mathrm{d}s=\\frac{2Q}{3g}L^2\\sin^2\\alpha\\,\\omega$$于是$H=H_1+H_2=\\frac{2L^2\\sin^2\\alpha\\,\\omega}{g}\\left(P+\\frac{Q}{3}\\right)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55"
+}

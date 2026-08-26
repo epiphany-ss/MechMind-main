@@ -1,0 +1,20 @@
+{
+  "id": "q_143",
+  "overview": "用虚位移原理求A支座水平反力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>已知曲杆AC与直杆CB支承如图，受主动力F作用，试用虚位移原理求解A支座的水平反力 $F_{Ax}$，其大小为____（虚位移应在图中画出）。</p>",
+  "answer": "<p>$F_{Ax}=F\\cot\\theta$（$\\theta$ 为图中CB杆与水平线的夹角）</p>",
+  "explanation": "<p>【AI 生成】解除 A 支座的水平约束，代以水平反力 $F_{Ax}$ 并视为主动力，使系统成为单自由度机构。给系统一虚位移，设 C 点（力 $F$ 作用点）与 A 点的虚位移分别为 $\\delta r_C$、$\\delta r_{Ax}$，由虚功方程 $F\\,\\delta r_C-F_{Ax}\\,\\delta r_{Ax}=0$。结合曲杆 AC 与直杆 CB 的几何虚位移关系 $\\delta r_C/\\delta r_{Ax}=\\cot\\theta$，得 $F_{Ax}=F\\cot\\theta$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册",
+  "title": "用虚位移原理求A支座水平反力",
+  "module": "分析力学"
+}

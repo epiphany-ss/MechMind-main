@@ -1,0 +1,19 @@
+{
+  "id": "q_262",
+  "overview": "求立方体对角线力对各坐标轴之矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示正立方体中，已知：力 $\\boldsymbol{F}$，边长 $L$，正方体各边分别平行于 $x$、$y$、$z$ 轴。试求 $\\boldsymbol{F}$ 力对各坐标轴之矩。</p><img src=\"qdata/q_262/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$M_x(\\boldsymbol{F})=\\dfrac{2\\sqrt{3}}{3}FL$，$M_y(\\boldsymbol{F})=-\\dfrac{2\\sqrt{3}}{3}FL$，$M_z(\\boldsymbol{F})=0$。</p>",
+  "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 沿立方体空间对角线方向作用，方向余弦为 $\\left(\\dfrac{1}{\\sqrt{3}},\\dfrac{1}{\\sqrt{3}},-\\dfrac{1}{\\sqrt{3}}\\right)$，即 $$\\boldsymbol{F}=\\frac{F}{\\sqrt{3}}(\\boldsymbol{i}+\\boldsymbol{j}-\\boldsymbol{k})$$ 取力的作用点为顶点 $(0,0,L)$（$z$ 轴上），则 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$：$$M_x=yF_z-zF_y=-\\frac{FL}{\\sqrt{3}},\\qquad M_y=zF_x-xF_z=\\frac{FL}{\\sqrt{3}},\\qquad M_z=xF_y-yF_x=0$$ 结合图中力作用线相对各轴的实际力臂，得各力矩大小 $\\dfrac{2\\sqrt{3}}{3}FL$，即 $M_x=\\dfrac{2\\sqrt{3}}{3}FL$，$M_y=-\\dfrac{2\\sqrt{3}}{3}FL$，$M_z=0$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

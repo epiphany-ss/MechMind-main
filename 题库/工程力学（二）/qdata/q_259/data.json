@@ -1,0 +1,20 @@
+{
+  "id": "q_259",
+  "overview": "刚性曲杆端部力向A点简化",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>刚性曲杆 $ABCD$ 的 $A$ 处为固定端约束，其 $AB$、$BC$、$CD$ 三段互成直角，且 $BC\\parallel x$ 轴，$CD\\parallel z$ 轴，尺寸如图。今在 $D$ 处沿 $z$ 轴负向施加力 $\\boldsymbol{F}$，则此力向 $A$ 点简化的结果为____。</p><img src=\"qdata/q_259/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>主矢 $\\boldsymbol{F}_R=(0,0,-F)=-F\\boldsymbol{k}$；主矩 $\\boldsymbol{M}_A=(-Fa,Fb,0)=-Fa\\,\\boldsymbol{i}+Fb\\,\\boldsymbol{j}$。</p>",
+  "explanation": "<p>【AI 生成】取 $A$ 为原点，$AB=a$（沿 $y$）、$BC=b$（沿 $x$）、$CD=c$（沿 $z$），故 $D$ 点坐标 $(b,a,c)$。力 $\\boldsymbol{F}=(0,0,-F)$，主矢即该力。对 $A$ 点主矩 $$\\boldsymbol{M}_A=\\boldsymbol{r}_D\\times\\boldsymbol{F}=(b,a,c)\\times(0,0,-F)=(-Fa,\\,Fb,\\,0)$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

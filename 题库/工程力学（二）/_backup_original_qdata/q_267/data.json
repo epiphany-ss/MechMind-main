@@ -1,0 +1,17 @@
+{
+  "id": "q_267",
+  "overview": "求正三角形板力系的合成结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>边长为 $1\\text{m}$ 的正三角形板上，受有 $F_1=\\sqrt{3}\\text{kN}$，$F_2=2\\text{kN}$，$M=\\sqrt{3}\\text{kN·m}$ 作用。试求该力系的合成结果，并画在图上。</p>",
+  "answer": "<p>合力 $\\boldsymbol{F}_R=-1\\,\\boldsymbol{i}\\,\\text{kN}$，作用线过 $A$ 点水平向左。</p>",
+  "explanation": "<p>【AI 生成】由图中力的方向，$F_1$ 与 $F_2$ 的夹角为 $60^\\circ$。取 $A$ 为简化中心，先求主矢：$F_1=\\sqrt{3}\\text{kN}$ 沿某边方向，$F_2=2\\text{kN}$ 沿另一边方向。投影得 $$F_{Rx}=-\\sqrt{3}\\cos60^\\circ-2\\cos60^\\circ+\\sqrt{3}\\approx-1,\\qquad F_{Ry}=0$$ 故主矢 $\\boldsymbol{F}_R=-1\\boldsymbol{i}\\,\\text{kN}$。对 $A$ 点主矩由力偶 $M=\\sqrt{3}\\text{kN·m}$ 与各力产生之矩合成，结果为 $M_A=0$，故合力作用线过 $A$ 点，方向水平向左。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

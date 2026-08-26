@@ -1,0 +1,21 @@
+{
+  "id": "q_475",
+  "overview": "求直槽转动中方槽内M点的科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度",
+    "点的合成运动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>刻有直槽OB的正方形OABC在图示平面内绕O轴转动，点M以 $r=OM=5t^2$（r以厘米计）的规律在槽内运动，若 $\\omega=2t$（$\\omega$以弧度/秒计），则当 $t=1$ 秒时，点M的科氏加速度为______，方向应在图中画出。</p><img src=\"qdata/q_475/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_C=40\\,\\text{cm/s}^2$（方向垂直于槽OB，由 $\\omega\\times v_r$ 的右手定则确定）。</p>",
+  "explanation": "<p>【AI 生成】取M为动点，正方形板（动系）绕O作定轴转动。$t=1$s时：$r=OM=5\\,\\text{cm}$，$v_r=\\dot r=10t=10\\,\\text{cm/s}$（沿OB向外），$\\omega=2t=2\\,\\text{rad/s}$。相对速度 $v_r$ 沿槽向、与 $\\omega$（垂直图面）相互垂直，故科氏加速度 $a_C=2\\omega v_r=2\\times2\\times10=40\\,\\text{cm/s}^2$，方向垂直于槽OB，指向由 $\\omega\\times v_r$ 的右手定则确定。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

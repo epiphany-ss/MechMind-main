@@ -1,0 +1,20 @@
+{
+  "id": "q_468",
+  "overview": "判断圆盘内动点科氏加速度恒为零的运动路线",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>一动点在圆盘内运动，同时圆盘又绕直径轴x以角速度 $\\omega$ 转动，若AB$\\parallel$Ox，CD$\\perp$Ox，则当动点沿______运动时，可使科氏加速度恒等于零。</p>\n<p>(A) 直线CD或x轴；&nbsp;&nbsp;(B) 直线CD或AB；<br>\n(C) 直线AB或x轴；&nbsp;&nbsp;(D) 圆周。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】科氏加速度 $a_C=2\\omega\\times v_r$，当相对速度 $v_r$ 与转轴 $x$ 平行时 $a_C$ 恒为零。AB$\\parallel$Ox，x轴本身也沿Ox方向，故沿直线AB或x轴运动时科氏加速度恒为零，选(C)。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "判断圆盘内动点科氏加速度恒为零的运动路线",
+  "module": "运动学"
+}

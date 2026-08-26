@@ -1,0 +1,22 @@
+{
+  "id": "q_395",
+  "overview": "摇杆滑道机构点M的运动方程与速度加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示摇杆滑道机构中的滑块 M 同时在固定的圆弧槽 BC 和摇杆 OA 的滑道中滑动。如弧 BC 的半径为 $R$，摇杆 OA 的轴 O 在弧 BC 的圆周上。摇杆 OA 绕 O 轴以等角速度 $\\omega$ 转动，当运动开始时，摇杆在水平位置。试分别用直角坐标法和自然法给出点 M 的运动方程，并求其速度和加速度。</p><img src=\"qdata/q_395/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>直角坐标法：$x=R\\cos 2\\omega t$，$y=R\\sin 2\\omega t$；自然法：$S=2R\\omega t$；$v=2R\\omega$（切向），$a=4R\\omega^2$（法向）</p>",
+  "explanation": "<p>【AI 生成】设圆弧槽圆心为 $O_1$，O 在圆周上（$OO_1=R$），M 在圆弧槽上，圆心角 $\\angle O_1OM=2\\omega t$。以 $O_1$ 为原点、初始 M 在 x 轴上，直角坐标法得</p><p>$$x=R\\cos 2\\omega t,\\qquad y=R\\sin 2\\omega t$$</p><p>自然法：M 沿半径 R 的圆弧运动，弧长与速度、加速度为</p><p>$$S=R\\cdot 2\\omega t=2R\\omega t,\\qquad v=\\dot S=2R\\omega$$</p><p>$$a_\\tau=0,\\qquad a_n=\\frac{v^2}{R}=4R\\omega^2$$</p><p>故全加速度 $a=a_n=4R\\omega^2$（法向，指向圆心）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "摇杆滑道机构点M的运动方程与速度加速度",
+  "module": "运动学"
+}

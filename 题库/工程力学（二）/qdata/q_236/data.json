@@ -1,0 +1,18 @@
+{
+  "id": "q_236",
+  "overview": "判断力在与x轴共面轴上的投影",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>设力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影为 $F$，则该力在与 $x$ 轴共面的任一轴上的投影____。<br>(A) 一定不等于零；<br>(B) 不一定等于零；<br>(C) 一定等于零；<br>(D) 等于 $F$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影等于 $F$（满值），说明力 $\\boldsymbol{F}$ 与 $x$ 轴平行。在与 $x$ 轴共面的任一轴上，投影 $F\\cos\\theta$（$\\theta$ 为两轴夹角）：当轴与 $x$ 轴垂直时投影为零，平行时投影为 $F$，故“不一定等于零”。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

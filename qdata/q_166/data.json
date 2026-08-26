@@ -1,0 +1,21 @@
+{
+  "id": "q_166",
+  "overview": "判断普遍方程与拉氏方程中虚功的差别",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "动力学普遍方程",
+    "拉格朗日方程"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>动力学普遍方程中要考虑惯性力虚功，而用拉格朗日方程时只考虑主动力虚功。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】动力学普遍方程 $\\sum(\\boldsymbol F_i-m_i\\boldsymbol a_i)\\cdot\\delta\\boldsymbol r_i=0$ 中显含惯性力的虚功；拉格朗日方程则通过动能 $T$ 将惯性力虚功吸收进去，方程中只出现主动力的广义力 $Q_j$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "判断普遍方程与拉氏方程中虚功的差别",
+  "module": "分析力学"
+}

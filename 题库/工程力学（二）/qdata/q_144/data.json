@@ -1,0 +1,20 @@
+{
+  "id": "q_144",
+  "overview": "求系统的自由度数并选取广义坐标",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义坐标"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>图示系统有____个自由度。其中一组能描述该系统位置的广义坐标可取为____，在图中画出该广义坐标。</p><img src=\"qdata/q_144/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>2 个自由度；广义坐标可取为 $\\varphi_1$、$\\varphi_2$（两连杆各自与铅垂线的夹角）</p>",
+  "explanation": "<p>【AI 生成】图示为双摆（双连杆）系统，两杆分别在平面内转动，其位置由两个独立的转角决定，故自由度为 2。取两杆与铅垂线的夹角 $\\varphi_1$、$\\varphi_2$ 为广义坐标即可完全描述系统位置，各点的直角坐标均可表示为它们的函数。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

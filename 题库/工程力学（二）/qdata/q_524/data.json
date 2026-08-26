@@ -1,0 +1,18 @@
+{
+  "id": "q_524",
+  "overview": "介质中上抛小球的运动微分方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>在介质中上抛一质量为 $m$ 的小球，已知小球所受阻力 $\\vec{F}_R=-k\\vec{v}$，若选择坐标轴 $x$ 铅直向上，则小球的运动微分方程为 ____。</p>",
+  "answer": "<p>$m\\ddot{x}+k\\dot{x}+mg=0$（即 $\\ddot{x}+\\dfrac{k}{m}\\dot{x}+g=0$）</p>",
+  "explanation": "<p>【AI 生成】取 $x$ 轴铅直向上，小球受重力 $-mg$ 和阻力 $-k\\dot{x}$。由牛顿第二定律 $m\\ddot{x}=-mg-k\\dot{x}$，即 $m\\ddot{x}+k\\dot{x}+mg=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册"
+}

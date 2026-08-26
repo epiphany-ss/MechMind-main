@@ -1,0 +1,17 @@
+{
+  "overview": "求使三圆盘力偶系平衡的力F的大小和角θ",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>图所示 3 个圆盘 A、B 和 C 的半径分别为 150 mm、100 mm 和 50 mm。3 轴 OA、OB 和 OC 在同一平面内，∠AOB 为直角。在这 3 个圆盘上分别作用力偶，组成各力偶的力作用在轮缘上，它们的大小分别等于 10 N、20 N 和 F。如这 3 个圆盘所构成的物系是自由的，不计物系重量，求能使此物系平衡的力 F 的大小和角 θ。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F=50$ N；角 $\\theta=180°-\\beta=143°08'$（其中 $\\beta=\\arctan\\dfrac{M_A}{M_B}=36°52'$）。</p>",
+  "explanation": "<p>解：画出 3 个力偶的力偶矩矢如图所示。各力偶矩大小为 $M_A=10\\times2\\times150=3000$ N·mm，$M_B=20\\times2\\times100=4000$ N·mm。</p><p>由力偶矩矢三角形图可见：$M_C=\\sqrt{M_A^2+M_B^2}=\\sqrt{3000^2+4000^2}=5000$ N·mm。</p><p>由图可得 $M_C=F\\times100\\ \\mathrm{mm}=5000$ N·mm，故 $F=50$ N。</p><p>由图可得 $\\tan\\beta=\\dfrac{M_A}{M_B}=\\dfrac{3000}{4000}=\\dfrac{3}{4}$，$\\beta=36.87°=36°52'$。</p><p>$\\theta=180°-\\beta=143°08'$。</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": [
+    "题库/qbank2_figs/q15_0.jpeg",
+    "题库/qbank2_figs/q15_1.png",
+    "题库/qbank2_figs/q15_2.png"
+  ]
+}

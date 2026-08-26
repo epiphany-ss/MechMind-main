@@ -1,0 +1,18 @@
+{
+  "id": "q_101",
+  "overview": "求剪断细绳瞬时A点加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $AB$ 重 $P$，用二铅直细绳悬挂成水平位置，当 $B$ 端细绳突然剪断瞬时，$A$ 点的加速度的大小为____。 (A) 0； (B) $g$； (C) $g/2$； (D) $2g$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】剪断 $B$ 端绳后，杆绕仍被绳约束的 $A$ 点作瞬时定轴转动，$A$ 点为该瞬时转动中心，其速度、加速度均为零，故 $a_A=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

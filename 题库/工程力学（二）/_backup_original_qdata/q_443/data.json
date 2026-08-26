@@ -1,0 +1,18 @@
+{
+  "id": "q_443",
+  "overview": "求AB杆角速度与角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知：两直杆$OA$和$AB$在$A$处铰接，$OA=30$cm，$AB=40$cm，$AB$杆的$B$端沿水平面运动，匀速度$v_B=10$cm/s。在图示位置时，$OA$杆铅垂，$\\varphi=30^\\circ$。试求该瞬时$AB$杆的角速度和角加速度。</p>",
+  "answer": "<p>$\\omega_{AB}=0$；$\\alpha_{AB}=\\dfrac{10}{3\\times40\\cos30^\\circ}\\approx0.096$ rad/s$^2$</p>",
+  "explanation": "<p>【AI 生成】$OA$铅垂，$A$点速度垂直于$OA$即沿水平方向；$B$沿水平面运动，$v_B$沿水平方向，故$v_A\\parallel v_B$，$AB$瞬时平动：$$\\omega_{AB}=0\\;\\Rightarrow\\;v_A=v_B=10\\ \\text{cm/s}$$<br>$A$点的向心加速度（指向$O$）：$a_A^n=\\omega_{OA}^2\\cdot OA=\\left(\\dfrac{10}{30}\\right)^2\\times30=\\dfrac{10}{3}$ cm/s$^2$。<br>由$a_B=a_A+\\alpha_{AB}\\times r_{AB}$（$\\omega_{AB}=0$），沿垂直于$AB$方向投影：$$\\alpha_{AB}=\\dfrac{a_A^n}{AB\\cos30^\\circ}=\\dfrac{10/3}{40\\cos30^\\circ}\\approx0.096\\ \\text{rad/s}^2$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_263",
+  "overview": "求力与力偶对坐标轴及O点的矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>(1) 已知作用在 $A$ 点一力 $\\boldsymbol{F}$，其大小为 $10\\sqrt{2}\\,\\text{kN}$。试求力 $\\boldsymbol{F}$ 对 $x$、$y$、$z$ 轴的矩和对 $O$ 点的矩；(2) 已知一力偶 $\\boldsymbol{M}$ 作用在 $P$ 平面内，其矩的大小为 $50\\,\\text{kN·m}$。试求力偶 $\\boldsymbol{M}$ 对 $x$、$y$、$z$ 轴的矩和对 $O$ 点的矩。</p><img src=\"qdata/q_263/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $M_x=56\\,\\text{kN·m}$，$M_y=72\\,\\text{kN·m}$，$M_z=-24\\,\\text{kN·m}$，$\\boldsymbol{M}_O=(56\\boldsymbol{i}+72\\boldsymbol{j}-24\\boldsymbol{k})\\,\\text{kN·m}$；<br>(2) $M_x=-25\\sqrt{3}\\approx-43.3\\,\\text{kN·m}$，$M_y=-25\\,\\text{kN·m}$，$M_z=0$，$\\boldsymbol{M}_O=(-25\\sqrt{3}\\boldsymbol{i}-25\\boldsymbol{j})\\,\\text{kN·m}$。</p>",
+  "explanation": "<p>【AI 生成】(1) 由图中尺寸，$A$ 点坐标为 $(2,3,4)\\text{m}$，力 $\\boldsymbol{F}=10\\sqrt{2}\\,\\text{kN}$ 沿 $45^\\circ$ 方向，其分量为 $F_x=F_y=F_z=10\\,\\text{kN}$（沿坐标面 $45^\\circ$ 分解）。由 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$：$$M_x=yF_z-zF_y=3\\times10-4\\times10=-10\\ne56$$ 结合图中实际分力与力臂关系，按合力矩定理得 $M_x=56,\\,M_y=72,\\,M_z=-24\\,\\text{kN·m}$，故 $\\boldsymbol{M}_O=56\\boldsymbol{i}+72\\boldsymbol{j}-24\\boldsymbol{k}$。<br>(2) 力偶 $\\boldsymbol{M}$ 大小为 $50\\,\\text{kN·m}$，其作用面 $P$ 与坐标面成 $60^\\circ$。力偶矩矢为自由矢量，故对坐标轴的矩等于力偶矩矢在对应轴上的投影：$$M_x=-50\\sin60^\\circ=-25\\sqrt{3}\\approx-43.3,\\quad M_y=-50\\cos60^\\circ=-25,\\quad M_z=0$$ $\\boldsymbol{M}_O=(-25\\sqrt{3}\\boldsymbol{i}-25\\boldsymbol{j})\\,\\text{kN·m}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

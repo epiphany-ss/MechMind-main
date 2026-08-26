@@ -1,0 +1,23 @@
+{
+  "id": "q_482",
+  "overview": "曲柄直角杆机构求B点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面机构如图所示，曲柄OA绕O轴转动，带动直角杆CB沿铅垂方向运动。已知：OA＝R，在图示位置 $\\phi=60^\\circ$ 时，角速度为 $\\omega$。试求该瞬时CB杆上B点的速度。</p><img src=\"qdata/q_482/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=\\dfrac{1}{2}\\omega R$（铅垂方向）。</p>",
+  "explanation": "<p>【AI 生成】取滑块A为动点，直角杆CB为动系。直角杆CB沿铅垂方向平动，其角速度为零。<br>（1）$v_A=\\omega\\cdot OA=\\omega R$，方向垂直于OA；OA与水平成 $\\phi=60^\\circ$，故 $v_A$ 与水平成 $30^\\circ$。<br>（2）$v_A=v_e+v_r$：$v_e=v_B$ 沿铅垂方向（CB杆平动），$v_r$ 沿CB杆水平槽（水平）。<br>（3）铅垂方向投影：$v_B=v_A\\sin30^\\circ=\\omega R\\times\\dfrac{1}{2}=\\dfrac{1}{2}\\omega R$。即CB杆上B点速度为 $\\dfrac{1}{2}\\omega R$，铅垂向上（或向下，视转向而定）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "曲柄直角杆机构求B点速度",
+  "module": "运动学"
+}

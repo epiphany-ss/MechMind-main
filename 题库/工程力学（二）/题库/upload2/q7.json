@@ -1,0 +1,17 @@
+{
+  "overview": "求行动式起重机平衡锤的最小重力P2及最大距离x",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>如图所示，行动式起重机不计平衡锤的重为 $P = 500\\ \\mathrm{kN}$，其重心在离右轨 $1.5\\ \\mathrm{m}$ 处。起重机的起重力为 $P_1 = 250\\ \\mathrm{kN}$，突臂伸出离右轨 $10\\ \\mathrm{m}$。跑车本身重力略去不计，欲使跑车满载时起重机均不致翻倒，求平衡锤的最小重力 $P_2$ 以及平衡锤到左轨的最大距离 $x$。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$P_2=333\\ \\mathrm{kN}$，$x_{\\max}=6.75\\ \\mathrm{m}$。</p><img src=\"[[FIG2]]\">",
+  "explanation": "<p>解：取整个起重机为研究对象，受力如图所示。</p><p><b>（1）起重机满载时不向右倾倒</b>，临界状态为 $F_A=0$，$\\sum M_B=0$：</p><p>$$P_2(x+3)-P\\times1.5-P_1\\times10=0$$</p><p>$$P_2(x+3)=500\\times1.5+250\\times10=3250$$</p><p><b>（2）起重机空载时向左不倾倒</b>，临界状态为 $F_B=0$，$\\sum M_A=0$：</p><p>$$P_2x-P\\times4.5=0\\qquad\\Rightarrow\\qquad P_2x=500\\times4.5=2250$$</p><p>式（1）、（2）联立，解得：</p><p>$$P_2=333\\ \\mathrm{kN},\\qquad x=x_{\\max}=6.75\\ \\mathrm{m}$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q7_0.jpeg",
+    "题库/qbank2_figs/q7_1.png",
+    "题库/qbank2_figs/q7_2.png"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_181",
+  "overview": "用拉氏方程建立转盘上细杆系统的运动微分方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：圆盘以匀角速度 $\\omega$ 绕铅垂轴 $O$ 转动，匀质细杆 $AB$ 质量为 $m$、长为 $b$，在光滑水平盘面上绕点 $A$ 转动。试用拉氏方程建立系统的运动微分方程，以 $\\theta$ 为广义坐标。</p><img src=\"qdata/q_181/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$\\frac{1}{3}mb^2\\ddot\\theta+\\frac{1}{2}meb\\,\\omega^2\\sin\\theta=0$$</p>",
+  "explanation": "<p>【AI 生成】圆盘以匀角速度 $\\omega$ 转动，$A$ 点距转轴 $O$ 为 $e$。杆上距 $A$ 为 $s$ 的微元 $dm=\\frac{m}{b}ds$ 的牵连速度为 $\\omega(e+s\\cos\\theta)$，相对速度为 $s\\dot\\theta$，故动能 $$T=\\frac{1}{2}\\int_0^b\\frac{m}{b}\\left[(e+s\\cos\\theta)^2\\omega^2+s^2\\dot\\theta^2+2\\omega\\dot\\theta s(e+s\\cos\\theta)\\right]ds$$ $$=\\frac{1}{2}m\\left(\\frac{b^2}{3}\\dot\\theta^2+e^2\\omega^2+eb\\omega^2\\cos\\theta+\\frac{b^2}{3}\\omega^2+\\frac{2}{3}\\omega\\dot\\theta b^2+eb\\omega\\dot\\theta\\cos\\theta\\right)$$ 因 $\\omega$ 为常量，$\\frac{\\partial T}{\\partial\\theta}=-\\frac{1}{2}meb\\omega^2\\sin\\theta-\\frac{1}{2}meb\\omega\\dot\\theta\\sin\\theta$，$\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot\\theta}=\\frac{1}{3}mb^2\\ddot\\theta-\\frac{1}{2}meb\\omega\\dot\\theta\\sin\\theta$。代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial\\dot\\theta}-\\frac{\\partial T}{\\partial\\theta}=0$，整理得 $$\\frac{1}{3}mb^2\\ddot\\theta+\\frac{1}{2}meb\\omega^2\\sin\\theta=0$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册"
+}

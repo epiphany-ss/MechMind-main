@@ -1,0 +1,17 @@
+{
+  "id": "q_372",
+  "overview": "求曲线运动2s末的速度大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>一点作曲线运动，开始时速度 $v_0=10\\,\\mathrm{m/s}$，某瞬时切向加速度 $a_\\tau=4\\,\\mathrm{m/s^2}$，则 2s 末该点的速度的大小为 。</p><p>(A) 2 m/s； (B) 18 m/s； (C) 12 m/s； (D) 无法确定。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】题目只给出某瞬时的切向加速度，未说明其在整个 2s 内是否恒定，不能由 $v=v_0+a_\\tau t$ 求末速度，故选（D）无法确定。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

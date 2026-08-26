@@ -1,0 +1,20 @@
+{
+  "id": "q_534",
+  "overview": "判断质点系动量为零是否各质点必静止",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>质点系中各质点都处于静止时，质点系的动量为零。于是可知如果质点系的动量为零，则质点系中各质点必都静止。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】质点系的动量是各质点动量的矢量和 $\\boldsymbol{p}=\\sum m_i\\boldsymbol{v}_i$。各质点静止时动量必为零；但动量为零只说明 $\\sum m_i\\boldsymbol{v}_i=\\boldsymbol{0}$，并不要求每个质点的速度都为零，例如两质点以等值反向速度运动时系统总动量为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "判断质点系动量为零是否各质点必静止",
+  "module": "动力学"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "q_500",
+  "overview": "平面机构求BD杆角速度与相对速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "点的合成运动",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示平面机构中，已知：曲柄OA＝10cm，L＝50cm。在图示位置时 $\\theta=30^\\circ$，$\\phi=60^\\circ$，角速度 $\\omega_0=1\\,\\text{rad/s}$。试求此瞬时(1) BD杆的角速度 $\\omega_{BD}$；(2) BD杆上与C轴相重合的一点 $C'$ 相对于套筒2的速度 $v_r$。</p><img src=\"qdata/q_500/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $\\omega_{BD}=\\dfrac{v_A}{BD}$（由瞬心法求得）；(2) $v_r=\\omega_{BD}\\cdot BC'$（相对套筒2沿BD方向）。</p>",
+  "explanation": "<p>【AI 生成】（1）$v_A=\\omega_0\\cdot OA=1\\times10=10\\,\\text{cm/s}$，垂直OA。OA经连杆使BD杆运动，BD杆作平面运动，由速度投影或瞬心法（A、B点速度方向已知）求 $\\omega_{BD}$。<br>（2）BD杆上与C轴重合的一点 $C'$ 的速度 $v_{C'}=\\omega_{BD}\\cdot BC'$。取套筒2为动系，$C'$ 相对套筒2沿BD方向滑动，$v_r$ 为 $v_{C'}$ 沿BD方向的分量（套筒随BD转动，其牵连速度已知），故 $v_r=\\omega_{BD}\\cdot BC'$ 中扣除牵连部分后得相对速度。代入 $\\theta=30^\\circ$、$\\phi=60^\\circ$、$L=50$cm 得数值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

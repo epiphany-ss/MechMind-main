@@ -1,0 +1,18 @@
+{
+  "id": "q_457",
+  "overview": "判断科氏加速度为零的条件",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>当某瞬时动点的相对速度不为零，动系的角速度也不为零时，则动点在该瞬时的科氏加速度也不为零。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】科氏加速度 $a_C=2\\omega_e\\times v_r$ 取决于 $v_r$ 与 $\\omega_e$ 的方向关系；当二者平行时 $a_C=0$，所以即使两者都不为零，科氏加速度也可能为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

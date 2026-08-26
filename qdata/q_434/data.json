@@ -1,0 +1,21 @@
+{
+  "id": "q_434",
+  "overview": "求纯滚动机构轮心E的速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "基点法"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。轮沿固定水平轨道作纯滚动，滑块$B$沿固定铅垂槽滑动。已知：轮的半径为$R$，$BC=CD=3R$，$OA=AC=R$，杆$OA$以角速度$\\omega$转动，$O$与$B$在同一铅垂线上。在图示位置时，$OA$及$ED$都处于水平，$BC\\perp CD$。试求该瞬时轮心$E$的速度。</p>",
+  "answer": "<p>$v_E=2R\\omega$（方向水平向右）</p>",
+  "explanation": "<p>【AI 生成】依次用基点法分析：$v_A=\\omega R$，方向铅垂（$OA$水平）。<br>对杆$ACB$，$B$沿铅垂槽运动、$A$速度已知，先由$AC$、$CB$两杆的速度投影关系解出$v_C$、$v_B$；再对杆$CD$用基点法由$v_C$求$v_D$（利用$BC\\perp CD$）；最后对杆$DE$（水平）用基点法，并由轮$E$作纯滚动$v_E$沿水平方向，联立解得$$v_E=2R\\omega$$方向水平向右。</p>",
+  "media": [],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册",
+  "title": "求纯滚动机构轮心E的速度",
+  "module": "运动学"
+}

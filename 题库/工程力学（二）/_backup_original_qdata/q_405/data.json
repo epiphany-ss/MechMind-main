@@ -1,0 +1,20 @@
+{
+  "id": "q_405",
+  "overview": "求齿轮2的角速度和角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动",
+    "刚体平动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示机构中齿轮 1 紧固在杆 AC 上，AB=$O_1O_2$，齿轮 1 和半径为 $r_2$ 的齿轮 2 啮合，齿轮 2 可绕 $O_2$ 轴转动且和曲柄 $O_2B$ 没有联系。设 $O_1A=O_2B=l$，$\\varphi=b\\sin\\omega t$，试确定 $t=\\pi/\\omega$ 时，齿轮 2 的角速度和角加速度。</p><img src=\"qdata/q_405/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_2=0$；$\\alpha_2=-\\dfrac{b^2\\omega^2 l}{r_2}$</p>",
+  "explanation": "<p>【AI 生成】AB=$O_1O_2$ 且 $O_1A=O_2B=l$，故 $O_1ABO_2$ 为平行四边形，杆 AC 作平动。$\\varphi=b\\sin\\omega t$：</p><p>$$\\dot\\varphi=b\\omega\\cos\\omega t,\\qquad \\ddot\\varphi=-b\\omega^2\\sin\\omega t$$</p><p>当 $t=\\pi/\\omega$ 时 $\\varphi=0$，$\\dot\\varphi=-b\\omega$，$\\ddot\\varphi=0$。A 的速度 $v_A=l\\dot\\varphi$ 沿垂直于 $O_1A$ 的方向，此时恰沿两齿轮中心连线方向，故齿轮 2 切向速度为零：</p><p>$$\\omega_2=0$$</p><p>A 的加速度 $a_A=l\\dot\\varphi^2=b^2\\omega^2 l$ 沿 $O_1A$（切向分量），故齿轮 2 角加速度</p><p>$$\\alpha_2=-\\frac{a_A}{r_2}=-\\frac{b^2\\omega^2 l}{r_2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

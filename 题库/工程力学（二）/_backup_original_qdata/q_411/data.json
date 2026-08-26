@@ -1,0 +1,18 @@
+{
+  "id": "q_411",
+  "overview": "判断瞬心法求角速度及角加速度求法",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "刚体平面运动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>刚体作平面运动时，其角速度$\\omega$可利用瞬心法求得，角加速度$\\alpha$可对$\\omega$求导得到。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】由瞬心到任一点的距离与该点速度可求瞬时角速度$\\omega$，再由$\\alpha=\\dfrac{d\\omega}{dt}$对时间求导即可得角加速度。</p>",
+  "media": [],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

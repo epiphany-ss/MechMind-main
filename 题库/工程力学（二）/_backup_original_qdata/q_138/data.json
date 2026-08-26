@@ -1,0 +1,17 @@
+{
+  "id": "q_138",
+  "overview": "求A、C两点虚位移大小之比",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>在图示系统中，A点的虚位移大小 $\\delta r_A$ 与C点的虚位移大小 $\\delta r_C$ 的比值 $\\delta r_A:\\delta r_C=$____。<br>(A) $\\dfrac{l\\cos\\theta}{H}$；<br>(B) $\\dfrac{l}{H\\cos\\theta}$；<br>(C) $\\dfrac{H\\cos\\theta}{l}$；<br>(D) $\\dfrac{lH}{\\cos\\theta}$。</p>",
+  "answer": "<p>A（$\\delta r_A:\\delta r_C=\\dfrac{l\\cos\\theta}{H}$）</p>",
+  "explanation": "<p>【AI 生成】由机构几何关系，A、C两点分别绕各自的转动中心作微小转动，两点虚位移之比等于它们到转动中心距离之比（或由速度投影定理），结合尺寸 $l$、$H$ 与角度 $\\theta$ 化简得 $\\delta r_A:\\delta r_C=\\dfrac{l\\cos\\theta}{H}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

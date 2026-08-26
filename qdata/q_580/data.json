@@ -1,0 +1,23 @@
+{
+  "id": "q_580",
+  "overview": "求三角板上运动质点对Oz轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>三角板以角速度$\\omega$绕固定轴Oz转动，其上有一质点M，质量为m，以不变的相对速度$v_r$沿斜边AB运动。当M运动到图示位置时，质点M对轴Oz的动量矩的大小$L_z$＝____。</p><img src=\"qdata/q_580/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$L_z=mr^2\\omega+mv_rd$（$r$为M到轴Oz的垂直距离，$d$为轴Oz到斜边AB的垂直距离）</p>",
+  "explanation": "<p>【AI 生成】质点对固定轴Oz的动量矩由两部分组成：随三角板转动的牵连运动项$mr^2\\omega$，以及相对运动项$m(\\boldsymbol{r}\\times\\boldsymbol{v}_r)_z=mv_rd$（相对速度$v_r$沿斜边AB，其对Oz轴之矩等于$v_r$乘以Oz轴到AB的垂直距离$d$，$d$为常量）。故$L_z=mr^2\\omega+mv_rd$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "求三角板上运动质点对Oz轴的动量矩",
+  "module": "动力学"
+}

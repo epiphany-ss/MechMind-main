@@ -1,0 +1,23 @@
+{
+  "id": "q_505",
+  "overview": "半圆形凸轮机构求水平杆速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示半圆形凸轮，沿槽上下运动，运动规律为 $y_A=L+\\dfrac{1}{2}r\\cos(\\omega t)$，式中L、$\\omega$为常数，r为凸轮半径。不计轮B的尺寸。试求当 $\\omega t=\\pi$ 时，水平杆BC的速度和加速度。</p><img src=\"qdata/q_505/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_{BC}=0$；$a_{BC}=\\dfrac{1}{2}r\\omega^2$（方向铅垂，向上）。</p>",
+  "explanation": "<p>【AI 生成】凸轮沿铅垂导槽运动，B为轮B与水平杆BC的接触点，取B为动点、凸轮为动系。<br>（1）牵连运动：凸轮铅垂平动，$v_e=\\dot y_A=-\\dfrac{1}{2}r\\omega\\sin(\\omega t)$，$a_e=\\ddot y_A=-\\dfrac{1}{2}r\\omega^2\\cos(\\omega t)$。<br>（2）当 $\\omega t=\\pi$ 时：$v_e=0$，$a_e=\\dfrac{1}{2}r\\omega^2$（向上）。<br>（3）相对速度 $v_r$ 沿凸轮轮廓切线，因 $v_e=0$，水平杆BC速度 $v_{BC}$ 由 $v_{BC}=v_e+\\text{水平分量}=0$；加速度由 $a_{BC}=a_e+a_r+a_C$ 投影，其中 $a_r^n=v_r^2/r$，$a_C=2\\omega_{BC}\\times v_r$。代入得 $a_{BC}=\\dfrac{1}{2}r\\omega^2$（铅垂向上）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "半圆形凸轮机构求水平杆速度和加速度",
+  "module": "运动学"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_239",
+  "overview": "求正方体对角线力在x1轴上投影",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>已知一正方体，各边长为 $a$，沿对角线 $BH$ 作用一个力 $\\boldsymbol{F}$，则该力在 $x_1$ 轴上的投影为____。<br>(A) $0$；<br>(B) $F/\\sqrt{2}$；<br>(C) $F/\\sqrt{6}$；<br>(D) $-F/\\sqrt{3}$。</p><img src=\"qdata/q_239/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 沿正方体空间对角线 $BH$。用二次投影法：先将 $\\boldsymbol{F}$ 投影到上表面，其投影沿上表面一条对角线，而 $x_1$ 轴沿上表面另一条对角线，二者相互垂直，故 $\\boldsymbol{F}$ 在 $x_1$ 轴上的投影为零。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

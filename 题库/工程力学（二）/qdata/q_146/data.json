@@ -1,0 +1,20 @@
+{
+  "id": "q_146",
+  "overview": "菱形构件中虚位移比及杆AB内力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>顶角为 $2\\beta$ 的菱形构件，受沿对角线CO的力F的作用。为了用虚位移原理求杆AB的内力，解除杆AB，代以内力 $F_T$、$F_T'$，则C点的虚位移与A、B点的虚位移的比为 $\\delta r_C:\\delta r_A:\\delta r_B=$____，内力 $F_T=$____。</p><img src=\"qdata/q_146/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\delta r_C:\\delta r_A:\\delta r_B=\\sin\\beta:\\cos\\beta:\\cos\\beta$；$F_T=\\dfrac{F}{2}\\tan\\beta$</p>",
+  "explanation": "<p>【AI 生成】菱形各边等长，C 点沿对角线 CO 方向移动时，A、B 沿另一条对角线方向对称移动。设菱形边长为 $l$，半对角线分别为 $l\\cos\\beta$、$l\\sin\\beta$，给虚位移 $\\delta\\beta$ 得 $\\delta r_C=l\\sin\\beta\\,\\delta\\beta$，$\\delta r_A=\\delta r_B=l\\cos\\beta\\,\\delta\\beta$，故 $\\delta r_C:\\delta r_A:\\delta r_B=\\sin\\beta:\\cos\\beta:\\cos\\beta$。虚功方程 $F\\,\\delta r_C-2F_T\\,\\delta r_A=0$，代入得 $F_T=\\dfrac{F}{2}\\tan\\beta$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

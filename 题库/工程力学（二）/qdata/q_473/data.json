@@ -1,0 +1,19 @@
+{
+  "id": "q_473",
+  "overview": "求滑块C的科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度",
+    "点的合成运动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知杆OC长 $2L$，以匀角速度 $\\omega$ 绕O转动，以滑块C为动点，AB为动系，则当杆AB处于铅垂位置时，动点C的科氏加速度 $a_C$＝______，方向须由图表示。</p>",
+  "answer": "<p>$a_C=4\\omega^2 L$（方向垂直于AB，由 $\\omega\\times v_r$ 的右手定则确定）。</p>",
+  "explanation": "<p>【AI 生成】取滑块C为动点、AB为动系。杆OC长 $2L$ 以匀角速度 $\\omega$ 绕O转动，C点绝对速度 $v_C=\\omega\\cdot OC=2\\omega L$。当AB铅垂时C在AB上滑动，相对速度 $v_r=v_C=2\\omega L$（沿AB方向）；该瞬时牵连角速度 $\\omega_e=\\omega$（由机构运动关系，AB杆角速度等于曲柄OC角速度）。科氏加速度 $a_C=2\\omega_e v_r=2\\omega\\cdot(2\\omega L)=4\\omega^2 L$，方向垂直于AB，指向由 $\\omega\\times v_r$ 的右手定则确定。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

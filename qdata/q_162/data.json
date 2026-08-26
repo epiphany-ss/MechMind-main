@@ -1,0 +1,20 @@
+{
+  "id": "q_162",
+  "overview": "判断广义力的量纲是否一定是力的量纲",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>广义力的量纲不一定都是力的量纲。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】广义力 $Q_j$ 的量纲取决于广义坐标 $q_j$ 的量纲。由虚功关系 $\\delta W=\\sum_j Q_j\\delta q_j$ 可知：当广义坐标为长度时广义力具有力的量纲，当广义坐标为角度时广义力具有力矩的量纲，故其量纲不一定都是力的量纲。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册",
+  "title": "判断广义力的量纲是否一定是力的量纲",
+  "module": "分析力学"
+}

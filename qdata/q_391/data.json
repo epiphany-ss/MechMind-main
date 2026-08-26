@@ -1,0 +1,20 @@
+{
+  "id": "q_391",
+  "overview": "求正方形板转动轴到A点的距离",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知正方形板 ABCD 作定轴转动，转轴垂直于板面，A 点速度 $v_A=10\\,\\mathrm{cm/s}$，加速度 $a_A=10\\sqrt2\\,\\mathrm{cm/s^2}$，方向如图。则该板转动轴到 A 点距离 OA 为 cm。</p>",
+  "answer": "<p>10</p>",
+  "explanation": "<p>【AI 生成】由图示 $a_A$ 与 $v_A$ 成 $45^\\circ$，且 $v_A\\perp OA$，故 $a_n=a_A\\cos45^\\circ=10$ cm/s$^2$。而 $a_n=\\omega^2\\cdot OA=\\omega v_A=10\\omega$，得 $\\omega=1$ rad/s，故 $OA=v_A/\\omega=10$ cm。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "求正方形板转动轴到A点的距离",
+  "module": "运动学"
+}

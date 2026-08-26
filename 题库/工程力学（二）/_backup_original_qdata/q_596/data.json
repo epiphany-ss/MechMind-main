@@ -1,0 +1,21 @@
+{
+  "id": "q_596",
+  "overview": "求带方形板的OA杆释放瞬时方板角加速度与O反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质细杆OA的质量为m，可绕O轴在铅垂面内转动（OA长为h）。在A端铰接一个边长$l=h$、质量也为m的正方形板，该板可绕其中心A点在铅垂面内转动。开始时将方形板托住，使OA杆处于水平位置，然后突然放开，则系统将自静止开始运动。试求在放开的瞬时：(1) 方板的角加速度；(2) 轴承O的反力。不计轴承摩擦。</p><img src=\"qdata/q_596/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) 方板角加速度 $\\alpha_{\\text{板}}=0$；　(2) $O_x=0$，$O_y=\\dfrac{mg}{2}$（铅垂向上）</p>",
+  "explanation": "<p>【AI 生成】(1) 方板绕其中心A铰接，释放瞬时重力过其质心A，铰链力也过A，对A之矩为零，故方板角加速度为零（$\\alpha_{\\text{板}}=0$）。(2) 整个系统绕O作定轴转动，$J_O=\\frac{mh^2}{3}+mh^2+\\frac{mh^2}{6}=\\frac{3}{2}mh^2$（杆对O加板对O：板自身$\\frac{mh^2}{6}$+平移项$mh^2$）。重力对O之矩$\\sum M_O=mgh/2+mgh=\\frac{3}{2}mgh$，故$\\alpha=\\frac{3mgh/2}{3mh^2/2}=\\frac{g}{h}$。系统质心距O为$\\frac{3h}{4}$，$a_G=\\alpha\\cdot\\frac{3h}{4}=\\frac{3g}{4}$（向下）。由$O_y-2mg=-2m\\cdot\\frac{3g}{4}$得$$O_y=\\frac{mg}{2},\\qquad O_x=0$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56"
+}

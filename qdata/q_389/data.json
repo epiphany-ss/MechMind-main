@@ -1,0 +1,20 @@
+{
+  "id": "q_389",
+  "overview": "定轴转动刚体上速度加速度相等的点",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>在定轴转动的刚体上，(1)哪些点的速度大小相等？ ；(2)哪些点的加速度大小相等？ ；(3)哪些点的加速度的方向相同？ 。</p>",
+  "answer": "<p>(1) 距转轴等距离（同一圆柱面）的点；(2) 距转轴等距离（同一圆柱面）的点；(3) 位于同一过转轴的直线（同一半径）上的点</p>",
+  "explanation": "<p>【AI 生成】$v=\\omega r$，$a=r\\sqrt{\\omega^4+\\alpha^2}$，故等 $r$ 的点速度、加速度大小相等；$\\boldsymbol a=-\\omega^2\\boldsymbol r+\\boldsymbol\\alpha\\times\\boldsymbol r$ 的方向只与矢径方向有关，同一半径（同方向）上的点加速度方向相同。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "定轴转动刚体上速度加速度相等的点",
+  "module": "运动学"
+}

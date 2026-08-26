@@ -1,0 +1,18 @@
+{
+  "id": "q_447",
+  "overview": "求齿条速度加速度及轮O角速度角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示机构中，已知半径$r=6$cm的轮$O_1$通过齿条$AB$带动半径$R=10$cm的轮$O$作纯滚动。某瞬时轮$O_1$的角速度和角加速度大小分别为$\\omega=2$rad/s，$\\alpha=1$rad/s$^2$。试求此瞬时：(1) 齿条$AB$的速度$v$和加速度$a$；(2) 轮$O$的角速度$\\omega$和角加速度$\\alpha$。</p>",
+  "answer": "<p>(1) $v=12$ cm/s，$a=6$ cm/s$^2$；<br>(2) $\\omega_O=0.6$ rad/s，$\\alpha_O=0.3$ rad/s$^2$</p>",
+  "explanation": "<p>【AI 生成】齿条与轮$O_1$啮合处无相对滑动，齿条速度等于轮$O_1$节圆上的线速度：$$v=\\omega r=2\\times6=12\\ \\text{cm/s},\\qquad a=\\alpha r=1\\times6=6\\ \\text{cm/s}^2$$<br>齿条又带动轮$O$（在水平面上纯滚动），轮$O$顶点的速度即齿条速度$v$。对纯滚动轮：顶点速度$v=2\\omega_O R$，故$$\\omega_O=\\dfrac{v}{2R}=\\dfrac{12}{2\\times10}=0.6\\ \\text{rad/s}$$<br>同理顶点加速度$a=2\\alpha_O R$：$$\\alpha_O=\\dfrac{a}{2R}=\\dfrac{6}{20}=0.3\\ \\text{rad/s}^2$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

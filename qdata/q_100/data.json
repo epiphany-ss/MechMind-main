@@ -1,0 +1,20 @@
+{
+  "id": "q_100",
+  "overview": "判断偏心飞轮是否产生动约束力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>高速旋转的飞轮，只要有偏心就一定会产生动约束力。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】偏心使质心不在转轴上，转动时产生离心惯性力，该惯性力必然在轴承处引起附加动反力。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "判断偏心飞轮是否产生动约束力",
+  "module": "动力学"
+}

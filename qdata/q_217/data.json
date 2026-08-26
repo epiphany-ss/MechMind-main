@@ -1,0 +1,20 @@
+{
+  "id": "q_217",
+  "overview": "判断力的平移定理表述",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>作用在刚体上的一个力，可以从原来的作用位置平行移动到该物体内任意指定点，但必须附加一个力偶，附加力偶的矩等于原力对指定点的矩。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】这是力的平移定理：把力 $\\boldsymbol{F}$ 从作用点平移到另一点 $O$ 时，为保持效果不变，须附加一力偶，其力偶矩等于原力 $\\boldsymbol{F}$ 对 $O$ 点之矩 $\\boldsymbol{M}_O(\\boldsymbol{F})=\\boldsymbol{r}\\times\\boldsymbol{F}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "判断力的平移定理表述",
+  "module": "静力学"
+}

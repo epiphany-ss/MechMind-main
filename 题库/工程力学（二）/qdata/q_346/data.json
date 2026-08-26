@@ -1,0 +1,20 @@
+{
+  "id": "q_346",
+  "overview": "求半圆槽中杆平衡的最小铅直力及约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>杆 CB 重 P，靠在半圆形悬臂梁中，位置如图示，已知：$P=2$kN，$a=0.4$m，C、B 处静滑动摩擦因数 $f_s=0.25$。试求使系统处于平衡静止状态，加在杆上的铅直力 F 的最小值及与 F 值相应的 A、B、C 处的约束力。</p><img src=\"qdata/q_346/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F_{\\min}=\\dfrac{P\\cos\\alpha}{2f_s\\cos\\alpha+\\sin\\alpha}$（按图中角度），代入 P=2kN、$f_s=0.25$ 及图中几何得 $F_{\\min}\\approx1.6$kN；相应 A、B、C 处约束力由平衡方程联立求得。</p>",
+  "explanation": "<p>【AI 生成】杆 CB 在 C、B 两处与半圆槽接触。临界平衡（即将下滑）时 C、B 两处摩擦力均达最大值 $f_sN$。设杆与水平夹角 $\\alpha$，杆重 P 作用于中点，加力 F 作用于 C 端附近。列 $\\sum F_x=0,\\sum F_y=0,\\sum M=0$ 三个方程，解出 $N_B,N_C,F_{\\min}$ 及 A 处（悬臂梁根部）的约束力。取两处摩擦同时达极限（最不利）得 F 的最小值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册"
+}

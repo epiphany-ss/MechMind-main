@@ -1,0 +1,20 @@
+{
+  "id": "q_247",
+  "overview": "判断平行四边形力矢关系的力系结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>已知 $\\boldsymbol{F}_1,\\boldsymbol{F}_2,\\boldsymbol{F}_3,\\boldsymbol{F}_4$ 为作用于刚体上的平面共点力系，其力矢关系如图所示为平行四边形，由此可知____。<br>(A) 力系可合成为一个力偶；<br>(B) 力系可合成为一个力；<br>(C) 力系简化为一个力和一个力偶；<br>(D) 力系的合力为零，力系平衡。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】四个共点力的力矢构成平行四边形，说明 $\\boldsymbol{F}_1+\\boldsymbol{F}_2+\\boldsymbol{F}_3+\\boldsymbol{F}_4=\\boldsymbol{0}$（对角线相互抵消），即主矢为零；又力系共点，对任一点的主矩为零，故力系平衡。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册",
+  "title": "判断平行四边形力矢关系的力系结果",
+  "module": "静力学"
+}

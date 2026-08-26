@@ -1,0 +1,23 @@
+{
+  "id": "q_542",
+  "overview": "比较两圆盘的动量大小",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>两均质圆盘A、B，质量相等，半径相同，放在光滑水平面上，分别受到$F$、$F'$的作用，由静止开始运动，若$F=F'$，则任一瞬时两圆盘的动量相比较是____。<br>(A) $p_A&gt;p_B$；<br>(B) $p_A&lt;p_B$；<br>(C) $p_A=p_B$。</p><img src=\"qdata/q_542/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】由质心运动定理，圆盘质心加速度 $a=F/m$ 只取决于合力大小，与力作用点的位置无关。两圆盘质量相等、受力相同且由静止开始，故任一瞬时质心速度相同，动量相同 $p_A=p_B$。力作用点不同只影响圆盘的转动，不影响其平动动量。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "比较两圆盘的动量大小",
+  "module": "动力学"
+}

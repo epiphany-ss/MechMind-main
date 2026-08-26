@@ -1,0 +1,17 @@
+{
+  "id": "q_379",
+  "overview": "求直角刚杆B点的速度与加速度分量",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>直角刚杆 OAB 在图示瞬时有 $\\omega=2\\,\\mathrm{rad/s}$，$\\alpha=5\\,\\mathrm{rad/s^2}$，若 OA=40cm，AB=30cm，则 B 点的速度的大小为 cm/s，法向加速度的大小为 cm/s$^2$，切向加速度的大小为 cm/s$^2$。</p><p>(A) 100； (B) 160； (C) 200； (D) 250。</p>",
+  "answer": "<p>速度 100（A）；法向加速度 200（C）；切向加速度 250（D）</p>",
+  "explanation": "<p>【AI 生成】$OB=\\sqrt{OA^2+AB^2}=50$ cm。$v_B=\\omega\\cdot OB=2\\times50=100$ cm/s；$a_n=\\omega^2\\cdot OB=4\\times50=200$ cm/s$^2$；$a_\\tau=\\alpha\\cdot OB=5\\times50=250$ cm/s$^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

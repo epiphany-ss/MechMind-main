@@ -1,0 +1,18 @@
+{
+  "id": "q_127",
+  "overview": "正方形板割绳后两绳张力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>边长 $b=100\\text{mm}$ 的正方形均质板重 $400\\text{N}$，由三根绳拉住，假设绳不可伸长且不计重量，如图所示。运用动静法求当 $FG$ 绳被剪断的瞬时，$AD$ 和 $BE$ 两绳的张力。</p>",
+  "answer": "<p>$F_{AD}=100(\\sqrt{3}-1)\\,\\text{N}\\approx 73.2\\,\\text{N}$，$F_{BE}=100(\\sqrt{3}+1)\\,\\text{N}\\approx 273.2\\,\\text{N}$</p>",
+  "explanation": "<p>【AI 生成】板重 $400\\text{N}$，两绳 $AD$、$BE$ 与板边成 $60°$。割断 $FG$ 后板作平面运动，设质心加速度为 $a$、角加速度为 $\\alpha$。对板加惯性力 $F_I=\\dfrac{400}{g}a$（作用于质心）和惯性力偶 $M_I=J_C\\alpha$。由动静法：$\\sum F_x=0$、$\\sum F_y=0$、$\\sum M_C=0$，并利用绳长不变引入的运动学约束，联立解得 $F_{AD}=100(\\sqrt{3}-1)\\,\\text{N}$，$F_{BE}=100(\\sqrt{3}+1)\\,\\text{N}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

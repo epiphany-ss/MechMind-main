@@ -1,0 +1,22 @@
+{
+  "id": "q_330",
+  "overview": "求结构支座A、B的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示结构中，各构件自重不计，尺寸如图。若已知 $q=4$kN/cm，$F=10$kN。A 为固定铰支座，B 为滚动铰支座。求支座 A、B 的约束力。</p><img src=\"qdata/q_330/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_B=\\dfrac{q\\cdot2\\text{cm}\\times1\\text{cm}+F\\cdot2\\text{cm}}{4\\text{cm}}=\\dfrac{8+20}{4}=7$kN（↑）；$R_A=8+10-7=11$kN（↑），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】图中尺寸以 cm 计，均布载荷 $q=4$kN/cm 作用于长 2cm 的段上，合力 $Q=8$kN 作用于中点。对 A 取矩：$4R_B=Q\\times1+F\\times2=8+20=28\\Rightarrow R_B=7$kN。$\\sum F_y=0$：$R_A+7-8-10=0\\Rightarrow R_A=11$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求结构支座A、B的约束力",
+  "module": "静力学"
+}

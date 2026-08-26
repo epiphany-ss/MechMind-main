@@ -1,0 +1,23 @@
+{
+  "id": "q_175",
+  "overview": "用动力学普遍方程求圆筒与圆柱的运动微分方程及角加速度",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "动力学普遍方程",
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：匀质薄壁圆筒 $A$ 质量为 $m_1$、半径为 $r$，匀质圆柱 $B$ 质量为 $m_2$、半径为 $r$，圆柱 $B$ 沿水平面作纯滚动，滑轮质量忽略不计。试以动力学普遍方程求：(1) 系统的运动微分方程，以 $\\theta_1$ 和 $\\theta_2$ 为广义坐标；(2) 圆筒 $A$ 和圆柱 $B$ 的角加速度 $\\alpha_1$ 和 $\\alpha_2$。</p><img src=\"qdata/q_175/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) 由图示绳索几何约束 $2\\theta_1=3\\theta_2$，运动微分方程为<br>$$\\frac{2}{3}(3m_1+m_2)r^2\\ddot\\theta_1=m_1gr,\\qquad (3m_1+m_2)r^2\\ddot\\theta_2=m_1gr$$<br>(2) 圆筒 $A$ 与圆柱 $B$ 的角加速度为<br>$$\\alpha_1=\\frac{3m_1g}{2(3m_1+m_2)r},\\qquad \\alpha_2=\\frac{m_1g}{(3m_1+m_2)r}$$</p>",
+  "explanation": "<p>【AI 生成】薄壁圆筒 $A$ 的转动惯量 $J_A=m_1r^2$，随绳下落的动能为 $T_A=\\frac{1}{2}J_A\\dot\\theta_1^2+\\frac{1}{2}m_1(r\\dot\\theta_1)^2=m_1r^2\\dot\\theta_1^2$；圆柱 $B$ 作纯滚动，$J_B=\\frac{1}{2}m_2r^2$，$T_B=\\frac{1}{2}J_B\\dot\\theta_2^2+\\frac{1}{2}m_2(r\\dot\\theta_2)^2=\\frac{3}{4}m_2r^2\\dot\\theta_2^2$。圆筒 $A$ 下降高度 $y_A=r\\theta_1$，势能 $V=-m_1gr\\theta_1$。由图示滑轮绳索几何关系有 $2\\theta_1=3\\theta_2$，即 $\\dot\\theta_1=\\frac{3}{2}\\dot\\theta_2$。$$T=m_1r^2\\dot\\theta_1^2+\\frac{3}{4}m_2r^2\\dot\\theta_2^2=(\\frac{9}{4}m_1+\\frac{3}{4}m_2)r^2\\dot\\theta_2^2$$ 代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial \\dot\\theta_2}-\\frac{\\partial T}{\\partial \\theta_2}=-\\frac{\\partial V}{\\partial \\theta_2}$，得 $(3m_1+m_2)r^2\\ddot\\theta_2=m_1gr$，即得运动微分方程。$$\\alpha_2=\\ddot\\theta_2=\\frac{m_1g}{(3m_1+m_2)r},\\qquad \\alpha_1=\\frac{3}{2}\\alpha_2=\\frac{3m_1g}{2(3m_1+m_2)r}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "用动力学普遍方程求圆筒与圆柱的运动微分方程及角加速度",
+  "module": "分析力学"
+}

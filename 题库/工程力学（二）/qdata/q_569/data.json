@@ -1,0 +1,21 @@
+{
+  "id": "q_569",
+  "overview": "求圆盘上径向运动小球对O轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>圆盘可绕O轴转动，图示瞬时有角速度$\\omega$。质量为$m$的小球M沿圆盘径向运动，当OM＝S时相对于圆盘的速度为$v_r$，则质点M对O轴的动量矩的大小为____。</p><p>(A) 0；<br>(B) $mv_rS$；<br>(C) $mS(v_r+S\\omega)$；<br>(D) $mS^2\\omega$。</p><img src=\"qdata/q_569/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】质点绝对速度＝相对速度＋牵连速度。相对速度$v_r$沿径向，其对O点之矩为$mv_rS$；牵连速度$S\\omega$垂直于OM，其对O点之矩为$mS^2\\omega$。故$L_O=mv_rS+mS^2\\omega=mS(v_r+S\\omega)$，选C。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

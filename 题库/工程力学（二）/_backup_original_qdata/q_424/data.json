@@ -1,0 +1,20 @@
+{
+  "id": "q_424",
+  "overview": "等长平行杆瞬时角速度角加速度关系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图示机构中，$O_1A=O_2B$。若以$\\omega$、$\\alpha$与$\\omega'$、$\\alpha'$分别表示$O_1A$杆与$O_2B$杆的角速度和角加速度的大小，则当$O_1A\\parallel O_2B$时，有______。<br>(A) $\\omega'=\\omega$，$\\alpha'=\\alpha$；<br>(B) $\\omega'\\neq\\omega$，$\\alpha'=\\alpha$；<br>(C) $\\omega'=\\omega$，$\\alpha'\\neq\\alpha$；<br>(D) $\\omega'\\neq\\omega$，$\\alpha'\\neq\\alpha$。</p><img src=\"qdata/q_424/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】当$O_1A\\parallel O_2B$且长度相等时，连杆$AB$在此瞬时作平动，故$v_A=v_B$、$a_A=a_B$，从而两杆角速度、角加速度的大小均相等，即$\\omega'=\\omega$，$\\alpha'=\\alpha$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

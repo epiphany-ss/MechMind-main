@@ -1,0 +1,21 @@
+{
+  "id": "q_420",
+  "overview": "求平面图形两点连线中点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>某瞬时平面图形上任意两点$A$、$B$的速度分别为$\\boldsymbol{v}_A$和$\\boldsymbol{v}_B$，则此时该两点连线中点$C$的速度为______。<br>(A) $\\boldsymbol{v}_C=\\boldsymbol{v}_A+\\boldsymbol{v}_B$；<br>(B) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A+\\boldsymbol{v}_B)$；<br>(C) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A-\\boldsymbol{v}_B)$；<br>(D) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_B-\\boldsymbol{v}_A)$。</p><img src=\"qdata/q_420/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】平面图形上速度分布是线性分布（$\\boldsymbol{v}=\\boldsymbol{v}_A+\\boldsymbol{\\omega}\\times\\boldsymbol{r}$），故连线中点速度等于两端点速度的平均值：$\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A+\\boldsymbol{v}_B)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册"
+}

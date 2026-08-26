@@ -1,0 +1,22 @@
+{
+  "id": "q_495",
+  "overview": "滚子斜面机构求套筒角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "速度瞬心",
+    "点的合成运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。半径为r的滚子在斜面上纯滚动，BC杆穿过套筒 $O_1$，并与滚子中心B点铰接。已知：r＝10cm，AB＝2r，OA＝4r，$\\theta=60^\\circ$。在图示位置时，AB铅垂，BC水平，$\\phi=60^\\circ$，$\\omega=2\\,\\text{rad/s}$。试求该瞬时套筒 $O_1$ 的角速度。</p>",
+  "answer": "<p>$\\omega_{O_1}=\\dfrac{v_C}{O_1C}$（由速度分析求出）。</p>",
+  "explanation": "<p>【AI 生成】滚子在斜面上纯滚动，其瞬心为与斜面接触点P。<br>（1）A点速度 $v_A=\\omega\\cdot OA=2\\times40=80\\,\\text{cm/s}$，垂直OA；AB铅垂，由速度投影得B点速度 $v_B$。<br>（2）B为滚子中心，$v_B=v_A$（AB瞬时平动或由投影定）。纯滚动：$\\omega_{滚}=\\dfrac{v_B}{r}\\cos\\alpha$。<br>（3）BC杆与滚子铰接并穿过套筒 $O_1$，套筒 $O_1$ 的角速度由BC杆相对套筒的滑移与转动确定，取C为动点、套筒为动系，$\\omega_{O_1}=\\dfrac{v_C^{\\perp}}{O_1C}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "滚子斜面机构求套筒角速度",
+  "module": "运动学"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_325",
+  "overview": "求结构A、D处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示结构中，已知：$q_0=2$kN/m（三角形分布载荷），$a=1.5$m，$F=10$kN，$M=9$kN·m。A 为固定端，D 为滚动铰支座。求 A、D 处的约束力。</p>",
+  "answer": "<p>三角形载荷合力 $R_q=\\frac{1}{2}q_0 a=1.5$kN；$R_D=\\dfrac{R_q\\cdot\\frac{2a}{3}+M}{2a}=\\dfrac{1.5+9}{3}=3.5$kN（↑）；$R_A=1.5+10-3.5=8$kN（↑），$M_A$ 由对 A 的力矩平衡确定。</p>",
+  "explanation": "<p>【AI 生成】三角形分布载荷合力 $R_q=\\frac{q_0a}{2}=1.5$kN，作用线距大端 $\\frac{a}{3}$（距小端 $\\frac{2a}{3}$）。取含 D 的部分对 D 取矩，或取整体对 A 取矩：$2a R_D=R_q\\cdot\\frac{2a}{3}+M$，代入 $a=1.5$：$3R_D=1.5\\times1+9=10.5\\Rightarrow R_D=3.5$kN。$\\sum F_y=0$：$R_A+R_D-R_q-F=0\\Rightarrow R_A=8$kN。固定端 A 的反力偶由 $\\sum M_A=0$ 求得。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_496",
+  "overview": "平面机构求E点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面机构。已知：OA＝AB＝BC＝L＝2m。在图示位置时，C点的速度 $u=2\\,\\text{m/s}$，OA杆水平，AB与其垂直，套筒D在AB的中点，$\\theta=60^\\circ$。试求该瞬时E点的速度。</p>",
+  "answer": "<p>$v_E$ 由基点法求出：$v_E=v_D+\\omega_{DE}\\times\\overrightarrow{DE}$（数值代入 $L=2$m、$u=2$m/s、$\\theta=60^\\circ$ 得出）。</p>",
+  "explanation": "<p>【AI 生成】OA＝AB＝BC＝L＝2m，套筒D在AB中点，$\\theta=60^\\circ$，C点速度 $u=2$ m/s 已知。<br>（1）BC杆作平面运动：由C点速度 $u$（沿已知方向）和速度投影（沿BC方向）求B点速度 $v_B$。<br>（2）AB杆作平面运动：A点速度由OA杆绕O转动确定（$v_A=\\omega_{OA}L$），B点速度由（1）得，再由速度投影或瞬心法求 $\\omega_{AB}$；套筒D在AB中点，$v_D=v_A+\\omega_{AB}\\times\\overrightarrow{AD}$。<br>（3）E点速度 $v_E=v_D+\\omega_{DE}\\times\\overrightarrow{DE}$，其中DE杆的运动由机构连接确定。代入 $L=2$m、$u=2$m/s 得数值。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "平面机构求E点速度",
+  "module": "运动学"
+}

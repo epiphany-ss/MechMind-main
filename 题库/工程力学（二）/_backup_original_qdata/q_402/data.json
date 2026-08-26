@@ -1,0 +1,17 @@
+{
+  "id": "q_402",
+  "overview": "求仪表机构指针转角",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示仪表机构中，已知各齿轮的齿数为 $z_1=6$，$z_2=24$，$z_3=8$，$z_4=32$，齿轮 5 的半径 $R=4$cm。如齿条 BC 下移 1cm，求指针 OA 转过的角度 $\\varphi$。</p>",
+  "answer": "<p>$\\varphi=4\\,\\mathrm{rad}$</p>",
+  "explanation": "<p>【AI 生成】齿条与齿轮 5 啮合，齿条下移 $s=1$cm，齿轮 5 转角</p><p>$$\\theta_5=\\frac{s}{R}=\\frac{1}{4}\\,\\mathrm{rad}$$</p><p>齿轮 5 与齿轮 4 同轴：$\\theta_4=\\theta_5=1/4$。齿轮 4 与齿轮 3 啮合、齿轮 3 与齿轮 2 同轴、齿轮 2 与齿轮 1 啮合，逐级传递：</p><p>$$\\theta_3=\\theta_4\\frac{z_4}{z_3}=\\frac14\\times\\frac{32}{8}=1$$</p><p>$$\\theta_1=\\theta_2\\frac{z_2}{z_1}=1\\times\\frac{24}{6}=4\\,\\mathrm{rad}$$</p><p>指针在齿轮 1 上，故指针 OA 转过 $\\varphi=4$ rad。</p>",
+  "media": [],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

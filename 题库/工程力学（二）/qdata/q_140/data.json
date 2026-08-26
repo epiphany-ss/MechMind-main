@@ -1,0 +1,21 @@
+{
+  "id": "q_140",
+  "overview": "滑轮系统A、B两点虚位移的关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移",
+    "虚功"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>左下图示滑轮系统中，A、B两点虚位移之间的关系是____。</p><img src=\"qdata/q_140/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\delta r_A:\\delta r_B=1:2$，且方向相反（即 $\\delta r_A=-\\dfrac{1}{2}\\delta r_B$）</p>",
+  "explanation": "<p>【AI 生成】利用绳不可伸长及滑轮约束关系（动滑轮轴心的虚位移等于绕过动滑轮自由端虚位移之半），建立各段绳长变分关系，得 A、B 两点虚位移大小之比为 1:2，方向相反。若图中 A、B 处挂重 $2P$ 与 $P$，则该关系与 $2P\\,\\delta r_A+P\\,\\delta r_B=0$ 的平衡条件一致。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

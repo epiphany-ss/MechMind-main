@@ -1,0 +1,20 @@
+{
+  "id": "q_290",
+  "overview": "判断不平行二槽平板能否平衡",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶",
+    "约束与约束反力"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>带有不平行二槽的矩形平板上作用一力偶 M。今在槽内插入两个固定于地面的销钉，若不计摩擦则____。<br>(A) 平板保持平衡；<br>(B) 平板不能平衡；<br>(C) 平衡与否不能判断。</p><img src=\"qdata/q_290/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】不计摩擦时销钉对平板的反力垂直于各自的槽壁。两槽不平行，故两反力不平行，不平行二力不能构成力偶，无法平衡纯力偶 M，平板不能平衡。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45"
+}

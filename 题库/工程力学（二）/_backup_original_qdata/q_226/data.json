@@ -1,0 +1,17 @@
+{
+  "id": "q_226",
+  "overview": "判断主矢为零时主矩是否与中心无关",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>当平面力系的主矢为零时，其主矩一定与简化中心的位置无关。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】对任意两个简化中心 $A$、$B$，有 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{BA}\\times\\boldsymbol{F}_R$。当主矢 $\\boldsymbol{F}_R=\\boldsymbol{0}$ 时，$\\boldsymbol{M}_B=\\boldsymbol{M}_A$，即主矩与简化中心无关。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_444",
+  "overview": "求纯滚动轮B的角速度与角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，$OA$以匀角速度$\\omega=10$rad/s绕定轴$O$转动。$OA=r=10$cm，$L=4r$，$R=2r$；在图示瞬时，$\\varphi=30^\\circ$，$AO\\parallel BO_1$。试求该瞬时纯滚动轮$B$的角速度$\\omega_B$及角加速度$\\alpha_B$。</p>",
+  "answer": "<p>$\\omega_B=\\dfrac{v_B}{R}$，$v_B=v_A\\cos\\varphi=\\omega r\\cos30^\\circ=50\\sqrt3$ cm/s，故$\\omega_B=\\dfrac{5\\sqrt3}{2}\\approx4.33$ rad/s；$\\alpha_B=\\dfrac{a_B^t}{R}=0$</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega r=10\\times10=100$ cm/s。<br>因$AO\\parallel BO_1$，$B$点绕$O_1$运动，$v_B\\perp BO_1$；又$\\varphi=30^\\circ$为$AB$与$AO$的夹角，由速度投影定理：$$v_B=v_A\\cos\\varphi=100\\cos30^\\circ=50\\sqrt3\\ \\text{cm/s}$$<br>轮$B$在固定面上纯滚动，$v_B=\\omega_B R$，故$$\\omega_B=\\dfrac{v_B}{R}=\\dfrac{50\\sqrt3}{20}=\\dfrac{5\\sqrt3}{2}\\approx4.33\\ \\text{rad/s}$$<br>$OA$匀角速转动，$\\alpha=0$，故$B$点切向加速度为零，轮$B$的角加速度$$\\alpha_B=0$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_501",
+  "overview": "OA-CD杆机构求CD杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。套筒C与CD杆相互垂直并刚连。已知：OA＝r＝10cm，CD＝$4\\sqrt{3}\\,r/3$。在图示位置时，OA铅垂，$\\theta=60^\\circ$，OA杆的角速度 $\\omega=2\\,\\text{rad/s}$，滑块D的速度 $u=10\\,\\text{cm/s}$。试求该瞬时杆CD的角速度。</p><img src=\"qdata/q_501/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{CD}=\\dfrac{v_C^{\\perp}}{CD}$（由速度分析求出，$v_C$ 为C点速度）。</p>",
+  "explanation": "<p>【AI 生成】套筒C与CD杆刚连，C在OA杆上滑动，D为滑块。<br>（1）取C为动点，OA为动系：$v_C=v_e+v_r$，$v_e=\\omega\\cdot OC$（垂直OA），$v_r$ 沿OA。由OA铅垂、$\\theta=60^\\circ$ 及D点速度 $u=10$cm/s（水平），对CD杆用基点法：$v_D=v_C+\\omega_{CD}\\times\\overrightarrow{CD}$。<br>（2）$v_D=u$ 水平已知，几何给CD方向（与OA成 $\\theta$ 关系，CD=$4\\sqrt3 r/3$）。<br>（3）联立求得 $\\omega_{CD}=\\dfrac{u\\cos\\alpha-v_C\\cos\\beta}{CD}$，代入数值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

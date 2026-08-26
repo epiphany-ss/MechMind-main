@@ -1,0 +1,20 @@
+{
+  "id": "q_455",
+  "overview": "判断牵连速度的准确定义",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>牵连速度是指某瞬时动系上与动点重合点的速度。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】牵连速度就是某瞬时动系上与动点重合的那一点的速度，这是牵连速度的严格定义。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "判断牵连速度的准确定义",
+  "module": "运动学"
+}

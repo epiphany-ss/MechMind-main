@@ -1,0 +1,21 @@
+{
+  "id": "q_418",
+  "overview": "判断纯滚动轮心匀速时轮缘加速度指向",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "刚体平面运动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>圆轮沿直线轨道作纯滚动，只要轮心作匀速运动，则轮缘上任意一点的加速度的方向均指向轮心。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】轮心匀速时$\\omega=v_O/R$为常量、$\\alpha=0$，轮缘上任一点相对轮心只有向心加速度$\\omega^2 r$，方向指向轮心。</p>",
+  "media": [],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "判断纯滚动轮心匀速时轮缘加速度指向",
+  "module": "运动学"
+}

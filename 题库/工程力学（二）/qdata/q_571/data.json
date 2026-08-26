@@ -1,0 +1,19 @@
+{
+  "id": "q_571",
+  "overview": "求两种材料焊接直杆绕A轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>两种不同材料的均质细长杆焊接成直杆ABC，AB段为一种材料，长度为$a$，质量为$m_1$；BC段为另一种材料，长度为$b$，质量为$m_2$。杆ABC以匀角速度$\\omega$绕A轴转动，则其对A轴的动量矩大小为____。</p><p>(A) $(m_1+m_2)(a+b)^2\\omega/3$；<br>(B) $\\left[\\frac{m_1a^2}{3}+\\frac{m_2b^2}{12}+m_2\\left(a+\\frac{b}{2}\\right)^2\\right]\\omega$；<br>(C) $\\left[\\frac{m_1a^2}{3}+\\frac{m_2b^2}{3}+m_2ab\\right]\\omega$；<br>(D) $\\left(\\frac{m_1a^2}{3}+\\frac{m_2b^2}{3}\\right)\\omega$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】AB段对A轴$J_1=\\frac{m_1a^2}{3}$；BC段质心距A为$a+\\frac{b}{2}$，由平行轴定理$J_2=\\frac{m_2b^2}{12}+m_2(a+\\frac{b}{2})^2$。故$L_A=(J_1+J_2)\\omega$，选B。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

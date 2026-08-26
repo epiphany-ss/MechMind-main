@@ -1,0 +1,19 @@
+{
+  "id": "q_057",
+  "overview": "弹簧弹性势能取不同零势能点的换算",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "机械能守恒",
+    "动能定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>某弹簧的弹性系数为 $k$，在 I 位置弹簧的变形为 $\\delta_1$，在 II 位置弹簧的变形为 $\\delta_2$。若取 II 位置为零势能位置，则在 I 位置弹性力的势能为____。<br>(A) $\\frac12k(\\delta_1-\\delta_2)^2$；<br>(B) $\\frac12k(\\delta_1-\\delta_2)$；<br>(C) $\\frac12k(\\delta_1^2-\\delta_2^2)$；<br>(D) $\\frac12k(\\delta_2^2-\\delta_1^2)$。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】弹性势能以 II 位置为零势能点，则 I 位置的势能等于从 I 到 II 弹性力作的功：$V_I=\\frac12k\\delta_1^2-\\frac12k\\delta_2^2=\\frac12k(\\delta_1^2-\\delta_2^2)$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

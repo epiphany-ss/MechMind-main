@@ -1,0 +1,18 @@
+{
+  "id": "q_133",
+  "overview": "判断约束与约束方程的含义",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "约束分类"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>对质点系的运动所加的限制条件为约束，表示这种限制条件的数值方程称为约束方程。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】约束是对质点系中各质点位置或速度所施加的限制条件，其数学表达式（等式或不等式）即约束方程，如 $f(x_i,y_i,z_i,t)=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

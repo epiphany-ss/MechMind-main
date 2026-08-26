@@ -18,7 +18,7 @@
       '</a>' +
       '<ul class="nav-links" id="navLinks">' +
         '<li><a href="index.html">首页</a></li>' +
-        '<li><a href="questions.html">理论力学题库</a></li>' +
+        '<li><a href="http://localhost:8090">理论力学题库</a></li>' +
         '<li><a href="mechanism.html">机构运动演示</a></li>' +
         '<li><a href="ai_qa.html">AI智能问答</a></li>' +
         '<li><a href="statics/textbook.html">知识框架</a></li>' +
@@ -42,7 +42,7 @@
       '<div class="mobile-menu-panel" onclick="event.stopPropagation()">' +
         '<h3>导航菜单</h3>' +
         '<a href="index.html">🏠 首页</a>' +
-        '<a href="questions.html">📝 理论力学题库</a>' +
+        '<a href="http://localhost:8090">📝 理论力学题库</a>' +
         '<a href="mechanism.html">⚙️ 机构运动演示</a>' +
         '<a href="ai_qa.html">🤖 AI智能问答</a>' +
         '<a href="statics/textbook.html">🧠 知识框架</a>' +

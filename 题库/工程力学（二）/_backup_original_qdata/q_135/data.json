@@ -1,0 +1,19 @@
+{
+  "id": "q_135",
+  "overview": "确定图示系统的自由度数",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义坐标"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>试确定图示系统的自由度数 $K$。图(a) $K=$____；图(b) $K=$____。<br>(A) 0；<br>(B) 1；<br>(C) 2；<br>(D) 3。</p><img src=\"qdata/q_135/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>图(a) $K=2$；图(b) $K=1$（对应选项 C、B）</p>",
+  "explanation": "<p>【AI 生成】图(a)为由六根等长刚杆铰接而成的双平行四边形（菱形链）机构，两条四连杆链各有一个自由度，故自由度数 $K=2$，确定位置需两个独立参数；图(b)为单自由度平面铰链机构，$K=1$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

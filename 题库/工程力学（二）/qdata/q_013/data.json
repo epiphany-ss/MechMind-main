@@ -1,0 +1,18 @@
+{
+  "id": "q_013",
+  "overview": "判断力能否在刚体间滑移",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>力可沿其作用线从一个刚体滑移到另一个刚体上去，作用效应不变。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】力的可传性只适用于同一刚体内部，力不能沿作用线从一个物体滑移到另一个物体上。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册"
+}

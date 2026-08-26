@@ -1,0 +1,20 @@
+{
+  "id": "q_490",
+  "overview": "机构求AB杆角速度与C点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "点的合成运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>机构如图，设 $O_1A＝2O_1B＝2L$，当 $\\phi=30^\\circ$、$\\theta=90^\\circ$ 时，轮子O的角速度为 $\\omega_0=2\\,\\text{rad/s}$。试求该瞬时 $\\omega_{AB}$ 及 $v_C$。</p><img src=\"qdata/q_490/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=\\dfrac{v_{BA}}{AB}$（$v_{BA}=v_B-v_A$，由速度矢量图求得）；$v_C=v_B+\\omega_{AB}\\times\\overrightarrow{BC}$。</p>",
+  "explanation": "<p>【AI 生成】$O_1A=2L$、$O_1B=L$ 且两杆同铰于 $O_1$，轮O的角速度为 $\\omega_0$。<br>（1）先求轮缘连接点速度：由轮O的运动（$\\omega_0$）给出与AB杆相连点的速度 $v_A$。<br>（2）AB杆作平面运动，B点又受 $O_1B$ 杆约束（$v_B\\perp O_1B$）。由速度投影定理沿AB方向：$v_A\\cos\\alpha=v_B\\cos\\beta$，求出 $v_B$；再由 $v_{BA}=v_B-v_A$，得 $\\omega_{AB}=\\dfrac{|v_{BA}|}{AB}$。<br>（3）C点（在AB杆或 $O_1C$ 上）速度 $v_C=v_B+\\omega_{AB}\\times\\overrightarrow{BC}$ 或用速度瞬心法求出。代入 $\\phi=30^\\circ$、$\\theta=90^\\circ$ 与 $\\omega_0=2$ rad/s 得数值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

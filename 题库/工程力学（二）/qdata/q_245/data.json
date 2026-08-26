@@ -1,0 +1,18 @@
+{
+  "id": "q_245",
+  "overview": "判断主矢平行AB时各点主矩关系",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>已知图示一平面力系 $\\boldsymbol{F}_1,\\boldsymbol{F}_2,\\boldsymbol{F}_3$ 的主矢 $\\boldsymbol{F}_R$ 与通过 $A$、$B$ 两点的直线平行，则此力系向 $A$、$B$、$C$ 三点简化时有如下关系____。<br>(A) 对 $A$、$B$、$C$ 三点的主矩都相等；<br>(B) 对 $A$、$B$、$C$ 三点的主矩都不相等；<br>(C) 对 $A$、$B$ 两点的主矩相等；<br>(D) 对 $B$、$C$ 两点的主矩相等。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】主矩关系 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{AB}\\times\\boldsymbol{F}_R$。因 $\\boldsymbol{F}_R\\parallel AB$，故 $\\boldsymbol{AB}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，$\\boldsymbol{M}_B=\\boldsymbol{M}_A$。而 $C$ 不在 $AB$ 直线上，$\\boldsymbol{M}_C\\ne\\boldsymbol{M}_A$。故选 C。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

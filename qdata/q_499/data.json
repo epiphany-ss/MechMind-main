@@ -1,0 +1,24 @@
+{
+  "id": "q_499",
+  "overview": "OA-T形杆机构求FG杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "点的合成运动",
+    "基点法"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示，OA杆绕O轴转动，带动T形杆沿斜槽滑动。已知：OA＝r＝10cm，$\\phi=45^\\circ$，DE＝3r，EF＝FG＝2r。在图示位置时，OA水平，$\\omega=2\\,\\text{rad/s}$，$\\theta=\\beta=45^\\circ$，DE水平，H恰好在DE的中点，EF铅垂。试求该瞬时杆FG的角速度。</p><img src=\"qdata/q_499/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{FG}=\\dfrac{v_G}{FG}$（由速度分析求出）。</p>",
+  "explanation": "<p>【AI 生成】（1）A点速度 $v_A=\\omega r=20\\,\\text{cm/s}$，垂直OA（铅垂）。A在T形杆DE的水平槽中，故T形杆沿斜槽滑动，$v_r$ 沿DE（水平）方向。<br>（2）T形杆作平面运动（沿斜槽），由A点速度与槽方向求T形杆速度与角速度。<br>（3）H在DE中点，求H点速度；EF铅垂、FG与EF成 $\\beta=45^\\circ$，由EF、FG杆的平面运动（F为铰接点）求G点速度。<br>（4）$\\omega_{FG}=v_G/FG$（FG杆绕G或沿约束转动）。代入 $r=10$cm 等得数值。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "OA-T形杆机构求FG杆角速度",
+  "module": "运动学"
+}

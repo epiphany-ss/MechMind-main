@@ -1,0 +1,21 @@
+{
+  "id": "q_492",
+  "overview": "BCD弯杆与滚子机构求滚子角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "速度瞬心",
+    "基点法"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。BCD杆为直角弯杆，半径为r的滚子在水平面上纯滚动。已知BC＝r＝10cm，CD＝EG＝20cm，DE＝40cm。在图示位置时，$\\theta=45^\\circ$，BCD杆的角速度 $\\omega=3\\,\\text{rad/s}$，BC铅垂，DE⊥EG，套筒F恰在DE的中点。求该瞬时滚子的角速度。</p><img src=\"qdata/q_492/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{滚子}=\\dfrac{v_G}{r}$（$v_G$ 由DE、EG杆的速度分析求出，代入 $\\omega=3$ rad/s 及尺寸即得数值）。</p>",
+  "explanation": "<p>【AI 生成】BCD为直角弯杆绕C（或B）转动，$\\omega=3\\,\\text{rad/s}$。<br>（1）D点速度 $v_D=\\omega\\cdot CD=3\\times20=60\\,\\text{cm/s}$，方向垂直CD。<br>（2）套筒F在DE中点，F点速度由DE杆平面运动确定；G点与EG、滚子相连。<br>（3）滚子在水平面纯滚动，瞬心为接触点，$v_G=\\omega_{滚子}\\cdot r$，故 $\\omega_{滚子}=v_G/r$。由DE、EG杆的速度传递求出 $v_G$，代入即得。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

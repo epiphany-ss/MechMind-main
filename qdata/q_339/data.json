@@ -1,0 +1,23 @@
+{
+  "id": "q_339",
+  "overview": "求三索悬挂矩形钢板的拉力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系",
+    "重心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>重为 P 的均质长方形钢板 ABCD，AB=$a$，BC=$b$。分别在 A、B 及 CD 边中点 E 处用三根铅垂的钢索悬挂于水平位置如图示。试求钢索中的拉力。</p><img src=\"qdata/q_339/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$T_A=\\dfrac{P}{2}$，$T_B=0$，$T_E=\\dfrac{P}{2}$。</p>",
+  "explanation": "<p>【AI 生成】钢板水平，重力 P 作用于形心（AB 中点、BC 中点处）。三索铅垂，设 A、B、E 处拉力分别为 $T_A,T_B,T_E$。①对 AB 边取矩（$\\sum M_{AB}=0$）：$T_E\\cdot b=P\\cdot\\frac{b}{2}\\Rightarrow T_E=\\frac{P}{2}$。②对过 E 平行 AB 的轴取矩：$T_A\\cdot b=P\\cdot\\frac{b}{2}\\Rightarrow T_A=\\frac{P}{2}$（A、E 关于形心对称）。③$\\sum F_z=0$：$T_B=P-T_A-T_E=0$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "求三索悬挂矩形钢板的拉力",
+  "module": "静力学"
+}

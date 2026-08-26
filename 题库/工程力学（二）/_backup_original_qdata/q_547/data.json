@@ -1,0 +1,17 @@
+{
+  "id": "q_547",
+  "overview": "求三杆一盘系统的动量大小",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>质量均为$m$的均质细杆$AB$、$BC$和均质圆盘$CD$用铰接联接在一起并支承如图。已知$AB=BC=CD=2R$，图示瞬时$A、B、C$处在一水平直线位置上而$CD$铅直，且$AB$杆以角速度$\\omega$转动，则该瞬时系统的动量的大小为____。(在图中画出该动量)</p>",
+  "answer": "<p>该瞬时系统的动量大小为 $p=5mR\\omega$，方向铅垂（在图示瞬时竖直向上或向下，与$AB$杆转动方向一致）。</p>",
+  "explanation": "<p>【AI 生成】$AB$杆绕固定铰$A$以角速度$\\omega$转动，$B$点速度 $v_B=2R\\omega$（铅垂方向），$AB$杆质心速度 $v_{AB}=R\\omega$。该瞬时$A、B、C$共线且$CD$铅垂，处于机构的一个特殊位置，$BC$杆与圆盘$CD$在该瞬时的角速度为零，故$BC$杆作瞬时平动（$v_C=v_B=2R\\omega$），圆盘中心$D$的速度亦为 $v_D=2R\\omega$（铅垂方向）。因此<br>$$p=m\\cdot R\\omega+m\\cdot 2R\\omega+m\\cdot 2R\\omega=5mR\\omega$$<br>方向沿铅垂方向。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

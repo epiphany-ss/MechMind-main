@@ -1,0 +1,20 @@
+{
+  "id": "q_312",
+  "overview": "求支架支座A、B的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>支架由直杆 AD 与直角曲杆 BE 及定滑轮 D 组成，已知：AC=CD=AB=1m，$R=0.3$m，$P=100$N，A、B、C 处均用铰链连接。绳、杆、滑轮自重均不计。试求支座 A、B 的约束力。</p><img src=\"qdata/q_312/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$A_x=200$N（→），$A_y=-P\\left(1-\\dfrac{1}{\\sqrt2}\\right)\\approx-29.3$N（↓）；$B_x=200$N（←），$B_y=2P-\\dfrac{P}{\\sqrt2}\\approx129.3$N（↑）。</p>",
+  "explanation": "<p>【AI 生成】绳上张力 $T=P=100$N。取滑轮 D：重物侧张力向下 $P$，另一段沿 DE 方向，两张力对 D 的合力由销钉平衡。设 AD 水平、DE 与水平成 45°，滑轮给杆 AD 的力为 $(-P/\\sqrt2,\\ -P+P/\\sqrt2)$。①杆 AD 对 A、C 取矩：$C_y-2(P-P/\\sqrt2)=0\\Rightarrow C_y=2P(1-\\frac{1}{\\sqrt2})$，$A_y=-P(1-\\frac{1}{\\sqrt2})$。②杆 BE 对 B 取矩与力平衡：$C_x=-2P+\\frac{P}{\\sqrt2}$，故 $A_x=2P=200$N，$B_x=-2P=-200$N，$B_y=2P-\\frac{P}{\\sqrt2}\\approx129.3$N。整体校核 $\\sum F_y$：$-29.3+129.3=100$N=P。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

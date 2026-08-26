@@ -1,0 +1,20 @@
+{
+  "id": "q_439",
+  "overview": "求两纯滚动轮连接机构中轮Ⅱ角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>两轮沿固定水平直线轨道作纯滚动，两轮的半径都是$R$，$BC$杆长$L$，轮Ⅰ的轮心$A$以匀速$v$前进。试求在图示位置时（$\\varphi$、$\\theta$都是已知）轮Ⅱ的角速度。</p><img src=\"qdata/q_439/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{II}=\\dfrac{v}{R}\\,\\dfrac{1+\\cos\\varphi}{1+\\cos\\theta}$（方向由纯滚动条件确定）</p>",
+  "explanation": "<p>【AI 生成】轮Ⅰ纯滚动：$\\omega_I=\\dfrac{v}{R}$。取$B$为轮Ⅰ上与水平半径成$\\varphi$的点：$$\\boldsymbol{v}_B=v(1+\\cos\\varphi)\\boldsymbol{i}-v\\sin\\varphi\\,\\boldsymbol{j}$$<br>轮Ⅱ纯滚动，设角速度为$\\omega_{II}$，轮心速度$v_{II}=\\omega_{II}R$。取$C$为轮Ⅱ上与水平半径成$\\theta$的点：$$\\boldsymbol{v}_C=\\omega_{II}R(1+\\cos\\theta)\\boldsymbol{i}-\\omega_{II}R\\sin\\theta\\,\\boldsymbol{j}$$<br>杆$BC$为刚体，由速度投影定理$\\boldsymbol{v}_C\\cdot\\boldsymbol{e}_{BC}=\\boldsymbol{v}_B\\cdot\\boldsymbol{e}_{BC}$，整理得：$$\\omega_{II}=\\dfrac{v}{R}\\cdot\\dfrac{1+\\cos\\varphi}{1+\\cos\\theta}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

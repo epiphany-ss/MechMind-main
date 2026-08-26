@@ -1,0 +1,19 @@
+{
+  "id": "q_530",
+  "overview": "受指向原点的线性力质点的轨迹",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示质点 $M$ 的质量为 $m$，受指向原点 $O$ 的力 $F=kr$ 作用，力与质点到点 $O$ 的距离成正比。如初瞬时质点的坐标为 $x=x_0$，$y=0$，而速度分量为 $v_x=0$，$v_y=v_0$，求质点 $M$ 的轨迹。</p><img src=\"qdata/q_530/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>轨迹为椭圆：$\\dfrac{x^2}{x_0^2}+\\dfrac{k}{mv_0^2}y^2=1$</p>",
+  "explanation": "<p>【AI 生成】力指向原点，$\\vec{F}=-k\\vec{r}$，故运动微分方程为 $$m\\ddot{x}=-kx,\\qquad m\\ddot{y}=-ky,$$ 即 $\\ddot{x}+\\omega^2x=0$、$\\ddot{y}+\\omega^2y=0$，其中 $\\omega=\\sqrt{k/m}$。由初始条件 $x(0)=x_0,\\ \\dot{x}(0)=0$ 得 $x=x_0\\cos\\omega t$；由 $y(0)=0,\\ \\dot{y}(0)=v_0$ 得 $y=\\dfrac{v_0}{\\omega}\\sin\\omega t$。消去 $t$：$$\\frac{x^2}{x_0^2}+\\frac{\\omega^2y^2}{v_0^2}=1,$$ 即轨迹为椭圆 $$\\frac{x^2}{x_0^2}+\\frac{k}{mv_0^2}y^2=1。$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53"
+}

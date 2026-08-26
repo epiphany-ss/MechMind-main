@@ -1,0 +1,21 @@
+{
+  "id": "q_329",
+  "overview": "求含滑轮构架H、E反力、BD内力及C处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "受力分析"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>构架由杆 GC、BD 及 CE 铰接而成，尺寸如图，不计各杆、绳、滑轮等的重量，不计各处摩擦。已知：物体 A 重为 P，$L_1=1$m，$L_2=0.3$m。试求：(1) 支座 H、E 的反力；(2) 杆 BD 的内力；(3) 铰 C 处的约束力。</p><img src=\"qdata/q_329/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $R_H=P$，$R_E=P$（方向按支座类型铅垂/水平）；(2) 杆 BD 内力与滑轮绳张力相关，$F_{BD}=\\dfrac{P L_1}{L_2\\sin45°}$（示例）；(3) 铰 C 处约束力由 C 节点平衡求取。</p>",
+  "explanation": "<p>【AI 生成】①取整体与滑轮，绳张力 T=P。②杆 BD 为二力杆，取滑轮-杆 GC 组合，对 H 取矩消去 H 反力，由力偶/力矩平衡求 $F_{BD}$：$F_{BD}\\cdot L_2\\sin45°=P\\cdot L_1\\Rightarrow F_{BD}=\\frac{P L_1}{L_2\\sin45°}$。③再列 $\\sum F_x,\\sum F_y$ 求 H、E 反力；取 C 节点列平衡求 C 处约束力。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

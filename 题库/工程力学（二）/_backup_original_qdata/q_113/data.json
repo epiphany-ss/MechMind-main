@@ -1,0 +1,18 @@
+{
+  "id": "q_113",
+  "overview": "纯滚动圆轮惯性力系简化",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示匀质圆轮沿水平直线作纯滚动。已知：轮半径为 $r$、质量为 $m$，轮心的加速度为 $a_C$。试求惯性力系的简化结果：(1) 向轮心 $C$；(2) 向轮上与地面接触的点 $O$。</p>",
+  "answer": "<p>(1) 向 $C$ 点：$F_{IC}=ma_C$，$M_{IC}=\\dfrac{1}{2}mra_C$；(2) 向 $O$ 点：$F_{IO}=ma_C$，$M_{IO}=\\dfrac{3}{2}mra_C$</p>",
+  "explanation": "<p>【AI 生成】圆轮纯滚动，$\\alpha=\\dfrac{a_C}{r}$。<br>(1) 向质心 $C$ 简化：主矢 $F_{IC}=ma_C$，主矩 $M_{IC}=-J_C\\alpha=-\\dfrac{1}{2}mr^2\\cdot\\dfrac{a_C}{r}=-\\dfrac{1}{2}mra_C$，大小为 $\\dfrac{1}{2}mra_C$。<br>(2) 向接触点 $O$ 简化：主矢不变，仍为 $F_{IO}=ma_C$；主矩 $M_{IO}=M_{IC}+F_{IC}\\cdot r=\\dfrac{1}{2}mra_C+ma_Cr=\\dfrac{3}{2}mra_C$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

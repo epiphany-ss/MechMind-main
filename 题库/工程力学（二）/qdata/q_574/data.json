@@ -1,0 +1,21 @@
+{
+  "id": "q_574",
+  "overview": "判断小球下滚与离斜面后角加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>小球A在重力作用下沿粗糙斜面下滚，角加速度为____；当小球离开斜面后，角加速度为____。</p><p>(A) 等于零；<br>(B) 不等于零；<br>(C) 不能确定。</p><img src=\"qdata/q_574/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>下滚时选B（不等于零）；离开斜面后选A（等于零）。</p>",
+  "explanation": "<p>【AI 生成】沿粗糙斜面下滚时，摩擦力对质心产生力矩使球转动，角加速度不为零；离开斜面后仅受重力，重力作用线通过质心，对质心之矩为零，角加速度等于零。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

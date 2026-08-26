@@ -1,0 +1,21 @@
+{
+  "id": "q_072",
+  "overview": "曲柄连杆机构求共线时角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面机构的曲柄和连杆被看作相同的均质杆，其质量均为 $m$，在 $B$ 点铰接一滚子，其质量为 $M$，可看作匀质圆盘，它沿水平面作纯滚动。现有一常力 $F$ 作用在 $A$ 铰上，此时机构由图示位置（$\\theta$ 角）从静止开始释放。试求当 $O$、$A$、$B$ 三点在一水平线上时，曲柄和连杆的角速度。</p><img src=\"qdata/q_072/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(F+mg)\\sin\\theta}{ml}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 末态 $O,A,B$ 共线水平：$A$ 点速度铅垂、$B$ 点（滚子心）速度水平。此时连杆 $AB$ 速度瞬心在 $B$，故 $v_B=0$，且 $\\omega_{OA}=\\omega_{AB}=\\omega$。<br>(2) 末态动能（$v_B=0$，滚子动能亦为零）：$T=\\frac12\\cdot\\frac{ml^2}{3}\\omega^2+\\frac12\\cdot\\frac{ml^2}{3}\\omega^2=\\frac{ml^2}{3}\\omega^2$。<br>(3) 功：常力 $F$ 作功 $F\\cdot l\\sin\\theta$，两杆重力作功 $2\\cdot mg\\cdot\\frac l2\\sin\\theta=mgl\\sin\\theta$（初态质心比末态低 $\\frac l2\\sin\\theta$）。<br>(4) 动能定理：$\\frac{ml^2}{3}\\omega^2=(F+mg)l\\sin\\theta$，故 $\\omega=\\sqrt{\\dfrac{3(F+mg)\\sin\\theta}{ml}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_119",
+  "overview": "偏心飞轮的角加速度与轴承反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示偏心飞轮位于铅垂面内。已知：轮的质量 $m=23\\text{kg}$，对质心 $C$ 的回转半径 $\\rho_C=0.2\\text{m}$，偏心距 $e=0.15\\text{m}$。图示位置时，角速度为 $\\omega=8\\,\\text{rad/s}$。试用动静法求飞轮在图示瞬时的角加速度 $\\alpha$ 及轴承 $O$ 处的反力。</p>",
+  "answer": "<p>$\\alpha=23.52\\,\\text{rad/s}^2$；$F_{Ox}=220.8\\,\\text{N}$，$F_{Oy}=144.26\\,\\text{N}$</p>",
+  "explanation": "<p>【AI 生成】$J_C=m\\rho_C^2=23\\times0.2^2=0.92\\,\\text{kg}\\cdot\\text{m}^2$。图示位置质心 $C$ 在 $O$ 右方水平线上，重力对 $O$ 的力矩 $M=mge=23\\times9.8\\times0.15=33.81\\,\\text{N}\\cdot\\text{m}$；$J_O=J_C+me^2=1.4375\\,\\text{kg}\\cdot\\text{m}^2$。由 $J_O\\alpha=mge$ 得 $\\alpha=\\dfrac{33.81}{1.4375}=23.52\\,\\text{rad/s}^2$。惯性力主矢分量：法向 $m\\omega^2e=23\\times64\\times0.15=220.8\\,\\text{N}$，切向 $m\\alpha e=23\\times23.52\\times0.15=81.14\\,\\text{N}$。由动静法平衡方程得 $F_{Ox}=220.8\\,\\text{N}$，$F_{Oy}=mg-m\\alpha e=225.4-81.14=144.26\\,\\text{N}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

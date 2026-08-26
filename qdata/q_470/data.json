@@ -1,0 +1,21 @@
+{
+  "id": "q_470",
+  "overview": "求杆端点相对速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>杆AB的两端可分别沿水平、铅直滑道运动，已知B端的速度为 $u_B$，则图示瞬时B点相对于A点的速度为______。</p>\n<p>(A) $u_B\\sin\\theta$；&nbsp;&nbsp;(B) $u_B\\cos\\theta$；&nbsp;&nbsp;(C) $u_B/\\sin\\theta$；&nbsp;&nbsp;(D) $u_B/\\cos\\theta$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】杆作平面运动，B相对A的速度垂直于AB。A点速度沿水平方向，B点速度 $u_B$ 沿铅垂方向。沿AB方向投影：$v_A\\cos\\theta=u_B\\sin\\theta$，得 $v_A=u_B\\tan\\theta$。于是 $v_{BA}=\\sqrt{v_A^2+u_B^2}=u_B\\sqrt{\\tan^2\\theta+1}=u_B/\\cos\\theta$，选(D)。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求杆端点相对速度",
+  "module": "运动学"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_601",
+  "overview": "求两圆轮摩擦接触达到无滑动所需时间",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，均质圆轮A的质量为$m_1$，半径为$r$，以角速度$\\omega$绕OA杆的A端转动（顺时针），此时将轮放置在质量为$m_2$的另一均质圆轮B上，其半径为$2r$，B轮原为静止，但可绕其中心轴自由转动。放置后，A轮质量由B轮支持，略去轴承的摩擦与杆OA的质量，并设两轮间的摩擦因数为$f$。问自A轮放在B轮上到两轮间没有滑动为止，经过多少时间。</p><img src=\"qdata/q_601/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$t=\\dfrac{\\omega r m_2}{2fg(m_1+m_2)}$</p>",
+  "explanation": "<p>【AI 生成】A轮顺时针转动，接触点处A轮表面相对B轮向左滑，摩擦力对A轮为向右、对B轮为向左，大小$F_f=fN=fm_1g$。设A轮角加速度$\\alpha_1$（逆时针），B轮$\\alpha_2$（逆时针，B轮转向与A相反）：A轮$F_fr=\\frac{1}{2}m_1r^2\\alpha_1\\Rightarrow\\alpha_1=\\frac{2fg}{r}$；B轮$F_f\\cdot2r=\\frac{1}{2}m_2(2r)^2\\alpha_2\\Rightarrow\\alpha_2=\\frac{fm_1g}{m_2r}$。任一瞬时$\\omega_A(t)=\\omega-\\alpha_1t$，$\\omega_B(t)=\\alpha_2t$。无滑动条件（接触点速度相等）：$\\omega_A\\,r=\\omega_B\\cdot2r$，即$$\\omega-\\frac{2fg}{r}t=2\\cdot\\frac{fm_1g}{m_2r}t$$解得$$t=\\frac{\\omega}{\\frac{2fg}{r}\\left(1+\\frac{m_1}{m_2}\\right)}=\\frac{\\omega r m_2}{2fg(m_1+m_2)}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册",
+  "title": "求两圆轮摩擦接触达到无滑动所需时间",
+  "module": "动力学"
+}

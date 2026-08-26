@@ -1,0 +1,22 @@
+{
+  "id": "q_348",
+  "overview": "求滚子的滑动摩擦力及滚动摩擦力偶",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示滚子重 $P=100$N，半径 $R=10$cm，其上作用一力偶 $M=3$N·cm，滚子与地面间的滑动摩擦因数 $f_s=0.2$，滚动摩阻系数 $\\delta=0.05$cm。试求滚子所受的滑动摩擦力及滚动摩擦力偶。</p><img src=\"qdata/q_348/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>滑动摩擦力 $F=0$；滚动摩擦力偶 $M_r=M=3$N·cm。</p>",
+  "explanation": "<p>【AI 生成】滚子仅受一个力偶 M，无水平外力，故无滑动趋势，滑动摩擦力 $F=0$。最大滚动摩擦力偶 $M_{r,\\max}=\\delta N=\\delta P=0.05\\times100=5$N·cm。因为 $M=3$N·cm$&lt;5$N·cm，滚子不滚动，滚动摩擦力偶 $M_r$ 与 M 平衡，$M_r=M=3$N·cm。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "求滚子的滑动摩擦力及滚动摩擦力偶",
+  "module": "静力学"
+}

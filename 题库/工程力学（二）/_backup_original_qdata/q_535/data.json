@@ -1,0 +1,17 @@
+{
+  "id": "q_535",
+  "overview": "判断动量守恒与标量和的关系",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>一个质点系动量守恒是指该系统中各质点的质量与其速度大小的乘积之和保持不变。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】动量是矢量，质点系动量守恒指动量矢量和 $\\sum m_i\\boldsymbol{v}_i$ 保持不变，而不是各质点质量与速度大小乘积的标量和不变。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

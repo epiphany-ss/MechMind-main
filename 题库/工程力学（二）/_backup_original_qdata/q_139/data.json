@@ -1,0 +1,19 @@
+{
+  "id": "q_139",
+  "overview": "机构在45度瞬时B、D点虚位移",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>机构在图示瞬时有 $\\theta=\\varphi=45^\\circ$，若A点的虚位移为 $\\delta r_A$，则B点虚位移的大小 $\\delta r_B=$____，OC杆中点D虚位移的大小 $\\delta r_D=$____。<br>(A) $\\delta r_A$；<br>(B) $0.5\\,\\delta r_A$；<br>(C) $2\\,\\delta r_A$；<br>(D) $0$。</p><img src=\"qdata/q_139/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\delta r_B=2\\delta r_A$（C）；$\\delta r_D=0$（D）</p>",
+  "explanation": "<p>【AI 生成】在 $\\theta=\\varphi=45^\\circ$ 这一特殊瞬时，由各刚杆的速度投影关系与瞬时中心法可得 B 点虚位移大小为 A 点的 2 倍；OC 杆此时处于瞬时平动转动的特殊位置，其中点 D 的虚位移为零。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

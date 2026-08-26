@@ -1,0 +1,19 @@
+{
+  "id": "q_050",
+  "overview": "圆轮带绳拉力作功的计算",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>半径为 $R$ 的圆轮与半径为 $r$ 的圆轴相固连，在轴上绕有细绳，并作用常力 $F$（倾角 $\\beta$ 保持不变），且圆轮只滚不滑，则当轮心移动距离 $s$ 的过程中，常力 $F$ 作的功是____。<br>(A) $Fs\\cos\\beta$；<br>(B) $Fs\\dfrac{r}{R}$；<br>(C) $Fs\\left(\\cos\\beta+\\dfrac{r}{R}\\right)$；<br>(D) $Fs\\left(\\cos\\beta-\\dfrac{r}{R}\\right)$。</p><img src=\"qdata/q_050/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】绳的施力点位移由两部分组成：随轮心平移 $s$（沿 $F$ 方向投影为 $s\\cos\\beta$）和因轮转动放绳的长度 $r\\varphi=rs/R$（沿绳方向）。故 $W=Fs\\cos\\beta+Fs\\dfrac{r}{R}=Fs\\left(\\cos\\beta+\\dfrac{r}{R}\\right)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

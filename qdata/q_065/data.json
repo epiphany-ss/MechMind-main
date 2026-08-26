@@ -1,0 +1,24 @@
+{
+  "id": "q_065",
+  "overview": "均质杆A端滑水平面用v_A与h表示动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质杆 $AB$ 的长为 $2L$，质量为 $m$，在铅直平面内运动。若初瞬时杆 $AB$ 垂直于水平地面，处于静止状态，由于受到微小扰动进入运动，其 $A$ 端始终在光滑水平面上滑动，在图示位置时 $A$ 点的速度 $v_A$，试以 $v_A$ 与 $h$（质心 $C$ 距地面的高度）表示杆的动能。</p><img src=\"qdata/q_065/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$T=\\dfrac{mv_A^2}{6}\\left(\\dfrac{4L^2}{h^2}-3\\right)$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 几何关系：设杆与水平面夹角为 $\\theta$，则 $h=L\\sin\\theta$。<br>(2) 水平方向无外力，水平动量守恒（初始为零）：$v_{Cx}=v_A-\\omega L\\sin\\theta=0$，故 $\\omega=\\dfrac{v_A}{L\\sin\\theta}=\\dfrac{v_A}{h}$。<br>(3) 质心速度 $v_C=v_{Cy}=\\omega L\\cos\\theta=v_A\\cot\\theta$。<br>(4) 动能 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{m(2L)^2}{12}\\omega^2=\\frac12mv_A^2\\cot^2\\theta+\\frac{mL^2}{6}\\omega^2$。<br>(5) 代入 $\\cot\\theta=\\dfrac{\\sqrt{L^2-h^2}}{h}$、$\\omega=\\dfrac{v_A}{h}$：$T=\\dfrac{mv_A^2}{2}\\cdot\\dfrac{L^2-h^2}{h^2}+\\dfrac{mL^2}{6}\\cdot\\dfrac{v_A^2}{h^2}=\\dfrac{mv_A^2}{6}\\left(\\dfrac{4L^2}{h^2}-3\\right)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "均质杆A端滑水平面用v_A与h表示动能",
+  "module": "动力学"
+}

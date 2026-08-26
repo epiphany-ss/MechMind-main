@@ -1,671 +1,1175 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>问题探讨 - 长沙理工大学理论力学研究平台</title>
-<style>
-:root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--accent:#f0a030;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);--radius:12px;--transition:0.3s ease}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all var(--transition);position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
-.back-home:hover{background:var(--primary-dark);transform:translateY(-2px)}
-.page-header{background:linear-gradient(135deg,rgba(14,116,144,0.85),rgba(8,145,178,0.75)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80') center/cover no-repeat;color:#fff;padding:80px 32px 48px;text-align:center}
-.page-header h1{font-size:2.2em;font-weight:800;letter-spacing:2px;margin-bottom:10px}
-.page-header p{opacity:0.9;font-size:1.05em}
-.container{max-width:1100px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:1fr 300px;gap:24px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问题探讨 - 长沙理工大学理论力学研究平台</title>
+  <style>
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #0d3b9e;
+      --primary-light: #e8f0fe;
+      --accent: #f0a030;
+      --bg: #f5f7fa;
+      --card-bg: #fff;
+      --text: #2c3e50;
+      --text-light: #5a6c7d;
+      --text-lighter: #8899aa;
+      --border: #e2e8f0;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+      --transition: 0.3s ease
+    }
 
-.forum-main{display:flex;flex-direction:column;gap:0;background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
-.forum-tabs{display:flex;border-bottom:2px solid var(--border);background:var(--bg);flex-wrap:wrap}
-.forum-tabs .tab{padding:14px 24px;font-size:0.9em;font-weight:600;cursor:pointer;color:var(--text-light);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all var(--transition)}
-.forum-tabs .tab:hover{color:var(--primary)}
-.forum-tabs .tab.active{color:var(--primary);border-bottom-color:var(--primary)}
-.forum-post-list{display:flex;flex-direction:column;min-height:200px}
-.forum-post-item{display:flex;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);cursor:pointer;transition:background var(--transition);align-items:flex-start}
-.forum-post-item:last-child{border-bottom:none}
-.forum-post-item:hover{background:#f8faff}
-.forum-post-item .post-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.2em;color:#fff;font-weight:700}
-.forum-post-item .post-body{flex:1;min-width:0}
-.forum-post-item .post-title{font-size:0.95em;font-weight:600;color:var(--text);margin-bottom:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.forum-post-item .post-title:hover{color:var(--primary)}
-.forum-post-item .post-excerpt{font-size:0.78em;color:var(--text-lighter);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:8px}
-.forum-post-item .post-meta{display:flex;gap:16px;font-size:0.73em;color:var(--text-lighter);flex-wrap:wrap}
-.forum-post-item .post-stats{flex-shrink:0;text-align:center;min-width:54px}
-.forum-post-item .post-stats .reply-count{font-size:0.85em;font-weight:600;color:var(--text-light)}
-.forum-post-item .post-stats .reply-label{font-size:0.68em;color:var(--text-lighter)}
-.category-tag{display:inline-block;padding:1px 8px;border-radius:8px;font-size:0.7em;font-weight:600;margin-right:6px}
-.cat-qa{background:#e8f0fe;color:#1a56db}
-.cat-share{background:#e6f7ee;color:#059669}
-.cat-discuss{background:#fef3e2;color:#e67e22}
-.cat-other{background:#f1f5f9;color:#64748b}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-.forum-empty{text-align:center;padding:40px;color:var(--text-lighter)}
-.forum-empty .empty-icon{font-size:3em;margin-bottom:12px}
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6
+    }
 
-.pagination{display:flex;gap:6px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border)}
-.pagination button{width:34px;height:34px;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);cursor:pointer;font-size:0.85em;color:var(--text);transition:all var(--transition)}
-.pagination button:hover{border-color:var(--primary);color:var(--primary)}
-.pagination button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-.pagination button:disabled{opacity:0.4;cursor:default}
-.pagination .ellipsis{color:var(--text-lighter);font-size:0.8em}
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: all var(--transition);
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3)
+    }
 
-.forum-sidebar{display:flex;flex-direction:column;gap:16px}
-.forum-btn-new-post{display:block;width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),#4f8cf7);color:#fff;border:none;border-radius:8px;font-size:0.95em;font-weight:600;cursor:pointer;letter-spacing:1px;transition:all var(--transition);text-align:center}
-.forum-btn-new-post:hover{background:var(--primary-dark);box-shadow:0 4px 16px rgba(26,86,219,0.3)}
-.sidebar-card{background:var(--card-bg);border-radius:var(--radius);padding:20px;border:1px solid var(--border);box-shadow:var(--shadow)}
-.sidebar-card h4{font-weight:700;margin-bottom:14px;font-size:0.95em}
+    .back-home:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px)
+    }
 
-/* Modal */
-.forum-modal-overlay{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,0.5);display:flex;align-items:flex-start;justify-content:center;padding-top:60px;opacity:0;pointer-events:none;transition:opacity var(--transition)}
-.forum-modal-overlay.active{opacity:1;pointer-events:auto}
-.forum-modal{background:#fff;border-radius:var(--radius);width:90%;max-width:680px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:85vh;overflow-y:auto}
-.forum-modal h3{margin-bottom:20px;font-size:1.2em}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:0.85em;font-weight:600;margin-bottom:6px;color:var(--text)}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:0.9em;font-family:inherit;outline:none;transition:border-color var(--transition)}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--primary)}
-.form-group textarea{min-height:140px;resize:vertical}
-.img-upload-area{border:2px dashed var(--border);border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:all var(--transition);background:var(--bg)}
-.img-upload-area:hover{border-color:var(--primary);background:var(--primary-light)}
-.img-upload-area .upload-icon{font-size:2em;margin-bottom:6px}
-.img-upload-area .upload-text{font-size:0.8em;color:var(--text-lighter)}
-.img-preview-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.img-preview-item{position:relative;width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-.img-preview-item img{width:100%;height:100%;object-fit:cover}
-.img-preview-item .img-remove{position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:rgba(220,38,38,0.85);color:#fff;border:none;cursor:pointer;font-size:12px;line-height:20px;text-align:center}
-.form-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
-.form-actions button{padding:10px 24px;border-radius:20px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:0.9em;font-weight:600;transition:all var(--transition)}
-.form-actions button.btn-submit{background:var(--primary);color:#fff;border-color:var(--primary)}
-.form-actions button.btn-submit:hover{background:var(--primary-dark)}
-.form-actions button.btn-submit:disabled{opacity:0.5;cursor:not-allowed}
+    .page-header {
+      background: linear-gradient(135deg, rgba(14, 116, 144, 0.85), rgba(8, 145, 178, 0.75)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 32px 48px;
+      text-align: center
+    }
 
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;padding:12px 24px;border-radius:20px;color:#fff;font-weight:600;font-size:0.9em;opacity:0;transition:opacity 0.3s;pointer-events:none}
-.toast.show{opacity:1}
-.toast.success{background:#059669}
-.toast.error{background:#dc2626}
+    .page-header h1 {
+      font-size: 2.2em;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 10px
+    }
 
-@media(max-width:768px){.container{grid-template-columns:1fr}.page-header{padding:70px 16px 24px}.page-header h1{font-size:1.5em}.back-home{padding:8px 14px;font-size:0.78em;top:8px;left:8px}}
-</style>
+    .page-header p {
+      opacity: 0.9;
+      font-size: 1.05em
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px
+    }
+
+    .forum-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow)
+    }
+
+    .forum-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      background: var(--bg);
+      flex-wrap: wrap
+    }
+
+    .forum-tabs .tab {
+      padding: 14px 24px;
+      font-size: 0.9em;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-light);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all var(--transition)
+    }
+
+    .forum-tabs .tab:hover {
+      color: var(--primary)
+    }
+
+    .forum-tabs .tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary)
+    }
+
+    .forum-post-list {
+      display: flex;
+      flex-direction: column;
+      min-height: 200px
+    }
+
+    .forum-post-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background var(--transition);
+      align-items: flex-start
+    }
+
+    .forum-post-item:last-child {
+      border-bottom: none
+    }
+
+    .forum-post-item:hover {
+      background: #f8faff
+    }
+
+    .forum-post-item .post-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #fff;
+      font-weight: 700
+    }
+
+    .forum-post-item .post-body {
+      flex: 1;
+      min-width: 0
+    }
+
+    .forum-post-item .post-title {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+
+    .forum-post-item .post-title:hover {
+      color: var(--primary)
+    }
+
+    .forum-post-item .post-excerpt {
+      font-size: 0.78em;
+      color: var(--text-lighter);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 8px
+    }
+
+    .forum-post-item .post-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.73em;
+      color: var(--text-lighter);
+      flex-wrap: wrap
+    }
+
+    .forum-post-item .post-stats {
+      flex-shrink: 0;
+      text-align: center;
+      min-width: 54px
+    }
+
+    .forum-post-item .post-stats .reply-count {
+      font-size: 0.85em;
+      font-weight: 600;
+      color: var(--text-light)
+    }
+
+    .forum-post-item .post-stats .reply-label {
+      font-size: 0.68em;
+      color: var(--text-lighter)
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 8px;
+      font-size: 0.7em;
+      font-weight: 600;
+      margin-right: 6px
+    }
+
+    .cat-qa {
+      background: #e8f0fe;
+      color: #1a56db
+    }
+
+    .cat-share {
+      background: #e6f7ee;
+      color: #059669
+    }
+
+    .cat-discuss {
+      background: #fef3e2;
+      color: #e67e22
+    }
+
+    .cat-other {
+      background: #f1f5f9;
+      color: #64748b
+    }
+
+    .forum-empty {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-lighter)
+    }
+
+    .forum-empty .empty-icon {
+      font-size: 3em;
+      margin-bottom: 12px
+    }
+
+    .pagination {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      border-top: 1px solid var(--border)
+    }
+
+    .pagination button {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      cursor: pointer;
+      font-size: 0.85em;
+      color: var(--text);
+      transition: all var(--transition)
+    }
+
+    .pagination button:hover {
+      border-color: var(--primary);
+      color: var(--primary)
+    }
+
+    .pagination button.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary)
+    }
+
+    .pagination button:disabled {
+      opacity: 0.4;
+      cursor: default
+    }
+
+    .pagination .ellipsis {
+      color: var(--text-lighter);
+      font-size: 0.8em
+    }
+
+    .forum-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .forum-btn-new-post {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--primary), #4f8cf7);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all var(--transition);
+      text-align: center
+    }
+
+    .forum-btn-new-post:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 4px 16px rgba(26, 86, 219, 0.3)
+    }
+
+    .sidebar-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow)
+    }
+
+    .sidebar-card h4 {
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-size: 0.95em
+    }
+
+    /* Modal */
+    .forum-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 60px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition)
+    }
+
+    .forum-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    .forum-modal {
+      background: #fff;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 680px;
+      padding: 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-height: 85vh;
+      overflow-y: auto
+    }
+
+    .forum-modal h3 {
+      margin-bottom: 20px;
+      font-size: 1.2em
+    }
+
+    .form-group {
+      margin-bottom: 16px
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85em;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text)
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9em;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition)
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary)
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical
+    }
+
+    .img-upload-area {
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--bg)
+    }
+
+    .img-upload-area:hover {
+      border-color: var(--primary);
+      background: var(--primary-light)
+    }
+
+    .img-upload-area .upload-icon {
+      font-size: 2em;
+      margin-bottom: 6px
+    }
+
+    .img-upload-area .upload-text {
+      font-size: 0.8em;
+      color: var(--text-lighter)
+    }
+
+    .img-preview-list {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .img-preview-item {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border)
+    }
+
+    .img-preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .img-preview-item .img-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(220, 38, 38, 0.85);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 20px
+    }
+
+    .form-actions button {
+      padding: 10px 24px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all var(--transition)
+    }
+
+    .form-actions button.btn-submit {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary)
+    }
+
+    .form-actions button.btn-submit:hover {
+      background: var(--primary-dark)
+    }
+
+    .form-actions button.btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      padding: 12px 24px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9em;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none
+    }
+
+    .toast.show {
+      opacity: 1
+    }
+
+    .toast.success {
+      background: #059669
+    }
+
+    .toast.error {
+      background: #dc2626
+    }
+
+    @media(max-width:768px) {
+      .container {
+        grid-template-columns: 1fr
+      }
+
+      .page-header {
+        padding: 70px 16px 24px
+      }
+
+      .page-header h1 {
+        font-size: 1.5em
+      }
+
+      .back-home {
+        padding: 8px 14px;
+        font-size: 0.78em;
+        top: 8px;
+        left: 8px
+      }
+    }
+  </style>
 </head>
+
 <body>
-<a href="index.html" class="back-home">← 返回主页</a>
-<header class="page-header"><h1>💬 问题探讨</h1><p>理论力学学习交流社区 · 提问探讨 · 分享心得 · 共同进步</p></header>
+  <a href="index.html" class="back-home">← 返回主页</a>
+  <header class="page-header">
+    <h1>💬 问题探讨</h1>
+    <p>理论力学学习交流社区 · 提问探讨 · 分享心得 · 共同进步</p>
+  </header>
 
-<div class="container">
-  <div class="forum-main">
-    <div class="forum-tabs">
-      <span class="tab active" onclick="switchTab(this,'all')">全部讨论</span>
-      <span class="tab" onclick="switchTab(this,'qa')">🙋 提问</span>
-      <span class="tab" onclick="switchTab(this,'share')">📤 分享</span>
-      <span class="tab" onclick="switchTab(this,'discuss')">💭 讨论</span>
-      <span class="tab" onclick="switchTab(this,'other')">📌 其他</span>
+  <div class="container">
+    <div class="forum-main">
+      <div class="forum-tabs">
+        <span class="tab active" onclick="switchTab(this,'all')">全部讨论</span>
+        <span class="tab" onclick="switchTab(this,'qa')">🙋 提问</span>
+        <span class="tab" onclick="switchTab(this,'share')">📤 分享</span>
+        <span class="tab" onclick="switchTab(this,'discuss')">💭 讨论</span>
+        <span class="tab" onclick="switchTab(this,'other')">📌 其他</span>
+      </div>
+      <div class="forum-post-list" id="forumPostList">
+        <div class="forum-empty">
+          <div class="empty-icon">📭</div>
+          <p>加载中…</p>
+        </div>
+      </div>
+      <div class="pagination" id="pagination"></div>
     </div>
-    <div class="forum-post-list" id="forumPostList">
-      <div class="forum-empty"><div class="empty-icon">📭</div><p>加载中…</p></div>
-    </div>
-    <div class="pagination" id="pagination"></div>
-  </div>
 
-  <div class="forum-sidebar">
-    <button class="forum-btn-new-post" onclick="openNewPostModal()">✏️ 发布新帖</button>
-    <div class="sidebar-card">
-      <h4>📊 社区统计</h4>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.8em">
-        <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px"><div style="font-size:1.3em;font-weight:800;color:var(--primary)" id="statPosts">0</div><div style="color:var(--text-lighter)">帖子总数</div></div>
-        <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px"><div style="font-size:1.3em;font-weight:800;color:#059669" id="statQa">0</div><div style="color:var(--text-lighter)">提问</div></div>
-        <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px"><div style="font-size:1.3em;font-weight:800;color:#e67e22" id="statShare">0</div><div style="color:var(--text-lighter)">分享</div></div>
-        <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px"><div style="font-size:1.3em;font-weight:800;color:#7c3aed" id="statDiscuss">0</div><div style="color:var(--text-lighter)">讨论</div></div>
+    <div class="forum-sidebar">
+      <button class="forum-btn-new-post" onclick="openNewPostModal()">✏️ 发布新帖</button>
+      <div class="sidebar-card">
+        <h4>📊 社区统计</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.8em">
+          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
+            <div style="font-size:1.3em;font-weight:800;color:var(--primary)" id="statPosts">0</div>
+            <div style="color:var(--text-lighter)">帖子总数</div>
+          </div>
+          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
+            <div style="font-size:1.3em;font-weight:800;color:#059669" id="statQa">0</div>
+            <div style="color:var(--text-lighter)">提问</div>
+          </div>
+          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
+            <div style="font-size:1.3em;font-weight:800;color:#e67e22" id="statShare">0</div>
+            <div style="color:var(--text-lighter)">分享</div>
+          </div>
+          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
+            <div style="font-size:1.3em;font-weight:800;color:#7c3aed" id="statDiscuss">0</div>
+            <div style="color:var(--text-lighter)">讨论</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="forum-modal-overlay" id="forumModalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="forum-modal" onclick="event.stopPropagation()">
-    <h3>✏️ 发布新帖</h3>
-    <div class="form-group"><label>分类 <span style="color:#dc2626">*</span></label><select id="postCategory"><option value="">请选择分类</option><option value="qa">🙋 提问</option><option value="share">📤 分享</option><option value="discuss">💭 讨论</option><option value="other">📌 其他</option></select></div>
-    <div class="form-group"><label>标题 <span style="color:#dc2626">*</span></label><input type="text" id="postTitle" placeholder="请输入帖子标题…" maxlength="100"></div>
-    <div class="form-group"><label>内容 <span style="color:#dc2626">*</span></label><textarea id="postContent" placeholder="请输入帖子内容…支持上传图片"></textarea></div>
-    <div class="form-group"><label>图片（可选）</label>
-      <div class="img-upload-area" onclick="document.getElementById('imgInput').click()"><div class="upload-icon">🖼️</div><div class="upload-text">点击上传图片 · JPG/PNG/GIF · 每张不超过5MB</div></div>
-      <input type="file" id="imgInput" accept="image/*" multiple style="display:none" onchange="handleImageSelect(event)">
-      <div class="img-preview-list" id="imgPreviewList"></div>
+  <div class="forum-modal-overlay" id="forumModalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="forum-modal" onclick="event.stopPropagation()">
+      <h3>✏️ 发布新帖</h3>
+      <div class="form-group"><label>分类 <span style="color:#dc2626">*</span></label><select id="postCategory">
+          <option value="">请选择分类</option>
+          <option value="qa">🙋 提问</option>
+          <option value="share">📤 分享</option>
+          <option value="discuss">💭 讨论</option>
+          <option value="other">📌 其他</option>
+        </select></div>
+      <div class="form-group"><label>标题 <span style="color:#dc2626">*</span></label><input type="text" id="postTitle"
+          placeholder="请输入帖子标题…" maxlength="100"></div>
+      <div class="form-group"><label>内容 <span style="color:#dc2626">*</span></label><textarea id="postContent"
+          placeholder="请输入帖子内容…支持上传图片"></textarea></div>
+      <div class="form-group"><label>图片（可选）</label>
+        <div class="img-upload-area" onclick="document.getElementById('imgInput').click()">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-text">点击上传图片 · JPG/PNG/GIF · 每张不超过5MB</div>
+        </div>
+        <input type="file" id="imgInput" accept="image/*" multiple style="display:none"
+          onchange="handleImageSelect(event)">
+        <div class="img-preview-list" id="imgPreviewList"></div>
+      </div>
+      <div class="form-actions"><button onclick="closeModal()">取消</button><button class="btn-submit" id="btnSubmit"
+          onclick="submitPost()">发布帖子</button></div>
     </div>
-    <div class="form-actions"><button onclick="closeModal()">取消</button><button class="btn-submit" id="btnSubmit" onclick="submitPost()">发布帖子</button></div>
   </div>
-</div>
-<div class="toast" id="toast"></div>
+  <div class="toast" id="toast"></div>
 
-<script>
-// ===== Embedded Seed Data =====
-function getEmbeddedPosts() {
-  return [];
-}
-
-// ===== State =====
-var DATA_BASE = 'fdata/';
-var allPosts = [];
-var currentTab = 'all';
-var currentPage = 1;
-var PER_PAGE = 20;
-var selectedImages = [];
-
-// ===== Deleted IDs tracking (mirrors questions.html) =====
-function getDeletedPostIds() {
-  try { var raw = localStorage.getItem('forum_deleted_ids'); return raw ? JSON.parse(raw) : []; } catch(e) { return []; }
-}
-function addDeletedPostId(pid) {
-  var ids = getDeletedPostIds();
-  if (ids.indexOf(pid) === -1) ids.push(pid);
-  try { localStorage.setItem('forum_deleted_ids', JSON.stringify(ids)); } catch(e) {}
-}
-function removePostFromLocalStorage(pid) {
-  try {
-    var raw = localStorage.getItem('forum_posts');
-    if (raw) {
-      var data = JSON.parse(raw);
-      data = data.filter(function(p) { return p.id !== pid; });
-      localStorage.setItem('forum_posts', JSON.stringify(data));
+  <script>
+    // ===== Embedded Seed Data =====
+    function getEmbeddedPosts() {
+      return [];
     }
-    // Also clean pending sync
-    var pr = localStorage.getItem('forum_pending_sync');
-    if (pr) {
-      var pending = JSON.parse(pr);
-      pending = pending.filter(function(p) { return p._localId !== pid; });
-      localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
+
+    // ===== State =====
+    var DATA_BASE = 'fdata/';
+    var allPosts = [];
+    var currentTab = 'all';
+    var currentPage = 1;
+    var PER_PAGE = 20;
+    var selectedImages = [];
+
+    // ===== Deleted IDs tracking (mirrors questions.html) =====
+    function getDeletedPostIds() {
+      try { var raw = localStorage.getItem('forum_deleted_ids'); return raw ? JSON.parse(raw) : []; } catch (e) { return []; }
     }
-    // Clean comments of deleted post
-    localStorage.removeItem('forum_comments_' + pid);
-  } catch(e) {}
-}
-
-// ===== Load (mirrors questions.html: index.json → Promise.all data.json) =====
-function loadPosts() {
-  return new Promise(function(resolve) {
-    var done = false;
-    var timer = setTimeout(function() {
-      if (!done) { done = true; console.warn('Fetch timeout, using embedded'); allPosts = getEmbeddedPosts(); mergeLocal(); finishLoad(); resolve(); }
-    }, 3000);
-
-    // 1) Try static fdata first
-    fetch(DATA_BASE + 'index.json?_=' + Date.now()).then(function(resp) {
-      if (!resp.ok) throw new Error('index failed');
-      return resp.json();
-    }).then(function(idx) {
-      var list = idx.posts || [];
-      var tasks = list.map(function(p) {
-        return fetch(DATA_BASE + p.id + '/data.json?_=' + Date.now()).then(function(r) { if (r.ok) return r.json(); throw new Error('no data'); }).catch(function() { return p; });
-      });
-      return Promise.all(tasks);
-    }).then(function(full) {
-      if (!done) { done = true; clearTimeout(timer); allPosts = full; mergeLocal(); mergeCloud(); }
-    }).catch(function(e) {
-      if (!done) { done = true; clearTimeout(timer); console.warn('File load failed:', e.message); allPosts = getEmbeddedPosts(); mergeLocal(); mergeCloud(); }
-    });
-
-    function mergeCloud() {
-      // Load from Netlify API (cloud-synced posts)
-      fetch('/api/forum/list?_=' + Date.now()).then(function(r){if(r.ok)return r.json();throw new Error()}).then(function(d){
-        if (d.ok && d.posts) {
-          var ids = {}; allPosts.forEach(function(p){ids[p.id]=1});
-          d.posts.forEach(function(p){if(!ids[p.id])allPosts.unshift(p)});
-        }
-        finishLoad(); resolve();
-      }).catch(function(){ finishLoad(); resolve(); });
+    function addDeletedPostId(pid) {
+      var ids = getDeletedPostIds();
+      if (ids.indexOf(pid) === -1) ids.push(pid);
+      try { localStorage.setItem('forum_deleted_ids', JSON.stringify(ids)); } catch (e) { }
     }
-  });
-}
-
-function mergeLocal() {
-  try {
-    var raw = localStorage.getItem('forum_posts');
-    if (!raw) return;
-    var deletedIds = getDeletedPostIds();
-    var lp = JSON.parse(raw), ids = {};
-    allPosts.forEach(function(p) { ids[p.id] = 1; });
-    lp.forEach(function(p) {
-      // Skip deleted posts
-      if (deletedIds.indexOf(p.id) !== -1) return;
-      if (!ids[p.id]) { allPosts.unshift(p); ids[p.id] = 1; }
-    });
-  } catch(e) {}
-}
-
-function syncLocalPosts() {
-  // Save current allPosts to localStorage for offline persistence
-  try {
-    var toSave = allPosts.map(function(p) {
-      return { id: p.id, category: p.category, title: p.title, content: p.content,
-        author: p.author, time: p.time, views: p.views, replies: p.replies };
-    });
-    localStorage.setItem('forum_posts', JSON.stringify(toSave));
-  } catch(e) {}
-}
-
-function finishLoad() { updateStats(); renderPosts(); }
-
-// ===== Stats =====
-function updateStats() {
-  document.getElementById('statPosts').textContent = allPosts.length;
-  document.getElementById('statQa').textContent = allPosts.filter(function(p){return p.category==='qa'}).length;
-  document.getElementById('statShare').textContent = allPosts.filter(function(p){return p.category==='share'}).length;
-  document.getElementById('statDiscuss').textContent = allPosts.filter(function(p){return p.category==='discuss'}).length;
-}
-
-// ===== Render =====
-var avatars = ['#1a56db','#e67e22','#27ae60','#7c3aed','#e74c3c','#0d9488','#f0a030','#8b5cf6'];
-var catLabel = {qa:'提问',share:'分享',discuss:'讨论',other:'其他'};
-
-function renderPosts() {
-  var list = document.getElementById('forumPostList');
-  var filtered = currentTab === 'all' ? allPosts : allPosts.filter(function(p){return p.category===currentTab});
-  if (filtered.length === 0) { list.innerHTML = '<div class="forum-empty"><div class="empty-icon">📭</div><p>暂无帖子，快来发布第一篇吧！</p></div>'; document.getElementById('pagination').innerHTML = ''; return; }
-  var total = Math.ceil(filtered.length / PER_PAGE);
-  if (currentPage > total) currentPage = total || 1;
-  var page = filtered.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
-  list.innerHTML = page.map(function(p, i) {
-    var txt = p.content || '', ex = stripHtml(txt).substring(0, 80);
-    if (stripHtml(txt).length > 80) ex += '…';
-    return '<div class="forum-post-item" onclick="viewPost(\'' + p.id + '\')">' +
-      '<div class="post-avatar" style="background:' + avatars[i % avatars.length] + '">' + (p.author ? p.author.charAt(0) : '匿') + '</div>' +
-      '<div class="post-body">' +
-        '<div class="post-title"><span class="category-tag cat-' + p.category + '">' + (catLabel[p.category]||p.category) + '</span>' + escHtml(p.title) + '</div>' +
-        '<div class="post-excerpt">' + escHtml(ex) + '</div>' +
-        '<div class="post-meta"><span>👤 ' + escHtml(p.author||'匿名用户') + '</span><span>📅 ' + (p.time||'') + '</span><span>👁 ' + (p.views||0) + '</span></div>' +
-      '</div>' +
-      '<div class="post-stats"><div class="reply-count">' + getRealReplyCount(p.id) + '</div><div class="reply-label">回复</div></div>' +
-    '</div>';
-  }).join('');
-  renderPagination(total);
-}
-function stripHtml(h) { var d = document.createElement('div'); d.innerHTML = h || ''; return d.textContent || ''; }
-function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
-
-// ===== Pagination =====
-function renderPagination(total) {
-  var pg = document.getElementById('pagination');
-  if (total <= 1) { pg.innerHTML = ''; return; }
-  var h = '';
-  h += '<button ' + (currentPage===1?'disabled':'onclick="goPage('+(currentPage-1)+')"') + '>◀</button>';
-  for (var i = 1; i <= total; i++) {
-    if (total > 7 && i > 3 && i < total - 1 && i !== currentPage && Math.abs(i - currentPage) > 2) {
-      if (i === 4 || i === total - 2) h += '<span class="ellipsis">…</span>';
-      continue;
-    }
-    h += '<button ' + (i===currentPage?'class="active"':'onclick="goPage('+i+')"') + '>' + i + '</button>';
-  }
-  h += '<button ' + (currentPage===total?'disabled':'onclick="goPage('+(currentPage+1)+')"') + '>▶</button>';
-  pg.innerHTML = h;
-}
-function goPage(n) { currentPage = n; renderPosts(); document.getElementById('forumPostList').scrollIntoView({behavior:'smooth',block:'start'}); }
-
-// ===== Tabs =====
-function switchTab(el, tab) { currentTab = tab; currentPage = 1; document.querySelectorAll('.forum-tabs .tab').forEach(function(t){t.classList.remove('active')}); el.classList.add('active'); renderPosts(); }
-
-// ===== Modal =====
-function openNewPostModal() { document.getElementById('forumModalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeModal() { document.getElementById('forumModalOverlay').classList.remove('active'); document.body.style.overflow = ''; resetForm(); }
-function resetForm() { document.getElementById('postCategory').value = ''; document.getElementById('postTitle').value = ''; document.getElementById('postContent').value = ''; selectedImages = []; document.getElementById('imgPreviewList').innerHTML = ''; document.getElementById('imgInput').value = ''; document.getElementById('btnSubmit').disabled = false; }
-
-// ===== Image =====
-function handleImageSelect(e) { Array.from(e.target.files).forEach(function(file) { if (file.size > 5242880) { showToast('图片不能超过5MB','error'); return; } var r = new FileReader(); r.onload = function(ev) { selectedImages.push(ev.target.result); renderImagePreviews(); }; r.readAsDataURL(file); }); e.target.value = ''; }
-function renderImagePreviews() { document.getElementById('imgPreviewList').innerHTML = selectedImages.map(function(img, i) { return '<div class="img-preview-item"><img src="' + img + '" alt=""><button class="img-remove" onclick="removeImage(' + i + ')">×</button></div>'; }).join(''); }
-function removeImage(i) { selectedImages.splice(i, 1); renderImagePreviews(); }
-
-// ===== Submit (mirrors questions.html: API → catch → localStorage + reload) =====
-function submitPost() {
-  var cat = document.getElementById('postCategory').value, title = document.getElementById('postTitle').value.trim(), raw = document.getElementById('postContent').value.trim();
-  if (!cat) { showToast('请选择分类','error'); return; } if (!title) { showToast('请输入标题','error'); return; } if (!raw) { showToast('请输入内容','error'); return; }
-  var btn = document.getElementById('btnSubmit'); btn.disabled = true; btn.textContent = '发布中…';
-  var content = raw;
-  if (selectedImages.length > 0) content = raw + '\n\n' + selectedImages.map(function(img) { return '<img src="' + img + '" style="max-width:100%;border-radius:8px;margin:8px 0">'; }).join('');
-  fetch('/api/forum/upload', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({category:cat, title:title, content:content, _contentImages:selectedImages}) })
-  .then(function(r) { if (r.ok) return r.json(); throw new Error('server'); })
-  .then(function(d) { if (d.ok) { showToast('帖子发布成功！（已同步至服务器）','success'); closeModal(); resetForm(); return reloadPosts(); } throw new Error(d.message||'fail'); })
-  .catch(function(err) { console.warn('Server unavailable:', err.message); saveLocal(cat, title, content); })
-  .finally(function() { btn.disabled = false; btn.textContent = '发布帖子'; });
-}
-function getMyName() { try { var u=JSON.parse(localStorage.getItem('current_user')||'{}'); return u.name||'匿名用户'; } catch(e) { return '匿名用户'; } }
-function getMySid() { try { var u=JSON.parse(localStorage.getItem('current_user')||'{}'); return u.student_id||''; } catch(e) { return ''; } }
-function trackUserActivity(key, entry) {
-  try { var raw=localStorage.getItem(key); var arr=raw?JSON.parse(raw):[]; arr.unshift(entry); if(arr.length>50)arr.length=50; localStorage.setItem(key,JSON.stringify(arr)); } catch(e) {}
-}
-
-function saveLocal(cat, title, content) {
-  var now = new Date(), ts = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  var authorName = getMyName();
-  var localId = 'f_local_' + Date.now();
-  var np = {id: localId, category:cat, title:title, content:content, author:authorName, time:ts, views:0, replies:0, student_id:getMySid()};
-  if (getMySid()) { trackUserActivity('user_posts_'+getMySid(), {id:np.id, title:title, time:ts, category:cat}); }
-  try { var raw = localStorage.getItem('forum_posts'), lp = raw ? JSON.parse(raw) : []; lp.unshift(np); if (lp.length > 200) lp.length = 200; localStorage.setItem('forum_posts', JSON.stringify(lp)); } catch(e) { try { localStorage.setItem('forum_posts', JSON.stringify([np])); } catch(e2) {} }
-
-  // Queue for cloud sync
-  try {
-    var pr = localStorage.getItem('forum_pending_sync');
-    var pending = pr ? JSON.parse(pr) : [];
-    pending.push({ _localId: localId, category: cat, title: title, content: content, author: authorName, time: ts });
-    localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
-  } catch(e) {}
-
-  showToast('帖子已保存至本地（服务器未连接，联网后自动同步）','success');
-  closeModal(); resetForm(); reloadPosts();
-}
-
-function reloadPosts() {
-  return loadPosts().then(function() {
-    // Filter deleted posts
-    var deletedIds = getDeletedPostIds();
-    allPosts = allPosts.filter(function(p) { return deletedIds.indexOf(p.id) === -1; });
-    // Sync localStorage
-    syncLocalPosts();
-    updateStats();
-    renderPosts();
-  });
-}
-
-// Sync offline-saved posts to server
-function syncPendingPosts() {
-  try {
-    var pr = localStorage.getItem('forum_pending_sync');
-    if (!pr) return;
-    var pending = JSON.parse(pr);
-    if (pending.length === 0) return;
-    var item = pending[0];
-    fetch('/api/forum/upload', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ category: item.category, title: item.title, content: item.content, author: item.author, _contentImages: item._contentImages || [] })
-    }).then(function(r) { if (r.ok) return r.json(); throw new Error(); })
-    .then(function(d) {
-      if (d.ok) {
-        pending.shift();
-        // Replace local ID with server ID in localStorage
-        try {
-          var raw = localStorage.getItem('forum_posts');
-          if (raw) {
-            var lp = JSON.parse(raw);
-            for (var i = 0; i < lp.length; i++) {
-              if (lp[i].id === item._localId) { lp[i].id = d.id; break; }
-            }
-            localStorage.setItem('forum_posts', JSON.stringify(lp));
-          }
-        } catch(e) {}
-        localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
-        reloadPosts();
-      }
-    }).catch(function() {});
-  } catch(e) {}
-}
-
-// ===== Comments Storage (cloud-synced: API first, localStorage fallback) =====
-function getRealReplyCount(postId) {
-  // Use cached count from the post if available
-  var post = allPosts.find(function(p) { return p.id === postId; });
-  if (post && typeof post.replies === 'number' && post.replies > 0) return post.replies;
-  // Fallback to localStorage
-  try { var raw = localStorage.getItem('forum_comments_' + postId); return raw ? JSON.parse(raw).length : 0; } catch(e) { return 0; }
-}
-
-function loadComments(postId, cb) {
-  // Try API first
-  fetch('/api/forum/comments/' + postId + '?_=' + Date.now())
-    .then(function(r) { if (r.ok) return r.json(); throw new Error(); })
-    .then(function(d) {
-      if (d.ok && d.comments) {
-        // Cache locally
-        try { localStorage.setItem('forum_comments_' + postId, JSON.stringify(d.comments)); } catch(e) {}
-        cb(d.comments);
-        return;
-      }
-      throw new Error();
-    })
-    .catch(function() {
-      // Fallback to localStorage
+    function removePostFromLocalStorage(pid) {
       try {
-        var raw = localStorage.getItem('forum_comments_' + postId);
-        cb(raw ? JSON.parse(raw) : []);
-      } catch(e) { cb([]); }
-    });
-}
-
-function saveComments(postId, comments) {
-  // Always save to localStorage
-  try { localStorage.setItem('forum_comments_' + postId, JSON.stringify(comments)); } catch(e) {}
-  // Also queue for sync (actual API push happens in submit/delete)
-}
-
-// ===== View Post Detail =====
-function viewPost(id) {
-  var post = allPosts.find(function(p){return p.id===id}); if (!post) return;
-  var ovId = 'postDetail_' + Date.now();
-  loadComments(id, function(comments) { renderPostDetail(post, comments, ovId); });
-}
-
-function renderPostDetail(post, comments, ovId) {
-  var id = post.id;
-  var overlay = document.createElement('div');
-  overlay.id = ovId;
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center';
-  overlay.onclick = function(e) { if (e.target === overlay) overlay.remove(); };
-
-  // Build comments HTML — fill full modal width
-  var realReplyCount = comments.length;
-  var commentsHtml = '';
-  if (comments.length > 0) {
-    commentsHtml = '<div style="margin:28px -40px 0;padding:20px 40px;border-top:2px solid #e2e8f0;background:#fafbfc"><h4 style="font-size:1em;font-weight:700;margin-bottom:16px;color:#2c3e50">💬 评论 (' + comments.length + ')</h4>';
-    for (var ci = 0; ci < comments.length; ci++) {
-      var cm = comments[ci];
-      commentsHtml += '<div style="padding:16px 20px;margin-bottom:10px;background:#fff;border-radius:10px;border:1px solid #e2e8f0;position:relative">' +
-        (isAdminUser() ? '<button onclick="deleteComment(\'' + id + '\',' + ci + ',\'' + ovId + '\')" title="删除此评论" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2em;padding:0;line-height:1;transition:color 0.2s" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'#94a3b8\'">×</button>' : '') +
-        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-right:28px">' +
-          '<span style="font-weight:700;font-size:0.88em;color:#1a56db">' + escHtml(cm.author||'匿名') + '</span>' +
-          '<span style="font-size:0.75em;color:#94a3b8">' + (cm.time||'') + '</span>' +
-        '</div>' +
-        '<div style="font-size:0.92em;line-height:1.8;color:#334155">' + (cm.content||'') + '</div>' +
-        (cm.image ? '<img src="' + cm.image + '" style="max-width:100%;max-height:360px;border-radius:8px;margin-top:10px;border:1px solid #e2e8f0">' : '') +
-      '</div>';
+        var raw = localStorage.getItem('forum_posts');
+        if (raw) {
+          var data = JSON.parse(raw);
+          data = data.filter(function (p) { return p.id !== pid; });
+          localStorage.setItem('forum_posts', JSON.stringify(data));
+        }
+        // Also clean pending sync
+        var pr = localStorage.getItem('forum_pending_sync');
+        if (pr) {
+          var pending = JSON.parse(pr);
+          pending = pending.filter(function (p) { return p._localId !== pid; });
+          localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
+        }
+        // Clean comments of deleted post
+        localStorage.removeItem('forum_comments_' + pid);
+      } catch (e) { }
     }
-    commentsHtml += '</div>';
-  }
 
-  var commentFormHtml = '<div style="position:sticky;bottom:0;background:#fff;padding-top:14px;padding-bottom:6px;border-top:2px solid #e2e8f0;margin-top:20px;z-index:5">' +
-    '<div style="display:flex;align-items:center;gap:10px">' +
-      '<input id="cmContent_' + ovId + '" placeholder="写下你的评论…" style="flex:1;padding:9px 14px;border:1px solid #e2e8f0;border-radius:20px;font-size:0.88em;font-family:inherit;outline:none" onfocus="this.style.borderColor=\'#3b82f6\'" onblur="this.style.borderColor=\'#e2e8f0\'">' +
-      '<label style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:7px 10px;border:1px dashed #cbd5e1;border-radius:16px;font-size:0.75em;color:#64748b;flex-shrink:0;transition:all 0.2s" onmouseover="this.style.borderColor=\'#3b82f6\';this.style.color=\'#3b82f6\'" onmouseout="this.style.borderColor=\'#cbd5e1\';this.style.color=\'#64748b\'">🖼️<input type="file" accept="image/*" style="display:none" onchange="handleCommentImage(event,\'' + ovId + '\')"></label>' +
-      '<span id="cmImgName_' + ovId + '" style="font-size:0.7em;color:#94a3b8;flex-shrink:0;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>' +
-      '<button onclick="submitComment(\'' + id + '\',\'' + ovId + '\')" style="flex-shrink:0;padding:9px 20px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border:none;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;transition:all 0.2s" onmouseover="this.style.filter=\'brightness(1.15)\'" onmouseout="this.style.filter=\'\'">发布</button>' +
-    '</div>' +
-  '</div>';
+    // ===== Load (mirrors questions.html: index.json → Promise.all data.json) =====
+    function loadPosts() {
+      return new Promise(function (resolve) {
+        var done = false;
+        var timer = setTimeout(function () {
+          if (!done) { done = true; console.warn('Fetch timeout, using embedded'); allPosts = getEmbeddedPosts(); mergeLocal(); finishLoad(); resolve(); }
+        }, 3000);
 
-  var delBtnHtml = isAdminUser() ? '<button onclick="if(confirm(\'确定删除这篇帖子？\'))deletePost(\'' + id + '\',\'' + ovId + '\')" title="删除帖子" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1em;padding:2px 4px;transition:color 0.2s" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'#94a3b8\'">🗑</button>' : '';
+        // 1) Try static fdata first
+        fetch(DATA_BASE + 'index.json?_=' + Date.now()).then(function (resp) {
+          if (!resp.ok) throw new Error('index failed');
+          return resp.json();
+        }).then(function (idx) {
+          var list = idx.posts || [];
+          var tasks = list.map(function (p) {
+            return fetch(DATA_BASE + p.id + '/data.json?_=' + Date.now()).then(function (r) { if (r.ok) return r.json(); throw new Error('no data'); }).catch(function () { return p; });
+          });
+          return Promise.all(tasks);
+        }).then(function (full) {
+          if (!done) { done = true; clearTimeout(timer); allPosts = full; mergeLocal(); mergeCloud(); }
+        }).catch(function (e) {
+          if (!done) { done = true; clearTimeout(timer); console.warn('File load failed:', e.message); allPosts = getEmbeddedPosts(); mergeLocal(); mergeCloud(); }
+        });
 
-  overlay.innerHTML =
-    '<div style="background:#fff;border-radius:12px;width:90%;max-width:90vw;max-height:92vh;overflow-y:auto;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3)" onclick="event.stopPropagation()">' +
-    '<div style="position:sticky;top:0;float:right;display:flex;align-items:center;gap:6px;z-index:10;margin:-10px -10px 0 0">' +
-      delBtnHtml +
-      '<button onclick="document.getElementById(\'' + ovId + '\').remove()" title="关闭" style="width:32px;height:32px;border-radius:50%;border:1.5px solid #cbd5e1;background:#fff;color:#64748b;cursor:pointer;font-size:1.1em;display:flex;align-items:center;justify-content:center;transition:all 0.2s" onmouseover="this.style.borderColor=\'#ef4444\';this.style.color=\'#ef4444\';this.style.background=\'#fef2f2\'" onmouseout="this.style.borderColor=\'#cbd5e1\';this.style.color=\'#64748b\';this.style.background=\'#fff\'">×</button>' +
-    '</div>' +
-    '<div style="padding-right:80px;margin-bottom:16px">' +
-      '<span class="category-tag cat-' + post.category + '" style="font-size:0.8em">' + (catLabel[post.category]||post.category) + '</span>' +
-      '<h3 style="margin:8px 0;font-size:1.3em;line-height:1.4">' + escHtml(post.title) + '</h3></div>' +
-      '<div style="padding-right:80px">' +
-    '</div>' +
-    '<div style="color:#5a6c7d;font-size:0.85em;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e2e8f0">' +
-      '👤 ' + escHtml(post.author||'匿名用户') + ' · 📅 ' + (post.time||'') + ' · 👁 ' + (post.views||0) + ' 次浏览 · 💬 ' + realReplyCount + ' 评论</div>' +
-    '<div style="line-height:2;font-size:1em;color:#2c3e50">' + (post.content||'暂无内容') + '</div>' +
-    commentsHtml +
-    commentFormHtml +
-  '</div>';
-  document.body.appendChild(overlay);
-}
-
-// ===== Comment Image =====
-var _commentImages = {};
-function handleCommentImage(e, ovId) {
-  var file = e.target.files[0];
-  if (!file) return;
-  if (file.size > 5242880) { showToast('图片不能超过5MB','error'); return; }
-  var r = new FileReader();
-  r.onload = function(ev) { _commentImages[ovId] = ev.target.result; document.getElementById('cmImgName_' + ovId).textContent = '已选择: ' + file.name; };
-  r.readAsDataURL(file);
-  e.target.value = '';
-}
-
-// ===== Submit Comment =====
-function submitComment(postId, ovId) {
-  var contentEl = document.getElementById('cmContent_' + ovId);
-  var content = (contentEl ? contentEl.value.trim() : '');
-  if (!content) { showToast('请输入评论内容','error'); return; }
-
-  var now = new Date();
-  var ts = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  var authorName = getMyName();
-  var cm = { author:authorName, time:ts, content:content, image:_commentImages[ovId]||'', student_id:getMySid() };
-
-  // Try API first
-  fetch('/api/forum/comment/' + postId, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(cm)
-  })
-  .then(function(r) { if (r.ok) return r.json(); throw new Error(); })
-  .then(function(d) {
-    if (d.ok) {
-      console.log('评论已同步至服务器:', postId);
-      // Update local cache with server state
-      loadComments(postId, function(serverComments) {
-        saveComments(postId, serverComments);
-      });
-    } else { throw new Error(d.message || 'failed'); }
-  })
-  .catch(function() {
-    // Server unavailable — save locally
-    console.warn('评论API不可用，保存至本地');
-    loadComments(postId, function(localComments) {
-      localComments.push(cm);
-      saveComments(postId, localComments);
-    });
-  });
-
-  // Also save locally immediately (optimistic)
-  loadComments(postId, function(localComments) {
-    localComments.push(cm);
-    saveComments(postId, localComments);
-  });
-
-  // Track user's comment
-  if (getMySid()) { trackUserActivity('user_comments_'+getMySid(), {postId:postId, time:ts, content:content.substring(0,40)}); }
-  showToast('评论发布成功！','success');
-  // Close and reopen modal to refresh
-  var overlay = document.getElementById(ovId);
-  if (overlay) overlay.remove();
-  viewPost(postId);
-}
-
-// ===== Delete (admin only) =====
-function isAdminUser() { try { var u = JSON.parse(localStorage.getItem('current_user')||'{}'); return u.role==='admin'; } catch(e) { return false; } }
-function deleteComment(postId, ci, ovId) {
-  if (!isAdminUser()) { showToast('仅管理员可删除评论','error'); return; }
-  if (!confirm('确定删除这条评论？')) return;
-
-  // Try API first
-  fetch('/api/forum/comment/' + postId + '/' + ci, { method: 'DELETE' })
-  .then(function(r) { if (r.ok) return r.json(); throw new Error(); })
-  .then(function(d) {
-    if (d.ok) console.log('评论已从服务器删除:', postId);
-  })
-  .catch(function() {
-    console.warn('评论删除API不可用，仅本地删除');
-  });
-
-  // Always remove locally
-  loadComments(postId, function(comments) {
-    comments.splice(ci, 1);
-    saveComments(postId, comments);
-  });
-
-  var overlay = document.getElementById(ovId);
-  if (overlay) overlay.remove();
-  showToast('评论已删除','success');
-  // Refresh view
-  setTimeout(function() { viewPost(postId); }, 150);
-}
-function deletePost(id, ovId) {
-  if (!isAdminUser()) { showToast('仅管理员可删除帖子','error'); return; }
-  if (!confirm('确定要删除该帖子？此操作不可恢复。')) return;
-
-  var overlay = document.getElementById(ovId);
-  if (overlay) overlay.remove();
-
-  // Always mark as deleted + clean localStorage (mirrors questions.html pattern)
-  addDeletedPostId(id);
-  removePostFromLocalStorage(id);
-
-  // Optimistic UI removal
-  allPosts = allPosts.filter(function(p){return p.id!==id});
-  updateStats();
-  renderPosts();
-
-  // Try server API
-  fetch('/api/forum/delete/' + id, {method:'DELETE'})
-  .then(function(resp) {
-    if (resp.ok) {
-      console.log('帖子 ' + id + ' 已从服务器删除');
-      reloadPosts();
-    }
-  })
-  .catch(function(err) {
-    console.warn('后端不可用，删除已保存至本地:', err.message);
-    // Already persisted locally via addDeletedPostId + removePostFromLocalStorage
-  });
-
-  showToast('帖子已删除','success');
-}
-
-// ===== Toast =====
-function showToast(msg, type) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast ' + type + ' show'; setTimeout(function() { t.classList.remove('show'); }, 2500); }
-
-// ===== Init =====
-loadPosts().then(function() {
-  var deletedIds = getDeletedPostIds();
-  allPosts = allPosts.filter(function(p) { return deletedIds.indexOf(p.id) === -1; });
-  syncLocalPosts();
-  updateStats();
-  renderPosts();
-});
-syncPendingPosts();
-syncPendingComments();
-
-// Sync unsynced local comments to server
-function syncPendingComments() {
-  // Check all localStorage comment keys and push to server
-  try {
-    for (var i = 0; i < localStorage.length; i++) {
-      var key = localStorage.key(i);
-      if (key && key.indexOf('forum_comments_') === 0 && key !== 'forum_comments_pending') {
-        var postId = key.replace('forum_comments_', '');
-        var raw = localStorage.getItem(key);
-        if (!raw) continue;
-        var comments = JSON.parse(raw);
-        if (!comments.length) continue;
-        // Try to push to server (server will deduplicate or overwrite)
-        fetch('/api/forum/comments/' + postId + '?_=' + Date.now())
-          .then(function(r) { if (r.ok) return r.json(); throw new Error(); })
-          .then(function(d) {
-            if (d.ok && d.comments) {
-              // Server has comments — use the larger set
-              var merged = d.comments;
-              // Simple merge: server wins if time matches, else append missing
-              comments.forEach(function(lc) {
-                if (!merged.some(function(sc) { return sc.time === lc.time && sc.author === lc.author; })) {
-                  merged.push(lc);
-                }
-              });
-              localStorage.setItem(key, JSON.stringify(merged));
+        function mergeCloud() {
+          // Load from Netlify API (cloud-synced posts)
+          fetch('/api/forum/list?_=' + Date.now()).then(function (r) { if (r.ok) return r.json(); throw new Error() }).then(function (d) {
+            if (d.ok && d.posts) {
+              var ids = {}; allPosts.forEach(function (p) { ids[p.id] = 1 });
+              d.posts.forEach(function (p) { if (!ids[p.id]) allPosts.unshift(p) });
             }
-          }).catch(function() {});
-      }
+            finishLoad(); resolve();
+          }).catch(function () { finishLoad(); resolve(); });
+        }
+      });
     }
-  } catch(e) {}
-}
-</script>
+
+    function mergeLocal() {
+      try {
+        var raw = localStorage.getItem('forum_posts');
+        if (!raw) return;
+        var deletedIds = getDeletedPostIds();
+        var lp = JSON.parse(raw), ids = {};
+        allPosts.forEach(function (p) { ids[p.id] = 1; });
+        lp.forEach(function (p) {
+          // Skip deleted posts
+          if (deletedIds.indexOf(p.id) !== -1) return;
+          if (!ids[p.id]) { allPosts.unshift(p); ids[p.id] = 1; }
+        });
+      } catch (e) { }
+    }
+
+    function syncLocalPosts() {
+      // Save current allPosts to localStorage for offline persistence
+      try {
+        var toSave = allPosts.map(function (p) {
+          return {
+            id: p.id, category: p.category, title: p.title, content: p.content,
+            author: p.author, time: p.time, views: p.views, replies: p.replies
+          };
+        });
+        localStorage.setItem('forum_posts', JSON.stringify(toSave));
+      } catch (e) { }
+    }
+
+    function finishLoad() { updateStats(); renderPosts(); }
+
+    // ===== Stats =====
+    function updateStats() {
+      document.getElementById('statPosts').textContent = allPosts.length;
+      document.getElementById('statQa').textContent = allPosts.filter(function (p) { return p.category === 'qa' }).length;
+      document.getElementById('statShare').textContent = allPosts.filter(function (p) { return p.category === 'share' }).length;
+      document.getElementById('statDiscuss').textContent = allPosts.filter(function (p) { return p.category === 'discuss' }).length;
+    }
+
+    // ===== Render =====
+    var avatars = ['#1a56db', '#e67e22', '#27ae60', '#7c3aed', '#e74c3c', '#0d9488', '#f0a030', '#8b5cf6'];
+    var catLabel = { qa: '提问', share: '分享', discuss: '讨论', other: '其他' };
+
+    function renderPosts() {
+      var list = document.getElementById('forumPostList');
+      var filtered = currentTab === 'all' ? allPosts : allPosts.filter(function (p) { return p.category === currentTab });
+      if (filtered.length === 0) { list.innerHTML = '<div class="forum-empty"><div class="empty-icon">📭</div><p>暂无帖子，快来发布第一篇吧！</p></div>'; document.getElementById('pagination').innerHTML = ''; return; }
+      var total = Math.ceil(filtered.length / PER_PAGE);
+      if (currentPage > total) currentPage = total || 1;
+      var page = filtered.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
+      list.innerHTML = page.map(function (p, i) {
+        var txt = p.content || '', ex = stripHtml(txt).substring(0, 80);
+        if (stripHtml(txt).length > 80) ex += '…';
+        return '<div class="forum-post-item" onclick="viewPost(\'' + p.id + '\')">' +
+          '<div class="post-avatar" style="background:' + avatars[i % avatars.length] + '">' + (p.author ? p.author.charAt(0) : '匿') + '</div>' +
+          '<div class="post-body">' +
+          '<div class="post-title"><span class="category-tag cat-' + p.category + '">' + (catLabel[p.category] || p.category) + '</span>' + escHtml(p.title) + '</div>' +
+          '<div class="post-excerpt">' + escHtml(ex) + '</div>' +
+          '<div class="post-meta"><span>👤 ' + escHtml(p.author || '匿名用户') + '</span><span>📅 ' + (p.time || '') + '</span><span>👁 ' + (p.views || 0) + '</span></div>' +
+          '</div>' +
+          '<div class="post-stats"><div class="reply-count">' + getRealReplyCount(p.id) + '</div><div class="reply-label">回复</div></div>' +
+          '</div>';
+      }).join('');
+      renderPagination(total);
+    }
+    function stripHtml(h) { var d = document.createElement('div'); d.innerHTML = h || ''; return d.textContent || ''; }
+    function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+    // ===== Pagination =====
+    function renderPagination(total) {
+      var pg = document.getElementById('pagination');
+      if (total <= 1) { pg.innerHTML = ''; return; }
+      var h = '';
+      h += '<button ' + (currentPage === 1 ? 'disabled' : 'onclick="goPage(' + (currentPage - 1) + ')"') + '>◀</button>';
+      for (var i = 1; i <= total; i++) {
+        if (total > 7 && i > 3 && i < total - 1 && i !== currentPage && Math.abs(i - currentPage) > 2) {
+          if (i === 4 || i === total - 2) h += '<span class="ellipsis">…</span>';
+          continue;
+        }
+        h += '<button ' + (i === currentPage ? 'class="active"' : 'onclick="goPage(' + i + ')"') + '>' + i + '</button>';
+      }
+      h += '<button ' + (currentPage === total ? 'disabled' : 'onclick="goPage(' + (currentPage + 1) + ')"') + '>▶</button>';
+      pg.innerHTML = h;
+    }
+    function goPage(n) { currentPage = n; renderPosts(); document.getElementById('forumPostList').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+
+    // ===== Tabs =====
+    function switchTab(el, tab) { currentTab = tab; currentPage = 1; document.querySelectorAll('.forum-tabs .tab').forEach(function (t) { t.classList.remove('active') }); el.classList.add('active'); renderPosts(); }
+
+    // ===== Modal =====
+    function openNewPostModal() { document.getElementById('forumModalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('forumModalOverlay').classList.remove('active'); document.body.style.overflow = ''; resetForm(); }
+    function resetForm() { document.getElementById('postCategory').value = ''; document.getElementById('postTitle').value = ''; document.getElementById('postContent').value = ''; selectedImages = []; document.getElementById('imgPreviewList').innerHTML = ''; document.getElementById('imgInput').value = ''; document.getElementById('btnSubmit').disabled = false; }
+
+    // ===== Image =====
+    function handleImageSelect(e) { Array.from(e.target.files).forEach(function (file) { if (file.size > 5242880) { showToast('图片不能超过5MB', 'error'); return; } var r = new FileReader(); r.onload = function (ev) { selectedImages.push(ev.target.result); renderImagePreviews(); }; r.readAsDataURL(file); }); e.target.value = ''; }
+    function renderImagePreviews() { document.getElementById('imgPreviewList').innerHTML = selectedImages.map(function (img, i) { return '<div class="img-preview-item"><img src="' + img + '" alt=""><button class="img-remove" onclick="removeImage(' + i + ')">×</button></div>'; }).join(''); }
+    function removeImage(i) { selectedImages.splice(i, 1); renderImagePreviews(); }
+
+    // ===== Submit (mirrors questions.html: API → catch → localStorage + reload) =====
+    function submitPost() {
+      var cat = document.getElementById('postCategory').value, title = document.getElementById('postTitle').value.trim(), raw = document.getElementById('postContent').value.trim();
+      if (!cat) { showToast('请选择分类', 'error'); return; } if (!title) { showToast('请输入标题', 'error'); return; } if (!raw) { showToast('请输入内容', 'error'); return; }
+      var btn = document.getElementById('btnSubmit'); btn.disabled = true; btn.textContent = '发布中…';
+      var content = raw;
+      if (selectedImages.length > 0) content = raw + '\n\n' + selectedImages.map(function (img) { return '<img src="' + img + '" style="max-width:100%;border-radius:8px;margin:8px 0">'; }).join('');
+      fetch('/api/forum/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ category: cat, title: title, content: content, _contentImages: selectedImages }) })
+        .then(function (r) { if (r.ok) return r.json(); throw new Error('server'); })
+        .then(function (d) { if (d.ok) { showToast('帖子发布成功！（已同步至服务器）', 'success'); closeModal(); resetForm(); return reloadPosts(); } throw new Error(d.message || 'fail'); })
+        .catch(function (err) { console.warn('Server unavailable:', err.message); saveLocal(cat, title, content); })
+        .finally(function () { btn.disabled = false; btn.textContent = '发布帖子'; });
+    }
+    function getMyName() { try { var u = JSON.parse(localStorage.getItem('current_user') || '{}'); return u.name || '匿名用户'; } catch (e) { return '匿名用户'; } }
+    function getMySid() { try { var u = JSON.parse(localStorage.getItem('current_user') || '{}'); return u.student_id || ''; } catch (e) { return ''; } }
+    function trackUserActivity(key, entry) {
+      try { var raw = localStorage.getItem(key); var arr = raw ? JSON.parse(raw) : []; arr.unshift(entry); if (arr.length > 50) arr.length = 50; localStorage.setItem(key, JSON.stringify(arr)); } catch (e) { }
+    }
+
+    function saveLocal(cat, title, content) {
+      var now = new Date(), ts = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0') + ' ' + String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      var authorName = getMyName();
+      var localId = 'f_local_' + Date.now();
+      var np = { id: localId, category: cat, title: title, content: content, author: authorName, time: ts, views: 0, replies: 0, student_id: getMySid() };
+      if (getMySid()) { trackUserActivity('user_posts_' + getMySid(), { id: np.id, title: title, time: ts, category: cat }); }
+      try { var raw = localStorage.getItem('forum_posts'), lp = raw ? JSON.parse(raw) : []; lp.unshift(np); if (lp.length > 200) lp.length = 200; localStorage.setItem('forum_posts', JSON.stringify(lp)); } catch (e) { try { localStorage.setItem('forum_posts', JSON.stringify([np])); } catch (e2) { } }
+
+      // Queue for cloud sync
+      try {
+        var pr = localStorage.getItem('forum_pending_sync');
+        var pending = pr ? JSON.parse(pr) : [];
+        pending.push({ _localId: localId, category: cat, title: title, content: content, author: authorName, time: ts });
+        localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
+      } catch (e) { }
+
+      showToast('帖子已保存至本地（服务器未连接，联网后自动同步）', 'success');
+      closeModal(); resetForm(); reloadPosts();
+    }
+
+    function reloadPosts() {
+      return loadPosts().then(function () {
+        // Filter deleted posts
+        var deletedIds = getDeletedPostIds();
+        allPosts = allPosts.filter(function (p) { return deletedIds.indexOf(p.id) === -1; });
+        // Sync localStorage
+        syncLocalPosts();
+        updateStats();
+        renderPosts();
+      });
+    }
+
+    // Sync offline-saved posts to server
+    function syncPendingPosts() {
+      try {
+        var pr = localStorage.getItem('forum_pending_sync');
+        if (!pr) return;
+        var pending = JSON.parse(pr);
+        if (pending.length === 0) return;
+        var item = pending[0];
+        fetch('/api/forum/upload', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ category: item.category, title: item.title, content: item.content, author: item.author, _contentImages: item._contentImages || [] })
+        }).then(function (r) { if (r.ok) return r.json(); throw new Error(); })
+          .then(function (d) {
+            if (d.ok) {
+              pending.shift();
+              // Replace local ID with server ID in localStorage
+              try {
+                var raw = localStorage.getItem('forum_posts');
+                if (raw) {
+                  var lp = JSON.parse(raw);
+                  for (var i = 0; i < lp.length; i++) {
+                    if (lp[i].id === item._localId) { lp[i].id = d.id; break; }
+                  }
+                  localStorage.setItem('forum_posts', JSON.stringify(lp));
+                }
+              } catch (e) { }
+              localStorage.setItem('forum_pending_sync', JSON.stringify(pending));
+              reloadPosts();
+            }
+          }).catch(function () { });
+      } catch (e) { }
+    }
+
+    // ===== Comments Storage (cloud-synced: API first, localStorage fallback) =====
+    function getRealReplyCount(postId) {
+      // Use cached count from the post if available
+      var post = allPosts.find(function (p) { return p.id === postId; });
+      if (post && typeof post.replies === 'number' && post.replies > 0) return post.replies;
+      // Fallback to localStorage
+      try { var raw = localStorage.getItem('forum_comments_' + postId); return raw ? JSON.parse(raw).length : 0; } catch (e) { return 0; }
+    }
+
+    function loadComments(postId, cb) {
+      // Try API first
+      fetch('/api/forum/comments/' + postId + '?_=' + Date.now())
+        .then(function (r) { if (r.ok) return r.json(); throw new Error(); })
+        .then(function (d) {
+          if (d.ok && d.comments) {
+            // Cache locally
+            try { localStorage.setItem('forum_comments_' + postId, JSON.stringify(d.comments)); } catch (e) { }
+            cb(d.comments);
+            return;
+          }
+          throw new Error();
+        })
+        .catch(function () {
+          // Fallback to localStorage
+          try {
+            var raw = localStorage.getItem('forum_comments_' + postId);
+            cb(raw ? JSON.parse(raw) : []);
+          } catch (e) { cb([]); }
+        });
+    }
+
+    function saveComments(postId, comments) {
+      // Always save to localStorage
+      try { localStorage.setItem('forum_comments_' + postId, JSON.stringify(comments)); } catch (e) { }
+      // Also queue for sync (actual API push happens in submit/delete)
+    }
+
+    // ===== View Post Detail =====
+    function viewPost(id) {
+      var post = allPosts.find(function (p) { return p.id === id }); if (!post) return;
+      var ovId = 'postDetail_' + Date.now();
+      loadComments(id, function (comments) { renderPostDetail(post, comments, ovId); });
+    }
+
+    function renderPostDetail(post, comments, ovId) {
+      var id = post.id;
+      var overlay = document.createElement('div');
+      overlay.id = ovId;
+      overlay.style.cssText = 'position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center';
+      overlay.onclick = function (e) { if (e.target === overlay) overlay.remove(); };
+
+      // Build comments HTML — fill full modal width
+      var realReplyCount = comments.length;
+      var commentsHtml = '';
+      if (comments.length > 0) {
+        commentsHtml = '<div style="margin:28px -40px 0;padding:20px 40px;border-top:2px solid #e2e8f0;background:#fafbfc"><h4 style="font-size:1em;font-weight:700;margin-bottom:16px;color:#2c3e50">💬 评论 (' + comments.length + ')</h4>';
+        for (var ci = 0; ci < comments.length; ci++) {
+          var cm = comments[ci];
+          commentsHtml += '<div style="padding:16px 20px;margin-bottom:10px;background:#fff;border-radius:10px;border:1px solid #e2e8f0;position:relative">' +
+            (isAdminUser() ? '<button onclick="deleteComment(\'' + id + '\',' + ci + ',\'' + ovId + '\')" title="删除此评论" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2em;padding:0;line-height:1;transition:color 0.2s" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'#94a3b8\'">×</button>' : '') +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-right:28px">' +
+            '<span style="font-weight:700;font-size:0.88em;color:#1a56db">' + escHtml(cm.author || '匿名') + '</span>' +
+            '<span style="font-size:0.75em;color:#94a3b8">' + (cm.time || '') + '</span>' +
+            '</div>' +
+            '<div style="font-size:0.92em;line-height:1.8;color:#334155">' + (cm.content || '') + '</div>' +
+            (cm.image ? '<img src="' + cm.image + '" style="max-width:100%;max-height:360px;border-radius:8px;margin-top:10px;border:1px solid #e2e8f0">' : '') +
+            '</div>';
+        }
+        commentsHtml += '</div>';
+      }
+
+      var commentFormHtml = '<div style="position:sticky;bottom:0;background:#fff;padding-top:14px;padding-bottom:6px;border-top:2px solid #e2e8f0;margin-top:20px;z-index:5">' +
+        '<div style="display:flex;align-items:center;gap:10px">' +
+        '<input id="cmContent_' + ovId + '" placeholder="写下你的评论…" style="flex:1;padding:9px 14px;border:1px solid #e2e8f0;border-radius:20px;font-size:0.88em;font-family:inherit;outline:none" onfocus="this.style.borderColor=\'#3b82f6\'" onblur="this.style.borderColor=\'#e2e8f0\'">' +
+        '<label style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:7px 10px;border:1px dashed #cbd5e1;border-radius:16px;font-size:0.75em;color:#64748b;flex-shrink:0;transition:all 0.2s" onmouseover="this.style.borderColor=\'#3b82f6\';this.style.color=\'#3b82f6\'" onmouseout="this.style.borderColor=\'#cbd5e1\';this.style.color=\'#64748b\'">🖼️<input type="file" accept="image/*" style="display:none" onchange="handleCommentImage(event,\'' + ovId + '\')"></label>' +
+        '<span id="cmImgName_' + ovId + '" style="font-size:0.7em;color:#94a3b8;flex-shrink:0;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>' +
+        '<button onclick="submitComment(\'' + id + '\',\'' + ovId + '\')" style="flex-shrink:0;padding:9px 20px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border:none;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;transition:all 0.2s" onmouseover="this.style.filter=\'brightness(1.15)\'" onmouseout="this.style.filter=\'\'">发布</button>' +
+        '</div>' +
+        '</div>';
+
+      var delBtnHtml = isAdminUser() ? '<button onclick="if(confirm(\'确定删除这篇帖子？\'))deletePost(\'' + id + '\',\'' + ovId + '\')" title="删除帖子" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1em;padding:2px 4px;transition:color 0.2s" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'#94a3b8\'">🗑</button>' : '';
+
+      overlay.innerHTML =
+        '<div style="background:#fff;border-radius:12px;width:90%;max-width:90vw;max-height:92vh;overflow-y:auto;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3)" onclick="event.stopPropagation()">' +
+        '<div style="position:sticky;top:0;float:right;display:flex;align-items:center;gap:6px;z-index:10;margin:-10px -10px 0 0">' +
+        delBtnHtml +
+        '<button onclick="document.getElementById(\'' + ovId + '\').remove()" title="关闭" style="width:32px;height:32px;border-radius:50%;border:1.5px solid #cbd5e1;background:#fff;color:#64748b;cursor:pointer;font-size:1.1em;display:flex;align-items:center;justify-content:center;transition:all 0.2s" onmouseover="this.style.borderColor=\'#ef4444\';this.style.color=\'#ef4444\';this.style.background=\'#fef2f2\'" onmouseout="this.style.borderColor=\'#cbd5e1\';this.style.color=\'#64748b\';this.style.background=\'#fff\'">×</button>' +
+        '</div>' +
+        '<div style="padding-right:80px;margin-bottom:16px">' +
+        '<span class="category-tag cat-' + post.category + '" style="font-size:0.8em">' + (catLabel[post.category] || post.category) + '</span>' +
+        '<h3 style="margin:8px 0;font-size:1.3em;line-height:1.4">' + escHtml(post.title) + '</h3></div>' +
+        '<div style="padding-right:80px">' +
+        '</div>' +
+        '<div style="color:#5a6c7d;font-size:0.85em;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e2e8f0">' +
+        '👤 ' + escHtml(post.author || '匿名用户') + ' · 📅 ' + (post.time || '') + ' · 👁 ' + (post.views || 0) + ' 次浏览 · 💬 ' + realReplyCount + ' 评论</div>' +
+        '<div style="line-height:2;font-size:1em;color:#2c3e50">' + (post.content || '暂无内容') + '</div>' +
+        commentsHtml +
+        commentFormHtml +
+        '</div>';
+      document.body.appendChild(overlay);
+    }
+
+    // ===== Comment Image =====
+    var _commentImages = {};
+    function handleCommentImage(e, ovId) {
+      var file = e.target.files[0];
+      if (!file) return;
+      if (file.size > 5242880) { showToast('图片不能超过5MB', 'error'); return; }
+      var r = new FileReader();
+      r.onload = function (ev) { _commentImages[ovId] = ev.target.result; document.getElementById('cmImgName_' + ovId).textContent = '已选择: ' + file.name; };
+      r.readAsDataURL(file);
+      e.target.value = '';
+    }
+
+    // ===== Submit Comment =====
+    function submitComment(postId, ovId) {
+      var contentEl = document.getElementById('cmContent_' + ovId);
+      var content = (contentEl ? contentEl.value.trim() : '');
+      if (!content) { showToast('请输入评论内容', 'error'); return; }
+
+      var now = new Date();
+      var ts = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0') + ' ' + String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      var authorName = getMyName();
+      var cm = { author: authorName, time: ts, content: content, image: _commentImages[ovId] || '', student_id: getMySid() };
+
+      // Try API first
+      fetch('/api/forum/comment/' + postId, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cm)
+      })
+        .then(function (r) { if (r.ok) return r.json(); throw new Error(); })
+        .then(function (d) {
+          if (d.ok) {
+            console.log('评论已同步至服务器:', postId);
+            // Update local cache with server state
+            loadComments(postId, function (serverComments) {
+              saveComments(postId, serverComments);
+            });
+          } else { throw new Error(d.message || 'failed'); }
+        })
+        .catch(function () {
+          // Server unavailable — save locally
+          console.warn('评论API不可用，保存至本地');
+          loadComments(postId, function (localComments) {
+            localComments.push(cm);
+            saveComments(postId, localComments);
+          });
+        });
+
+      // Also save locally immediately (optimistic)
+      loadComments(postId, function (localComments) {
+        localComments.push(cm);
+        saveComments(postId, localComments);
+      });
+
+      // Track user's comment
+      if (getMySid()) { trackUserActivity('user_comments_' + getMySid(), { postId: postId, time: ts, content: content.substring(0, 40) }); }
+      showToast('评论发布成功！', 'success');
+      // Close and reopen modal to refresh
+      var overlay = document.getElementById(ovId);
+      if (overlay) overlay.remove();
+      viewPost(postId);
+    }
+
+    // ===== Delete (admin only) =====
+    function isAdminUser() { try { var u = JSON.parse(localStorage.getItem('current_user') || '{}'); return u.role === 'admin'; } catch (e) { return false; } }
+    function deleteComment(postId, ci, ovId) {
+      if (!isAdminUser()) { showToast('仅管理员可删除评论', 'error'); return; }
+      if (!confirm('确定删除这条评论？')) return;
+
+      // Try API first
+      fetch('/api/forum/comment/' + postId + '/' + ci, { method: 'DELETE' })
+        .then(function (r) { if (r.ok) return r.json(); throw new Error(); })
+        .then(function (d) {
+          if (d.ok) console.log('评论已从服务器删除:', postId);
+        })
+        .catch(function () {
+          console.warn('评论删除API不可用，仅本地删除');
+        });
+
+      // Always remove locally
+      loadComments(postId, function (comments) {
+        comments.splice(ci, 1);
+        saveComments(postId, comments);
+      });
+
+      var overlay = document.getElementById(ovId);
+      if (overlay) overlay.remove();
+      showToast('评论已删除', 'success');
+      // Refresh view
+      setTimeout(function () { viewPost(postId); }, 150);
+    }
+    function deletePost(id, ovId) {
+      if (!isAdminUser()) { showToast('仅管理员可删除帖子', 'error'); return; }
+      if (!confirm('确定要删除该帖子？此操作不可恢复。')) return;
+
+      var overlay = document.getElementById(ovId);
+      if (overlay) overlay.remove();
+
+      // Always mark as deleted + clean localStorage (mirrors questions.html pattern)
+      addDeletedPostId(id);
+      removePostFromLocalStorage(id);
+
+      // Optimistic UI removal
+      allPosts = allPosts.filter(function (p) { return p.id !== id });
+      updateStats();
+      renderPosts();
+
+      // Try server API
+      fetch('/api/forum/delete/' + id, { method: 'DELETE' })
+        .then(function (resp) {
+          if (resp.ok) {
+            console.log('帖子 ' + id + ' 已从服务器删除');
+            reloadPosts();
+          }
+        })
+        .catch(function (err) {
+          console.warn('后端不可用，删除已保存至本地:', err.message);
+          // Already persisted locally via addDeletedPostId + removePostFromLocalStorage
+        });
+
+      showToast('帖子已删除', 'success');
+    }
+
+    // ===== Toast =====
+    function showToast(msg, type) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast ' + type + ' show'; setTimeout(function () { t.classList.remove('show'); }, 2500); }
+
+    // ===== Init =====
+    loadPosts().then(function () {
+      var deletedIds = getDeletedPostIds();
+      allPosts = allPosts.filter(function (p) { return deletedIds.indexOf(p.id) === -1; });
+      syncLocalPosts();
+      updateStats();
+      renderPosts();
+    });
+    syncPendingPosts();
+    syncPendingComments();
+
+    // Sync unsynced local comments to server
+    function syncPendingComments() {
+      // Check all localStorage comment keys and push to server
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          if (key && key.indexOf('forum_comments_') === 0 && key !== 'forum_comments_pending') {
+            var postId = key.replace('forum_comments_', '');
+            var raw = localStorage.getItem(key);
+            if (!raw) continue;
+            var comments = JSON.parse(raw);
+            if (!comments.length) continue;
+            // Try to push to server (server will deduplicate or overwrite)
+            fetch('/api/forum/comments/' + postId + '?_=' + Date.now())
+              .then(function (r) { if (r.ok) return r.json(); throw new Error(); })
+              .then(function (d) {
+                if (d.ok && d.comments) {
+                  // Server has comments — use the larger set
+                  var merged = d.comments;
+                  // Simple merge: server wins if time matches, else append missing
+                  comments.forEach(function (lc) {
+                    if (!merged.some(function (sc) { return sc.time === lc.time && sc.author === lc.author; })) {
+                      merged.push(lc);
+                    }
+                  });
+                  localStorage.setItem(key, JSON.stringify(merged));
+                }
+              }).catch(function () { });
+          }
+        }
+      } catch (e) { }
+    }
+  </script>
 </body>
+
 </html>

@@ -1,0 +1,23 @@
+{
+  "id": "q_436",
+  "overview": "求行星轮机构B、C点速度与BC杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知：$OA=22$cm，行星轮半径$r=10$cm，$O$轮固定不动，$BC=30$cm，斜槽倾角$\\varphi=45^\\circ$。在图示位置时，$BC$铅垂，$O$、$A$、$B$三点在同一水平线上，$OA$杆的角速度$\\omega_0=3$rad/s。试求：该瞬时(1) $B$点和$C$点的速度；(2) $BC$杆的角速度。</p><img src=\"qdata/q_436/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=132$ cm/s（向上）；$v_C=132\\sqrt2$ cm/s（沿斜槽向上）；$\\omega_{BC}=4.4$ rad/s</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega_0\\cdot OA=3\\times22=66$ cm/s，方向铅垂向上。<br>固定轮半径$=OA-r=12$ cm，行星轮在$A$处纯滚动，接触点为瞬心，故$\\omega_{轮}=\\dfrac{v_A}{r}=\\dfrac{66}{10}=6.6$ rad/s。<br>$B$为行星轮右端点：$$v_B=v_A+\\omega_{轮}\\times r_{AB}=66+66=132\\ \\text{cm/s（向上）}$$<br>$BC$铅垂、$C$沿$45^\\circ$斜槽运动，由速度投影定理：$$v_C\\sin45^\\circ=v_B\\;\\Rightarrow\\;v_C=132\\sqrt2\\ \\text{cm/s}$$<br>再由$\\boldsymbol{v}_C=\\boldsymbol{v}_B+\\boldsymbol{\\omega}_{BC}\\times\\boldsymbol{r}_{BC}$得$$\\omega_{BC}=\\dfrac{132}{30}=4.4\\ \\text{rad/s}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册",
+  "title": "求行星轮机构B、C点速度与BC杆角速度",
+  "module": "运动学"
+}

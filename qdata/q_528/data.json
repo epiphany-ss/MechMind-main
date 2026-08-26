@@ -1,0 +1,20 @@
+{
+  "id": "q_528",
+  "overview": "竖直上抛质点落地所需时间",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "easy",
+  "content": "<p>一质量为 $m$ 的质点，离地面距离为 $h$，以初速 $v_0$ 作竖直上抛运动，如图所示。求质点落地时所需的时间。</p>",
+  "answer": "<p>$t=\\dfrac{v_0+\\sqrt{v_0^2+2gh}}{g}$</p>",
+  "explanation": "<p>【AI 生成】取 $y$ 轴铅直向上，原点在地面，初始位置 $y(0)=h$、初速度 $v(0)=v_0$，加速度 $\\ddot{y}=-g$。运动方程为 $$y(t)=h+v_0t-\\frac{1}{2}gt^2。$$ 落地时 $y=0$，即 $$\\frac{1}{2}gt^2-v_0t-h=0,$$ 解得 $$t=\\frac{v_0+\\sqrt{v_0^2+2gh}}{g}。$$ 取正根即为落地所需时间。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "竖直上抛质点落地所需时间",
+  "module": "动力学"
+}

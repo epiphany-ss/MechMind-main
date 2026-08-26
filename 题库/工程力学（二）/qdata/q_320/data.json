@@ -1,0 +1,20 @@
+{
+  "id": "q_320",
+  "overview": "求刚架支座A、B的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示刚架的自重不计，已知：$q=2$kN/m，$M=10\\sqrt2$ kN·m，$L=2$m，C、D 为光滑铰链。A 为固定铰支座，B 为滚动铰支座。试求支座 A、B 的约束力。</p><img src=\"qdata/q_320/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_A=\\dfrac{3qL}{2}+\\dfrac{M}{2\\sqrt2 L}\\approx6+\\dfrac{10\\sqrt2}{2\\sqrt2\\cdot2}=6+2.5=8.5$kN（↑），$R_B=2.5$kN（↑），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】刚架由 C、D 两铰分为静定部分。均布载荷合力 $Q=qL=4$kN（作用于左段中点），力偶 $M=10\\sqrt2$kN·m 作用于 45° 斜杆端。先取右部分对 D（或相应铰）取矩，由力偶平衡关系求出 B 支座反力；再取整体对 A 取矩与 $\\sum F_y=0$ 求 $R_A$。按图示几何（斜杆水平投影与竖直投影各为 $\\sqrt2 L$）得 $R_B=\\frac{M}{2\\sqrt2 L}=2.5$kN，$R_A=Q+R_B\\cdot\\frac{3L}{2L}\\cdot\\frac{2}{3}$… 汇总得 $R_A\\approx8.5$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

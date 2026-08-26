@@ -1,0 +1,22 @@
+{
+  "id": "q_400",
+  "overview": "求飞轮的转动方程与角速度关系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>一飞轮绕固定轴 O 转动，其轮缘上任一点的全加速度在某段运动过程中与轮半径的交角恒为 $60^\\circ$。当运动开始时，其转角 $\\varphi$ 等于零，角速度为 $\\omega_0$。求飞轮的转动方程以及角速度与转角的关系。</p><img src=\"qdata/q_400/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>转动方程：$\\varphi=-\\dfrac{1}{\\sqrt3}\\ln(1-\\sqrt3\\,\\omega_0 t)$；角速度与转角关系：$\\omega=\\omega_0 e^{\\sqrt3\\varphi}$</p>",
+  "explanation": "<p>【AI 生成】全加速度与半径交角恒为 $60^\\circ$：</p><p>$$\\tan60^\\circ=\\frac{a_\\tau}{a_n}=\\frac{\\alpha R}{\\omega^2 R}=\\frac{\\alpha}{\\omega^2}=\\sqrt3,\\qquad \\alpha=\\sqrt3\\,\\omega^2$$</p><p>由 $\\alpha=\\dfrac{d\\omega}{dt}=\\sqrt3\\omega^2$ 分离变量积分：</p><p>$$\\frac{1}{\\omega}=\\frac{1}{\\omega_0}-\\sqrt3 t,\\qquad \\omega=\\frac{\\omega_0}{1-\\sqrt3\\,\\omega_0 t}$$</p><p>又 $\\omega\\dfrac{d\\omega}{d\\varphi}=\\sqrt3\\omega^2$，即 $\\dfrac{d\\omega}{\\omega}=\\sqrt3\\,d\\varphi$，积分得角速度与转角关系：</p><p>$$\\omega=\\omega_0 e^{\\sqrt3\\varphi}$$</p><p>转动方程由 $\\varphi=\\int\\omega\\,dt$ 得</p><p>$$\\varphi=-\\frac{1}{\\sqrt3}\\ln(1-\\sqrt3\\,\\omega_0 t)$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求飞轮的转动方程与角速度关系",
+  "module": "运动学"
+}

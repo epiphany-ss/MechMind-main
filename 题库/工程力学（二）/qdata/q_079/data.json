@@ -1,0 +1,19 @@
+{
+  "id": "q_079",
+  "overview": "杆与弹簧系统求最大伸长与角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示系统中，已知：均质杆 $AB$ 重 $100\\,\\mathrm{N}$、长为 $20\\,\\mathrm{cm}$，弹簧的刚性系数 $k=20\\,\\mathrm{N/cm}$，杆与水平线的夹角为 $\\beta$，$\\beta=0^\\circ$ 时弹簧的长度为原长，滑块的重量及摩擦不计。试求：(1) 杆在 $\\beta=60^\\circ$ 处无初速地释放，弹簧伸长的最大距离；(2) 将杆由 $\\beta=60^\\circ$ 时无初速地释放，至 $\\beta=0^\\circ$ 时，杆的角速度。</p>",
+  "answer": "<p>$\\delta_{\\max}=5\\,\\mathrm{cm}$；$\\omega=15.5\\,\\mathrm{rad/s}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 杆绕固定铰转动，质心下降 $\\frac L2(\\sin60^\\circ-\\sin0^\\circ)$ 时弹簧伸长。设弹簧连于杆端点，伸长 $\\delta=L\\sin\\beta$（$\\beta=60^\\circ$ 时 $\\delta=20\\sin60^\\circ$）。<br>(2) 由动能定理（速度为零处弹簧伸长最大）：$100\\cdot\\frac{0.2}{2}\\sin60^\\circ=\\frac12\\cdot2000\\,\\delta_{\\max}^2$（$k=2000\\,\\mathrm{N/m}$），解得 $\\delta_{\\max}=5\\,\\mathrm{cm}$。<br>(3) 由 $\\beta=60^\\circ$ 释放至 $\\beta=0^\\circ$，机械能守恒：$100\\cdot\\frac{0.2}{2}\\sin60^\\circ=\\frac12\\cdot\\frac13\\cdot\\frac{100}{9.81}\\cdot0.2^2\\omega^2+\\frac12\\cdot2000(0.2\\sin60^\\circ)^2$，解得 $\\omega=15.5\\,\\mathrm{rad/s}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

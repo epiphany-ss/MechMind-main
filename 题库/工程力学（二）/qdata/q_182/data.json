@@ -1,0 +1,21 @@
+{
+  "id": "q_182",
+  "overview": "用拉格朗日方程推导两圆轮弹簧系统运动微分方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，质量为 $m$、半径为 $r$ 的两均质圆轮，轮心用刚度系数为 $k$、长为 $l_0$ 的弹簧相连，在水平面上作纯滚动，试用拉格朗日方程推导出系统运动微分方程。</p><img src=\"qdata/q_182/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>【AI 修改】$$\\frac{3}{2}m\\ddot x_1+k(x_1-x_2+l_0)=0,\\qquad \\frac{3}{2}m\\ddot x_2+k(x_2-x_1-l_0)=0$$</p>",
+  "explanation": "<p>【AI 修改】(1) 两圆轮均作纯滚动，每个轮的动能为 ½mẋ²+½(½mr²)(ẋ/r)²=¾mẋ²。(2) 弹簧长度为 x₂-x₁、自然长度 l₀，伸长量 e=x₂-x₁-l₀，势能 V=½k(x₂-x₁-l₀)²。(3) 拉格朗日方程：对 x₁，∂V/∂x₁=-k(x₂-x₁-l₀)，得 (3/2)mẍ₁-k(x₂-x₁-l₀)=0，即 (3/2)mẍ₁+k(x₁-x₂+l₀)=0；对 x₂，∂V/∂x₂=k(x₂-x₁-l₀)，得 (3/2)mẍ₂+k(x₂-x₁-l₀)=0。平衡位置 x₂-x₁=l₀（弹簧自然长度），且两式相加得 ẍ₁+ẍ₂=0（无外力、质心匀速），物理自洽。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "ai_modified": "2026-08-14",
+  "source": "练习册"
+}

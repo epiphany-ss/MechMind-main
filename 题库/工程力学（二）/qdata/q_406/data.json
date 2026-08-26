@@ -1,0 +1,20 @@
+{
+  "id": "q_406",
+  "overview": "求摩擦传动机构轴Ⅱ的角加速度与全加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，摩擦传动机构的主动轴 Ⅰ 的转速为 $n=600$r/min。轴 Ⅰ 的轮盘与轴 Ⅱ 的轮盘接触，接触点按箭头 A 所示的方向移动。距离 $d$ 的变化规律为 $d=100-5t$，其中 $d$ 以 mm 计，$t$ 以 s 计。已知 $r=50$mm，$R=150$mm。求：(1) 以距离 $d$ 表示轴 Ⅱ 的角加速度；(2) 当 $d=r$ 时，轮 B 边缘上一点的全加速度。</p><img src=\"qdata/q_406/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $\\alpha_2=\\dfrac{50\\pi}{d^2}\\,\\mathrm{rad/s^2}$（$d$ 以 cm 计）；(2) $a=592\\,\\mathrm{m/s^2}$</p>",
+  "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n}{60}=\\dfrac{2\\pi\\times600}{60}=20\\pi$ rad/s。接触点线速度 $v=\\omega_1 r$，轮 Ⅱ 接触半径为 $d$，故 $\\omega_2=\\omega_1 r/d$，$\\dot d=-0.5$ cm/s。轴 Ⅱ 角加速度</p><p>$$\\alpha_2=\\frac{d\\omega_2}{dt}=-\\frac{\\omega_1 r}{d^2}\\dot d=\\frac{20\\pi\\times5\\times0.5}{d^2}=\\frac{50\\pi}{d^2}\\,\\mathrm{rad/s^2}\\quad(d\\ \\text{以 cm 计})$$</p><p>(2) 当 $d=r=5$cm 时 $\\omega_2=\\omega_1 r/d=20\\pi$ rad/s。轮 B 边缘（半径 $R=0.15$m）法向加速度</p><p>$$a_n=\\omega_2^2 R=(20\\pi)^2\\times0.15=60\\pi^2\\approx592\\,\\mathrm{m/s^2}$$</p><p>切向加速度相对很小，全加速度 $a\\approx592\\,\\mathrm{m/s^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册"
+}

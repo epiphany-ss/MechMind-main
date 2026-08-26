@@ -1,0 +1,21 @@
+{
+  "id": "q_441",
+  "overview": "求正方形板角速度与滑块E速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知：正方形板边长$L=10$cm，$O_1A=BE=2L$，$O_2C=L$，$\\theta=30^\\circ$。在图示位置时，$O_1A$杆的角速度$\\omega_1=3$rad/s，$\\varphi=60^\\circ$，$O_2$、$C$、$B$三点处于同一铅垂线，$BE$杆沿斜槽。试求：该瞬时(1) 正方形板的角速度；(2) 滑块$E$的速度。</p><img src=\"qdata/q_441/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{板}=3\\sqrt3\\approx5.2$ rad/s；$v_E=15$ cm/s（沿斜槽）</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega_1\\cdot O_1A=3\\times20=60$ cm/s，方向垂直于$O_1A$（与水平成$120^\\circ$）。<br>$C$点在$O_2C$杆上且$O_2C$铅垂，故$v_C$沿水平方向。<br>以$A$为基点求正方形板：$\\boldsymbol{v}_C=\\boldsymbol{v}_A+\\boldsymbol{\\omega}_{板}\\times\\boldsymbol{r}_{AC}$，其中$\\boldsymbol{r}_{AC}=(-10,-10)$cm，由$v_C$水平解得：$$\\omega_{板}=\\dfrac{60\\sin60^\\circ}{10}=3\\sqrt3\\ \\text{rad/s}$$<br>$B$点速度：$v_B=(-30,0)$cm/s。$BE=20$cm沿$\\varphi=60^\\circ$斜槽，由速度投影定理：$$v_E=v_B\\cos60^\\circ=15\\ \\text{cm/s}$$方向沿斜槽。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册"
+}

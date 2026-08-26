@@ -1,0 +1,20 @@
+{
+  "id": "q_549",
+  "overview": "求曲柄齿轮导杆系统的动量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>机构如图，已知：曲柄$O_1O_2$质量为$m_1$，长$L$，以匀角速度$\\omega$绕$O_1$轴转动，动齿轮质量为$m_2$，半径为$L$，导杆$AB$质量为$m_3$。试求曲柄$O_1O_2$与水平线夹角为$\\varphi$时，系统的动量。（写成$\\boldsymbol{p}=p_x\\boldsymbol{i}+p_y\\boldsymbol{j}$形式）</p><img src=\"qdata/q_549/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$p_x=\\left(\\frac{m_1}{2}+m_2+\\frac{m_3}{2}\\right)L\\omega\\sin\\varphi,\\qquad p_y=\\left(\\frac{m_1}{2}+m_2\\right)L\\omega\\cos\\varphi$$<br>即 $\\boldsymbol{p}=\\left(\\frac{m_1}{2}+m_2+\\frac{m_3}{2}\\right)L\\omega\\sin\\varphi\\,\\boldsymbol{i}+\\left(\\frac{m_1}{2}+m_2\\right)L\\omega\\cos\\varphi\\,\\boldsymbol{j}$。</p>",
+  "explanation": "<p>【AI 生成】曲柄绕$O_1$以角速度$\\omega$转动，其质心（中点）速度 $v_{C_1}=\\omega L/2$，垂直于$O_1O_2$；齿轮中心$O_2$的速度 $v_{O_2}=\\omega L$，亦垂直于$O_1O_2$。垂直方向的单位矢量为 $(-\\sin\\varphi,\\cos\\varphi)$。齿轮在导杆上纯滚动，导杆$AB$沿水平方向平动，其速度由齿轮的滚动确定（图示瞬时 $v_{AB}=\\omega L\\sin\\varphi/2$）。故<br>$$p_x=m_1\\frac{\\omega L}{2}\\sin\\varphi+m_2\\omega L\\sin\\varphi+m_3\\frac{\\omega L}{2}\\sin\\varphi$$<br>$$p_y=m_1\\frac{\\omega L}{2}\\cos\\varphi+m_2\\omega L\\cos\\varphi$$<br>整理即得结果（$p_y$不含$m_3$项，因导杆作水平平动）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_358",
+  "overview": "判断某瞬时切法向加速度均为零的结论",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>在某瞬时，点的切向加速度和法向加速度都等于零，则该点一定作匀速直线运动。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】某瞬时 $a_\\tau=a_n=0$ 只说明该瞬时速度大小不变、曲率半径无穷大，不能推断全过程为匀速直线运动。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

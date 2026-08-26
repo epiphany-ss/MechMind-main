@@ -1,0 +1,24 @@
+{
+  "id": "q_076",
+  "overview": "轮轴纯滚动弹簧系统求角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>质量为 $100\\,\\mathrm{kg}$ 的圆轮的半径 $R=0.5\\,\\mathrm{m}$，轮轴的半径 $r=0.2\\,\\mathrm{m}$。轮对于质心 $G$ 的回转半径 $\\rho_G=0.25\\,\\mathrm{m}$。若作用一顺时针的常力偶 $M=20\\,\\mathrm{N\\cdot m}$，使它的轮轴沿水平面只滚不滑，求 $20\\,\\mathrm{kg}$ 物体 $A$ 由静止释放至下降 $0.4\\,\\mathrm{m}$ 时轮子的角速度。弹簧刚性系数 $k=60\\,\\mathrm{N/m}$，并且当物块释放时弹簧没有伸长。弹簧与 $BC$ 段绳均保持水平。</p><img src=\"qdata/q_076/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=2.97\\,\\mathrm{rad/s}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 轮纯滚动 $v_G=R\\omega$，绳绕轮轴（半径 $r$）上缘，$v_A=v_G+r\\omega=(R+r)\\omega$。<br>(2) 动能：$T=\\frac12m\\rho_G^2\\omega^2+\\frac12mv_G^2+\\frac12m_Av_A^2$，$m=100$、$m_A=20$。<br>(3) 功：常力偶 $M\\theta$（$\\theta=\\dfrac{h}{R+r}$ 为轮转角）、物体 $A$ 重力 $m_Agh$、弹簧伸长 $\\delta=2R\\theta$（弹簧水平连于轮缘 $B$、$C$ 点）作负功 $-\\frac12k\\delta^2$。<br>(4) 动能定理：$T=M\\theta+m_Agh-\\frac12k\\delta^2$，代入数据解出 $\\omega=2.97\\,\\mathrm{rad/s}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "轮轴纯滚动弹簧系统求角速度",
+  "module": "动力学"
+}

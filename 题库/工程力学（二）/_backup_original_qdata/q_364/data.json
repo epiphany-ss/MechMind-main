@@ -1,0 +1,17 @@
+{
+  "id": "q_364",
+  "overview": "判断自然坐标系中速度恒定时加速度是否为零",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>在自然坐标系中，如果速度 $v$ = 常数，则加速度 $a$ 为零。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】$v$ 为常数只说明 $a_\\tau=0$，但法向加速度 $a_n=v^2/\\rho$ 一般不为零（如匀速圆周运动），故加速度不一定为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

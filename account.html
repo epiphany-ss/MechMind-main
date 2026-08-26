@@ -76,7 +76,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
 <script>
 // ===== Auth helpers =====
 var currentUser = null;
-var EMBEDDED_USERS = [{id:'u_001',name:'刘丰源',student_id:'202509020109',password:'202509020109',role:'admin',created:'2026-07-01'}];
+var EMBEDDED_USERS = [{id:'u_001',name:'孙晞凯',student_id:'202501040104',password:'Sxk20070413',role:'admin',created:'2026-07-01'}];
 
 function getCurrentUser() {
   try { var raw = localStorage.getItem('current_user'); return raw ? JSON.parse(raw) : null; } catch(e) { return null; }
@@ -129,13 +129,17 @@ function loadUsers(cb) {
     var ids = {}; all.forEach(function(u){ids[u.student_id]=1});
 
     // Fill passwords from embedded users (API strips passwords for security)
+    // 并强制内嵌管理员身份生效（避免本地/云端已存在同名普通用户导致管理员失效）
     EMBEDDED_USERS.forEach(function(eu) {
+      var found = false;
       for (var i = 0; i < all.length; i++) {
-        if (all[i].student_id === eu.student_id && !all[i].password) {
-          all[i].password = eu.password;
+        if (all[i].student_id === eu.student_id) {
+          found = true;
+          if (!all[i].password) all[i].password = eu.password;
+          if (eu.role === 'admin') all[i].role = 'admin';
         }
       }
-      if (!ids[eu.student_id]) { all.push(eu); ids[eu.student_id] = 1; }
+      if (!found) { all.push(eu); ids[eu.student_id] = 1; }
     });
 
     // Also merge localStorage registered users
@@ -310,8 +314,8 @@ function renderProfile(container) {
   if (isAdm) {
     adminHtml = '<div class="section-title">🔧 管理员操作</div>' +
       '<div class="admin-actions">' +
-        '<a class="action-card" href="personal_knowledge.html"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联</p></a>' +
-        '<a class="action-card" href="questions.html"><div class="act-icon">📝</div><h5>管理题库</h5><p>上传/删除/修改题目</p></a>' +
+        '<a class="action-card" href="personal_knowledge.html?v=20260826b"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联</p></a>' +
+        '<a class="action-card" href="http://localhost:8090"><div class="act-icon">📝</div><h5>管理题库</h5><p>上传/删除/修改题目</p></a>' +
         '<a class="action-card" href="forum.html"><div class="act-icon">💬</div><h5>管理论坛</h5><p>删除违规帖子与评论</p></a>' +
         '<a class="action-card" href="account.html" onclick="event.preventDefault();showUserManager()"><div class="act-icon">👥</div><h5>用户管理</h5><p>查看/删除用户账户</p></a>' +
         '<a class="action-card" href="account.html" onclick="event.preventDefault();showDataViewer()"><div class="act-icon">📁</div><h5>数据文件</h5><p>查看平台数据概况</p></a>' +
@@ -323,7 +327,7 @@ function renderProfile(container) {
       '<div class="card-info"><h2>' + escHtml(currentUser.name) + '</h2><p>学号：' + currentUser.student_id + '</p>' + roleLabel + '</div></div>' +
     '<div class="card-body">' +
       '<div class="section-title">📊 学习概览</div>' + statsHtml +
-      '<a class="action-card" href="personal_knowledge.html" style="display:block;margin-bottom:18px"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联，形成个性化学习地图</p></a>' +
+      '<a class="action-card" href="personal_knowledge.html?v=20260826b" style="display:block;margin-bottom:18px"><div class="act-icon">🕸️</div><h5>个人知识网络</h5><p>构建自己的知识点与关联，形成个性化学习地图</p></a>' +
       '<a class="action-card" href="activity.html" style="display:block;margin-bottom:18px"><div class="act-icon">🔥</div><h5>用户活跃状态</h5><p>查看最近的登录、做题与AI问答活跃记录</p></a>' +
       renderMyContent() +
       adminHtml +

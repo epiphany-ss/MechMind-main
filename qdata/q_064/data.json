@@ -1,0 +1,20 @@
+{
+  "id": "q_064",
+  "overview": "小环沿固定圆环运动时弹性力作功",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>自然长度为 $2R$，弹簧常数为 $K$ 的弹簧，其一端固定于 $O'$，另一端系在小环 $M$ 上，当 $M$ 沿半径为 $R$ 的固定圆环由 $A$ 到 $B$ 和由 $B$ 到 $D$ 时，弹性力的功分别等于____和____。</p>",
+  "answer": "<p>$W_{A\\to B}=\\frac12K\\left[(O'A-2R)^2-(O'B-2R)^2\\right]$；$W_{B\\to D}=\\frac12K\\left[(O'B-2R)^2-(O'D-2R)^2\\right]$</p>",
+  "explanation": "<p>【AI 生成】弹簧原长 $2R$，小环在圆环上位置不同时弹簧长度 $O'M$ 不同（为对应弦长），变形量 $\\delta=O'M-2R$。弹性力作功 $W=\\frac12K\\delta_初^2-\\frac12K\\delta_末^2$。故 $W_{A\\to B}=\\frac12K\\left[(O'A-2R)^2-(O'B-2R)^2\\right]$，$W_{B\\to D}=\\frac12K\\left[(O'B-2R)^2-(O'D-2R)^2\\right]$。其中弦长 $O'M=2R\\sin\\dfrac{\\angle O'OM}{2}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "小环沿固定圆环运动时弹性力作功",
+  "module": "动力学"
+}

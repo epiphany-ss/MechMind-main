@@ -1,0 +1,19 @@
+{
+  "id": "q_401",
+  "overview": "求电动绞车重物上升速度与皮带加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>电动绞车由皮带轮 Ⅰ 和 Ⅱ 以及鼓轮 Ⅲ 组成，鼓轮 Ⅲ 和皮带轮 Ⅱ 刚性地固定在同一轴上。各轮的半径分别为 $r_1=0.3$m，$r_2=0.75$m，$r_3=0.4$m，轮 Ⅰ 的转速为 $n_1=100$r/min。设皮带轮与皮带之间无滑动，求重物 P 上升的速度和皮带各段上点的加速度。</p><img src=\"qdata/q_401/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_P=1.68\\,\\mathrm{m/s}$；$a_{AB}=a_{CD}=0$，$a_{BC}=13.16\\,\\mathrm{m/s^2}$，$a_{AD}=32.9\\,\\mathrm{m/s^2}$</p>",
+  "explanation": "<p>【AI 生成】$\\omega_1=\\dfrac{2\\pi n_1}{60}=\\dfrac{2\\pi\\times100}{60}=10.47$ rad/s，皮带速度</p><p>$$v=\\omega_1 r_1=10.47\\times0.3=3.14\\,\\mathrm{m/s}$$</p><p>轮 Ⅱ：$\\omega_2=\\dfrac{v}{r_2}=\\dfrac{3.14}{0.75}=4.19$ rad/s；轮 Ⅲ 与轮 Ⅱ 同轴，$\\omega_3=\\omega_2$，重物上升速度</p><p>$$v_P=\\omega_3 r_3=4.19\\times0.4=1.68\\,\\mathrm{m/s}$$</p><p>皮带直线段 AB、CD 上各点速度相同且皮带匀速，$a=0$。绕轮 Ⅱ 的弧段 BC 与绕轮 Ⅰ 的弧段 AD 的向心加速度为</p><p>$$a_{BC}=\\frac{v^2}{r_2}=\\frac{3.14^2}{0.75}=13.16\\,\\mathrm{m/s^2}$$</p><p>$$a_{AD}=\\frac{v^2}{r_1}=\\frac{3.14^2}{0.3}=32.9\\,\\mathrm{m/s^2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

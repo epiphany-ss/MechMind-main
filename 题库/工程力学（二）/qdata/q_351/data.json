@@ -1,0 +1,20 @@
+{
+  "id": "q_351",
+  "overview": "求斜面上圆轮平衡时重物C的重量",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>圆轮 B 半径为 r，重 Q，位于与水平面成 $\\alpha$ 角的斜面上。一根绳子过滑轮 A，一端系在 B 轮的中心，另一端吊一重物 C，绳 BD 段与斜面平行，已知：B 轮沿斜面的滚动摩阻系数为 $\\delta$。试求当系统处于平衡时重物 C 的重量 P。</p><img src=\"qdata/q_351/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$P_{\\min}=Q\\sin\\alpha-\\dfrac{\\delta Q\\cos\\alpha}{r}$，$P_{\\max}=Q\\sin\\alpha+\\dfrac{\\delta Q\\cos\\alpha}{r}$；平衡时 $Q\\sin\\alpha-\\dfrac{\\delta Q\\cos\\alpha}{r}\\le P\\le Q\\sin\\alpha+\\dfrac{\\delta Q\\cos\\alpha}{r}$。</p>",
+  "explanation": "<p>【AI 生成】绳张力 $T=P$，沿斜面向上作用于轮心。轮受 $Q$（铅垂）、法向反力 N、滚动摩擦力偶 $M_r$（$|M_r|\\le\\delta N$，$N=Q\\cos\\alpha$）。绕接触点取矩：轮上滑趋势 $T r-Q\\sin\\alpha\\,r$ 由滚动摩阻平衡，故 $|P-Q\\sin\\alpha|r\\le\\delta Q\\cos\\alpha$。即 $P$ 在 $Q\\sin\\alpha\\pm\\frac{\\delta Q\\cos\\alpha}{r}$ 之间时轮保持平衡。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_483",
+  "overview": "圆盘销子摇杆机构求B端速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，圆盘O绕其中心以匀角速度 $\\omega=2\\,\\text{rad/s}$ 转动，并通过圆盘上销子M带动摇杆AB摆动。若设R＝10cm，b＝20cm，L＝30cm。试求当 $\\theta=45^\\circ$、摇杆AB为水平时，摇杆上B端的速度。</p><img src=\"qdata/q_483/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=15\\sqrt{2}\\,\\text{cm/s}\\approx21.2\\,\\text{cm/s}$（方向垂直AB，即铅垂方向）。</p>",
+  "explanation": "<p>【AI 生成】取销子M为动点，摇杆AB为动系。<br>（1）M随圆盘转动：$v_M=\\omega\\cdot R=2\\times10=20\\,\\text{cm/s}$，方向垂直于OM；当 $\\theta=45^\\circ$ 时，$v_M$ 与AB（水平）成 $45^\\circ$。<br>（2）$v_M=v_e+v_r$：$v_r$ 沿AB（水平）方向，$v_e=\\omega_{AB}\\cdot AM$ 垂直AB（铅垂）。<br>（3）铅垂方向投影：$v_e=v_M\\sin45^\\circ=20\\times\\dfrac{\\sqrt2}{2}=10\\sqrt2\\,\\text{cm/s}$。<br>（4）$\\omega_{AB}=\\dfrac{v_e}{AM}=\\dfrac{10\\sqrt2}{b}=\\dfrac{10\\sqrt2}{20}=\\dfrac{\\sqrt2}{2}\\,\\text{rad/s}$，故 $v_B=\\omega_{AB}\\cdot AB=\\dfrac{\\sqrt2}{2}\\times30=15\\sqrt2\\,\\text{cm/s}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "圆盘销子摇杆机构求B端速度",
+  "module": "运动学"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_520",
+  "overview": "凹形路面最低点汽车对路面压力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>重量为 $P$ 的汽车，以匀速 $v$ 驶过凹形路面。试问汽车过路面最低点时，对路面的压力大小 ____。<br>(A) 小于 $P$；<br>(B) 大于 $P$；<br>(C) 等于 $P$；<br>(D) 已知条件没给够，无法判断。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】在凹形路面最低点，汽车作圆周运动，法向加速度指向圆心（向上）。由 $N-P=\\dfrac{P}{g}\\cdot\\dfrac{v^2}{\\rho}$，得 $N=P+\\dfrac{Pv^2}{g\\rho}>P$。由作用力与反作用力，汽车对路面的压力大于 $P$，故选 B。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "凹形路面最低点汽车对路面压力",
+  "module": "动力学"
+}

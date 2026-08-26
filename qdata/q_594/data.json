@@ -1,0 +1,29 @@
+{
+  "id": "q_594",
+  "overview": "求约束A突然移去时支座B的约束力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，一刚性均质杆重为200N，A处为可动光滑铰链约束，B为铰链支座，AB长1m。当杆位于水平位置时，C处的弹簧压缩了76mm，弹簧刚度系数为8750N/m（C距B为400mm，弹簧对杆的推力铅垂向上）。试求当约束A突然移去时，支座B的约束力。</p>",
+  "answer": "<p>$B_x=0$，$B_y\\approx216\\ \\mathrm{N}$（方向铅垂向下）</p>",
+  "explanation": "<p>【AI 生成】弹簧力$F_s=k\\delta=8750\\times0.076=665\\ \\mathrm{N}$（向上）。A移去后杆绕B转动，$J_B=\\frac{1}{3}\\frac{200}{g}\\times1^2=\\frac{200}{3g}$。对B取矩（逆时针为正）：$$\\sum M_B=F_s\\times0.4-200\\times0.5=266-100=166\\ \\mathrm{N\\cdot m}$$$$\\alpha=\\frac{166}{200/(3g)}=2.49g\\approx24.4\\ \\mathrm{rad/s^2}$$质心距B为0.5m，$a_C=\\alpha\\times0.5=1.245g\\approx12.2\\ \\mathrm{m/s^2}$（向上）。由质心运动定理$B_y+F_s-200=\\frac{200}{g}a_C$：$$B_y=\\frac{200}{g}\\times1.245g+200-665\\approx-216\\ \\mathrm{N}$$负号表示方向向下，故$B$处约束力大小约216N，方向铅垂向下；$B_x=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册",
+  "narration": {
+    "path": "qdata/q_594/narration_1786722461.mp3",
+    "voice": "girl",
+    "voice_label": "少女音 · 宵宫",
+    "created": "2026-08-14 23:47",
+    "speakable_text": "【AI 生成】弹簧力 Fs=kdelta=8750 0.076=665 N （向上）。A移去后杆绕B转动， JB= 1 3 200 g 12= 200 3g 。对B取矩（逆时针为正）： 对O点求合力矩 由分式计算相应物理量 质心距B为0.5m， aC=alpha 0.5=1.245g 12.2 m/s2 （向上）。由质心运动定理 By+Fs-200= 200 g aC ： 由分式计算相应物理量 负号表示方向向下，故 B 处约束力大小约216N，方向铅垂向下； Bx=0 。",
+    "ai_generated": false
+  },
+  "title": "求约束A突然移去时支座B的约束力",
+  "module": "动力学"
+}

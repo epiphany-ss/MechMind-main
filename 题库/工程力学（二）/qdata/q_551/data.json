@@ -1,0 +1,20 @@
+{
+  "id": "q_551",
+  "overview": "求杆上滚动圆盘系统的动量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知均质细杆$OA$的质量$m_1=3$kg，长$L=10\\sqrt{3}$cm，以匀角速度$\\omega_1=2$rad/s绕$O$点逆时针转动。质量$m_2=2$kg，半径$r=5$cm的均质圆盘沿$OA$杆以相对角速度$\\omega_2=\\omega_1$作纯滚动，求当杆$OA$与水平线的夹角$\\beta=30°$、$OB=5\\sqrt{3}$cm时该系统的动量。</p><img src=\"qdata/q_551/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$p=50\\sqrt{3}\\,\\text{kg·cm/s}=0.866\\,\\text{kg·m/s}$$<br>方向垂直于$OA$（沿$\\omega_1$转向的切线方向）。</p>",
+  "explanation": "<p>【AI 生成】杆$OA$的质心（中点）速度垂直于$OA$，大小为<br>$$v_1=\\omega_1\\frac{L}{2}=2\\times\\frac{10\\sqrt{3}}{2}=10\\sqrt{3}\\,\\text{cm/s}$$<br>圆盘中心$B$（$OB=5\\sqrt{3}$cm）随杆运动的速度垂直于$OA$，大小为<br>$$v_2=\\omega_1\\cdot OB=2\\times5\\sqrt{3}=10\\sqrt{3}\\,\\text{cm/s}$$<br>系统的动量<br>$$p=m_1v_1+m_2v_2=3\\times10\\sqrt{3}+2\\times10\\sqrt{3}=50\\sqrt{3}\\,\\text{kg·cm/s}$$<br>方向垂直于$OA$。圆盘沿杆的相对滚动速度沿杆向，对垂直$OA$方向的动量无贡献。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

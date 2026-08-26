@@ -1,0 +1,17 @@
+{
+  "id": "q_373",
+  "overview": "求直线运动一秒后的速度大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>已知点沿 $x$ 轴作直线运动，某瞬时速度为 $v_x=\\dot x=2\\,\\mathrm{m/s}$，瞬时加速度为 $a_x=\\ddot x=-2\\,\\mathrm{m/s^2}$，则一秒钟以后点的速度的大小 。</p><p>(A) 等于零； (B) 等于 $-2\\,\\mathrm{(m/s)}$； (C) 等于 $-4\\,\\mathrm{(m/s)}$； (D) 无法确定。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】仅给出某瞬时的速度与加速度，加速度是否恒定未知，故一秒钟后的速度无法确定，选（D）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

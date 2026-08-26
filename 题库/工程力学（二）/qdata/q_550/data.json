@@ -1,0 +1,21 @@
+{
+  "id": "q_550",
+  "overview": "求OA、AB杆与轮系统的动量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>已知均质杆$OA$、$AB$杆与均质轮的质量均为$m$，$OA=l_1$，$AB=l_2$，轮的半径为$R$，轮做纯滚动，$OA$杆的角速度为$\\omega$，求图示瞬时此系统的动量。</p><img src=\"qdata/q_550/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$p=\\frac{5}{2}ml\\omega$$<br>式中$l$为图中各杆与轮半径的公共长度，动量方向与图示运动方向一致（$A$、$B$两点速度方向）。</p>",
+  "explanation": "<p>【AI 生成】图示瞬时，$OA$、$AB$与轮半径相等，且$A$、$B$两点速度方向相同。$A$点速度 $v_A=\\omega l$，轮作纯滚动时轮心$B$的速度 $v_B=\\omega l$（方向与$v_A$相同）。各质心的动量：<br>杆$OA$：$p_{OA}=m\\cdot\\dfrac{\\omega l}{2}$；<br>杆$AB$：$p_{AB}=m\\cdot\\dfrac{v_A+v_B}{2}=m\\omega l$；<br>轮：$p_{\\text{轮}}=m\\cdot v_B=m\\omega l$。<br>故总动量<br>$$p=p_{OA}+p_{AB}+p_{\\text{轮}}=\\frac{m\\omega l}{2}+m\\omega l+m\\omega l=\\frac{5}{2}ml\\omega$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

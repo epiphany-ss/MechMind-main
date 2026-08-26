@@ -1,0 +1,20 @@
+{
+  "id": "q_382",
+  "overview": "比较同一半径上两点的加速度大小与夹角",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图所示的圆半径为 $R$，绕过点 O 的中心轴作定轴转动，其角速度为 $\\omega$，角加速度为 $\\alpha$。记同一半径上的两点 A、B 的加速度分别为 $a_A$、$a_B$（OA=$R$，OB=$R/2$），它们与半径的夹角分别为 $\\theta$、$\\beta$。则 $a_A$、$a_B$ 的大小关系，$\\theta$、$\\beta$ 的大小关系，正确的是 。</p><p>(A) $a_A=2a_B,\\ \\theta=2\\beta$； (B) $a_A=2a_B,\\ \\theta=\\beta$； (C) $a_A=a_B,\\ \\theta=2\\beta$； (D) $a_A=a_B,\\ \\theta=\\beta$。</p><img src=\"qdata/q_382/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】$a=r\\sqrt{\\omega^4+\\alpha^2}$，故 $a_A=2a_B$；加速度与半径夹角满足 $\\tan\\theta=a_\\tau/a_n=\\alpha/\\omega^2$，与半径 $r$ 无关，故 $\\theta=\\beta$，选（B）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

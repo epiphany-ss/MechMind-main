@@ -1,0 +1,20 @@
+{
+  "id": "q_081",
+  "overview": "杆端圆轮沿圆弧纯滚动求角加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>一均质杆 $OA$ 重 $P=20\\,\\mathrm{N}$，长 $L=1\\,\\mathrm{m}$，杆端 $A$ 铰接一半径 $R=L/10$、重 $Q=10\\,\\mathrm{N}$ 的均质圆轮，此轮沿固定圆弧面作纯滚动。试求当杆 $OA$ 由水平位置静止释放转至 $\\varphi=60^\\circ$ 时，圆轮的角加速度。</p><img src=\"qdata/q_081/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\alpha=45.2\\,\\mathrm{rad/s^2}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 杆 $OA$ 绕 $O$ 转动，$A$ 端速度 $v_A=L\\dot\\varphi$。圆轮沿固定圆弧纯滚动，其角速度 $\\omega_d=\\dfrac{v_A}{R}$（外侧滚动）。<br>(2) 动能：$T=\\frac12\\cdot\\frac{P}{g}\\frac{L^2}{3}\\dot\\varphi^2+\\frac12\\frac{Q}{g}v_A^2+\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega_d^2$。<br>(3) 由动能定理对 $\\varphi$ 求导（功率方程）得角加速度表达式，代入 $\\varphi=60^\\circ$ 及数值 $P=20$、$Q=10$、$L=1$、$R=0.1$，得圆轮角加速度 $\\alpha=\\dot\\omega_d=\\dfrac{L}{R}\\ddot\\varphi=45.2\\,\\mathrm{rad/s^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

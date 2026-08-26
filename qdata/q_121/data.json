@@ -1,0 +1,21 @@
+{
+  "id": "q_121",
+  "overview": "两杆机构求力偶矩M",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示系统位于铅垂面内。已知：两匀质杆长均为 $L=0.5\\text{m}$、质量均为 $m=2\\text{kg}$，$OO_1=h=0.4\\text{m}$，不计杆 $OA$ 与杆 $O_1B$ 之间的摩擦。若当杆 $OA$ 水平时，其角速度 $\\omega=2\\,\\text{rad/s}$、角加速度为零，且 $OB=b=0.3\\text{m}$。试用动静法求此瞬时作用在杆 $OA$ 上的力偶矩 $M$。</p>",
+  "answer": "<p>$M=8.73\\,\\text{N}\\cdot\\text{m}$</p>",
+  "explanation": "<p>【AI 生成】两杆在 $B$ 处无摩擦接触。由几何关系 $OO_1=h=0.4\\text{m}$、$OB=b=0.3\\text{m}$、$O_1B=L=0.5\\text{m}$，三边恰构成直角三角形。由速度分析得杆 $O_1B$ 的角速度 $\\omega_{O_1B}=2\\,\\text{rad/s}$，由加速度分析（含科氏加速度）得 $\\alpha_{O_1B}=-16\\,\\text{rad/s}^2$。对杆 $O_1B$ 用动静法（加惯性力和惯性力偶），对 $O_1$ 取矩求 $B$ 处法向约束力 $N$；再对杆 $OA$ 用动静法，对 $O$ 取矩，得力偶矩 $M=8.73\\,\\text{N}\\cdot\\text{m}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册",
+  "title": "两杆机构求力偶矩M",
+  "module": "动力学"
+}

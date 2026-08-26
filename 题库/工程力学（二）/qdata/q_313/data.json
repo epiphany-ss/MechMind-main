@@ -1,0 +1,19 @@
+{
+  "id": "q_313",
+  "overview": "求铰链A约束力与杆BC内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "受力分析"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>重物悬挂如图，已知 P=1.8kN，其他物体的自重不计。支架由杆 AB、BC 组成，A、C 为固定铰支座，B 为铰链，D 为悬挂点。AB 与水平线成 45°，AC=20cm，BD=10cm（D 在 B 正下方）。求铰链 A 的约束力和杆 BC 所受的力。</p>",
+  "answer": "<p>杆 BC 受力 $F_{BC}=1.8$kN（拉力）；铰链 A 约束力 $A_x=1.8$kN，$A_y=1.8$kN，合力 $R_A=1.8\\sqrt2\\approx2.55$kN。</p>",
+  "explanation": "<p>【AI 生成】杆 BC 为二力杆，对杆 ABD 受力。对 A 取矩：$P\\times20$（cm）与 $F_{BC}$ 对 A 的力矩平衡。由几何（AB 与水平成 45°、BD 铅垂 10cm、D 距 A 的水平距离与 B 相同为 20cm），得 $F_{BC}=P=1.8$kN。$\\sum F_x=0$：$A_x=F_{BC}=1.8$kN；$\\sum F_y=0$：$A_y=P=1.8$kN。故 $R_A=\\sqrt{A_x^2+A_y^2}=1.8\\sqrt2$kN。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

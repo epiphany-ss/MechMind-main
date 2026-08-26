@@ -1,0 +1,20 @@
+{
+  "id": "q_591",
+  "overview": "求带质点圆环释放瞬时圆环中心的加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>质量为m、半径为r的圆环O放在一粗糙平面上。圆环的边缘上固连一质量为m的质点A。开始时，OA在水平位置，初速为零。试求此瞬时圆环中心O的加速度。</p><img src=\"qdata/q_591/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_O=\\dfrac{g}{4}$（水平向右）</p>",
+  "explanation": "<p>【AI 生成】圆环与平面间无滑动（纯滚动）。系统质心G在OA中点，距O为$r/2$。设圆环角加速度$\\alpha$（逆时针为正），由接触点加速度条件$a_O=(-\\alpha r,\\,0)$；质心加速度$$a_G=(-\\alpha r,\\,\\alpha r/2)$$系统对G的转动惯量$J_G=mr^2+m(r/2)^2+m(r/2)^2=\\frac{3}{2}mr^2$。设摩擦力$F_f$、法向力$N$作用于接触点P，列方程：$$F_f=2m a_{Gx}=-2m\\alpha r,\\qquad N-2mg=m\\alpha r$$对G取矩$rF_f-\\frac{Nr}{2}=\\frac{3}{2}mr^2\\alpha$，联立解得$\\alpha=-\\frac{g}{4r}$，故$$a_O=-\\alpha r=\\frac{g}{4}\\ (向右)$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56"
+}

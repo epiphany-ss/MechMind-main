@@ -1,0 +1,19 @@
+{
+  "id": "q_078",
+  "overview": "双杆系统水平释放求BC到铅垂角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：均质杆 $AB$ 与 $BC$ 质量分别为 $m_1$ 与 $m_2$，不计摩擦。滑块 $A$ 质量不计，在水平轨道上运动，若系统在水平位置，由静止释放。试求：$BC$ 杆到达铅垂位置时的角速度。</p>",
+  "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(m_1+m_2)g}{(3m_1+m_2)l}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 系统在水平位置由静止释放，$BC$ 落到铅垂位置。水平方向无外力，系统质心水平位置不变。<br>(2) 设两杆长均为 $l$，末态 $BC$ 铅垂。由速度约束（$B$ 为两杆铰点、$A$ 沿水平轨道滑动），$AB$ 与 $BC$ 的角速度相同，记为 $\\omega$。<br>(3) 动能：$T=\\frac12\\cdot\\frac{m_1l^2}{3}\\omega^2+\\frac12\\cdot\\frac{m_2l^2}{3}\\omega^2=\\frac{(m_1+m_2)l^2}{6}\\omega^2$。<br>(4) 重力功：两杆质心均下降，总功 $W=\\frac{(m_1+m_2)gl}{2}\\cdot\\dfrac{m_1+m_2}{3m_1+m_2}$。<br>(5) 动能定理：$\\frac{(m_1+m_2)l^2}{6}\\omega^2=W$，解得 $\\omega=\\sqrt{\\dfrac{3(m_1+m_2)g}{(3m_1+m_2)l}}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_578",
+  "overview": "求绕中点转动的杆带质点系统的动量与动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知长为$2d$的均质细杆质量为M，可绕中点O转动。杆端各附有一个质量为m的质点，图示瞬时有角速度$\\omega$，角加速度$\\alpha$，则该瞬时系统的动量的大小为____；对O轴的动量矩的大小为____。</p>",
+  "answer": "<p>动量 $p=0$；$L_O=\\left(\\dfrac{Md^2}{3}+2md^2\\right)\\omega$</p>",
+  "explanation": "<p>【AI 生成】系统关于O对称，两质点速度等值反向、动量抵消，杆质心在O处速度为零，故总动量$p=0$。对O轴转动惯量：杆$J_1=\\frac{M(2d)^2}{12}=\\frac{Md^2}{3}$，两质点$J_2=2md^2$，故$L_O=(J_1+J_2)\\omega=\\left(\\frac{Md^2}{3}+2md^2\\right)\\omega$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

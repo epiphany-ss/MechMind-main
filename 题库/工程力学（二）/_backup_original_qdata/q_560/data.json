@@ -1,0 +1,20 @@
+{
+  "id": "q_560",
+  "overview": "求圆弧上圆柱的正压力与摩擦力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>质量为$m$半径为$r$的均质圆柱，在运动开始时，其质心在与$OB$同一高度的点$C$处。圆柱由静止沿斜面作无滑动的滚动，当它滚到半径为$R$的圆弧$AB$上时，圆心的速度$v=\\left[\\dfrac{4g(R-r)\\cos\\theta}{3}\\right]^{1/2}$。试求圆柱在圆弧段上任一位置所受的正压力和摩擦力。</p><img src=\"qdata/q_560/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$N=\\frac{7}{3}mg\\cos\\theta\\qquad\\text{（指向圆弧中心O）}$$<br>$$F=\\frac{1}{3}mg\\sin\\theta\\qquad\\text{（沿圆弧切线，与运动方向相反）}$$</p>",
+  "explanation": "<p>【AI 生成】圆柱沿圆弧内侧纯滚动，质心沿半径为$R-r$的圆弧运动。在角位置$\\theta$处，法向（指向$O$）的运动方程为<br>$$N-mg\\cos\\theta=m\\frac{v^2}{R-r}$$<br>代入 $v^2=\\dfrac{4g(R-r)\\cos\\theta}{3}$，得<br>$$N=mg\\cos\\theta+\\frac{m}{R-r}\\cdot\\frac{4g(R-r)\\cos\\theta}{3}=\\frac{7}{3}mg\\cos\\theta$$<br>对圆柱作纯滚动，由转动方程 $F\\cdot r=I\\alpha=\\frac{1}{2}mr^2\\alpha$ 且 $a_t=r\\alpha$，故 $F=\\frac{1}{2}ma_t$。由能量关系 $v^2=\\frac{4}{3}gh$ 求导可得切向加速度 $a_t=\\frac{2}{3}g\\sin\\theta$，于是<br>$$F=\\frac{1}{2}m\\cdot\\frac{2}{3}g\\sin\\theta=\\frac{1}{3}mg\\sin\\theta$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

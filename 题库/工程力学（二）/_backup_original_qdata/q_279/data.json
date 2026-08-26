@@ -1,0 +1,19 @@
+{
+  "id": "q_279",
+  "overview": "判断汇交三力中两力共线时第三力是否为零",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>汇交于一点的三个力，只要其中的两个力在一条直线上，则第三个力必然为零。 (    )</p><img src=\"qdata/q_279/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】该命题缺少“三力平衡”这一前提。若三力汇交且系统平衡，其中两力共线等值反向时第三个力才为零；若力系不平衡，即使两力共线，第三个力也不一定为零。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45"
+}

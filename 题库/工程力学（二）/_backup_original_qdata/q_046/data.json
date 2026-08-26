@@ -1,0 +1,18 @@
+{
+  "id": "q_046",
+  "overview": "判断动量改变时动能是否必变",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "动能定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>任何一个质量不变的质点，其动量发生改变时，质点的动能必有变化。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】质点作匀速圆周运动时，动量方向不断变化而大小不变，动能 $T=\\frac12mv^2$ 保持不变，故动量改变时动能不一定变化。</p>",
+  "media": [],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_058",
+  "overview": "半圆槽内小球滑至底部时的相对速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "动量定理",
+    "机械能守恒"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>质量为 $M$ 的物体上刻有半径为 $r$ 的半圆槽，放在光滑水平面上，原处于静止状态，有一质量为 $m$ 的小球自 $A$ 处无初速度地沿光滑半圆槽下滑，若 $M=3m$，则小球滑至 $B$ 处时，小球相对于物体的速度为____。</p><img src=\"qdata/q_058/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$u=\\sqrt{\\dfrac{8gr}{3}}=\\dfrac{2\\sqrt{6gr}}{3}$</p>",
+  "explanation": "<p>【AI 生成】水平方向无外力，动量守恒：$m(u-V)=MV\\Rightarrow V=\\dfrac{mu}{m+M}$（$u$ 为相对速度，$V$ 为物体速度）。机械能守恒：$mgr=\\frac12m\\left(\\dfrac{Mu}{m+M}\\right)^2+\\frac12MV^2$，解得 $u^2=\\dfrac{2gr(m+M)}{M}$。代入 $M=3m$ 得 $u=\\sqrt{\\dfrac{8gr}{3}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

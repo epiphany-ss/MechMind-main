@@ -1,0 +1,18 @@
+{
+  "id": "q_120",
+  "overview": "曲柄连杆机构连杆惯性力系简化",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示曲柄连杆滑块机构中，已知：曲柄 $OA$ 长为 $r$，以匀角速度 $\\omega$ 绕轴 $O$ 转动，连杆 $AB$ 的长 $L=2r$、质量为 $m$。试求当曲柄铅直时，连杆 $AB$ 惯性力系的简化结果。</p>",
+  "answer": "<p>向质心 $C$ 简化：$F_{ICx}=\\dfrac{1}{2\\sqrt{3}}mr\\omega^2$，$F_{ICy}=\\dfrac{1}{2}mr\\omega^2$，$M_{IC}=\\dfrac{1}{3\\sqrt{3}}mr^2\\omega^2$</p>",
+  "explanation": "<p>【AI 生成】曲柄铅直时 $OA=r$，连杆 $AB=2r$，滑块 $B$ 在水平导槽内，此时 $AB$ 与水平成 $30°$。由速度分析得连杆瞬时角速度 $\\omega_{AB}=0$；由加速度分析，$a_A=r\\omega^2$（铅垂向下指向 $O$），$a_B$ 沿水平，由 $a_B=a_A+\\alpha_{AB}\\times AB$ 解得 $\\alpha_{AB}=\\dfrac{\\omega^2}{\\sqrt{3}}$（逆时针）。连杆质心 $C$ 的加速度 $a_C=\\dfrac{a_A+a_B}{2}$，其分量 $a_{Cx}=\\dfrac{r\\omega^2}{2\\sqrt{3}}$、$a_{Cy}=-\\dfrac{r\\omega^2}{2}$。故惯性力系向质心 $C$ 简化：主矢分量 $F_{ICx}=\\dfrac{1}{2\\sqrt{3}}mr\\omega^2$、$F_{ICy}=\\dfrac{1}{2}mr\\omega^2$（与 $a_C$ 反向），主矩 $M_{IC}=J_C\\alpha_{AB}=\\dfrac{1}{12}m(2r)^2\\cdot\\dfrac{\\omega^2}{\\sqrt{3}}=\\dfrac{1}{3\\sqrt{3}}mr^2\\omega^2$，转向与 $\\alpha_{AB}$ 相反。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

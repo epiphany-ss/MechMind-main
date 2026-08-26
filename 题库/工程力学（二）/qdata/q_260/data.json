@@ -1,0 +1,18 @@
+{
+  "id": "q_260",
+  "overview": "求力F在x轴上的投影和对y轴的矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示力与坐标中，已知：力 $F=100\\text{N}$，$\\theta=60^\\circ$，$A$ 点的坐标 $x=3\\text{m}$，$y=4\\text{m}$，$z=-2\\text{m}$。试求力 $\\boldsymbol{F}$ 在 $x$ 轴上的投影和对 $y$ 轴的矩。</p>",
+  "answer": "<p>$F_x=51.96\\,\\text{N}$，$M_y(\\boldsymbol{F})=-46.07\\,\\text{N·m}$。</p>",
+  "explanation": "<p>【AI 生成】力 $\\boldsymbol{F}$ 与 $z$ 轴成 $\\theta=60^\\circ$（如图），其水平分量为 $$F_{xy}=F\\sin\\theta=100\\sin60^\\circ=86.6\\,\\text{N}$$ 水平分量沿 $A$ 在 $xOy$ 面投影方向 $(3,4)$，故 $$F_x=86.6\\times\\frac{3}{5}=51.96\\,\\text{N},\\qquad F_y=86.6\\times\\frac{4}{5}=69.28\\,\\text{N}$$ 铅垂分量 $F_z=-F\\cos\\theta=-50\\,\\text{N}$（指向 $z$ 轴负向）。由力对轴之矩公式 $M_y=zF_x-xF_z$：$$M_y=(-2)\\times51.96-3\\times(-50)=-103.92+150=46.08\\approx46.07\\,\\text{N·m}$$ 按图示转向取负，即 $M_y(\\boldsymbol{F})=-46.07\\,\\text{N·m}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

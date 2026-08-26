@@ -1,0 +1,18 @@
+{
+  "id": "q_414",
+  "overview": "判断两点速度为零时角速度是否为零",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "刚体平面运动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>已知平面图形上某瞬时两点速度为零，则此瞬时平面图形的角速度一定为零。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】由$v_B=v_A+\\omega\\times r_{AB}$，若$v_A=v_B=0$且$r_{AB}\\neq 0$，则必有$\\omega=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

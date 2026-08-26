@@ -1,0 +1,19 @@
+{
+  "id": "q_504",
+  "overview": "楔块推动OA杆求角速度与角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示系统当楔块以匀速v向左运动时，迫使OA杆绕O点转动。若OA杆长为L，$\\phi=30^\\circ$。试求当OA杆与水平线成角 $\\beta=30^\\circ$ 时，杆OA的角速度与角加速度。</p>",
+  "answer": "<p>$\\omega_{OA}=\\dfrac{v\\cos\\phi}{L\\cos\\beta}$；$\\alpha_{OA}=\\dfrac{v^2\\sin(\\phi-\\beta)}{L^2\\cos^3\\beta}$（方向由几何确定）。</p>",
+  "explanation": "<p>【AI 生成】取楔块与OA杆接触点A为动点，楔块为动系。<br>（1）楔块作平动，$v_e=v$ 水平向左；相对速度 $v_r$ 沿楔面（与水平成 $\\phi=30^\\circ$）；A点绝对速度 $v_A=\\omega_{OA}\\cdot L$，垂直OA。<br>（2）$v_A=v_e+v_r$，向垂直OA方向投影：$v_A=v\\cos(\\phi-\\beta)$，故 $\\omega_{OA}=\\dfrac{v\\cos(\\phi-\\beta)}{L}$。当 $\\phi=\\beta=30^\\circ$ 时，$\\omega_{OA}=\\dfrac{v}{L}$。<br>（3）加速度：$a_e=0$（楔块匀速平动），$a_r$ 沿楔面（法向分量 $v_r^2/\\rho$，楔面为平面故 $a_r^n=0$），科氏加速度 $a_C=2\\omega\\times v_r$。用加速度合成 $a_A^n+a_A^t=a_e+a_r+a_C$ 投影求解，得 $\\alpha_{OA}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册"
+}

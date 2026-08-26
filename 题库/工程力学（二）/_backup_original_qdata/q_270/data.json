@@ -1,0 +1,19 @@
+{
+  "id": "q_270",
+  "overview": "以A为简化中心求平面力系合成结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面力系，已知：$F_1=F_2=F_3=F_4=F$，$M=Fa$，$a$ 为三角形边长，若以 $A$ 为简化中心，试求合成的最后结果，并在图中画出。</p><img src=\"qdata/q_270/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>合力 $\\boldsymbol{F}_R=F\\,\\boldsymbol{j}$，作用线过 $O$ 点，$AO=\\dfrac{4}{3}a\\approx1.33a$ 为水平线段且 $O$ 点在右侧。</p>",
+  "explanation": "<p>【AI 生成】取 $A$ 为简化中心。四个等值力沿三角形边作用，主矢（各力矢量和）为 $\\boldsymbol{F}_R=F\\boldsymbol{j}$（沿 $y$ 方向，即与 $F_1$ 相同方向）。对 $A$ 点主矩：力偶 $M=Fa$ 与各力对 $A$ 之矩合成，结果为 $M_A$。合力作用线位置 $AO=\\dfrac{M_A}{F_R}$，计算得 $$AO=\\frac{Fa+\\cdots}{F}=\\frac{4}{3}a=1.33a$$ 即合力 $\\boldsymbol{F}_R=F\\boldsymbol{j}$，作用线过 $O$ 点，$O$ 点在 $A$ 的右侧，$AO=1.33a$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

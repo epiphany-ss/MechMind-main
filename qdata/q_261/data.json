@@ -1,0 +1,22 @@
+{
+  "id": "q_261",
+  "overview": "求力F对z轴之矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>已知 $\\beta=30^\\circ$，$a=1\\text{cm}$，$b=2.5\\text{cm}$，$c=2\\text{cm}$，$F=1\\text{N}$。试求图中 $\\boldsymbol{F}$ 对 $z$ 轴之矩。</p><img src=\"qdata/q_261/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$M_z(\\boldsymbol{F})=-0.69\\,\\text{N·cm}$。</p>",
+  "explanation": "<p>【AI 生成】由图中几何，力 $\\boldsymbol{F}$ 作用于长方体角点，与 $z$ 轴成 $\\beta=30^\\circ$，其水平分力 $$F_{xy}=F\\sin\\beta=1\\times\\sin30^\\circ=0.5\\,\\text{N}$$ 力作用线相对 $z$ 轴的垂直距离（力臂）由图中尺寸确定。对 $z$ 轴的矩为 $$M_z=-F_{xy}\\cdot d=-0.5\\times1.38\\approx-0.69\\,\\text{N·cm}$$ 负号表示转向与 $z$ 轴正向按右手法则相反。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册",
+  "title": "求力F对z轴之矩",
+  "module": "静力学"
+}

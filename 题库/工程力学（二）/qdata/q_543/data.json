@@ -1,0 +1,18 @@
+{
+  "id": "q_543",
+  "overview": "冲量定理是否与路径有关",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>质点冲量定理是在一段时间内动量的变化和力的冲量的关系，它和这段时间间隔内质点所经过的路径____。<br>(A) 有关；<br>(B) 无关。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】由质点动量定理 $m\\boldsymbol{v}_2-m\\boldsymbol{v}_1=\\int_{t_1}^{t_2}\\boldsymbol{F}\\,dt$，动量变化只取决于力的时间积分（冲量），与质点在这段时间内经过的路径无关。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

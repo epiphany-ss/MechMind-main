@@ -1,0 +1,20 @@
+{
+  "id": "q_355",
+  "overview": "判断加速度在副法线上的投影",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>由于加速度 $a$ 永远位于轨迹上动点处的密切面内，故 $a$ 在副法线上的投影恒等于零。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】加速度位于密切面内，而副法线垂直于密切面，故 $a$ 在副法线上的投影恒为零（$a_b=0$）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "判断加速度在副法线上的投影",
+  "module": "运动学"
+}

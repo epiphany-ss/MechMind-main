@@ -1,0 +1,19 @@
+{
+  "id": "q_111",
+  "overview": "求物块A的惯性力大小",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学",
+    "达朗贝尔原理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>质量为 $m$ 的物块 $A$ 相对于三棱柱以加速度 $a_1$ 沿斜面向上运动，三棱柱又以加速度 $a_2$ 相对地面向右运动，已知角 $\\theta$，则物块 $A$ 的惯性力的大小为______。</p>",
+  "answer": "<p>$F_I=m\\sqrt{a_1^2+a_2^2+2a_1a_2\\cos\\theta}$</p>",
+  "explanation": "<p>【AI 生成】物块 $A$ 的绝对加速度为牵连加速度 $a_2$（水平向右）与相对加速度 $a_1$（沿斜面向上、与水平成 $\\theta$ 角）的矢量和。水平分量 $a_2+a_1\\cos\\theta$，铅垂分量 $a_1\\sin\\theta$，故 $a=\\sqrt{(a_2+a_1\\cos\\theta)^2+(a_1\\sin\\theta)^2}=\\sqrt{a_1^2+a_2^2+2a_1a_2\\cos\\theta}$，惯性力 $F_I=ma$，方向与绝对加速度相反。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

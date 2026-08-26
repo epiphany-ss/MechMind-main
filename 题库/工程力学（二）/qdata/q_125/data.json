@@ -1,0 +1,20 @@
+{
+  "id": "q_125",
+  "overview": "绞车提升重物求支座反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示绞车装在无重的水平悬臂梁上。已知：匀质轮半径为 $r$、质量为 $m$，重物 $B$ 质量为 $m_1$，梁 $AO$ 长 $L$，轮上作用一常力偶 $M$ 提升重物。试用动静法求开始运动瞬时，支座 $A$ 的反力。</p>",
+  "answer": "<p>【AI 修改】F_Ax=0；F_Ay=(m+m₁)g+2m₁(M-m₁gr)/((2m₁+m)r)；M_A=(m+m₁)gL+M+2m₁L(M-m₁gr)/((2m₁+m)r)</p>",
+  "explanation": "<p>【AI 修改】轮作定轴转动，重物以加速度 a=rα 上升。对轮取矩：M-F_T·r=½mr²α；对重物：F_T-m₁g=m₁a。联立得 a=2(M-m₁gr)/((2m₁+m)r)，F_T=m₁g+m₁a。悬臂梁在 O 处承受轮重 mg 与绳对轮的拉力 F_T（方向向下），故 F_Ay=mg+F_T=(m+m₁)g+m₁a=(m+m₁)g+2m₁(M-m₁gr)/((2m₁+m)r)。对 A 取矩（力偶 M 作用于轮上、其反作用力偶作用于梁）：M_A=mgL+F_T L+M=(m+m₁)gL+m₁aL+M=(m+m₁)gL+M+2m₁L(M-m₁gr)/((2m₁+m)r)。水平方向无外力，F_Ax=0。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "ai_modified": "2026-08-14",
+  "source": "练习册"
+}

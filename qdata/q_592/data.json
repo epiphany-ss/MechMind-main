@@ -1,0 +1,32 @@
+{
+  "id": "q_592",
+  "overview": "求软绳连接两滑轮系统释放后滑轮角速度与轮心速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动能定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>一软绳的下端绕在滑轮O上，上端又绕在一个绕其中心O′转动的滑轮上，如图示。设两轮的半径均为0.2m，重量相等，均可看作匀质圆盘，绳子质量不计。试求从静止开始2s后下面的滑轮O的角速度及轮心的速度。</p><img src=\"qdata/q_592/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>下面滑轮O的角速度 $\\omega=\\dfrac{4g}{5R}=\\dfrac{4\\times9.8}{5\\times0.2}=39.2\\ \\mathrm{rad/s}$；轮心速度 $v=\\dfrac{8g}{5}\\approx15.7\\ \\mathrm{m/s}$（向下）</p>",
+  "explanation": "<p>【AI 生成】设两轮半径为R、质量均为M，$J=\\frac{1}{2}MR^2$。绳不可伸长且不打滑，绳在两轮上缠绕长度守恒，下面滑轮下降速度$v$与两轮角速度$\\omega_1=\\omega_2=\\omega$满足$v=2\\omega R$。对下面滑轮：平移$Mg-T=Ma$，转动$TR=\\frac{1}{2}MR^2\\alpha$；上面滑轮：$TR=\\frac{1}{2}MR^2\\alpha$，故$\\alpha=\\frac{2T}{MR}$。由$a=2\\alpha R$及$a=4T/M$，代入平移方程得$Mg-T=4T$，即$T=\\frac{Mg}{5}$，$$a=\\frac{4g}{5},\\qquad \\alpha=\\frac{2g}{5R}$$从静止开始2s后：$$v=at=\\frac{8g}{5}\\approx15.7\\ \\mathrm{m/s},\\qquad \\omega=\\alpha t=\\frac{4g}{5R}=39.2\\ \\mathrm{rad/s}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册",
+  "narration": {
+    "path": "qdata/q_592/narration_1786781069.mp3",
+    "voice": "girl",
+    "voice_label": "少女音 · 宵宫",
+    "created": "2026-08-15 16:04",
+    "speakable_text": "本题考察刚体动力学中平动与转动的综合应用，解题思路是通过牛顿第二定律和转动定律，结合绳子不可伸长且不打滑的约束条件来求解滑轮的角速度和轮心速度。首先，两个滑轮半径相同为R，质量均为M，转动惯量是二分之一MR平方。由于绳子约束，下面滑轮下降的速度v与角速度ω满足v等于2倍角速度乘以半径。接着分析受力：对下面滑轮，平动方程是重力Mg减去绳子张力T等于质量M乘以加速度a；转动方程是张力T乘以半径R等于转动惯量乘以角加速度α。对上面滑轮，转动方程类似，得到角加速度α等于2T除以MR。由加速度与角加速度的关系a等于2αR，联立可得加速度a等于4T除以M。代入平移方程，解得张力T等于五分之一Mg，进而得到加速度a等于五分之四g，角加速度α等于2g除以5R。从静止释放后2秒，速度v等于at，计算约15.7米每秒；角速度ω等于αt，计算约39.2弧度每秒。",
+    "ai_generated": true
+  },
+  "title": "求软绳连接两滑轮系统释放后滑轮角速度与轮心速度",
+  "module": "动力学"
+}

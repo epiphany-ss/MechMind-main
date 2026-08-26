@@ -1,0 +1,20 @@
+{
+  "id": "q_152",
+  "overview": "含压缩弹簧机构平衡时求力F",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：尺寸 $AD=DO=OB=20$cm，$\\beta=30^\\circ$，$AB\\perp AC$，$F_1=150$N，弹簧的弹性系数 $k=150$N/cm，在图示位置已压缩变形 $\\delta_s=2$cm。试用虚位移原理求机构在图示位置平衡时，F力的大小。</p><img src=\"qdata/q_152/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F=900$ N</p>",
+  "explanation": "<p>【AI 生成】弹簧弹性力 $F_k=k\\,\\delta_s=150\\times2=300$ N。由机构几何关系（杆 AC 的瞬心在 I），各点虚位移满足 $\\delta r_B=\\delta r_D=\\dfrac{\\delta r_A}{2}$，且 $\\dfrac{\\delta r_A}{\\delta r_C}=\\dfrac{IA}{IC}$，其中 $\\dfrac{IA}{IO}=\\sin\\beta$。虚功方程 $-F_1\\,\\delta r_C-F_k\\,\\delta r_D+F\\,\\delta r_B=0$。代入几何关系与 $\\beta=30^\\circ$（$\\sin\\beta=\\dfrac{1}{2}$）得 $F=F_k+\\dfrac{2F_1}{\\sin\\beta}=300+\\dfrac{2\\times150}{1/2}=900$ N。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

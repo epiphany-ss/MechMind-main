@@ -1,0 +1,22 @@
+{
+  "id": "q_394",
+  "overview": "求十字滑块D的速度和相对速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，OA 和 $O_1B$ 两杆分别绕 O 和 $O_1$ 轴转动，用十字滑块 D 将两杆连接。在运动过程中，两杆保持相交成直角。已知：$OO_1=l$，$\\angle AOO_1=\\varphi=kt$，其中 $k$ 为常数。求滑块 D 的速度和相对于 OA 的速度。</p><img src=\"qdata/q_394/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_D=lk$；$v_{Dr}=lk\\sin(kt)$（沿 OA 方向）</p>",
+  "explanation": "<p>【AI 生成】设 O 为原点，$O_1=(l,0)$，OA 沿 $\\varphi$ 方向，$O_1B$ 过 $O_1$ 且垂直于 OA。两杆交点 D 满足</p><p>$$OD=l\\cos\\varphi,\\qquad D=(l\\cos^2\\varphi,\\ l\\sin\\varphi\\cos\\varphi)$$</p><p>D 的速度</p><p>$$v_D=\\sqrt{\\dot x_D^2+\\dot y_D^2}=l|\\dot\\varphi|=lk$$</p><p>D 沿 OA 的相对速度为</p><p>$$v_{Dr}=\\frac{d(OD)}{dt}=-l\\sin\\varphi\\,\\dot\\varphi=-lk\\sin kt$$</p><p>故 $v_D=lk$，相对速度大小为 $lk\\sin(kt)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求十字滑块D的速度和相对速度",
+  "module": "运动学"
+}

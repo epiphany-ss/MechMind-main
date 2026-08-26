@@ -1,0 +1,19 @@
+{
+  "id": "q_347",
+  "overview": "求杆开始向右滑动时绳的倾角",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>均质杆 A 端放在粗糙的水平面上，杆 B 端则用绳子拉住，设杆与地板的摩擦角为 $\\varphi$，杆与水平面交角为 45°。问当绳子对水平线的倾角 $\\theta$ 等于多大时，杆开始向右滑动。</p><img src=\"qdata/q_347/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\tan\\theta=\\cot\\varphi+2$，即 $\\theta=\\arctan(\\cot\\varphi+2)$。</p>",
+  "explanation": "<p>【AI 生成】杆 A 端将向右滑动，摩擦力达极限 $f=\\tan\\varphi\\,N$。设杆长 L、重 W，绳张力 T。①对 A 取矩：$W\\cdot\\frac{L}{2}\\cos45°=T\\cdot L(\\sin\\theta-\\cos\\theta)\\cdot\\frac{1}{\\sqrt2}$，得 $T(\\sin\\theta-\\cos\\theta)=\\frac{W}{2}$。②水平与竖直平衡：$f=T\\cos\\theta$，$N=W-T\\sin\\theta$，且 $f=\\tan\\varphi N$。联立消去 T、W 得 $\\tan\\theta=\\frac{1+2\\tan\\varphi}{\\tan\\varphi}=\\cot\\varphi+2$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

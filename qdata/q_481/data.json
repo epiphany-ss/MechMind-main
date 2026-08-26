@@ -1,0 +1,23 @@
+{
+  "id": "q_481",
+  "overview": "曲柄摇杆机构求CDE杆上C点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示，曲柄 $O_1A$ 以匀角速度 $\\omega$ 绕 $O_1$ 轴转动，通过滑块和摇杆带动CDE杆铅垂运动。已知：$O_1A＝R$，$O_2B＝4R$。在图示位置时，$O_1A$ 处于铅垂位置，滑块A为 $O_2B$ 中点。试求该瞬时CDE杆上C点的速度。</p><img src=\"qdata/q_481/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_C=\\dfrac{\\sqrt{3}}{2}\\omega R$（铅垂向下）。</p>",
+  "explanation": "<p>【AI 生成】取滑块A为动点，摇杆 $O_2B$ 为动系。<br>（1）$v_A=\\omega\\cdot O_1A=\\omega R$，方向垂直于 $O_1A$（水平）。<br>（2）$O_1A$ 铅垂、A为 $O_2B$ 中点（$O_2A=2R$）、$O_2B=4R$，几何关系给摇杆 $O_2B$ 与水平成 $\\theta=30^\\circ$。<br>（3）$v_A=v_e+v_r$：$v_e=\\omega_2\\cdot O_2A$ 垂直于 $O_2B$，$v_r$ 沿 $O_2B$。将 $v_A=\\omega R$ 向垂直 $O_2B$ 方向投影：$v_A\\cos30^\\circ=v_e$，即 $\\omega_2\\cdot2R=\\omega R\\cos30^\\circ$，得 $\\omega_2=\\dfrac{\\sqrt3}{4}\\omega$。<br>（4）B点速度 $v_B=\\omega_2\\cdot O_2B=\\dfrac{\\sqrt3}{4}\\omega\\times4R=\\omega R$，方向垂直于 $O_2B$（与铅垂成 $30^\\circ$）。CDE杆作铅垂运动，B端经滑移把铅垂分量传给CDE杆，故 $v_C=v_{By}=v_B\\cos30^\\circ=\\omega R\\times\\dfrac{\\sqrt3}{2}=\\dfrac{\\sqrt3}{2}\\omega R$，方向铅垂向下。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "曲柄摇杆机构求CDE杆上C点速度",
+  "module": "运动学"
+}

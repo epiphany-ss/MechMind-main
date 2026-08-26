@@ -1,0 +1,20 @@
+{
+  "id": "q_248",
+  "overview": "判断主矢主矩不平行不垂直时的简化结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>一空间力系，若主矩 $\\boldsymbol{M}_O\\ne\\boldsymbol{0}$，主矢 $\\boldsymbol{F}_R\\ne\\boldsymbol{0}$，且 $\\boldsymbol{M}_O$ 和 $\\boldsymbol{F}_R$ 不平行，亦不垂直，则其简化的最后结果为____。<br>(A) 合力；<br>(B) 力偶；<br>(C) 力螺旋；<br>(D) 平衡。</p><img src=\"qdata/q_248/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】主矢、主矩均非零且斜交。将 $\\boldsymbol{M}_O$ 分解为平行于 $\\boldsymbol{F}_R$ 与垂直于 $\\boldsymbol{F}_R$ 的两个分量：垂直分量可通过平移力作用线消去，平行分量保留，故最后结果为力螺旋。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

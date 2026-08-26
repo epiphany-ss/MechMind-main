@@ -1,0 +1,18 @@
+{
+  "id": "q_125",
+  "overview": "绞车提升重物求支座反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示绞车装在无重的水平悬臂梁上。已知：匀质轮半径为 $r$、质量为 $m$，重物 $B$ 质量为 $m_1$，梁 $AO$ 长 $L$，轮上作用一常力偶 $M$ 提升重物。试用动静法求开始运动瞬时，支座 $A$ 的反力。</p>",
+  "answer": "<p>$F_{Ax}=0$；$F_{Ay}=(m+m_1)g-\\dfrac{2m_1(M-m_1gr)}{(2m_1+m)r}$；$M_A=(m+m_1)gL+M-\\dfrac{(M-m_1gr)(2m_1L-mr)}{(2m_1+m)r}$</p>",
+  "explanation": "<p>【AI 生成】轮作定轴转动，重物以加速度 $a=r\\alpha$ 上升。对轮：$M-F_T\\cdot r=\\dfrac{1}{2}mr^2\\alpha$；对重物：$F_T-m_1g=m_1a$。联立得 $a=\\dfrac{2(M-m_1gr)}{(2m_1+m)r}$，$F_T=m_1g+m_1a$。对整个系统用动静法（加惯性力与惯性力偶），对 $A$ 列平衡方程，得 $F_{Ax}=0$，$F_{Ay}=mg+F_T=(m+m_1)g-\\dfrac{2m_1(M-m_1gr)}{(2m_1+m)r}$，$M_A=mgL+F_TL+M=(m+m_1)gL+M-\\dfrac{(M-m_1gr)(2m_1L-mr)}{(2m_1+m)r}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

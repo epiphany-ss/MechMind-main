@@ -1,0 +1,23 @@
+{
+  "id": "q_398",
+  "overview": "求曲柄杆机构中导杆BC的运动规律与速度加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动",
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示曲柄杆机构中，滑杆上有一圆弧形滑道，其半径 $R=100$mm，圆心 $O_1$ 在导杆 BC 上。曲柄长 OA=100mm，以等角速度 $\\omega=4\\,\\mathrm{rad/s}$ 绕 O 轴转动。求导杆 BC 的运动规律以及当曲柄与水平线间的交角 $\\varphi$ 为 $30^\\circ$ 时，导杆 BC 的速度和加速度。</p><img src=\"qdata/q_398/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x=2R\\cos\\omega t=0.2\\cos 4t$（m）；$\\varphi=30^\\circ$ 时 $v=0.4\\,\\mathrm{m/s}$（←），$a=2.77\\,\\mathrm{m/s^2}$（←）</p>",
+  "explanation": "<p>【AI 生成】OA=$O_1A=R=100$mm，A 同时满足 $OA=R$ 与 $O_1A=R$。设 $O_1$ 的水平位移为 $x$，由等腰三角形 $OAO_1$ 得</p><p>$$x=2R\\cos\\varphi=2R\\cos\\omega t=0.2\\cos 4t\\ (\\mathrm{m})$$</p><p>导杆 BC 的速度、加速度为</p><p>$$v=\\dot x=-2R\\omega\\sin\\omega t,\\qquad a=\\ddot x=-2R\\omega^2\\cos\\omega t$$</p><p>$\\varphi=30^\\circ$ 时：$\\sin30^\\circ=1/2$，$\\cos30^\\circ=\\sqrt3/2$，故</p><p>$$v=-2\\times0.1\\times4\\times0.5=-0.4\\,\\mathrm{m/s}$$</p><p>$$a=-2\\times0.1\\times16\\times\\frac{\\sqrt3}{2}=-2.77\\,\\mathrm{m/s^2}$$</p><p>均指向左（←）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求曲柄杆机构中导杆BC的运动规律与速度加速度",
+  "module": "运动学"
+}

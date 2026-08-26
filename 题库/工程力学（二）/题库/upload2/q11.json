@@ -1,0 +1,16 @@
+{
+  "overview": "由直角曲杆与滑轮组成的结构求支座E及A的约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "hard",
+  "content": "<p>由直角曲杆 ABC、DE、直杆 CD 及滑轮组成的结构如图所示，杆 AB 上作用有水平均布载荷 q。不计各构件的重力，在 D 处作用一铅垂力 F，在滑轮上悬吊一重为 P 的重物，滑轮的半径 r=a，且 P=2F，CO=OD。求支座 E 及固定端 A 的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>支座 E 的约束力：$F_E=2F$。</p><p>固定端 A 的约束力：$F_A=(2+\\sqrt{2})F$，$F_{Ay}=2F$，$M_A=5Fa+\\dfrac{9}{2}qa^2$。</p>",
+  "explanation": "<p>解：(1) 杆 DE 为二力杆。取 CD＋滑轮＋重物 P＋DE 为研究对象，受力如图所示。绳中张力 $F_T=P=2F$。</p><p>对 C 取矩，$\\sum M_C=0$：$F\\cdot 3a+F_T\\cdot 3a-P\\left(\\dfrac{3a}{2}+r\\right)-F_E\\cdot 3a=0$。</p><p>$\\sum F_y=0$：$F_E\\cos45°-F_T\\cos45°=0$，得 $F_E=F_T=2F$。</p><p>由 $\\sum F_x=0$ 及平衡方程联立，解得 $F_C=(1+\\sqrt{2})F$。</p><p>(2) 直角曲杆 ABC，受力如图所示。由 $\\sum F_x=0$、$\\sum F_y=0$ 得 $F_A=(2+\\sqrt{2})F$，$F_{Ay}=2F$。</p><p>对 A 取矩，$\\sum M_A=0$：$q\\cdot a\\cdot 3a+F_C\\cdot 3a-F_T\\cdot 3a=0$，得 $M_A=5Fa+\\dfrac{9}{2}qa^2$。</p><p>（数值以原图为准）</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q11_0.png",
+    "题库/qbank2_figs/q11_1.png"
+  ]
+}

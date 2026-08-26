@@ -1,0 +1,19 @@
+{
+  "id": "q_177",
+  "overview": "用拉氏方程求圆盘弹簧系统微分方程及微振动周期",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $m$、半径为 $r$，弹簧的弹性系数为 $k$，自然长度为 $d$，圆盘在水平面上作纯滚动，弹簧与水平面平行。试求：(1) 以 $x$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 系统的微振动周期 $T$。</p><img src=\"qdata/q_177/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $$\\frac{3}{2}m\\ddot x+k(x-d)=0$$<br>(2) $$T=2\\pi\\sqrt{\\frac{3m}{2k}}$$</p>",
+  "explanation": "<p>【AI 生成】(1) 圆盘作纯滚动，$v=\\dot x$，$\\omega=\\dot x/r$，转动惯量 $J=\\frac{1}{2}mr^2$，动能 $$T=\\frac{1}{2}m\\dot x^2+\\frac{1}{2}J\\omega^2=\\frac{1}{2}m\\dot x^2+\\frac{1}{4}m\\dot x^2=\\frac{3}{4}m\\dot x^2$$ 弹簧伸长量为 $x-d$，势能 $V=\\frac{1}{2}k(x-d)^2$。代入拉格朗日方程 $\\frac{d}{dt}\\frac{\\partial T}{\\partial \\dot x}-\\frac{\\partial T}{\\partial x}+\\frac{\\partial V}{\\partial x}=0$：$$\\frac{3}{2}m\\ddot x+k(x-d)=0$$<br>(2) 令 $y=x-d$，则 $\\frac{3}{2}m\\ddot y+ky=0$，固有角频率 $\\omega_0=\\sqrt{\\frac{k}{3m/2}}=\\sqrt{\\frac{2k}{3m}}$，故微振动周期 $$T=\\frac{2\\pi}{\\omega_0}=2\\pi\\sqrt{\\frac{3m}{2k}}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

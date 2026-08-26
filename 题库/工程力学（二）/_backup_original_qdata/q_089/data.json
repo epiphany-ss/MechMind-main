@@ -1,0 +1,21 @@
+{
+  "id": "q_089",
+  "overview": "起重设备三问求拉力力偶矩速度与反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示起重设备中，已知：物块 $A$ 重为 $P$，轮 $O$ 半径为 $R$，绞车 $B$ 的半径为 $r$，绳索与水平线的夹角为 $\\beta$。若不计轴承处的摩擦及滑轮、绞车、绳索的质量，试求：(1) 重物 $A$ 匀速上升时，绳索拉力及力偶矩 $M$；(2) 重物 $A$ 以匀加速度 $a$ 上升时，绳索拉力及力偶矩 $M$；(3) 若考虑绞车 $B$ 重为 $P$，可视为匀质圆盘，力偶矩为 $M$，初始时重物静止，当重物上升距离为 $h$ 时的速度及加速度，及支座 $O$ 处的反力。</p><img src=\"qdata/q_089/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $F_T=P$，$M=Pr$；(2) $F_T=P\\left(1+\\dfrac{a}{g}\\right)$，$M=Pr\\left(1+\\dfrac{a}{g}\\right)$；(3) $v_A^2=\\dfrac{2(M-Pr)gh}{3Pr}$，$a_A=\\dfrac{(M-Pr)g}{3Pr}$，$F_{Ox}=P\\left(1+\\dfrac{a_A}{g}\\right)\\cos\\beta$，$F_{Oy}=P\\left(1+\\dfrac{a_A}{g}\\right)(1+\\sin\\beta)$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 匀速上升，$a=0$，$F_T=P$；绞车力矩 $M=Pr$（力矩平衡）。<br>(2) 匀加速 $a$：$\\frac{P}{g}a=F_T-P\\Rightarrow F_T=P(1+\\frac ag)$；$M=F_Tr=Pr(1+\\frac ag)$。<br>(3) 绞车为均质圆盘，$J_B=\\frac12\\frac{P}{g}r^2$，$\\omega=v_A/r$。动能 $T=\\frac12J_B\\omega^2+\\frac12\\frac{P}{g}v_A^2=\\frac{3P}{4g}v_A^2$。由动能定理 $\\frac{3P}{4g}v_A^2=(M-Pr)\\frac{h}{r}$，得 $v_A^2=\\dfrac{2(M-Pr)gh}{3Pr}$，$a_A=\\dfrac{(M-Pr)g}{3Pr}$。由 $O$ 处静力平衡得 $F_{Ox}=P(1+\\frac{a_A}{g})\\cos\\beta$，$F_{Oy}=P(1+\\frac{a_A}{g})(1+\\sin\\beta)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

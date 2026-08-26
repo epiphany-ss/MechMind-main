@@ -1,0 +1,20 @@
+{
+  "id": "q_257",
+  "overview": "等边三角形三边受力系简化结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>图示一等边三角形，边长为 $a$，沿三边分别作用有力 $\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 和 $\\boldsymbol{F}_3$，且 $F_1=F_2=F_3=F$，则该力系的简化结果是____，大小为____，方向或转向为____。</p><img src=\"qdata/q_257/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>简化结果为一合力偶；力偶矩大小为 $\\dfrac{\\sqrt{3}}{2}Fa$；转向为顺时针（沿三边作用方向绕三角形一周）。</p>",
+  "explanation": "<p>【AI 生成】三个力沿等边三角形三边作用，构成封闭三角形，主矢为零 $\\boldsymbol{F}_R=\\boldsymbol{0}$。各力对三角形中心的力臂均为内切圆半径 $r=\\dfrac{a\\sqrt{3}}{6}$，三力产生的力矩同向相加，故主矩（即合力偶矩）为 $$M=3Fr=3F\\cdot\\frac{a\\sqrt{3}}{6}=\\frac{\\sqrt{3}}{2}Fa$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

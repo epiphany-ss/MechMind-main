@@ -1,0 +1,22 @@
+{
+  "id": "q_397",
+  "overview": "求小环在C、D处的速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>小环 M 在铅垂面内沿曲杆 ABCE 从 A 点由静止开始运动，AB=$R$。在直线段 AB 上，小环的加速度为 $g$；在半径为 $R$ 的圆弧段 BCE 上，小环的切向加速度 $a_\\tau=g\\cos\\varphi$，曲杆尺寸如图，求小环在 C、D 两处的速度和加速度。</p><img src=\"qdata/q_397/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_C=2\\sqrt{gR}$，$a_C=4g$；$v_D=1.848\\sqrt{gR}$，$a_D=3.487g$</p>",
+  "explanation": "<p>【AI 生成】AB 段作匀加速运动：</p><p>$$v_B^2=2gR$$</p><p>BC 为四分之一圆弧，$a_\\tau=g\\cos\\varphi$，$ds=R\\,d\\varphi$，由 $v\\,dv=a_\\tau ds$ 积分：</p><p>$$v_C^2=v_B^2+2\\int_0^{\\pi/2}g\\cos\\varphi\\cdot R\\,d\\varphi=2gR+2gR=4gR$$</p><p>$$v_C=2\\sqrt{gR}$$</p><p>C 处 $a_\\tau=g\\cos(\\pi/2)=0$，$a_C=a_n=v_C^2/R=4g$。</p><p>D 处 $\\varphi=\\pi/4$：</p><p>$$v_D^2=2gR+2gR\\sin\\frac{\\pi}{4}=gR(2+\\sqrt2),\\qquad v_D=1.848\\sqrt{gR}$$</p><p>$$a_\\tau=g\\cos45^\\circ=0.707g,\\qquad a_n=\\frac{v_D^2}{R}=3.414g$$</p><p>$$a_D=\\sqrt{a_\\tau^2+a_n^2}=3.487g$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册",
+  "title": "求小环在C、D处的速度和加速度",
+  "module": "运动学"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "q_507",
+  "overview": "CD-OA套筒机构求任意瞬时的角速度与角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示平面机构中，刚体CD以匀速度u在水平面上作平动，通过套筒C带动OA杆绕O轴转动。当 $t=0$ 时，OA恰在铅垂位置。试用合成运动的方法求在任意瞬时t（尺寸L为已知）：(1) OA的角速度；(2) OA的角加速度。</p><img src=\"qdata/q_507/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $\\omega_{OA}=-\\dfrac{uL}{L^2+u^2t^2}$；(2) $\\alpha_{OA}=\\dfrac{2u^3Lt}{(L^2+u^2t^2)^2}$（转向与图示相反时为负）。</p>",
+  "explanation": "<p>【AI 生成】取套筒C为动点，OA杆为动系（OA绕O作定轴转动）。CD刚体作平动，C点绝对速度 $v_C=u$ 水平向左；$v_r$ 沿OA方向，$v_e=\\omega\\cdot OC$ 垂直OA。<br>（1）设t时刻OA与水平成 $\\theta$，C在OA上距O为s，且C始终在距O为L的水平线上（$t=0$ 时OA铅垂）：$s\\cos\\theta=ut$，$s\\sin\\theta=L$，故 $\\tan\\theta=\\dfrac{L}{ut}$，$s=\\sqrt{L^2+u^2t^2}$，$\\sin\\theta=\\dfrac{L}{s}$，$\\cos\\theta=\\dfrac{ut}{s}$。<br>（2）$v_C=v_e+v_r$，向垂直OA方向投影：$-u\\sin\\theta=\\omega s$（负号取图示转向），即 $\\omega=-\\dfrac{u\\sin\\theta}{s}=-\\dfrac{uL}{L^2+u^2t^2}$。<br>（3）角加速度 $\\alpha_{OA}=\\dfrac{d\\omega}{dt}=\\dfrac{2u^3Lt}{(L^2+u^2t^2)^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册"
+}

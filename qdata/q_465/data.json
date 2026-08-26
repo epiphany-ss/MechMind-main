@@ -1,0 +1,23 @@
+{
+  "id": "q_465",
+  "overview": "求小车车轮轮缘点的科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度",
+    "刚体平动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>小车以速度v沿直线运动，车上一轮以角速度 $\\omega$ 转动，若以轮缘上一点M为动点，车厢为动坐标，则M点的科氏加速度的大小为______。</p>\n<p>(A) $2\\omega v$；&nbsp;&nbsp;(B) $2\\omega v\\cos\\alpha$；&nbsp;&nbsp;(C) 0；&nbsp;&nbsp;(D) $\\omega v\\cos\\alpha$。</p><img src=\"qdata/q_465/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】车厢作平动，取车厢为动系时牵连运动为平动，动系角速度 $\\omega_e=0$。科氏加速度 $a_C=2\\omega_e\\times v_r=0$，故选(C)。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求小车车轮轮缘点的科氏加速度",
+  "module": "运动学"
+}

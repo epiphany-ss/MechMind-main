@@ -1,0 +1,20 @@
+{
+  "id": "q_287",
+  "overview": "判断滚动摩阻因数是否无量纲",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>滚动摩阻因数是一个无量纲的系数。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】滚动摩阻系数 $\\delta$ 的量纲是长度（它是法向反力偏移的距离），滚动摩擦力偶 $M=\\delta N$；静滑动摩擦因数 $f_s$ 才是无量纲的。</p>",
+  "media": [],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "判断滚动摩阻因数是否无量纲",
+  "module": "静力学"
+}

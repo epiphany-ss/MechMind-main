@@ -1,0 +1,472 @@
+{
+  "chapter": 11,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断附加动反力为零的充要条件",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>绕 $z$ 轴转动的刚体不会在轴承处产生附加动反力的充要条件是：惯性力系的主矢在与 $z$ 轴相垂直的 $x$、$y$ 方向的投影为零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】只满足惯性力系主矢在 $x$、$y$ 方向投影为零（即质心在转轴上）还不够，还必须同时满足惯性力系对 $x$、$y$ 轴的主矩为零（即转轴为惯量主轴），二者共同构成不产生附加动反力的充要条件。</p>"
+    },
+    {
+      "overview": "判断平动刚体惯性力系的简化",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>平动刚体惯性力系可简化为一个合力，该合力一定作用在刚体的质心上。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平动刚体各点加速度相同且等于质心加速度 $a_C$，惯性力系为同向平行力系，可合成为一个合力 $F_I=-ma_C$，作用线过质心。</p>"
+    },
+    {
+      "overview": "判断转动刚体惯性力系简化",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>具有垂直于转轴的质量对称面的转动刚体，其惯性力系可简化为一个通过转轴的力和一个力偶，其中力偶的矩等于对转轴的转动惯量与刚体角加速度的乘积，转向与角加速度相反。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】质量对称面垂直于转轴时，惯性力系可向转轴上的点简化：主矢为过转轴的力（由偏心引起），主矩 $M_I=-J_z\\alpha$，其大小等于 $J_z\\alpha$，转向与角加速度 $\\alpha$ 相反。</p>"
+    },
+    {
+      "overview": "判断平面运动刚体惯性力系合力位置",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>平面运动刚体上惯性力系的合力必作用在刚体的质心上。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】平面运动刚体的惯性力系向质心 $C$ 简化，得到过质心的主矢 $F_I=-ma_C$ 和一个惯性力偶 $M_{IC}=-J_C\\alpha$；当 $\\alpha\\neq 0$ 时还存在力偶，不能合并为一个过质心的合力，故原说法错误。</p>"
+    },
+    {
+      "overview": "判断质点惯性力的大小方向",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "质点动力学",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一质点只受重力作用，则质点在竖直下落、竖直上升、作抛物线运动三种情况下，质点惯性力的大小、方向均相同。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】三种情况下质点加速度均为重力加速度 $g$（竖直向下），惯性力 $F_I=-ma=-mg$，故大小、方向都相同。</p>"
+    },
+    {
+      "overview": "判断偏心飞轮是否产生动约束力",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>高速旋转的飞轮，只要有偏心就一定会产生动约束力。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】偏心使质心不在转轴上，转动时产生离心惯性力，该惯性力必然在轴承处引起附加动反力。</p>"
+    },
+    {
+      "overview": "求剪断细绳瞬时A点加速度",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $AB$ 重 $P$，用二铅直细绳悬挂成水平位置，当 $B$ 端细绳突然剪断瞬时，$A$ 点的加速度的大小为____。 (A) 0； (B) $g$； (C) $g/2$； (D) $2g$。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】剪断 $B$ 端绳后，杆绕仍被绳约束的 $A$ 点作瞬时定轴转动，$A$ 点为该瞬时转动中心，其速度、加速度均为零，故 $a_A=0$。</p>"
+    },
+    {
+      "overview": "求定轴转动杆惯性力合力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $AB$ 长 $l$、重 $P$，与铅垂轴固结成角 $\\beta=30°$，并以匀角速度 $\\omega$ 转动，则惯性力系的合力的大小等于____。 (A) $\\dfrac{P\\omega^2 l}{8g}$； (B) $\\dfrac{P\\omega^2 l}{2g}$； (C) $\\dfrac{P\\omega^2 l}{2g}$； (D) $\\dfrac{P\\omega^2 l}{4g}$。</p>",
+      "figures": [
+        "题库/figures/ch102_idx473_0.png"
+      ],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】惯性力系合力即惯性力系主矢 $F_I=m a_C=\\dfrac{P}{g}\\omega^2\\cdot\\dfrac{l}{2}\\sin\\beta$，代入 $\\beta=30°$、$\\sin30°=\\frac{1}{2}$，得 $F_I=\\dfrac{P\\omega^2l}{4g}$。</p>"
+    },
+    {
+      "overview": "求剪断一绳后另一绳张力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>物重 $Q$，用细绳 $BA$、$CA$ 悬挂如图示，$\\beta=60°$，若将 $BA$ 绳剪断，则该瞬时 $CA$ 绳的张力为____。 (A) 0； (B) $0.5Q$； (C) $Q$； (D) $2Q$。</p>",
+      "figures": [
+        "题库/figures/ch103_idx474_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】剪断 $BA$ 后物块沿以 $CA$ 为半径的圆弧运动，该瞬时速度为零，法向加速度 $a_n=0$。沿绳方向列平衡方程 $T-Q\\cos\\beta=0$，得 $T=Q\\cos60°=0.5Q$。</p>"
+    },
+    {
+      "overview": "求偏心距变化后的附加动反力",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>图示飞轮以匀角速度 $\\omega$ 绕 $AB$ 轴转动。由于制造和安装的误差，其质心不在转动轴上，如果偏心距为 $e$，轴承 $A$ 处的附加动反力的大小为 $N_A$，则当偏心距为 $2e$ 时，轴承 $A$ 处的附加动反力的大小为____。 (A) $N_A$； (B) $2N_A$； (C) $3N_A$； (D) $4N_A$。</p>",
+      "figures": [
+        "题库/figures/ch103_idx475_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】附加动反力由离心惯性力 $m\\omega^2e$ 引起，其大小与偏心距 $e$ 成正比。偏心距由 $e$ 增大为 $2e$ 时，惯性力增大一倍，附加动反力也增大为 $2N_A$。</p>"
+    },
+    {
+      "overview": "比较直角形两杆惯性力系简化结果",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，两均质杆 $AB$、$BC$ 质量均为 $m$，固连成直角形。$OA=O_1B=r$，$OA\\parallel O_1B$，则 $AB$、$BC$ 杆惯性力系简化结果为____。 (A) 两杆惯性力系简化结果完全不同； (B) 两杆惯性力系简化结果完全相同； (C) 大小相同，方向和作用点不同； (D) 大小、方向相同，作用点不同。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】$OA\\parallel O_1B$ 且 $OA=O_1B$，构成平行四边形机构，直角形板作平动，两杆各点加速度相同且等于质心加速度。故两杆惯性力系均简化为大小、方向相同的主矢 $F_I=-ma$，分别作用在各自的质心上，作用点不同，且都无惯性力偶。</p>"
+    },
+    {
+      "overview": "比较三圆盘惯性力向质心简化结果",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示三个质量、半径相同的圆盘 $A$、$B$ 和 $C$，放在光滑的水平面上，以同样大小、方向的力 $F$ 分别作用于三个圆盘的不同点，则惯性力分别向各自质心简化的结果是____。 (A) 惯性力主矢、主矩都相等； (B) 惯性力主矢相等、主矩不相等； (C) 惯性力主矢不相等、主矩相等； (D) 惯性力主矢、主矩都不相等。</p>",
+      "figures": [
+        "题库/figures/ch103_idx477_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】三个圆盘质量、所受合力相同，故质心加速度相同，惯性力主矢均为 $-ma_C$，相等；力 $F$ 作用点不同，对质心的力矩不同，角加速度不同，故惯性力主矩 $M_{IC}=-J_C\\alpha$ 不相等。</p>"
+    },
+    {
+      "overview": "惯性力系向B点简化",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $AB$ 重 $P$、长 $l$，置于水平位置，在绳 $BC$ 突然剪断瞬时有角加速度 $\\alpha$，则杆上各点惯性力系向 $B$ 点简化，其主矢量的大小为______，主矩的大小为______，试在图中画出该主矢量与主矩。</p>",
+      "figures": [],
+      "answer": "<p>主矢量的大小：$\\dfrac{Pl\\alpha}{2g}$；主矩的大小：$\\dfrac{Pl^2\\alpha}{3g}$</p>",
+      "explanation": "<p>【AI 生成】剪断绳 $BC$ 后杆绕 $A$ 端作瞬时定轴转动。主矢量 $F_I=ma_C=\\dfrac{P}{g}\\cdot\\dfrac{l}{2}\\alpha=\\dfrac{Pl\\alpha}{2g}$；对 $B$ 点的主矩等于对 $B$ 的转动惯量与 $\\alpha$ 的乘积，$M_{IB}=\\dfrac{1}{3}ml^2\\alpha=\\dfrac{Pl^2\\alpha}{3g}$，转向与 $\\alpha$ 相反。</p>"
+    },
+    {
+      "overview": "求平动杆应加的惯性力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>$AB$ 杆质量为 $m$、长为 $l$，曲轴 $O_1A$、$O_2B$ 质量不计，且 $O_1A=O_2B=R$，$O_1O_2=l$。当 $\\varphi=60°$ 时，$O_1A$ 杆绕 $O_1$ 轴转动，角速度与角加速度分别为 $\\omega$ 与 $\\alpha$，则该瞬时 $AB$ 杆应加的惯性力大小为______，方向应标明在图上。</p>",
+      "figures": [],
+      "answer": "<p>$F_I=mR\\sqrt{\\omega^4+\\alpha^2}$</p>",
+      "explanation": "<p>【AI 生成】因 $O_1A=O_2B$、$O_1O_2=l=AB$，$AB$ 杆作平动，其加速度等于 $A$ 点加速度。$A$ 点有向心加速度 $R\\omega^2$（指向 $O_1$）和切向加速度 $R\\alpha$（垂直于 $O_1A$），故 $|a_A|=R\\sqrt{\\omega^4+\\alpha^2}$，惯性力 $F_I=ma_A=mR\\sqrt{\\omega^4+\\alpha^2}$，作用于杆的质心，方向与 $a_A$ 相反。</p>"
+    },
+    {
+      "overview": "求t=1s时惯性力系向O简化的主矢主矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>质量 $m=1\\text{kg}$、长 $l=1\\text{m}$ 的均质细杆在铅直面内绕其一端 $O$ 按规律 $\\varphi=2t^3-t^2$ 转动，$t$ 以 s 计，$\\varphi$ 以 rad 计，则 $t=1\\text{s}$ 时，该杆的惯性力系向点 $O$ 简化的主矢和主矩的大小分别等于______和______。</p>",
+      "figures": [],
+      "answer": "<p>主矢：$\\sqrt{89}\\,\\text{N}\\approx 9.43\\,\\text{N}$；主矩：$\\dfrac{10}{3}\\,\\text{N}\\cdot\\text{m}\\approx 3.33\\,\\text{N}\\cdot\\text{m}$</p>",
+      "explanation": "<p>【AI 生成】由 $\\varphi=2t^3-t^2$ 得 $\\omega=\\dot{\\varphi}=6t^2-2t$、$\\alpha=\\ddot{\\varphi}=12t-2$，$t=1\\text{s}$ 时 $\\omega=4\\,\\text{rad/s}$、$\\alpha=10\\,\\text{rad/s}^2$。向 $O$ 点简化：主矢 $F_I=m\\dfrac{l}{2}\\sqrt{\\omega^4+\\alpha^2}=\\dfrac{1}{2}\\sqrt{256+100}=\\sqrt{89}\\,\\text{N}$；主矩 $M_O=\\dfrac{1}{3}ml^2\\alpha=\\dfrac{1}{3}\\times1\\times10=\\dfrac{10}{3}\\,\\text{N}\\cdot\\text{m}$。</p>"
+    },
+    {
+      "overview": "求两固结圆盘系统惯性力系主矢主矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>半径为 $R$、质量为 $m_A$ 的均质圆盘 $A$，与半径为 $R/2$、质量为 $m_B$ 的均质圆盘 $B$ 如图所示固结在一起，并置于水平光滑平面上，初始静止，受二平行力 $F_1$、$F_2$ 作用，若 $m_A=m_B=m$，$F_1=F_2=F$，则系统惯性力系简化的结果：主矢量的大小为______，主矩的大小为______（各量应在图中画出）。</p>",
+      "figures": [],
+      "answer": "<p>主矢量：$2F$；主矩：$\\dfrac{FR}{2}$</p>",
+      "explanation": "<p>【AI 生成】两力同向等值，系统所受合力 $=2F$，总质量 $=2m$，故质心加速度 $a_C=\\dfrac{2F}{2m}=\\dfrac{F}{m}$，惯性力主矢 $F_I=-2ma_C=-2F$，大小为 $2F$。设两力分别作用于盘 $A$ 上缘与盘 $B$ 下缘（同向），对质心 $G$ 的力矩之和使系统以角加速度 $\\alpha$ 转动，由动量矩定理 $J_G\\alpha=\\sum M_G$，惯性力主矩 $M_{IG}=-J_G\\alpha$，解得大小 $M_{IG}=\\dfrac{FR}{2}$（转向与 $\\alpha$ 相反）。</p>"
+    },
+    {
+      "overview": "求物块A的惯性力大小",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "质点动力学",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>质量为 $m$ 的物块 $A$ 相对于三棱柱以加速度 $a_1$ 沿斜面向上运动，三棱柱又以加速度 $a_2$ 相对地面向右运动，已知角 $\\theta$，则物块 $A$ 的惯性力的大小为______。</p>",
+      "figures": [
+        "题库/figures/ch104_idx482_0.png"
+      ],
+      "answer": "<p>$F_I=m\\sqrt{a_1^2+a_2^2+2a_1a_2\\cos\\theta}$</p>",
+      "explanation": "<p>【AI 生成】物块 $A$ 的绝对加速度为牵连加速度 $a_2$（水平向右）与相对加速度 $a_1$（沿斜面向上、与水平成 $\\theta$ 角）的矢量和。水平分量 $a_2+a_1\\cos\\theta$，铅垂分量 $a_1\\sin\\theta$，故 $a=\\sqrt{(a_2+a_1\\cos\\theta)^2+(a_1\\sin\\theta)^2}=\\sqrt{a_1^2+a_2^2+2a_1a_2\\cos\\theta}$，惯性力 $F_I=ma$，方向与绝对加速度相反。</p>"
+    },
+    {
+      "overview": "求割断一绳后杆的加速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质杆 $AB$ 由三根等长细绳悬挂在水平位置，已知杆的质量为 $m$，在图示位置突然割断绳 $O_1B$，则该瞬时杆 $AB$ 的加速度为______（表示为 $\\theta$ 的函数，方向在图中画出）。</p>",
+      "figures": [],
+      "answer": "<p>$a=g\\sin\\theta$（沿绳的切向，垂直于绳向下）</p>",
+      "explanation": "<p>【AI 生成】割断 $O_1B$ 后，杆由剩余两根与铅垂线成 $\\theta$ 角的绳约束，只能沿垂直于绳的方向（圆弧切向）运动，且两绳约束使杆作瞬时平动。由动静法，杆沿切向的运动方程为 $ma=mg\\sin\\theta$，故 $a=g\\sin\\theta$，方向垂直于绳、沿切向向下。</p>"
+    },
+    {
+      "overview": "纯滚动圆轮惯性力系简化",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示匀质圆轮沿水平直线作纯滚动。已知：轮半径为 $r$、质量为 $m$，轮心的加速度为 $a_C$。试求惯性力系的简化结果：(1) 向轮心 $C$；(2) 向轮上与地面接触的点 $O$。</p>",
+      "figures": [
+        "题库/figures/ch105_idx484_0.png"
+      ],
+      "answer": "<p>(1) 向 $C$ 点：$F_{IC}=ma_C$，$M_{IC}=\\dfrac{1}{2}mra_C$；(2) 向 $O$ 点：$F_{IO}=ma_C$，$M_{IO}=\\dfrac{3}{2}mra_C$</p>",
+      "explanation": "<p>【AI 生成】圆轮纯滚动，$\\alpha=\\dfrac{a_C}{r}$。<br>(1) 向质心 $C$ 简化：主矢 $F_{IC}=ma_C$，主矩 $M_{IC}=-J_C\\alpha=-\\dfrac{1}{2}mr^2\\cdot\\dfrac{a_C}{r}=-\\dfrac{1}{2}mra_C$，大小为 $\\dfrac{1}{2}mra_C$。<br>(2) 向接触点 $O$ 简化：主矢不变，仍为 $F_{IO}=ma_C$；主矩 $M_{IO}=M_{IC}+F_{IC}\\cdot r=\\dfrac{1}{2}mra_C+ma_Cr=\\dfrac{3}{2}mra_C$。</p>"
+    },
+    {
+      "overview": "平面运动杆惯性力系简化",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>匀质细杆支承如图，已知：杆长为 $L$、重为 $Q$，斜面倾角 $\\varphi=60°$。若杆与水平面夹角 $\\theta=30°$ 瞬时，$A$ 端的加速度为 $a_A$，杆的角速度为零，角加速度为 $\\alpha$。试求此瞬时杆上惯性力系的简化结果。</p>",
+      "figures": [
+        "题库/figures/ch105_idx485_0.png"
+      ],
+      "answer": "<p>向质心 $C$ 简化：$F_{ICx}=\\dfrac{Q}{g}a_A$，$F_{ICy}=\\dfrac{1}{2}\\dfrac{Q}{g}L\\alpha$，$M_{IC}=\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$</p>",
+      "explanation": "<p>【AI 生成】杆作平面运动，质心加速度 $a_C=a_A+a_{CA}$，其中 $C$ 相对 $A$ 的切向加速度 $a_{CA}=\\dfrac{L}{2}\\alpha$（法向为零，因 $\\omega=0$）。惯性力系向质心 $C$ 简化：主矢 $F_{IC}=-\\dfrac{Q}{g}a_C$，其水平分量 $F_{ICx}=\\dfrac{Q}{g}a_A$、铅垂分量 $F_{ICy}=\\dfrac{1}{2}\\dfrac{Q}{g}L\\alpha$；主矩 $M_{IC}=-J_C\\alpha=-\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$，大小为 $\\dfrac{1}{12}\\dfrac{Q}{g}L^2\\alpha$，转向与 $\\alpha$ 相反。</p>"
+    },
+    {
+      "overview": "直角三角形板惯性力与两杆受力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示系统位于水平面，由匀质直角三角形板与两无重且平行的刚杆铰接而成。已知：板边长 $AB=AC=L$、质量为 $m$，杆长均为 $L$，以匀角速度 $\\omega$ 转动。试用动静法求图示 $O_1AC$ 位于一直线时，两杆所受的力。</p>",
+      "figures": [
+        "题库/figures/ch105_idx486_0.png"
+      ],
+      "answer": "<p>$F_{O_1A}=\\dfrac{2}{3}ml\\omega^2$，$F_{O_2B}=\\dfrac{1}{3}ml\\omega^2$（均为拉力）</p>",
+      "explanation": "<p>【AI 生成】两刚杆平行且等长，三角形板作平动，各点加速度等于 $A$ 点加速度 $a=L\\omega^2$，方向指向 $O_1$。惯性力系向质心 $G$ 简化为一合力 $F_I=mL\\omega^2$，方向与加速度相反，作用线过质心 $G$。由动静法：$\\sum F=0$ 得 $F_A+F_B=mL\\omega^2$；对 $G$ 取矩 $\\sum M_G=0$，因质心在三角形中距 $AB$、$AC$ 均为 $L/3$ 处，得 $F_A=2F_B$。联立解得 $F_A=\\dfrac{2}{3}ml\\omega^2$，$F_B=\\dfrac{1}{3}ml\\omega^2$，两杆均受拉。</p>"
+    },
+    {
+      "overview": "复摆剪绳瞬时的角加速度与支座反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示复摆位于铅直面内，由均质细杆与均质圆盘固结而成。已知：杆长为 $2r$、质量为 $m$，圆盘半径为 $r$、质量也为 $m$，与铅直线夹角为 $\\theta$。试用动静法求 $E$ 处绳被剪断瞬时：(1) 复摆的角加速度；(2) 支座 $O$ 的反力。</p>",
+      "figures": [],
+      "answer": "<p>(1) $\\alpha=\\dfrac{24g\\sin\\theta}{65r}$；(2) $F_{Ox}=\\dfrac{48}{65}mg\\sin2\\theta$，$F_{Oy}=2mg-\\dfrac{96}{65}mg\\sin^2\\theta$</p>",
+      "explanation": "<p>【AI 生成】复摆总质量 $2m$，质心 $C$ 距 $O$ 为 $2r$，对 $O$ 的转动惯量 $J_O=\\dfrac{65}{6}mr^2$。（1）剪绳瞬时，由对 $O$ 的动量矩定理 $J_O\\alpha=2mg\\cdot2r\\sin\\theta$，得 $\\alpha=\\dfrac{24g\\sin\\theta}{65r}$。（2）质心加速度 $a_C=2r\\alpha=\\dfrac{48g\\sin\\theta}{65}$，其分量 $a_{Cx}=a_C\\cos\\theta=\\dfrac{48g}{65}\\sin\\theta\\cos\\theta=\\dfrac{24g}{65}\\sin2\\theta$，$a_{Cy}=-a_C\\sin\\theta=-\\dfrac{48g}{65}\\sin^2\\theta$。由动静法平衡方程：$F_{Ox}=2ma_{Cx}=\\dfrac{48}{65}mg\\sin2\\theta$，$F_{Oy}=2mg-2m\\dfrac{48g}{65}\\sin^2\\theta=2mg-\\dfrac{96}{65}mg\\sin^2\\theta$。</p>"
+    },
+    {
+      "overview": "纯滚动轮与物块的加速度和摩擦力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示系统中，已知：匀质轮 $C$ 重为 $Q$、半径为 $r$，在水平面上作纯滚动，物块 $A$ 重为 $P$，绳 $CE$ 段水平，定滑轮质量不计。试用动静法求：(1) 轮心 $C$ 的加速度；(2) 轮子与地面间的摩擦力。</p>",
+      "figures": [
+        "题库/figures/ch106_idx488_0.png"
+      ],
+      "answer": "<p>(1) $a_C=\\dfrac{2Pg}{2P+3Q}$；(2) $F=\\dfrac{PQ}{2P+3Q}$</p>",
+      "explanation": "<p>【AI 生成】轮纯滚动，$\\alpha=\\dfrac{a_C}{r}$。对轮 $C$：$T-F=\\dfrac{Q}{g}a_C$；对轮心取矩 $F\\cdot r=\\dfrac{1}{2}\\dfrac{Q}{g}r^2\\alpha$，即 $F=\\dfrac{1}{2}\\dfrac{Q}{g}a_C$，故 $T=\\dfrac{3}{2}\\dfrac{Q}{g}a_C$。对物块 $A$：$P-T=\\dfrac{P}{g}a_C$。联立解得 $a_C=\\dfrac{2Pg}{2P+3Q}$，$F=\\dfrac{PQ}{2P+3Q}$。</p>"
+    },
+    {
+      "overview": "圆盘起动瞬时A处作用力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示系统位于铅直面内，匀质细杆 $AB$ 被焊接在匀质圆盘的切线向。已知：圆盘半径为 $r$，杆长为 $L$、质量为 $m$。杆 $AB$ 处于水平位置。试用动静法求图示位置圆盘以匀角加速度 $\\alpha$ 开始转动瞬时，$A$ 处由于转动引起的力。</p>",
+      "figures": [],
+      "answer": "<p>$F_{Ax}=mr\\alpha$，$F_{Ay}=mg-\\dfrac{1}{2}mL\\alpha$，$M_A=\\dfrac{1}{2}mgL-\\dfrac{1}{3}mL^2\\alpha$</p>",
+      "explanation": "<p>【AI 生成】该瞬时 $\\omega=0$，$A$ 点加速度 $a_A=r\\alpha$（沿杆向），杆质心 $C$ 加速度 $a_C=(\\alpha r,\\;-\\dfrac{L}{2}\\alpha)$。杆的惯性力 $F_I=-ma_C$，惯性力偶 $M_{IC}=-\\dfrac{1}{12}mL^2\\alpha$。对杆 $AB$ 用动静法列平衡方程：由 $\\sum F_x=0$ 得 $F_{Ax}=mr\\alpha$；由 $\\sum F_y=0$ 得 $F_{Ay}=mg-\\dfrac{1}{2}mL\\alpha$；由对 $A$ 取矩得 $M_A=\\dfrac{1}{2}mgL-\\dfrac{1}{3}mL^2\\alpha$。</p>"
+    },
+    {
+      "overview": "偏心飞轮的角加速度与轴承反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示偏心飞轮位于铅垂面内。已知：轮的质量 $m=23\\text{kg}$，对质心 $C$ 的回转半径 $\\rho_C=0.2\\text{m}$，偏心距 $e=0.15\\text{m}$。图示位置时，角速度为 $\\omega=8\\,\\text{rad/s}$。试用动静法求飞轮在图示瞬时的角加速度 $\\alpha$ 及轴承 $O$ 处的反力。</p>",
+      "figures": [
+        "题库/figures/ch106_idx490_0.png"
+      ],
+      "answer": "<p>$\\alpha=23.52\\,\\text{rad/s}^2$；$F_{Ox}=220.8\\,\\text{N}$，$F_{Oy}=144.26\\,\\text{N}$</p>",
+      "explanation": "<p>【AI 生成】$J_C=m\\rho_C^2=23\\times0.2^2=0.92\\,\\text{kg}\\cdot\\text{m}^2$。图示位置质心 $C$ 在 $O$ 右方水平线上，重力对 $O$ 的力矩 $M=mge=23\\times9.8\\times0.15=33.81\\,\\text{N}\\cdot\\text{m}$；$J_O=J_C+me^2=1.4375\\,\\text{kg}\\cdot\\text{m}^2$。由 $J_O\\alpha=mge$ 得 $\\alpha=\\dfrac{33.81}{1.4375}=23.52\\,\\text{rad/s}^2$。惯性力主矢分量：法向 $m\\omega^2e=23\\times64\\times0.15=220.8\\,\\text{N}$，切向 $m\\alpha e=23\\times23.52\\times0.15=81.14\\,\\text{N}$。由动静法平衡方程得 $F_{Ox}=220.8\\,\\text{N}$，$F_{Oy}=mg-m\\alpha e=225.4-81.14=144.26\\,\\text{N}$。</p>"
+    },
+    {
+      "overview": "曲柄连杆机构连杆惯性力系简化",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示曲柄连杆滑块机构中，已知：曲柄 $OA$ 长为 $r$，以匀角速度 $\\omega$ 绕轴 $O$ 转动，连杆 $AB$ 的长 $L=2r$、质量为 $m$。试求当曲柄铅直时，连杆 $AB$ 惯性力系的简化结果。</p>",
+      "figures": [],
+      "answer": "<p>向质心 $C$ 简化：$F_{ICx}=\\dfrac{1}{2\\sqrt{3}}mr\\omega^2$，$F_{ICy}=\\dfrac{1}{2}mr\\omega^2$，$M_{IC}=\\dfrac{1}{3\\sqrt{3}}mr^2\\omega^2$</p>",
+      "explanation": "<p>【AI 生成】曲柄铅直时 $OA=r$，连杆 $AB=2r$，滑块 $B$ 在水平导槽内，此时 $AB$ 与水平成 $30°$。由速度分析得连杆瞬时角速度 $\\omega_{AB}=0$；由加速度分析，$a_A=r\\omega^2$（铅垂向下指向 $O$），$a_B$ 沿水平，由 $a_B=a_A+\\alpha_{AB}\\times AB$ 解得 $\\alpha_{AB}=\\dfrac{\\omega^2}{\\sqrt{3}}$（逆时针）。连杆质心 $C$ 的加速度 $a_C=\\dfrac{a_A+a_B}{2}$，其分量 $a_{Cx}=\\dfrac{r\\omega^2}{2\\sqrt{3}}$、$a_{Cy}=-\\dfrac{r\\omega^2}{2}$。故惯性力系向质心 $C$ 简化：主矢分量 $F_{ICx}=\\dfrac{1}{2\\sqrt{3}}mr\\omega^2$、$F_{ICy}=\\dfrac{1}{2}mr\\omega^2$（与 $a_C$ 反向），主矩 $M_{IC}=J_C\\alpha_{AB}=\\dfrac{1}{12}m(2r)^2\\cdot\\dfrac{\\omega^2}{\\sqrt{3}}=\\dfrac{1}{3\\sqrt{3}}mr^2\\omega^2$，转向与 $\\alpha_{AB}$ 相反。</p>"
+    },
+    {
+      "overview": "两杆机构求力偶矩M",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示系统位于铅垂面内。已知：两匀质杆长均为 $L=0.5\\text{m}$、质量均为 $m=2\\text{kg}$，$OO_1=h=0.4\\text{m}$，不计杆 $OA$ 与杆 $O_1B$ 之间的摩擦。若当杆 $OA$ 水平时，其角速度 $\\omega=2\\,\\text{rad/s}$、角加速度为零，且 $OB=b=0.3\\text{m}$。试用动静法求此瞬时作用在杆 $OA$ 上的力偶矩 $M$。</p>",
+      "figures": [
+        "题库/figures/ch107_idx492_0.png"
+      ],
+      "answer": "<p>$M=8.73\\,\\text{N}\\cdot\\text{m}$</p>",
+      "explanation": "<p>【AI 生成】两杆在 $B$ 处无摩擦接触。由几何关系 $OO_1=h=0.4\\text{m}$、$OB=b=0.3\\text{m}$、$O_1B=L=0.5\\text{m}$，三边恰构成直角三角形。由速度分析得杆 $O_1B$ 的角速度 $\\omega_{O_1B}=2\\,\\text{rad/s}$，由加速度分析（含科氏加速度）得 $\\alpha_{O_1B}=-16\\,\\text{rad/s}^2$。对杆 $O_1B$ 用动静法（加惯性力和惯性力偶），对 $O_1$ 取矩求 $B$ 处法向约束力 $N$；再对杆 $OA$ 用动静法，对 $O$ 取矩，得力偶矩 $M=8.73\\,\\text{N}\\cdot\\text{m}$。</p>"
+    },
+    {
+      "overview": "斜面上圆柱体的加速度与绳拉力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图，一均质圆柱体，其质量为 $m$，半径为 $r$，放在倾角为 $60°$ 的斜面上，一细绳绕在圆柱体上，其一端固定于 $A$ 点，绳的引出部分与斜面平行。如果圆柱体与斜面间的摩擦因数为 $f=1/3$。试用动静法求圆柱体的质心 $C$ 沿斜面落下的加速度及绳的拉力。</p>",
+      "figures": [],
+      "answer": "<p>$a_C=0.356g$，$F_T=0.344mg$</p>",
+      "explanation": "<p>【AI 生成】绳一端固定，圆柱沿斜面滚下时绳在柱上无滑动，故 $a_C=r\\alpha$。柱沿斜面受力：重力分量 $mg\\sin60°$、绳拉力 $F_T$、摩擦力 $F_f$（因 $fN=\\dfrac{1}{3}mg\\cos60°=\\dfrac{mg}{6}<\\dfrac{2}{3}mg\\sin60°$，柱与斜面间发生滑动，$F_f=fN=\\dfrac{mg}{6}$）。沿斜面方向：$mg\\sin60°-F_T-F_f=ma_C$；对质心取矩：$(F_T-F_f)r=\\dfrac{1}{2}mr^2\\alpha=\\dfrac{1}{2}mra_C$。联立解得 $a_C=\\dfrac{2}{3}g\\left(\\dfrac{\\sqrt{3}}{2}-\\dfrac{1}{3}\\right)=0.356g$，$F_T=F_f+\\dfrac{1}{2}ma_C=0.344mg$。</p>"
+    },
+    {
+      "overview": "鼓轮与重物系统",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，系统位于铅垂面内，由鼓轮 $C$ 与重物 $A$ 组成。已知鼓轮质量为 $m$，小半径为 $r$，大半径 $R=2r$，对过点 $C$ 且垂直于鼓轮平面的轴的回转半径 $\\rho=1.5r$，重物 $A$ 质量为 $2m$。试用动静法求：(1) 鼓轮中心 $C$ 的加速度；(2) $AB$ 段绳与 $DE$ 段绳的张力。</p>",
+      "figures": [],
+      "answer": "<p>(1) $a_C=\\dfrac{4}{21}g$；(2) $F_{AB}=\\dfrac{34}{21}mg$，$F_{DE}=\\dfrac{59}{21}mg$</p>",
+      "explanation": "<p>【AI 生成】鼓轮对 $C$ 的转动惯量 $J_C=m\\rho^2=2.25mr^2$。$DE$ 绳固定，鼓轮沿 $DE$ 绳滚下，$a_C=r\\alpha$；$AB$ 段绳绕在大半径上且与重物相连，绳速与鼓轮中心速度相同，故 $a_A=a_C$。对重物 $A$：$2mg-F_{AB}=2m\\dfrac{4}{21}g$，得 $F_{AB}=\\dfrac{34}{21}mg$。对鼓轮取动静法：对 $C$ 取矩 $F_{DE}\\cdot r-F_{AB}\\cdot2r=J_C\\alpha$，铅垂方向 $mg+F_{AB}+ma_C-F_{DE}=0$（取惯性力向上为负），联立解得 $a_C=\\dfrac{4}{21}g$、$F_{DE}=\\dfrac{59}{21}mg$。</p>"
+    },
+    {
+      "overview": "圆柱体两支承移去一支座",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示匀质圆柱体位于铅直面内。已知：圆柱半径为 $r$、重为 $Q$，$A$、$B$ 支座的水平间距为 $L$。试用动静法求突然移去支承 $B$ 瞬时：(1) 圆柱质心 $C$ 的加速度；(2) 支座 $A$ 的反力。</p>",
+      "figures": [
+        "题库/figures/ch108_idx495_0.png"
+      ],
+      "answer": "<p>(1) $a_C=\\dfrac{gL}{3r}$（垂直于 $AC$ 斜向下）；(2) $F_{Ax}=\\dfrac{QL}{3r^2}\\sqrt{r^2-\\dfrac{L^2}{4}}$（水平向右），$F_{Ay}=Q\\left(1-\\dfrac{L^2}{6r^2}\\right)$（竖直向上）</p>",
+      "explanation": "<p>【AI 生成】移去支承 $B$ 后，圆柱绕支承 $A$ 作瞬时定轴转动。质心 $C$ 到 $A$ 的距离为 $r$，重力对 $A$ 的力矩为 $Q\\cdot\\dfrac{L}{2}$；$J_A=\\dfrac{3}{2}\\dfrac{Q}{g}r^2$。由动量矩定理 $J_A\\alpha=Q\\dfrac{L}{2}$ 得 $\\alpha=\\dfrac{gL}{3r^2}$，故 $a_C=r\\alpha=\\dfrac{gL}{3r}$，方向垂直于 $AC$ 斜向下。惯性力主矢 $F_I=\\dfrac{Q}{g}a_C$ 作用于质心 $C$。由动静法平衡方程，并令 $h=\\sqrt{r^2-\\dfrac{L^2}{4}}$，得 $F_{Ax}=\\dfrac{QLh}{3r^2}=\\dfrac{QL}{3r^2}\\sqrt{r^2-\\dfrac{L^2}{4}}$，$F_{Ay}=Q-\\dfrac{QL^2}{6r^2}=Q\\left(1-\\dfrac{L^2}{6r^2}\\right)$。</p>"
+    },
+    {
+      "overview": "绞车提升重物求支座反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示绞车装在无重的水平悬臂梁上。已知：匀质轮半径为 $r$、质量为 $m$，重物 $B$ 质量为 $m_1$，梁 $AO$ 长 $L$，轮上作用一常力偶 $M$ 提升重物。试用动静法求开始运动瞬时，支座 $A$ 的反力。</p>",
+      "figures": [
+        "题库/figures/ch108_idx496_0.png"
+      ],
+      "answer": "<p>$F_{Ax}=0$；$F_{Ay}=(m+m_1)g-\\dfrac{2m_1(M-m_1gr)}{(2m_1+m)r}$；$M_A=(m+m_1)gL+M-\\dfrac{(M-m_1gr)(2m_1L-mr)}{(2m_1+m)r}$</p>",
+      "explanation": "<p>【AI 生成】轮作定轴转动，重物以加速度 $a=r\\alpha$ 上升。对轮：$M-F_T\\cdot r=\\dfrac{1}{2}mr^2\\alpha$；对重物：$F_T-m_1g=m_1a$。联立得 $a=\\dfrac{2(M-m_1gr)}{(2m_1+m)r}$，$F_T=m_1g+m_1a$。对整个系统用动静法（加惯性力与惯性力偶），对 $A$ 列平衡方程，得 $F_{Ax}=0$，$F_{Ay}=mg+F_T=(m+m_1)g-\\dfrac{2m_1(M-m_1gr)}{(2m_1+m)r}$，$M_A=mgL+F_TL+M=(m+m_1)gL+M-\\dfrac{(M-m_1gr)(2m_1L-mr)}{(2m_1+m)r}$。</p>"
+    },
+    {
+      "overview": "圆轮定滑轮物块系统",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示圆轮 $C$ 沿水平悬臂梁作纯滚动，用绳通过匀质定滑轮 $B$ 与物块 $D$ 相连。已知：二轮半径均为 $r$、重均为 $P$，物 $D$ 重为 $2P$，梁长为 $L$，自重不计。试用动静法求：(1) 重物 $D$ 开始下落时的加速度；(2) 支座 $A$ 的附加动反力。</p>",
+      "figures": [
+        "题库/figures/ch108_idx497_0.png"
+      ],
+      "answer": "<p>(1) $a_D=\\dfrac{g}{2}$；(2) $F_{Ax}=\\dfrac{P}{2}$，$F_{Ay}=P$，$M_A=PL$</p>",
+      "explanation": "<p>【AI 生成】绳不可伸长，轮 $C$ 纯滚动，故 $a_C=a_D$。对轮 $C$：$T_C-F=\\dfrac{P}{g}a_C$，$F\\cdot r=\\dfrac{1}{2}\\dfrac{P}{g}r^2\\cdot\\dfrac{a_C}{r}$，得 $F=\\dfrac{1}{2}\\dfrac{P}{g}a_C$，$T_C=\\dfrac{3}{2}\\dfrac{P}{g}a_C$。对定滑轮 $B$：$(T_D-T_C)r=\\dfrac{1}{2}\\dfrac{P}{g}r^2\\cdot\\dfrac{a_D}{r}$。对物 $D$：$2P-T_D=\\dfrac{2P}{g}a_D$。联立解得 $a_D=\\dfrac{g}{2}$，$T_C=\\dfrac{3}{4}P$，$T_D=P$，$F=\\dfrac{P}{4}$。对梁（含轮与滑轮）用动静法，得附加动反力 $F_{Ax}=\\dfrac{P}{2}$，$F_{Ay}=P$，$M_A=PL$。</p>"
+    },
+    {
+      "overview": "正方形板割绳后两绳张力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>边长 $b=100\\text{mm}$ 的正方形均质板重 $400\\text{N}$，由三根绳拉住，假设绳不可伸长且不计重量，如图所示。运用动静法求当 $FG$ 绳被剪断的瞬时，$AD$ 和 $BE$ 两绳的张力。</p>",
+      "figures": [
+        "题库/figures/ch108_idx498_0.png"
+      ],
+      "answer": "<p>$F_{AD}=100(\\sqrt{3}-1)\\,\\text{N}\\approx 73.2\\,\\text{N}$，$F_{BE}=100(\\sqrt{3}+1)\\,\\text{N}\\approx 273.2\\,\\text{N}$</p>",
+      "explanation": "<p>【AI 生成】板重 $400\\text{N}$，两绳 $AD$、$BE$ 与板边成 $60°$。割断 $FG$ 后板作平面运动，设质心加速度为 $a$、角加速度为 $\\alpha$。对板加惯性力 $F_I=\\dfrac{400}{g}a$（作用于质心）和惯性力偶 $M_I=J_C\\alpha$。由动静法：$\\sum F_x=0$、$\\sum F_y=0$、$\\sum M_C=0$，并利用绳长不变引入的运动学约束，联立解得 $F_{AD}=100(\\sqrt{3}-1)\\,\\text{N}$，$F_{BE}=100(\\sqrt{3}+1)\\,\\text{N}$。</p>"
+    },
+    {
+      "overview": "两盘系统求摩擦力与绳张力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "达朗贝尔原理",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示系统中，圆盘 $O$、$C$ 质量均为 $m$，半径均为 $R$，盘 $C$ 在斜面上只滚不滑。两盘用细绳系住，绳与盘之间无相对滑动。运用动静法求斜面对盘 $C$ 的摩擦力及绳内的张力。</p>",
+      "figures": [
+        "题库/figures/ch109_idx499_0.png"
+      ],
+      "answer": "<p>$F_f=\\dfrac{3}{7}mg\\sin\\theta$，$F_T=\\dfrac{2}{7}mg\\sin\\theta$</p>",
+      "explanation": "<p>【AI 生成】盘 $C$ 沿斜面纯滚动，$a_C=R\\alpha_C$。绳从盘 $C$ 顶部引出并绕于固定盘 $O$ 上，绳速 $=2v_C$，故盘 $O$ 的角加速度 $\\alpha_O=\\dfrac{2a_C}{R}$。对盘 $O$ 用动静法（对轴取矩）：$F_T R=\\dfrac{1}{2}mR^2\\alpha_O=mRa_C$，得 $F_T=ma_C$。对盘 $C$：沿斜面 $mg\\sin\\theta-F_T-F_f=ma_C$；对质心取矩 $(F_f-F_T)R=\\dfrac{1}{2}mR^2\\alpha_C=\\dfrac{1}{2}mRa_C$。将 $F_T=ma_C$ 代入并联立，解得 $a_C=\\dfrac{2}{7}g\\sin\\theta$，$F_f=\\dfrac{3}{7}mg\\sin\\theta$，$F_T=\\dfrac{2}{7}mg\\sin\\theta$。</p>"
+    }
+  ]
+}

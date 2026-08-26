@@ -1,0 +1,19 @@
+{
+  "id": "q_308",
+  "overview": "求力偶作用下支座A的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶",
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示结构中，各构件的自重略去不计，在构件 BC 上作用一力偶矩为 M 的力偶，各尺寸如图（ABCD 为边长 l 的正方形框架，A 为固定铰支座，D 为滚动铰支座）。求支座 A 的约束力。</p>",
+  "answer": "<p>$R_A=\\dfrac{M}{l}$（铅垂方向），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】整体仅受一个力偶 M 作用，支座反力只能合成力偶与之平衡。D 为滚动铰，反力铅垂，故 A 处反力也铅垂（$R_{Ax}=0$）且与 D 反力等值反向。A、D 两力间距为 l，由 $R_A\\cdot l=M$ 得 $R_A=\\frac{M}{l}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

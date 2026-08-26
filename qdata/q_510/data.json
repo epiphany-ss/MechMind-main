@@ -1,0 +1,23 @@
+{
+  "id": "q_510",
+  "overview": "圆环曲杆机构求圆环角速度和角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>半径为R的圆环，可绕垂直于图面的D轴转动，曲杆ABC在A端与套筒铰接，已知曲杆以匀速度v运动。试求图示位置（OD铅垂，OA水平）时圆环的角速度和角加速度。</p><img src=\"qdata/q_510/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{\\text{环}}=\\dfrac{v}{R}\\sin\\theta$；$\\alpha_{\\text{环}}=\\dfrac{v^2}{R^2}\\cos\\theta$（由加速度合成求得）。</p>",
+  "explanation": "<p>【AI 生成】取套筒A（曲杆端点）为动点，圆环为动系。<br>（1）曲杆ABC以速度v作平动（或直线运动），$v_A=v$。A在圆环上滑动，牵连运动为圆环绕D的定轴转动。<br>（2）$v_A=v_e+v_r$，$v_e=\\omega_{\\text{环}}\\cdot DA$ 垂直DA，$v_r$ 沿圆环切线。图示OD铅垂、OA水平，$DA=R$。投影得 $\\omega_{\\text{环}}=\\dfrac{v\\sin\\theta}{R}$。<br>（3）加速度：$a_A=0$（v匀速），$a_e^n=\\omega^2 R$，$a_e^t=\\alpha R$，$a_r$ 沿切线，$a_C=2\\omega v_r$。投影解出 $\\alpha_{\\text{环}}=\\dfrac{v^2\\cos\\theta}{R^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "圆环曲杆机构求圆环角速度和角加速度",
+  "module": "运动学"
+}

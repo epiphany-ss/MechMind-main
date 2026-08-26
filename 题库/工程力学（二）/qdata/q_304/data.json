@@ -1,0 +1,20 @@
+{
+  "id": "q_304",
+  "overview": "求拉动物体A所需的水平力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>物体 A、B 重量分别为 $P_A=1\\text{kN}$，$P_B=0.5\\text{kN}$，物 A 与物 B 以及物 A 与地面间的摩擦因数均为 $f=0.2$，A、B 通过滑轮 C 用一绳连接，滑轮处摩擦不计。今在 A 物体上作用一水平力 F，则能拉动物体 A 时该力应大于____。</p><img src=\"qdata/q_304/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$0.4\\text{kN}$</p>",
+  "explanation": "<p>【AI 生成】拉动物体 A 需克服两处摩擦：A 与地面间摩擦 $f(P_A+P_B)=0.2\\times1.5=0.3\\text{kN}$；A 与 B 间摩擦 $fP_B=0.2\\times0.5=0.1\\text{kN}$（阻止 B 相对 A 滑动）。故 $F&gt;0.3+0.1=0.4\\text{kN}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册"
+}

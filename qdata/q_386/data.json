@@ -1,0 +1,20 @@
+{
+  "id": "q_386",
+  "overview": "求曲柄滑块机构中M点的速度与加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>在图示曲柄滑块机构中，曲柄 OC 绕 O 轴转动，$\\varphi=\\omega t$（$\\omega$ 为常量）。滑块 A、B 可分别沿通过 O 点且相互垂直的两直槽滑动。若 AC=CB=OC=$L$，MB=$d$，则 M 点沿 $x$ 方向的速度的大小为 ，沿 $x$ 方向的加速度的大小为 。</p>",
+  "answer": "<p>$v_x=d\\omega\\sin(\\omega t)$；$a_x=d\\omega^2\\cos(\\omega t)$</p>",
+  "explanation": "<p>【AI 生成】A、B 分别在 $x$、$y$ 轴上：$A=(2L\\cos\\varphi,0)$，$B=(0,2L\\sin\\varphi)$。M 在 AB 上且 MB=$d$，$x_M=d\\cos\\varphi$。求导得 $v_{Mx}=-d\\omega\\sin\\varphi$，$a_{Mx}=-d\\omega^2\\cos\\varphi$，故大小分别为 $d\\omega\\sin(\\omega t)$、$d\\omega^2\\cos(\\omega t)$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "求曲柄滑块机构中M点的速度与加速度",
+  "module": "运动学"
+}

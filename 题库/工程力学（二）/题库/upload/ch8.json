@@ -1,0 +1,277 @@
+{
+  "chapter": 8,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断质点系动量为零是否各质点必静止",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>质点系中各质点都处于静止时，质点系的动量为零。于是可知如果质点系的动量为零，则质点系中各质点必都静止。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】质点系的动量是各质点动量的矢量和 $\\boldsymbol{p}=\\sum m_i\\boldsymbol{v}_i$。各质点静止时动量必为零；但动量为零只说明 $\\sum m_i\\boldsymbol{v}_i=\\boldsymbol{0}$，并不要求每个质点的速度都为零，例如两质点以等值反向速度运动时系统总动量为零。</p>"
+    },
+    {
+      "overview": "判断动量守恒与标量和的关系",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>一个质点系动量守恒是指该系统中各质点的质量与其速度大小的乘积之和保持不变。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】动量是矢量，质点系动量守恒指动量矢量和 $\\sum m_i\\boldsymbol{v}_i$ 保持不变，而不是各质点质量与速度大小乘积的标量和不变。</p>"
+    },
+    {
+      "overview": "判断动量可否由总质量和质心速度求得",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>不管质点系作什么样的运动，也不管质点系内各质点的速度为何，只要知道质点系的总质量和质点系质心的速度，即可求得质点系的动量。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由质心定义可直接得质点系动量 $\\boldsymbol{p}=\\sum m_i\\boldsymbol{v}_i=M\\boldsymbol{v}_C$，其中 $M$ 为总质量、$\\boldsymbol{v}_C$ 为质心速度，与各质点的具体运动情况无关。</p>"
+    },
+    {
+      "overview": "判断系统动量守恒时各部分动量是否不变",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>若质点系的动量守恒，则其中每一部分的动量都必须保持不变。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】系统总动量守恒只要求 $\\sum m_i\\boldsymbol{v}_i$ 为常矢量；系统各部分之间可以通过内力交换动量，因此每一部分的动量是可以变化的。</p>"
+    },
+    {
+      "overview": "判断时间越长变力冲量是否一定越大",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>经过的时间越长，变力的冲量也一定越大。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】冲量 $\\boldsymbol{I}=\\int_0^t\\boldsymbol{F}\\,dt$ 取决于力随时间的变化规律。若力减小、反向或为零，时间虽长冲量也不一定增大。</p>"
+    },
+    {
+      "overview": "判断力偶的冲量是否等于2Ft",
+      "question_type": "判断题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>力偶的冲量可用组成力偶的两个力来计算，即I＝2Ft。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】力偶由两个大小相等、方向相反的力组成，两力对系统的冲量等值反向，其矢量和为零，故力偶对质点系的总冲量恒为零，而不是 $2Ft$。</p>"
+    },
+    {
+      "overview": "三棱柱与物块系统动量守恒的判定",
+      "question_type": "选择题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>已知三棱柱体A质量为$M$，物块B质量为$m$，在图示三种情况下，物块均由三棱柱体顶端无初速释放，若三棱柱体初始静止，不计各处摩擦和弹簧质量，则运动过程中____。<br>(A) 图(a)所示系统动量守恒；<br>(B) 图(b)所示系统动量守恒；<br>(C) 图(c)所示系统动量守恒；<br>(D) 图示三系统动量均守恒；<br>(E) 图示三系统动量均不守恒。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch74_idx349_0.png"],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】图(a)中物块沿三棱柱斜直面自由滑下，三棱柱与物块组成的系统在水平方向不受外力，故水平方向动量守恒（初始动量为零，任一瞬时水平动量之和为零）。图(b)中物块受固定圆弧槽约束、图(c)中弹簧与固定支撑相连，系统受到外部水平约束力，水平方向动量不守恒。</p>"
+    },
+    {
+      "overview": "人车系统中车的位移是否不变",
+      "question_type": "选择题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>人重$P$，车重$Q$，置于光滑水平地面上，人可在车上运动，系统开始时静止。则不论人采用何种方式(走、跑)从车头运动到车尾，车的____。<br>(A) 位移是不变的；<br>(B) 速度是相同的；<br>(C) 质心位置是不变的；<br>(D) 末加速度是相同的。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】系统水平方向无外力，动量守恒且初始动量为零，故系统质心水平位置不变。人相对车从车头走到车尾的相对位移固定（等于车长 $L$），由质心位置不变可知车的位移 $s=\\frac{P}{P+Q}L$，与走、跑的方式无关。B错在车的速度随人的运动快慢而变；C错在车自身的质心位置是变化的（不变的是人车系统的质心）；D错在末加速度与运动方式有关。</p>"
+    },
+    {
+      "overview": "比较两圆盘的动量大小",
+      "question_type": "选择题",
+      "knowledge_points": ["动量定理", "质点动力学"],
+      "difficulty": "easy",
+      "content": "<p>两均质圆盘A、B，质量相等，半径相同，放在光滑水平面上，分别受到$F$、$F'$的作用，由静止开始运动，若$F=F'$，则任一瞬时两圆盘的动量相比较是____。<br>(A) $p_A&gt;p_B$；<br>(B) $p_A&lt;p_B$；<br>(C) $p_A=p_B$。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch75_idx351_0.png"],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】由质心运动定理，圆盘质心加速度 $a=F/m$ 只取决于合力大小，与力作用点的位置无关。两圆盘质量相等、受力相同且由静止开始，故任一瞬时质心速度相同，动量相同 $p_A=p_B$。力作用点不同只影响圆盘的转动，不影响其平动动量。</p>"
+    },
+    {
+      "overview": "冲量定理是否与路径有关",
+      "question_type": "选择题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>质点冲量定理是在一段时间内动量的变化和力的冲量的关系，它和这段时间间隔内质点所经过的路径____。<br>(A) 有关；<br>(B) 无关。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】由质点动量定理 $m\\boldsymbol{v}_2-m\\boldsymbol{v}_1=\\int_{t_1}^{t_2}\\boldsymbol{F}\\,dt$，动量变化只取决于力的时间积分（冲量），与质点在这段时间内经过的路径无关。</p>"
+    },
+    {
+      "overview": "外力冲量和的方向与动量改变量",
+      "question_type": "选择题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>系统在某一运动过程中，作用于系统的所有外力的冲量和方向与系统在此运动过程中____的方向相同。<br>(A) 力；<br>(B) 动量；<br>(C) 力的改变量；<br>(D) 动量的改变量。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】由质点系动量定理 $\\sum\\boldsymbol{I}^{(e)}=\\boldsymbol{p}_2-\\boldsymbol{p}_1=\\Delta\\boldsymbol{p}$，外力冲量的矢量和等于系统动量的增量，故其方向与动量的改变量 $\\Delta\\boldsymbol{p}$ 的方向相同。</p>"
+    },
+    {
+      "overview": "求旋转圆盘杆系轴O处约束反力",
+      "question_type": "填空题",
+      "knowledge_points": ["动量定理", "转动惯量"],
+      "difficulty": "hard",
+      "content": "<p>在质量为$M$，半径为$R$的均质圆盘上焊接一质量为$m$，长为$R$的均质细杆$OA$。该系统可绕水平轴$O$在铅垂面内转动，图示瞬时，角速度$\\omega$，角加速度$\\alpha$，则该瞬时轴$O$处约束反力为____。(须在图中画出)</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch75_idx354_0.png"],
+      "answer": "<p>设图示瞬时杆$OA$与铅垂线的夹角为$\\theta$，则轴$O$处约束反力为<br>$R_{Ox}=(m/2+M)R(\\alpha\\cos\\theta-\\omega^2\\sin\\theta)$，<br>$R_{Oy}=(M+m)g-(m/2+M)R(\\omega^2\\cos\\theta+\\alpha\\sin\\theta)$。</p>",
+      "explanation": "<p>【AI 生成】系统质心距$O$为 $d=\\frac{R(m/2+M)}{m+M}$。由质心运动定理 $\\boldsymbol{R}_O-(M+m)g\\boldsymbol{e}_y=(M+m)\\boldsymbol{a}_C$，其中质心加速度切向分量为 $d\\alpha$、法向分量为 $d\\omega^2$（指向$O$）。将加速度投影到水平、铅垂方向，并利用 $d(M+m)=R(m/2+M)$，即得<br>$$R_{Ox}=-(m/2+M)R\\omega^2\\sin\\theta+(m/2+M)R\\alpha\\cos\\theta$$<br>$$R_{Oy}=(M+m)g-(m/2+M)R\\omega^2\\cos\\theta-(m/2+M)R\\alpha\\sin\\theta$$</p>"
+    },
+    {
+      "overview": "求杆和小球的动量大小",
+      "question_type": "填空题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "hard",
+      "content": "<p>小球M重$Q$，固定在一根长为$L$，重为$P$的均质细杆上，杆的另一端铰接在以速度$v_0$运动的小车的顶板上，杆$OM$以角速度$\\omega$绕$O$轴转动，则图示瞬时杆的动量的大小为____，小球动量的大小为____。</p>",
+      "figures": [],
+      "answer": "<p>设图示瞬时杆与水平面夹角为$60°$、杆绕$O$逆时针转动，则<br>杆的动量 $p_{\\text{杆}}=\\frac{P}{g}\\sqrt{v_0^2+\\frac{\\omega^2L^2}{4}-\\frac{\\sqrt{3}}{2}v_0\\omega L}$；<br>小球的动量 $p_{\\text{球}}=\\frac{Q}{g}\\sqrt{v_0^2+\\omega^2L^2-\\sqrt{3}\\,v_0\\omega L}$。</p>",
+      "explanation": "<p>【AI 生成】杆质心$C$（杆中点）相对$O$的速度为 $\\omega L/2$，小球$M$相对$O$的速度为 $\\omega L$，方向均垂直于杆。当杆与水平面成$60°$时，该相对速度方向与水平线成$150°$角。杆质心绝对速度 $\\boldsymbol{v}_C=\\boldsymbol{v}_0+\\boldsymbol{v}_{C/O}$，其大小<br>$$v_C^2=v_0^2+(\\omega L/2)^2+2v_0(\\omega L/2)\\cos150°=v_0^2+\\frac{\\omega^2L^2}{4}-\\frac{\\sqrt{3}}{2}v_0\\omega L$$<br>小球绝对速度大小<br>$$v_M^2=v_0^2+\\omega^2L^2+2v_0\\omega L\\cos150°=v_0^2+\\omega^2L^2-\\sqrt{3}v_0\\omega L$$<br>再由 $p=\\frac{\\text{重量}}{g}v$ 即得结果。</p>"
+    },
+    {
+      "overview": "求三杆一盘系统的动量大小",
+      "question_type": "填空题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "hard",
+      "content": "<p>质量均为$m$的均质细杆$AB$、$BC$和均质圆盘$CD$用铰接联接在一起并支承如图。已知$AB=BC=CD=2R$，图示瞬时$A、B、C$处在一水平直线位置上而$CD$铅直，且$AB$杆以角速度$\\omega$转动，则该瞬时系统的动量的大小为____。(在图中画出该动量)</p>",
+      "figures": [],
+      "answer": "<p>该瞬时系统的动量大小为 $p=5mR\\omega$，方向铅垂（在图示瞬时竖直向上或向下，与$AB$杆转动方向一致）。</p>",
+      "explanation": "<p>【AI 生成】$AB$杆绕固定铰$A$以角速度$\\omega$转动，$B$点速度 $v_B=2R\\omega$（铅垂方向），$AB$杆质心速度 $v_{AB}=R\\omega$。该瞬时$A、B、C$共线且$CD$铅垂，处于机构的一个特殊位置，$BC$杆与圆盘$CD$在该瞬时的角速度为零，故$BC$杆作瞬时平动（$v_C=v_B=2R\\omega$），圆盘中心$D$的速度亦为 $v_D=2R\\omega$（铅垂方向）。因此<br>$$p=m\\cdot R\\omega+m\\cdot 2R\\omega+m\\cdot 2R\\omega=5mR\\omega$$<br>方向沿铅垂方向。</p>"
+    },
+    {
+      "overview": "求光滑面上倒杆质心的轨迹",
+      "question_type": "填空题",
+      "knowledge_points": ["动量定理", "质点动力学"],
+      "difficulty": "medium",
+      "content": "<p>均质杆AB长$l$，如图铅垂地立于光滑水平面上，若杆受一微小扰动，从铅垂位置无初速度地倒下，其质心C点的运动轨迹为____。</p>",
+      "figures": [],
+      "answer": "<p>一条铅垂直线。</p>",
+      "explanation": "<p>【AI 生成】水平面光滑，杆在水平方向不受外力，质心$C$在水平方向无加速度；初始质心静止，故质心始终无水平位移，只沿铅垂方向下落，其轨迹为一条铅垂直线。</p>"
+    },
+    {
+      "overview": "求曲柄齿轮导杆系统的动量",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>机构如图，已知：曲柄$O_1O_2$质量为$m_1$，长$L$，以匀角速度$\\omega$绕$O_1$轴转动，动齿轮质量为$m_2$，半径为$L$，导杆$AB$质量为$m_3$。试求曲柄$O_1O_2$与水平线夹角为$\\varphi$时，系统的动量。（写成$\\boldsymbol{p}=p_x\\boldsymbol{i}+p_y\\boldsymbol{j}$形式）</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch76_idx358_0.png"],
+      "answer": "<p>$$p_x=\\left(\\frac{m_1}{2}+m_2+\\frac{m_3}{2}\\right)L\\omega\\sin\\varphi,\\qquad p_y=\\left(\\frac{m_1}{2}+m_2\\right)L\\omega\\cos\\varphi$$<br>即 $\\boldsymbol{p}=\\left(\\frac{m_1}{2}+m_2+\\frac{m_3}{2}\\right)L\\omega\\sin\\varphi\\,\\boldsymbol{i}+\\left(\\frac{m_1}{2}+m_2\\right)L\\omega\\cos\\varphi\\,\\boldsymbol{j}$。</p>",
+      "explanation": "<p>【AI 生成】曲柄绕$O_1$以角速度$\\omega$转动，其质心（中点）速度 $v_{C_1}=\\omega L/2$，垂直于$O_1O_2$；齿轮中心$O_2$的速度 $v_{O_2}=\\omega L$，亦垂直于$O_1O_2$。垂直方向的单位矢量为 $(-\\sin\\varphi,\\cos\\varphi)$。齿轮在导杆上纯滚动，导杆$AB$沿水平方向平动，其速度由齿轮的滚动确定（图示瞬时 $v_{AB}=\\omega L\\sin\\varphi/2$）。故<br>$$p_x=m_1\\frac{\\omega L}{2}\\sin\\varphi+m_2\\omega L\\sin\\varphi+m_3\\frac{\\omega L}{2}\\sin\\varphi$$<br>$$p_y=m_1\\frac{\\omega L}{2}\\cos\\varphi+m_2\\omega L\\cos\\varphi$$<br>整理即得结果（$p_y$不含$m_3$项，因导杆作水平平动）。</p>"
+    },
+    {
+      "overview": "求OA、AB杆与轮系统的动量",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "质点动力学"],
+      "difficulty": "medium",
+      "content": "<p>已知均质杆$OA$、$AB$杆与均质轮的质量均为$m$，$OA=l_1$，$AB=l_2$，轮的半径为$R$，轮做纯滚动，$OA$杆的角速度为$\\omega$，求图示瞬时此系统的动量。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch76_idx359_0.png"],
+      "answer": "<p>$$p=\\frac{5}{2}ml\\omega$$<br>式中$l$为图中各杆与轮半径的公共长度，动量方向与图示运动方向一致（$A$、$B$两点速度方向）。</p>",
+      "explanation": "<p>【AI 生成】图示瞬时，$OA$、$AB$与轮半径相等，且$A$、$B$两点速度方向相同。$A$点速度 $v_A=\\omega l$，轮作纯滚动时轮心$B$的速度 $v_B=\\omega l$（方向与$v_A$相同）。各质心的动量：<br>杆$OA$：$p_{OA}=m\\cdot\\dfrac{\\omega l}{2}$；<br>杆$AB$：$p_{AB}=m\\cdot\\dfrac{v_A+v_B}{2}=m\\omega l$；<br>轮：$p_{\\text{轮}}=m\\cdot v_B=m\\omega l$。<br>故总动量<br>$$p=p_{OA}+p_{AB}+p_{\\text{轮}}=\\frac{m\\omega l}{2}+m\\omega l+m\\omega l=\\frac{5}{2}ml\\omega$$</p>"
+    },
+    {
+      "overview": "求杆上滚动圆盘系统的动量",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "hard",
+      "content": "<p>已知均质细杆$OA$的质量$m_1=3$kg，长$L=10\\sqrt{3}$cm，以匀角速度$\\omega_1=2$rad/s绕$O$点逆时针转动。质量$m_2=2$kg，半径$r=5$cm的均质圆盘沿$OA$杆以相对角速度$\\omega_2=\\omega_1$作纯滚动，求当杆$OA$与水平线的夹角$\\beta=30°$、$OB=5\\sqrt{3}$cm时该系统的动量。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch76_idx360_0.png"],
+      "answer": "<p>$$p=50\\sqrt{3}\\,\\text{kg·cm/s}=0.866\\,\\text{kg·m/s}$$<br>方向垂直于$OA$（沿$\\omega_1$转向的切线方向）。</p>",
+      "explanation": "<p>【AI 生成】杆$OA$的质心（中点）速度垂直于$OA$，大小为<br>$$v_1=\\omega_1\\frac{L}{2}=2\\times\\frac{10\\sqrt{3}}{2}=10\\sqrt{3}\\,\\text{cm/s}$$<br>圆盘中心$B$（$OB=5\\sqrt{3}$cm）随杆运动的速度垂直于$OA$，大小为<br>$$v_2=\\omega_1\\cdot OB=2\\times5\\sqrt{3}=10\\sqrt{3}\\,\\text{cm/s}$$<br>系统的动量<br>$$p=m_1v_1+m_2v_2=3\\times10\\sqrt{3}+2\\times10\\sqrt{3}=50\\sqrt{3}\\,\\text{kg·cm/s}$$<br>方向垂直于$OA$。圆盘沿杆的相对滚动速度沿杆向，对垂直$OA$方向的动量无贡献。</p>"
+    },
+    {
+      "overview": "求制动后平板车与小车的共同速度",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>如图，质量$M$的平板车A以速度$v_0$移动，质量$m$的小车B以相对速度$u_0$沿平板车匀速运动。某瞬时制动小车，求小车在平板车上停下后，平板车和小车的共同速度$v$。</p>",
+      "figures": [],
+      "answer": "<p>$$v=v_0+\\frac{m}{M+m}u_0$$<br>（$u_0$与$v_0$同向时取正；若$u_0$与$v_0$反向，则$v=v_0-\\dfrac{m}{M+m}u_0$。）</p>",
+      "explanation": "<p>【AI 生成】制动前小车B的绝对速度 $v_B=v_0+u_0$。制动过程中水平方向无外力，系统动量守恒：<br>$$Mv_0+m(v_0+u_0)=(M+m)v$$<br>解得<br>$$v=\\frac{Mv_0+m(v_0+u_0)}{M+m}=v_0+\\frac{m}{M+m}u_0$$</p>"
+    },
+    {
+      "overview": "求人跳离车子后车的速度",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>如图所示质量为100kg的车在光滑的直线轨道上以$v_2=1$m/s的速度匀速运动。今有一质量为50kg的人从高处跳到车上，其速度为$v_1=2$m/s，与水平面成$60°$角。随后此人又从车上向后跳下，他跳离车子后相对车子的速度为$v_r=1$m/s，方向与水平面成$30°$角，求人跳离车子后车的速度$u$。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch77_idx362_0.png"],
+      "answer": "<p>$$u=1.29\\,\\text{m/s}$$<br>方向沿车原来前进方向。</p>",
+      "explanation": "<p>【AI 生成】水平方向无外力，动量守恒。<br>第一步（人跳上车），取向右为正：<br>$$100\\times1+50\\times2\\cos60°=(100+50)v_{\\text{共}}$$<br>得 $v_{\\text{共}}=1$m/s。<br>第二步（人向后跳下），人相对车的水平速度分量为 $-v_r\\cos30°=-0.866$m/s，设车速度为$u$，则<br>$$150\\times1=100u+50(u-1\\times\\cos30°)$$<br>$$150=150u-43.3\\;\\Rightarrow\\;u=\\frac{193.3}{150}=1.29\\,\\text{m/s}$$<br>车的速度为 $1.29$m/s，方向向前。</p>"
+    },
+    {
+      "overview": "求滑轮轴承O处的反力",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "转动惯量"],
+      "difficulty": "medium",
+      "content": "<p>在图示系统中，均质滑轮重$W$，绳的质量不计且不可伸长，重物A重$P_1$，B重$P_2$。设A下降的加速度为$a_A$，试求轴承O处的反力。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch77_idx363_0.png"],
+      "answer": "<p>$$F_{Ox}=0,\\qquad F_{Oy}=P_1\\left(1-\\frac{a_A}{g}\\right)+P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)+W$$<br>式中$r_1$、$r_2$分别为A、B绳所绕的滑轮半径，$F_{Oy}$方向竖直向上。</p>",
+      "explanation": "<p>【AI 生成】设$r_1$、$r_2$为两段绳所绕半径，则B上升的加速度 $a_B=a_A\\dfrac{r_1}{r_2}$。分别对重物A、B列牛顿第二定律：<br>$$T_1=P_1\\left(1-\\frac{a_A}{g}\\right),\\qquad T_2=P_2\\left(1+\\frac{a_B}{g}\\right)=P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)$$<br>滑轮质心不动，故轴承反力竖直分量平衡滑轮重量与两绳张力之和：<br>$$F_{Oy}=W+T_1+T_2=P_1\\left(1-\\frac{a_A}{g}\\right)+P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)+W$$<br>水平方向无外力，$F_{Ox}=0$。</p>"
+    },
+    {
+      "overview": "求四连杆机构底座的铅垂反力",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "质点动力学"],
+      "difficulty": "hard",
+      "content": "<p>在图示四连杆机构中，各部分都是均质的，各杆质量均为$m$，$O_1A=O_2B=AB=O_1O_2=L$；固定在地面上的底座质量为$M$，杆$O_1A$以匀角速度$\\omega$转动。试求在$t$瞬时（$\\theta=\\omega t$）地面对底座的铅垂反力。</p>",
+      "figures": [],
+      "answer": "<p>$$F_N=(3m+M)g-2mL\\omega^2\\sin\\theta=(3m+M)g-2mL\\omega^2\\sin(\\omega t)$$<br>方向竖直向上。</p>",
+      "explanation": "<p>【AI 生成】四连杆机构中$O_1A=O_2B=AB=O_1O_2=L$，为平行四边形机构。三根杆各质点铅垂坐标：$O_1A$杆质心 $(L/2)\\sin\\theta$，$O_2B$杆质心 $(L/2)\\sin\\theta$，$AB$杆质心 $L\\sin\\theta$。因$\\omega$为常数，质心铅垂加速度分别为<br>$$a_{y1}=a_{y2}=-\\frac{L}{2}\\omega^2\\sin\\theta,\\qquad a_{y3}=-L\\omega^2\\sin\\theta$$<br>系统质心铅垂加速度<br>$$a_C=\\frac{m(a_{y1}+a_{y2}+a_{y3})+M\\cdot0}{3m+M}=-\\frac{2mL\\omega^2\\sin\\theta}{3m+M}$$<br>对整体列质心运动定理：$F_N-(3m+M)g=(3m+M)a_C$，故<br>$$F_N=(3m+M)g-2mL\\omega^2\\sin(\\omega t)$$</p>"
+    },
+    {
+      "overview": "求小船移动的距离",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "easy",
+      "content": "<p>小船质量为$m$，自由地停泊在静止的水平面上；船上站着两个人。质量为$m_1$的人向船尾移动了$L_1$，而质量为$m_2$的人向船头移动了$L_2$，不计水的阻力，试求小船移动的距离。</p>",
+      "figures": [],
+      "answer": "<p>$$s=\\frac{m_1L_1-m_2L_2}{m+m_1+m_2}$$<br>若 $m_1L_1&gt;m_2L_2$，船向船头方向移动；若 $m_1L_1&lt;m_2L_2$，船向船尾方向移动。</p>",
+      "explanation": "<p>【AI 生成】系统水平方向无外力，动量守恒，初始静止，故系统质心水平位置不变。设船位移为$s$（向船头为正），人$m_1$向船尾移动$L_1$，其绝对位移为 $s-L_1$；人$m_2$向船头移动$L_2$，其绝对位移为 $s+L_2$。由质心不动：<br>$$ms+m_1(s-L_1)+m_2(s+L_2)=0$$<br>解得<br>$$s=\\frac{m_1L_1-m_2L_2}{m+m_1+m_2}$$</p>"
+    },
+    {
+      "overview": "求滑块A的运动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "振动"],
+      "difficulty": "hard",
+      "content": "<p>已知滑块A质量为$m_A$，弹簧刚度系数为$k$，$AB=l$，小球B质量为$m_B$，$\\varphi=\\omega t$，$\\omega$为常数，AB杆上的力偶矩为$M$。不计弹簧质量，求滑块A的运动微分方程。</p>",
+      "figures": [],
+      "answer": "<p>$$(m_A+m_B)\\ddot{x}+kx=m_B\\,l\\,\\omega^2\\sin(\\omega t)$$</p>",
+      "explanation": "<p>【AI 生成】取滑块A的水平位移为$x$（弹簧从原长算起）。小球B的水平坐标为<br>$$x_B=x+l\\sin\\varphi=x+l\\sin(\\omega t)$$<br>系统水平方向动量<br>$$p_x=m_A\\dot{x}+m_B(\\dot{x}+l\\omega\\cos\\omega t)$$<br>水平外力只有弹簧力 $-kx$，由动量定理<br>$$\\frac{dp_x}{dt}=-kx$$<br>即<br>$$(m_A+m_B)\\ddot{x}-m_B\\,l\\,\\omega^2\\sin(\\omega t)=-kx$$<br>整理得滑块A的运动微分方程<br>$$(m_A+m_B)\\ddot{x}+kx=m_B\\,l\\,\\omega^2\\sin(\\omega t)$$<br>杆上的力偶矩$M$是维持$\\varphi=\\omega t$匀速转动所需的驱动力偶，不影响滑块的水平运动方程。</p>"
+    },
+    {
+      "overview": "求三棱柱和杆的加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "质点动力学"],
+      "difficulty": "hard",
+      "content": "<p>图示置于水平面上的三棱柱体D，质量为$m_1$，斜面倾角为$\\alpha$，质量为$m_2$的杆AB的A端搁在三棱柱的斜面上，杆与柱体的斜面垂直，系统初始静止。若不计摩擦，试分别求三棱柱体D和杆AB的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch78_idx367_0.png"],
+      "answer": "<p>三棱柱体D的加速度（设水平向左为正）：<br>$$a_D=\\frac{m_2\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}$$<br>杆AB的加速度（取水平向右、竖直向上为正）：<br>$$\\boldsymbol{a}_{AB}=\\frac{m_1\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}\\,\\boldsymbol{i}-\\frac{(m_1+m_2)g\\sin^2\\alpha}{m_1+m_2\\sin^2\\alpha}\\,\\boldsymbol{j}$$</p>",
+      "explanation": "<p>【AI 生成】杆与斜面垂直，故杆作平动（不转动）。取沿斜面向下方向单位矢量 $\\boldsymbol{u}=(\\cos\\alpha,-\\sin\\alpha)$，垂直斜面向外单位矢量 $\\boldsymbol{n}=(\\sin\\alpha,\\cos\\alpha)$。设三棱柱向右加速度为$a_D$，杆沿斜面的相对加速度为$s''$，则杆质心加速度 $\\boldsymbol{a}_{AB}=a_D\\boldsymbol{i}+s''\\boldsymbol{u}$。斜面法向约束力为$N$（沿$\\boldsymbol{n}$）。<br>杆：$m_2\\boldsymbol{a}_{AB}=-m_2g\\boldsymbol{j}+N\\boldsymbol{n}$；<br>三棱柱水平方向：$m_1a_D=-N\\sin\\alpha$。<br>联立得<br>$$(m_1+m_2)a_D+m_2s''\\cos\\alpha=0,\\qquad m_2s''\\sin\\alpha=m_2g+m_1a_D\\cot\\alpha$$<br>消去$s''$解得 $a_D=-\\dfrac{m_2\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}$（负号表示三棱柱向左运动）。杆的加速度<br>$$a_{ABx}=\\frac{m_1\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha},\\qquad a_{ABy}=-\\frac{(m_1+m_2)g\\sin^2\\alpha}{m_1+m_2\\sin^2\\alpha}$$</p>"
+    },
+    {
+      "overview": "求甲虫与圆环中心运动规律",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理"],
+      "difficulty": "medium",
+      "content": "<p>在光滑水平面上，平放一半径为$R$，质量为$M$的圆环，在某一瞬时，有一质量为$m$的甲虫开始以不变的相对速度$u$沿此环爬行，试求甲虫及圆环中心各自的运动规律。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch78_idx368_0.png"],
+      "answer": "<p>甲虫与圆环中心均绕系统的质心作匀速圆周运动，角速度均为 $u/R$（方向相反）。<br>甲虫的运动轨迹：以系统质心为圆心、半径为 $\\dfrac{MR}{M+m}$ 的圆；<br>圆环中心的运动轨迹：以系统质心为圆心、半径为 $\\dfrac{mR}{M+m}$ 的圆。</p>",
+      "explanation": "<p>【AI 生成】系统在水平方向不受外力，动量守恒，初始静止，故系统质心$O$固定不动。设圆环中心$C$到质心$O$的距离为$r_C$，甲虫到质心$O$的距离为$r_B$，则<br>$$Mr_C=mr_B,\\qquad r_C+r_B=R$$<br>解得<br>$$r_C=\\frac{mR}{M+m},\\qquad r_B=\\frac{MR}{M+m}$$<br>甲虫相对圆环的速度为$u$，即甲虫绕圆环中心转动的角速度为 $u/R$，由于质心不动、两圆共心，甲虫与圆环中心绕质心$O$的角速度均为 $u/R$，方向相反。</p>"
+    },
+    {
+      "overview": "求圆弧上圆柱的正压力与摩擦力",
+      "question_type": "计算题",
+      "knowledge_points": ["动量定理", "机械能守恒"],
+      "difficulty": "hard",
+      "content": "<p>质量为$m$半径为$r$的均质圆柱，在运动开始时，其质心在与$OB$同一高度的点$C$处。圆柱由静止沿斜面作无滑动的滚动，当它滚到半径为$R$的圆弧$AB$上时，圆心的速度$v=\\left[\\dfrac{4g(R-r)\\cos\\theta}{3}\\right]^{1/2}$。试求圆柱在圆弧段上任一位置所受的正压力和摩擦力。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch78_idx369_0.png"],
+      "answer": "<p>$$N=\\frac{7}{3}mg\\cos\\theta\\qquad\\text{（指向圆弧中心O）}$$<br>$$F=\\frac{1}{3}mg\\sin\\theta\\qquad\\text{（沿圆弧切线，与运动方向相反）}$$</p>",
+      "explanation": "<p>【AI 生成】圆柱沿圆弧内侧纯滚动，质心沿半径为$R-r$的圆弧运动。在角位置$\\theta$处，法向（指向$O$）的运动方程为<br>$$N-mg\\cos\\theta=m\\frac{v^2}{R-r}$$<br>代入 $v^2=\\dfrac{4g(R-r)\\cos\\theta}{3}$，得<br>$$N=mg\\cos\\theta+\\frac{m}{R-r}\\cdot\\frac{4g(R-r)\\cos\\theta}{3}=\\frac{7}{3}mg\\cos\\theta$$<br>对圆柱作纯滚动，由转动方程 $F\\cdot r=I\\alpha=\\frac{1}{2}mr^2\\alpha$ 且 $a_t=r\\alpha$，故 $F=\\frac{1}{2}ma_t$。由能量关系 $v^2=\\frac{4}{3}gh$ 求导可得切向加速度 $a_t=\\frac{2}{3}g\\sin\\theta$，于是<br>$$F=\\frac{1}{2}m\\cdot\\frac{2}{3}g\\sin\\theta=\\frac{1}{3}mg\\sin\\theta$$</p>"
+    }
+  ]
+}

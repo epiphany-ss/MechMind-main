@@ -1,0 +1,20 @@
+{
+  "id": "q_558",
+  "overview": "求三棱柱和杆的加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示置于水平面上的三棱柱体D，质量为$m_1$，斜面倾角为$\\alpha$，质量为$m_2$的杆AB的A端搁在三棱柱的斜面上，杆与柱体的斜面垂直，系统初始静止。若不计摩擦，试分别求三棱柱体D和杆AB的加速度。</p><img src=\"qdata/q_558/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>三棱柱体D的加速度（设水平向左为正）：<br>$$a_D=\\frac{m_2\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}$$<br>杆AB的加速度（取水平向右、竖直向上为正）：<br>$$\\boldsymbol{a}_{AB}=\\frac{m_1\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}\\,\\boldsymbol{i}-\\frac{(m_1+m_2)g\\sin^2\\alpha}{m_1+m_2\\sin^2\\alpha}\\,\\boldsymbol{j}$$</p>",
+  "explanation": "<p>【AI 生成】杆与斜面垂直，故杆作平动（不转动）。取沿斜面向下方向单位矢量 $\\boldsymbol{u}=(\\cos\\alpha,-\\sin\\alpha)$，垂直斜面向外单位矢量 $\\boldsymbol{n}=(\\sin\\alpha,\\cos\\alpha)$。设三棱柱向右加速度为$a_D$，杆沿斜面的相对加速度为$s''$，则杆质心加速度 $\\boldsymbol{a}_{AB}=a_D\\boldsymbol{i}+s''\\boldsymbol{u}$。斜面法向约束力为$N$（沿$\\boldsymbol{n}$）。<br>杆：$m_2\\boldsymbol{a}_{AB}=-m_2g\\boldsymbol{j}+N\\boldsymbol{n}$；<br>三棱柱水平方向：$m_1a_D=-N\\sin\\alpha$。<br>联立得<br>$$(m_1+m_2)a_D+m_2s''\\cos\\alpha=0,\\qquad m_2s''\\sin\\alpha=m_2g+m_1a_D\\cot\\alpha$$<br>消去$s''$解得 $a_D=-\\dfrac{m_2\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha}$（负号表示三棱柱向左运动）。杆的加速度<br>$$a_{ABx}=\\frac{m_1\\,g\\sin\\alpha\\cos\\alpha}{m_1+m_2\\sin^2\\alpha},\\qquad a_{ABy}=-\\frac{(m_1+m_2)g\\sin^2\\alpha}{m_1+m_2\\sin^2\\alpha}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

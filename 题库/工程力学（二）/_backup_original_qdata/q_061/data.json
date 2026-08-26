@@ -1,0 +1,18 @@
+{
+  "id": "q_061",
+  "overview": "曲柄连杆机构连杆的动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知 $OA=AB=L$，$\\omega=$ 常数，均质连杆 $AB$ 的质量为 $m$，而曲柄 $OA$ 与滑块 $B$ 的质量不计，则图示瞬时系统的动能为____。</p>",
+  "answer": "<p>$T=\\dfrac{2}{3}mL^2\\omega^2$</p>",
+  "explanation": "<p>【AI 生成】图示 $OA$、$AB$ 均与水平成 $45^\\circ$。$v_A=L\\omega$（垂直于 $OA$），由速度投影定理 $v_B\\cos45^\\circ=v_A\\cos45^\\circ$，得滑块速度 $v_B=-\\sqrt2 L\\omega$。连杆角速度 $\\omega_{AB}=-\\omega$，质心速度 $v_C^2=\\frac54L^2\\omega^2$，故 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{mL^2}{12}\\omega^2=\\frac{5}{8}mL^2\\omega^2+\\frac{1}{24}mL^2\\omega^2=\\frac23mL^2\\omega^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

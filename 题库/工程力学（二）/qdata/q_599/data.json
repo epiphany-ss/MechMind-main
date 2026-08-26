@@ -1,0 +1,22 @@
+{
+  "id": "q_599",
+  "overview": "求V形光滑斜槽中圆柱受切向力时的角加速度与约束力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，均质圆柱体的质量为4kg，半径为0.5m，置于两光滑斜面（各与水平成$45^\\circ$）构成的V形槽中。设有与圆柱轴线垂直、且沿圆柱面切线方向的力F＝20N作用（F沿水平方向作用于圆柱顶部切点），求圆柱的角加速度及斜面的约束力。</p><img src=\"qdata/q_599/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>角加速度 $\\alpha=\\dfrac{Fr}{J}=\\dfrac{20\\times0.5}{\\frac{1}{2}\\times4\\times0.5^2}=20\\ \\mathrm{rad/s^2}$；约束力 $N_1\\approx13.6\\ \\mathrm{N}$，$N_2\\approx41.9\\ \\mathrm{N}$</p>",
+  "explanation": "<p>【AI 生成】光滑斜面，约束力沿法向。由对称的V形槽（两斜面各$45^\\circ$），法向力与铅垂线各成$45^\\circ$。圆柱转动惯量$J=\\frac{1}{2}mr^2=\\frac{1}{2}\\times4\\times0.5^2=0.5\\ \\mathrm{kg\\cdot m^2}$。F沿切向作用于顶部，对轴之矩$M=Fr=20\\times0.5=10\\ \\mathrm{N\\cdot m}$，故$$\\alpha=\\frac{M}{J}=20\\ \\mathrm{rad/s^2}$$约束力（圆柱中心不动，设$N_1$为左斜面、$N_2$为右斜面法向力）：铅垂方向$(N_1+N_2)\\cos45^\\circ=mg=39.2\\mathrm{N}$；水平方向（F水平向右）$(N_2-N_1)\\sin45^\\circ=F=20\\mathrm{N}$。解得$$N_1\\approx13.6\\ \\mathrm{N},\\qquad N_2\\approx41.9\\ \\mathrm{N}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册"
+}

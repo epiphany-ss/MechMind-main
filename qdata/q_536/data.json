@@ -1,0 +1,20 @@
+{
+  "id": "q_536",
+  "overview": "判断动量可否由总质量和质心速度求得",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>不管质点系作什么样的运动，也不管质点系内各质点的速度为何，只要知道质点系的总质量和质点系质心的速度，即可求得质点系的动量。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】由质心定义可直接得质点系动量 $\\boldsymbol{p}=\\sum m_i\\boldsymbol{v}_i=M\\boldsymbol{v}_C$，其中 $M$ 为总质量、$\\boldsymbol{v}_C$ 为质心速度，与各质点的具体运动情况无关。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "判断动量可否由总质量和质心速度求得",
+  "module": "动力学"
+}

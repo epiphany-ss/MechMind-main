@@ -1,0 +1,20 @@
+{
+  "id": "q_354",
+  "overview": "判断速度分量为常数时加速度是否为零",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>在直角坐标系中，如果速度 $v$ 的投影 $v_x,\\ v_y,\\ v_z$ 均为常数，则其加速度 $a$ 为零。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】$a_x=\\dot v_x=0$，$a_y=\\dot v_y=0$，$a_z=\\dot v_z=0$，故 $a=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "判断速度分量为常数时加速度是否为零",
+  "module": "运动学"
+}

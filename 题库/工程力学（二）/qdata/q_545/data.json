@@ -1,0 +1,21 @@
+{
+  "id": "q_545",
+  "overview": "求旋转圆盘杆系轴O处约束反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>在质量为$M$，半径为$R$的均质圆盘上焊接一质量为$m$，长为$R$的均质细杆$OA$。该系统可绕水平轴$O$在铅垂面内转动，图示瞬时，角速度$\\omega$，角加速度$\\alpha$，则该瞬时轴$O$处约束反力为____。(须在图中画出)</p><img src=\"qdata/q_545/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>设图示瞬时杆$OA$与铅垂线的夹角为$\\theta$，则轴$O$处约束反力为<br>$R_{Ox}=(m/2+M)R(\\alpha\\cos\\theta-\\omega^2\\sin\\theta)$，<br>$R_{Oy}=(M+m)g-(m/2+M)R(\\omega^2\\cos\\theta+\\alpha\\sin\\theta)$。</p>",
+  "explanation": "<p>【AI 生成】系统质心距$O$为 $d=\\frac{R(m/2+M)}{m+M}$。由质心运动定理 $\\boldsymbol{R}_O-(M+m)g\\boldsymbol{e}_y=(M+m)\\boldsymbol{a}_C$，其中质心加速度切向分量为 $d\\alpha$、法向分量为 $d\\omega^2$（指向$O$）。将加速度投影到水平、铅垂方向，并利用 $d(M+m)=R(m/2+M)$，即得<br>$$R_{Ox}=-(m/2+M)R\\omega^2\\sin\\theta+(m/2+M)R\\alpha\\cos\\theta$$<br>$$R_{Oy}=(M+m)g-(m/2+M)R\\omega^2\\cos\\theta-(m/2+M)R\\alpha\\sin\\theta$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

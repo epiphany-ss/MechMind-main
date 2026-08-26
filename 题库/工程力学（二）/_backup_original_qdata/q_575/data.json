@@ -1,0 +1,17 @@
+{
+  "id": "q_575",
+  "overview": "求均质圆筒对x-x轴的转动惯量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "转动惯量"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>均质圆筒外径$R_1$，内半径$R_2$，高h，总质量为M，则其绕x-x轴（圆筒的中心轴线）的转动惯量为____。</p><p>(A) $M(R_1^2+R_2^2)$；<br>(B) $M(R_1^2+R_2^2)h$；<br>(C) $M(R_1^2-R_2^2)$；<br>(D) $M(R_1^2-R_2^2)h$；<br>(E) $\\frac{1}{2}M(R_1^2+R_2^2)$。</p>",
+  "answer": "<p>E</p>",
+  "explanation": "<p>【AI 生成】对圆筒中心轴线，$J=\\int_{R_2}^{R_1}r^2\\rho\\,2\\pi r h\\,\\mathrm{d}r=\\frac{1}{2}M(R_1^2+R_2^2)$，故选E。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55"
+}
