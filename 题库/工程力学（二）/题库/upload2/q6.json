@@ -1,0 +1,17 @@
+{
+  "overview": "求液压式汽车起重机支撑腿A、B的约束力及最大起重",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>如图所示，液压式汽车起重机全部固定部分（包括汽车自重）总重为 $P_1 = 60\\ \\mathrm{kN}$，旋转部分总重为 $P_2 = 20\\ \\mathrm{kN}$，$a = 1.4\\ \\mathrm{m}$，$b = 0.4\\ \\mathrm{m}$，$l_1 = 1.85\\ \\mathrm{m}$，$l_2 = 1.4\\ \\mathrm{m}$。求：（1）当 $l = 3\\ \\mathrm{m}$、起吊重为 $P = 50\\ \\mathrm{kN}$ 时，支撑腿 A、B 所受地面的约束力；（2）当 $l = 5\\ \\mathrm{m}$ 时，为了保证起重机不致翻倒，问最大起重为多大？</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>（1）当 $l=3\\ \\mathrm{m}$、$P=50\\ \\mathrm{kN}$ 时：$F_A=33.2\\ \\mathrm{kN}$，$F_B=96.8\\ \\mathrm{kN}$。<br>（2）当 $l=5\\ \\mathrm{m}$ 时，为保证起重机不致翻倒的最大起重：$P_{\\max}=52.2\\ \\mathrm{kN}$。<br>（数值以原图为准）</p><img src=\"[[FIG2]]\">",
+  "explanation": "<p>解：取整个起重机为研究对象，受力如图所示。</p><p><b>（1）求当 $l=3\\ \\mathrm{m}$、$P=50\\ \\mathrm{kN}$ 时的约束力 $F_A$、$F_B$。</b></p><p>$\\sum M_A=0$：</p><p>$$-P_1(l_1-a)-P_2(l_1+b)-P(l_1+l)+F_B(l_1+l_2)=0$$</p><p>$$F_B=\\frac{P_1(l_1-a)+P_2(l_1+b)+P(l_1+l)}{l_1+l_2}=\\frac{60\\times0.45+20\\times2.25+50\\times4.85}{3.25}=96.8\\ \\mathrm{kN}$$</p><p>$\\sum F_y=0$，$F_A+F_B-P_1-P_2-P=0$，故</p><p>$$F_A=P_1+P_2+P-F_B=60+20+50-96.8=33.2\\ \\mathrm{kN}$$</p><p><b>（2）求当 $l=5\\ \\mathrm{m}$ 时，保证起重机不翻倒的最大起重 $P_{\\max}$。</b></p><p>起重机不翻倒的临界状态为 $F_A=0$，$\\sum M_B=0$：</p><p>$$P_1(a+l_2)+P_2(l_2-b)-P_{\\max}(l-l_2)=0$$</p><p>$$P_{\\max}=\\frac{P_1(a+l_2)+P_2(l_2-b)}{l-l_2}=\\frac{60\\times2.8+20\\times1.0}{3.6}=52.2\\ \\mathrm{kN}$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q6_0.jpeg",
+    "题库/qbank2_figs/q6_1.png",
+    "题库/qbank2_figs/q6_2.png"
+  ]
+}

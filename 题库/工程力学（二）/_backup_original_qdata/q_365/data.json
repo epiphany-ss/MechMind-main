@@ -1,0 +1,17 @@
+{
+  "id": "q_365",
+  "overview": "判断平动刚体各点轨迹的形状",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>平动刚体上各点的运动轨迹可以是直线，可以是平面曲线，也可以是空间任意曲线。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】刚体平动时各点轨迹为全等的曲线，可为直线、平面曲线或空间曲线，故说法正确。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

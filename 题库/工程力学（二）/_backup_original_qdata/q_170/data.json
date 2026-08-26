@@ -1,0 +1,20 @@
+{
+  "id": "q_170",
+  "overview": "求滑轮-物块-弹簧系统的拉格朗日函数",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程",
+    "广义坐标"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>均质滑轮 $O$ 质量为 $M$、半径为 $R$，物体 $A$ 质量为 $m$，弹簧的弹性系数为 $k$，若取 $\\varphi$ 为广义坐标（$\\varphi=0$ 时系统处于平衡状态），则系统的拉格朗日函数 $L$ 为____。<br>(A) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2-mgR\\varphi+\\dfrac{1}{2}kR^2\\varphi^2$；<br>(B) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2+\\dfrac{1}{2}kR^2\\varphi^2$；<br>(C) $\\dfrac{1}{2}\\left(\\dfrac{M}{2}+m\\right)R^2\\dot\\varphi^2-\\dfrac{1}{2}kR^2\\varphi^2$。</p><img src=\"qdata/q_170/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】滑轮为均质圆盘，$J_O=\\frac{1}{2}MR^2$，物体 $A$ 速度 $v_A=R\\dot\\varphi$，故 $T=\\frac{1}{2}\\cdot\\frac{1}{2}MR^2\\dot\\varphi^2+\\frac{1}{2}mR^2\\dot\\varphi^2=\\frac{1}{2}(\\frac{M}{2}+m)R^2\\dot\\varphi^2$。因 $\\varphi=0$ 为平衡位置，重力与弹簧预拉力平衡，势能只需取偏离平衡位置引起的弹簧变形能 $V=\\frac{1}{2}k(R\\varphi)^2=\\frac{1}{2}kR^2\\varphi^2$，故 $L=T-V=\\frac{1}{2}(\\frac{M}{2}+m)R^2\\dot\\varphi^2-\\frac{1}{2}kR^2\\varphi^2$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

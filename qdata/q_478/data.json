@@ -1,0 +1,23 @@
+{
+  "id": "q_478",
+  "overview": "凸轮顶杆机构求AB杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>凸轮以匀角速度 $\\omega$ 绕O轴转动，杆AB的A端搁在凸轮上。图示瞬时AB杆处于水平位置，OA为铅垂。试求该瞬时AB杆的角速度的大小及转向。</p><img src=\"qdata/q_478/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=0$（该瞬时AB杆角速度为零）。</p>",
+  "explanation": "<p>【AI 生成】取杆端A为动点，凸轮为动系。<br>（1）牵连速度：凸轮上与A重合点的速度 $v_e=\\omega\\cdot OA$，方向垂直于OA。因OA铅垂，故 $v_e$ 沿水平方向。<br>（2）相对速度：A沿凸轮轮廓滑动，该瞬时A处于凸轮顶部，轮廓切线水平，故 $v_r$ 沿水平方向。<br>（3）绝对速度：AB杆绕B转动，$v_A$ 垂直于AB，因AB水平，$v_A$ 沿铅垂方向。<br>由速度合成 $v_A=v_e+v_r$，$v_e$、$v_r$ 均水平而 $v_A$ 铅垂，故 $v_A=0$。于是 $\\omega_{AB}=\\dfrac{v_A}{BA}=0$，即该瞬时AB杆角速度为零。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "凸轮顶杆机构求AB杆角速度",
+  "module": "运动学"
+}

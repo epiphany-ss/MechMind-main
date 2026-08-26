@@ -1,0 +1,21 @@
+{
+  "id": "q_307",
+  "overview": "求连杆机构中两力关系",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理",
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>铰接的连杆机构 ACDB 的 A、B 铰固定。在铰链 C 上作用一力 $F_C$，在铰链 D 上作用一力 $F_D$，四边形 ACDB 在图示位置处于平衡，力 $F_C$ 与 $F_D$ 的方向如图示。求 $F_C$ 与 $F_D$ 的关系，杆重略去不计。</p>",
+  "answer": "<p>$F_C=F_D$（两力大小相等）。</p>",
+  "explanation": "<p>【AI 生成】机构为几何可变体系，不能用一般刚体平衡方程，宜用虚位移原理。设 C 点沿 $F_C$ 方向的虚位移为 $\\delta s_C$，D 点沿 $F_D$ 方向的虚位移为 $\\delta s_D$，由虚功方程 $F_C\\delta s_C - F_D\\delta s_D=0$。对图示对称平行四边形机构，$\\delta s_C=\\delta s_D$，故 $F_C=F_D$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求连杆机构中两力关系",
+  "module": "静力学"
+}

@@ -12,9 +12,11 @@ import shutil
 import base64
 import hashlib
 from datetime import datetime
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
+
+import tts_utils  # 语音讲解（edge-tts）
 
 # 项目根目录（server.py 所在目录）
 ROOT = Path(__file__).resolve().parent
@@ -149,6 +151,15 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_learning_memory('GET')
             return
 
+        # 语音讲解 API
+        if path == 'api/tts-prompt':
+            self.send_json(200, {'ok': True, 'prompt': tts_utils.load_tts_prompt()})
+            return
+
+        if path == 'api/voices':
+            self.send_json(200, {'ok': True, 'voices': tts_utils.VOICES})
+            return
+
         # 默认首页
         if path == '' or path == '/':
             path = 'index.html'
@@ -175,6 +186,17 @@ class Handler(BaseHTTPRequestHandler):
                 '.svg': 'image/svg+xml',
                 '.pdf': 'application/pdf',
                 '.ico': 'image/x-icon',
+                '.mp3': 'audio/mpeg',
+                '.wav': 'audio/wav',
+                '.ogg': 'audio/ogg',
+                '.m4a': 'audio/mp4',
+                '.mp4': 'video/mp4',
+                '.webm': 'video/webm',
+                '.woff': 'font/woff',
+                '.woff2': 'font/woff2',
+                '.ttf': 'font/ttf',
+                '.eot': 'application/vnd.ms-fontobject',
+                '.otf': 'font/otf',
             }
             content_type = ext_map.get(file_path.suffix, 'application/octet-stream')
             self.send_response(200)
@@ -182,12 +204,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Content-Type', content_type)
             self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
             self.end_headers()
-            if file_path.suffix in ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.pdf', '.ico', '.svg']:
-                with open(file_path, 'rb') as f:
-                    self.wfile.write(f.read())
-            else:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    self.wfile.write(f.read().encode('utf-8'))
+            # 全部按原始字节读取，保证服务器提供的内容与本地文件逐字节一致（不做行尾符/编码转换）
+            with open(file_path, 'rb') as f:
+                self.wfile.write(f.read())
         else:
             self.send_error(404, 'Not Found')
 
@@ -204,6 +223,10 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_knowledge_network('POST')
         elif self.path.startswith('/api/learning-memory/'):
             self.handle_learning_memory('POST')
+        elif self.path == '/api/tts':
+            self.handle_tts_preview()
+        elif self.path == '/api/narrate':
+            self.handle_narrate()
         else:
             self.send_error(404, 'Not Found')
 
@@ -216,6 +239,8 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_account_delete()
         elif self.path.startswith('/api/knowledge-network/'):
             self.handle_knowledge_network('DELETE')
+        elif self.path.startswith('/api/narrate'):
+            self.handle_narrate_delete()
         else:
             self.send_error(404, 'Not Found')
 
@@ -626,6 +651,64 @@ class Handler(BaseHTTPRequestHandler):
 
         self.send_json(200, {'ok': True, 'message': f'题目 {qid} 已删除'})
 
+    # ==================== 语音讲解 API ====================
+
+    def read_body_json(self):
+        """读取 JSON 请求体，失败返回 None 并已回写 400"""
+        try:
+            length = int(self.headers.get('Content-Length', 0))
+        except (TypeError, ValueError):
+            length = 0
+        if length <= 0:
+            return None
+        try:
+            return json.loads(self.rfile.read(length).decode('utf-8'))
+        except Exception:
+            self.send_json(400, {'ok': False, 'message': 'JSON 解析失败'})
+            return None
+
+    def handle_tts_preview(self):
+        """试听讲解：按解析内容合成语音，直接返回 mp3 字节"""
+        data = self.read_body_json()
+        if data is None:
+            return
+        explanation = data.get('explanation', '')
+        if not (explanation or '').strip():
+            self.send_json(400, {'ok': False, 'message': '解析内容为空'})
+            return
+        voice = data.get('voice', 'girl')
+        status, result = tts_utils.tts_preview(explanation, voice, data.get('overview', ''))
+        if status == 200:
+            self.send_response(200)
+            self.send_cors()
+            self.send_header('Content-Type', 'audio/mpeg')
+            self.send_header('Content-Length', str(len(result)))
+            self.end_headers()
+            try:
+                self.wfile.write(result)
+            except ConnectionError:
+                pass
+        else:
+            self.send_json(status, result)
+
+    def handle_narrate(self):
+        """生成并存储讲解音频到 qdata/q_XXX/"""
+        data = self.read_body_json()
+        if data is None:
+            return
+        qid = (data.get('id') or '').strip()
+        voice = data.get('voice', 'girl')
+        status, payload = tts_utils.narrate_question(qid, voice)
+        self.send_json(status, payload)
+
+    def handle_narrate_delete(self):
+        """删除题目的讲解音频"""
+        parsed = urlparse(self.path)
+        qs = parse_qs(parsed.query)
+        qid = (qs.get('id') or [''])[0].strip()
+        status, payload = tts_utils.delete_narration(qid)
+        self.send_json(status, payload)
+
     def send_json(self, code, data):
         self.send_response(code)
         self.send_cors()
@@ -834,7 +917,7 @@ def main():
     print(f'  按 Ctrl+C 停止服务器')
     print(f'==========================================')
 
-    server = HTTPServer(('0.0.0.0', PORT), Handler)
+    server = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

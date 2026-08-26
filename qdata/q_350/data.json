@@ -1,0 +1,21 @@
+{
+  "id": "q_350",
+  "overview": "求接触摩擦平衡时力偶矩M的大小",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦",
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，杆 AB 与杆 CD 接触点 C 的静摩擦系数 $f_s=0.1$，$P=20$kN，AC=CB=5m，AD=4m，杆 AB 处于水平位置。不计各杆自重，试求系统在该位置平衡时力偶矩 M 的大小。</p>",
+  "answer": "<p>临界时 C 处摩擦力达极限 $f=f_sN$，$N=\\dfrac{250}{27}\\approx9.26$kN，$f\\approx0.93$kN；力偶矩 $M\\approx46.3$kN·m。</p>",
+  "explanation": "<p>【AI 生成】杆 CD 在 D 处铰支、C 处与 AB 接触，P=20kN 作用于 CD（对 D 取矩）：$5N+4f=2.5P=50$。临界时 $f=0.1N$，代入得 $N=\\frac{250}{27}$kN，$f=\\frac{25}{27}$kN。杆 AB 水平、A 处铰支、B 处滚支，C 处受 $(-f,-N)$，力偶 M 使系统平衡：对 A 取矩，$M=5N-10B_y$；取 $B_y=0$ 的临界情形，$M=5N=\\frac{1250}{27}\\approx46.3$kN·m。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "求接触摩擦平衡时力偶矩M的大小",
+  "module": "静力学"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_383",
+  "overview": "判断定轴转动的加速与减速条件",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>刚体绕定轴转动， 。</p><p>(A) 当转角 $\\varphi>0$ 时，角速度 $\\omega$ 为正；</p><p>(B) 当角速度 $\\omega>0$ 时，角加速度 $\\varepsilon$ 为正；</p><p>(C) 当 $\\omega$ 与 $\\varepsilon$ 同号时为加速转动，当 $\\omega$ 与 $\\varepsilon$ 异号时为减速转动；</p><p>(D) 当 $\\varepsilon>0$ 时为加速转动，当 $\\varepsilon<0$ 时为减速转动。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】加速与减速由角速度与角加速度是否同号决定：同号角速度大小增大，为加速转动；异号角速度大小减小，为减速转动。（C）正确。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_124",
+  "overview": "圆柱体两支承移去一支座",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示匀质圆柱体位于铅直面内。已知：圆柱半径为 $r$、重为 $Q$，$A$、$B$ 支座的水平间距为 $L$。试用动静法求突然移去支承 $B$ 瞬时：(1) 圆柱质心 $C$ 的加速度；(2) 支座 $A$ 的反力。</p>",
+  "answer": "<p>(1) $a_C=\\dfrac{gL}{3r}$（垂直于 $AC$ 斜向下）；(2) $F_{Ax}=\\dfrac{QL}{3r^2}\\sqrt{r^2-\\dfrac{L^2}{4}}$（水平向右），$F_{Ay}=Q\\left(1-\\dfrac{L^2}{6r^2}\\right)$（竖直向上）</p>",
+  "explanation": "<p>【AI 生成】移去支承 $B$ 后，圆柱绕支承 $A$ 作瞬时定轴转动。质心 $C$ 到 $A$ 的距离为 $r$，重力对 $A$ 的力矩为 $Q\\cdot\\dfrac{L}{2}$；$J_A=\\dfrac{3}{2}\\dfrac{Q}{g}r^2$。由动量矩定理 $J_A\\alpha=Q\\dfrac{L}{2}$ 得 $\\alpha=\\dfrac{gL}{3r^2}$，故 $a_C=r\\alpha=\\dfrac{gL}{3r}$，方向垂直于 $AC$ 斜向下。惯性力主矢 $F_I=\\dfrac{Q}{g}a_C$ 作用于质心 $C$。由动静法平衡方程，并令 $h=\\sqrt{r^2-\\dfrac{L^2}{4}}$，得 $F_{Ax}=\\dfrac{QLh}{3r^2}=\\dfrac{QL}{3r^2}\\sqrt{r^2-\\dfrac{L^2}{4}}$，$F_{Ay}=Q-\\dfrac{QL^2}{6r^2}=Q\\left(1-\\dfrac{L^2}{6r^2}\\right)$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

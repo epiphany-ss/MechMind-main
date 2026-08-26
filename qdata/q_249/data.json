@@ -1,0 +1,20 @@
+{
+  "id": "q_249",
+  "overview": "判断对不共线三点主矩相等的力系",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>一空间力系对于不共线的三点的主矩相等且不为零，则力系等效为____。<br>(A) 力；<br>(B) 平衡；<br>(C) 力偶；<br>(D) 力螺旋。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】由 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{AB}\\times\\boldsymbol{F}_R$，对三点主矩相等要求 $\\boldsymbol{AB}\\times\\boldsymbol{F}_R=\\boldsymbol{BC}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，即 $\\boldsymbol{F}_R$ 同时平行于 $AB$、$BC$。三点不共线使 $AB$、$BC$ 不平行，故只能 $\\boldsymbol{F}_R=\\boldsymbol{0}$；主矢为零、主矩不为零，等效为一力偶。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册",
+  "title": "判断对不共线三点主矩相等的力系",
+  "module": "静力学"
+}

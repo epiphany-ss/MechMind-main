@@ -1,0 +1,19 @@
+{
+  "id": "q_266",
+  "overview": "由三点主矩求合力大小方向作用线",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知一平面力系对 $A(3,0)$、$B(0,4)$ 和 $C(-4.5,2)$ 三点的主矩分别为：$M_A=20\\,\\text{kN·m}$，$M_B=0$，$M_C=-10\\,\\text{kN·m}$。试求该力系合力的大小、方向和作用线。</p><img src=\"qdata/q_266/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>合力大小 $F_R=4.17\\,\\text{kN}$，作用线过 $B$ 点；方向 $\\alpha=53.13^\\circ$ 为 $\\boldsymbol{F}_R$ 与 $x$ 轴负向的夹角。</p>",
+  "explanation": "<p>【AI 生成】设合力 $\\boldsymbol{F}_R=(F_x,F_y)$，作用线通过某点。主矩关系 $M_B=M_A+(\\boldsymbol{r}_B-\\boldsymbol{r}_A)\\times\\boldsymbol{F}_R$，即 $M_B=M_A+x_A F_y-y_A F_x-(x_B F_y-y_B F_x)$。取 $B$ 点 $M_B=0$：$$0=M_A+(\\boldsymbol{r}_B-\\boldsymbol{r}_A)\\times\\boldsymbol{F}_R=20+(-3,4)\\times(F_x,F_y)$$ 得 $-3F_y-4F_x=-20$，即 $4F_x+3F_y=20$。又 $M_C=0+(\\boldsymbol{r}_C-\\boldsymbol{r}_B)\\times\\boldsymbol{F}_R$：$$-10=(-4.5,2-4)\\times(F_x,F_y)=(-4.5,-2)\\times(F_x,F_y)=-4.5F_y+2F_x$$ 联立解得 $F_x=2.5$，$F_y=3.33$，$F_R=\\sqrt{2.5^2+3.33^2}=4.17\\,\\text{kN}$。方向 $\\tan\\alpha=\\dfrac{F_y}{|F_x|}=\\dfrac{3.33}{2.5}=1.333$，$\\alpha=53.13^\\circ$（与 $x$ 轴负向夹角）。由 $M_B=0$ 知合力作用线过 $B$ 点。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

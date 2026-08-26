@@ -1,0 +1,17 @@
+{
+  "id": "q_356",
+  "overview": "判断切向加速度的作用",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>切向加速度只表示速度方向的变化率，而与速度的大小无关。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】切向加速度 $a_\\tau=dv/dt$ 表示速度大小（速率）变化的快慢；反映速度方向变化的是法向加速度 $a_n=v^2/\\rho$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

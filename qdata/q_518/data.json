@@ -1,0 +1,20 @@
+{
+  "id": "q_518",
+  "overview": "判断速度大小是否反映受力大小",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>质点运动的速度越大，说明它所受的力也越大。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】力决定加速度（速度的变化率），而非速度本身的大小；作高速匀速直线运动的质点所受合力为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "判断速度大小是否反映受力大小",
+  "module": "动力学"
+}

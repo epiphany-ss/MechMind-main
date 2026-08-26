@@ -1,0 +1,22 @@
+{
+  "id": "q_523",
+  "overview": "水平抛出受空气阻力质点的运动微分方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>质量为 $m$ 的物体自高 $H$ 处水平抛出，运动中受到与速度一次方成正比的空气阻力 $F_R$ 作用，$\\vec{F}_R=-km\\vec{v}$，$k$ 为常数。则其运动微分方程为 ____。<br>(A) $m\\ddot{x}=-km\\dot{x},\\quad m\\ddot{y}=-km\\dot{y}-mg$；<br>(B) $m\\ddot{x}=-km\\dot{x},\\quad m\\ddot{y}=km\\dot{y}-mg$；<br>(C) $m\\ddot{x}=km\\dot{x},\\quad m\\ddot{y}=-km\\dot{y}-mg$；<br>(D) $m\\ddot{x}=km\\dot{x},\\quad m\\ddot{y}=km\\dot{y}+mg$。</p><img src=\"qdata/q_523/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】阻力 $\\vec{F}_R=-km\\vec{v}$ 在 $x$、$y$ 方向的分量分别为 $-km\\dot{x}$、$-km\\dot{y}$，再加上铅垂向下的重力 $-mg$。由牛顿第二定律得 $m\\ddot{x}=-km\\dot{x}$，$m\\ddot{y}=-km\\dot{y}-mg$，故选 A。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "水平抛出受空气阻力质点的运动微分方程",
+  "module": "动力学"
+}

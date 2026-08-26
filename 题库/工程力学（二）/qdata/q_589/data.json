@@ -1,0 +1,21 @@
+{
+  "id": "q_589",
+  "overview": "求小车加速时钢管中心的加速度与摩擦力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示机构中，已知：钢管（薄壁圆筒）的质量为M，小车与钢管有足够的摩擦，使钢管沿小车作纯滚动，今小车以加速度$a$向右运动。试求钢管中心的加速度及钢管与小车之间的摩擦力。</p><img src=\"qdata/q_589/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_C=\\dfrac{a}{2}$（向右）；$F_f=\\dfrac{Ma}{2}$（方向向右）</p>",
+  "explanation": "<p>【AI 生成】钢管视为薄壁圆筒，$J=MR^2$。设钢管中心加速度为$a_C$（向右），角加速度为$\\alpha$（逆时针），纯滚动条件（接触点与小车无相对滑动）：$$a_C+\\alpha R=a$$对钢管：$F_f=Ma_C$，$F_fR=J\\alpha=MR^2\\alpha$，故$a_C=R\\alpha$。代入纯滚动条件得$a_C+R\\alpha=a_C+a_C=a$，故$$a_C=\\frac{a}{2},\\qquad F_f=Ma_C=\\frac{Ma}{2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

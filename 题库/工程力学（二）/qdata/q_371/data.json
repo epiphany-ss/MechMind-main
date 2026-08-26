@@ -1,0 +1,18 @@
+{
+  "id": "q_371",
+  "overview": "判断定轴转动加速度方向与矢径的关系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>刚体绕定轴 $OZ$ 转动，其上任一点 $M$ 的矢径和加速度分别为 $\\overrightarrow{OM}$、$a_\\tau$、$a_n$，则 $a_\\tau$ 必垂直于 $OM$，$a_n$ 必沿 $OM$ 指向 $O$ 点。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】$a_\\tau=\\boldsymbol\\alpha\\times\\boldsymbol r$ 垂直于矢径，$a_n=-\\omega^2\\boldsymbol r$ 沿矢径指向转轴（O 点），故说法正确。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

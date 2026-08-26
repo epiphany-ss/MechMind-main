@@ -1,0 +1,18 @@
+{
+  "id": "q_562",
+  "overview": "判断质点动量矩的定义",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>质点对固定点O的动量矩等于质点的动量对该点O的矩。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】这就是质点动量矩的定义：质点对O点的动量矩$L_O=M_O(m\\boldsymbol{v})=\\boldsymbol{r}\\times m\\boldsymbol{v}$，即动量对该点的矩。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

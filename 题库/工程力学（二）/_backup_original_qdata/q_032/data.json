@@ -1,0 +1,19 @@
+{
+  "id": "q_032",
+  "overview": "判断限制移动又限制转动的约束",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "约束与约束反力"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>____约束的特点是限制物体既不能移动，也不能转动。<br>(A) 光滑接触面约束；<br>(B) 滑动铰支座；<br>(C) 固定铰支座；<br>(D) 固定端。</p><img src=\"qdata/q_032/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】固定端约束既限制物体沿各方向的移动，又限制其转动，其约束反力为两个相互垂直的分力和一个约束反力偶。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36"
+}

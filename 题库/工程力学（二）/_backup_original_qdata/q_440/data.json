@@ -1,0 +1,20 @@
+{
+  "id": "q_440",
+  "overview": "求各杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知：$OA=20$cm，匀角速度$\\omega=3$rad/s，$AB=20\\sqrt3$cm，$BC=BD=30$cm，$DE=40$cm。在图示位置时，$\\varphi=\\theta=45^\\circ$，$DE\\parallel AB$，且分别垂直于$BD$和$OA$；$OB$处于铅垂线。试求该瞬时$AB$、$BC$、$BD$和$DE$各杆的角速度。</p><img src=\"qdata/q_440/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=-\\dfrac{5\\sqrt3}{3}$ rad/s；$\\omega_{BC}=5$ rad/s；$\\omega_{BD}=\\dfrac{5\\sqrt3}{3}$ rad/s；$\\omega_{DE}=0$</p>",
+  "explanation": "<p>【AI 生成】因$OA\\perp AB$、$OB$铅垂，三角形$OAB$为直角三角形：$OB=\\sqrt{OA^2+AB^2}=40$cm。<br>$v_A=\\omega\\cdot OA=3\\times0.2=0.6$ m/s，方向垂直于$OA$。<br>以$A$为基点，$v_B=v_A+\\omega_{AB}\\times r_{AB}$，因$v_B\\perp OB$（铅垂）解得：$$\\omega_{AB}=-\\dfrac{5\\sqrt3}{3}\\ \\text{rad/s}$$<br>$BD\\parallel OA$、$DE\\parallel AB$，用基点法依次得：$$\\omega_{BD}=\\dfrac{5\\sqrt3}{3}\\ \\text{rad/s},\\qquad \\omega_{DE}=0\\ \\text{rad/s}$$<br>再由$BC=BD=30$cm且$\\varphi=45^\\circ$得：$$\\omega_{BC}=5\\ \\text{rad/s}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

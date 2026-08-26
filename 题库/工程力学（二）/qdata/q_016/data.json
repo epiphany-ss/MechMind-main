@@ -1,0 +1,18 @@
+{
+  "id": "q_016",
+  "overview": "判断同样大小的力作用效果是否相同",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>同样大小的力对任何物体的作用效果是相同的。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】力的作用效果还与力的方向、作用点以及物体本身的性质有关，大小相同的力对不同物体的作用效果并不相同。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册"
+}

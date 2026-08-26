@@ -1,0 +1,19 @@
+{
+  "id": "q_161",
+  "overview": "用虚位移原理求桁架杆CD与BD内力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示桁架中，已知：$F=1$kN、$L=2$m，$\\theta=30^\\circ$，$\\beta=60^\\circ$。试用虚位移原理求：(1)杆CD的内力；(2)杆BD的内力。</p><img src=\"qdata/q_161/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $S_{CD}=2F=2$ kN；(2) $S_{BD}=\\dfrac{2\\sqrt{3}}{3}F\\approx1.155$ kN</p>",
+  "explanation": "<p>【AI 生成】分别解除杆 CD、BD，代以等值反向的内力并视为主动力。由桁架几何关系（$L=2$m，$\\theta=30^\\circ$，$\\beta=60^\\circ$）及外载荷（节点处作用 $2F$、$F$ 等），用瞬心法或投影定理建立各节点虚位移之间的关系。对 CD：虚功方程含 $2F$ 与外载，解得 $S_{CD}=2F=2$ kN；对 BD：同理解得 $S_{BD}=\\dfrac{2\\sqrt{3}}{3}F\\approx1.155$ kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

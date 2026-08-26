@@ -1,0 +1,18 @@
+{
+  "id": "q_219",
+  "overview": "判断空间问题中力对轴与对点之矩的性质",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>在空间问题中，力对轴的矩是代数量，而对点的矩是矢量。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】力对轴的矩等于力对轴上任意一点的矩在该轴上的投影，只有大小与正负（转向），是代数量；力对点的矩 $\\boldsymbol{M}_O=\\boldsymbol{r}\\times\\boldsymbol{F}$ 既有大小又有方向，是矢量。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册"
+}

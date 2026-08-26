@@ -1,0 +1,24 @@
+{
+  "id": "q_502",
+  "overview": "OA-CB滚子机构求滚子角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "速度瞬心",
+    "基点法"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。套筒B和CB杆相互垂直并且刚连，CB杆与滚子中心C点铰接，滚子在车上作纯滚动，小车在水平面上平动。已知：半径r＝h＝10cm，CB＝4r。在图示位置时，$\\theta=60^\\circ$，OA杆的角速度 $\\omega=2\\,\\text{rad/s}$，小车的速度 $u=10\\,\\text{cm/s}$。试求该瞬时滚子的角速度。</p><img src=\"qdata/q_502/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{滚}=\\dfrac{v_C-u}{r}$（$v_C$ 为滚子中心速度，纯滚动相对小车）。</p>",
+  "explanation": "<p>【AI 生成】套筒B与CB杆垂直刚连，B在OA杆上滑动。<br>（1）取B为动点，OA为动系：$v_B=v_e+v_r$，$v_e=\\omega\\cdot OB$，$v_r$ 沿OA；由B点速度及CB杆与B垂直，得C点速度 $v_C=v_B+\\omega_{CB}\\times\\overrightarrow{BC}$（$\\omega_{CB}$ 由刚连关系确定）。<br>（2）滚子在车上纯滚动，小车以 $u=10$cm/s 平动，滚子相对小车纯滚动：$\\omega_{滚}=\\dfrac{v_C-u}{r}$（相对速度除以半径）。代入 $r=10$cm、$v_C$ 数值即得。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "OA-CB滚子机构求滚子角速度",
+  "module": "运动学"
+}

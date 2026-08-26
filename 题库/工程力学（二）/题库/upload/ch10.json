@@ -1,0 +1,782 @@
+{
+  "chapter": 10,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断平面运动刚体动能表达式是否正确",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>作平面运动刚体的动能等于它随基点平动的动能和绕基点转动的动能之和。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】只有当取质心为基点时，平面运动刚体的动能才等于随质心平动的动能与绕质心转动的动能之和；若取任意基点，动能中还含有随基点平动与绕基点转动的耦合项，不能简单相加。</p>"
+    },
+    {
+      "overview": "判断动能改变时动量是否必变",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理",
+        "动量定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>任何一个质量不变的质点，其动能发生改变时，质点的动量不一定变化。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】质点动能 $T=\\frac12mv^2$ 改变意味着速率 $v$ 改变，而动量大小 $p=mv$ 也随之改变，故动能改变时动量必然变化。</p>"
+    },
+    {
+      "overview": "判断质点系动能变化是否仅等于外力功",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>质点系动能的变化等于作用在质点系上全部外力所作的功。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】质点系动能定理要求动能的改变等于所有外力与内力所作功之和；内力作功之和一般不为零（如系统内部有相对滑动的弹簧、爆炸等），不能只计外力。</p>"
+    },
+    {
+      "overview": "判断质点系动能改变是否仅等于外力功之和",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>当质点系从第一位置运动到第二位置时，质点系的动能的改变等于所有作用于质点系的外力的功之和。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】质点系动能的改变应等于所有外力与内力所作功之和。忽略内力的功，只把外力的功当作动能改变量，是错误的表述。</p>"
+    },
+    {
+      "overview": "判断定轴转动刚体是否没有动量",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量定理",
+        "动量矩定理",
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>作定轴转动的刚体，在运动时只有动能和动量矩，而没有动量。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】定轴转动刚体的动量 $\\boldsymbol{p}=m\\boldsymbol{v}_C$，只要质心不在转轴上，$\\boldsymbol{v}_C\\neq 0$，动量就不为零；仅在质心恰好位于转轴这一特殊情形下动量才为零。</p>"
+    },
+    {
+      "overview": "判断动量改变时动能是否必变",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量定理",
+        "动能定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>任何一个质量不变的质点，其动量发生改变时，质点的动能必有变化。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】质点作匀速圆周运动时，动量方向不断变化而大小不变，动能 $T=\\frac12mv^2$ 保持不变，故动量改变时动能不一定变化。</p>"
+    },
+    {
+      "overview": "判断内力对质点系动能是否也无影响",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理",
+        "动量定理",
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>内力既不能改变质点系的动量和动量矩，也不能改变质点系的动能。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】内力不能改变质点系的总动量和总动量矩，但内力作功之和一般不为零，可以改变质点系的动能（如爆炸使系统动能增大、人从车上跳下等）。</p>"
+    },
+    {
+      "overview": "判断内力与约束反力作功的三种说法",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>下述说法是否正确：<br>(1) 刚体及不可伸长的柔索，内力作功之和为零； (    )<br>(2) 固定铰支座的约束反力不作功； (    )<br>(3) 光滑铰链连接处的内力作功之和为零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对（(1)(2)(3)均正确）</p>",
+      "explanation": "<p>【AI 生成】(1) 刚体任意两点间距离不变、不可伸长柔索沿绳方向相对位移为零，故内力作功之和为零；(2) 固定铰支座反力作用点不移动，不作功；(3) 光滑铰链处两构件受等值反向内力，且作用点位移相同，故作功之和为零。</p>"
+    },
+    {
+      "overview": "判断纯滚动时摩擦力是否作功",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>纯滚轮与固定面接触处的法向约束力不作功，切向约束力(摩擦力)作功。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】纯滚动（只滚不滑）时接触点为速度瞬心，该点瞬时速度为零，法向约束力与切向摩擦力都作用于该点，二者均不作功。</p>"
+    },
+    {
+      "overview": "圆轮带绳拉力作功的计算",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>半径为 $R$ 的圆轮与半径为 $r$ 的圆轴相固连，在轴上绕有细绳，并作用常力 $F$（倾角 $\\beta$ 保持不变），且圆轮只滚不滑，则当轮心移动距离 $s$ 的过程中，常力 $F$ 作的功是____。<br>(A) $Fs\\cos\\beta$；<br>(B) $Fs\\dfrac{r}{R}$；<br>(C) $Fs\\left(\\cos\\beta+\\dfrac{r}{R}\\right)$；<br>(D) $Fs\\left(\\cos\\beta-\\dfrac{r}{R}\\right)$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch89_idx421_0.png"
+      ],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】绳的施力点位移由两部分组成：随轮心平移 $s$（沿 $F$ 方向投影为 $s\\cos\\beta$）和因轮转动放绳的长度 $r\\varphi=rs/R$（沿绳方向）。故 $W=Fs\\cos\\beta+Fs\\dfrac{r}{R}=Fs\\left(\\cos\\beta+\\dfrac{r}{R}\\right)$。</p>"
+    },
+    {
+      "overview": "三棱柱上圆柱纯滚动系统的守恒量",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量定理",
+        "机械能守恒",
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示三棱柱重 $P$，放在光滑的水平面上，重 $Q$ 的均质圆柱体静止释放后沿斜面作纯滚动，则系统在运动过程中____。<br>(A) 动量守恒，机械能守恒；<br>(B) 沿水平方向动量守恒，机械能守恒；<br>(C) 沿水平方向动量守恒，机械能不守恒；<br>(D) 均不守恒。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch90_idx422_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】系统所受外力只有铅垂的重力和地面法向反力，水平方向无外力，故水平方向动量守恒；圆柱沿斜面纯滚动，接触点无相对滑动，静摩擦力不作功，接触面光滑、铰接处内力作功之和为零，故机械能守恒。</p>"
+    },
+    {
+      "overview": "弹簧下物体下降时弹性力作功",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一弹簧常数为 $k$ 的弹簧下挂一质量为 $m$ 的物体，若物体从静平衡位置（设静伸长为 $\\delta$）下降 $\\Delta$ 距离，则弹性力所作的功为____。<br>(A) $\\frac12k\\Delta^2$；<br>(B) $\\frac12k(\\delta+\\Delta)^2$；<br>(C) $\\frac12k\\left[(\\delta+\\Delta)^2-\\delta^2\\right]$；<br>(D) $\\frac12k\\left[\\delta^2-(\\delta+\\Delta)^2\\right]$。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】弹性力作功 $W=\\frac12kx_1^2-\\frac12kx_2^2$。初变形 $\\delta$、末变形 $\\delta+\\Delta$，故 $W=\\frac12k\\left[\\delta^2-(\\delta+\\Delta)^2\\right]&lt;0$，弹簧伸长时弹性力作负功。</p>"
+    },
+    {
+      "overview": "均质杆端点速度已知求动能",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知均质杆长 $L$，质量为 $m$，端点 $B$ 的速度为 $v$，则 $AB$ 杆的动能为____。<br>(A) $\\frac16mv^2$；<br>(B) $\\frac12mv^2$；<br>(C) $\\frac23mv^2$；<br>(D) $\\frac13mv^2$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch90_idx424_0.png"
+      ],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】杆 $A$ 端沿铅垂墙、$B$ 端沿水平面滑下，$AB$ 与水平成 $30^\\circ$。由速度投影与瞬心法：$\\omega=\\dfrac{v}{L\\sin30^\\circ}=\\dfrac{2v}{L}$，质心速度 $v_C=\\omega\\cdot\\dfrac L2=v$，故 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{mL^2}{12}\\omega^2=\\frac12mv^2+\\frac16mv^2=\\frac23mv^2$。</p>"
+    },
+    {
+      "overview": "圆盘平面运动由两点速度求动能",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>半径为 $R$，质量为 $m$ 的均质圆盘在其自身平面内作平面运动。在图示位置时，若已知图形上 $A$、$B$ 两点的速度方向如图示，$\\alpha=60^\\circ$，且知 $B$ 点速度大小为 $v_B$，则圆轮的动能为____。<br>(A) $\\dfrac{mv_B^2}{16}$；<br>(B) $\\dfrac{3mv_B^2}{16}$；<br>(C) $\\dfrac{mv_B^2}{4}$；<br>(D) $\\dfrac{3mv_B^2}{4}$。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】由 $A$、$B$ 两点速度方向作垂线得速度瞬心 $I$。由几何关系（$\\alpha=60^\\circ$）求得 $BI$ 与 $CI$ 的比值，再由 $v_B=\\omega\\cdot BI$ 求 $\\omega$ 及质心速度 $v_C=\\omega\\cdot CI$，代入 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac12mR^2\\omega^2$ 得 $T=\\dfrac{3}{16}mv_B^2$。</p>"
+    },
+    {
+      "overview": "两自由度弹簧质量系统总势能",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "机械能守恒",
+        "振动"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一质量弹簧系统铅垂悬挂如图所示。若取系统的静平衡位置为零势能位置，物体各自离开静平衡位置的位移为 $x_1$ 和 $x_2$，则系统总势能为____。<br>(A) $m_1gx_1+m_2gx_2+\\frac12k_1x_1^2+\\frac12k_2x_2^2$；<br>(B) $\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$；<br>(C) $m_1gx_1+m_2g(x_2-x_1)+\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$；<br>(D) $\\frac12k_1x_1^2+\\frac12k_2x_2^2$。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】以静平衡位置为零势能点，重力势能与弹簧弹性势能的线性项在平衡位置相互抵消（$\\partial V/\\partial x_1=\\partial V/\\partial x_2=0$），只剩二次项：弹簧1变形增量 $x_1$，弹簧2变形增量 $x_2-x_1$，故 $V=\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$。</p>"
+    },
+    {
+      "overview": "匀速圆周运动质点的守恒量",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量定理",
+        "动量矩定理",
+        "动能定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>质点作匀速圆周运动，则质点____。<br>(A) 动量不变，动能也不变；<br>(B) 对圆心的动量矩不变，动能也不变；<br>(C) 动量、对圆心的动量矩和动能均不变。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】匀速圆周运动速度大小不变，故动能不变；速度方向不断改变，故动量（矢量）不断改变；对圆心的动量矩 $L_O=mvr$ 大小和方向均不变。故选 B。</p>"
+    },
+    {
+      "overview": "弹簧弹性势能取不同零势能点的换算",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "机械能守恒",
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>某弹簧的弹性系数为 $k$，在 I 位置弹簧的变形为 $\\delta_1$，在 II 位置弹簧的变形为 $\\delta_2$。若取 II 位置为零势能位置，则在 I 位置弹性力的势能为____。<br>(A) $\\frac12k(\\delta_1-\\delta_2)^2$；<br>(B) $\\frac12k(\\delta_1-\\delta_2)$；<br>(C) $\\frac12k(\\delta_1^2-\\delta_2^2)$；<br>(D) $\\frac12k(\\delta_2^2-\\delta_1^2)$。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】弹性势能以 II 位置为零势能点，则 I 位置的势能等于从 I 到 II 弹性力作的功：$V_I=\\frac12k\\delta_1^2-\\frac12k\\delta_2^2=\\frac12k(\\delta_1^2-\\delta_2^2)$。</p>"
+    },
+    {
+      "overview": "半圆槽内小球滑至底部时的相对速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动能定理",
+        "动量定理",
+        "机械能守恒"
+      ],
+      "difficulty": "hard",
+      "content": "<p>质量为 $M$ 的物体上刻有半径为 $r$ 的半圆槽，放在光滑水平面上，原处于静止状态，有一质量为 $m$ 的小球自 $A$ 处无初速度地沿光滑半圆槽下滑，若 $M=3m$，则小球滑至 $B$ 处时，小球相对于物体的速度为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch91_idx429_0.png"
+      ],
+      "answer": "<p>$u=\\sqrt{\\dfrac{8gr}{3}}=\\dfrac{2\\sqrt{6gr}}{3}$</p>",
+      "explanation": "<p>【AI 生成】水平方向无外力，动量守恒：$m(u-V)=MV\\Rightarrow V=\\dfrac{mu}{m+M}$（$u$ 为相对速度，$V$ 为物体速度）。机械能守恒：$mgr=\\frac12m\\left(\\dfrac{Mu}{m+M}\\right)^2+\\frac12MV^2$，解得 $u^2=\\dfrac{2gr(m+M)}{M}$。代入 $M=3m$ 得 $u=\\sqrt{\\dfrac{8gr}{3}}$。</p>"
+    },
+    {
+      "overview": "小圆盘绕固定圆盘纯滚动时系统动能",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>杆 $OA$ 长 $L$，以匀角速度 $\\omega$ 绕 $O$ 轴转动，其 $A$ 端与质量为 $m$、半径为 $r$ 的均质小圆盘的中心铰结，小圆盘在固定圆盘的圆周上作纯滚动，若不计杆重，则系统的动能为____。</p>",
+      "figures": [],
+      "answer": "<p>$T=\\dfrac{3}{4}mL^2\\omega^2$</p>",
+      "explanation": "<p>【AI 生成】$A$ 端速度 $v_A=L\\omega$。小圆盘沿固定圆盘外侧纯滚动时，圆盘角速度 $\\omega_d=\\dfrac{v_A}{r}=\\dfrac{L\\omega}{r}$。故 $T=\\frac12mv_A^2+\\frac12\\cdot\\frac12mr^2\\omega_d^2=\\frac12mL^2\\omega^2+\\frac14mL^2\\omega^2=\\dfrac34mL^2\\omega^2$。</p>"
+    },
+    {
+      "overview": "沿墙滑下的杆求动量动能动量矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量定理",
+        "动量矩定理",
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质杆 $AB$，长 $2l$，质量为 $m$，沿竖直墙滑下，在图示瞬时质心 $C$ 的速度为 $v_C$，且沿 $BA$ 杆方向，则杆在该瞬时：<br>(A) 动量 $\\boldsymbol{P}=$____；<br>(B) 动能 $T=$____；<br>(C) 对 $A$ 点动量矩的大小 $L_A=$____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch91_idx431_0.png"
+      ],
+      "answer": "<p>$\\boldsymbol{P}=mv_C$（方向沿 $BA$）；$T=\\dfrac{2}{3}mv_C^2$；$L_A=\\dfrac{4}{3}mlv_C$</p>",
+      "explanation": "<p>【AI 生成】杆 $A$ 端沿铅垂墙、$B$ 端沿水平面，图示 $45^\\circ$ 且 $v_C$ 沿杆向。速度瞬心 $I$ 与 $C$ 相距 $l$，故 $\\omega=v_C/l$。<br>(A) $\\boldsymbol{P}=m\\boldsymbol{v}_C$，大小为 $mv_C$，方向沿 $BA$。<br>(B) $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{m(2l)^2}{12}\\omega^2=\\frac12mv_C^2+\\frac16mv_C^2=\\frac23mv_C^2$。<br>(C) $\\boldsymbol{v}_C$ 的作用线过 $A$ 点，其动量对 $A$ 之矩为零，故 $L_A=J_A\\omega=\\frac{m(2l)^2}{3}\\cdot\\frac{v_C}{l}=\\frac43mlv_C$。</p>"
+    },
+    {
+      "overview": "曲柄连杆机构连杆的动能",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知 $OA=AB=L$，$\\omega=$ 常数，均质连杆 $AB$ 的质量为 $m$，而曲柄 $OA$ 与滑块 $B$ 的质量不计，则图示瞬时系统的动能为____。</p>",
+      "figures": [],
+      "answer": "<p>$T=\\dfrac{2}{3}mL^2\\omega^2$</p>",
+      "explanation": "<p>【AI 生成】图示 $OA$、$AB$ 均与水平成 $45^\\circ$。$v_A=L\\omega$（垂直于 $OA$），由速度投影定理 $v_B\\cos45^\\circ=v_A\\cos45^\\circ$，得滑块速度 $v_B=-\\sqrt2 L\\omega$。连杆角速度 $\\omega_{AB}=-\\omega$，质心速度 $v_C^2=\\frac54L^2\\omega^2$，故 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{mL^2}{12}\\omega^2=\\frac{5}{8}mL^2\\omega^2+\\frac{1}{24}mL^2\\omega^2=\\frac23mL^2\\omega^2$。</p>"
+    },
+    {
+      "overview": "圆盘杆滑块系统的动量与动能",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量定理",
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>设圆盘、杆和滑块的质量都是 $m$，均质圆盘半径为 $r$，可在斜面上作纯滚动，杆 $AB$ 平行于斜面，若滑块 $A$ 以速度 $v$ 向上运动，则系统的动量为____；动能为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch92_idx433_0.png"
+      ],
+      "answer": "<p>$\\boldsymbol{P}=3mv$（方向沿斜面向上）；$T=\\dfrac{7}{4}mv^2$</p>",
+      "explanation": "<p>【AI 生成】滑块、杆和圆盘质心均以速度 $v$ 沿斜面向上运动，圆盘纯滚动 $\\omega=v/r$。<br>动量：$P=mv+mv+mv=3mv$（沿斜面向上）。<br>动能：$T=\\frac12mv^2+\\frac12mv^2+\\left[\\frac12mv^2+\\frac12\\cdot\\frac12mr^2\\cdot\\dfrac{v^2}{r^2}\\right]=\\frac72\\cdot\\frac12mv^2=\\frac74mv^2$。</p>"
+    },
+    {
+      "overview": "圆盘固结于杆绕O转动求动量矩与动能",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>半径为 $r$ 的均质圆盘，质量为 $m_1$，固结在长 $4r$、质量为 $m_2$ 的均质直杆上。系统绕水平轴 $O$ 转动，图示瞬时有角速度 $\\omega$，则系统对 $O$ 点的动量矩的大小为____；动能为____。</p>",
+      "figures": [],
+      "answer": "<p>$L_O=\\left(\\dfrac{33}{2}m_1+\\dfrac{16}{3}m_2\\right)r^2\\omega$；$T=\\left(\\dfrac{33}{4}m_1+\\dfrac{8}{3}m_2\\right)r^2\\omega^2$</p>",
+      "explanation": "<p>【AI 生成】杆对 $O$（端点）转动惯量 $J_{O,杆}=\\frac{m_2(4r)^2}{3}=\\frac{16}{3}m_2r^2$；圆盘（质心在 $4r$ 处）对 $O$ 的转动惯量 $J_{O,盘}=\\frac12m_1r^2+m_1(4r)^2=\\frac{33}{2}m_1r^2$。故 $L_O=J_O\\omega=\\left(\\frac{33}{2}m_1+\\frac{16}{3}m_2\\right)r^2\\omega$，$T=\\frac12J_O\\omega^2=\\left(\\frac{33}{4}m_1+\\frac{8}{3}m_2\\right)r^2\\omega^2$。</p>"
+    },
+    {
+      "overview": "小环沿固定圆环运动时弹性力作功",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动能定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>自然长度为 $2R$，弹簧常数为 $K$ 的弹簧，其一端固定于 $O'$，另一端系在小环 $M$ 上，当 $M$ 沿半径为 $R$ 的固定圆环由 $A$ 到 $B$ 和由 $B$ 到 $D$ 时，弹性力的功分别等于____和____。</p>",
+      "figures": [],
+      "answer": "<p>$W_{A\\to B}=\\frac12K\\left[(O'A-2R)^2-(O'B-2R)^2\\right]$；$W_{B\\to D}=\\frac12K\\left[(O'B-2R)^2-(O'D-2R)^2\\right]$</p>",
+      "explanation": "<p>【AI 生成】弹簧原长 $2R$，小环在圆环上位置不同时弹簧长度 $O'M$ 不同（为对应弦长），变形量 $\\delta=O'M-2R$。弹性力作功 $W=\\frac12K\\delta_初^2-\\frac12K\\delta_末^2$。故 $W_{A\\to B}=\\frac12K\\left[(O'A-2R)^2-(O'B-2R)^2\\right]$，$W_{B\\to D}=\\frac12K\\left[(O'B-2R)^2-(O'D-2R)^2\\right]$。其中弦长 $O'M=2R\\sin\\dfrac{\\angle O'OM}{2}$。</p>"
+    },
+    {
+      "overview": "均质杆A端滑水平面用v_A与h表示动能",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质杆 $AB$ 的长为 $2L$，质量为 $m$，在铅直平面内运动。若初瞬时杆 $AB$ 垂直于水平地面，处于静止状态，由于受到微小扰动进入运动，其 $A$ 端始终在光滑水平面上滑动，在图示位置时 $A$ 点的速度 $v_A$，试以 $v_A$ 与 $h$（质心 $C$ 距地面的高度）表示杆的动能。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch92_idx436_0.png"
+      ],
+      "answer": "<p>$T=\\dfrac{mv_A^2}{6}\\left(\\dfrac{4L^2}{h^2}-3\\right)$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 几何关系：设杆与水平面夹角为 $\\theta$，则 $h=L\\sin\\theta$。<br>(2) 水平方向无外力，水平动量守恒（初始为零）：$v_{Cx}=v_A-\\omega L\\sin\\theta=0$，故 $\\omega=\\dfrac{v_A}{L\\sin\\theta}=\\dfrac{v_A}{h}$。<br>(3) 质心速度 $v_C=v_{Cy}=\\omega L\\cos\\theta=v_A\\cot\\theta$。<br>(4) 动能 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{m(2L)^2}{12}\\omega^2=\\frac12mv_A^2\\cot^2\\theta+\\frac{mL^2}{6}\\omega^2$。<br>(5) 代入 $\\cot\\theta=\\dfrac{\\sqrt{L^2-h^2}}{h}$、$\\omega=\\dfrac{v_A}{h}$：$T=\\dfrac{mv_A^2}{2}\\cdot\\dfrac{L^2-h^2}{h^2}+\\dfrac{mL^2}{6}\\cdot\\dfrac{v_A^2}{h^2}=\\dfrac{mv_A^2}{6}\\left(\\dfrac{4L^2}{h^2}-3\\right)$。</p>"
+    },
+    {
+      "overview": "两铰接杆自高h落下求C点着地速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒"
+      ],
+      "difficulty": "medium",
+      "content": "<p>两均质杆 $AC$ 和 $BC$ 各重 $P$，长均为 $L$，$C$ 端铰接，放在光滑水平面上如图所示，当 $C$ 点距地面的高度为 $h$ 时，以无初速度释放，杆系在铅直平面内落下。试求 $C$ 点将到达水平面时的速度。</p>",
+      "figures": [],
+      "answer": "<p>$v_C=\\sqrt{3gh}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 系统关于铅垂线对称，$C$ 点铅垂下落，两杆对 $C$ 的速度反对称。每根杆绕 $C$ 转动，$C$ 点着地时杆与水平面夹角趋于零。<br>(2) 动能：每根杆绕 $C$ 转动的角速度为 $\\omega$，杆对 $C$ 的转动惯量 $J_C=\\frac13\\cdot\\frac{P}{g}L^2$。$T=2\\cdot\\frac12J_C\\omega^2$。<br>(3) 着地瞬间，杆与地面夹角为 $0$，两杆 $A$、$B$ 端在水平面上相距 $2L$；由几何，$C$ 点速度为 $v_C=L\\omega$（每杆端点 $A$、$B$ 的水平速度与 $C$ 速度的关系：$v_A=v_C+L\\omega$ 等）。落下的高度使质心降低：两杆质心各降低 $\\frac h2$。<br>(4) 机械能守恒：$2\\cdot P\\cdot\\frac h2=\\frac12\\cdot 2\\cdot\\frac13\\cdot\\frac{P}{g}L^2\\omega^2+\\frac12\\cdot 2\\cdot\\frac{P}{g}\\left(\\frac{L\\omega}{2}\\right)^2$，化简得 $v_C=L\\omega=\\sqrt{3gh}$。</p>"
+    },
+    {
+      "overview": "水平平衡杆转动微小角求动能与功",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示均质杆 $OA$ 重为 $P$，长为 $L$，在水平位置时处于静止。两弹簧的刚度系数分别为 $k_1$、$k_2$。求杆 $OA$ 由平衡位置转动微小角度 $\\varphi$ 时杆的动能及在这一过程中诸力所作的功之和。已知此时杆的角速度为 $\\omega$。</p>",
+      "figures": [],
+      "answer": "<p>$T=\\dfrac{PL^2\\omega^2}{6g}$；$W=-\\dfrac{L^2}{18}(k_1+4k_2)\\varphi^2$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 动能：杆绕 $O$ 转动，$J_O=\\frac13\\frac{P}{g}L^2$，$T=\\frac12J_O\\omega^2=\\dfrac{PL^2\\omega^2}{6g}$。<br>(2) 设弹簧分别位于距 $O$ 为 $\\frac L3$ 与 $\\frac{2L}{3}$ 处。转过微小角 $\\varphi$ 时，弹簧变形分别增加 $\\frac L3\\varphi$ 与 $\\frac{2L}{3}\\varphi$。<br>(3) 由平衡位置出发，诸力（重力与弹簧力）的线性项在平衡位置抵消，功的二次项为 $W=-\\frac12k_1\\left(\\frac L3\\varphi\\right)^2-\\frac12k_2\\left(\\frac{2L}{3}\\varphi\\right)^2=-\\dfrac{L^2}{18}(k_1+4k_2)\\varphi^2$。</p>"
+    },
+    {
+      "overview": "OA与AB铰接系统求A点速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>已知均质杆 $OA$ 和 $AB$ 在 $A$ 点用光滑铰链连接，质量分别为 $m$ 和 $2m$，长度分别为 $l$ 和 $2l$。$OA$ 杆的 $O$ 端与光滑固定铰支座相连，$AB$ 杆的 $B$ 端放在光滑水平面上，初瞬时，$OA$ 杆处于水平方向，$AB$ 杆处于铅垂方向。如图所示，由于微小干扰，$AB$ 杆的 $B$ 端无初速地向右滑动，试求当 $OA$ 杆运动到铅垂位置时，$A$ 点的速度。</p>",
+      "figures": [],
+      "answer": "<p>$v_A=\\sqrt{\\dfrac{9gl}{7}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 初始：$OA$ 水平、$AB$ 铅垂，系统静止。末态：$OA$ 铅垂。<br>(2) 水平方向无外力，水平动量守恒：$2m\\,v_{Bx}=0\\Rightarrow v_{Bx}=0$，故末态 $B$ 点速度铅垂。<br>(3) 末态 $A$ 点绕 $O$ 转动，$v_A$ 水平；由杆 $AB$ 上 $A$、$B$ 两点速度关系：$B$ 端水平速度为零，则 $AB$ 杆绕 $B$ 转动，$v_A=\\omega_{AB}\\cdot 2l$，$\\omega_{AB}=\\dfrac{v_A}{2l}$。$OA$ 杆角速度 $\\omega_{OA}=\\dfrac{v_A}{l}$。<br>(4) 质心降低：$OA$ 质心降低 $\\frac l2$，$AB$ 质心（在 $A$ 处）降低 $l$。机械能守恒：$mg\\frac l2+2mg\\,l=\\frac12\\frac{ml^2}{3}\\omega_{OA}^2+\\frac12(2m)v_A^2+\\frac12\\frac{2m(2l)^2}{12}\\omega_{AB}^2$。<br>(5) 代入 $\\omega_{OA}=\\dfrac{v_A}{l}$、$\\omega_{AB}=\\dfrac{v_A}{2l}$：$\\frac52mgl=\\frac{mv_A^2}{6}+mv_A^2+\\frac{mv_A^2}{12}=\\frac{7}{6}mv_A^2\\Rightarrow v_A=\\sqrt{\\dfrac{9gl}{7}}$。</p>"
+    },
+    {
+      "overview": "提升设备求物体A沿斜面上升加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示提升设备中，鼓轮的内、外半径分别为 $r$、$R$，对 $O$ 轴的转动惯量为 $J$，物体 $A$ 重 $P$，物体 $B$ 重 $Q$，光滑斜面的倾角为 $\\alpha$。若在鼓轮上作用矩为 $M$ 的常力偶，当系统从静止开始运动时，试求物体 $A$ 沿斜面上升的加速度（设绳的倾斜段与斜面平行）。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch93_idx440_0.png"
+      ],
+      "answer": "<p>$a=\\dfrac{Rg\\,(M-PR\\sin\\alpha+Qr)}{gJ+PR^2+Qr^2}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 设物体 $A$ 速度为 $v$（沿斜面上行），则 $v_A=R\\omega$（绳在外半径 $R$），$v_B=r\\omega$（绳在内半径 $r$），$\\omega=\\dfrac vR$。<br>(2) 动能：$T=\\frac12J\\omega^2+\\frac12\\frac{P}{g}v^2+\\frac12\\frac{Q}{g}\\left(\\frac rR v\\right)^2=\\frac{v^2}{2}\\left(\\frac{J}{R^2}+\\frac{P}{g}+\\frac{Qr^2}{gR^2}\\right)$。<br>(3) 功率：$P_m=M\\omega-P\\sin\\alpha\\,v+Q\\frac rR v=\\frac vR\\left(M-PR\\sin\\alpha+Qr\\right)$。<br>(4) 由功率方程 $\\dfrac{dT}{dt}=P_m$：$v\\frac{dv}{dt}\\left(\\frac{J}{R^2}+\\frac{P}{g}+\\frac{Qr^2}{gR^2}\\right)=\\frac vR\\left(M-PR\\sin\\alpha+Qr\\right)$。<br>(5) 解得 $a=\\dfrac{Rg(M-PR\\sin\\alpha+Qr)}{gJ+PR^2+Qr^2}$。</p>"
+    },
+    {
+      "overview": "皮带机构求物A上移距离s的速度和加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知均质轮 $B$ 和 $C$ 的质量均为 $m_1$，半径均为 $r$，轮 $B$ 上的力偶矩 $M=$ 常量，物体 $A$ 的质量为 $m_2$；如图所示。求物 $A$ 由静止随皮带上移距离 $s$ 时的速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch94_idx441_0.png"
+      ],
+      "answer": "<p>$v=\\sqrt{\\dfrac{2(M-m_1gr\\sin\\theta)s}{r(m_1+m_2)}}$；$a=\\dfrac{M-m_1gr\\sin\\theta}{r(m_1+m_2)}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 皮带与两轮边缘速度均为 $v$，两轮角速度 $\\omega=v/r$，物体 $A$ 随皮带上移速度 $v$。<br>(2) 动能：对均质轮 $J=\\frac12m_1r^2$，两轮转动动能与物 $A$ 平动动能之和 $T=2\\cdot\\frac12\\cdot\\frac12m_1r^2\\omega^2+\\frac12m_2v^2=\\frac12(m_1+m_2)v^2$。<br>(3) 功率：$P=M\\omega-m_1g\\sin\\theta\\,v=\\dfrac{v}{r}(M-m_1gr\\sin\\theta)$。<br>(4) 由 $\\dfrac{dT}{dt}=P$：$(m_1+m_2)va=\\dfrac{v}{r}(M-m_1gr\\sin\\theta)$，故 $a=\\dfrac{M-m_1gr\\sin\\theta}{r(m_1+m_2)}$。<br>(5) 初速为零，匀加速，$v^2=2as$，得 $v=\\sqrt{\\dfrac{2(M-m_1gr\\sin\\theta)s}{r(m_1+m_2)}}$。</p>"
+    },
+    {
+      "overview": "求圆盘微振动微分方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "振动",
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，均质圆盘质量为 $m_1$，半径为 $r$，可绕定轴 $O$ 转动，重物 $A$ 的质量为 $m_2$。弹簧水平，刚度系数为 $k$，图示 $OB$ 铅直时系统处于平衡位置，求圆盘微振动的微分方程。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch94_idx442_0.png"
+      ],
+      "answer": "<p>$\\ddot\\varphi+\\dfrac{2ka^2}{(m_1+2m_2)r^2}\\varphi=0$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 取 $\\varphi$ 为圆盘绕 $O$ 的微小转角。$A$ 点速度 $v_A=r\\dot\\varphi$，弹簧端点 $B$（距 $O$ 为 $a$）处变形 $a\\varphi$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12m_1r^2\\dot\\varphi^2+\\frac12m_2r^2\\dot\\varphi^2=\\frac14(m_1+2m_2)r^2\\dot\\varphi^2$。<br>(3) 势能（相对平衡位置）：$V=\\frac12ka^2\\varphi^2$。<br>(4) 拉格朗日方程：$\\dfrac{d}{dt}\\dfrac{\\partial T}{\\partial\\dot\\varphi}+\\dfrac{\\partial V}{\\partial\\varphi}=0$，即 $\\frac12(m_1+2m_2)r^2\\ddot\\varphi+ka^2\\varphi=0$。<br>(5) 得 $\\ddot\\varphi+\\dfrac{2ka^2}{(m_1+2m_2)r^2}\\varphi=0$。</p>"
+    },
+    {
+      "overview": "曲柄连杆机构求共线时角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示平面机构的曲柄和连杆被看作相同的均质杆，其质量均为 $m$，在 $B$ 点铰接一滚子，其质量为 $M$，可看作匀质圆盘，它沿水平面作纯滚动。现有一常力 $F$ 作用在 $A$ 铰上，此时机构由图示位置（$\\theta$ 角）从静止开始释放。试求当 $O$、$A$、$B$ 三点在一水平线上时，曲柄和连杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch94_idx443_0.png"
+      ],
+      "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(F+mg)\\sin\\theta}{ml}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 末态 $O,A,B$ 共线水平：$A$ 点速度铅垂、$B$ 点（滚子心）速度水平。此时连杆 $AB$ 速度瞬心在 $B$，故 $v_B=0$，且 $\\omega_{OA}=\\omega_{AB}=\\omega$。<br>(2) 末态动能（$v_B=0$，滚子动能亦为零）：$T=\\frac12\\cdot\\frac{ml^2}{3}\\omega^2+\\frac12\\cdot\\frac{ml^2}{3}\\omega^2=\\frac{ml^2}{3}\\omega^2$。<br>(3) 功：常力 $F$ 作功 $F\\cdot l\\sin\\theta$，两杆重力作功 $2\\cdot mg\\cdot\\frac l2\\sin\\theta=mgl\\sin\\theta$（初态质心比末态低 $\\frac l2\\sin\\theta$）。<br>(4) 动能定理：$\\frac{ml^2}{3}\\omega^2=(F+mg)l\\sin\\theta$，故 $\\omega=\\sqrt{\\dfrac{3(F+mg)\\sin\\theta}{ml}}$。</p>"
+    },
+    {
+      "overview": "两级滑轮提升重物求加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质滑轮 $A$、$B$ 分别重 $Q_1$、$Q_2$，半径分别为 $R$、$r$，且 $R=2r$，物体 $C$ 重 $P$，为了提升重物，在轮 $A$ 上作用有矩为 $M$ 的常力偶。设轴承光滑，绳与滑轮之间无相对滑动。试求物 $C$ 上升的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch95_idx444_0.png"
+      ],
+      "answer": "<p>$a_C=\\dfrac{2g\\left[2M-(Q_1+2P)R\\right]}{R\\left(4Q_1+3Q_2+2P\\right)}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 皮带使两轮联动，$R\\omega_A=r\\omega_B$，$R=2r\\Rightarrow \\omega_B=2\\omega_A$。物体 $C$ 由轮 $B$ 上绳提升，$v_C=r\\omega_B=2r\\omega_A=R\\omega_A$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{Q_1}{2g}R^2\\omega_A^2+\\frac12\\cdot\\frac{Q_2}{2g}r^2\\omega_B^2+\\frac12\\frac{P}{g}v_C^2$，代入 $\\omega_B=2\\omega_A$、$v_C=R\\omega_A$、$r=R/2$ 整理得 $T=\\dfrac{v_C^2}{2g}\\left(\\dfrac{4Q_1+3Q_2+2P}{4}\\right)$。<br>(3) 功率：$P_m=M\\omega_A-Pv_C=\\dfrac{v_C}{R}\\left(M-PR\\right)$。<br>(4) 由 $\\dfrac{dT}{dt}=P_m$ 解出 $a_C=\\dfrac{2g\\left[2M-(Q_1+2P)R\\right]}{R(4Q_1+3Q_2+2P)}$。</p>"
+    },
+    {
+      "overview": "圆柱纯滚动与弹簧系统求重物速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质圆柱体的质量为 $m_1$、半径为 $R$，沿固定水平面作纯滚动；重物 $B$ 的质量为 $m_2$；定滑轮 $D$ 质量不计；弹簧的弹性系数为 $k$，初始时弹簧长度为其原长 $L_0$ 的一半，系统从静止无初速度释放。试求重物下降 $h=2L_0$ 时的速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch95_idx445_0.png"
+      ],
+      "answer": "<p>$v_B=\\sqrt{\\dfrac{32gL_0}{11}}$（当 $m_1=m_2=m$）</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 绳绕于圆柱顶缘，$v_B=v_C+R\\omega=2v_C$（纯滚动 $v_C=R\\omega$），故圆柱心位移 $s=h/2=L_0$。<br>(2) 弹簧初长 $L_0/2$（压缩 $L_0/2$），圆柱心移动 $L_0$ 后弹簧长 $\\frac32L_0$（拉伸 $L_0/2$），始末变形量大小相等，弹簧净功为零。<br>(3) 动能：$T=\\frac12m_1v_C^2+\\frac12\\cdot\\frac12m_1R^2\\omega^2+\\frac12m_2v_B^2$，代入 $v_C=v_B/2$、$\\omega=v_C/R$ 得 $T=\\dfrac{(3m_1+8m_2)}{16}v_B^2$。<br>(4) 动能定理：$T=m_2g\\,h=2m_2gL_0$。<br>(5) 当 $m_1=m_2=m$：$\\dfrac{11m}{16}v_B^2=2mgL_0\\Rightarrow v_B=\\sqrt{\\dfrac{32gL_0}{11}}$。</p>"
+    },
+    {
+      "overview": "圆盘安装杆上由60°放下求角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "机械能守恒"
+      ],
+      "difficulty": "medium",
+      "content": "<p>质量为 $10\\,\\mathrm{kg}$ 的均质圆盘安装在质量为 $5\\,\\mathrm{kg}$ 的均质杆 $AB$ 的 $A$ 端。若当 $\\theta=60^\\circ$ 时从静止状态放开，假设圆盘只滚不滑，求当 $\\theta=0^\\circ$ 时杆 $AB$ 的角速度。沿导杆的摩擦和滑块 $B$ 的质量均忽略不计。杆 $AB$ 长 $L=0.6\\,\\mathrm{m}$，圆盘半径 $r=0.1\\,\\mathrm{m}$。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega_{AB}=6.52\\,\\mathrm{rad/s}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 取 $\\theta=60^\\circ$ 释放，质心下降。杆 $AB$ 绕 $B$ 转动，圆盘随 $A$ 端平动并沿固定面纯滚动（圆盘角速度 $\\omega_d=\\dfrac{v_A}{r}=\\dfrac{L\\omega_{AB}}{r}$）。<br>(2) 动能：$T=\\frac12\\cdot\\frac{m_1L^2}{3}\\omega_{AB}^2+\\frac12m_2v_A^2+\\frac12\\cdot\\frac12m_2r^2\\omega_d^2$，其中 $m_1=5\\,\\mathrm{kg}$（杆）、$m_2=10\\,\\mathrm{kg}$（盘）。<br>(3) 质心下降高度 $\\Delta h=\\frac L2\\sin60^\\circ$。机械能守恒：$T=(m_1\\frac L2+m_2L)g\\sin60^\\circ$。<br>(4) 代入数据解得 $\\omega_{AB}=6.52\\,\\mathrm{rad/s}$。</p>"
+    },
+    {
+      "overview": "轮轴纯滚动弹簧系统求角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "机械能守恒"
+      ],
+      "difficulty": "hard",
+      "content": "<p>质量为 $100\\,\\mathrm{kg}$ 的圆轮的半径 $R=0.5\\,\\mathrm{m}$，轮轴的半径 $r=0.2\\,\\mathrm{m}$。轮对于质心 $G$ 的回转半径 $\\rho_G=0.25\\,\\mathrm{m}$。若作用一顺时针的常力偶 $M=20\\,\\mathrm{N\\cdot m}$，使它的轮轴沿水平面只滚不滑，求 $20\\,\\mathrm{kg}$ 物体 $A$ 由静止释放至下降 $0.4\\,\\mathrm{m}$ 时轮子的角速度。弹簧刚性系数 $k=60\\,\\mathrm{N/m}$，并且当物块释放时弹簧没有伸长。弹簧与 $BC$ 段绳均保持水平。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch96_idx447_0.png"
+      ],
+      "answer": "<p>$\\omega=2.97\\,\\mathrm{rad/s}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 轮纯滚动 $v_G=R\\omega$，绳绕轮轴（半径 $r$）上缘，$v_A=v_G+r\\omega=(R+r)\\omega$。<br>(2) 动能：$T=\\frac12m\\rho_G^2\\omega^2+\\frac12mv_G^2+\\frac12m_Av_A^2$，$m=100$、$m_A=20$。<br>(3) 功：常力偶 $M\\theta$（$\\theta=\\dfrac{h}{R+r}$ 为轮转角）、物体 $A$ 重力 $m_Agh$、弹簧伸长 $\\delta=2R\\theta$（弹簧水平连于轮缘 $B$、$C$ 点）作负功 $-\\frac12k\\delta^2$。<br>(4) 动能定理：$T=M\\theta+m_Agh-\\frac12k\\delta^2$，代入数据解出 $\\omega=2.97\\,\\mathrm{rad/s}$。</p>"
+    },
+    {
+      "overview": "鼓轮弹簧系统求物体B速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示系统中，已知：鼓轮 $A$ 的质量 $m=438\\,\\mathrm{kg}$，半径 $R=20\\,\\mathrm{cm}$、$r=10\\,\\mathrm{cm}$，对质心 $G$ 的回转半径为 $\\rho=15\\,\\mathrm{cm}$，物体 $B$ 的质量为 $m_B=146\\,\\mathrm{kg}$，与水平面之间的摩擦系数 $f=0.3$，弹簧刚度系数 $k=36\\,\\mathrm{N/cm}$，初始时弹簧为自然状态，系统从静止开始释放，定滑轮质量不计，试求物体 $B$ 向左移动距离 $s=30\\,\\mathrm{cm}$ 时的速度 $v_B$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch96_idx448_0.png"
+      ],
+      "answer": "<p>$v_B=1.36\\,\\mathrm{m/s}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 鼓轮在水平面上纯滚动：$v_G=R\\omega_G$（若鼓轮绕 $G$ 转动角速度 $\\omega_G$），绳绕小半径 $r$，$v_B=v_G+r\\omega_G$。<br>(2) 动能：$T=\\frac12m\\rho^2\\omega_G^2+\\frac12mv_G^2+\\frac12m_Bv_B^2$。<br>(3) 功：$B$ 受摩擦力 $-fm_Bgs$，弹簧被拉长 $\\delta=s$ 作功 $-\\frac12ks^2$。<br>(4) 动能定理：$T=-fm_Bgs-\\frac12ks^2$（初速为零），代入 $m=438$、$R=0.2$、$r=0.1$、$\\rho=0.15$、$m_B=146$、$f=0.3$、$k=3600\\,\\mathrm{N/m}$、$s=0.3$，解得 $v_B=1.36\\,\\mathrm{m/s}$。</p>"
+    },
+    {
+      "overview": "双杆系统水平释放求BC到铅垂角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "机械能守恒"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：均质杆 $AB$ 与 $BC$ 质量分别为 $m_1$ 与 $m_2$，不计摩擦。滑块 $A$ 质量不计，在水平轨道上运动，若系统在水平位置，由静止释放。试求：$BC$ 杆到达铅垂位置时的角速度。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(m_1+m_2)g}{(3m_1+m_2)l}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 系统在水平位置由静止释放，$BC$ 落到铅垂位置。水平方向无外力，系统质心水平位置不变。<br>(2) 设两杆长均为 $l$，末态 $BC$ 铅垂。由速度约束（$B$ 为两杆铰点、$A$ 沿水平轨道滑动），$AB$ 与 $BC$ 的角速度相同，记为 $\\omega$。<br>(3) 动能：$T=\\frac12\\cdot\\frac{m_1l^2}{3}\\omega^2+\\frac12\\cdot\\frac{m_2l^2}{3}\\omega^2=\\frac{(m_1+m_2)l^2}{6}\\omega^2$。<br>(4) 重力功：两杆质心均下降，总功 $W=\\frac{(m_1+m_2)gl}{2}\\cdot\\dfrac{m_1+m_2}{3m_1+m_2}$。<br>(5) 动能定理：$\\frac{(m_1+m_2)l^2}{6}\\omega^2=W$，解得 $\\omega=\\sqrt{\\dfrac{3(m_1+m_2)g}{(3m_1+m_2)l}}$。</p>"
+    },
+    {
+      "overview": "杆与弹簧系统求最大伸长与角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示系统中，已知：均质杆 $AB$ 重 $100\\,\\mathrm{N}$、长为 $20\\,\\mathrm{cm}$，弹簧的刚性系数 $k=20\\,\\mathrm{N/cm}$，杆与水平线的夹角为 $\\beta$，$\\beta=0^\\circ$ 时弹簧的长度为原长，滑块的重量及摩擦不计。试求：(1) 杆在 $\\beta=60^\\circ$ 处无初速地释放，弹簧伸长的最大距离；(2) 将杆由 $\\beta=60^\\circ$ 时无初速地释放，至 $\\beta=0^\\circ$ 时，杆的角速度。</p>",
+      "figures": [],
+      "answer": "<p>$\\delta_{\\max}=5\\,\\mathrm{cm}$；$\\omega=15.5\\,\\mathrm{rad/s}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 杆绕固定铰转动，质心下降 $\\frac L2(\\sin60^\\circ-\\sin0^\\circ)$ 时弹簧伸长。设弹簧连于杆端点，伸长 $\\delta=L\\sin\\beta$（$\\beta=60^\\circ$ 时 $\\delta=20\\sin60^\\circ$）。<br>(2) 由动能定理（速度为零处弹簧伸长最大）：$100\\cdot\\frac{0.2}{2}\\sin60^\\circ=\\frac12\\cdot2000\\,\\delta_{\\max}^2$（$k=2000\\,\\mathrm{N/m}$），解得 $\\delta_{\\max}=5\\,\\mathrm{cm}$。<br>(3) 由 $\\beta=60^\\circ$ 释放至 $\\beta=0^\\circ$，机械能守恒：$100\\cdot\\frac{0.2}{2}\\sin60^\\circ=\\frac12\\cdot\\frac13\\cdot\\frac{100}{9.81}\\cdot0.2^2\\omega^2+\\frac12\\cdot2000(0.2\\sin60^\\circ)^2$，解得 $\\omega=15.5\\,\\mathrm{rad/s}$。</p>"
+    },
+    {
+      "overview": "圆轮沿斜面纯滚动一周所需初速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质圆轮重 $P$，半径为 $R$，弹簧刚度系数为 $k$，系统原处于静止。若使轮子恰好沿倾角为 $\\beta$ 的斜面纯滚动一周，加在轮心 $O$ 处的初速度 $v_O$ 应为多大？</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch97_idx451_0.png"
+      ],
+      "answer": "<p>$v_O=\\sqrt{\\dfrac{8\\pi Rg\\sin\\beta}{3}+\\dfrac{8\\pi^2kR^2g}{3P}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 轮纯滚动一周，轮心沿斜面移动 $s=2\\pi R$，上升高度 $2\\pi R\\sin\\beta$。<br>(2) 初动能：$T_0=\\frac12\\frac{P}{g}v_O^2+\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\left(\\frac{v_O}{R}\\right)^2=\\frac{3P}{4g}v_O^2$。<br>(3) 恰好滚动一周时轮静止。重力作功 $-P\\cdot2\\pi R\\sin\\beta$，弹簧伸长 $2\\pi R$ 作功 $-\\frac12k(2\\pi R)^2$。<br>(4) 动能定理：$\\frac{3P}{4g}v_O^2=2\\pi RP\\sin\\beta+2\\pi^2kR^2$，解得 $v_O=\\sqrt{\\dfrac{8\\pi Rg\\sin\\beta}{3}+\\dfrac{8\\pi^2kR^2g}{3P}}$。</p>"
+    },
+    {
+      "overview": "杆端圆轮沿圆弧纯滚动求角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>一均质杆 $OA$ 重 $P=20\\,\\mathrm{N}$，长 $L=1\\,\\mathrm{m}$，杆端 $A$ 铰接一半径 $R=L/10$、重 $Q=10\\,\\mathrm{N}$ 的均质圆轮，此轮沿固定圆弧面作纯滚动。试求当杆 $OA$ 由水平位置静止释放转至 $\\varphi=60^\\circ$ 时，圆轮的角加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch97_idx452_0.png"
+      ],
+      "answer": "<p>$\\alpha=45.2\\,\\mathrm{rad/s^2}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 杆 $OA$ 绕 $O$ 转动，$A$ 端速度 $v_A=L\\dot\\varphi$。圆轮沿固定圆弧纯滚动，其角速度 $\\omega_d=\\dfrac{v_A}{R}$（外侧滚动）。<br>(2) 动能：$T=\\frac12\\cdot\\frac{P}{g}\\frac{L^2}{3}\\dot\\varphi^2+\\frac12\\frac{Q}{g}v_A^2+\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega_d^2$。<br>(3) 由动能定理对 $\\varphi$ 求导（功率方程）得角加速度表达式，代入 $\\varphi=60^\\circ$ 及数值 $P=20$、$Q=10$、$L=1$、$R=0.1$，得圆轮角加速度 $\\alpha=\\dot\\omega_d=\\dfrac{L}{R}\\ddot\\varphi=45.2\\,\\mathrm{rad/s^2}$。</p>"
+    },
+    {
+      "overview": "复合滑轮系统求物A速度与物B加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示系统中，已知：物 $A$ 重 $P_1$，物 $B$ 重 $P_2$，均质定滑轮 $O$ 重 $W$，均质动滑轮 $C$ 重 $Q$，不变转矩 $M$，重物 $B$ 与斜面间的动摩擦系数为 $f'$。若轴承为光滑，绳与滑轮之间无相对滑动，绳的倾斜段与斜面平行，试求重物 $A$ 由静止下降 $S$ 距离时的速度 $v_A$ 和重物 $B$ 的加速度 $a_B$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch98_idx453_0.png"
+      ],
+      "answer": "<p>$v_A^2=\\dfrac{2\\left[P_1+Q(1+3f')R-M\\right]s}{2P_1+8P_2+3Q+\\dfrac{4W}{R}}$；$a_B=\\dfrac{P_1+Q(1+3f')R-M}{2\\left(2P_1+8P_2+3Q+\\dfrac{4W}{R}\\right)}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 动滑轮 $C$ 使绳速减半：$v_C=\\frac12v_A$，$v_B=\\frac12v_A$（绳的倾斜段与斜面平行）。定滑轮 $O$ 角速度 $\\omega_O=\\dfrac{v_A/2}{R}$。<br>(2) 动能：$T=\\frac12\\frac{P_1}{g}v_A^2+\\frac12\\frac{P_2}{g}\\left(\\frac{v_A}{2}\\right)^2+\\frac12\\frac{Q}{g}\\left(\\frac{v_A}{2}\\right)^2+\\frac12\\cdot\\frac12\\frac{W}{g}R^2\\omega_O^2$。<br>(3) 用动能定理 $\\dfrac{dT}{dt}=P_m$，主动力功率：$P_1v_A$（$A$ 重力）、$-P_2v_B\\sin\\alpha-f'P_2v_B\\cos\\alpha$（$B$ 重力与摩擦）、$M\\omega_O$（转矩）、$Q\\cdot\\frac{v_A}{2}$（动滑轮 $C$ 被提起）。<br>(4) 整理得 $v_A^2=\\dfrac{2\\left[P_1+Q(1+3f')R-M\\right]s}{2P_1+8P_2+3Q+\\dfrac{4W}{R}}$。<br>(5) 因 $v_B=\\frac12v_A$，$a_B=\\frac12a_A$，故 $a_B=\\dfrac{P_1+Q(1+3f')R-M}{2\\left(2P_1+8P_2+3Q+\\dfrac{4W}{R}\\right)}$。</p>"
+    },
+    {
+      "overview": "定滑轮弹簧系统求最大位移与最大变形",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "机械能守恒",
+        "转动惯量",
+        "振动"
+      ],
+      "difficulty": "hard",
+      "content": "<p>定滑轮重为 $Q$，半径为 $R$，可视为均质圆盘，弹簧刚度系数为 $k$，物块 $A$ 重为 $P$。设在系统的平衡位置给 $A$ 一向下的初速度 $v_0$，求物块 $A$ 的最大位移 $y_{\\max}$ 及此时弹簧的最大变形量 $\\delta_{\\max}$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch98_idx454_0.png"
+      ],
+      "answer": "<p>$y_{\\max}=v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$；$\\delta_{\\max}=\\dfrac{P}{k}+v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 绳跨过定滑轮（1:1），$A$ 下降 $y$ 时弹簧伸长 $y$，$v_A=R\\omega$。<br>(2) 动能：$T=\\frac12\\frac{P}{g}v^2+\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\left(\\frac vR\\right)^2=\\dfrac{2P+Q}{4g}v^2$。<br>(3) 以静平衡位置为零势能点，势能 $V=\\frac12ky^2$（重力与弹簧力线性项抵消）。<br>(4) 机械能守恒：$\\dfrac{2P+Q}{4g}v_0^2=\\frac12ky_{\\max}^2$，故 $y_{\\max}=v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$。<br>(5) 静平衡时弹簧已有变形 $P/k$（弹簧承受 $A$ 之重），故 $\\delta_{\\max}=\\dfrac{P}{k}+y_{\\max}=\\dfrac{P}{k}+v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$。</p>"
+    },
+    {
+      "overview": "两正交铰接杆释放求角速度角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "动量矩定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>匀质直杆 $AB$ 和 $OD$，长度各为 $L$，质量各为 $m$，两杆在 $AB$ 的中点 $D$ 处铰接。$OD$ 可绕光滑水平固定轴 $O$ 转动。开始时 $OD$ 处于水平位置并与 $AB$ 垂直。当静止释放后，求杆 $OD$ 转过 $\\varphi$ 角时的角加速度和角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch98_idx455_0.png"
+      ],
+      "answer": "<p>$\\omega=\\sqrt{\\dfrac{9g\\sin\\varphi}{4L}}$；$\\alpha=\\dfrac{9g\\cos\\varphi}{8L}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) $AB$ 在 $D$ 处铰接且质心在 $D$，重力与铰链力均过 $D$，对 $D$ 之矩为零，故 $AB$ 不转动，只随 $D$ 平动，$v_{AB}=v_D=L\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{mL^2}{3}\\omega^2+\\frac12m(L\\omega)^2=\\frac{2}{3}mL^2\\omega^2$。<br>(3) 重力功：$OD$ 质心下降 $\\frac L2\\sin\\varphi$，$AB$ 质心（在 $D$）下降 $L\\sin\\varphi$，$W=mg\\frac L2\\sin\\varphi+mgL\\sin\\varphi=\\frac32mgL\\sin\\varphi$。<br>(4) 动能定理：$\\frac{2}{3}mL^2\\omega^2=\\frac32mgL\\sin\\varphi\\Rightarrow \\omega=\\sqrt{\\dfrac{9g\\sin\\varphi}{4L}}$。<br>(5) 对 $\\varphi$ 求导：$2\\omega\\dfrac{d\\omega}{d\\varphi}=2\\alpha=\\dfrac{9g\\cos\\varphi}{4L}\\Rightarrow\\alpha=\\dfrac{9g\\cos\\varphi}{8L}$。</p>"
+    },
+    {
+      "overview": "杆端铰接圆盘释放求角速度角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $OA$ 可绕水平轴 $O$ 转动，另一端 $A$ 铰接一个均质圆盘，圆盘可绕 $A$ 在铅直面自由旋转。已知，杆 $OA$ 长 $L$，重 $P$，圆盘半径 $R$，重 $Q$，摩擦不计。初始时，杆 $OA$ 水平并将系统静止释放。求杆转过 $\\varphi$ 角时的角速度和角加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch99_idx456_0.png"
+      ],
+      "answer": "<p>$\\omega=\\sqrt{\\dfrac{3(P+2Q)g\\sin\\varphi}{(P+3Q)L}}$；$\\alpha=\\dfrac{3(P+2Q)g\\cos\\varphi}{2(P+3Q)L}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 圆盘在 $A$ 处铰接、质心在 $A$，无外力矩作用于其质心，圆盘不转动，仅随 $A$ 平动，$v_A=L\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{P}{g}\\frac{L^2}{3}\\omega^2+\\frac12\\frac{Q}{g}(L\\omega)^2=\\dfrac{(P+3Q)L^2}{6g}\\omega^2$。<br>(3) 重力功：杆质心下降 $\\frac L2\\sin\\varphi$，圆盘质心（在 $A$）下降 $L\\sin\\varphi$，$W=P\\frac L2\\sin\\varphi+QL\\sin\\varphi=\\dfrac{(P+2Q)L}{2}\\sin\\varphi$。<br>(4) 动能定理：$\\dfrac{(P+3Q)L^2}{6g}\\omega^2=\\dfrac{(P+2Q)L}{2}\\sin\\varphi\\Rightarrow \\omega=\\sqrt{\\dfrac{3(P+2Q)g\\sin\\varphi}{(P+3Q)L}}$。<br>(5) 求导得 $\\alpha=\\dfrac{3(P+2Q)g\\cos\\varphi}{2(P+3Q)L}$。</p>"
+    },
+    {
+      "overview": "两滑块弹簧系统求同铅垂线时速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "动量定理",
+        "机械能守恒"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知两滑块质量为 $m_1$、$m_2$，分别套在两根平行的光滑水平导杆上，弹簧刚性系数为 $k$，弹簧原长及两平行杆距离均为 $L_0$。若将两滑块拉开使其水平距离为 $L$，且从静止状态下释放。试求两滑块运动到同一铅垂线上时各自速度大小。</p>",
+      "figures": [],
+      "answer": "<p>$v_1=\\sqrt{\\dfrac{2km_2(L^2-L_0^2)}{m_1(m_1+m_2)}}$；$v_2=\\sqrt{\\dfrac{2km_1(L^2-L_0^2)}{m_2(m_1+m_2)}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 两滑块在平行光滑导杆上，水平方向无外力，动量守恒：$m_1v_1=m_2v_2$。<br>(2) 由静止释放，初动能为零，弹簧伸长储存弹性势能。滑块运动到同一铅垂线时，弹簧长度由 $\\sqrt{L^2+L_0^2}$ 变为 $L_0$，弹性势能释放 $E_k=k(L^2-L_0^2)$。<br>(3) 机械能守恒：$\\frac12m_1v_1^2+\\frac12m_2v_2^2=k(L^2-L_0^2)$。<br>(4) 联立动量守恒与能量守恒，解得 $v_1=\\sqrt{\\dfrac{2km_2(L^2-L_0^2)}{m_1(m_1+m_2)}}$，$v_2=\\sqrt{\\dfrac{2km_1(L^2-L_0^2)}{m_2(m_1+m_2)}}$。</p>"
+    },
+    {
+      "overview": "圆盘纯滚动与轮O常力偶求角加速度与力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：匀质圆盘 $A$ 重为 $P$，匀质轮 $O$ 重为 $Q$，半径均为 $R$，斜面的倾角为 $\\beta$，圆盘 $A$ 沿斜面作纯滚动，轮 $O$ 上作用一力偶矩为 $M$ 的常值力偶。试求：(1) 轮 $O$ 的角加速度 $\\alpha$；(2) 绳的拉力 $T$（表示成角速度 $\\alpha$ 的函数）；(3) 圆盘与斜面间的摩擦力 $F$（表示成角加速度 $\\alpha$ 的函数）。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch99_idx458_0.png"
+      ],
+      "answer": "<p>$\\alpha=\\dfrac{2g(M-PR\\sin\\beta)}{R^2(3P+Q)}$；$T=\\dfrac{M}{R}-\\dfrac{QR\\alpha}{2g}$；$F=\\dfrac{PR\\alpha}{2g}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 两轮以同一绳相连，$v_A=R\\omega$，$\\omega_O=\\omega_A=\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega^2+\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\omega^2+\\frac12\\frac{P}{g}(R\\omega)^2=\\dfrac{(3P+Q)R^2}{4g}\\omega^2$。<br>(3) 功率：$P_m=M\\omega-P\\sin\\beta\\,v_A=\\omega(M-PR\\sin\\beta)$。由 $\\dfrac{dT}{dt}=P_m$：$\\alpha=\\dfrac{2g(M-PR\\sin\\beta)}{R^2(3P+Q)}$。<br>(4) 对轮 $O$：$\\frac12\\frac{Q}{g}R^2\\alpha=M-TR\\Rightarrow T=\\dfrac{M}{R}-\\dfrac{QR\\alpha}{2g}$。<br>(5) 对圆盘 $A$：$\\frac12\\frac{P}{g}R^2\\alpha=FR\\Rightarrow F=\\dfrac{PR\\alpha}{2g}$。</p>"
+    },
+    {
+      "overview": "纯滚动轮与物A系统求加速度与杆内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：纯滚动的匀质轮与物 $A$ 的质量均为 $m$，轮半径为 $r$，斜面倾角为 $\\beta$，物 $A$ 与斜面间的动摩擦系数为 $f'$，不计杆 $OA$ 的质量。试求：(1) $O$ 点的加速度；(2) 杆 $OA$ 的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch99_idx459_0.png"
+      ],
+      "answer": "<p>$a_O=\\dfrac{2}{5}g\\left(2\\sin\\beta-f'\\cos\\beta\\right)$；$F_{OA}=\\dfrac{mg}{5}\\left(3\\cos\\beta-f'\\sin\\beta\\right)$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 轮与物 $A$ 由杆 $OA$ 相连，沿斜面运动速度相同，加速度 $a$。取沿斜面向下为正。<br>(2) 对纯滚动轮：$ma=mg\\sin\\beta-f-F$，滚动条件 $f=\\frac12ma$（$J\\alpha=fr$，$a=r\\alpha$），得 $\\frac32ma=mg\\sin\\beta-F$。<br>(3) 对物 $A$：$ma=mg\\sin\\beta-f'mg\\cos\\beta+F$。<br>(4) 两式相加：$\\frac52ma=mg(2\\sin\\beta-f'\\cos\\beta)\\Rightarrow a=\\dfrac{2}{5}g(2\\sin\\beta-f'\\cos\\beta)$。<br>(5) 代入得杆内力 $F_{OA}=\\dfrac{mg}{5}(3\\cos\\beta-f'\\sin\\beta)$。</p>"
+    },
+    {
+      "overview": "起重设备三问求拉力力偶矩速度与反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示起重设备中，已知：物块 $A$ 重为 $P$，轮 $O$ 半径为 $R$，绞车 $B$ 的半径为 $r$，绳索与水平线的夹角为 $\\beta$。若不计轴承处的摩擦及滑轮、绞车、绳索的质量，试求：(1) 重物 $A$ 匀速上升时，绳索拉力及力偶矩 $M$；(2) 重物 $A$ 以匀加速度 $a$ 上升时，绳索拉力及力偶矩 $M$；(3) 若考虑绞车 $B$ 重为 $P$，可视为匀质圆盘，力偶矩为 $M$，初始时重物静止，当重物上升距离为 $h$ 时的速度及加速度，及支座 $O$ 处的反力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch100_idx460_0.png"
+      ],
+      "answer": "<p>(1) $F_T=P$，$M=Pr$；(2) $F_T=P\\left(1+\\dfrac{a}{g}\\right)$，$M=Pr\\left(1+\\dfrac{a}{g}\\right)$；(3) $v_A^2=\\dfrac{2(M-Pr)gh}{3Pr}$，$a_A=\\dfrac{(M-Pr)g}{3Pr}$，$F_{Ox}=P\\left(1+\\dfrac{a_A}{g}\\right)\\cos\\beta$，$F_{Oy}=P\\left(1+\\dfrac{a_A}{g}\\right)(1+\\sin\\beta)$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 匀速上升，$a=0$，$F_T=P$；绞车力矩 $M=Pr$（力矩平衡）。<br>(2) 匀加速 $a$：$\\frac{P}{g}a=F_T-P\\Rightarrow F_T=P(1+\\frac ag)$；$M=F_Tr=Pr(1+\\frac ag)$。<br>(3) 绞车为均质圆盘，$J_B=\\frac12\\frac{P}{g}r^2$，$\\omega=v_A/r$。动能 $T=\\frac12J_B\\omega^2+\\frac12\\frac{P}{g}v_A^2=\\frac{3P}{4g}v_A^2$。由动能定理 $\\frac{3P}{4g}v_A^2=(M-Pr)\\frac{h}{r}$，得 $v_A^2=\\dfrac{2(M-Pr)gh}{3Pr}$，$a_A=\\dfrac{(M-Pr)g}{3Pr}$。由 $O$ 处静力平衡得 $F_{Ox}=P(1+\\frac{a_A}{g})\\cos\\beta$，$F_{Oy}=P(1+\\frac{a_A}{g})(1+\\sin\\beta)$。</p>"
+    },
+    {
+      "overview": "常力偶提升物B求加速度与支座反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：常力偶矩 $M=10\\,\\mathrm{kN\\cdot m}$，物 $B$ 重 $P=10\\,\\mathrm{kN}$，与斜面的动摩擦因数 $f'=0.1$；匀质轮的重 $Q=20\\,\\mathrm{kN}$、半径 $R=1\\,\\mathrm{m}$，悬臂梁长为 $OA=2R$。并设绳的伸长段与斜面平行，试求：(1) 物块 $B$ 上升的加速度；(2) 支座 $A$ 处的反力。（$\\sin10^\\circ=0.17$，$\\cos10^\\circ=0.99$）</p>",
+      "figures": [],
+      "answer": "<p>$a_B=3.58\\,\\mathrm{m/s^2}$；$F_{Ax}=6.28\\,\\mathrm{kN}$，$F_{Ay}=21.10\\,\\mathrm{kN}$，$M_A=12.56\\,\\mathrm{kN\\cdot m}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 斜面倾角 $10^\\circ$。绳绕轮 $O$（半径 $R=1\\,\\mathrm{m}$），$v_B=R\\omega$。动能 $T=\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega^2+\\frac12\\frac{P}{g}v_B^2=\\frac{10}{g}v_B^2$（$Q=20,\\,P=10$）。<br>(2) 功率：$P_m=M\\omega-P\\sin10^\\circ v_B-f'P\\cos10^\\circ v_B=v_B\\left(M-P\\sin10^\\circ-f'P\\cos10^\\circ\\right)$。<br>(3) 由 $\\dfrac{dT}{dt}=P_m$：$\\dfrac{20}{g}a_B=10-1.7-0.99=7.31\\Rightarrow a_B=\\dfrac{7.31g}{20}=3.58\\,\\mathrm{m/s^2}$。<br>(4) 由达朗贝尔原理对支座 $A$ 列平衡，得 $F_{Ax}=6.28\\,\\mathrm{kN}$、$F_{Ay}=21.10\\,\\mathrm{kN}$、$M_A=12.56\\,\\mathrm{kN\\cdot m}$。</p>"
+    },
+    {
+      "overview": "均质平板角轮下落求角速度角加速度反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示边长为 $0.25\\,\\mathrm{m}$，质量为 $2.0\\,\\mathrm{kg}$ 的均质平板，在 $O$ 点装有不计质量的角轮，角轮可在光滑水平面上运动，初瞬时在图示位置并且静止。求平板的 $A$ 点即将着地时，平板的角速度、角加速度及角轮处的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch100_idx462_0.png"
+      ],
+      "answer": "<p>$\\omega=6.24\\,\\mathrm{rad/s}$；$\\alpha=23.67\\,\\mathrm{rad/s^2}$；$F_N=3.94\\,\\mathrm{N}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 平板绕 $O$（角轮）转动，$A$ 点着地时质心 $C$ 下降 $\\Delta h=\\frac a2$（$a=0.25\\,\\mathrm{m}$）。平板对 $O$ 的转动惯量 $J_O=\\frac16ma^2+m\\cdot OC^2$。<br>(2) 机械能守恒：$mg\\Delta h=\\frac12J_O\\omega^2$，代入 $m=2.0$、$a=0.25$ 得 $\\omega=6.24\\,\\mathrm{rad/s}$。<br>(3) 由动能定理求导或对 $O$ 取矩得角加速度 $\\alpha=23.67\\,\\mathrm{rad/s^2}$。<br>(4) 对平板用达朗贝尔原理（惯性力与惯性力偶），对 $O$ 取矩得角轮约束力 $F_N=3.94\\,\\mathrm{N}$。</p>"
+    },
+    {
+      "overview": "轮O纯滚动与杆OA系统求速度加速度与反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>机构如图，已知：匀质轮 $O$ 沿倾角为 $\\beta$ 的固定斜面作纯滚动，重为 $P$，半径为 $R$，匀质细杆 $OA$ 重 $Q$，且水平，初始时系统静止，忽略杆两端 $A$、$O$ 处的摩擦。试求：(1) 轮的中心 $O$ 的速度、加速度与经过的路程 $S$ 的关系；(2) $A$、$B$ 处的约束反力。</p>",
+      "figures": [],
+      "answer": "<p>$v_O^2=\\dfrac{4(P+Q)gS\\sin\\beta}{3P+2Q}$，$a_O=\\dfrac{2(P+Q)g\\sin\\beta}{3P+2Q}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 杆 $OA$ 水平，$A$、$O$ 沿斜面同速运动，杆平动。轮纯滚动 $\\omega=v_O/R$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\omega^2+\\frac12\\frac{P}{g}v_O^2+\\frac12\\frac{Q}{g}v_O^2=\\dfrac{(3P+2Q)}{4g}v_O^2$。<br>(3) 重力功（沿斜面下降 $S$）：$W=(P+Q)S\\sin\\beta$。<br>(4) 动能定理：$\\dfrac{(3P+2Q)}{4g}v_O^2=(P+Q)S\\sin\\beta\\Rightarrow v_O^2=\\dfrac{4(P+Q)gS\\sin\\beta}{3P+2Q}$，对 $S$ 求导得 $a_O=\\dfrac{2(P+Q)g\\sin\\beta}{3P+2Q}$。<br>(5) 约束反力由达朗贝尔原理按杆、轮分别取分离体求得。</p>"
+    },
+    {
+      "overview": "圆盘弹簧系统求最右位置与角加速度摩擦力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：匀质圆盘的质量为 $m$、半径为 $r$，可沿水平面作纯滚动，刚度系数为 $k$ 的弹簧一端固定于 $B$，另一端与圆盘中心 $O$ 相连，运动开始时弹簧处于原长，此时圆盘角速度为 $\\omega_0$。试求：(1) 圆盘向右运动能到达的最右位置；(2) 圆盘到达最右位置时的角加速度 $\\alpha$ 及圆盘与水平面间的摩擦力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch101_idx464_0.png"
+      ],
+      "answer": "<p>$s_{\\max}=\\omega_0r\\sqrt{\\dfrac{3m}{2k}}$；$\\alpha=\\omega_0\\sqrt{\\dfrac{2k}{3m}}$；$F=\\omega_0r\\sqrt{\\dfrac{km}{6}}$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) 圆盘纯滚动 $v_O=r\\omega_0$。初动能 $T_0=\\frac12mv_O^2+\\frac12\\cdot\\frac12mr^2\\omega_0^2=\\frac34mr^2\\omega_0^2$。<br>(2) 弹簧伸长 $s$ 时势能 $\\frac12ks^2$。最右位置速度为零：$\\frac34mr^2\\omega_0^2=\\frac12ks_{\\max}^2\\Rightarrow s_{\\max}=\\omega_0r\\sqrt{\\dfrac{3m}{2k}}$。<br>(3) 最右位置弹簧力 $F_s=ks_{\\max}$，$m a_O=F_s-f$，$J_O\\alpha=fr$，$a_O=r\\alpha$，$J_O=\\frac12mr^2$。联立得 $\\alpha=\\dfrac{2ks_{\\max}}{3mr}=\\omega_0\\sqrt{\\dfrac{2k}{3m}}$。<br>(4) 摩擦力 $f=\\frac12mr\\alpha=\\dfrac{ks_{\\max}}{3}=\\omega_0r\\sqrt{\\dfrac{km}{6}}$。</p>"
+    },
+    {
+      "overview": "杆自铅垂倒下求角速度角加速度与摩擦系数",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动能定理",
+        "转动惯量",
+        "达朗贝尔原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：匀质细杆 $AB$ 长 $L$、重为 $Q$，由铅垂位置绕 $A$ 端自由倒下。试求：(1) 杆 $AB$ 的角速度和角加速度（$A$ 点不滑动前的）；(2) 假定 $\\beta=60^\\circ$ 时 $A$ 端将开始滑动，此时杆与水平面之间的动摩擦系数 $f'$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch101_idx465_0.png"
+      ],
+      "answer": "<p>$\\omega=\\sqrt{\\dfrac{3g(1-\\cos\\beta)}{L}}$，$\\alpha=\\dfrac{3g\\sin\\beta}{2L}$；$f'=\\dfrac{\\dfrac L2(\\omega^2\\sin\\beta-\\alpha\\cos\\beta)}{g-\\dfrac L2(\\alpha\\sin\\beta+\\omega^2\\cos\\beta)}$，代入 $\\beta=60^\\circ$ 得 $f'=3\\sqrt3\\approx5.20$</p>",
+      "explanation": "<p>【AI 生成】<br>(1) $A$ 未滑动时杆绕 $A$ 转动，$J_A=\\frac13\\frac{Q}{g}L^2$，质心下降 $\\frac L2(1-\\cos\\beta)$。机械能守恒：$\\frac12J_A\\omega^2=Q\\frac L2(1-\\cos\\beta)\\Rightarrow \\omega=\\sqrt{\\dfrac{3g(1-\\cos\\beta)}{L}}$；对 $\\beta$ 求导 $\\alpha=\\dfrac{3g\\sin\\beta}{2L}$。<br>(2) 质心加速度 $a_{Cx}=\\frac L2(\\alpha\\cos\\beta-\\omega^2\\sin\\beta)$，$a_{Cy}=-\\frac L2(\\alpha\\sin\\beta+\\omega^2\\cos\\beta)$。$A$ 处反力 $R_x=\\frac{Q}{g}a_{Cx}$，$R_y=Q+\\frac{Q}{g}a_{Cy}$。滑动临界 $|R_x|=f'R_y$。代入 $\\beta=60^\\circ$（$\\omega^2=\\frac{3g}{2L}$，$\\alpha=\\frac{3\\sqrt3g}{4L}$）得 $R_x=-\\frac{3\\sqrt3}{16}Q$，$R_y=\\frac{Q}{16}$，故 $f'=\\dfrac{|R_x|}{R_y}=3\\sqrt3\\approx5.20$。</p>"
+    }
+  ]
+}

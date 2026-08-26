@@ -1,0 +1,17 @@
+{
+  "id": "q_235",
+  "overview": "比较两图中力偶作用下B点反力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>杆重不计，其上作用一力偶矩为 $M$ 的力偶，则图(a)中 $B$ 点的反力比图(b)中的反力____。<br>(A) 大；<br>(B) 小；<br>(C) 相同。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，力偶对刚体的作用效果与其在刚体上的作用位置无关。两图中力偶矩均为 $M$、支座 $A$、$B$ 间距均为 $2l$，故 $B$ 点反力相同，均为 $R_B=\\dfrac{M}{2l}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_276",
+  "overview": "求六力力系最简结果",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示力系中，$F_1=F_2=F$，$M=Fa$，且 $OA=OD=OE=a$，$OB=OC=2a$。试求此力系的最简结果。</p>",
+  "answer": "<p>$O$ 点：$\\boldsymbol{F}_R=-\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{i}-\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{j}+\\dfrac{\\sqrt{2}}{2}F\\boldsymbol{k}$，$\\boldsymbol{M}_O=\\dfrac{3\\sqrt{2}}{2}Fa\\,\\boldsymbol{i}$；最简为力螺旋，力偶矩 $\\boldsymbol{M}=\\dfrac{\\sqrt{2}}{4}Fa\\boldsymbol{i}+\\dfrac{\\sqrt{2}}{4}Fa\\boldsymbol{j}-\\dfrac{\\sqrt{2}}{2}Fa\\boldsymbol{k}$。</p>",
+  "explanation": "<p>【AI 生成】各力作用于 $A$、$B$、$C$、$D$、$E$ 点（$OA=a$，$OB=OC=2a$），力偶 $M=Fa$。取 $O$ 为简化中心，主矢为各力矢量和，得 $$\\boldsymbol{F}_R=-\\frac{\\sqrt{2}}{2}F\\boldsymbol{i}-\\frac{\\sqrt{2}}{2}F\\boldsymbol{j}+\\frac{\\sqrt{2}}{2}F\\boldsymbol{k}$$ 主矩 $\\boldsymbol{M}_O=\\sum\\boldsymbol{r}\\times\\boldsymbol{F}+\\boldsymbol{M}_{\\text{偶}}$，得 $\\boldsymbol{M}_O=\\dfrac{3\\sqrt{2}}{2}Fa\\boldsymbol{i}$。因 $\\boldsymbol{F}_R\\cdot\\boldsymbol{M}_O\\ne0$，最简为力螺旋。将主矩分解为平行与垂直主矢的分量，垂直分量由平移作用线消去，得力螺旋的力偶矩 $$\\boldsymbol{M}=\\frac{\\sqrt{2}}{4}Fa\\boldsymbol{i}+\\frac{\\sqrt{2}}{4}Fa\\boldsymbol{j}-\\frac{\\sqrt{2}}{2}Fa\\boldsymbol{k}$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_154",
+  "overview": "用虚位移原理求桁架杆CD内力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示桁架中，已知：F、L，试用虚位移原理求杆CD的内力。</p><img src=\"qdata/q_154/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$S_{CD}=2F$（设 CD 为拉力）</p>",
+  "explanation": "<p>【AI 生成】解除杆 CD，代之以一对等值反向的内力 $S$、$S'$（先设为拉力）并视为主动力，使桁架成为单自由度机构。给系统一虚位移，各节点虚位移由几何关系确定（C、D 分别绕相邻铰点转动，其虚位移大小成比例），虚功方程 $F\\,\\delta r_F-S\\,\\delta r_C-S'\\,\\delta r_D=0$。代入虚位移几何关系并化简得 $S_{CD}=2F$（受拉）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

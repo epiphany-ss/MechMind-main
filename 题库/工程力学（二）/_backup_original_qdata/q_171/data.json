@@ -1,0 +1,18 @@
+{
+  "id": "q_171",
+  "overview": "求滑轮系统相对于广义坐标x的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力",
+    "虚位移原理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图示系统中，$A$ 物块重 $W$，$B$ 物块重 $P$，滑轮、细绳的质量不计，则相对于广义坐标 $x$ 的广义力 $Q_x$＝____。<br>(A) $\\dfrac{W}{2}-P$；　(B) $W-2P$；　(C) $2W-P$；　(D) $W-\\dfrac{P}{2}$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】取 $x$ 为物块 $A$ 的位移（向下为正）。由图示滑轮绳索的几何关系，物块 $B$ 的位移为 $\\frac{x}{2}$（向上）。虚功 $\\delta W=W\\delta x-P\\cdot\\frac{1}{2}\\delta x=(W-\\frac{P}{2})\\delta x$，故 $Q_x=W-\\frac{P}{2}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

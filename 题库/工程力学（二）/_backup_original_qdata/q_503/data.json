@@ -1,0 +1,18 @@
+{
+  "id": "q_503",
+  "overview": "机构求套筒D相对BC的速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>机构如图，已知：OA＝2b；在图示瞬时，OB＝BA，$\\phi=60^\\circ$，$\\theta=30^\\circ$，$\\angle A=90^\\circ$，OA的角速度为 $\\omega$。试求该瞬时套筒D相对BC的速度。</p>",
+  "answer": "<p>$v_{D/B C}$ 由速度分析法求得：取D为动点、BC为动系，$v_r=v_D-v_e$（沿BC方向，数值由几何代入）。</p>",
+  "explanation": "<p>【AI 生成】OA=2b，A端与AB杆铰接，B为AB与BC杆连接点，D为套筒在BC上滑动。<br>（1）$v_A=\\omega\\cdot OA=2\\omega b$，方向垂直于OA。<br>（2）由OB=BA、$\\angle A=90^\\circ$、$\\phi=60^\\circ$、$\\theta=30^\\circ$ 等几何关系确定各杆位置；AB杆作平面运动，用速度投影求B点速度 $v_B$。<br>（3）取D为动点、BC杆为动系：$v_D=v_e+v_r$，$v_e=\\omega_{BC}\\cdot BD$ 垂直于BC，$v_r$ 沿BC方向即为套筒D相对BC的速度。联立速度三角形求得 $v_r$ 大小与方向。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

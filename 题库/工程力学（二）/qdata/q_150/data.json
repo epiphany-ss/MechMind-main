@@ -1,0 +1,21 @@
+{
+  "id": "q_150",
+  "overview": "曲柄滑块机构中力F1与F2的关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示连杆机构中，当曲柄OC绕O轴摆动时，滑块A沿曲柄自由滑动，从而带动AB杆在铅垂导槽K内移动。已知OC=a，OK=l，在C点垂直于曲柄作用一力 $F_1$，而在B点沿BA作用一力 $F_2$。试用虚位移原理求机构平衡时力 $F_1$ 与 $F_2$ 的关系。</p><img src=\"qdata/q_150/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\dfrac{F_1}{F_2}=\\dfrac{OA}{OC}=\\dfrac{s}{a}$</p>",
+  "explanation": "<p>【AI 生成】滑块 A 与曲柄间为光滑约束，平衡时 AB 杆必垂直于曲柄 OC（否则滑块在曲柄方向受力不平衡）。设曲柄虚转角 $\\delta\\theta$，C 点虚位移 $\\delta r_C=a\\,\\delta\\theta$，B 点沿导槽的铅垂虚位移为 $\\delta y_B$。由 AB⊥OC 及速度投影关系得 $\\delta y_B=\\dfrac{s}{\\cos\\theta}\\delta\\theta$（$s=OA$）。虚功方程 $F_1 a\\,\\delta\\theta-F_2\\cos\\theta\\,\\delta y_B=0$，代入得 $F_1a=F_2s$，即 $\\dfrac{F_1}{F_2}=\\dfrac{OA}{OC}=\\dfrac{s}{a}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

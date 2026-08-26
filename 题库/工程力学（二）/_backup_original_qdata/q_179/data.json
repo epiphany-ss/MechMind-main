@@ -1,0 +1,20 @@
+{
+  "id": "q_179",
+  "overview": "用拉氏方程求两圆盘系统的微分方程及角加速度",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程",
+    "广义力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 和 $B$ 的半径各为 $R$ 和 $r$，质量各为 $M$ 和 $m$。试求：(1) 以 $\\varphi$ 和 $\\theta$ 为广义坐标，用拉氏方程建立系统的运动微分方程；(2) 圆盘 $A$ 和 $B$ 的角加速度 $\\alpha_A$ 和 $\\alpha_B$。</p><img src=\"qdata/q_179/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $$\\left(\\frac{M}{2}+m\\right)R^2\\ddot\\varphi+mRr\\ddot\\theta=mgR,\\qquad mRr\\ddot\\varphi+\\frac{3}{2}mr^2\\ddot\\theta=mgr$$<br>(2) $$\\alpha_A=\\frac{2mg}{(3M+2m)R},\\qquad \\alpha_B=\\frac{2Mg}{(3M+2m)r}$$</p>",
+  "explanation": "<p>【AI 生成】(1) 圆盘 $A$ 绕固定轴 $O$ 转动，$J_A=\\frac{1}{2}MR^2$，$T_A=\\frac{1}{2}J_A\\dot\\varphi^2=\\frac{1}{4}MR^2\\dot\\varphi^2$。绳索绕于 $A$ 与 $B$，圆盘 $B$ 随绳下落并转动，其中心速度 $v_B=R\\dot\\varphi+r\\dot\\theta$，$J_B=\\frac{1}{2}mr^2$，故 $$T=\\frac{1}{4}MR^2\\dot\\varphi^2+\\frac{1}{2}m(R\\dot\\varphi+r\\dot\\theta)^2+\\frac{1}{2}\\cdot\\frac{1}{2}mr^2\\dot\\theta^2=\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)R^2\\dot\\varphi^2+mRr\\dot\\varphi\\dot\\theta+\\frac{3}{4}mr^2\\dot\\theta^2$$ $B$ 下降高度 $R\\varphi+r\\theta$，势能 $V=-mg(R\\varphi+r\\theta)$。代入拉格朗日方程，对 $\\varphi$、$\\theta$ 分别整理：$$\\left(\\frac{M}{2}+m\\right)R^2\\ddot\\varphi+mRr\\ddot\\theta=mgR,\\qquad mRr\\ddot\\varphi+\\frac{3}{2}mr^2\\ddot\\theta=mgr$$<br>(2) 联立解得 $$\\ddot\\varphi=\\alpha_A=\\frac{2mg}{(3M+2m)R},\\qquad \\ddot\\theta=\\alpha_B=\\frac{2Mg}{(3M+2m)r}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

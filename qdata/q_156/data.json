@@ -1,0 +1,23 @@
+{
+  "id": "q_156",
+  "overview": "用虚位移原理求支座D的反力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：L=10m，力偶矩 $M=100$ N·m，$F=100$N。$BD\\perp AC$。试用虚位移原理求支座D的反力。</p><img src=\"qdata/q_156/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_D=20$ N</p>",
+  "explanation": "<p>【AI 生成】解除 D 处支座，代以反力 $R_D$ 并视为主动力。给 AC 杆一虚转角 $\\delta\\theta$，由 $BD\\perp AC$ 及杆长约束，D 点的铅垂虚位移 $\\delta r_D=\\dfrac{L}{2}\\,\\delta\\theta$（B 为 AC 中点），力 $F$ 作用点的虚位移按图示几何关系确定。虚功方程 $M\\,\\delta\\theta+F\\,\\delta r_F-R_D\\,\\delta r_D=0$，代入 $M=100$ N·m、$L=10$ m 及各虚位移关系，解得 $R_D=20$ N。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册",
+  "title": "用虚位移原理求支座D的反力",
+  "module": "分析力学"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_234",
+  "overview": "判断主矢与主矩斜交时能否合成一个力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>一空间力系向某点简化后，得主矢 $\\boldsymbol{F}_R$、主矩 $\\boldsymbol{M}_O$，若 $\\boldsymbol{F}_R$ 与 $\\boldsymbol{M}_O$ 斜交，则此力系可进一步简化为一合力。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】主矢与主矩斜交时，将主矩分解为平行于主矢与垂直于主矢的分量：垂直分量可通过把力的作用线平移消去，而平行分量保留，最终结果为力螺旋，不是合力。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册",
+  "title": "判断主矢与主矩斜交时能否合成一个力",
+  "module": "静力学"
+}

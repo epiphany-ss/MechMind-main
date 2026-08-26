@@ -1,0 +1,21 @@
+{
+  "id": "q_080",
+  "overview": "圆轮沿斜面纯滚动一周所需初速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质圆轮重 $P$，半径为 $R$，弹簧刚度系数为 $k$，系统原处于静止。若使轮子恰好沿倾角为 $\\beta$ 的斜面纯滚动一周，加在轮心 $O$ 处的初速度 $v_O$ 应为多大？</p><img src=\"qdata/q_080/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_O=\\sqrt{\\dfrac{8\\pi Rg\\sin\\beta}{3}+\\dfrac{8\\pi^2kR^2g}{3P}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 轮纯滚动一周，轮心沿斜面移动 $s=2\\pi R$，上升高度 $2\\pi R\\sin\\beta$。<br>(2) 初动能：$T_0=\\frac12\\frac{P}{g}v_O^2+\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\left(\\frac{v_O}{R}\\right)^2=\\frac{3P}{4g}v_O^2$。<br>(3) 恰好滚动一周时轮静止。重力作功 $-P\\cdot2\\pi R\\sin\\beta$，弹簧伸长 $2\\pi R$ 作功 $-\\frac12k(2\\pi R)^2$。<br>(4) 动能定理：$\\frac{3P}{4g}v_O^2=2\\pi RP\\sin\\beta+2\\pi^2kR^2$，解得 $v_O=\\sqrt{\\dfrac{8\\pi Rg\\sin\\beta}{3}+\\dfrac{8\\pi^2kR^2g}{3P}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "q_008",
+  "overview": "判断刚体的定义是否正确",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>在任何情况下，体内任意两点的距离都保持不变的物体叫刚体。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】刚体是受力作用时体内任意两点间的距离始终保持不变的理想化物体，这正是刚体的定义。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "narration": {
+    "path": "qdata/q_008/narration_1786102289.mp3",
+    "voice": "boy",
+    "voice_label": "少男音 · 重云",
+    "created": "2026-08-07 19:31",
+    "speakable_text": "【AI 生成】刚体是受力作用时体内任意两点间的距离始终保持不变的理想化物体，这正是刚体的定义。"
+  },
+  "source": "练习册"
+}

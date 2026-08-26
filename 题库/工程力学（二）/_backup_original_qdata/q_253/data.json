@@ -1,0 +1,17 @@
+{
+  "id": "q_253",
+  "overview": "力偶矩矢的大小与方向",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>力偶矩矢是一个矢量，它的大小为____，它的方向为____。</p>",
+  "answer": "<p>大小为 $M=Fd$（力的大小 $F$ 与力偶臂 $d$ 的乘积）；方向为垂直于力偶作用平面的法线方向，按右手螺旋法则确定。</p>",
+  "explanation": "<p>【AI 生成】力偶矩矢 $\\boldsymbol{M}=\\boldsymbol{r}\\times\\boldsymbol{F}$，其大小 $M=Fd$（$d$ 为力偶臂）。方向由右手螺旋法则确定：右手四指沿力偶的转向弯曲，拇指所指即力偶矩矢的方向，它垂直于力偶作用平面。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

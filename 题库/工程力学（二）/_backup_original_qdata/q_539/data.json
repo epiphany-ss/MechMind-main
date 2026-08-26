@@ -1,0 +1,17 @@
+{
+  "id": "q_539",
+  "overview": "判断力偶的冲量是否等于2Ft",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>力偶的冲量可用组成力偶的两个力来计算，即I＝2Ft。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】力偶由两个大小相等、方向相反的力组成，两力对系统的冲量等值反向，其矢量和为零，故力偶对质点系的总冲量恒为零，而不是 $2Ft$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

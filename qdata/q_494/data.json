@@ -1,0 +1,23 @@
+{
+  "id": "q_494",
+  "overview": "小环套两杆求M点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面机构如图所示。小环M同时套在AB杆和固定水平杆CD上。已知：OA＝L(cm)。在图示位置时，OA铅垂，角速度为 $\\omega\\,(\\text{rad/s})$，$\\phi=60^\\circ$。试求该瞬时小环M的速度。</p><img src=\"qdata/q_494/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_M=\\omega L$（沿水平方向，方向由转向确定）。</p>",
+  "explanation": "<p>【AI 生成】小环M同时套在AB杆与固定水平杆CD上，故M沿CD作水平直线运动，$v_M$ 水平。取M为动点，AB杆为动系。<br>（1）牵连速度：AB杆上M重合点速度 $v_e=\\omega_{AB}\\cdot AM$，方向垂直AM。<br>（2）相对速度 $v_r$ 沿AB。<br>（3）$v_M=v_e+v_r$，$v_M$ 水平。OA=L铅垂，$\\phi=60^\\circ$，几何确定 $\\omega_{AB}$ 与AM。代入得 $v_M=\\omega L$，方向水平。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "小环套两杆求M点速度",
+  "module": "运动学"
+}

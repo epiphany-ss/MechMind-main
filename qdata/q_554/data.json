@@ -1,0 +1,23 @@
+{
+  "id": "q_554",
+  "overview": "求滑轮轴承O处的反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示系统中，均质滑轮重$W$，绳的质量不计且不可伸长，重物A重$P_1$，B重$P_2$。设A下降的加速度为$a_A$，试求轴承O处的反力。</p><img src=\"qdata/q_554/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$$F_{Ox}=0,\\qquad F_{Oy}=P_1\\left(1-\\frac{a_A}{g}\\right)+P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)+W$$<br>式中$r_1$、$r_2$分别为A、B绳所绕的滑轮半径，$F_{Oy}$方向竖直向上。</p>",
+  "explanation": "<p>【AI 生成】设$r_1$、$r_2$为两段绳所绕半径，则B上升的加速度 $a_B=a_A\\dfrac{r_1}{r_2}$。分别对重物A、B列牛顿第二定律：<br>$$T_1=P_1\\left(1-\\frac{a_A}{g}\\right),\\qquad T_2=P_2\\left(1+\\frac{a_B}{g}\\right)=P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)$$<br>滑轮质心不动，故轴承反力竖直分量平衡滑轮重量与两绳张力之和：<br>$$F_{Oy}=W+T_1+T_2=P_1\\left(1-\\frac{a_A}{g}\\right)+P_2\\left(1+\\frac{a_A\\,r_1}{r_2\\,g}\\right)+W$$<br>水平方向无外力，$F_{Ox}=0$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "求滑轮轴承O处的反力",
+  "module": "动力学"
+}

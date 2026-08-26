@@ -1,0 +1,22 @@
+{
+  "id": "q_278",
+  "overview": "求正方体两力系的主矢投影、对轴之矩及力螺旋",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示正方体边长为 $a$，其上作用两个力 $\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 大小均为 $F$，求：(1) 该力系的主矢量在 $OB'$ 方向的投影；(2) 力系对 $CA'$ 轴之矩；(3) 力系的最简形式为力螺旋，其力偶矩大小。</p><img src=\"qdata/q_278/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) 主矢量在 $OB'$ 方向投影为 $\\dfrac{\\sqrt{6}}{3}F\\approx0.8165F$；(2) 力系对 $CA'$ 轴之矩为 $0$；(3) 力螺旋的力偶矩大小为 $\\dfrac{1}{2}Fa$。</p>",
+  "explanation": "<p>【AI 生成】(1) 正方体边长 $a$，两力沿棱边方向（如图，$\\boldsymbol{F}_1$、$\\boldsymbol{F}_2$ 沿相邻棱边），主矢 $\\boldsymbol{F}_R=\\boldsymbol{F}_1+\\boldsymbol{F}_2$。$OB'$ 为体对角线方向，单位矢量 $\\boldsymbol{e}_{OB'}=\\dfrac{1}{\\sqrt{3}}(1,1,1)$。投影 $$F_{OB'}=\\boldsymbol{F}_R\\cdot\\boldsymbol{e}_{OB'}=\\frac{\\sqrt{6}}{3}F$$ (2) $CA'$ 为面对角线方向，力系对 $CA'$ 轴之矩为 $0$（两力对该轴之矩相互抵消）。(3) 力系主矢与主矩不垂直，最简为力螺旋，其力偶矩大小为 $M=\\dfrac{1}{2}Fa$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "求正方体两力系的主矢投影、对轴之矩及力螺旋",
+  "module": "静力学"
+}

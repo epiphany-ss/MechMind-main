@@ -1,0 +1,23 @@
+{
+  "id": "q_316",
+  "overview": "求构架支座E、杆BD及铰C的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "受力分析"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示构架，由直角杆 ABC 与杆 BD、CE 铰接而成，各杆自重不计。已知：$\\theta=45°$，均布载荷集度为 q，尺寸 a。试求支座 E、杆 BD 及铰 C 处的约束力。</p><img src=\"qdata/q_316/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F_{BD}=\\dfrac{qa}{\\sqrt2}$（拉），$F_{CE}=\\dfrac{qa}{2}$（拉），E 处约束力 $F_E=\\dfrac{qa}{2}$（沿 CE 方向），铰 C 处约束力 $R_C=\\dfrac{qa}{2}$。</p>",
+  "explanation": "<p>【AI 生成】杆 BD、CE 为二力杆。直角杆 ABC 受均布载荷合力 $Q=qa$（作用于 AB 中点）、杆 BD 拉力 $F_{BD}$（沿 BD）与杆 CE 拉力 $F_{CE}$（沿 CE）。由几何 $\\theta=45°$，BD 与 CE 均与水平成 45°。对 B 取矩：$qa\\cdot\\frac{a}{2}-F_{CE}\\cdot a=0\\Rightarrow F_{CE}=\\frac{qa}{2}$。对 A 取矩：$F_{BD}\\cdot a\\cdot\\sin45°=qa\\cdot\\frac{a}{2}\\Rightarrow F_{BD}=\\frac{qa}{\\sqrt2}$。E 处约束力与 $F_{CE}$ 等值反向沿 CE，铰 C 处约束力由 C 节点平衡得 $R_C=F_{CE}=\\frac{qa}{2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求构架支座E、杆BD及铰C的约束力",
+  "module": "静力学"
+}

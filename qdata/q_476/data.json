@@ -1,0 +1,23 @@
+{
+  "id": "q_476",
+  "overview": "求圆盘圆槽内小球的三种加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度",
+    "点的合成运动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>图示圆盘以匀角速 $\\omega$ 绕O轴转动，圆盘上有一半径为R的圆槽，小球M相对于圆盘以匀速率 $v_r=R\\omega$ 沿圆槽逆钟向运动，$OO_1=2R$，设以小球为动点，动系固结于圆盘，则图示位置时，小球M的相对加速度的大小为______，牵连加速度的大小为______，科氏加速度的大小为______。</p><img src=\"qdata/q_476/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_r=R\\omega^2$（指向圆槽圆心 $O_1$）；$a_e=\\omega^2\\cdot OM$；$a_C=2\\omega\\cdot v_r=2R\\omega^2$（方向垂直于 $v_r$）。</p>",
+  "explanation": "<p>【AI 生成】相对运动为匀速圆周运动，相对加速度 $a_r=v_r^2/R=(R\\omega)^2/R=R\\omega^2$，指向 $O_1$。牵连加速度为圆盘上与M重合点的向轴加速度 $a_e=\\omega^2\\cdot OM$，指向O。科氏加速度 $a_C=2\\omega v_r=2R\\omega^2$，方向垂直于相对速度 $v_r$（由右手定则确定）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求圆盘圆槽内小球的三种加速度",
+  "module": "运动学"
+}

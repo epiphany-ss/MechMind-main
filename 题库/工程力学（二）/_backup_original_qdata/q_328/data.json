@@ -1,0 +1,20 @@
+{
+  "id": "q_328",
+  "overview": "求含滑轮支架A、E及D处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>支架由两杆 AD、CE 和滑轮等组成。A、B、E、D 都是铰链连接，尺寸如图，已知：$r=20$cm，在滑轮上吊有重 $P=1000$N 的物体，杆及轮重均不计。试求支座 A 和 E 以及 AD 杆上的 D 处的约束力。</p><img src=\"qdata/q_328/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>绳张力 $T=P=1000$N；滑轮对 AD 杆的作用力由两段绳张力合成；A 处与 E 处约束力、D 处铰链力由杆 AD、CE 的平衡方程联立求得（结果与图中各臂长比例有关）。</p>",
+  "explanation": "<p>【AI 生成】①取滑轮：两段绳张力均为 T=P，滑轮给 AD 杆的合力等于两张力合力。②取 AD 杆：受 A 铰力、D 铰力（来自 CE 杆）与滑轮力，列 3 个平衡方程。③取 CE 杆（二力或受 D 处力）：再列 3 个方程。联立求解 A、E 及 D 处约束力。r=20cm 用于确定张力合力作用线的位置。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_529",
+  "overview": "小环沿光滑钢丝滑至最低点的速度与约束力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学",
+    "动能定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>质量为 $m$ 的小环 $M$，套在一条光滑钢丝上。钢丝的方程为 $x^2=4ay$（其中 $a$ 为常数），坐标系 $Oxy$ 如图所示。试求小环自 $x=2a$ 处自由滑至钢丝的最低点 $O$ 时的速度以及小环此时所受的约束力。（曲率 $\\kappa=\\dfrac{y''}{(1+y'^2)^{3/2}}$）</p><img src=\"qdata/q_529/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v=\\sqrt{2ga}$，约束力 $N=2mg$</p>",
+  "explanation": "<p>【AI 生成】(1) 由 $x^2=4ay$ 得 $y=\\dfrac{x^2}{4a}$，当 $x=2a$ 时 $y=a$。小环由 $y=a$ 滑至最低点 $y=0$，光滑约束不作功，机械能守恒：$$\\frac{1}{2}mv^2=mga,$$ 故 $v=\\sqrt{2ga}$。<br>(2) 在最低点 $x=0$，$y'=0$，$y''=\\dfrac{1}{2a}$，曲率半径 $$\\rho=\\frac{(1+y'^2)^{3/2}}{|y''|}=2a。$$ 小环在该处作圆周运动，法向加速度向上：$$N-mg=m\\frac{v^2}{\\rho}=m\\frac{2ga}{2a}=mg,$$ 故约束力 $N=2mg$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "小环沿光滑钢丝滑至最低点的速度与约束力",
+  "module": "动力学"
+}

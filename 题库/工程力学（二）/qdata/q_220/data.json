@@ -1,0 +1,18 @@
+{
+  "id": "q_220",
+  "overview": "判断力与轴平行或相交时对轴之矩为零",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>当力 $\\boldsymbol{F}$ 与 $x$ 轴平行或相交时，力 $\\boldsymbol{F}$ 对于 $x$ 轴的矩 $M_x(\\boldsymbol{F})$ 为零。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】力与轴平行或相交时，力与轴共面，力对轴的矩为零。这是力对轴之矩为零的充要条件（力与轴共面）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册"
+}

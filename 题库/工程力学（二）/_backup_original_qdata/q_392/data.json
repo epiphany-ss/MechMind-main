@@ -1,0 +1,19 @@
+{
+  "id": "q_392",
+  "overview": "判断轮系中角速度与齿数的关系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>定轴传动轮系中，如轮 1 的角速度已知，轮 3 的角速度的大小与轮 2 的齿数 关，与轮 1、轮 3 的齿数 关。</p><img src=\"qdata/q_392/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>无；有</p>",
+  "explanation": "<p>【AI 生成】轮 1、2 啮合：$\\omega_1 z_1=\\omega_2 z_2$；轮 2、3 啮合：$\\omega_2 z_2=\\omega_3 z_3$。联立得 $\\omega_3=\\omega_1 z_1/z_3$，中间轮 2 的齿数 $z_2$ 被消去，故与 $z_2$ 无关，与 $z_1$、$z_3$ 有关。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49"
+}

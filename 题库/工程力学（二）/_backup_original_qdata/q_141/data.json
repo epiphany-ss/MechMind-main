@@ -1,0 +1,18 @@
+{
+  "id": "q_141",
+  "overview": "均质杆平衡时由虚位移原理建立的虚功方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>重为P、长为l的均质杆AB放置如右上图所示。设各处光滑，在A点处的水平力F作用下保持平衡，$\\varphi=60^\\circ$，今给A点一向右的虚位移 $\\delta x$，则由虚位移原理所建立的虚功方程为____。</p>",
+  "answer": "<p>$F\\,\\delta x-\\dfrac{P}{2\\sqrt{3}}\\,\\delta x=0$（即 $F=\\dfrac{P}{2\\sqrt{3}}$）</p>",
+  "explanation": "<p>【AI 生成】A 点向右虚位移 $\\delta x$ 时，B 点沿铅垂墙面滑动，由杆长不变条件得 B 点铅垂虚位移 $\\delta y_B=\\cot\\varphi\\,\\delta x=\\dfrac{\\delta x}{\\sqrt{3}}$，杆中点（重心）G 的铅垂虚位移为 $\\delta y_G=\\dfrac{\\delta y_B}{2}=\\dfrac{\\delta x}{2\\sqrt{3}}$。主动力为水平力 $F$ 与重力 $P$，虚功方程：$F\\,\\delta x-P\\,\\delta y_G=0$，即 $F\\,\\delta x-\\dfrac{P}{2\\sqrt{3}}\\delta x=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

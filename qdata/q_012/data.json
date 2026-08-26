@@ -1,0 +1,20 @@
+{
+  "id": "q_012",
+  "overview": "判断力的可传性原理",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "静力学公理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>作用于刚体上的力可沿其作用线滑动而不改变其对刚体的运动效应。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】这是力的可传性原理：作用于刚体上的力沿其作用线滑移，不改变力对刚体的运动效应，该原理只适用于刚体。</p>",
+  "media": [],
+  "created": "2026-08-07 18:35",
+  "updated": "2026-08-07 18:35",
+  "source": "练习册",
+  "title": "判断力的可传性原理",
+  "module": "静力学"
+}

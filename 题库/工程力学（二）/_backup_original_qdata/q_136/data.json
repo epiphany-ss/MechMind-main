@@ -1,0 +1,17 @@
+{
+  "id": "q_136",
+  "overview": "六根等长刚杆系统的独立广义坐标",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义坐标"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>在铅垂面内，由六根等长刚杆铰接而成的系统，其独立的一组广义坐标为____。<br>(A) $x_B$、$x_C$；<br>(B) $\\varphi_1$、$\\varphi_4$；<br>(C) $\\varphi_1$、$x_A$、$x_D$；<br>(D) $\\varphi_1$、$x_B$、$x_C$；<br>(E) $\\varphi_1$、$\\varphi_2$、$\\varphi_3$、$\\varphi_4$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】六根等长刚杆分成两组独立的四连杆（菱形）链，系统自由度为 2，独立广义坐标的数目应为 2。其中 $\\varphi_1$、$\\varphi_4$ 分别为两链的第一根杆与铅垂线的夹角，二者独立，可完整描述系统位置；故答案选 B。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

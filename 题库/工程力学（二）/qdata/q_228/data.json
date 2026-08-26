@@ -1,0 +1,18 @@
+{
+  "id": "q_228",
+  "overview": "判断向A、B两点简化结果能否相同",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "hard",
+  "content": "<p>某一平面力系，向 $A$、$B$ 两点简化的结果有可能相同，而且主矢和主矩都不为零。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】向 $A$、$B$ 两点简化时主矢相同（都为 $\\boldsymbol{F}_R$）；主矩关系为 $\\boldsymbol{M}_B=\\boldsymbol{M}_A+\\boldsymbol{BA}\\times\\boldsymbol{F}_R$。当 $A$、$B$ 连线与主矢 $\\boldsymbol{F}_R$ 平行时，$\\boldsymbol{BA}\\times\\boldsymbol{F}_R=\\boldsymbol{0}$，从而 $\\boldsymbol{M}_B=\\boldsymbol{M}_A$，此时主矢、主矩均可非零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

@@ -1,0 +1,16 @@
+{
+  "overview": "求铆接薄板孔心A、B、C处三力系的合力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>铆接薄板在孔心A、B和C处受3个力作用，如图2-1a所示。$F_1=100\\ \\mathrm{N}$，沿铅直方向；$F_3=50\\ \\mathrm{N}$，沿水平方向，并通过点A；$F_2=50\\ \\mathrm{N}$，力的作用线也通过点A，尺寸如图。求此力系的合力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>合力 $F_R=\\sqrt{(80\\ \\mathrm{N})^2+(140\\ \\mathrm{N})^2}=161\\ \\mathrm{N}$，方向与铅直力 $F_1$ 的夹角为 $29^\\circ44'$。</p>",
+  "explanation": "<p>解：</p><p>（1）几何法：作力多边形，其封闭边 $ad$ 即确定了合力 $F_R$ 的大小和方向。由图2-1b得</p><p>$$F_R=\\sqrt{(100\\ \\mathrm{N}+50\\ \\mathrm{N}\\times\\frac{4}{5})^2+(50\\ \\mathrm{N}+50\\ \\mathrm{N}\\times\\frac{3}{5})^2}=\\sqrt{140^2+80^2}=161\\ \\mathrm{N}$$</p><p>合力 $F_R$ 与 $F_1$（铅直方向）的夹角</p><p>$$\\tan(F_R,F_1)=\\frac{80}{140}，\\ \\angle(F_R,F_1)=29.74^\\circ=29^\\circ44'$$</p><p>（2）解析法：建立如图2-1c所示的直角坐标系。</p><p>$$\\sum F_x=F_3+F_2\\times\\frac{3}{5}=50\\ \\mathrm{N}+50\\ \\mathrm{N}\\times\\frac{3}{5}=80\\ \\mathrm{N}$$</p><p>$$\\sum F_y=F_1+F_2\\times\\frac{4}{5}=100\\ \\mathrm{N}+50\\ \\mathrm{N}\\times\\frac{4}{5}=140\\ \\mathrm{N}$$</p><p>$$F_R=(80\\boldsymbol{i}+140\\boldsymbol{j})\\ \\mathrm{N}$$</p><p>$$F_R=\\sqrt{(80\\ \\mathrm{N})^2+(140\\ \\mathrm{N})^2}=161\\ \\mathrm{N}$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q2_0.jpeg",
+    "题库/qbank2_figs/q2_1.png"
+  ]
+}

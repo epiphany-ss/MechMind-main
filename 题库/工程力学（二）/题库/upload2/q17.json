@@ -1,0 +1,11 @@
+{
+  "overview": "求水涡轮轴止推轴承C和轴承A的约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": ["空间力系"],
+  "difficulty": "hard",
+  "content": "<p>使水涡轮转动的力偶矩为 $M_z = 1200\\ \\mathrm{N\\cdot m}$。在锥齿轮 $B$ 处受到的力分解为 3 个分力：圆周力 $F_t$，轴向力 $F_a$ 和径向力 $F_r$。这些力的比例为 $F_t : F_a : F_r = 1 : 0.32 : 0.17$。已知水涡轮连同轴和锥齿轮的总重为 $P = 12\\ \\mathrm{kN}$，其作用线沿轴 $Cz$，锥齿轮的平均半径 $OB = 0.6\\ \\mathrm{m}$，其余尺寸如图所示。求止推轴承 $C$ 和轴承 $A$ 的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_{Ax} = (640\\times0.6 - 340\\times4)/3 = -325\\ \\mathrm{N}$（与图示反向）；$F_{Ay} = 2.67\\ \\mathrm{kN}$；$F_{Cx} = -667\\ \\mathrm{N}$（与图设反向）；$F_{Cy} = -14.7\\ \\mathrm{N}$（与图示反向）；$F_{Cz} = 12.64\\ \\mathrm{kN}$。（数值以原图为准）</p>",
+  "explanation": "<p>取整个系统为研究对象，受力如图所示。设 $B$ 处作用 $F_t$、$F_a$、$F_r$ 的合力为 $F$，则</p><p>$$k = \\frac{1}{\\sqrt{1+0.17^2+0.32^2}} = 0.9402$$</p><p>列平衡方程：$\\sum M_z = 0$，$M_z - 0.9402F \\times 0.60\\ \\mathrm{m} = 0$，得 $F = 2127\\ \\mathrm{N}$。</p><p>故 $F_t = 0.9402F = 2000\\ \\mathrm{N}$，$F_r = 0.17F_t = 340\\ \\mathrm{N}$，$F_a = 0.32F_t = 640\\ \\mathrm{N}$。</p><p>$\\sum M_x = 0$：$F_{Ax} = \\dfrac{640\\times0.6 - 340\\times4}{3} = -325\\ \\mathrm{N}$（与图示反向）。</p><p>$\\sum M_y = 0$：$F_{Ay} = \\dfrac{2000\\times4}{3} = 2667\\ \\mathrm{N} = 2.67\\ \\mathrm{kN}$。</p><p>$\\sum F_x = 0$：$F_{Cx} = -667\\ \\mathrm{N}$（与图设反向）。</p><p>$\\sum F_y = 0$：$F_{Cy} = -14.7\\ \\mathrm{N}$（与图示反向）。</p><p>$\\sum F_z = 0$：$F_{Cz} - F_a - P = 0$，得 $F_{Cz} = F_a + P = 640 + 12000 = 12640\\ \\mathrm{N} = 12.64\\ \\mathrm{kN}$。</p><p>（数值以原图为准）</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": ["题库/qbank2_figs/q17_0.jpeg", "题库/qbank2_figs/q17_1.png", "题库/qbank2_figs/q17_4.png"]
+}

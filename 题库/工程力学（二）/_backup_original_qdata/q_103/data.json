@@ -1,0 +1,18 @@
+{
+  "id": "q_103",
+  "overview": "求剪断一绳后另一绳张力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "质点动力学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>物重 $Q$，用细绳 $BA$、$CA$ 悬挂如图示，$\\beta=60°$，若将 $BA$ 绳剪断，则该瞬时 $CA$ 绳的张力为____。 (A) 0； (B) $0.5Q$； (C) $Q$； (D) $2Q$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】剪断 $BA$ 后物块沿以 $CA$ 为半径的圆弧运动，该瞬时速度为零，法向加速度 $a_n=0$。沿绳方向列平衡方程 $T-Q\\cos\\beta=0$，得 $T=Q\\cos60°=0.5Q$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

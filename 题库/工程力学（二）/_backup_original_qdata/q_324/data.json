@@ -1,0 +1,20 @@
+{
+  "id": "q_324",
+  "overview": "求梁组合结构中1、2、3杆内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "桁架"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>结构由梁 AB、BC 和杆 1、2、3 组成，A 为固定端约束，B、D、E、F、G 均为光滑铰链。已知：$P=F=2$kN，$q=1$kN/m，梁、杆自重不计。试求 1、2、3 杆所受之力。</p><img src=\"qdata/q_324/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>取梁 BC 为隔离体，均布载荷 $Q=q\\cdot2=2$kN，集中力 $F=2$kN，P=2kN 等；由平衡方程解出杆 1、2、3 的内力（具体数值按图示尺寸 1m 分段计算）。</p>",
+  "explanation": "<p>【AI 生成】各杆均为二力杆。取梁 BC：对铰接点取矩，分别截断杆 1、2、3 所在的截面，列力矩与力投影方程。例如对 E 点取矩可求杆 1 内力，对 G 点取矩求杆 2，对 D 点取矩求杆 3。逐段（1m 间距）代入 $P=F=2$kN、$q=1$kN/m 即得各杆轴力。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

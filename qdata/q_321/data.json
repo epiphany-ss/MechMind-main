@@ -1,0 +1,21 @@
+{
+  "id": "q_321",
+  "overview": "求构架A、E铰链约束力及杆BD、BC内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "桁架"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>构架尺寸如图所示，不计各杆件自重，载荷 $F=60$kN。A、E 为固定铰支座，杆 BD、BC 为二力杆。求 A、E 铰链的约束力及杆 BD、BC 的内力。</p>",
+  "answer": "<p>$R_A=R_E=30$kN（↑）；杆 BD、BC 的内力由节点法求得（两杆分担水平与竖直分量，合力与支座反力平衡）。</p>",
+  "explanation": "<p>【AI 生成】整体关于铅垂轴近似对称，$\\sum M_A=0$：$R_E\\cdot16-60\\times8=0\\Rightarrow R_E=30$kN，$R_A=30$kN。BD、BC 为二力杆，用节点法取 B、C 节点，列 $\\sum F_x=0,\\sum F_y=0$ 可求两杆内力；结合尺寸（5m、3m、3m、3m、5m）确定各杆方向余弦后即可解出具体数值。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求构架A、E铰链约束力及杆BD、BC内力",
+  "module": "静力学"
+}

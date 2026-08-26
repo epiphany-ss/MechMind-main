@@ -1,0 +1,17 @@
+{
+  "id": "q_052",
+  "overview": "弹簧下物体下降时弹性力作功",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>一弹簧常数为 $k$ 的弹簧下挂一质量为 $m$ 的物体，若物体从静平衡位置（设静伸长为 $\\delta$）下降 $\\Delta$ 距离，则弹性力所作的功为____。<br>(A) $\\frac12k\\Delta^2$；<br>(B) $\\frac12k(\\delta+\\Delta)^2$；<br>(C) $\\frac12k\\left[(\\delta+\\Delta)^2-\\delta^2\\right]$；<br>(D) $\\frac12k\\left[\\delta^2-(\\delta+\\Delta)^2\\right]$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】弹性力作功 $W=\\frac12kx_1^2-\\frac12kx_2^2$。初变形 $\\delta$、末变形 $\\delta+\\Delta$，故 $W=\\frac12k\\left[\\delta^2-(\\delta+\\Delta)^2\\right]&lt;0$，弹簧伸长时弹性力作负功。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

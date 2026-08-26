@@ -1,0 +1,23 @@
+{
+  "id": "q_577",
+  "overview": "求圆环及固接细杆系统对O轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>均质细圆环质量为M，半径为R，其上固接一质量为m的均质细杆AB（AB为圆环的一条弦，A、B均在圆环上），系统在铅垂面内以角速度$\\omega$绕O轴（过环心且垂直环面）转动，已知$\\angle CAB=\\theta$（C为环心，AC为半径），则系统对O轴的动量矩大小为____。</p><img src=\"qdata/q_577/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$L_O=R^2\\omega\\left[M+m\\sin^2\\theta+\\frac{m}{3}\\cos^2\\theta\\right]$</p>",
+  "explanation": "<p>【AI 生成】环对O轴$J_1=MR^2$。弦AB长$2R\\cos\\theta$，弦中点（杆质心）到环心C的距离为$R\\sin\\theta$，由平行轴定理杆对O轴$J_2=\\frac{m(2R\\cos\\theta)^2}{12}+m(R\\sin\\theta)^2=mR^2\\left(\\frac{\\cos^2\\theta}{3}+\\sin^2\\theta\\right)$。故$L_O=(J_1+J_2)\\omega=R^2\\omega\\left[M+m\\sin^2\\theta+\\frac{m}{3}\\cos^2\\theta\\right]$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "求圆环及固接细杆系统对O轴的动量矩",
+  "module": "动力学"
+}

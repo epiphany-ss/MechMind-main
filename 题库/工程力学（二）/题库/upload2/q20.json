@@ -1,0 +1,11 @@
+{
+  "overview": "求均质曲杆的重心坐标",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": ["空间力系"],
+  "difficulty": "easy",
+  "content": "<p>均质曲杆尺寸如图所示，求此曲杆重心坐标。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>该均质曲杆的重心坐标为 $x_C = 21.43\\ \\mathrm{mm}$，$y_C = 21.43\\ \\mathrm{mm}$，$z_C = -7.14\\ \\mathrm{mm}$。</p>",
+  "explanation": "<p>将均质曲杆分成 5 段，各段长度分别为 $200$、$100$、$100$、$200$、$100\\ \\mathrm{mm}$，总长 $\\sum l = 700\\ \\mathrm{mm}$。取各段中点为该段重心，按重心坐标公式计算：</p><p>$$x_C = \\frac{\\sum l_i x_i}{\\sum l_i} = \\frac{200\\times(-100) + 100\\times(-50) + 100\\times0 + 200\\times100 + 100\\times200}{700} = \\frac{15000}{700} = 21.43\\ \\mathrm{mm}$$</p><p>$$y_C = \\frac{\\sum l_i y_i}{\\sum l_i} = \\frac{200\\times(-100) + 100\\times0 + 100\\times50 + 200\\times100 + 100\\times100}{700} = \\frac{15000}{700} = 21.43\\ \\mathrm{mm}$$</p><p>$$z_C = \\frac{\\sum l_i z_i}{\\sum l_i} = \\frac{200\\times0 + 100\\times0 + 100\\times0 + 200\\times0 + 100\\times(-50)}{700} = \\frac{-5000}{700} = -7.14\\ \\mathrm{mm}$$</p><img src=\"[[FIG1]]\">",
+  "figures": ["题库/qbank2_figs/q20_0.jpeg", "题库/qbank2_figs/q20_1.png"]
+}

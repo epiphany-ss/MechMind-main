@@ -1,0 +1,11 @@
+{
+  "overview": "求镗刀杆左端O处的约束力及约束力偶",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": ["空间力系"],
+  "difficulty": "medium",
+  "content": "<p>如图所示，已知镗刀杆的刀头上受切削力 $F_z = 500\\ \\mathrm{N}$，径向力 $F_x = 150\\ \\mathrm{N}$，轴向力 $F_y = 75\\ \\mathrm{N}$，刀尖位于 $Oxy$ 平面内，其坐标 $x = 75\\ \\mathrm{mm}$，$y = 200\\ \\mathrm{mm}$。工件重量不计，求被切削工件左端 $O$ 处的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_{Ox} = 150\\ \\mathrm{N}$，$F_{Oy} = 75\\ \\mathrm{N}$，$F_{Oz} = 500\\ \\mathrm{N}$；$M_x = 100\\ \\mathrm{N\\cdot m}$，$M_y = -37.5\\ \\mathrm{N\\cdot m}$（与图示反向），$M_z = -24.4\\ \\mathrm{N\\cdot m}$（与图示反向）。</p>",
+  "explanation": "<p>取镗刀杆为研究对象，受力如图所示。由空间力系的平衡方程：</p><p>$\\sum F_x = 0:\\ -F_x + F_{Ox} = 0$　(1)</p><p>$\\sum F_y = 0:\\ -F_y + F_{Oy} = 0$　(2)</p><p>$\\sum F_z = 0:\\ -F_z + F_{Oz} = 0$　(3)</p><p>$\\sum M_x = 0:\\ -F_z \\times 0.2\\ \\mathrm{m} + M_x = 0$　(4)</p><p>$\\sum M_y = 0:\\ F_z \\times 0.075\\ \\mathrm{m} + M_y = 0$　(5)</p><p>$\\sum M_z = 0:\\ F_x \\times 0.2\\ \\mathrm{m} - F_y \\times 0.075\\ \\mathrm{m} + M_z = 0$　(6)</p><p>解得：$F_{Ox} = 150\\ \\mathrm{N}$，$F_{Oy} = 75\\ \\mathrm{N}$，$F_{Oz} = 500\\ \\mathrm{N}$；$M_x = 100\\ \\mathrm{N\\cdot m}$，$M_y = -37.5\\ \\mathrm{N\\cdot m}$（与图示反向），$M_z = -24.4\\ \\mathrm{N\\cdot m}$（与图示反向）。</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": ["题库/qbank2_figs/q16_0.jpeg", "题库/qbank2_figs/q16_1.png", "题库/qbank2_figs/q16_2.png"]
+}

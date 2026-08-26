@@ -1,0 +1,11 @@
+{
+  "overview": "求支撑水平板的6根杆的内力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": ["空间力系"],
+  "difficulty": "medium",
+  "content": "<p>图所示 6 杆支撑 1 水平板，在板角处受铅直力 $F$ 作用。设板和杆自重不计，求各杆的内力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_1 = 0$，$F_2 = 0$，$F_3 = F$；$F_4 = F$（拉），$F_5 = -F$（压），$F_6 = -F$（压）。</p>",
+  "explanation": "<p>截开 6 根杆，取有板的部分为研究对象，受力如图所示。由空间力系的平衡方程：</p><p>$\\sum M_{AD} = 0$：$-F_1\\cos\\theta \\cdot AD = 0$，得 $F_1 = 0$　(1)</p><p>$\\sum M_{BC} = 0$：$-F_2\\cos\\theta \\cdot BC = 0$，得 $F_2 = 0$　(2)</p><p>$\\sum F_z = 0$：$F_3 - F = 0$，得 $F_3 = F$　(3)</p><p>解得：$F_1 = 0$，$F_2 = 0$，$F_3 = F$。</p><p>$\\sum M_{EG} = 0$：$(F_4 + F_5)\\,EF\\sin\\theta = 0$　(4)</p><p>$\\sum M_{AB} = 0$：$(F_5 - F_6)\\,AB = 0$　(5)</p><p>$\\sum M_{BD} = 0$：$(F_3 - F)\\,AB\\sin\\theta = 0$　(6)</p><p>解得：$F_4 = F$（拉），$F_5 = -F$（压），$F_6 = -F$（压）。</p><img src=\"[[FIG1]]\"><img src=\"[[FIG2]]\">",
+  "figures": ["题库/qbank2_figs/q18_0.jpeg", "题库/qbank2_figs/q18_1.png", "题库/qbank2_figs/q18_2.png"]
+}

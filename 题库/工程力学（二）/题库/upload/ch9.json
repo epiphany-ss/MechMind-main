@@ -1,0 +1,595 @@
+{
+  "chapter": 9,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断力过质心与否对圆板运动的影响",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>静止地放置在光滑水平面上的两个质量相同的圆形薄板A、B，受到相同的力$P$的作用，但圆板A的力作用在圆心，圆板B的力的作用线不通过圆心。则圆板A只有移动而不转动，圆板B不但有移动而且有转动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】力作用线通过质心（圆心）时，只产生移动（平动）效应；力作用线不通过质心时，除使质心移动外还对质心产生力矩，使圆板既移动又转动。</p>"
+    },
+    {
+      "overview": "判断质点动量矩的定义",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>质点对固定点O的动量矩等于质点的动量对该点O的矩。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】这就是质点动量矩的定义：质点对O点的动量矩$L_O=M_O(m\\boldsymbol{v})=\\boldsymbol{r}\\times m\\boldsymbol{v}$，即动量对该点的矩。</p>"
+    },
+    {
+      "overview": "判断平动刚体动量矩可用质心表示",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "easy",
+      "content": "<p>平动刚体各点的动量对一轴的动量矩可以用质心的动量对该轴的动量矩表示。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平动刚体各点速度相同，动量矢之和等于总动量集中于质心，故对任一轴的动量矩等于质心动量对该轴的矩。</p>"
+    },
+    {
+      "overview": "判断铁盘与木盘转动惯量是否相同",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "转动惯量"
+      ],
+      "difficulty": "easy",
+      "content": "<p>两个半径相同、均质等厚的铁圆盘与木圆盘，它们的质心位置相同，因而对通过质心且垂直于圆盘平面的轴的转动惯量也相同。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】均质圆盘对质心轴的转动惯量$J=\\frac{1}{2}mR^2$与质量$m$（即密度）有关，铁盘密度大、质量大，其转动惯量大于木盘。</p>"
+    },
+    {
+      "overview": "判断相对质心动量矩定理是否需质心加速度为零",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>因为动量矩定理是牛顿定律导出的，因此在相对于质心的动量矩定理中，质心的加速度必须等于零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】相对质心的动量矩定理$\\frac{\\mathrm{d}L_C}{\\mathrm{d}t}=\\sum M_C^{(e)}$对质心作任意运动（加速、减速）均成立，不要求质心加速度为零。</p>"
+    },
+    {
+      "overview": "判断外力主矩不为零则动量矩不守恒",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如果作用于质点系上的外力对固定点O的主矩不为零，则质点系对O点的动量矩一定不守恒。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由动量矩定理$\\frac{\\mathrm{d}L_O}{\\mathrm{d}t}=\\sum M_O^{(e)}$，外力主矩不为零则$L_O$随时间变化，动量矩不守恒。</p>"
+    },
+    {
+      "overview": "判断内力能否改变质点系的动量与动量矩",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>质点系的内力不能改变质点系的动量与动量矩。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】质点系内力成对出现（等值、反向、共线），对质心主矢与主矩均为零，故不能改变质点系的动量与动量矩。</p>"
+    },
+    {
+      "overview": "判断对质心主矩为零是否只可能平动",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>若平面运动刚体所受外力系对质心的主矩为零，则刚体只可能平动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】对质心主矩为零只说明刚体绕质心的角加速度为零（角动量守恒），若初始已有角速度，刚体仍将作匀速转动或平面运动，不一定是平动。</p>"
+    },
+    {
+      "overview": "求圆盘上径向运动小球对O轴的动量矩",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>圆盘可绕O轴转动，图示瞬时有角速度$\\omega$。质量为$m$的小球M沿圆盘径向运动，当OM＝S时相对于圆盘的速度为$v_r$，则质点M对O轴的动量矩的大小为____。</p><p>(A) 0；<br>(B) $mv_rS$；<br>(C) $mS(v_r+S\\omega)$；<br>(D) $mS^2\\omega$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch79_idx378_0.png"
+      ],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】质点绝对速度＝相对速度＋牵连速度。相对速度$v_r$沿径向，其对O点之矩为$mv_rS$；牵连速度$S\\omega$垂直于OM，其对O点之矩为$mS^2\\omega$。故$L_O=mv_rS+mS^2\\omega=mS(v_r+S\\omega)$，选C。</p>"
+    },
+    {
+      "overview": "判断光滑面上均质杆的三种运动形式",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一均质杆置于光滑水平面上，C为其中点，初始静止，在图示各受力情况下：图(a)中力F的作用线通过质心C；图(b)中力F的作用线不通过质心；图(c)中杆受一对等值反向的力（力偶）作用。则图(a)杆作____；图(b)杆作____；图(c)杆作____。</p><p>(A) 平动；<br>(B) 定轴转动；<br>(C) 平面运动。</p>",
+      "figures": [],
+      "answer": "<p>图(a) A；图(b) C；图(c) B。</p>",
+      "explanation": "<p>【AI 生成】(a)力过质心，对质心无矩，杆作平动；(b)力不过质心，质心加速的同时又有绕质心的转动，作平面运动；(c)等值反向平行力构成力偶，合力为零、对质心的矩不为零，杆绕质心作定轴转动。</p>"
+    },
+    {
+      "overview": "求两种材料焊接直杆绕A轴的动量矩",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>两种不同材料的均质细长杆焊接成直杆ABC，AB段为一种材料，长度为$a$，质量为$m_1$；BC段为另一种材料，长度为$b$，质量为$m_2$。杆ABC以匀角速度$\\omega$绕A轴转动，则其对A轴的动量矩大小为____。</p><p>(A) $(m_1+m_2)(a+b)^2\\omega/3$；<br>(B) $\\left[\\frac{m_1a^2}{3}+\\frac{m_2b^2}{12}+m_2\\left(a+\\frac{b}{2}\\right)^2\\right]\\omega$；<br>(C) $\\left[\\frac{m_1a^2}{3}+\\frac{m_2b^2}{3}+m_2ab\\right]\\omega$；<br>(D) $\\left(\\frac{m_1a^2}{3}+\\frac{m_2b^2}{3}\\right)\\omega$。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】AB段对A轴$J_1=\\frac{m_1a^2}{3}$；BC段质心距A为$a+\\frac{b}{2}$，由平行轴定理$J_2=\\frac{m_2b^2}{12}+m_2(a+\\frac{b}{2})^2$。故$L_A=(J_1+J_2)\\omega$，选B。</p>"
+    },
+    {
+      "overview": "求车轮沿地面平动时拉力F的值",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在一重W的车轮轮轴上绕有软绳，绳的一端作用一水平力F。已知车轮半径为R，轮轴半径为r，车轮及轮轴对中心O的回转半径为$\\rho$，以及车轮与地面间的滑动摩擦因数为f，绳重和滚阻皆不计。当车轮沿地面作平动时，力F的值为____。</p><p>(A) $F=fWR/\\rho$；<br>(B) $F=fWR/r$；<br>(C) $F=fWr/\\rho$；<br>(D) $F=fW$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch80_idx381_0.png"
+      ],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】车轮作平动即无转动，对轮心O的力矩必须为零：拉力F对O之矩为$F\\cdot r$，滑动摩擦力$fW$作用在轮缘（距O为R），其矩为$fW\\cdot R$。由$Fr=fWR$得$F=fWR/r$，选B。</p>"
+    },
+    {
+      "overview": "建立OA杆微振动运动微分方程",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "振动",
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>OA杆重P，对O轴的转动惯量为J，弹簧的弹性系数为k，当杆处于铅垂位置时弹簧无变形，取位置角$\\varphi$及其正向如图示，则OA杆在铅直位置附近作微振动的运动微分方程为____。</p><p>(A) $J\\ddot{\\varphi}=-ka^2\\varphi-Pb\\varphi$；<br>(B) $J\\ddot{\\varphi}=ka^2\\varphi+Pb\\varphi$；<br>(C) $J\\ddot{\\varphi}=-ka^2\\varphi+Pb\\varphi$；<br>(D) $J\\ddot{\\varphi}=ka^2\\varphi-Pb\\varphi$。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】微振动时弹簧伸长量约为$a\\varphi$，弹簧力对O之矩为$ka\\varphi\\cdot a=ka^2\\varphi$；重力对O之矩为$Pb\\sin\\varphi\\approx Pb\\varphi$。两者均阻碍角位移，故$J\\ddot{\\varphi}=-ka^2\\varphi-Pb\\varphi$，即$J\\ddot{\\varphi}+(ka^2+Pb)\\varphi=0$，选A。</p>"
+    },
+    {
+      "overview": "判断小球下滚与离斜面后角加速度",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学"
+      ],
+      "difficulty": "easy",
+      "content": "<p>小球A在重力作用下沿粗糙斜面下滚，角加速度为____；当小球离开斜面后，角加速度为____。</p><p>(A) 等于零；<br>(B) 不等于零；<br>(C) 不能确定。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch81_idx383_0.png"
+      ],
+      "answer": "<p>下滚时选B（不等于零）；离开斜面后选A（等于零）。</p>",
+      "explanation": "<p>【AI 生成】沿粗糙斜面下滚时，摩擦力对质心产生力矩使球转动，角加速度不为零；离开斜面后仅受重力，重力作用线通过质心，对质心之矩为零，角加速度等于零。</p>"
+    },
+    {
+      "overview": "求均质圆筒对x-x轴的转动惯量",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质圆筒外径$R_1$，内半径$R_2$，高h，总质量为M，则其绕x-x轴（圆筒的中心轴线）的转动惯量为____。</p><p>(A) $M(R_1^2+R_2^2)$；<br>(B) $M(R_1^2+R_2^2)h$；<br>(C) $M(R_1^2-R_2^2)$；<br>(D) $M(R_1^2-R_2^2)h$；<br>(E) $\\frac{1}{2}M(R_1^2+R_2^2)$。</p>",
+      "figures": [],
+      "answer": "<p>E</p>",
+      "explanation": "<p>【AI 生成】对圆筒中心轴线，$J=\\int_{R_2}^{R_1}r^2\\rho\\,2\\pi r h\\,\\mathrm{d}r=\\frac{1}{2}M(R_1^2+R_2^2)$，故选E。</p>"
+    },
+    {
+      "overview": "求圆盘只移动不滚动时力F的条件",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>半径为R，重为W的均质圆盘静止地放在粗糙水平面上，滑动摩擦因数为f，不计滚动摩擦。今在圆盘上作用一水平力F，该力到O点的距离为e。欲使圆盘只移动而不滚动，F应满足的条件是____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch81_idx385_0.png"
+      ],
+      "answer": "<p>$F\\leqslant\\dfrac{fWR}{e}$</p>",
+      "explanation": "<p>【AI 生成】只移动不滚动要求圆盘对质心O的合力矩为零：$Fe=F_f\\cdot R$。而静摩擦力$F_f\\leqslant fN=fW$，故$F\\cdot e/R\\leqslant fW$，即$F\\leqslant\\frac{fWR}{e}$。</p>"
+    },
+    {
+      "overview": "求圆环及固接细杆系统对O轴的动量矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细圆环质量为M，半径为R，其上固接一质量为m的均质细杆AB（AB为圆环的一条弦，A、B均在圆环上），系统在铅垂面内以角速度$\\omega$绕O轴（过环心且垂直环面）转动，已知$\\angle CAB=\\theta$（C为环心，AC为半径），则系统对O轴的动量矩大小为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch81_idx386_0.png"
+      ],
+      "answer": "<p>$L_O=R^2\\omega\\left[M+m\\sin^2\\theta+\\frac{m}{3}\\cos^2\\theta\\right]$</p>",
+      "explanation": "<p>【AI 生成】环对O轴$J_1=MR^2$。弦AB长$2R\\cos\\theta$，弦中点（杆质心）到环心C的距离为$R\\sin\\theta$，由平行轴定理杆对O轴$J_2=\\frac{m(2R\\cos\\theta)^2}{12}+m(R\\sin\\theta)^2=mR^2\\left(\\frac{\\cos^2\\theta}{3}+\\sin^2\\theta\\right)$。故$L_O=(J_1+J_2)\\omega=R^2\\omega\\left[M+m\\sin^2\\theta+\\frac{m}{3}\\cos^2\\theta\\right]$。</p>"
+    },
+    {
+      "overview": "求绕中点转动的杆带质点系统的动量与动量矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>已知长为$2d$的均质细杆质量为M，可绕中点O转动。杆端各附有一个质量为m的质点，图示瞬时有角速度$\\omega$，角加速度$\\alpha$，则该瞬时系统的动量的大小为____；对O轴的动量矩的大小为____。</p>",
+      "figures": [],
+      "answer": "<p>动量 $p=0$；$L_O=\\left(\\dfrac{Md^2}{3}+2md^2\\right)\\omega$</p>",
+      "explanation": "<p>【AI 生成】系统关于O对称，两质点速度等值反向、动量抵消，杆质心在O处速度为零，故总动量$p=0$。对O轴转动惯量：杆$J_1=\\frac{M(2d)^2}{12}=\\frac{Md^2}{3}$，两质点$J_2=2md^2$，故$L_O=(J_1+J_2)\\omega=\\left(\\frac{Md^2}{3}+2md^2\\right)\\omega$。</p>"
+    },
+    {
+      "overview": "用平行轴定理求物体对B轴的转动惯量",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "转动惯量"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一物体的质量为M，已知该物体对通过点A、且垂直于图面的轴的转动惯量为$J_A$，C为物体质心。AC＝a，BC＝b，AB＝d，则该物体对通过点B且垂直于图面的轴的转动惯量$J_B$＝____。</p>",
+      "figures": [],
+      "answer": "<p>$J_B=J_A+M(b^2-a^2)$</p>",
+      "explanation": "<p>【AI 生成】设对过质心C之轴的转动惯量为$J_C$，由平行轴定理$J_A=J_C+Ma^2$，$J_B=J_C+Mb^2$，两式相减得$J_B=J_A+M(b^2-a^2)$。</p>"
+    },
+    {
+      "overview": "求三角板上运动质点对Oz轴的动量矩",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>三角板以角速度$\\omega$绕固定轴Oz转动，其上有一质点M，质量为m，以不变的相对速度$v_r$沿斜边AB运动。当M运动到图示位置时，质点M对轴Oz的动量矩的大小$L_z$＝____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch82_idx389_0.png"
+      ],
+      "answer": "<p>$L_z=mr^2\\omega+mv_rd$（$r$为M到轴Oz的垂直距离，$d$为轴Oz到斜边AB的垂直距离）</p>",
+      "explanation": "<p>【AI 生成】质点对固定轴Oz的动量矩由两部分组成：随三角板转动的牵连运动项$mr^2\\omega$，以及相对运动项$m(\\boldsymbol{r}\\times\\boldsymbol{v}_r)_z=mv_rd$（相对速度$v_r$沿斜边AB，其对Oz轴之矩等于$v_r$乘以Oz轴到AB的垂直距离$d$，$d$为常量）。故$L_z=mr^2\\omega+mv_rd$。</p>"
+    },
+    {
+      "overview": "求固结双圆盘系统的质心速度、加速度与角加速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>半径为R，质量为$m_A$的均质圆盘A，与半径为$R/2$，质量为$m_B$的均质圆盘B如图固结在一起（两盘外切固结），并置于水平光滑平面上，初始静止，受二平行力$F_1$、$F_2$作用（均沿水平方向，分别作用在两圆盘中心高度处），若$m_A=m_B=m$，$F_1=F_2=F$，则质心速度的大小为____，质心加速度的大小为____，角加速度的大小为____。</p>",
+      "figures": [],
+      "answer": "<p>质心速度 $v_C=\\dfrac{F}{m}t$；质心加速度 $a_C=\\dfrac{F}{m}$；角加速度 $\\alpha=\\dfrac{6F}{7mR}$</p>",
+      "explanation": "<p>【AI 生成】系统总质量$2m$，合力$2F$，故$a_C=\\frac{2F}{2m}=\\frac{F}{m}$（初始静止，$v_C=\\frac{F}{m}t$）。两盘中心距$\\frac{3R}{2}$，质心在连线上距A盘心$\\frac{3R}{4}$处。对质心的转动惯量：$J_C=\\frac{1}{2}mR^2+m(\\frac{3R}{4})^2+\\frac{1}{2}m(\\frac{R}{2})^2+m(\\frac{3R}{4})^2=\\frac{7}{4}mR^2$。力$F$对质心之矩为$F\\cdot\\frac{3R}{4}+F\\cdot\\frac{3R}{4}=\\frac{3FR}{2}$，故$\\alpha=\\frac{3FR/2}{7mR^2/4}=\\frac{6F}{7mR}$。</p>"
+    },
+    {
+      "overview": "求圆环与杆系统对铅直轴的动量矩",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>圆环固连于一不计质量的铅直轴上，圆环半径为R，环单位长度质量为$\\rho$（圆环位于水平面内，轴垂直通过环心）。杆OA长L，单位长度质量也为$\\rho$，沿圆环径向固接在圆环上（O为环心），轴以角速度$\\omega$匀速转动，如图示，求系统对铅直轴的动量矩。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch82_idx391_0.png"
+      ],
+      "answer": "<p>$L_z=\\rho\\omega\\left(2\\pi R^3+\\dfrac{L^3}{3}\\right)$</p>",
+      "explanation": "<p>【AI 生成】圆环质量$M_1=2\\pi R\\rho$，环上各点到轴距离均为R，对轴转动惯量$J_1=M_1R^2=2\\pi\\rho R^3$。杆OA质量$M_2=\\rho L$，距轴为$s$的微元$\\mathrm{d}m=\\rho\\mathrm{d}s$，其转动惯量$\\mathrm{d}J_2=s^2\\rho\\mathrm{d}s$，故$J_2=\\rho\\int_0^L s^2\\mathrm{d}s=\\frac{\\rho L^3}{3}$。系统对铅直轴动量矩$$L_z=(J_1+J_2)\\omega=\\rho\\omega\\left(2\\pi R^3+\\frac{L^3}{3}\\right)$$</p>"
+    },
+    {
+      "overview": "求绕AB轴转动双球及杆系统的动量矩",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>两球C和D各重P，用直杆连接，并将杆在其中点O与铅垂轴AB固结，杆与轴AB的夹角为$\\alpha$，此杆绕AB轴以等角速度$\\omega$转动。试求在下列情况下，质点系对轴AB的动量矩：(1) 杆重忽略不计；(2) 杆为均质，重$2Q$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch82_idx392_0.png"
+      ],
+      "answer": "<p>(1) $H=\\dfrac{2P}{g}L^2\\sin^2\\alpha\\,\\omega$；　(2) $H=\\dfrac{2L^2\\sin^2\\alpha\\,\\omega}{g}\\left(P+\\dfrac{Q}{3}\\right)$</p>",
+      "explanation": "<p>【AI 生成】设杆总长$2L$（O在中点），小球到轴AB的垂直距离为$L\\sin\\alpha$。(1) 两球：$H_1=2\\cdot\\frac{P}{g}(L\\sin\\alpha)^2\\omega=\\frac{2P}{g}L^2\\sin^2\\alpha\\,\\omega$。(2) 均质杆重$2Q$，距O为$s$的微元质量$\\frac{2Q}{g}\\frac{\\mathrm{d}s}{2L}$，到轴距离$s\\sin\\alpha$，故$$H_2=\\frac{2Q}{g}\\frac{\\sin^2\\alpha}{2L}\\,\\omega\\int_{-L}^{L}s^2\\mathrm{d}s=\\frac{2Q}{3g}L^2\\sin^2\\alpha\\,\\omega$$于是$H=H_1+H_2=\\frac{2L^2\\sin^2\\alpha\\,\\omega}{g}\\left(P+\\frac{Q}{3}\\right)$。</p>"
+    },
+    {
+      "overview": "求曲柄滑块机构对O轴的动量矩",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>平面机构的曲柄OA以匀角速度$\\omega$绕O轴转动，通过连杆AB带动滑块B沿水平导槽滑动。已知OA＝AB＝L，杆OA与AB均可看作匀质细杆，质量均为m，滑块质量不计。求当OA与水平线成角$\\theta$时，系统对O轴的动量矩。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch83_idx393_0.png"
+      ],
+      "answer": "<p>$L_O=mL^2\\omega$（与$\\theta$无关）</p>",
+      "explanation": "<p>【AI 生成】1) 杆OA对O轴：$L_{OA}=\\frac{1}{3}mL^2\\omega$。2) 对杆AB：A点速度$v_A=L\\omega$（垂直OA），B点沿水平导槽运动。由$B$位置$x_B=2L\\cos\\theta$及速度投影可求得杆AB角速度$\\omega_{AB}=-\\omega$，其质心速度$v_G=(-\\frac{3}{2}L\\omega\\sin\\theta,\\ \\frac{1}{2}L\\omega\\cos\\theta)$。杆AB对O轴动量矩$$L_{AB}=J_C\\omega_{AB}+(\\boldsymbol{r}_G\\times m\\boldsymbol{v}_G)_z=-\\frac{mL^2}{12}\\omega+\\frac{3}{4}mL^2\\omega=\\frac{2}{3}mL^2\\omega$$故$$L_O=L_{OA}+L_{AB}=\\frac{1}{3}mL^2\\omega+\\frac{2}{3}mL^2\\omega=mL^2\\omega$$</p>"
+    },
+    {
+      "overview": "求圆盘由水平位置释放瞬时A处约束反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>重为W的均质圆盘在铅垂面内绕水平轴A转动如图示（A在圆盘边缘，AB为直径）。开始运动时，直径AB在水平位置，初速为零。试求此瞬时A处的约束反力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch83_idx394_0.png"
+      ],
+      "answer": "<p>$A_x=0$，$A_y=\\dfrac{W}{3}$（方向铅垂向上）</p>",
+      "explanation": "<p>【AI 生成】此瞬时$\\omega=0$，质心C在A正右方水平距离R处。圆盘对A轴转动惯量$J_A=\\frac{1}{2}\\frac{W}{g}R^2+\\frac{W}{g}R^2=\\frac{3}{2}\\frac{W}{g}R^2$。对A取矩：$$\\alpha=\\frac{W\\cdot R}{J_A}=\\frac{2g}{3R},\\qquad a_C=\\alpha R=\\frac{2g}{3}\\ (向下)$$由质心运动定理$W-A_y=\\frac{W}{g}a_C$，得$A_y=W-\\frac{2W}{3}=\\frac{W}{3}$（向上）；水平方向$a_C=0$，故$A_x=0$。</p>"
+    },
+    {
+      "overview": "求焊成一体两杆释放时角加速度与O处约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，均质细杆OA和EC的质量分别为50kg和100kg，并在点A焊成一体（OA长1m水平，O端为固定铰支座；EC长2m铅垂，A为其中点）。若此结构在图示位置由静止状态释放，计算刚释放时，杆的角加速度及铰链O处的约束力（不计铰链摩擦）。</p>",
+      "figures": [],
+      "answer": "<p>$\\alpha=\\dfrac{5}{6}g\\approx8.17\\ \\mathrm{rad/s^2}$（顺时针）；$O_x=0$，$O_y=\\dfrac{275}{6}g\\approx449\\ \\mathrm{N}$（铅垂向上）</p>",
+      "explanation": "<p>【AI 生成】设OA质量$m_1=50\\mathrm{kg}$、长$L_1=1\\mathrm{m}$，EC质量$m_2=100\\mathrm{kg}$、长$L_2=2\\mathrm{m}$。系统对O轴转动惯量：$$J_O=\\frac{m_1L_1^2}{3}+\\frac{m_2L_2^2}{12}+m_2L_1^2=\\frac{50}{3}+\\frac{400}{3}=150\\ \\mathrm{kg\\cdot m^2}$$重力对O之矩$\\sum M_O=m_1g\\cdot\\frac{L_1}{2}+m_2g\\cdot L_1=125g$。故$\\alpha=\\frac{125g}{150}=\\frac{5}{6}g$。系统质心距O：$x_G=\\frac{50\\times0.5+100\\times1}{150}=\\frac{5}{6}\\mathrm{m}$，$a_G=\\alpha x_G=\\frac{25g}{36}$（向下）。由质心运动定理$O_y-150g=-150\\cdot\\frac{25g}{36}$，得$O_y=\\frac{275}{6}g\\approx449\\mathrm{N}$（向上），$O_x=0$。</p>"
+    },
+    {
+      "overview": "求斜面上绕绳圆轮匀速下滚时绳的拉力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>匀质圆轮如图，已知：重P、半径为R，绳绕在轮上（自由端固定于斜面上方，绳的倾斜段与斜面平行），轮和斜面间的滑动摩擦系数为$f_s$，斜面倾角为$\\beta$，且$\\tan\\beta&gt;2f_s$。试求圆轮沿斜面下滚时绳子的拉力$F_T$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch83_idx396_0.png"
+      ],
+      "answer": "<p>$F_T=\\dfrac{P}{3}\\left(\\sin\\beta+f_s\\cos\\beta\\right)$</p>",
+      "explanation": "<p>【AI 生成】因$\\tan\\beta&gt;2f_s$，圆轮不能静止，沿斜面下滑并绕绳滚动。设轮心加速度$a$（沿斜面向下），角加速度$\\alpha$（顺时针），绳端固定则轮顶（出绳点）速度为零，约束$a=\\alpha R$。摩擦力为滑动摩擦力$F_f=f_sP\\cos\\beta$（沿斜面向上）。对轮心列方程：平移$$\\frac{P}{g}a=P\\sin\\beta-F_f-F_T$$转动$$F_TR-F_fR=\\frac{1}{2}\\frac{P}{g}R^2\\alpha\\Rightarrow F_T-F_f=\\frac{1}{2}\\frac{P}{g}a$$联立得$$F_T=\\frac{P}{3}(\\sin\\beta+f_s\\cos\\beta)$$</p>"
+    },
+    {
+      "overview": "求人沿弦运动到B点时圆盘角速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学"
+      ],
+      "difficulty": "medium",
+      "content": "<p>半径为R、质量为M的均质圆盘，可绕通过其质心并与圆盘垂直的铅垂轴z转动。有一质量为m的人（视为质点），沿圆盘上到转轴距离$d=R/2$的弦AB作相对运动，相对速度大小$u$为常量。若人经过AB的中点时圆盘的角速度为$\\omega$，且不计轴承处摩擦。试求当人到达B点时圆盘的角速度。</p>",
+      "figures": [],
+      "answer": "<p>$\\Omega=\\omega\\,\\dfrac{2M+m}{2M+4m}$</p>",
+      "explanation": "<p>【AI 生成】外力对z轴无矩，系统对z轴动量矩守恒。人相对速度$v_r$沿弦AB，其对z轴之矩等于$m v_r\\cdot d$（$d$为z轴到弦的垂直距离，沿弦为常量）。人在弦中点时距轴$d=R/2$，在B点时距轴$R$。由动量矩守恒$$\\left(\\frac{1}{2}MR^2+md^2\\right)\\omega+mv_rd=\\left(\\frac{1}{2}MR^2+mR^2\\right)\\Omega+mv_rd$$消去$mv_rd$，代入$d=R/2$，得$$\\Omega=\\omega\\,\\frac{\\frac{M}{2}+\\frac{m}{4}}{\\frac{M}{2}+m}=\\omega\\,\\frac{2M+m}{2M+4m}$$</p>"
+    },
+    {
+      "overview": "求小车加速时钢管中心的加速度与摩擦力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示机构中，已知：钢管（薄壁圆筒）的质量为M，小车与钢管有足够的摩擦，使钢管沿小车作纯滚动，今小车以加速度$a$向右运动。试求钢管中心的加速度及钢管与小车之间的摩擦力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch84_idx398_0.png"
+      ],
+      "answer": "<p>$a_C=\\dfrac{a}{2}$（向右）；$F_f=\\dfrac{Ma}{2}$（方向向右）</p>",
+      "explanation": "<p>【AI 生成】钢管视为薄壁圆筒，$J=MR^2$。设钢管中心加速度为$a_C$（向右），角加速度为$\\alpha$（逆时针），纯滚动条件（接触点与小车无相对滑动）：$$a_C+\\alpha R=a$$对钢管：$F_f=Ma_C$，$F_fR=J\\alpha=MR^2\\alpha$，故$a_C=R\\alpha$。代入纯滚动条件得$a_C+R\\alpha=a_C+a_C=a$，故$$a_C=\\frac{a}{2},\\qquad F_f=Ma_C=\\frac{Ma}{2}$$</p>"
+    },
+    {
+      "overview": "求力F作用下平板的加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，质量为m、半径为R的均质圆盘，置于质量为M的平板上，沿平板加一常力F。设平板与地面间的摩擦系数为f，平板与圆盘间的接触是足够粗糙的，求平板的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch84_idx399_0.png"
+      ],
+      "answer": "<p>$a_p=\\dfrac{F-f(M+m)g}{M+m/3}$</p>",
+      "explanation": "<p>【AI 生成】设平板加速度$a_p$（向右），圆盘质心加速度$a_d$，圆盘角加速度$\\alpha$（逆时针）。圆盘纯滚动（与平板无滑动）：$a_d+\\alpha R=a_p$。圆盘：$F_f=ma_d$，$F_fR=\\frac{1}{2}mR^2\\alpha$，故$a_d=\\frac{R\\alpha}{2}$，进而$a_d=\\frac{a_p}{3}$，$F_f=\\frac{ma_p}{3}$。平板受拉力F、圆盘给它的摩擦力$F_f$（向左）及地面滑动摩擦力$f(M+m)g$（向左）：$$F-\\frac{ma_p}{3}-f(M+m)g=Ma_p$$故$$a_p=\\frac{F-f(M+m)g}{M+m/3}$$</p>"
+    },
+    {
+      "overview": "求带质点圆环释放瞬时圆环中心的加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>质量为m、半径为r的圆环O放在一粗糙平面上。圆环的边缘上固连一质量为m的质点A。开始时，OA在水平位置，初速为零。试求此瞬时圆环中心O的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch85_idx400_0.png"
+      ],
+      "answer": "<p>$a_O=\\dfrac{g}{4}$（水平向右）</p>",
+      "explanation": "<p>【AI 生成】圆环与平面间无滑动（纯滚动）。系统质心G在OA中点，距O为$r/2$。设圆环角加速度$\\alpha$（逆时针为正），由接触点加速度条件$a_O=(-\\alpha r,\\,0)$；质心加速度$$a_G=(-\\alpha r,\\,\\alpha r/2)$$系统对G的转动惯量$J_G=mr^2+m(r/2)^2+m(r/2)^2=\\frac{3}{2}mr^2$。设摩擦力$F_f$、法向力$N$作用于接触点P，列方程：$$F_f=2m a_{Gx}=-2m\\alpha r,\\qquad N-2mg=m\\alpha r$$对G取矩$rF_f-\\frac{Nr}{2}=\\frac{3}{2}mr^2\\alpha$，联立解得$\\alpha=-\\frac{g}{4r}$，故$$a_O=-\\alpha r=\\frac{g}{4}\\ (向右)$$</p>"
+    },
+    {
+      "overview": "求软绳连接两滑轮系统释放后滑轮角速度与轮心速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动能定理",
+        "质点动力学"
+      ],
+      "difficulty": "hard",
+      "content": "<p>一软绳的下端绕在滑轮O上，上端又绕在一个绕其中心O′转动的滑轮上，如图示。设两轮的半径均为0.2m，重量相等，均可看作匀质圆盘，绳子质量不计。试求从静止开始2s后下面的滑轮O的角速度及轮心的速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch85_idx401_0.png"
+      ],
+      "answer": "<p>下面滑轮O的角速度 $\\omega=\\dfrac{4g}{5R}=\\dfrac{4\\times9.8}{5\\times0.2}=39.2\\ \\mathrm{rad/s}$；轮心速度 $v=\\dfrac{8g}{5}\\approx15.7\\ \\mathrm{m/s}$（向下）</p>",
+      "explanation": "<p>【AI 生成】设两轮半径为R、质量均为M，$J=\\frac{1}{2}MR^2$。绳不可伸长且不打滑，绳在两轮上缠绕长度守恒，下面滑轮下降速度$v$与两轮角速度$\\omega_1=\\omega_2=\\omega$满足$v=2\\omega R$。对下面滑轮：平移$Mg-T=Ma$，转动$TR=\\frac{1}{2}MR^2\\alpha$；上面滑轮：$TR=\\frac{1}{2}MR^2\\alpha$，故$\\alpha=\\frac{2T}{MR}$。由$a=2\\alpha R$及$a=4T/M$，代入平移方程得$Mg-T=4T$，即$T=\\frac{Mg}{5}$，$$a=\\frac{4g}{5},\\qquad \\alpha=\\frac{2g}{5R}$$从静止开始2s后：$$v=at=\\frac{8g}{5}\\approx15.7\\ \\mathrm{m/s},\\qquad \\omega=\\alpha t=\\frac{4g}{5R}=39.2\\ \\mathrm{rad/s}$$</p>"
+    },
+    {
+      "overview": "求切断竖直绳后A端反力不变时绳的位置",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质杆AB重P，长L，被支承在水平位置。欲使绳子DE切断后，支点A的反力没有改变，试问绳子的位置应如何安排？假定绳子DE是铅垂的。</p>",
+      "figures": [],
+      "answer": "<p>绳子应设在距A端 $\\dfrac{2L}{3}$ 处（即距B端 $\\dfrac{L}{3}$）</p>",
+      "explanation": "<p>【AI 生成】设A为左端，绳DE在距A为$x$处。切断前静平衡：对A取矩$P\\cdot\\frac{L}{2}-T\\,x=0$，$T=\\frac{PL}{2x}$；$A_y=P-T=P-\\frac{PL}{2x}$。切断后杆绕A转动，$J_A=\\frac{1}{3}\\frac{P}{g}L^2$，$\\alpha=\\frac{P\\cdot L/2}{J_A}=\\frac{3g}{2L}$，质心加速度$a_C=\\alpha\\cdot\\frac{L}{2}=\\frac{3g}{4}$（向下）。由质心运动定理$P-A_y'=\\frac{P}{g}\\cdot\\frac{3g}{4}$，得$A_y'=\\frac{P}{4}$。令$A_y'=A_y$：$$\\frac{P}{4}=P-\\frac{PL}{2x}\\Rightarrow x=\\frac{2L}{3}$$</p>"
+    },
+    {
+      "overview": "求约束A突然移去时支座B的约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，一刚性均质杆重为200N，A处为可动光滑铰链约束，B为铰链支座，AB长1m。当杆位于水平位置时，C处的弹簧压缩了76mm，弹簧刚度系数为8750N/m（C距B为400mm，弹簧对杆的推力铅垂向上）。试求当约束A突然移去时，支座B的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$B_x=0$，$B_y\\approx216\\ \\mathrm{N}$（方向铅垂向下）</p>",
+      "explanation": "<p>【AI 生成】弹簧力$F_s=k\\delta=8750\\times0.076=665\\ \\mathrm{N}$（向上）。A移去后杆绕B转动，$J_B=\\frac{1}{3}\\frac{200}{g}\\times1^2=\\frac{200}{3g}$。对B取矩（逆时针为正）：$$\\sum M_B=F_s\\times0.4-200\\times0.5=266-100=166\\ \\mathrm{N\\cdot m}$$$$\\alpha=\\frac{166}{200/(3g)}=2.49g\\approx24.4\\ \\mathrm{rad/s^2}$$质心距B为0.5m，$a_C=\\alpha\\times0.5=1.245g\\approx12.2\\ \\mathrm{m/s^2}$（向上）。由质心运动定理$B_y+F_s-200=\\frac{200}{g}a_C$：$$B_y=\\frac{200}{g}\\times1.245g+200-665\\approx-216\\ \\mathrm{N}$$负号表示方向向下，故$B$处约束力大小约216N，方向铅垂向下；$B_x=0$。</p>"
+    },
+    {
+      "overview": "求竖直杆受水平力时A点与质心的加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆重90N，通过铰接在A端的小滚轮铅垂地搁置在光滑水平面上，滚轮质量可以略去不计。现在A点作用一水平力F，其大小为45N，使细杆由静止进入运动，试求运动初瞬时A点和细杆质心C的加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch86_idx404_0.png"
+      ],
+      "answer": "<p>$a_A=2g\\approx19.6\\ \\mathrm{m/s^2}$（水平向右）；$a_C=\\dfrac{g}{2}\\approx4.9\\ \\mathrm{m/s^2}$（水平向右）</p>",
+      "explanation": "<p>【AI 生成】杆竖直，A端在光滑水平面上，故A只能水平运动。设杆长L、质量$m=90/g$，角加速度$\\alpha$（逆时针）。初瞬时$\\omega=0$，质心加速度$a_C=(a_A-\\alpha L/2,\\,0)$。列方程：平移$F=m(a_A-\\alpha L/2)$；对质心取矩$F\\cdot\\frac{L}{2}=\\frac{1}{12}mL^2\\alpha$，得$\\alpha=\\frac{6F}{mL}=\\frac{3g}{L}$。再由$F=m(a_A-\\alpha L/2)$得$$a_A=\\frac{F}{m}+\\frac{\\alpha L}{2}=\\frac{g}{2}+\\frac{3g}{2}=2g,\\qquad a_C=\\frac{F}{m}=\\frac{g}{2}$$</p>"
+    },
+    {
+      "overview": "求带方形板的OA杆释放瞬时方板角加速度与O反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质细杆OA的质量为m，可绕O轴在铅垂面内转动（OA长为h）。在A端铰接一个边长$l=h$、质量也为m的正方形板，该板可绕其中心A点在铅垂面内转动。开始时将方形板托住，使OA杆处于水平位置，然后突然放开，则系统将自静止开始运动。试求在放开的瞬时：(1) 方板的角加速度；(2) 轴承O的反力。不计轴承摩擦。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch86_idx405_0.png"
+      ],
+      "answer": "<p>(1) 方板角加速度 $\\alpha_{\\text{板}}=0$；　(2) $O_x=0$，$O_y=\\dfrac{mg}{2}$（铅垂向上）</p>",
+      "explanation": "<p>【AI 生成】(1) 方板绕其中心A铰接，释放瞬时重力过其质心A，铰链力也过A，对A之矩为零，故方板角加速度为零（$\\alpha_{\\text{板}}=0$）。(2) 整个系统绕O作定轴转动，$J_O=\\frac{mh^2}{3}+mh^2+\\frac{mh^2}{6}=\\frac{3}{2}mh^2$（杆对O加板对O：板自身$\\frac{mh^2}{6}$+平移项$mh^2$）。重力对O之矩$\\sum M_O=mgh/2+mgh=\\frac{3}{2}mgh$，故$\\alpha=\\frac{3mgh/2}{3mh^2/2}=\\frac{g}{h}$。系统质心距O为$\\frac{3h}{4}$，$a_G=\\alpha\\cdot\\frac{3h}{4}=\\frac{3g}{4}$（向下）。由$O_y-2mg=-2m\\cdot\\frac{3g}{4}$得$$O_y=\\frac{mg}{2},\\qquad O_x=0$$</p>"
+    },
+    {
+      "overview": "求绕绳圆柱在水平面上受拉时的加速度与角加速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>质量为15kg，直径为30cm的匀质圆柱放在水平面上，圆柱与平面间的动摩擦系数为0.2。绕在圆柱上细线的引出端与水平面成角$\\theta=30^\\circ$，线端受一不变的拉力F的作用，F＝40N。求圆柱中心C的加速度和圆柱的角加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch86_idx406_0.png"
+      ],
+      "answer": "<p>$a_C\\approx0.62\\ \\mathrm{m/s^2}$（水平向右）；$\\alpha\\approx58\\ \\mathrm{rad/s^2}$（顺时针）</p>",
+      "explanation": "<p>【AI 生成】半径$r=0.15\\mathrm{m}$，$m=15\\mathrm{kg}$，$mg=147\\mathrm{N}$。拉力分解：$F\\cos\\theta=40\\cos30^\\circ=34.64\\mathrm{N}$（水平），$F\\sin\\theta=20\\mathrm{N}$（铅垂向上）。法向反力$N=mg-F\\sin\\theta=127\\mathrm{N}$，动摩擦力$F_f=0.2N=25.4\\mathrm{N}$（向左）。平移：$$F\\cos\\theta-F_f=ma_C\\Rightarrow a_C=\\frac{34.64-25.4}{15}=0.62\\ \\mathrm{m/s^2}$$转动（拉力与摩擦力对C的矩同向）：$$Fr+F_fr=\\frac{1}{2}mr^2\\alpha\\Rightarrow \\alpha=\\frac{(40+25.4)\\times0.15}{0.5\\times15\\times0.15^2}=58\\ \\mathrm{rad/s^2}$$</p>"
+    },
+    {
+      "overview": "求圆柱离开斜面后的运动方程",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "质点动力学",
+        "动能定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>均质圆柱体，质量为m，半径为R，在位置A沿倾角为$\\alpha$的斜面由静止无滑动地滚下，如图所示。若OA＝l（A为出发点，O为斜面底端边缘，即圆柱离开斜面处），试求圆柱体离开斜面后的运动方程（即表达成：$x_C=f(t)$，$y_C=f(t)$，$\\varphi=f(t)$）。取离开点为原点，x轴水平向右、y轴铅垂向上，$t=0$为离开斜面瞬时。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch87_idx407_0.png"
+      ],
+      "answer": "<p>$x_C=\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\cos\\alpha\\,t$；　$y_C=-\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\sin\\alpha\\,t-\\dfrac{1}{2}gt^2$；　$\\varphi=\\dfrac{1}{R}\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,t$</p>",
+      "explanation": "<p>【AI 生成】圆柱沿斜面纯滚动，$mg\\sin\\alpha-F_f=ma$，$F_fR=\\frac{1}{2}mR^2\\alpha$，$a=\\alpha R$，得$a=\\frac{2}{3}g\\sin\\alpha$。滚过距离$l$后（离开斜面）的速度$$v=\\sqrt{2al}=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}$$角速度$\\omega=v/R$。离开斜面后仅受重力，质心作抛体运动，角速度保持不变（对质心无矩）：$$x_C=v\\cos\\alpha\\,t,\\qquad y_C=-v\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\qquad \\varphi=\\frac{v}{R}t$$即$$x_C=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\cos\\alpha\\,t,\\quad y_C=-\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\quad \\varphi=\\frac{1}{R}\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\,t$$</p>"
+    },
+    {
+      "overview": "求V形光滑斜槽中圆柱受切向力时的角加速度与约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，均质圆柱体的质量为4kg，半径为0.5m，置于两光滑斜面（各与水平成$45^\\circ$）构成的V形槽中。设有与圆柱轴线垂直、且沿圆柱面切线方向的力F＝20N作用（F沿水平方向作用于圆柱顶部切点），求圆柱的角加速度及斜面的约束力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch87_idx408_0.png"
+      ],
+      "answer": "<p>角加速度 $\\alpha=\\dfrac{Fr}{J}=\\dfrac{20\\times0.5}{\\frac{1}{2}\\times4\\times0.5^2}=20\\ \\mathrm{rad/s^2}$；约束力 $N_1\\approx13.6\\ \\mathrm{N}$，$N_2\\approx41.9\\ \\mathrm{N}$</p>",
+      "explanation": "<p>【AI 生成】光滑斜面，约束力沿法向。由对称的V形槽（两斜面各$45^\\circ$），法向力与铅垂线各成$45^\\circ$。圆柱转动惯量$J=\\frac{1}{2}mr^2=\\frac{1}{2}\\times4\\times0.5^2=0.5\\ \\mathrm{kg\\cdot m^2}$。F沿切向作用于顶部，对轴之矩$M=Fr=20\\times0.5=10\\ \\mathrm{N\\cdot m}$，故$$\\alpha=\\frac{M}{J}=20\\ \\mathrm{rad/s^2}$$约束力（圆柱中心不动，设$N_1$为左斜面、$N_2$为右斜面法向力）：铅垂方向$(N_1+N_2)\\cos45^\\circ=mg=39.2\\mathrm{N}$；水平方向（F水平向右）$(N_2-N_1)\\sin45^\\circ=F=20\\mathrm{N}$。解得$$N_1\\approx13.6\\ \\mathrm{N},\\qquad N_2\\approx41.9\\ \\mathrm{N}$$</p>"
+    },
+    {
+      "overview": "求圆柱放到粗糙面上到纯滚动的时间及中心速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>半径为r、重为P的匀质圆柱体的初角速度为$\\omega$，转向为顺时针，中心点O的初速度为$v_0$，方向为水平向右，且$v_0&lt;r\\omega$。如将圆柱体放到粗糙的水平面上，问经过多长时间圆柱体开始作纯滚动，并求此瞬时其中心的速度。设动摩擦系数为$f'$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch87_idx409_0.png"
+      ],
+      "answer": "<p>$t=\\dfrac{r\\omega-v_0}{3f'g}$；　此时中心速度 $v=\\dfrac{2v_0+r\\omega}{3}$（向右）</p>",
+      "explanation": "<p>【AI 生成】因$v_0&lt;r\\omega$，接触点相对地面向左滑，摩擦力$F_f=f'P=f'mg$向右。摩擦力使质心加速并减小顺时针角速度：$$a=\\frac{F_f}{m}=f'g\\ (向右),\\qquad \\alpha=\\frac{F_fr}{\\frac{1}{2}mr^2}=\\frac{2f'g}{r}\\ (逆时针)$$任一瞬时$v(t)=v_0+f'gt$，$\\omega(t)=\\omega-\\frac{2f'g}{r}t$。纯滚动条件$v=\\omega r$：$$v_0+f'gt=(\\omega-\\frac{2f'g}{r}t)r=\\omega r-2f'gt\\Rightarrow t=\\frac{r\\omega-v_0}{3f'g}$$此时$$v=v_0+f'g\\cdot\\frac{r\\omega-v_0}{3f'g}=\\frac{2v_0+r\\omega}{3}$$</p>"
+    },
+    {
+      "overview": "求两圆轮摩擦接触达到无滑动所需时间",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，均质圆轮A的质量为$m_1$，半径为$r$，以角速度$\\omega$绕OA杆的A端转动（顺时针），此时将轮放置在质量为$m_2$的另一均质圆轮B上，其半径为$2r$，B轮原为静止，但可绕其中心轴自由转动。放置后，A轮质量由B轮支持，略去轴承的摩擦与杆OA的质量，并设两轮间的摩擦因数为$f$。问自A轮放在B轮上到两轮间没有滑动为止，经过多少时间。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch88_idx410_0.png"
+      ],
+      "answer": "<p>$t=\\dfrac{\\omega r m_2}{2fg(m_1+m_2)}$</p>",
+      "explanation": "<p>【AI 生成】A轮顺时针转动，接触点处A轮表面相对B轮向左滑，摩擦力对A轮为向右、对B轮为向左，大小$F_f=fN=fm_1g$。设A轮角加速度$\\alpha_1$（逆时针），B轮$\\alpha_2$（逆时针，B轮转向与A相反）：A轮$F_fr=\\frac{1}{2}m_1r^2\\alpha_1\\Rightarrow\\alpha_1=\\frac{2fg}{r}$；B轮$F_f\\cdot2r=\\frac{1}{2}m_2(2r)^2\\alpha_2\\Rightarrow\\alpha_2=\\frac{fm_1g}{m_2r}$。任一瞬时$\\omega_A(t)=\\omega-\\alpha_1t$，$\\omega_B(t)=\\alpha_2t$。无滑动条件（接触点速度相等）：$\\omega_A\\,r=\\omega_B\\cdot2r$，即$$\\omega-\\frac{2fg}{r}t=2\\cdot\\frac{fm_1g}{m_2r}t$$解得$$t=\\frac{\\omega}{\\frac{2fg}{r}\\left(1+\\frac{m_1}{m_2}\\right)}=\\frac{\\omega r m_2}{2fg(m_1+m_2)}$$</p>"
+    },
+    {
+      "overview": "求矩形板B绳剪断瞬时的质心加速度与绳张力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "动量矩定理",
+        "动量定理",
+        "转动惯量"
+      ],
+      "difficulty": "hard",
+      "content": "<p>如图所示，质量为4kg的矩形均质板（宽AB=2d，高h），用两根等长的不变形的软绳悬挂在图示位置（AB水平，两绳铅垂）。该板处于静止状态时，B端的绳子突然被剪断，试求：(1) 此瞬时该板质心的加速度及A端绳子张力。(2) 若将两绳换成弹簧，如图所示在B端的弹簧突然被剪断时，质心加速度及A端弹簧张力将如何？</p>",
+      "figures": [],
+      "answer": "<p>(1) 若板为正方形（$2d=h$）：$a_C=\\dfrac{3g}{8}$（向下），$T_A=\\dfrac{5mg}{8}\\approx24.5\\ \\mathrm{N}$；　(2) 换弹簧后：$a_C=\\dfrac{g}{2}$（向下），$T_A=\\dfrac{mg}{2}\\approx19.6\\ \\mathrm{N}$（弹簧力不突变，仍为原值）</p>",
+      "explanation": "<p>【AI 生成】(1) 剪断B绳后板绕A作瞬时定轴转动，$J_A=\\frac{m}{12}(4d^2+h^2)+m(d^2+h^2/4)=\\frac{m}{3}(4d^2+h^2)$。对A取矩$mgd=J_A\\alpha$，得$\\alpha=\\frac{3gd}{4d^2+h^2}$。质心铅垂加速度$a_C=\\alpha d=\\frac{3gd^2}{4d^2+h^2}$（向下）。由质心运动定理$mg-T_A=ma_C$，$$T_A=mg\\left(1-\\frac{3d^2}{4d^2+h^2}\\right)=mg\\frac{d^2+h^2}{4d^2+h^2}$$若板为正方形（$2d=h$，即$h=2d$），则$a_C=\\frac{3g}{8}$，$T_A=\\frac{5mg}{8}=24.5\\mathrm{N}$。(2) 换成弹簧后，弹簧力不能突变，剪断B端弹簧瞬时A端弹簧张力仍为平衡值$T_A=\\frac{mg}{2}=19.6\\mathrm{N}$，质心加速度$a_C=\\frac{mg-mg/2}{m}=\\frac{g}{2}$（向下）。</p>"
+    }
+  ]
+}

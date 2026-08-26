@@ -1,0 +1,22 @@
+{
+  "id": "q_074",
+  "overview": "圆柱纯滚动与弹簧系统求重物速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质圆柱体的质量为 $m_1$、半径为 $R$，沿固定水平面作纯滚动；重物 $B$ 的质量为 $m_2$；定滑轮 $D$ 质量不计；弹簧的弹性系数为 $k$，初始时弹簧长度为其原长 $L_0$ 的一半，系统从静止无初速度释放。试求重物下降 $h=2L_0$ 时的速度。</p><img src=\"qdata/q_074/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=\\sqrt{\\dfrac{32gL_0}{11}}$（当 $m_1=m_2=m$）</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 绳绕于圆柱顶缘，$v_B=v_C+R\\omega=2v_C$（纯滚动 $v_C=R\\omega$），故圆柱心位移 $s=h/2=L_0$。<br>(2) 弹簧初长 $L_0/2$（压缩 $L_0/2$），圆柱心移动 $L_0$ 后弹簧长 $\\frac32L_0$（拉伸 $L_0/2$），始末变形量大小相等，弹簧净功为零。<br>(3) 动能：$T=\\frac12m_1v_C^2+\\frac12\\cdot\\frac12m_1R^2\\omega^2+\\frac12m_2v_B^2$，代入 $v_C=v_B/2$、$\\omega=v_C/R$ 得 $T=\\dfrac{(3m_1+8m_2)}{16}v_B^2$。<br>(4) 动能定理：$T=m_2g\\,h=2m_2gL_0$。<br>(5) 当 $m_1=m_2=m$：$\\dfrac{11m}{16}v_B^2=2mgL_0\\Rightarrow v_B=\\sqrt{\\dfrac{32gL_0}{11}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

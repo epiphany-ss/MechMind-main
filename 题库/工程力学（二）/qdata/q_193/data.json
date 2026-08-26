@@ -1,0 +1,19 @@
+{
+  "id": "q_193",
+  "overview": "求齿轮齿条振动系统的自振周期",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示振系中，已知：齿轮 A 重 $P$、半径为 $r$，齿条 B 重 $Q$，两弹簧的刚性系数为 $k_1$、$k_2$；齿轮 A 可视为均质圆盘。试求齿条作振动的周期。</p>",
+  "answer": "<p>$T=2\\pi\\sqrt{\\dfrac{Q+P/2}{g(k_1+k_2)}}$</p>",
+  "explanation": "<p>【AI 生成】取齿条位移 $x$ 为广义坐标，齿轮与齿条啮合无滑动，齿轮转角 $\\theta=x/r$。齿轮为均质圆盘，$J_A=\\frac{1}{2}\\frac{P}{g}r^2$。系统动能$$T=\\frac{1}{2}\\frac{Q}{g}\\dot{x}^2+\\frac{1}{2}J_A\\dot{\\theta}^2=\\frac{1}{2}\\left(\\frac{Q}{g}+\\frac{P}{2g}\\right)\\dot{x}^2$$势能$$V=\\frac{1}{2}(k_1+k_2)x^2$$故等效质量 $m_{eq}=Q/g+P/(2g)$，等效刚度 $k_{eq}=k_1+k_2$，固有频率 $\\omega_n=\\sqrt{\\dfrac{k_1+k_2}{Q/g+P/(2g)}}=\\sqrt{\\dfrac{g(k_1+k_2)}{Q+P/2}}$，周期$$T=\\frac{2\\pi}{\\omega_n}=2\\pi\\sqrt{\\frac{Q+P/2}{g(k_1+k_2)}}$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册"
+}

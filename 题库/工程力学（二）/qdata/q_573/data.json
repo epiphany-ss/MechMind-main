@@ -1,0 +1,19 @@
+{
+  "id": "q_573",
+  "overview": "建立OA杆微振动运动微分方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "动量矩定理"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>OA杆重P，对O轴的转动惯量为J，弹簧的弹性系数为k，当杆处于铅垂位置时弹簧无变形，取位置角$\\varphi$及其正向如图示，则OA杆在铅直位置附近作微振动的运动微分方程为____。</p><p>(A) $J\\ddot{\\varphi}=-ka^2\\varphi-Pb\\varphi$；<br>(B) $J\\ddot{\\varphi}=ka^2\\varphi+Pb\\varphi$；<br>(C) $J\\ddot{\\varphi}=-ka^2\\varphi+Pb\\varphi$；<br>(D) $J\\ddot{\\varphi}=ka^2\\varphi-Pb\\varphi$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】微振动时弹簧伸长量约为$a\\varphi$，弹簧力对O之矩为$ka\\varphi\\cdot a=ka^2\\varphi$；重力对O之矩为$Pb\\sin\\varphi\\approx Pb\\varphi$。两者均阻碍角位移，故$J\\ddot{\\varphi}=-ka^2\\varphi-Pb\\varphi$，即$J\\ddot{\\varphi}+(ka^2+Pb)\\varphi=0$，选A。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

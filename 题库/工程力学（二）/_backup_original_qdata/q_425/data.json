@@ -1,0 +1,20 @@
+{
+  "id": "q_425",
+  "overview": "撤去支撑轮后A点加速度方向",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>均质长方形板由$A$、$B$两处的滑动轮支撑在光滑水平面上。初始板处于静止状态。若突然撤去$B$端的支撑轮，试问此瞬时______。<br>(A) $A$点有水平向左的加速度；<br>(B) $A$点有水平向右的加速度；<br>(C) $A$点加速度方向垂直向上；<br>(D) $A$点加速度为零。</p><img src=\"qdata/q_425/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】撤去$B$支撑后，板仅受重力与$A$处的法向反力，水平方向无外力，故质心无水平加速度$a_{Gx}=0$；$A$点被限制在水平面上$a_{Ay}=0$。由$a_G=a_A+\\alpha\\times r_{AG}$，解得$a_{Ax}=-R\\alpha<0$（板绕$A$顺时针倾倒），故$A$点有水平向左的加速度。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

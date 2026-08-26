@@ -1,0 +1,17 @@
+{
+  "id": "q_180",
+  "overview": "用拉氏方程建立圆盘-质点系统的运动微分方程",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "拉格朗日方程"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，已知：匀质圆盘 $A$ 质量为 $M$、半径为 $r$，盘缘上固结着一质量为 $m$ 的质点 $B$，无重杆 $OA$ 长为 $b$，$O$、$A$ 为铰链。试用拉氏方程建立系统的运动微分方程，以 $\\varphi$ 和 $\\theta$ 为广义坐标。</p>",
+  "answer": "<p>$$(M+m)b^2\\ddot\\varphi+mbr\\ddot\\theta\\cos(\\varphi-\\theta)+mbr\\dot\\theta^2\\sin(\\varphi-\\theta)+(M+m)gb\\sin\\varphi=0$$ $$\\frac{1}{2}(M+2m)r^2\\ddot\\theta+mbr\\ddot\\varphi\\cos(\\varphi-\\theta)-mbr\\dot\\varphi^2\\sin(\\varphi-\\theta)+mgr\\sin\\theta=0$$</p>",
+  "explanation": "<p>【AI 生成】取拉格朗日函数 $L=T-V$。由与前题相同的几何关系，动能与势能为 $$T=\\frac{1}{2}(M+m)b^2\\dot\\varphi^2+\\frac{1}{2}\\left(\\frac{M}{2}+m\\right)r^2\\dot\\theta^2+mbr\\dot\\varphi\\dot\\theta\\cos(\\varphi-\\theta)$$ $$V=-(M+m)gb\\cos\\varphi-mgr\\cos\\theta$$ 对广义坐标 $\\varphi$：$\\frac{\\partial L}{\\partial\\dot\\varphi}=(M+m)b^2\\dot\\varphi+mbr\\dot\\theta\\cos(\\varphi-\\theta)$，代入 $\\frac{d}{dt}\\frac{\\partial L}{\\partial\\dot\\varphi}-\\frac{\\partial L}{\\partial\\varphi}=0$ 得第一式。对广义坐标 $\\theta$：$\\frac{\\partial L}{\\partial\\dot\\theta}=(\\frac{M}{2}+m)r^2\\dot\\theta+mbr\\dot\\varphi\\cos(\\varphi-\\theta)$，代入得第二式。两式即系统的运动微分方程（$\\varphi$、$\\theta$ 均自铅垂线量起）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

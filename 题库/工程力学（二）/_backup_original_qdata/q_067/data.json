@@ -1,0 +1,18 @@
+{
+  "id": "q_067",
+  "overview": "水平平衡杆转动微小角求动能与功",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示均质杆 $OA$ 重为 $P$，长为 $L$，在水平位置时处于静止。两弹簧的刚度系数分别为 $k_1$、$k_2$。求杆 $OA$ 由平衡位置转动微小角度 $\\varphi$ 时杆的动能及在这一过程中诸力所作的功之和。已知此时杆的角速度为 $\\omega$。</p>",
+  "answer": "<p>$T=\\dfrac{PL^2\\omega^2}{6g}$；$W=-\\dfrac{L^2}{18}(k_1+4k_2)\\varphi^2$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 动能：杆绕 $O$ 转动，$J_O=\\frac13\\frac{P}{g}L^2$，$T=\\frac12J_O\\omega^2=\\dfrac{PL^2\\omega^2}{6g}$。<br>(2) 设弹簧分别位于距 $O$ 为 $\\frac L3$ 与 $\\frac{2L}{3}$ 处。转过微小角 $\\varphi$ 时，弹簧变形分别增加 $\\frac L3\\varphi$ 与 $\\frac{2L}{3}\\varphi$。<br>(3) 由平衡位置出发，诸力（重力与弹簧力）的线性项在平衡位置抵消，功的二次项为 $W=-\\frac12k_1\\left(\\frac L3\\varphi\\right)^2-\\frac12k_2\\left(\\frac{2L}{3}\\varphi\\right)^2=-\\dfrac{L^2}{18}(k_1+4k_2)\\varphi^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

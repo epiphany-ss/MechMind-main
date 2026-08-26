@@ -1,0 +1,23 @@
+{
+  "id": "q_073",
+  "overview": "两级滑轮提升重物求加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质滑轮 $A$、$B$ 分别重 $Q_1$、$Q_2$，半径分别为 $R$、$r$，且 $R=2r$，物体 $C$ 重 $P$，为了提升重物，在轮 $A$ 上作用有矩为 $M$ 的常力偶。设轴承光滑，绳与滑轮之间无相对滑动。试求物 $C$ 上升的加速度。</p><img src=\"qdata/q_073/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_C=\\dfrac{2g\\left[2M-(Q_1+2P)R\\right]}{R\\left(4Q_1+3Q_2+2P\\right)}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 皮带使两轮联动，$R\\omega_A=r\\omega_B$，$R=2r\\Rightarrow \\omega_B=2\\omega_A$。物体 $C$ 由轮 $B$ 上绳提升，$v_C=r\\omega_B=2r\\omega_A=R\\omega_A$。<br>(2) 动能：$T=\\frac12\\cdot\\frac{Q_1}{2g}R^2\\omega_A^2+\\frac12\\cdot\\frac{Q_2}{2g}r^2\\omega_B^2+\\frac12\\frac{P}{g}v_C^2$，代入 $\\omega_B=2\\omega_A$、$v_C=R\\omega_A$、$r=R/2$ 整理得 $T=\\dfrac{v_C^2}{2g}\\left(\\dfrac{4Q_1+3Q_2+2P}{4}\\right)$。<br>(3) 功率：$P_m=M\\omega_A-Pv_C=\\dfrac{v_C}{R}\\left(M-PR\\right)$。<br>(4) 由 $\\dfrac{dT}{dt}=P_m$ 解出 $a_C=\\dfrac{2g\\left[2M-(Q_1+2P)R\\right]}{R(4Q_1+3Q_2+2P)}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "两级滑轮提升重物求加速度",
+  "module": "动力学"
+}

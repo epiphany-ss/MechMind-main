@@ -1,0 +1,20 @@
+{
+  "id": "q_565",
+  "overview": "判断相对质心动量矩定理是否需质心加速度为零",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>因为动量矩定理是牛顿定律导出的，因此在相对于质心的动量矩定理中，质心的加速度必须等于零。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】相对质心的动量矩定理$\\frac{\\mathrm{d}L_C}{\\mathrm{d}t}=\\sum M_C^{(e)}$对质心作任意运动（加速、减速）均成立，不要求质心加速度为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "判断相对质心动量矩定理是否需质心加速度为零",
+  "module": "动力学"
+}

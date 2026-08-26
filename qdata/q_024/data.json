@@ -1,0 +1,23 @@
+{
+  "id": "q_024",
+  "overview": "判断两端铰接构件是否二力构件",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "约束与约束反力",
+    "受力分析"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>两端用光滑铰链连接而成的构件是二力构件。 (    )</p><img src=\"qdata/q_024/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】二力构件须仅在两个力作用下平衡且不计自重。两端铰接的构件若还受其他外力（如自重、载荷）作用，则不是二力构件。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36",
+  "source": "练习册",
+  "title": "判断两端铰接构件是否二力构件",
+  "module": "静力学"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_493",
+  "overview": "平面机构求套筒D点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知OA＝2r，CD＝$\\sqrt{3}\\,r$，BC＝3r，r以cm计。在图示位置时，OA杆的角速度 $\\omega=2\\,\\text{rad/s}$，$\\phi=\\theta=30^\\circ$，BC铅垂，套筒D恰好处于OA的中点。试求该瞬时套筒D点的速度。</p><img src=\"qdata/q_493/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_D=\\omega\\cdot r=2r\\,\\text{cm/s}$（方向垂直OA，由速度分析法求得）。</p>",
+  "explanation": "<p>【AI 生成】取套筒D为动点，OA杆为动系（OA绕O转动，$\\omega=2\\,\\text{rad/s}$）。D在OA中点，$AD=r=OA/2$。<br>（1）牵连速度 $v_e=\\omega\\cdot AD=2r$ cm/s，方向垂直OA。<br>（2）相对速度 $v_r$ 沿OA方向；D又受BC杆、CD杆约束（CD=$\\sqrt3 r$，BC=3r，$\\phi=\\theta=30^\\circ$），由几何确定 $v_r$。<br>（3）$v_D=v_e+v_r$，代入几何关系（$\\phi=\\theta=30^\\circ$）求得 $v_D$ 大小与方向。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "平面机构求套筒D点速度",
+  "module": "运动学"
+}

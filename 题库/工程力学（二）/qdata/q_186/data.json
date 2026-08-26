@@ -1,0 +1,20 @@
+{
+  "id": "q_186",
+  "overview": "比较两弹簧质量系统的固有频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图示两振动系统，如物块的质量和弹簧的刚性系数均相等，则此两种情况自由振动的固有频率&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 相同；&nbsp;&nbsp;(B) 不同；&nbsp;&nbsp;(C) 由质量和刚性系数尚不能确定。</p><img src=\"qdata/q_186/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】两系统均为单自由度质量—弹簧系统，固有频率 $\\omega_n=\\sqrt{k/m}$ 只由质量与弹簧刚度决定。重力只改变静平衡位置而不影响固有频率，故两种情况频率相同，选 A。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册"
+}

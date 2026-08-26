@@ -1,0 +1,19 @@
+{
+  "id": "q_289",
+  "overview": "判断力偶作用下A处约束反力的方位",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>如图所示，各物块自重及摩擦不计，物块受力偶作用，其力偶矩的大小均为 M，方向如图。A 处的约束反力的方位为____。<br>(A) AC 连线方向；<br>(B) 水平方向；<br>(C) 铅垂方向；<br>(D) AB 连线向上。</p><img src=\"qdata/q_289/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】物体只在力偶作用下平衡，外力系只能合成为力偶。A 处约束反力与另一接触处的约束反力构成一对力偶与外力偶平衡，两反力必沿同一作用线，故 A 处反力沿 A、C 连线方向。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45"
+}

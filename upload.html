@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工程力学题库 - 上传题目</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="js/katex/katex.min.css">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="topbar">
+  <div class="brand"><span class="logo">📚</span> 工程力学题库</div>
+  <div class="nav-links">
+    <a href="index.html">题库主页</a>
+    <a href="upload.html" class="active">✏️ 上传题目</a>
+  </div>
+</div>
+
+<div class="container upload-wrap">
+  <div class="page-title" id="pageTitle">📝 上传新题目</div>
+  <div class="page-sub">题目 / 答案 / 解析均可包含图片；解析额外支持音频与视频；用 <b>$…$</b> 或 <b>$$…$$</b> 书写 LaTeX 公式。</div>
+
+  <form onsubmit="event.preventDefault();submitUpload()">
+    <!-- ======== 一、基本信息 ======== -->
+    <div class="upload-card">
+      <div class="section-title"><span class="num">1</span> 基本信息与分类标签</div>
+
+      <div class="form-group">
+        <label><span class="req">*</span> 题目概述 <span class="hint">列表卡片上展示的一句话概述</span></label>
+        <textarea id="upOverview" rows="2" placeholder="例如：质点系动量矩定理的应用——水平圆盘绕定轴转动时系统的角速度求解"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <div class="label-line"><label><span class="req">*</span> 学科（一级标签）</label><button type="button" class="tag-add-btn" onclick="addSubject()" title="新增学科">＋</button></div>
+          <select id="upSubject" onchange="onSubjectChange()"></select>
+        </div>
+        <div class="form-group">
+          <div class="label-line"><label><span class="req">*</span> 知识大类（二级标签）</label><button type="button" class="tag-add-btn" onclick="addCategory()" title="新增知识大类">＋</button></div>
+          <select id="upCategory" onchange="onCategoryChange()"></select>
+        </div>
+        <div class="form-group">
+          <div class="label-line"><label><span class="req">*</span> 题型</label><button type="button" class="tag-add-btn" onclick="addQuestionType()" title="新增题型">＋</button></div>
+          <select id="upType"></select>
+        </div>
+        <div class="form-group">
+          <label><span class="req">*</span> 难度</label>
+          <select id="upDifficulty">
+            <option value="easy">基础</option>
+            <option value="medium" selected>中等</option>
+            <option value="hard">困难</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>来源 <span class="hint">练习册 / 老题库 等</span></label>
+          <select id="upSource"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="label-line"><label><span class="req">*</span> 知识点（三级标签 · 可多选，含于所选大类）</label><button type="button" class="tag-add-btn" onclick="addPoint()" title="新增知识点">＋</button></div>
+        <div class="kp-chips" id="kpChips"><span style="font-size:0.8em;color:var(--text-lighter)">请先选择学科与知识大类</span></div>
+      </div>
+    </div>
+
+    <!-- ======== 二、题目 / 答案 / 解析 ======== -->
+    <div class="upload-card">
+      <div class="section-title"><span class="num">2</span> 题目 · 答案 · 解析</div>
+      <div id="richFields"></div>
+    </div>
+
+    <!-- ======== 三、自动讲解音频 ======== -->
+    <div class="upload-card">
+      <div class="section-title"><span class="num">3</span> 自动讲解音频</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>音色（原神角色风格）</label>
+          <select id="upVoice"></select>
+        </div>
+        <div class="form-group" style="display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap">
+          <button type="button" class="btn btn-ghost" id="btnPreviewSpeech" onclick="previewSpeechField()">▶ 试听讲解</button>
+          <label style="font-size:0.82em;display:flex;align-items:center;gap:6px;color:var(--text-light)">
+            <input type="checkbox" id="autoNarrate" checked> 提交后自动生成并保存讲解音频
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>讲解词预览 <span class="hint">公式自动总结为短句不照读，音频与讲解词逐字对应</span></label>
+        <div class="latex-preview" id="speechPreview" style="text-align:left;white-space:pre-wrap;line-height:1.8">（在「解析」栏输入内容后自动生成）</div>
+      </div>
+      <audio id="narrationPlayer" controls preload="none" style="display:none;width:100%;margin-top:10px"></audio>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px">
+        <button type="button" class="btn btn-ghost" onclick="testAiStatus()">🤖 测试 AI 讲解</button>
+        <span id="aiStatus" style="font-size:0.82em;color:var(--text-light)"></span>
+      </div>
+      <div id="narrateStatus" style="font-size:0.82em;color:var(--text-light);margin-top:8px"></div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-ghost" onclick="location.href='index.html'">返回题库</button>
+      <button type="submit" class="btn btn-primary" id="submitBtn">提交题目</button>
+    </div>
+    <div class="progress-bar" id="progressBar"><div class="fill" id="progressFill"></div></div>
+  </form>
+
+  <div class="footer">数据将保存到本地 qdata 文件夹。</div>
+</div>
+
+<!-- ============ LaTeX 公式查看器 ============ -->
+<div class="modal-overlay" id="latexOverlay" onclick="if(event.target===this)closeLatexModal()">
+  <div class="modal-dialog" style="max-width:660px" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">∑ LaTeX 公式查看器</div>
+      <div class="hdr-actions"><button class="icon-btn" onclick="closeLatexModal()">✕</button></div>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>LaTeX 代码 <span class="hint">无需手动包裹 $ 符号</span></label>
+        <textarea id="latexCode" rows="4" placeholder="F = m a&#10;v = v_0 + at&#10;\sum M_O(\mathbf{F}) = 0&#10;\frac{d}{dt}(m\mathbf{v}) = \mathbf{F}" oninput="renderSingleFormula(this.value, document.getElementById('latexPreview'))"></textarea>
+        <div class="latex-preview" id="latexPreview">实时预览效果</div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" onclick="insertLatex(false)">插入行内公式 $…$</button>
+        <button type="button" class="btn btn-primary" onclick="insertLatex(true)">插入块级公式 $$…$$</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 富文本预览 ============ -->
+<div class="modal-overlay" id="previewOverlay" onclick="if(event.target===this)closePreview()">
+  <div class="modal-dialog" style="max-width:700px" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="previewTitle">预览</div>
+      <div class="hdr-actions"><button class="icon-btn" onclick="closePreview()">✕</button></div>
+    </div>
+    <div class="modal-body" id="previewContent"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/katex/katex.min.js"></script>
+<script src="js/katex/contrib/auto-render.min.js"></script>
+<script>
+// ==================== 状态 ====================
+let editingId = null;
+let currentFieldId = null;      // 当前聚焦的富文本域
+let selectedKps = new Set();    // 已选知识点
+let fieldMedia = {};            // fieldId -> [{name,type,tag}]
+let TAG_READY = false;
+
+const RICH_FIELDS = [
+  { id: 'upContent',     label: '题目内容', hint: '输入完整题目描述，可含文字 / 图片 / 公式', image: true,  audio: false, video: false },
+  { id: 'upAnswer',      label: '答案',     hint: '输入标准答案，可含文字 / 图片 / 公式',     image: true,  audio: false, video: false },
+  { id: 'upExplanation', label: '解析',     hint: '输入详细解析，可含图片 / 音频 / 视频 / 公式', image: true,  audio: true,  video: true },
+];
+
+function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+// ==================== 富文本域生成 ====================
+function buildRichFields() {
+  const wrap = document.getElementById('richFields');
+  wrap.innerHTML = RICH_FIELDS.map(f => {
+    let tb = [];
+    let hidden = '';
+    if (f.image) {
+      tb.push('<button type="button" class="tb-btn" onclick="document.getElementById(\'' + f.id + '_img\').click()">🖼 插入图片</button>');
+      tb.push('<button type="button" class="tb-btn" onclick="document.getElementById(\'' + f.id + '_folder\').click()">📁 选择文件夹</button>');
+      hidden += '<input type="file" id="' + f.id + '_img" accept="image/*" multiple style="display:none" onchange="handleFiles(\'' + f.id + '\', this.files); this.value=\'\'">';
+      hidden += '<input type="file" id="' + f.id + '_folder" webkitdirectory multiple style="display:none" onchange="selectFolder(\'' + f.id + '\', this)">';
+    }
+    if (f.audio) {
+      tb.push('<button type="button" class="tb-btn" onclick="document.getElementById(\'' + f.id + '_audio\').click()">🎵 插入音频</button>');
+      hidden += '<input type="file" id="' + f.id + '_audio" accept="audio/*" style="display:none" onchange="handleFiles(\'' + f.id + '\', this.files); this.value=\'\'">';
+    }
+    if (f.video) {
+      tb.push('<button type="button" class="tb-btn" onclick="document.getElementById(\'' + f.id + '_video\').click()">🎬 插入视频</button>');
+      hidden += '<input type="file" id="' + f.id + '_video" accept="video/*" style="display:none" onchange="handleFiles(\'' + f.id + '\', this.files); this.value=\'\'">';
+    }
+    tb.push('<button type="button" class="tb-btn" onclick="openLatexModal(\'' + f.id + '\')">∑ 插入公式</button>');
+    tb.push('<button type="button" class="tb-btn" onclick="previewField(\'' + f.id + '\')">👁 预览</button>');
+
+    const dropHint = '📥 可将 ' + (f.image ? '<strong>图片</strong>' : '') +
+      (f.audio ? '<strong>音频</strong>、' : '') + (f.video ? '<strong>视频</strong>' : '') +
+      ' 直接拖拽到此处（图片也可用「选择文件夹」整批导入）';
+
+    return '<div class="form-group">'
+      + '<label><span class="req">*</span> ' + f.label + ' <span class="hint">' + f.hint + '</span></label>'
+      + '<div class="rich-field" id="' + f.id + '_field"'
+      + ' ondrop="handleFieldDrop(\'' + f.id + '\',event)"'
+      + ' ondragover="event.preventDefault();this.classList.add(\'dragover\')"'
+      + ' ondragleave="this.classList.remove(\'dragover\')"'
+      + ' ondragenter="event.preventDefault();this.classList.add(\'dragover\')">'
+      + '<div class="rich-toolbar">' + tb.join('') + '</div>'
+      + '<textarea id="' + f.id + '" placeholder="' + f.hint + '" onfocus="currentFieldId=\'' + f.id + '\'" onclick="currentFieldId=\'' + f.id + '\'"></textarea>'
+      + '<div class="field-media-previews" id="' + f.id + '_previews"></div>'
+      + '<div class="field-drop-hint">' + dropHint + '</div>'
+      + hidden
+      + '</div></div>';
+  }).join('');
+}
+
+// ==================== 文件处理（拖拽 / 选择 / 文件夹） ====================
+function handleFiles(fieldId, fileList) {
+  const files = Array.from(fileList || []);
+  if (!files.length) return;
+  files.forEach(file => {
+    if (file.type.match(/^image\//)) {
+      compressImage(file, d => { if (d) appendTag(fieldId, '<img src="' + d + '" alt="' + file.name + '" style="max-width:100%">', file.name, 'img'); });
+    } else if (file.type.match(/^audio\//)) {
+      if (fieldId !== 'upExplanation') { toast('音频请上传到「解析」栏目', 'error'); return; }
+      warnBigFile(file);
+      readFileAsDataURL(file, d => { if (d) appendTag(fieldId, '<audio controls src="' + d + '"></audio>', file.name, 'audio'); });
+    } else if (file.type.match(/^video\//)) {
+      if (fieldId !== 'upExplanation') { toast('视频请上传到「解析」栏目', 'error'); return; }
+      warnBigFile(file);
+      readFileAsDataURL(file, d => { if (d) appendTag(fieldId, '<video controls src="' + d + '" style="max-width:100%"></video>', file.name, 'video'); });
+    } else {
+      toast('不支持的文件类型：' + file.name, 'error');
+    }
+  });
+}
+
+function warnBigFile(file) {
+  if (file.size > 80 * 1024 * 1024) {
+    toast('警告：文件 ' + file.name + ' 较大（' + (file.size / 1024 / 1024).toFixed(1) + 'MB），提交会稍慢', '');
+  }
+}
+
+function selectFolder(fieldId, input) {
+  const files = Array.from(input.files || []).filter(f => f.type.match(/^image\//));
+  input.value = '';
+  if (!files.length) { toast('所选文件夹中没有图片文件', 'error'); return; }
+  if (files.length > 40) { toast('一次最多导入 40 张图片，仅导入前 40 张'); files.length = 40; }
+  files.forEach(f => compressImage(f, d => { if (d) appendTag(fieldId, '<img src="' + d + '" alt="' + f.name + '" style="max-width:100%">', f.name, 'img'); }));
+  toast('已从文件夹导入 ' + files.length + ' 张图片', 'success');
+}
+
+function handleFieldDrop(fieldId, e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  handleFiles(fieldId, e.dataTransfer.files);
+}
+
+function appendTag(fieldId, tag, name, type) {
+  const ta = document.getElementById(fieldId);
+  ta.value = ta.value + (ta.value ? '\n' : '') + tag;
+  if (!fieldMedia[fieldId]) fieldMedia[fieldId] = [];
+  fieldMedia[fieldId].push({ name: name, type: type, tag: tag });
+  renderFieldPreviews(fieldId);
+  ta.focus();
+}
+
+function renderFieldPreviews(fieldId) {
+  const box = document.getElementById(fieldId + '_previews');
+  if (!box) return;
+  const items = fieldMedia[fieldId] || [];
+  if (!items.length) { box.innerHTML = ''; return; }
+  const icon = { img: '🖼', audio: '🎵', video: '🎬' };
+  box.innerHTML = items.map((m, i) =>
+    '<div class="m-item">'
+    + (m.type === 'img' ? '<img src="' + m.tag.match(/src="([^"]+)"/)[1] + '" alt="">' : '')
+    + '<span class="m-badge">' + icon[m.type] + ' ' + (m.type === 'img' ? '图' : m.type === 'audio' ? '音' : '视') + '</span>'
+    + '<div class="m-name">' + escapeHtml(m.name) + '</div>'
+    + '<button type="button" class="m-remove" onclick="removeFieldMedia(\'' + fieldId + '\',' + i + ')">×</button>'
+    + '</div>'
+  ).join('');
+}
+
+function removeFieldMedia(fieldId, idx) {
+  const item = fieldMedia[fieldId][idx];
+  const ta = document.getElementById(fieldId);
+  ta.value = ta.value.replace(item.tag, '').replace(/\n{2,}/g, '\n');
+  fieldMedia[fieldId].splice(idx, 1);
+  renderFieldPreviews(fieldId);
+}
+
+// ==================== LaTeX 公式查看器 ====================
+function openLatexModal(fieldId) {
+  currentFieldId = fieldId;
+  document.getElementById('latexCode').value = '';
+  document.getElementById('latexPreview').textContent = '实时预览效果';
+  document.getElementById('latexOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('latexCode').focus();
+}
+
+function closeLatexModal() {
+  document.getElementById('latexOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function insertLatex(display) {
+  const code = val('latexCode');
+  if (!code) { toast('请先输入公式代码', 'error'); return; }
+  const ta = document.getElementById(currentFieldId);
+  if (!ta) return;
+  const text = display ? ('$$\n' + code + '\n$$') : ('$' + code + '$');
+  insertAtCursor(ta, text);
+  closeLatexModal();
+  toast(display ? '已插入块级公式 $$…$$' : '已插入行内公式 $…$', 'success');
+}
+
+// ==================== 富文本预览 ====================
+function previewField(fieldId) {
+  const ta = document.getElementById(fieldId);
+  const labels = { upContent: '题目内容预览', upAnswer: '答案预览', upExplanation: '解析预览' };
+  document.getElementById('previewTitle').textContent = labels[fieldId] || '预览';
+  const box = document.getElementById('previewContent');
+  box.innerHTML = fixMediaSrc(ta.value, editingId || '') || '<span style="color:var(--text-lighter)">（内容为空）</span>';
+  renderMathIn(box);
+  document.getElementById('previewOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePreview() {
+  document.getElementById('previewOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ==================== 三级标签 ====================
+function buildSubjectOptions(selected) {
+  const sel = document.getElementById('upSubject');
+  if (!(TAG_DATA.subjects || []).length) {
+    sel.innerHTML = '<option value="">暂无学科，请点击 ＋ 新增</option>';
+  } else {
+    sel.innerHTML = TAG_DATA.subjects.map(s =>
+      '<option value="' + escapeHtml(s.name) + '">' + escapeHtml(s.name) + '</option>').join('');
+    if (selected) sel.value = selected;
+    if (!sel.value) sel.selectedIndex = 0;
+  }
+  onSubjectChange();
+}
+
+function onSubjectChange() {
+  const subject = val('upSubject');
+  const s = (TAG_DATA.subjects || []).find(x => x.name === subject);
+  const catSel = document.getElementById('upCategory');
+  if (s && (s.categories || []).length) {
+    catSel.innerHTML = s.categories.map(c =>
+      '<option value="' + escapeHtml(c.name) + '">' + escapeHtml(c.name) + '</option>').join('');
+    catSel.selectedIndex = 0;
+  } else {
+    catSel.innerHTML = '<option value="">暂无大类，请点击 ＋ 新增</option>';
+  }
+  onCategoryChange();
+}
+
+function onCategoryChange() {
+  const subject = val('upSubject');
+  const category = val('upCategory');
+  const s = (TAG_DATA.subjects || []).find(x => x.name === subject);
+  const c = s && (s.categories || []).find(x => x.name === category);
+  const pts = c ? (c.knowledge_points || []) : [];
+  const box = document.getElementById('kpChips');
+  if (!pts.length) {
+    box.innerHTML = '<span style="font-size:0.8em;color:var(--text-lighter)">该大类暂无知识点，请点击 ＋ 新增</span>';
+    return;
+  }
+  box.innerHTML = pts.map(p =>
+    '<span class="chip' + (selectedKps.has(p) ? ' active' : '') + '" data-p="' + escapeHtml(p) + '" onclick="toggleUploadKp(this)">' + escapeHtml(p) + '</span>'
+  ).join('');
+}
+
+function toggleUploadKp(el) {
+  const p = el.getAttribute('data-p');
+  if (selectedKps.has(p)) { selectedKps.delete(p); el.classList.remove('active'); }
+  else { selectedKps.add(p); el.classList.add('active'); }
+}
+
+// 题型（单选）选项构建
+function buildTypeOptions(selected) {
+  const sel = document.getElementById('upType');
+  if (!sel) return;
+  const types = (TAG_DATA.question_types && TAG_DATA.question_types.length)
+    ? TAG_DATA.question_types.slice()
+    : ['判断题', '选择题', '填空题', '解答题', '证明题', '计算题'];
+  if (selected && types.indexOf(selected) < 0) types.push(selected);
+  sel.innerHTML = types.map(t => '<option value="' + escapeHtml(t) + '">' + escapeHtml(t) + '</option>').join('');
+  if (selected) sel.value = selected;
+  if (!sel.value) sel.selectedIndex = 0;
+}
+
+async function addQuestionType() {
+  const name = prompt('请输入新题型名称：');
+  if (!name || !name.trim()) return;
+  try {
+    TAG_DATA = await QStore.addTag('add_question_type', name);
+    buildTypeOptions(name.trim());
+    toast('题型「' + name.trim() + '」已添加', 'success');
+  } catch (e) { toast(e.message, 'error'); }
+}
+
+// 来源（练习册/老题库等）
+function buildSourceOptions(selected) {
+  const sel = document.getElementById('upSource');
+  if (!sel) return;
+  const srcs = (TAG_DATA.sources && TAG_DATA.sources.length)
+    ? TAG_DATA.sources.slice()
+    : ['练习册', '老题库'];
+  if (selected && srcs.indexOf(selected) < 0) srcs.push(selected);
+  sel.innerHTML = srcs.map(s => '<option value="' + escapeHtml(s) + '">' + escapeHtml(s) + '</option>').join('');
+  if (selected) sel.value = selected;
+  if (!sel.value) sel.value = '练习册';
+}
+
+async function addSubject() {
+  const name = prompt('请输入新学科名称（一级标签）：');
+  if (!name || !name.trim()) return;
+  try {
+    TAG_DATA = await QStore.addTag('add_subject', name);
+    buildSubjectOptions(name.trim());
+    toast('学科「' + name.trim() + '」已添加', 'success');
+  } catch (e) { toast(e.message, 'error'); }
+}
+
+async function addCategory() {
+  const subject = val('upSubject');
+  if (!subject) { toast('请先选择或新增学科', 'error'); return; }
+  const name = prompt('在学科「' + subject + '」下新增知识大类（二级标签）：');
+  if (!name || !name.trim()) return;
+  try {
+    TAG_DATA = await QStore.addTag('add_category', name, { subject: subject });
+    buildSubjectOptions(subject);
+    const s = TAG_DATA.subjects.find(x => x.name === subject);
+    const idx = s.categories.findIndex(c => c.name === name.trim());
+    const catSel = document.getElementById('upCategory');
+    catSel.innerHTML = s.categories.map(c => '<option value="' + escapeHtml(c.name) + '">' + escapeHtml(c.name) + '</option>').join('');
+    catSel.selectedIndex = idx >= 0 ? idx : 0;
+    onCategoryChange();
+    toast('知识大类「' + name.trim() + '」已添加', 'success');
+  } catch (e) { toast(e.message, 'error'); }
+}
+
+async function addPoint() {
+  const subject = val('upSubject');
+  const category = val('upCategory');
+  if (!subject || !category) { toast('请先选择学科与知识大类', 'error'); return; }
+  const name = prompt('在「' + subject + ' / ' + category + '」下新增知识点（三级标签）：');
+  if (!name || !name.trim()) return;
+  try {
+    TAG_DATA = await QStore.addTag('add_point', name, { subject: subject, category: category });
+    selectedKps.add(name.trim());
+    onCategoryChange();
+    toast('知识点「' + name.trim() + '」已添加', 'success');
+  } catch (e) { toast(e.message, 'error'); }
+}
+
+// ==================== 提交 / 编辑 ====================
+async function submitUpload() {
+  const overview = val('upOverview');
+  const subject = val('upSubject');
+  const category = val('upCategory');
+  const question_type = val('upType');
+  const difficulty = val('upDifficulty');
+  const source = val('upSource') || '练习册';
+  const content = val('upContent');
+  const answer = val('upAnswer');
+  const explanation = val('upExplanation');
+  const kps = Array.from(selectedKps);
+
+  if (!overview) return toast('请输入题目概述', 'error');
+  if (!subject) return toast('请选择或新增学科', 'error');
+  if (!category) return toast('请选择或新增知识大类', 'error');
+  if (!kps.length) return toast('请至少选择一个知识点', 'error');
+  if (!question_type) return toast('请选择题型', 'error');
+  if (!difficulty) return toast('请选择难度', 'error');
+  if (!content) return toast('请输入题目内容', 'error');
+  if (!answer) return toast('请输入答案', 'error');
+  if (!explanation) return toast('请输入解析', 'error');
+
+  const payload = { overview, subject, category, question_type, source, difficulty, content, answer, explanation, knowledge_points: kps };
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '提交中…（媒体较大时请稍候）';
+  try {
+    const r = await QStore.save(payload, editingId);
+    const st = document.getElementById('narrateStatus');
+    if (r.offline) {
+      toast('已保存到浏览器本地（离线模式）', 'success');
+      st.textContent = '离线模式未生成讲解音频（可用「试听」）；回到服务器模式后可在题库中生成。';
+      setTimeout(() => location.href = 'index.html', 1200);
+      return;
+    }
+    const autoNarrate = document.getElementById('autoNarrate').checked;
+    if (autoNarrate) {
+      st.textContent = '题目已保存，正在生成讲解音频…';
+      const n = await generateNarration(r.id, val('upVoice'));
+      st.textContent = n ? '✅ 讲解音频已生成并保存（' + n.voice_label + '）' : '⚠️ 题目已保存，但讲解音频生成失败';
+    } else {
+      st.textContent = '✅ 题目已保存（未勾选自动生成讲解音频）';
+    }
+    toast('保存成功 #' + r.id, 'success');
+    setTimeout(() => location.href = 'index.html', 1500);
+  } catch (e) {
+    toast(e.message, 'error');
+    btn.disabled = false;
+    btn.textContent = editingId ? '保存修改' : '提交题目';
+  }
+}
+
+function ensureTagInData(subject, category, points) {
+  let s = (TAG_DATA.subjects || []).find(x => x.name === subject);
+  if (!s) { s = { name: subject, categories: [] }; TAG_DATA.subjects.push(s); }
+  let c = (s.categories || []).find(x => x.name === category);
+  if (!c) { c = { name: category, knowledge_points: [] }; s.categories.push(c); }
+  (points || []).forEach(p => { if (c.knowledge_points.indexOf(p) < 0) c.knowledge_points.push(p); });
+}
+
+async function loadForEdit(id) {
+  try {
+    const q = await QStore.get(id);
+    if (!q) throw new Error('题目不存在: ' + id);
+    editingId = id;
+    ensureTagInData(q.subject, q.category, q.knowledge_points);
+    buildSubjectOptions(q.subject);
+    const catSel = document.getElementById('upCategory');
+    const s = TAG_DATA.subjects.find(x => x.name === q.subject);
+    catSel.innerHTML = s.categories.map(c => '<option value="' + escapeHtml(c.name) + '">' + escapeHtml(c.name) + '</option>').join('');
+    catSel.value = q.category;
+    (q.knowledge_points || []).forEach(p => selectedKps.add(p));
+    onCategoryChange();
+
+    document.getElementById('upOverview').value = q.overview || '';
+    document.getElementById('upDifficulty').value = q.difficulty || 'medium';
+    buildTypeOptions(q.question_type || '解答题');
+    buildSourceOptions(q.source || '练习册');
+    document.getElementById('upContent').value = q.content || '';
+    document.getElementById('upAnswer').value = q.answer || '';
+    document.getElementById('upExplanation').value = q.explanation || '';
+    if (q.narration && q.narration.voice) {
+      document.getElementById('upVoice').value = q.narration.voice;
+    }
+    updateSpeechPreview();
+    document.getElementById('pageTitle').textContent = '✏️ 编辑题目 #' + id;
+    document.title = '编辑题目 #' + id + ' - 工程力学题库';
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '保存修改';
+    toast('已载入题目 ' + id + '，可直接修改', 'success');
+  } catch (e) {
+    toast('载入题目失败：' + e.message, 'error');
+  }
+}
+
+// ==================== 初始化 ====================
+async function init() {
+  addModeBadge();
+  await loadTtsPrompt();
+  buildRichFields();
+  await loadTags();
+  buildTypeOptions();
+  buildSourceOptions();
+  // 讲解音色下拉 + 讲解词实时预览
+  document.getElementById('upVoice').innerHTML = voiceSelectHtml('girl');
+  const expl = document.getElementById('upExplanation');
+  if (expl) expl.addEventListener('input', updateSpeechPreview);
+  updateSpeechPreview();
+  showAiConfig();
+  const params = new URLSearchParams(location.search);
+  const editId = params.get('id');
+  if (editId) {
+    await loadForEdit(editId);
+  } else {
+    buildSubjectOptions(null);
+  }
+}
+
+// 讲解词实时预览（公式 → 短句，逐字对应）
+function updateSpeechPreview() {
+  const text = explanationToSpeech(val('upExplanation'));
+  const el = document.getElementById('speechPreview');
+  if (el) el.textContent = text || '（无可朗读内容）';
+}
+
+// 测试 AI 讲解配置（调用 /api/ai-status?test=1 实时诊断）
+async function testAiStatus() {
+  const el = document.getElementById('aiStatus');
+  el.textContent = '测试中…';
+  try {
+    const d = await api('api/ai-status?test=1');
+    const s = d.status || {};
+    if (s.test_ok) {
+      el.textContent = '✅ AI 讲解可用（' + (s.model || '') + '）';
+    } else {
+      el.textContent = '❌ AI 调用失败：' + (s.test_err || '未知错误');
+    }
+  } catch (e) {
+    el.textContent = '❌ 无法获取状态：' + e.message;
+  }
+}
+
+// 初始化时显示 AI 配置概要（不做实时调用）
+async function showAiConfig() {
+  const el = document.getElementById('aiStatus');
+  if (!el) return;
+  try {
+    const d = await api('api/ai-status');
+    const s = d.status || {};
+    if (!s.enabled) {
+      el.textContent = 'ℹ️ AI 讲解未启用（在 qdata/tts_prompt.json 置 llm.enabled=true）';
+    } else if (!s.config_complete) {
+      el.textContent = 'ℹ️ AI 配置不完整（缺 base_url / api_key / model）';
+    } else {
+      el.textContent = 'ℹ️ AI 已启用：' + (s.model || '') + '，点「测试 AI 讲解」验证';
+    }
+  } catch (e) { /* 忽略 */ }
+}
+
+// 试听讲解（服务器模式 /api/tts；离线模式浏览器语音）
+async function previewSpeechField() {
+  const ok = await previewSpeech(val('upExplanation'), val('upVoice'), document.getElementById('narrationPlayer'));
+  const st = document.getElementById('narrateStatus');
+  if (isOffline()) {
+    st.textContent = '已用浏览器语音试听（离线模式，音色为近似调节）。';
+  } else if (ok) {
+    st.textContent = '已生成试听音频：' + getVoicePreset(val('upVoice')).label;
+  } else {
+    st.textContent = '';
+  }
+}
+
+init();
+</script>
+</body>
+</html>

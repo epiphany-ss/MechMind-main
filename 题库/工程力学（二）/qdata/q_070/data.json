@@ -1,0 +1,21 @@
+{
+  "id": "q_070",
+  "overview": "皮带机构求物A上移距离s的速度和加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>已知均质轮 $B$ 和 $C$ 的质量均为 $m_1$，半径均为 $r$，轮 $B$ 上的力偶矩 $M=$ 常量，物体 $A$ 的质量为 $m_2$；如图所示。求物 $A$ 由静止随皮带上移距离 $s$ 时的速度和加速度。</p><img src=\"qdata/q_070/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v=\\sqrt{\\dfrac{2(M-m_1gr\\sin\\theta)s}{r(m_1+m_2)}}$；$a=\\dfrac{M-m_1gr\\sin\\theta}{r(m_1+m_2)}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 皮带与两轮边缘速度均为 $v$，两轮角速度 $\\omega=v/r$，物体 $A$ 随皮带上移速度 $v$。<br>(2) 动能：对均质轮 $J=\\frac12m_1r^2$，两轮转动动能与物 $A$ 平动动能之和 $T=2\\cdot\\frac12\\cdot\\frac12m_1r^2\\omega^2+\\frac12m_2v^2=\\frac12(m_1+m_2)v^2$。<br>(3) 功率：$P=M\\omega-m_1g\\sin\\theta\\,v=\\dfrac{v}{r}(M-m_1gr\\sin\\theta)$。<br>(4) 由 $\\dfrac{dT}{dt}=P$：$(m_1+m_2)va=\\dfrac{v}{r}(M-m_1gr\\sin\\theta)$，故 $a=\\dfrac{M-m_1gr\\sin\\theta}{r(m_1+m_2)}$。<br>(5) 初速为零，匀加速，$v^2=2as$，得 $v=\\sqrt{\\dfrac{2(M-m_1gr\\sin\\theta)s}{r(m_1+m_2)}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

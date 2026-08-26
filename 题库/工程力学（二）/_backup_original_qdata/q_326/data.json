@@ -1,0 +1,20 @@
+{
+  "id": "q_326",
+  "overview": "求构架BG杆上B处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "受力分析"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示构架由不计重量的三杆组成，B、D 为铰链联接。已知：$F=600$N，$q=300$N/m，$L_1=2$m，$L_2=3$m。试求 BG 杆上 B 处的约束力。</p><img src=\"qdata/q_326/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$B_x=600$N，$B_y=\\dfrac{qL_2}{2}=450$N（由均布载荷与力 F 平衡确定）。</p>",
+  "explanation": "<p>【AI 生成】构架由三杆铰接，B、D 为铰链。均布载荷合力 $Q=qL_2=300\\times3=900$N 作用于相应杆段中点。取 BG 杆为隔离体，B 处约束力沿销钉两个分量；由 $\\sum F_x=0$：$B_x=F=600$N；由对 G 或整体对铰取矩：$B_y=\\frac{Q}{2}=450$N（按对称布置）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

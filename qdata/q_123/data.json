@@ -1,0 +1,21 @@
+{
+  "id": "q_123",
+  "overview": "鼓轮与重物系统",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，系统位于铅垂面内，由鼓轮 $C$ 与重物 $A$ 组成。已知鼓轮质量为 $m$，小半径为 $r$，大半径 $R=2r$，对过点 $C$ 且垂直于鼓轮平面的轴的回转半径 $\\rho=1.5r$，重物 $A$ 质量为 $2m$。试用动静法求：(1) 鼓轮中心 $C$ 的加速度；(2) $AB$ 段绳与 $DE$ 段绳的张力。</p>",
+  "answer": "<p>(1) $a_C=\\dfrac{4}{21}g$；(2) $F_{AB}=\\dfrac{34}{21}mg$，$F_{DE}=\\dfrac{59}{21}mg$</p>",
+  "explanation": "<p>【AI 生成】鼓轮对 $C$ 的转动惯量 $J_C=m\\rho^2=2.25mr^2$。$DE$ 绳固定，鼓轮沿 $DE$ 绳滚下，$a_C=r\\alpha$；$AB$ 段绳绕在大半径上且与重物相连，绳速与鼓轮中心速度相同，故 $a_A=a_C$。对重物 $A$：$2mg-F_{AB}=2m\\dfrac{4}{21}g$，得 $F_{AB}=\\dfrac{34}{21}mg$。对鼓轮取动静法：对 $C$ 取矩 $F_{DE}\\cdot r-F_{AB}\\cdot2r=J_C\\alpha$，铅垂方向 $mg+F_{AB}+ma_C-F_{DE}=0$（取惯性力向上为负），联立解得 $a_C=\\dfrac{4}{21}g$、$F_{DE}=\\dfrac{59}{21}mg$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册",
+  "title": "鼓轮与重物系统",
+  "module": "动力学"
+}

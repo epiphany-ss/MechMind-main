@@ -1,0 +1,21 @@
+{
+  "id": "q_153",
+  "overview": "求机构平衡时力F1与F2之比",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：$OD=BD=L_1$，$AD=L_2$ 及 $\\beta$ 角。试用虚位移原理求机构平衡时 $\\dfrac{F_1}{F_2}$ 的值。</p><img src=\"qdata/q_153/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\dfrac{F_1}{F_2}=\\dfrac{2L_1\\cos\\beta}{L_1\\sin\\beta-\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}}$</p>",
+  "explanation": "<p>【AI 生成】设 O 为固定铰，A 在过 O 的铅垂导槽内，B 在过 O 的水平导槽内，D 由 OD、BD、AD 三杆铰接，$\\beta$ 为 OD 与铅垂线的夹角。则 $B=(2L_1\\sin\\beta,\\,0)$，$A=(0,\\,y_A)$，$y_A=L_1\\cos\\beta-\\sqrt{L_2^2-L_1^2\\sin^2\\beta}$。取变分得 $\\delta x_B=2L_1\\cos\\beta\\,\\delta\\beta$，$\\delta y_A=\\left(-L_1\\sin\\beta+\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}\\right)\\delta\\beta$。虚功方程 $F_1\\,\\delta y_A+F_2\\,\\delta x_B=0$，故 $\\dfrac{F_1}{F_2}=-\\dfrac{\\delta x_B}{\\delta y_A}=\\dfrac{2L_1\\cos\\beta}{L_1\\sin\\beta-\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

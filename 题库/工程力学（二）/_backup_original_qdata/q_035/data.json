@@ -1,0 +1,20 @@
+{
+  "id": "q_035",
+  "overview": "静力学研究的三类基本问题",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "受力分析",
+    "静力学公理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>静力学研究的三类基本问题是____。</p><img src=\"qdata/q_035/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>物体的受力分析；力系的简化（合成）；力系的平衡条件及其应用。</p>",
+  "explanation": "<p>【AI 生成】静力学主要研究三方面问题：①对物体进行受力分析（正确画出受力图）；②把复杂力系简化为最简单的等效力系（力系的简化）；③建立力系的平衡条件并用于求解未知约束反力（力系的平衡）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36"
+}

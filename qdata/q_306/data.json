@@ -1,0 +1,22 @@
+{
+  "id": "q_306",
+  "overview": "求三种受载构件的支座反力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>试求图示构件的支座反力。<br>(a) 已知：F，M，l，d（A 为固定铰支座，B 为滚动铰支座，梁长 l，距 A 端 d 处作用铅垂力 F，另有矩为 M 的力偶）；<br>(b) 已知：M，a（悬臂梁 A 端固定，梁上作用矩为 M 与 2M 的两个力偶，总长 3a）；<br>(c) 已知：$q_A$、$q_B$、a（简支梁 AB 长 3a，受线性分布载荷，A 端集度 $q_A$，B 端集度 $q_B$）。</p><img src=\"qdata/q_306/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(a) $R_A=F-\\dfrac{Fd+M}{l}$，$R_B=\\dfrac{Fd+M}{l}$；<br>(b) $R_A=0$，$M_A=3M$（固定端反力偶）；<br>(c) $R_A=\\dfrac{a(2q_A+q_B)}{2}$，$R_B=\\dfrac{a(q_A+2q_B)}{2}$。</p>",
+  "explanation": "<p>【AI 生成】(a) 对 A 取矩：$R_B l=Fd+M$，得 $R_B=\\frac{Fd+M}{l}$；由 $\\sum F_y=0$ 得 $R_A=F-R_B$。(b) 悬臂梁仅受两力偶，支座反力偶 $M_A=2M+M=3M$（转向与合力偶相反），$R_A=0$。(c) 分布载荷合力 $R=\\frac{q_A+q_B}{2}\\cdot3a$，其作用线距 A 为 $\\bar x=a\\frac{q_A+2q_B}{q_A+q_B}$，由 $\\sum M_A=0$ 与 $\\sum F_y=0$ 得 $R_A=\\frac{a(2q_A+q_B)}{2}$，$R_B=\\frac{a(q_A+2q_B)}{2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "求三种受载构件的支座反力",
+  "module": "静力学"
+}

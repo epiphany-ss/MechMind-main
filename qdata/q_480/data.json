@@ -1,0 +1,23 @@
+{
+  "id": "q_480",
+  "overview": "圆环焊在AB杆上求小球D绝对速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平动",
+    "点的合成运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>机构在铅垂平面内，OA以匀角速度 $\\omega$(rad/s)转动，圆环焊在AB杆上，圆环半径为R，小球D可在圆环内顺时针方向运动。当D到达顶点时，D相对圆环的法向加速度 $a_{nr}=h\\,(\\text{cm/s}^2)$，杆OA＝BC＝L(cm)，且OA∥BC。试求当OA⊥OC瞬时，小球D的绝对速度。</p><img src=\"qdata/q_480/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_D=\\omega L+\\sqrt{hR}$（沿OC方向；$v_r=\\sqrt{hR}$）。</p>",
+  "explanation": "<p>【AI 生成】OABC为平行四边形机构，OA∥BC且等长，故AB杆（圆环）作平动，圆环上各点速度均等于A点速度。<br>（1）牵连速度：A点速度 $v_A=\\omega\\cdot OA=\\omega L$，方向垂直于OA。当OA⊥OC时，$v_A$ 方向沿OC。<br>（2）相对速度：D在圆环顶点，D相对圆环作匀速圆周运动，法向加速度 $a_{nr}=v_r^2/R=h$，故 $v_r=\\sqrt{hR}$，方向沿圆环在顶点处的切线（垂直于OD，即沿水平方向）。<br>（3）绝对速度：$v_D=v_A+v_r=\\omega L+\\sqrt{hR}$（同向时），方向沿OC；若相对速度反向则 $v_D=\\omega L-\\sqrt{hR}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "圆环焊在AB杆上求小球D绝对速度",
+  "module": "运动学"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "q_533",
+  "overview": "小球沿半圆柱下滑的运动微分方程与脱离角",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示小球（不计大小）从半径为 $R$ 的光滑半圆柱体的顶点无初速地沿柱体下滑。列出小球沿圆柱体的运动微分方程，并求小球脱离圆柱体时的角度 $\\theta$。</p><img src=\"qdata/q_533/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>运动微分方程：$R\\ddot{\\theta}=g\\sin\\theta$；脱离角 $\\theta=\\arccos\\dfrac{2}{3}\\approx48.2^\\circ$</p>",
+  "explanation": "<p>【AI 生成】设 $\\theta$ 为小球偏离顶点（铅垂线）的角度，切向运动方程 $$mR\\ddot{\\theta}=mg\\sin\\theta,$$ 即 $R\\ddot{\\theta}=g\\sin\\theta$。由机械能守恒，小球自顶点滑至角 $\\theta$ 处 $$\\frac{1}{2}mv^2=mgR(1-\\cos\\theta),\\qquad v^2=2gR(1-\\cos\\theta)。$$ 法向方向有 $mg\\cos\\theta-N=m\\dfrac{v^2}{R}$，脱离圆柱面时 $N=0$：$$mg\\cos\\theta=m\\frac{2gR(1-\\cos\\theta)}{R},$$ 即 $\\cos\\theta=2(1-\\cos\\theta)$，解得 $$\\cos\\theta=\\frac{2}{3},\\qquad \\theta=\\arccos\\frac{2}{3}\\approx48.2^\\circ。$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "小球沿半圆柱下滑的运动微分方程与脱离角",
+  "module": "动力学"
+}

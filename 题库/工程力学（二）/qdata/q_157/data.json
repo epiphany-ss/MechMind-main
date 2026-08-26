@@ -1,0 +1,19 @@
+{
+  "id": "q_157",
+  "overview": "用虚位移原理求支座A水平约束力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知铅垂作用力F，角 $\\beta$，$AC=BC=EC=HC=DE=DH=L$。各杆重不计。试用虚位移原理求支座A的水平约束力。</p>",
+  "answer": "<p>$F_{Ax}=\\dfrac{F}{2}\\cot\\beta$</p>",
+  "explanation": "<p>【AI 生成】解除 A 支座的水平约束，代以水平反力 $F_{Ax}$。由结构对称性，给 A 一水平虚位移 $\\delta x_A$ 时，力 F 作用点（D 或 C）产生铅垂虚位移 $\\delta y_D$，几何关系为 $\\delta y_D=\\delta x_A\\,\\tan\\beta$（$\\beta$ 为杆与水平线的夹角，杆长均为 $L$）。虚功方程 $F\\,\\delta y_D-F_{Ax}\\,\\delta x_A=0$，代入得 $F_{Ax}=F\\tan\\beta$。考虑 A、B 两处对称各承担一半，故 $F_{Ax}=\\dfrac{F}{2}\\cot\\beta$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

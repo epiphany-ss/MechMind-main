@@ -1,0 +1,20 @@
+{
+  "id": "q_158",
+  "overview": "含弹簧机构平衡时力F与角θ的关系",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：力F，$AC=BC=DC=DE=EG=l$，弹簧的原长为l，刚体系数为k。试用虚位移原理求机构平衡时，力F与角 $\\theta$ 的关系。</p><img src=\"qdata/q_158/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F=k\\,l\\,(1-\\cos\\theta)$</p>",
+  "explanation": "<p>【AI 生成】各杆长均为 $l$，弹簧原长亦为 $l$。设弹簧连接两相关端点，其长度随角 $\\theta$ 变化。由几何关系，弹簧伸长量 $e=l(1-\\cos\\theta)$（当 $\\theta=0$ 时弹簧为原长）。给虚位移 $\\delta\\theta$，力 F 作用点的虚位移与弹簧伸长变化分别为 $\\delta r_F$、$\\delta e=l\\sin\\theta\\,\\delta\\theta$。虚功方程 $F\\,\\delta r_F-k e\\,\\delta e=0$，代入 $\\delta r_F=l\\sin\\theta\\,\\delta\\theta$ 得 $F=k\\,l\\,(1-\\cos\\theta)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

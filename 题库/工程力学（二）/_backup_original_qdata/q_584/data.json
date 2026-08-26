@@ -1,0 +1,20 @@
+{
+  "id": "q_584",
+  "overview": "求曲柄滑块机构对O轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构的曲柄OA以匀角速度$\\omega$绕O轴转动，通过连杆AB带动滑块B沿水平导槽滑动。已知OA＝AB＝L，杆OA与AB均可看作匀质细杆，质量均为m，滑块质量不计。求当OA与水平线成角$\\theta$时，系统对O轴的动量矩。</p><img src=\"qdata/q_584/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$L_O=mL^2\\omega$（与$\\theta$无关）</p>",
+  "explanation": "<p>【AI 生成】1) 杆OA对O轴：$L_{OA}=\\frac{1}{3}mL^2\\omega$。2) 对杆AB：A点速度$v_A=L\\omega$（垂直OA），B点沿水平导槽运动。由$B$位置$x_B=2L\\cos\\theta$及速度投影可求得杆AB角速度$\\omega_{AB}=-\\omega$，其质心速度$v_G=(-\\frac{3}{2}L\\omega\\sin\\theta,\\ \\frac{1}{2}L\\omega\\cos\\theta)$。杆AB对O轴动量矩$$L_{AB}=J_C\\omega_{AB}+(\\boldsymbol{r}_G\\times m\\boldsymbol{v}_G)_z=-\\frac{mL^2}{12}\\omega+\\frac{3}{4}mL^2\\omega=\\frac{2}{3}mL^2\\omega$$故$$L_O=L_{OA}+L_{AB}=\\frac{1}{3}mL^2\\omega+\\frac{2}{3}mL^2\\omega=mL^2\\omega$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55"
+}

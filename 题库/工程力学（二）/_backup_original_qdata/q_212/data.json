@@ -1,0 +1,22 @@
+{
+  "id": "q_212",
+  "overview": "力偶对任一点之矩恒等于力偶矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>力偶中的两个力对于任一点之矩恒等于其力偶矩，而与矩心的位置无关。 (    )</p><img src=\"qdata/q_212/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\"><img src=\"qdata/q_212/content_img_1.png\" alt=\"附图\" style=\"max-width:100%\"><img src=\"qdata/q_212/content_img_2.png\" alt=\"附图\" style=\"max-width:100%\"><img src=\"qdata/q_212/content_img_3.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】设力偶两力为 $\\boldsymbol{F}$、$-\\boldsymbol{F}$，力偶臂矢为 $\\boldsymbol{r}$（由 $-\\boldsymbol{F}$ 作用点指向 $\\boldsymbol{F}$ 作用点）。对任一点 $O$ 取矩：$$\\boldsymbol{M}_O=\\boldsymbol{r}_1\\times\\boldsymbol{F}+\\boldsymbol{r}_2\\times(-\\boldsymbol{F})=(\\boldsymbol{r}_1-\\boldsymbol{r}_2)\\times\\boldsymbol{F}=\\boldsymbol{r}\\times\\boldsymbol{F}=\\boldsymbol{M}$$ 结果恒等于力偶矩矢，与矩心 $O$ 的位置无关，力偶矩矢是自由矢量。</p>",
+  "media": [
+    "content_img_0.png",
+    "content_img_1.png",
+    "content_img_2.png",
+    "content_img_3.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42"
+}

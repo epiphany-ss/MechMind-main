@@ -1,0 +1,20 @@
+{
+  "id": "q_456",
+  "overview": "判断科氏加速度是否一定存在",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>用合成运动定理分析点的运动时，若牵连角速度 $\\omega_e \\neq 0$，相对速度 $v_r \\neq 0$，则一定有不为零的科氏加速度。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】由 $a_C=2\\omega_e\\times v_r$，当 $\\omega_e$ 与 $v_r$ 相互平行时，叉积为零，科氏加速度为零，因此不能仅由二者不为零断定科氏加速度不为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "判断科氏加速度是否一定存在",
+  "module": "运动学"
+}

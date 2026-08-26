@@ -1,0 +1,20 @@
+{
+  "id": "q_296",
+  "overview": "计算提起四本书所需最小夹紧力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>四本相同的书，每本重为 P，设书与书间的摩擦因数为 0.1，书与手间的摩擦因数 0.25，欲将四本书一起提起，则两侧应加的力 F 至少大于____。<br>(A) $1P$；<br>(B) $4P$；<br>(C) $8P$；<br>(D) $10P$。</p><img src=\"qdata/q_296/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】两手以 F 夹紧书堆。手与书之间需提供全部重量 $4P$：$2\\times0.25F\\ge 4P\\Rightarrow F\\ge 8P$。而书与书之间摩擦因数小，是最危险环节：最下面一本书需由相邻书间摩擦 $0.1F$ 承受至少 $P$，故 $0.1F\\ge P\\Rightarrow F\\ge 10P$。取较大者 $F&gt;10P$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册"
+}

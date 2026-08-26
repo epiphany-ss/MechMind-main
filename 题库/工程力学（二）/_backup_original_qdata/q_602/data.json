@@ -1,0 +1,26 @@
+{
+  "id": "q_602",
+  "overview": "求矩形板B绳剪断瞬时的质心加速度与绳张力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，质量为4kg的矩形均质板（宽AB=2d，高h），用两根等长的不变形的软绳悬挂在图示位置（AB水平，两绳铅垂）。该板处于静止状态时，B端的绳子突然被剪断，试求：(1) 此瞬时该板质心的加速度及A端绳子张力。(2) 若将两绳换成弹簧，如图所示在B端的弹簧突然被剪断时，质心加速度及A端弹簧张力将如何？</p>",
+  "answer": "<p>(1) 若板为正方形（$2d=h$）：$a_C=\\dfrac{3g}{8}$（向下），$T_A=\\dfrac{5mg}{8}\\approx24.5\\ \\mathrm{N}$；　(2) 换弹簧后：$a_C=\\dfrac{g}{2}$（向下），$T_A=\\dfrac{mg}{2}\\approx19.6\\ \\mathrm{N}$（弹簧力不突变，仍为原值）</p>",
+  "explanation": "<p>【AI 生成】(1) 剪断B绳后板绕A作瞬时定轴转动，$J_A=\\frac{m}{12}(4d^2+h^2)+m(d^2+h^2/4)=\\frac{m}{3}(4d^2+h^2)$。对A取矩$mgd=J_A\\alpha$，得$\\alpha=\\frac{3gd}{4d^2+h^2}$。质心铅垂加速度$a_C=\\alpha d=\\frac{3gd^2}{4d^2+h^2}$（向下）。由质心运动定理$mg-T_A=ma_C$，$$T_A=mg\\left(1-\\frac{3d^2}{4d^2+h^2}\\right)=mg\\frac{d^2+h^2}{4d^2+h^2}$$若板为正方形（$2d=h$，即$h=2d$），则$a_C=\\frac{3g}{8}$，$T_A=\\frac{5mg}{8}=24.5\\mathrm{N}$。(2) 换成弹簧后，弹簧力不能突变，剪断B端弹簧瞬时A端弹簧张力仍为平衡值$T_A=\\frac{mg}{2}=19.6\\mathrm{N}$，质心加速度$a_C=\\frac{mg-mg/2}{m}=\\frac{g}{2}$（向下）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "narration": {
+    "path": "qdata/q_602/narration_1786111941.mp3",
+    "voice": "loli",
+    "voice_label": "萝莉音 · 希格雯",
+    "created": "2026-08-07 22:12",
+    "speakable_text": "【AI 生成】(1) 剪断B绳后板绕A作瞬时定轴转动， JA= m 12 (4d2+h2)+m(d2+h2/4)= m 3 (4d2+h2) 。对A取矩 mgd=JAalpha ，得 alpha= 3gd 4d2+h2 。质心铅垂加速度 aC=alpha d= 3gd2 4d2+h2 （向下）。由质心运动定理 mg-TA=maC ， 由分式计算相应物理量 若板为正方形（ 2d=h ，即 h=2d ），则 aC= 3g 8 ， TA= 5mg 8 =24.5 N 。(2) 换成弹簧后，弹簧力不能突变，剪断B端弹簧瞬时A端弹簧张力仍为平衡值 TA= mg 2 =19.6 N ，质心加速度 aC= mg-mg/2 m = g 2 （向下）。"
+  }
+}

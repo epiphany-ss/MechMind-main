@@ -1,0 +1,20 @@
+{
+  "id": "q_318",
+  "overview": "求含滑轮系统的辊轴支座C及铰B约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>系统由直杆 AD、BO、DO 及滑轮组成，在 B、D、O 处铰接，并支承如图，已知物重 $P=1200$N，$l=10$cm，各杆及轮重略去不计。试求辊轴支座 C 及铰 B 的约束力。</p><img src=\"qdata/q_318/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_C=P=1200$N（↑）；$B_x=0$，$B_y=1200$N（↑）。</p>",
+  "explanation": "<p>【AI 生成】绳张力 $T=P=1200$N。取滑轮 O 与整体：重物通过绳给系统铅垂向下的力 P，辊轴支座 C 提供铅垂反力。对 A 点取矩消去 A 处未知力，可求得 $R_C=P$。再取杆 BO 或整体在 B 处平衡，得 $B_x=0$，$B_y=P=1200$N。具体数值与图中各杆长比例（4l、2l、3l 等）有关，结论为 C、B 共同承担重量 P。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

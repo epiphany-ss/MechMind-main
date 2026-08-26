@@ -1,0 +1,18 @@
+{
+  "id": "q_466",
+  "overview": "判断矩形板边缘运动点的科氏加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "科氏加速度",
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>矩形板以匀角速度 $\\omega$ 绕AB轴转动，而动点M沿板边缘以匀速度 $v_r$ 运动。则动点M在图示位置时，科氏加速度 $a_C$ 的大小和方向为______。</p>\n<p>(A) $a_C=\\omega v_r$，方向垂直于矩形板并指向转动方向；<br>\n(B) $a_C=\\omega v_r$，方向垂直于矩形板，指向与转动方向相反；<br>\n(C) $a_C=\\omega v_r$，方向与 $v_r$ 相同；<br>\n(D) $a_C=0$。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】图示M沿与转轴AB平行的板边运动，相对速度 $v_r$ 与牵连角速度 $\\omega$（沿AB轴）平行，故科氏加速度 $a_C=2\\omega\\times v_r=0$，选(D)。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51"
+}

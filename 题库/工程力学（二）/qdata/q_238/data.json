@@ -1,0 +1,20 @@
+{
+  "id": "q_238",
+  "overview": "求正方体对角线力对三轴的矩",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>图示一正方体，边长为 $a$，力 $\\boldsymbol{F}$ 沿 $EC$ 作用。则该力对 $x$、$y$、$z$ 三轴的矩分别为：$m_x=$____；$m_y=$____；$m_z=$____。<br>(A) $Fa$；<br>(B) $-Fa$；<br>(C) $\\dfrac{\\sqrt{2}}{2}Fa$；<br>(D) $-\\dfrac{\\sqrt{2}}{2}Fa$。</p><img src=\"qdata/q_238/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>mx=D，my=C，mz=D</p>",
+  "explanation": "<p>【AI 生成】取正方体顶点 $E(0,a,a)$（上后棱角）、$C(a,a,0)$（下后棱角），力沿 $EC$ 方向 $\\boldsymbol{F}=\\dfrac{F}{\\sqrt{2}}(1,0,-1)$，作用点为 $E$。由 $\\boldsymbol{M}_O=\\boldsymbol{r}_E\\times\\boldsymbol{F}$ 得：$$M_x=yF_z-zF_y=-\\frac{\\sqrt2}{2}Fa,\\quad M_y=zF_x-xF_z=\\frac{\\sqrt2}{2}Fa,\\quad M_z=xF_y-yF_x=-\\frac{\\sqrt2}{2}Fa$$ 即 $m_x=-\\dfrac{\\sqrt2}{2}Fa$（D），$m_y=\\dfrac{\\sqrt2}{2}Fa$（C），$m_z=-\\dfrac{\\sqrt2}{2}Fa$（D）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册"
+}

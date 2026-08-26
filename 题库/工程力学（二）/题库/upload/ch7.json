@@ -1,0 +1,267 @@
+{
+ "chapter": 7,
+ "category": "动力学",
+ "subject": "理论力学",
+ "questions": [
+  {
+   "overview": "判断由运动方程求力或由力求运动",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>已知质点的运动方程，就可以确定作用于质点上的力；已知作用于质点上的力，也可确定质点的运动方程。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】由质点的运动方程求导可得加速度，再由 $F=ma$ 即可确定作用力，故前半句正确；但已知力只能确定加速度，要确定运动方程还须积分并给定初始条件，故后半句错误。</p>"
+  },
+  {
+   "overview": "判断不受力质点的运动状态",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>在惯性参考系中，不论初始条件如何变化，只要质点不受力的作用，则该质点应保持静止或匀速直线运动状态。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】这是牛顿第一定律（惯性定律）：质点不受力作用时保持静止或匀速直线运动状态，具体保持何种状态由初始条件决定。</p>"
+  },
+  {
+   "overview": "判断常力作用确定轨迹的条件",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>质点在常力作用下，则只有给定初始条件，才能确定质点运动的轨迹。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】常力作用下加速度恒定，运动方程通解中含初始位置和初速度，只有给定初始条件才能确定唯一的运动轨迹（如抛体运动的具体抛物线）。</p>"
+  },
+  {
+   "overview": "判断有运动是否一定受力",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>一个质点只要有运动，就一定受有力的作用，而且运动的方向就是它受力的方向。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】质点可作匀速直线运动而不受力；且力的方向决定加速度方向，并不一定与运动方向相同，例如匀速圆周运动中力指向圆心而速度沿切线方向。</p>"
+  },
+  {
+   "overview": "判断速度大小是否反映受力大小",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>质点运动的速度越大，说明它所受的力也越大。 (    )</p>",
+   "figures": [],
+   "answer": "<p>错</p>",
+   "explanation": "<p>【AI 生成】力决定加速度（速度的变化率），而非速度本身的大小；作高速匀速直线运动的质点所受合力为零。</p>"
+  },
+  {
+   "overview": "判断斜抛小球落地速度是否相同",
+   "question_type": "判断题",
+   "knowledge_points": [
+    "质点动力学",
+    "机械能守恒"
+   ],
+   "difficulty": "easy",
+   "content": "<p>在同一地点、同一坐标系内，以相同大小的初速度斜抛两质量相同的小球，若不计空气阻力，则它们落地时速度的大小相同。 (    )</p>",
+   "figures": [],
+   "answer": "<p>对</p>",
+   "explanation": "<p>【AI 生成】不计空气阻力时机械能守恒，两球质量相同、初速率相同，又自同一高度出发落回同一高度，动能变化相同，故落地速率相同，与抛射角无关。</p>"
+  },
+  {
+   "overview": "凹形路面最低点汽车对路面压力",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>重量为 $P$ 的汽车，以匀速 $v$ 驶过凹形路面。试问汽车过路面最低点时，对路面的压力大小 ____。<br>(A) 小于 $P$；<br>(B) 大于 $P$；<br>(C) 等于 $P$；<br>(D) 已知条件没给够，无法判断。</p>",
+   "figures": [],
+   "answer": "<p>B</p>",
+   "explanation": "<p>【AI 生成】在凹形路面最低点，汽车作圆周运动，法向加速度指向圆心（向上）。由 $N-P=\\dfrac{P}{g}\\cdot\\dfrac{v^2}{\\rho}$，得 $N=P+\\dfrac{Pv^2}{g\\rho}>P$。由作用力与反作用力，汽车对路面的压力大于 $P$，故选 B。</p>"
+  },
+  {
+   "overview": "同圆周运动两质点受力与加速度关系",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>两个质量相同的质点，沿相同的圆周运动，其中受力较大的质点 ____。<br>(A) 切向加速度一定较大；<br>(B) 法向加速度一定较大；<br>(C) 全加速度一定较大；<br>(D) 不能确定加速度是否较大。</p>",
+   "figures": [],
+   "answer": "<p>C</p>",
+   "explanation": "<p>【AI 生成】由牛顿第二定律 $\\vec{F}=m\\vec{a}$，质量相同的两质点，所受合力较大者其全加速度（合加速度）一定较大，即 $|\\vec{a}|=\\dfrac{|\\vec{F}|}{m}$，故选 C。</p>"
+  },
+  {
+   "overview": "三小球沿直槽滑至O点先后",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "medium",
+   "content": "<p>在铅垂面内的一块圆板上刻有三道直槽 $AO$、$BO$、$CO$，三个质量相等的小球 $M_1$、$M_2$、$M_3$ 在重力作用下自静止开始同时从 $A$、$B$、$C$ 三点分别沿各直槽运动，不计摩擦，则 ____ 到达 $O$ 点。<br>(A) $M_1$ 小球先；<br>(B) $M_2$ 小球先；<br>(C) $M_3$ 小球先；<br>(D) 三球同时。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch70_idx335_0.png"
+   ],
+   "answer": "<p>D</p>",
+   "explanation": "<p>【AI 生成】小球沿竖直圆内任一弦自静止滑至最低点 $O$ 的时间均为 $t=2\\sqrt{R/g}$（$R$ 为圆半径），与弦的位置及小球质量无关，故三球同时到达 $O$ 点，选 D。</p>"
+  },
+  {
+   "overview": "水平抛出受空气阻力质点的运动微分方程",
+   "question_type": "选择题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "medium",
+   "content": "<p>质量为 $m$ 的物体自高 $H$ 处水平抛出，运动中受到与速度一次方成正比的空气阻力 $F_R$ 作用，$\\vec{F}_R=-km\\vec{v}$，$k$ 为常数。则其运动微分方程为 ____。<br>(A) $m\\ddot{x}=-km\\dot{x},\\quad m\\ddot{y}=-km\\dot{y}-mg$；<br>(B) $m\\ddot{x}=-km\\dot{x},\\quad m\\ddot{y}=km\\dot{y}-mg$；<br>(C) $m\\ddot{x}=km\\dot{x},\\quad m\\ddot{y}=-km\\dot{y}-mg$；<br>(D) $m\\ddot{x}=km\\dot{x},\\quad m\\ddot{y}=km\\dot{y}+mg$。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch71_idx336_0.png"
+   ],
+   "answer": "<p>A</p>",
+   "explanation": "<p>【AI 生成】阻力 $\\vec{F}_R=-km\\vec{v}$ 在 $x$、$y$ 方向的分量分别为 $-km\\dot{x}$、$-km\\dot{y}$，再加上铅垂向下的重力 $-mg$。由牛顿第二定律得 $m\\ddot{x}=-km\\dot{x}$，$m\\ddot{y}=-km\\dot{y}-mg$，故选 A。</p>"
+  },
+  {
+   "overview": "介质中上抛小球的运动微分方程",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>在介质中上抛一质量为 $m$ 的小球，已知小球所受阻力 $\\vec{F}_R=-k\\vec{v}$，若选择坐标轴 $x$ 铅直向上，则小球的运动微分方程为 ____。</p>",
+   "figures": [],
+   "answer": "<p>$m\\ddot{x}+k\\dot{x}+mg=0$（即 $\\ddot{x}+\\dfrac{k}{m}\\dot{x}+g=0$）</p>",
+   "explanation": "<p>【AI 生成】取 $x$ 轴铅直向上，小球受重力 $-mg$ 和阻力 $-k\\dot{x}$。由牛顿第二定律 $m\\ddot{x}=-mg-k\\dot{x}$，即 $m\\ddot{x}+k\\dot{x}+mg=0$。</p>"
+  },
+  {
+   "overview": "由直线运动规律求作用力及其极小值",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "medium",
+   "content": "<p>质量 $m=0.1\\,\\mathrm{kg}$ 的质点按 $x=t^4-12t^3+60t^2$ 的规律作直线运动，其中 $x$ 以 $\\mathrm{m}$ 计，$t$ 以 $\\mathrm{s}$ 计。则作用于质点上的力为 ____，当 $t=$ ____ $\\mathrm{s}$ 时，该力达到极小值 ____。</p>",
+   "figures": [],
+   "answer": "<p>$F=(1.2t^2-7.2t+12)\\,\\mathrm{N}$；$t=3\\,\\mathrm{s}$；$F_{\\min}=1.2\\,\\mathrm{N}$</p>",
+   "explanation": "<p>【AI 生成】由 $x=t^4-12t^3+60t^2$ 求导得 $\\ddot{x}=12t^2-72t+120$，故 $F=m\\ddot{x}=0.1(12t^2-72t+120)=1.2t^2-7.2t+12\\,\\mathrm{N}$。令 $F'(t)=2.4t-7.2=0$，得 $t=3\\,\\mathrm{s}$，此时 $F_{\\min}=1.2\\times9-7.2\\times3+12=1.2\\,\\mathrm{N}$。</p>"
+  },
+  {
+   "overview": "剪断一绳瞬时另一绳拉力与重力关系",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "medium",
+   "content": "<p>图中小球 $C$ 重 $P$，由绳索 $AC$、$BC$ 悬挂处于静止。此时由静力学可求得绳的张力 $F_{AC}=F_{BC}=P$。现将绳索 $BC$ 突然剪断，试判断：在剪断瞬时，绳索 $AC$ 的拉力 $F_{AC}$ 与力 $P$ 的大小关系 ____。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch71_idx338_0.png"
+   ],
+   "answer": "<p>$F_{AC}<P$（$F_{AC}=\\dfrac{P}{2}$）</p>",
+   "explanation": "<p>【AI 生成】剪断 $BC$ 的瞬时，小球速度为零，沿 $AC$ 方向（法向）的加速度 $a_n=\\dfrac{v^2}{l}=0$。由静力平衡 $F_{AC}=F_{BC}=P$ 可得 $AC$ 与铅垂线夹角 $\\theta=60^\\circ$。法向方程 $F_{AC}-P\\cos60^\\circ=ma_n=0$，故 $F_{AC}=\\dfrac{P}{2}<P$。</p>"
+  },
+  {
+   "overview": "汽车过拱桥中点对桥面压力",
+   "question_type": "填空题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>图中汽车的质量为 $1500\\,\\mathrm{kg}$，以速度 $v=10\\,\\mathrm{m/s}$ 驶过拱桥，如图所示。桥在中点处的曲率半径 $\\rho=50\\,\\mathrm{m}$。求汽车经过拱桥中点时对桥面的压力大小为 ____。</p>",
+   "figures": [],
+   "answer": "<p>$11700\\,\\mathrm{N}$（约 $11.7\\,\\mathrm{kN}$）</p>",
+   "explanation": "<p>【AI 生成】在拱桥最高点，法向加速度指向圆心（向下）。由 $P-N=m\\dfrac{v^2}{\\rho}$，得 $N=mg-m\\dfrac{v^2}{\\rho}=1500\\times9.8-1500\\times\\dfrac{10^2}{50}=14700-3000=11700\\,\\mathrm{N}$。由作用力与反作用力，汽车对桥面压力亦为 $11700\\,\\mathrm{N}$。</p>"
+  },
+  {
+   "overview": "竖直上抛质点落地所需时间",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>一质量为 $m$ 的质点，离地面距离为 $h$，以初速 $v_0$ 作竖直上抛运动，如图所示。求质点落地时所需的时间。</p>",
+   "figures": [],
+   "answer": "<p>$t=\\dfrac{v_0+\\sqrt{v_0^2+2gh}}{g}$</p>",
+   "explanation": "<p>【AI 生成】取 $y$ 轴铅直向上，原点在地面，初始位置 $y(0)=h$、初速度 $v(0)=v_0$，加速度 $\\ddot{y}=-g$。运动方程为 $$y(t)=h+v_0t-\\frac{1}{2}gt^2。$$ 落地时 $y=0$，即 $$\\frac{1}{2}gt^2-v_0t-h=0,$$ 解得 $$t=\\frac{v_0+\\sqrt{v_0^2+2gh}}{g}。$$ 取正根即为落地所需时间。</p>"
+  },
+  {
+   "overview": "小环沿光滑钢丝滑至最低点的速度与约束力",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学",
+    "动能定理"
+   ],
+   "difficulty": "medium",
+   "content": "<p>质量为 $m$ 的小环 $M$，套在一条光滑钢丝上。钢丝的方程为 $x^2=4ay$（其中 $a$ 为常数），坐标系 $Oxy$ 如图所示。试求小环自 $x=2a$ 处自由滑至钢丝的最低点 $O$ 时的速度以及小环此时所受的约束力。（曲率 $\\kappa=\\dfrac{y''}{(1+y'^2)^{3/2}}$）</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch72_idx341_0.png"
+   ],
+   "answer": "<p>$v=\\sqrt{2ga}$，约束力 $N=2mg$</p>",
+   "explanation": "<p>【AI 生成】(1) 由 $x^2=4ay$ 得 $y=\\dfrac{x^2}{4a}$，当 $x=2a$ 时 $y=a$。小环由 $y=a$ 滑至最低点 $y=0$，光滑约束不作功，机械能守恒：$$\\frac{1}{2}mv^2=mga,$$ 故 $v=\\sqrt{2ga}$。<br>(2) 在最低点 $x=0$，$y'=0$，$y''=\\dfrac{1}{2a}$，曲率半径 $$\\rho=\\frac{(1+y'^2)^{3/2}}{|y''|}=2a。$$ 小环在该处作圆周运动，法向加速度向上：$$N-mg=m\\frac{v^2}{\\rho}=m\\frac{2ga}{2a}=mg,$$ 故约束力 $N=2mg$。</p>"
+  },
+  {
+   "overview": "受指向原点的线性力质点的轨迹",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "medium",
+   "content": "<p>图示质点 $M$ 的质量为 $m$，受指向原点 $O$ 的力 $F=kr$ 作用，力与质点到点 $O$ 的距离成正比。如初瞬时质点的坐标为 $x=x_0$，$y=0$，而速度分量为 $v_x=0$，$v_y=v_0$，求质点 $M$ 的轨迹。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch72_idx341_0.png"
+   ],
+   "answer": "<p>轨迹为椭圆：$\\dfrac{x^2}{x_0^2}+\\dfrac{k}{mv_0^2}y^2=1$</p>",
+   "explanation": "<p>【AI 生成】力指向原点，$\\vec{F}=-k\\vec{r}$，故运动微分方程为 $$m\\ddot{x}=-kx,\\qquad m\\ddot{y}=-ky,$$ 即 $\\ddot{x}+\\omega^2x=0$、$\\ddot{y}+\\omega^2y=0$，其中 $\\omega=\\sqrt{k/m}$。由初始条件 $x(0)=x_0,\\ \\dot{x}(0)=0$ 得 $x=x_0\\cos\\omega t$；由 $y(0)=0,\\ \\dot{y}(0)=v_0$ 得 $y=\\dfrac{v_0}{\\omega}\\sin\\omega t$。消去 $t$：$$\\frac{x^2}{x_0^2}+\\frac{\\omega^2y^2}{v_0^2}=1,$$ 即轨迹为椭圆 $$\\frac{x^2}{x_0^2}+\\frac{k}{mv_0^2}y^2=1。$$</p>"
+  },
+  {
+   "overview": "跨过滑轮两重物达同高度所需时间",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学"
+   ],
+   "difficulty": "easy",
+   "content": "<p>如图所示，两物体各重 $P_1$ 和 $P_2$，用长为 $l$ 的绳连接，此绳跨过一半径为 $r$ 的滑轮。如开始时两物体的高差为 $h$，且 $P_1>P_2$，不计滑轮与绳的质量，求由静止释放后，两物体达到相同高度时所需的时间。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch72_idx341_0.png"
+   ],
+   "answer": "<p>$t=\\sqrt{\\dfrac{h(P_1+P_2)}{g(P_1-P_2)}}$</p>",
+   "explanation": "<p>【AI 生成】两物体由同一根绳连接，加速度大小相同。设绳的拉力为 $T$，对 $P_1$、$P_2$ 分别有 $$\\frac{P_1}{g}a=P_1-T,\\qquad \\frac{P_2}{g}a=T-P_2。$$ 两式相加消去 $T$ 得 $$a=\\frac{P_1-P_2}{P_1+P_2}g。$$ 两物体高差由 $h$ 减为零，各自需移动 $s=\\dfrac{h}{2}$。由 $s=\\dfrac{1}{2}at^2$ 得 $$t=\\sqrt{\\frac{2s}{a}}=\\sqrt{\\frac{h(P_1+P_2)}{g(P_1-P_2)}}。$$</p>"
+  },
+  {
+   "overview": "卷筒刹车时钢索最大伸长量",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学",
+    "振动"
+   ],
+   "difficulty": "medium",
+   "content": "<p>卷扬机使质量为 $m$ 的重物 $M$ 以匀速 $v$ 下降，若钢索的弹性系数为 $k$，求当卷筒突然刹车时，钢索的最大伸长量。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch73_idx342_0.png"
+   ],
+   "answer": "<p>$\\delta_{\\max}=\\dfrac{mg}{k}+v\\sqrt{\\dfrac{m}{k}}$</p>",
+   "explanation": "<p>【AI 生成】匀速下降时钢索的静伸长量为 $\\delta_{st}=\\dfrac{mg}{k}$。以静平衡位置为参考点，刹车后重物作简谐振动，振幅 $A$ 由动能全部转化为弹性势能确定：$$\\frac{1}{2}mv^2=\\frac{1}{2}kA^2,\\qquad A=v\\sqrt{\\frac{m}{k}}。$$ 故钢索的最大伸长量 $$\\delta_{\\max}=\\delta_{st}+A=\\frac{mg}{k}+v\\sqrt{\\frac{m}{k}}。$$</p>"
+  },
+  {
+   "overview": "小球沿半圆柱下滑的运动微分方程与脱离角",
+   "question_type": "计算题",
+   "knowledge_points": [
+    "质点动力学",
+    "机械能守恒"
+   ],
+   "difficulty": "medium",
+   "content": "<p>图示小球（不计大小）从半径为 $R$ 的光滑半圆柱体的顶点无初速地沿柱体下滑。列出小球沿圆柱体的运动微分方程，并求小球脱离圆柱体时的角度 $\\theta$。</p><img src=\"[[FIG1]]\">",
+   "figures": [
+    "题库/figures/ch73_idx342_0.png"
+   ],
+   "answer": "<p>运动微分方程：$R\\ddot{\\theta}=g\\sin\\theta$；脱离角 $\\theta=\\arccos\\dfrac{2}{3}\\approx48.2^\\circ$</p>",
+   "explanation": "<p>【AI 生成】设 $\\theta$ 为小球偏离顶点（铅垂线）的角度，切向运动方程 $$mR\\ddot{\\theta}=mg\\sin\\theta,$$ 即 $R\\ddot{\\theta}=g\\sin\\theta$。由机械能守恒，小球自顶点滑至角 $\\theta$ 处 $$\\frac{1}{2}mv^2=mgR(1-\\cos\\theta),\\qquad v^2=2gR(1-\\cos\\theta)。$$ 法向方向有 $mg\\cos\\theta-N=m\\dfrac{v^2}{R}$，脱离圆柱面时 $N=0$：$$mg\\cos\\theta=m\\frac{2gR(1-\\cos\\theta)}{R},$$ 即 $\\cos\\theta=2(1-\\cos\\theta)$，解得 $$\\cos\\theta=\\frac{2}{3},\\qquad \\theta=\\arccos\\frac{2}{3}\\approx48.2^\\circ。$$</p>"
+  }
+ ]
+}

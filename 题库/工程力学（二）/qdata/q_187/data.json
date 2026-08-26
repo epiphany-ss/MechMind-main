@@ -1,0 +1,18 @@
+{
+  "id": "q_187",
+  "overview": "求受迫振动中振幅最大的装置",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>已知质量 $m=200\\,\\mathrm{kg}$，弹簧刚度 $k=100\\,\\mathrm{N/cm}$，设地面振动可表示为 $y=0.1\\sin(10t)$（$y$ 以 cm、$t$ 以 s 计）。则&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 图(a)装置振幅最大；&nbsp;&nbsp;(B) 图(b)装置振幅最大；<br>(C) 图(c)装置振幅最大；&nbsp;&nbsp;(D) 三种装置振动情况一样。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】$k=100\\,\\mathrm{N/cm}=10^4\\,\\mathrm{N/m}$。图(a)单弹簧：$\\omega_a=\\sqrt{k/m}=\\sqrt{10^4/200}=7.07\\,\\mathrm{rad/s}$；图(b)两弹簧并联：$k_b=2k$，$\\omega_b=\\sqrt{2k/m}=\\sqrt{2\\times10^4/200}=10\\,\\mathrm{rad/s}$，恰等于激振频率 $p=10\\,\\mathrm{rad/s}$，发生共振，振幅最大；图(c)四弹簧并联：$\\omega_c=\\sqrt{4k/m}=14.14\\,\\mathrm{rad/s}$，远离共振。故选 B。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册"
+}

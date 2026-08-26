@@ -1,0 +1,25 @@
+{
+  "id": "q_060",
+  "overview": "沿墙滑下的杆求动量动能动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "动量矩定理",
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>均质杆 $AB$，长 $2l$，质量为 $m$，沿竖直墙滑下，在图示瞬时质心 $C$ 的速度为 $v_C$，且沿 $BA$ 杆方向，则杆在该瞬时：<br>(A) 动量 $\\boldsymbol{P}=$____；<br>(B) 动能 $T=$____；<br>(C) 对 $A$ 点动量矩的大小 $L_A=$____。</p><img src=\"qdata/q_060/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\boldsymbol{P}=mv_C$（方向沿 $BA$）；$T=\\dfrac{2}{3}mv_C^2$；$L_A=\\dfrac{4}{3}mlv_C$</p>",
+  "explanation": "<p>【AI 生成】杆 $A$ 端沿铅垂墙、$B$ 端沿水平面，图示 $45^\\circ$ 且 $v_C$ 沿杆向。速度瞬心 $I$ 与 $C$ 相距 $l$，故 $\\omega=v_C/l$。<br>(A) $\\boldsymbol{P}=m\\boldsymbol{v}_C$，大小为 $mv_C$，方向沿 $BA$。<br>(B) $T=\\frac12mv_C^2+\\frac12\\cdot\\frac{m(2l)^2}{12}\\omega^2=\\frac12mv_C^2+\\frac16mv_C^2=\\frac23mv_C^2$。<br>(C) $\\boldsymbol{v}_C$ 的作用线过 $A$ 点，其动量对 $A$ 之矩为零，故 $L_A=J_A\\omega=\\frac{m(2l)^2}{3}\\cdot\\frac{v_C}{l}=\\frac43mlv_C$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "沿墙滑下的杆求动量动能动量矩",
+  "module": "动力学"
+}

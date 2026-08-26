@@ -1,0 +1,23 @@
+{
+  "id": "q_083",
+  "overview": "定滑轮弹簧系统求最大位移与最大变形",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "机械能守恒",
+    "转动惯量",
+    "振动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>定滑轮重为 $Q$，半径为 $R$，可视为均质圆盘，弹簧刚度系数为 $k$，物块 $A$ 重为 $P$。设在系统的平衡位置给 $A$ 一向下的初速度 $v_0$，求物块 $A$ 的最大位移 $y_{\\max}$ 及此时弹簧的最大变形量 $\\delta_{\\max}$。</p><img src=\"qdata/q_083/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$y_{\\max}=v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$；$\\delta_{\\max}=\\dfrac{P}{k}+v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 绳跨过定滑轮（1:1），$A$ 下降 $y$ 时弹簧伸长 $y$，$v_A=R\\omega$。<br>(2) 动能：$T=\\frac12\\frac{P}{g}v^2+\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\left(\\frac vR\\right)^2=\\dfrac{2P+Q}{4g}v^2$。<br>(3) 以静平衡位置为零势能点，势能 $V=\\frac12ky^2$（重力与弹簧力线性项抵消）。<br>(4) 机械能守恒：$\\dfrac{2P+Q}{4g}v_0^2=\\frac12ky_{\\max}^2$，故 $y_{\\max}=v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$。<br>(5) 静平衡时弹簧已有变形 $P/k$（弹簧承受 $A$ 之重），故 $\\delta_{\\max}=\\dfrac{P}{k}+y_{\\max}=\\dfrac{P}{k}+v_0\\sqrt{\\dfrac{2P+Q}{2gk}}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册"
+}

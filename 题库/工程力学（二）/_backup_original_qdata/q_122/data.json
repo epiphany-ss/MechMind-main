@@ -1,0 +1,18 @@
+{
+  "id": "q_122",
+  "overview": "斜面上圆柱体的加速度与绳拉力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图，一均质圆柱体，其质量为 $m$，半径为 $r$，放在倾角为 $60°$ 的斜面上，一细绳绕在圆柱体上，其一端固定于 $A$ 点，绳的引出部分与斜面平行。如果圆柱体与斜面间的摩擦因数为 $f=1/3$。试用动静法求圆柱体的质心 $C$ 沿斜面落下的加速度及绳的拉力。</p>",
+  "answer": "<p>$a_C=0.356g$，$F_T=0.344mg$</p>",
+  "explanation": "<p>【AI 生成】绳一端固定，圆柱沿斜面滚下时绳在柱上无滑动，故 $a_C=r\\alpha$。柱沿斜面受力：重力分量 $mg\\sin60°$、绳拉力 $F_T$、摩擦力 $F_f$（因 $fN=\\dfrac{1}{3}mg\\cos60°=\\dfrac{mg}{6}<\\dfrac{2}{3}mg\\sin60°$，柱与斜面间发生滑动，$F_f=fN=\\dfrac{mg}{6}$）。沿斜面方向：$mg\\sin60°-F_T-F_f=ma_C$；对质心取矩：$(F_T-F_f)r=\\dfrac{1}{2}mr^2\\alpha=\\dfrac{1}{2}mra_C$。联立解得 $a_C=\\dfrac{2}{3}g\\left(\\dfrac{\\sqrt{3}}{2}-\\dfrac{1}{3}\\right)=0.356g$，$F_T=F_f+\\dfrac{1}{2}ma_C=0.344mg$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

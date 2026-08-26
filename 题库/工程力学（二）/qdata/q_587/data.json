@@ -1,0 +1,22 @@
+{
+  "id": "q_587",
+  "overview": "求斜面上绕绳圆轮匀速下滚时绳的拉力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>匀质圆轮如图，已知：重P、半径为R，绳绕在轮上（自由端固定于斜面上方，绳的倾斜段与斜面平行），轮和斜面间的滑动摩擦系数为$f_s$，斜面倾角为$\\beta$，且$\\tan\\beta&gt;2f_s$。试求圆轮沿斜面下滚时绳子的拉力$F_T$。</p><img src=\"qdata/q_587/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F_T=\\dfrac{P}{3}\\left(\\sin\\beta+f_s\\cos\\beta\\right)$</p>",
+  "explanation": "<p>【AI 生成】因$\\tan\\beta&gt;2f_s$，圆轮不能静止，沿斜面下滑并绕绳滚动。设轮心加速度$a$（沿斜面向下），角加速度$\\alpha$（顺时针），绳端固定则轮顶（出绳点）速度为零，约束$a=\\alpha R$。摩擦力为滑动摩擦力$F_f=f_sP\\cos\\beta$（沿斜面向上）。对轮心列方程：平移$$\\frac{P}{g}a=P\\sin\\beta-F_f-F_T$$转动$$F_TR-F_fR=\\frac{1}{2}\\frac{P}{g}R^2\\alpha\\Rightarrow F_T-F_f=\\frac{1}{2}\\frac{P}{g}a$$联立得$$F_T=\\frac{P}{3}(\\sin\\beta+f_s\\cos\\beta)$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

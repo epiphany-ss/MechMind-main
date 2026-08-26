@@ -1,0 +1,18 @@
+{
+  "id": "q_174",
+  "overview": "求直角钢尺受两力时的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力",
+    "虚位移"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>直角钢尺 $AOB$ 的边长分别为 $OA=a$，$OB=3a$，$A$、$B$ 两点分别作用有力 $\\boldsymbol F_A$ 和 $\\boldsymbol F_B$，方向如图。若取 $\\varphi$ 为广义坐标，则相应的广义力为____。</p>",
+  "answer": "<p>$Q_\\varphi=F_A a+3F_B a$</p>",
+  "explanation": "<p>【AI 生成】钢尺绕 $O$ 转动，虚位移 $\\delta\\varphi$ 下 $A$、$B$ 两点的位移分别为 $a\\delta\\varphi$ 与 $3a\\delta\\varphi$，两力作虚功 $\\delta W=F_A a\\delta\\varphi+F_B\\cdot 3a\\delta\\varphi$，故 $Q_\\varphi=F_A a+3F_B a$（若两力转向相反，则相应取负号）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

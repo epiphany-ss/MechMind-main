@@ -1,0 +1,20 @@
+{
+  "id": "q_388",
+  "overview": "求圆周运动某时刻加速度的大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>点沿半径 $R=50$cm 的圆周运动，已知点的运动规律为 $S=Rt^3$（cm），则当 $t=1$s 时，该点的加速度的大小为 。</p>",
+  "answer": "<p>$a=50\\sqrt{117}\\,\\mathrm{cm/s^2}\\approx 5.41\\,\\mathrm{m/s^2}$</p>",
+  "explanation": "<p>【AI 生成】$v=\\dot S=3Rt^2$，$a_\\tau=\\dot v=6Rt$。$t=1$s 时 $v=150$ cm/s，$a_\\tau=300$ cm/s$^2$，$a_n=v^2/R=450$ cm/s$^2$。$a=\\sqrt{a_\\tau^2+a_n^2}=\\sqrt{300^2+450^2}=50\\sqrt{117}\\approx540.8$ cm/s$^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "求圆周运动某时刻加速度的大小",
+  "module": "运动学"
+}

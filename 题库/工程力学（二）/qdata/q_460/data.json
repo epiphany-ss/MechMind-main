@@ -1,0 +1,21 @@
+{
+  "id": "q_460",
+  "overview": "求平行四边形机构中动点牵连速度与AB杆的夹角",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>平行四边形机构，在图示瞬时，杆 $O_1A$ 以角速度 $\\omega$ 转动。滑块M相对AB杆运动，若取M点为动点，AB为动坐标，则该瞬时动点的牵连速度与杆AB间的夹角为______。</p>\n<p>(A) $0^\\circ$；&nbsp;&nbsp;(B) $30^\\circ$；&nbsp;&nbsp;(C) $60^\\circ$；&nbsp;&nbsp;(D) $90^\\circ$。</p><img src=\"qdata/q_460/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】平行四边形机构中 $AB$ 杆作平动，其上各点速度相同，均为 $O_1A$ 杆端点A的速度，方向垂直于 $O_1A$。$O_1A$ 与 $AB$（水平线）夹角为 $60^\\circ$，故牵连速度与 $AB$ 的夹角为 $90^\\circ-60^\\circ=30^\\circ$，选(B)。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册"
+}

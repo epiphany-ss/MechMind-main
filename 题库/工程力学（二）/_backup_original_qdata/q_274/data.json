@@ -1,0 +1,17 @@
+{
+  "id": "q_274",
+  "overview": "求曲杆四力向B点简化及最简形式",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>曲杆 $OABCD$ 的 $OB$ 段与 $y$ 轴重合，$BC$ 段与 $x$ 轴平行，$CD$ 段与 $z$ 轴平行，已知：$F_1=50\\text{N}$，$F_2=50\\text{N}$，$F_3=100\\text{N}$，$F_4=100\\text{N}$，$L_1=100\\text{mm}$，$L_2=75\\text{mm}$。试求以 $B$ 点为简化中心将此四个力简化成最简单的形式，并确定其位置。</p>",
+  "answer": "<p>向 $B$ 点简化：$\\boldsymbol{F}_R'=(50\\boldsymbol{i}+50\\boldsymbol{j})\\,\\text{N}$，主矩 $\\boldsymbol{M}_B=2.5\\,\\boldsymbol{i}\\,\\text{N·m}$；最终为一力螺旋。</p>",
+  "explanation": "<p>【AI 生成】由曲杆几何，$O$ 在 $y$ 轴上，$B$ 为简化中心。各力作用线沿杆段方向（$F_1$ 沿 $y$、$F_2$ 沿 $x$、$F_3$ 沿 $z$、$F_4$ 沿 $y$ 等）。主矢 $$\\boldsymbol{F}_R'=\\sum\\boldsymbol{F}_i=(50\\boldsymbol{i}+50\\boldsymbol{j})\\,\\text{N}$$ 对 $B$ 点主矩由各力对 $B$ 之矩合成：$\\boldsymbol{M}_B=\\sum\\boldsymbol{r}_i\\times\\boldsymbol{F}_i$，得 $\\boldsymbol{M}_B=2.5\\boldsymbol{i}\\,\\text{N·m}$。因主矢与主矩不垂直（$\\boldsymbol{F}_R'\\cdot\\boldsymbol{M}_B=50\\times2.5+50\\times0\\ne0$），故最简结果为力螺旋。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

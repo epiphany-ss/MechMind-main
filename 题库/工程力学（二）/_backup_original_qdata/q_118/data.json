@@ -1,0 +1,18 @@
+{
+  "id": "q_118",
+  "overview": "圆盘起动瞬时A处作用力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示系统位于铅直面内，匀质细杆 $AB$ 被焊接在匀质圆盘的切线向。已知：圆盘半径为 $r$，杆长为 $L$、质量为 $m$。杆 $AB$ 处于水平位置。试用动静法求图示位置圆盘以匀角加速度 $\\alpha$ 开始转动瞬时，$A$ 处由于转动引起的力。</p>",
+  "answer": "<p>$F_{Ax}=mr\\alpha$，$F_{Ay}=mg-\\dfrac{1}{2}mL\\alpha$，$M_A=\\dfrac{1}{2}mgL-\\dfrac{1}{3}mL^2\\alpha$</p>",
+  "explanation": "<p>【AI 生成】该瞬时 $\\omega=0$，$A$ 点加速度 $a_A=r\\alpha$（沿杆向），杆质心 $C$ 加速度 $a_C=(\\alpha r,\\;-\\dfrac{L}{2}\\alpha)$。杆的惯性力 $F_I=-ma_C$，惯性力偶 $M_{IC}=-\\dfrac{1}{12}mL^2\\alpha$。对杆 $AB$ 用动静法列平衡方程：由 $\\sum F_x=0$ 得 $F_{Ax}=mr\\alpha$；由 $\\sum F_y=0$ 得 $F_{Ay}=mg-\\dfrac{1}{2}mL\\alpha$；由对 $A$ 取矩得 $M_A=\\dfrac{1}{2}mgL-\\dfrac{1}{3}mL^2\\alpha$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

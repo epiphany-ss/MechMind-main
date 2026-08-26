@@ -1,0 +1,20 @@
+{
+  "id": "q_188",
+  "overview": "判断改变自由振动频率的措施",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>一个弹簧—质量系统，在线性恢复力作用下作自由振动，今欲改变其频率，可采取如下措施&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。<br>(A) 改变物体质量或改变弹簧刚度；<br>(B) 改变初始条件；<br>(C) 改变以下三种状态的任意一种：物体质量、弹簧刚度、初始条件。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】自由振动固有频率 $\\omega_n=\\sqrt{k/m}$ 仅取决于质量和弹簧刚度，与初始条件无关，故选 A。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "判断改变自由振动频率的措施",
+  "module": "动力学"
+}

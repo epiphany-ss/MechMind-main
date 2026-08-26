@@ -1,0 +1,21 @@
+{
+  "id": "q_194",
+  "overview": "求杆轮重物组合系统的固有频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "动能定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示振动系统中，已知：均质细杆 AB 的质量为 $m_1$，弹簧的刚性系数为 $k$，均质圆轮 O 的质量为 $m_2$，重物 D 质量为 $m_3$。当系统处于静平衡位置时，杆 AB 沿铅垂方向。试求该系统微振动的固有频率。</p><img src=\"qdata/q_194/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_n=\\sqrt{\\dfrac{k}{m_1/3+m_2/2+m_3}}$</p>",
+  "explanation": "<p>【AI 生成】设杆 AB 绕 A 端铰支作微小转动，转角为 $\\theta$（以静平衡位置为基准），杆端 B 的水平位移近似为 $L\\theta$。弹簧伸长量 $\\Delta=L\\theta$，势能 $V=\\frac{1}{2}kL^2\\theta^2$。杆绕 A 端转动惯量 $J_A=\\frac{1}{3}m_1L^2$；绳随 B 端移动，$\\dot{x}=L\\dot{\\theta}$，圆轮角速度 $\\dot{\\phi}=\\dot{x}/r=L\\dot{\\theta}/r$，$J_O=\\frac{1}{2}m_2r^2$。动能$$T=\\frac{1}{2}J_A\\dot{\\theta}^2+\\frac{1}{2}J_O\\dot{\\phi}^2+\\frac{1}{2}m_3\\dot{x}^2=\\frac{L^2}{2}\\left(\\frac{m_1}{3}+\\frac{m_2}{2}+m_3\\right)\\dot{\\theta}^2$$由能量守恒 $\\omega_n^2=\\dfrac{V}{\\frac{1}{2}J_{eq}\\dot{\\theta}^2}$，得$$\\omega_n=\\sqrt{\\frac{k}{m_1/3+m_2/2+m_3}}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册"
+}

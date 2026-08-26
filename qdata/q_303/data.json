@@ -1,0 +1,22 @@
+{
+  "id": "q_303",
+  "overview": "判断桁架零杆并求杆6内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "桁架"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>图示桁架结构中，能直接判断为零杆的杆件为____；杆 6 的内力为____。</p><img src=\"qdata/q_303/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>零杆为不受荷载且处于“T 形”节点处的杆件（如杆 1、杆 2 等）；杆 6 的内力由截面法求得。</p>",
+  "explanation": "<p>【AI 生成】判断零杆的两个依据：①两杆节点无外力时两杆皆为零杆；②三杆节点中两杆共线、无外力时，第三杆为零杆。杆 6 用截面法截开，对恰当取矩点列力矩平衡方程即可求其内力（数值随图中尺寸与荷载而定）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "判断桁架零杆并求杆6内力",
+  "module": "静力学"
+}

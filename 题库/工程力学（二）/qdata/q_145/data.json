@@ -1,0 +1,19 @@
+{
+  "id": "q_145",
+  "overview": "平行四边形支承三角板平衡时水平力F",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "虚功"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>右下图所示系统，重P=200N的三角形板，用等长杆 $O_1A$、$O_2B$ 支持着。设 $O_1O_2=AB$，杆重及摩擦不计。若能使三角形板在角 $\\theta=30^\\circ$ 时保持平衡，则水平力F的大小应为____。</p>",
+  "answer": "<p>$F=P\\tan\\theta=200\\tan30^\\circ=\\dfrac{200}{\\sqrt{3}}\\approx115.5$ N</p>",
+  "explanation": "<p>【AI 生成】$O_1O_2=AB$ 且 $O_1A=O_2B$，构成平行四边形机构，三角形板作平动。给杆一虚转角 $\\delta\\theta$，板（连同重心）的铅垂虚位移为 $L\\sin\\theta\\,\\delta\\theta$，水平虚位移为 $L\\cos\\theta\\,\\delta\\theta$。虚功方程 $F\\cdot L\\cos\\theta\\,\\delta\\theta-P\\cdot L\\sin\\theta\\,\\delta\\theta=0$，得 $F=P\\tan\\theta=\\dfrac{200}{\\sqrt{3}}\\approx115.5$ N。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

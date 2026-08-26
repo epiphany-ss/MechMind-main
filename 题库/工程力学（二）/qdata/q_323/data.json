@@ -1,0 +1,21 @@
+{
+  "id": "q_323",
+  "overview": "求组合结构A、B约束力及1、2杆内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "桁架"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面组合结构。已知：$q=30$kN/m，$M=120$kN·m，$L=2$m。A 为固定铰支座，B 为滚动铰支座，杆 1、2 为二力杆。试求 A、B 处约束力及 1、2 两杆的内力。</p><img src=\"qdata/q_323/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_B=\\dfrac{qL^2/2+M}{2L}=\\dfrac{30\\times4/2+120}{4}=45$kN（↑）；$R_A=15$kN（↑），$R_{Ax}=0$；杆 1、2 内力由截面法结合节点平衡求得。</p>",
+  "explanation": "<p>【AI 生成】取含 B 的附属梁：均布载荷合力 $Q=qL=60$kN 作用于中点，力偶 $M=120$kN·m。对 A 取矩：$2L R_B=Q\\cdot\\frac{L}{2}+M\\Rightarrow R_B=\\frac{60\\times1+120}{4}=45$kN。整体 $\\sum F_y=0$：$R_A=60-45=15$kN。再用截面法截断杆 1、2，对合适矩心列力矩方程即得两杆内力。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

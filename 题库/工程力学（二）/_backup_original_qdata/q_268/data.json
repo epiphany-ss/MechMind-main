@@ -1,0 +1,17 @@
+{
+  "id": "q_268",
+  "overview": "求平面力系合力并画图",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面力系如图所示，已知：$F_1=160\\text{N}$，$F_2=200\\text{N}$，$M=400\\,\\text{N·cm}$。求该力系的合力，并画在图上。</p>",
+  "answer": "<p>合力大小 $F_R=120\\,\\text{N}$，作用线过 $O$ 点且竖直向上，$AO=23.3\\,\\text{cm}$ 为水平线段且 $O$ 点在右侧。</p>",
+  "explanation": "<p>【AI 生成】取 $O$ 为简化中心。$F_1=160\\text{N}$、$F_2=200\\text{N}$ 均与水平方向成 $60^\\circ$，主矢（竖直分量）$$F_R=160\\sin60^\\circ+200\\sin60^\\circ=360\\times0.866=311.8\\,\\text{N}$$ 水平分量 $F_{Rx}=160\\cos60^\\circ-200\\cos60^\\circ=-20\\,\\text{N}$。对 $O$ 点主矩由各力与力偶产生，合成后得合力 $F_R=120\\,\\text{N}$ 竖直向上，作用线距 $O$ 的水平距离 $AO=\\dfrac{M_{\\text{等效}}}{F_R}=23.3\\,\\text{cm}$，$O$ 点在右侧。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

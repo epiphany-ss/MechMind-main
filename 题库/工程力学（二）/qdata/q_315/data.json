@@ -1,0 +1,18 @@
+{
+  "id": "q_315",
+  "overview": "求三支承刚架A、B、D约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示刚架，已知：$F=50$kN，$q=10$kN/m，$a=3$m，各构件自重不计。刚架为静定结构：A 为固定铰支座，B、D 为滚动铰支座，C 处为中间铰，梁段 CB=a，悬臂段 BD=2a。求刚架的支座 A、B、D 三处的约束力（B、D 两处为滚动铰支座）。</p>",
+  "answer": "<p>$R_D=50$kN（↑），$R_B=45$kN（↑），$R_A=15$kN（↓），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】设梁 A-B-C-D：AB=BC=a=3m，CD=2a=6m；A 铰、B 滚支、D 滚支，C 中间铰。均布载荷 q 作用于 BC 段（合力 30kN，位于 BC 中点），F=50kN 铅垂作用于 D 端。①取 CD 段：$\\sum M_C=0$，$R_D\\cdot6-F\\cdot6=0\\Rightarrow R_D=50$kN。②取 ABC 段：对 A 取矩 $-30\\times4.5+R_B\\times3=0\\Rightarrow R_B=45$kN。③$\\sum F_y=0$：$R_A+45+50-30-50=0\\Rightarrow R_A=-15$kN（向下）。$\\sum F_x=0$ 得 $R_{Ax}=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_552",
+  "overview": "求制动后平板车与小车的共同速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "easy",
+  "content": "<p>如图，质量$M$的平板车A以速度$v_0$移动，质量$m$的小车B以相对速度$u_0$沿平板车匀速运动。某瞬时制动小车，求小车在平板车上停下后，平板车和小车的共同速度$v$。</p>",
+  "answer": "<p>$$v=v_0+\\frac{m}{M+m}u_0$$<br>（$u_0$与$v_0$同向时取正；若$u_0$与$v_0$反向，则$v=v_0-\\dfrac{m}{M+m}u_0$。）</p>",
+  "explanation": "<p>【AI 生成】制动前小车B的绝对速度 $v_B=v_0+u_0$。制动过程中水平方向无外力，系统动量守恒：<br>$$Mv_0+m(v_0+u_0)=(M+m)v$$<br>解得<br>$$v=\\frac{Mv_0+m(v_0+u_0)}{M+m}=v_0+\\frac{m}{M+m}u_0$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "求制动后平板车与小车的共同速度",
+  "module": "动力学"
+}

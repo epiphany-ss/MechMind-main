@@ -1,0 +1,450 @@
+{
+  "chapter": 12,
+  "category": "分析力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断理想约束的定义是否正确",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "easy",
+      "content": "<p>所谓理想约束，是指在任何虚位移中，约束力所做虚功之和等于零的约束。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】理想约束的定义正是：约束力在质点系任何虚位移中所作虚功之和等于零。光滑接触面、光滑铰链、无重刚杆、不可伸长的柔索等均为理想约束，虚位移原理仅对理想约束系统成立。</p>"
+    },
+    {
+      "overview": "判断虚位移的性质",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "虚位移"
+      ],
+      "difficulty": "easy",
+      "content": "<p>质点系的虚位移是由约束条件所决定的，具有任意性，与所受力及时间无关。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】虚位移是在给定瞬时、为约束所允许的假想无限小位移，它只由约束条件决定，在满足约束的前提下可任意给定（数目等于自由度数），与主动力及时间的变化无关。</p>"
+    },
+    {
+      "overview": "判断虚位移原理是否给出平衡的充要条件",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>虚位移原理与静力学平衡方程都给出了质点系平衡的充分必要条件。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】虚位移原理（虚功原理）指出：具有理想约束的质点系平衡的充要条件是所有主动力在任一虚位移上所作虚功之和为零，即 $\\sum\\boldsymbol F_i\\cdot\\delta\\boldsymbol r_i=0$。它与静力学平衡方程等价，且对任意质点系（包括非自由质点系）都成立。</p>"
+    },
+    {
+      "overview": "判断完整约束下自由度与独立参数关系",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "广义坐标"
+      ],
+      "difficulty": "easy",
+      "content": "<p>在完整约束条件下，质点系的自由度数等于确定质点系位置的独立参数的个数。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】在完整约束条件下，质点系的自由度数 $k$ 等于确定系统位置所需的独立参数的个数，即独立广义坐标的个数：$k=3n-s$（$n$ 为质点数，$s$ 为独立完整约束方程数）。</p>"
+    },
+    {
+      "overview": "判断约束与约束方程的含义",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "约束分类"
+      ],
+      "difficulty": "easy",
+      "content": "<p>对质点系的运动所加的限制条件为约束，表示这种限制条件的数值方程称为约束方程。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】约束是对质点系中各质点位置或速度所施加的限制条件，其数学表达式（等式或不等式）即约束方程，如 $f(x_i,y_i,z_i,t)=0$。</p>"
+    },
+    {
+      "overview": "判断定常约束的定义",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "约束分类"
+      ],
+      "difficulty": "easy",
+      "content": "<p>定常约束是约束方程中不显含时间t的约束。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】约束方程 $f(x_i,y_i,z_i)=0$ 中不显含时间 $t$ 的约束称为定常约束（稳定约束）；若约束方程中显含时间 $t$，则称为非定常约束。</p>"
+    },
+    {
+      "overview": "确定图示系统的自由度数",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "广义坐标"
+      ],
+      "difficulty": "medium",
+      "content": "<p>试确定图示系统的自由度数 $K$。图(a) $K=$____；图(b) $K=$____。<br>(A) 0；<br>(B) 1；<br>(C) 2；<br>(D) 3。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch110_idx506_0.png"
+      ],
+      "answer": "<p>图(a) $K=2$；图(b) $K=1$（对应选项 C、B）</p>",
+      "explanation": "<p>【AI 生成】图(a)为由六根等长刚杆铰接而成的双平行四边形（菱形链）机构，两条四连杆链各有一个自由度，故自由度数 $K=2$，确定位置需两个独立参数；图(b)为单自由度平面铰链机构，$K=1$。</p>"
+    },
+    {
+      "overview": "六根等长刚杆系统的独立广义坐标",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "广义坐标"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在铅垂面内，由六根等长刚杆铰接而成的系统，其独立的一组广义坐标为____。<br>(A) $x_B$、$x_C$；<br>(B) $\\varphi_1$、$\\varphi_4$；<br>(C) $\\varphi_1$、$x_A$、$x_D$；<br>(D) $\\varphi_1$、$x_B$、$x_C$；<br>(E) $\\varphi_1$、$\\varphi_2$、$\\varphi_3$、$\\varphi_4$。</p>",
+      "figures": [],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】六根等长刚杆分成两组独立的四连杆（菱形）链，系统自由度为 2，独立广义坐标的数目应为 2。其中 $\\varphi_1$、$\\varphi_4$ 分别为两链的第一根杆与铅垂线的夹角，二者独立，可完整描述系统位置；故答案选 B。</p>"
+    },
+    {
+      "overview": "解除B支座后B、D两点虚位移之比",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>为了用虚位移原理求解系统B处反力，则需将B支座解除，代以适当的约束力，其时B点的虚位移与D点的虚位移大小之比 $\\delta r_B:\\delta r_D=$____。<br>(A) 1:1；<br>(B) 1:2；<br>(C) 2:1；<br>(D) 4:3；<br>(E) 3:2。</p>",
+      "figures": [],
+      "answer": "<p>E（$\\delta r_B:\\delta r_D=3:2$）</p>",
+      "explanation": "<p>【AI 生成】解除B支座后系统变为单自由度机构，作虚位移图，由各构件的转动中心与杠杆比例关系可得 $\\delta r_B:\\delta r_D=3:2$，故答案选 E。</p>"
+    },
+    {
+      "overview": "求A、C两点虚位移大小之比",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>在图示系统中，A点的虚位移大小 $\\delta r_A$ 与C点的虚位移大小 $\\delta r_C$ 的比值 $\\delta r_A:\\delta r_C=$____。<br>(A) $\\dfrac{l\\cos\\theta}{H}$；<br>(B) $\\dfrac{l}{H\\cos\\theta}$；<br>(C) $\\dfrac{H\\cos\\theta}{l}$；<br>(D) $\\dfrac{lH}{\\cos\\theta}$。</p>",
+      "figures": [],
+      "answer": "<p>A（$\\delta r_A:\\delta r_C=\\dfrac{l\\cos\\theta}{H}$）</p>",
+      "explanation": "<p>【AI 生成】由机构几何关系，A、C两点分别绕各自的转动中心作微小转动，两点虚位移之比等于它们到转动中心距离之比（或由速度投影定理），结合尺寸 $l$、$H$ 与角度 $\\theta$ 化简得 $\\delta r_A:\\delta r_C=\\dfrac{l\\cos\\theta}{H}$。</p>"
+    },
+    {
+      "overview": "机构在45度瞬时B、D点虚位移",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "虚位移"
+      ],
+      "difficulty": "medium",
+      "content": "<p>机构在图示瞬时有 $\\theta=\\varphi=45^\\circ$，若A点的虚位移为 $\\delta r_A$，则B点虚位移的大小 $\\delta r_B=$____，OC杆中点D虚位移的大小 $\\delta r_D=$____。<br>(A) $\\delta r_A$；<br>(B) $0.5\\,\\delta r_A$；<br>(C) $2\\,\\delta r_A$；<br>(D) $0$。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch111_idx509_0.png"
+      ],
+      "answer": "<p>$\\delta r_B=2\\delta r_A$（C）；$\\delta r_D=0$（D）</p>",
+      "explanation": "<p>【AI 生成】在 $\\theta=\\varphi=45^\\circ$ 这一特殊瞬时，由各刚杆的速度投影关系与瞬时中心法可得 B 点虚位移大小为 A 点的 2 倍；OC 杆此时处于瞬时平动转动的特殊位置，其中点 D 的虚位移为零。</p>"
+    },
+    {
+      "overview": "滑轮系统A、B两点虚位移的关系",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移",
+        "虚功"
+      ],
+      "difficulty": "medium",
+      "content": "<p>左下图示滑轮系统中，A、B两点虚位移之间的关系是____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch111_idx510_0.png"
+      ],
+      "answer": "<p>$\\delta r_A:\\delta r_B=1:2$，且方向相反（即 $\\delta r_A=-\\dfrac{1}{2}\\delta r_B$）</p>",
+      "explanation": "<p>【AI 生成】利用绳不可伸长及滑轮约束关系（动滑轮轴心的虚位移等于绕过动滑轮自由端虚位移之半），建立各段绳长变分关系，得 A、B 两点虚位移大小之比为 1:2，方向相反。若图中 A、B 处挂重 $2P$ 与 $P$，则该关系与 $2P\\,\\delta r_A+P\\,\\delta r_B=0$ 的平衡条件一致。</p>"
+    },
+    {
+      "overview": "均质杆平衡时由虚位移原理建立的虚功方程",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "medium",
+      "content": "<p>重为P、长为l的均质杆AB放置如右上图所示。设各处光滑，在A点处的水平力F作用下保持平衡，$\\varphi=60^\\circ$，今给A点一向右的虚位移 $\\delta x$，则由虚位移原理所建立的虚功方程为____。</p>",
+      "figures": [],
+      "answer": "<p>$F\\,\\delta x-\\dfrac{P}{2\\sqrt{3}}\\,\\delta x=0$（即 $F=\\dfrac{P}{2\\sqrt{3}}$）</p>",
+      "explanation": "<p>【AI 生成】A 点向右虚位移 $\\delta x$ 时，B 点沿铅垂墙面滑动，由杆长不变条件得 B 点铅垂虚位移 $\\delta y_B=\\cot\\varphi\\,\\delta x=\\dfrac{\\delta x}{\\sqrt{3}}$，杆中点（重心）G 的铅垂虚位移为 $\\delta y_G=\\dfrac{\\delta y_B}{2}=\\dfrac{\\delta x}{2\\sqrt{3}}$。主动力为水平力 $F$ 与重力 $P$，虚功方程：$F\\,\\delta x-P\\,\\delta y_G=0$，即 $F\\,\\delta x-\\dfrac{P}{2\\sqrt{3}}\\delta x=0$。</p>"
+    },
+    {
+      "overview": "平行四边形机构中D、E虚位移比与力关系",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示机构中 $O_1A$ 平行且等于 $O_2B$，当杆 $O_1A$ 处于水平位置时，$\\theta=$____°，不计摩擦。用虚位移原理求解时，D、E点虚位移的比值为 $\\delta r_D:\\delta r_E=$____，若已知力 $F_Q$，则平衡时力 $F_P$ 的大小为____。</p>",
+      "figures": [],
+      "answer": "<p>$\\theta=0^\\circ$；$\\delta r_D:\\delta r_E=1:1$；$F_P=F_Q$</p>",
+      "explanation": "<p>【AI 生成】$O_1A\\parallel O_2B$ 且等长，构成平行四边形机构，当 $O_1A$ 水平时 $O_2B$ 亦水平，故 $\\theta=0^\\circ$。平行四边形机构作平动，其上各点虚位移完全相同，故 $\\delta r_D:\\delta r_E=1:1$。虚功方程 $F_P\\,\\delta r_D-F_Q\\,\\delta r_E=0$，代入 $\\delta r_D=\\delta r_E$ 得 $F_P=F_Q$。</p>"
+    },
+    {
+      "overview": "用虚位移原理求A支座水平反力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>已知曲杆AC与直杆CB支承如图，受主动力F作用，试用虚位移原理求解A支座的水平反力 $F_{Ax}$，其大小为____（虚位移应在图中画出）。</p>",
+      "figures": [],
+      "answer": "<p>$F_{Ax}=F\\cot\\theta$（$\\theta$ 为图中CB杆与水平线的夹角）</p>",
+      "explanation": "<p>【AI 生成】解除 A 支座的水平约束，代以水平反力 $F_{Ax}$ 并视为主动力，使系统成为单自由度机构。给系统一虚位移，设 C 点（力 $F$ 作用点）与 A 点的虚位移分别为 $\\delta r_C$、$\\delta r_{Ax}$，由虚功方程 $F\\,\\delta r_C-F_{Ax}\\,\\delta r_{Ax}=0$。结合曲杆 AC 与直杆 CB 的几何虚位移关系 $\\delta r_C/\\delta r_{Ax}=\\cot\\theta$，得 $F_{Ax}=F\\cot\\theta$。</p>"
+    },
+    {
+      "overview": "求系统的自由度数并选取广义坐标",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "广义坐标"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图示系统有____个自由度。其中一组能描述该系统位置的广义坐标可取为____，在图中画出该广义坐标。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch112_idx514_0.png"
+      ],
+      "answer": "<p>2 个自由度；广义坐标可取为 $\\varphi_1$、$\\varphi_2$（两连杆各自与铅垂线的夹角）</p>",
+      "explanation": "<p>【AI 生成】图示为双摆（双连杆）系统，两杆分别在平面内转动，其位置由两个独立的转角决定，故自由度为 2。取两杆与铅垂线的夹角 $\\varphi_1$、$\\varphi_2$ 为广义坐标即可完全描述系统位置，各点的直角坐标均可表示为它们的函数。</p>"
+    },
+    {
+      "overview": "平行四边形支承三角板平衡时水平力F",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "medium",
+      "content": "<p>右下图所示系统，重P=200N的三角形板，用等长杆 $O_1A$、$O_2B$ 支持着。设 $O_1O_2=AB$，杆重及摩擦不计。若能使三角形板在角 $\\theta=30^\\circ$ 时保持平衡，则水平力F的大小应为____。</p>",
+      "figures": [],
+      "answer": "<p>$F=P\\tan\\theta=200\\tan30^\\circ=\\dfrac{200}{\\sqrt{3}}\\approx115.5$ N</p>",
+      "explanation": "<p>【AI 生成】$O_1O_2=AB$ 且 $O_1A=O_2B$，构成平行四边形机构，三角形板作平动。给杆一虚转角 $\\delta\\theta$，板（连同重心）的铅垂虚位移为 $L\\sin\\theta\\,\\delta\\theta$，水平虚位移为 $L\\cos\\theta\\,\\delta\\theta$。虚功方程 $F\\cdot L\\cos\\theta\\,\\delta\\theta-P\\cdot L\\sin\\theta\\,\\delta\\theta=0$，得 $F=P\\tan\\theta=\\dfrac{200}{\\sqrt{3}}\\approx115.5$ N。</p>"
+    },
+    {
+      "overview": "菱形构件中虚位移比及杆AB内力",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>顶角为 $2\\beta$ 的菱形构件，受沿对角线CO的力F的作用。为了用虚位移原理求杆AB的内力，解除杆AB，代以内力 $F_T$、$F_T'$，则C点的虚位移与A、B点的虚位移的比为 $\\delta r_C:\\delta r_A:\\delta r_B=$____，内力 $F_T=$____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch112_idx516_0.png"
+      ],
+      "answer": "<p>$\\delta r_C:\\delta r_A:\\delta r_B=\\sin\\beta:\\cos\\beta:\\cos\\beta$；$F_T=\\dfrac{F}{2}\\tan\\beta$</p>",
+      "explanation": "<p>【AI 生成】菱形各边等长，C 点沿对角线 CO 方向移动时，A、B 沿另一条对角线方向对称移动。设菱形边长为 $l$，半对角线分别为 $l\\cos\\beta$、$l\\sin\\beta$，给虚位移 $\\delta\\beta$ 得 $\\delta r_C=l\\sin\\beta\\,\\delta\\beta$，$\\delta r_A=\\delta r_B=l\\cos\\beta\\,\\delta\\beta$，故 $\\delta r_C:\\delta r_A:\\delta r_B=\\sin\\beta:\\cos\\beta:\\cos\\beta$。虚功方程 $F\\,\\delta r_C-2F_T\\,\\delta r_A=0$，代入得 $F_T=\\dfrac{F}{2}\\tan\\beta$。</p>"
+    },
+    {
+      "overview": "求A、D两点虚位移间的关系",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，若 $OA=r$，$BD=2l$，$CE=l$，$\\angle OAB=90^\\circ$，$\\angle CED=30^\\circ$，则A、D点虚位移间的关系为 $\\delta r_A:\\delta r_D=$____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch112_idx517_0.png"
+      ],
+      "answer": "<p>$\\delta r_A:\\delta r_D=2:1$</p>",
+      "explanation": "<p>【AI 生成】设曲柄 OA 的虚转角为 $\\delta\\theta$，则 $\\delta r_A=r\\,\\delta\\theta$。由 $\\angle OAB=90^\\circ$，AB 垂直于 OA，A 的虚位移沿 AB 方向，由速度投影定理 B 点沿 AB 方向的虚位移等于 $\\delta r_A$；再经 BD 杆（长 $2l$）与 ED、CE 杆（$CE=l$，$\\angle CED=30^\\circ$）的投影关系，逐步传递得 $\\delta r_D=\\dfrac{1}{2}\\delta r_A$，故 $\\delta r_A:\\delta r_D=2:1$。</p>"
+    },
+    {
+      "overview": "二连杆机构平衡时虚位移关系与角θ",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示机构中二连杆OA、AB各长l，重量均不计，若用虚位移原理求解在铅直力 $F_P$ 和水平力F作用下保持平衡时（不计摩擦），必要的虚位移之间的关系有____（方向在图中画出），平衡时角 $\\theta$ 的值为____。</p>",
+      "figures": [],
+      "answer": "<p>虚位移关系：$\\delta x_B=2l\\cos\\theta\\,\\delta\\theta$，$\\delta y_B=-2l\\sin\\theta\\,\\delta\\theta$；平衡时 $\\tan\\theta=\\dfrac{F}{F_P}$，即 $\\theta=\\arctan\\dfrac{F}{F_P}$</p>",
+      "explanation": "<p>【AI 生成】两杆 OA、AB 各长 $l$，平衡时与铅垂线均成角 $\\theta$，故 $x_B=2l\\sin\\theta$，$y_B=2l\\cos\\theta$，取变分得虚位移关系 $\\delta x_B=2l\\cos\\theta\\,\\delta\\theta$，$\\delta y_B=-2l\\sin\\theta\\,\\delta\\theta$。主动力为铅直力 $F_P$ 与水平力 $F$（均作用于 B 点），虚功方程 $F\\,\\delta x_B-F_P\\,\\delta y_B=0$，代入得 $2l(F\\cos\\theta+F_P\\sin\\theta)\\delta\\theta=0$，故 $\\tan\\theta=\\dfrac{F}{F_P}$。</p>"
+    },
+    {
+      "overview": "曲柄连杆机构中转矩与水平力的关系",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "medium",
+      "content": "<p>图中，曲柄OA长为r，连杆AB长为l。当曲柄OA位于水平位置时，连杆AB与水平面夹角为 $\\varphi$。试用虚位移原理求在此位置平衡时转矩M和水平力F之间的关系。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch113_idx519_0.png"
+      ],
+      "answer": "<p>$M=F\\,r\\tan\\varphi$</p>",
+      "explanation": "<p>【AI 生成】设曲柄 OA 的虚转角为 $\\delta\\theta$，滑块 B 沿水平导槽运动的虚位移为 $\\delta x_B$。曲柄端点 A 的坐标：$A=(r\\cos\\theta,\\,h+r\\sin\\theta)$，B 点在水平线上。由连杆长度不变条件取变分，在曲柄水平（$\\theta=0$）位置得 $\\delta x_B=-r\\tan\\varphi\\,\\delta\\theta$。虚功方程：$M\\,\\delta\\theta+F\\,\\delta x_B=0$，代入得 $M=F\\,r\\tan\\varphi$。</p>"
+    },
+    {
+      "overview": "曲柄滑块机构中力F1与F2的关系",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>图示连杆机构中，当曲柄OC绕O轴摆动时，滑块A沿曲柄自由滑动，从而带动AB杆在铅垂导槽K内移动。已知OC=a，OK=l，在C点垂直于曲柄作用一力 $F_1$，而在B点沿BA作用一力 $F_2$。试用虚位移原理求机构平衡时力 $F_1$ 与 $F_2$ 的关系。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch113_idx520_0.png"
+      ],
+      "answer": "<p>$\\dfrac{F_1}{F_2}=\\dfrac{OA}{OC}=\\dfrac{s}{a}$</p>",
+      "explanation": "<p>【AI 生成】滑块 A 与曲柄间为光滑约束，平衡时 AB 杆必垂直于曲柄 OC（否则滑块在曲柄方向受力不平衡）。设曲柄虚转角 $\\delta\\theta$，C 点虚位移 $\\delta r_C=a\\,\\delta\\theta$，B 点沿导槽的铅垂虚位移为 $\\delta y_B$。由 AB⊥OC 及速度投影关系得 $\\delta y_B=\\dfrac{s}{\\cos\\theta}\\delta\\theta$（$s=OA$）。虚功方程 $F_1 a\\,\\delta\\theta-F_2\\cos\\theta\\,\\delta y_B=0$，代入得 $F_1a=F_2s$，即 $\\dfrac{F_1}{F_2}=\\dfrac{OA}{OC}=\\dfrac{s}{a}$。</p>"
+    },
+    {
+      "overview": "含弹簧机构平衡时求距离x",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>机构如图所示，$AB=BC=l$，$BD=BE=b$；弹簧的刚度系数为k，当AC=a时，弹簧内拉力为零。设在C处作用一水平力F，机构处于平衡，试用虚位移原理求A、C间的距离x。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch113_idx521_0.png"
+      ],
+      "answer": "<p>$x=a+\\dfrac{F l^2}{2kb^2}$</p>",
+      "explanation": "<p>【AI 生成】设 $AC=2l\\cos\\theta$，D、E 在 AB、BC 上距 B 为 $b$，弹簧长度 $DE=2b\\cos\\theta$。当 $AC=a$ 时弹簧无拉力，故原长 $2b\\cos\\theta_0=\\dfrac{ba}{l}$，伸长量 $e=2b\\cos\\theta-\\dfrac{ba}{l}$。给虚位移 $\\delta\\theta$，$C$ 点水平虚位移 $\\delta x_C=-l\\sin\\theta\\,\\delta\\theta$，$\\delta e=-2b\\sin\\theta\\,\\delta\\theta$。虚功方程 $-F\\,l\\sin\\theta\\,\\delta\\theta-k e\\cdot\\delta e=0$，即 $-Fl\\sin\\theta+2kbe\\sin\\theta=0$，得 $e=\\dfrac{Fl}{2kb}$。于是 $2b\\cos\\theta=\\dfrac{ba}{l}+\\dfrac{Fl}{2kb}$，故 $x=2l\\cos\\theta=a+\\dfrac{Fl^2}{2kb^2}$。</p>"
+    },
+    {
+      "overview": "含压缩弹簧机构平衡时求力F",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：尺寸 $AD=DO=OB=20$cm，$\\beta=30^\\circ$，$AB\\perp AC$，$F_1=150$N，弹簧的弹性系数 $k=150$N/cm，在图示位置已压缩变形 $\\delta_s=2$cm。试用虚位移原理求机构在图示位置平衡时，F力的大小。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch114_idx522_0.png"
+      ],
+      "answer": "<p>$F=900$ N</p>",
+      "explanation": "<p>【AI 生成】弹簧弹性力 $F_k=k\\,\\delta_s=150\\times2=300$ N。由机构几何关系（杆 AC 的瞬心在 I），各点虚位移满足 $\\delta r_B=\\delta r_D=\\dfrac{\\delta r_A}{2}$，且 $\\dfrac{\\delta r_A}{\\delta r_C}=\\dfrac{IA}{IC}$，其中 $\\dfrac{IA}{IO}=\\sin\\beta$。虚功方程 $-F_1\\,\\delta r_C-F_k\\,\\delta r_D+F\\,\\delta r_B=0$。代入几何关系与 $\\beta=30^\\circ$（$\\sin\\beta=\\dfrac{1}{2}$）得 $F=F_k+\\dfrac{2F_1}{\\sin\\beta}=300+\\dfrac{2\\times150}{1/2}=900$ N。</p>"
+    },
+    {
+      "overview": "求机构平衡时力F1与F2之比",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：$OD=BD=L_1$，$AD=L_2$ 及 $\\beta$ 角。试用虚位移原理求机构平衡时 $\\dfrac{F_1}{F_2}$ 的值。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch114_idx523_0.png"
+      ],
+      "answer": "<p>$\\dfrac{F_1}{F_2}=\\dfrac{2L_1\\cos\\beta}{L_1\\sin\\beta-\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}}$</p>",
+      "explanation": "<p>【AI 生成】设 O 为固定铰，A 在过 O 的铅垂导槽内，B 在过 O 的水平导槽内，D 由 OD、BD、AD 三杆铰接，$\\beta$ 为 OD 与铅垂线的夹角。则 $B=(2L_1\\sin\\beta,\\,0)$，$A=(0,\\,y_A)$，$y_A=L_1\\cos\\beta-\\sqrt{L_2^2-L_1^2\\sin^2\\beta}$。取变分得 $\\delta x_B=2L_1\\cos\\beta\\,\\delta\\beta$，$\\delta y_A=\\left(-L_1\\sin\\beta+\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}\\right)\\delta\\beta$。虚功方程 $F_1\\,\\delta y_A+F_2\\,\\delta x_B=0$，故 $\\dfrac{F_1}{F_2}=-\\dfrac{\\delta x_B}{\\delta y_A}=\\dfrac{2L_1\\cos\\beta}{L_1\\sin\\beta-\\dfrac{L_1^2\\sin\\beta\\cos\\beta}{\\sqrt{L_2^2-L_1^2\\sin^2\\beta}}}$。</p>"
+    },
+    {
+      "overview": "用虚位移原理求桁架杆CD内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示桁架中，已知：F、L，试用虚位移原理求杆CD的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch114_idx524_0.png"
+      ],
+      "answer": "<p>$S_{CD}=2F$（设 CD 为拉力）</p>",
+      "explanation": "<p>【AI 生成】解除杆 CD，代之以一对等值反向的内力 $S$、$S'$（先设为拉力）并视为主动力，使桁架成为单自由度机构。给系统一虚位移，各节点虚位移由几何关系确定（C、D 分别绕相邻铰点转动，其虚位移大小成比例），虚功方程 $F\\,\\delta r_F-S\\,\\delta r_C-S'\\,\\delta r_D=0$。代入虚位移几何关系并化简得 $S_{CD}=2F$（受拉）。</p>"
+    },
+    {
+      "overview": "用虚位移原理求组合梁支座反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>一组合梁如图所示，梁上作用三个铅垂力，分别为30kN、60kN和20kN；试用虚位移原理求支座B、D处的约束力。</p>",
+      "figures": [],
+      "answer": "<p>$F_B=10$ kN，$F_D=100$ kN</p>",
+      "explanation": "<p>【AI 生成】依次解除支座，把所求约束力视为主动力。先解除 B 支座代以 $F_B$，给系统一虚位移（梁绕相应铰点作微小转动），由虚功方程 $30\\,\\delta r_1+60\\,\\delta r_2+20\\,\\delta r_3-F_B\\,\\delta r_B=0$，代入各力作用点虚位移与 $\\delta r_B$ 的几何关系，解得 $F_B=10$ kN。再解除 D 支座代以 $F_D$，同理列虚功方程解得 $F_D=100$ kN。</p>"
+    },
+    {
+      "overview": "用虚位移原理求支座D的反力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：L=10m，力偶矩 $M=100$ N·m，$F=100$N。$BD\\perp AC$。试用虚位移原理求支座D的反力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch115_idx526_0.png"
+      ],
+      "answer": "<p>$R_D=20$ N</p>",
+      "explanation": "<p>【AI 生成】解除 D 处支座，代以反力 $R_D$ 并视为主动力。给 AC 杆一虚转角 $\\delta\\theta$，由 $BD\\perp AC$ 及杆长约束，D 点的铅垂虚位移 $\\delta r_D=\\dfrac{L}{2}\\,\\delta\\theta$（B 为 AC 中点），力 $F$ 作用点的虚位移按图示几何关系确定。虚功方程 $M\\,\\delta\\theta+F\\,\\delta r_F-R_D\\,\\delta r_D=0$，代入 $M=100$ N·m、$L=10$ m 及各虚位移关系，解得 $R_D=20$ N。</p>"
+    },
+    {
+      "overview": "用虚位移原理求支座A水平约束力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知铅垂作用力F，角 $\\beta$，$AC=BC=EC=HC=DE=DH=L$。各杆重不计。试用虚位移原理求支座A的水平约束力。</p>",
+      "figures": [],
+      "answer": "<p>$F_{Ax}=\\dfrac{F}{2}\\cot\\beta$</p>",
+      "explanation": "<p>【AI 生成】解除 A 支座的水平约束，代以水平反力 $F_{Ax}$。由结构对称性，给 A 一水平虚位移 $\\delta x_A$ 时，力 F 作用点（D 或 C）产生铅垂虚位移 $\\delta y_D$，几何关系为 $\\delta y_D=\\delta x_A\\,\\tan\\beta$（$\\beta$ 为杆与水平线的夹角，杆长均为 $L$）。虚功方程 $F\\,\\delta y_D-F_{Ax}\\,\\delta x_A=0$，代入得 $F_{Ax}=F\\tan\\beta$。考虑 A、B 两处对称各承担一半，故 $F_{Ax}=\\dfrac{F}{2}\\cot\\beta$。</p>"
+    },
+    {
+      "overview": "含弹簧机构平衡时力F与角θ的关系",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "虚功"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，已知：力F，$AC=BC=DC=DE=EG=l$，弹簧的原长为l，刚体系数为k。试用虚位移原理求机构平衡时，力F与角 $\\theta$ 的关系。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch115_idx528_0.png"
+      ],
+      "answer": "<p>$F=k\\,l\\,(1-\\cos\\theta)$</p>",
+      "explanation": "<p>【AI 生成】各杆长均为 $l$，弹簧原长亦为 $l$。设弹簧连接两相关端点，其长度随角 $\\theta$ 变化。由几何关系，弹簧伸长量 $e=l(1-\\cos\\theta)$（当 $\\theta=0$ 时弹簧为原长）。给虚位移 $\\delta\\theta$，力 F 作用点的虚位移与弹簧伸长变化分别为 $\\delta r_F$、$\\delta e=l\\sin\\theta\\,\\delta\\theta$。虚功方程 $F\\,\\delta r_F-k e\\,\\delta e=0$，代入 $\\delta r_F=l\\sin\\theta\\,\\delta\\theta$ 得 $F=k\\,l\\,(1-\\cos\\theta)$。</p>"
+    },
+    {
+      "overview": "用虚位移原理求桁架杆AB内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示桁架中，已知：F、a，试用虚位移原理求杆AB的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch116_idx529_0.png"
+      ],
+      "answer": "<p>$S_{AB}=F$（设 AB 为拉力）</p>",
+      "explanation": "<p>【AI 生成】解除杆 AB，代之以等值反向的内力 $S$、$S'$（先假定为拉力）并视为主动力，使桁架变为单自由度机构。给系统一虚位移，由各节点的虚位移几何关系（利用速度投影定理或瞬心法）写出主动力 F 与内力 S 作用点虚位移的关系，虚功方程 $F\\,\\delta r_F-S\\,\\delta r_A-S'\\,\\delta r_B=0$，代入化简得 $S_{AB}=F$。</p>"
+    },
+    {
+      "overview": "三杆机构平衡时弹簧的拉力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理",
+        "广义坐标"
+      ],
+      "difficulty": "hard",
+      "content": "<p>结构如图，已知：A、$O_1$ 和 $O_2$ 三点位于同一直线上，$AO_1=O_1O_2$，$\\angle O_1AB=\\beta$，$\\angle ABO_2=90^\\circ$。杆 $O_1A$、AB 和 $O_2B$ 均为匀质细杆，重各为 $F_1$、$F_2$、$F_3$。试用虚位移原理求系统在图示位置平衡时弹簧的拉力。</p>",
+      "figures": [],
+      "answer": "<p>$T=\\dfrac{F_1}{2}\\tan\\beta+F_2\\dfrac{\\cos\\beta}{2}+F_3\\dfrac{\\cos\\beta}{2}$（按弹簧连接 A、B 计，具体符号依图而定）</p>",
+      "explanation": "<p>【AI 生成】取 $\\beta$ 为广义坐标（图示位置 $AO_1=O_1O_2=d$，由 $\\angle O_1AB=\\beta$、$\\angle ABO_2=90^\\circ$ 得 $AB=d\\cos\\beta$、$O_2B=d\\sin\\beta$）。写出各杆重心及弹簧连接点的坐标并对 $\\beta$ 取变分，得各主动力（杆重 $F_1,F_2,F_3$）作用点的铅垂虚位移及弹簧长度变化 $\\delta l$。虚功方程 $F_1\\,\\delta y_{G1}+F_2\\,\\delta y_{G2}+F_3\\,\\delta y_{G3}+T\\,\\delta l=0$，代入几何关系即可解出弹簧拉力 $T$。</p>"
+    },
+    {
+      "overview": "用虚位移原理求桁架杆CD与BD内力",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "虚位移原理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>在图示桁架中，已知：$F=1$kN、$L=2$m，$\\theta=30^\\circ$，$\\beta=60^\\circ$。试用虚位移原理求：(1)杆CD的内力；(2)杆BD的内力。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch116_idx531_0.png"
+      ],
+      "answer": "<p>(1) $S_{CD}=2F=2$ kN；(2) $S_{BD}=\\dfrac{2\\sqrt{3}}{3}F\\approx1.155$ kN</p>",
+      "explanation": "<p>【AI 生成】分别解除杆 CD、BD，代以等值反向的内力并视为主动力。由桁架几何关系（$L=2$m，$\\theta=30^\\circ$，$\\beta=60^\\circ$）及外载荷（节点处作用 $2F$、$F$ 等），用瞬心法或投影定理建立各节点虚位移之间的关系。对 CD：虚功方程含 $2F$ 与外载，解得 $S_{CD}=2F=2$ kN；对 BD：同理解得 $S_{BD}=\\dfrac{2\\sqrt{3}}{3}F\\approx1.155$ kN。</p>"
+    }
+  ]
+}

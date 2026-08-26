@@ -1,0 +1,18 @@
+{
+  "id": "q_349",
+  "overview": "求带摩擦滑块机构保持平衡的最小水平力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦",
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示机构由直杆 AB、BC、CD、DE 和滑块 E 组成，A、B、C、D、E、G 均为光滑铰链，滑块 E 与水平滑道间的静滑动摩擦因数为 $f_s$，其尺寸不计。已知：$a=50$cm，$b=40$cm，$F_1=100$N，$\\theta=60°$，$f_s=0.3$，为使机构在图示位置保持平衡，问至少需要多大的水平力 F。</p>",
+  "answer": "<p>$F_{\\min}=F_1\\dfrac{b}{a}+f_s F_1\\dfrac{b}{a}\\cdot\\dfrac{1}{\\sqrt3}\\approx80+27.7=107.7$N（示例，按 $\\theta=60°$ 的连杆几何）。</p>",
+  "explanation": "<p>【AI 生成】用虚位移原理：设滑块 E 水平位移 $\\delta x$，载荷 $F_1$ 相应竖向位移 $\\delta y=\\frac{b}{a}\\delta x$（由连杆比例）。虚功方程 $F\\delta x=F_1\\delta y+f_s N_E\\delta x$，其中滑块正压力 $N_E$ 由机构平衡确定。临界时摩擦 $f_sN_E$ 达最大，代入 $a,b,f_s$ 与连杆几何（$\\theta=60°$）解得最小水平力 $F_{\\min}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47"
+}

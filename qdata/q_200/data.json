@@ -1,0 +1,21 @@
+{
+  "id": "q_200",
+  "overview": "判断质心在转轴上时有无打击中心",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "碰撞",
+    "转动惯量"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>如果绕定轴转动的刚体的质心恰好在转动轴上，则不存在打击中心。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】打击中心到转轴的距离 $OK=\\dfrac{J_O}{m\\,OC}$。若质心 $C$ 恰在转动轴 $O$ 上，则 $OC=0$，$OK$ 趋于无穷大，即打击中心不存在。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "判断质心在转轴上时有无打击中心",
+  "module": "动力学"
+}

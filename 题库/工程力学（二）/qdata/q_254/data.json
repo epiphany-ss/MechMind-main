@@ -1,0 +1,18 @@
+{
+  "id": "q_254",
+  "overview": "斜轴系分解中分力相等与投影相等的角度",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>欲使力 $\\boldsymbol{F}$ 沿 $x$、$y$ 方向的分力的大小相等，则 $\\theta=$____，$\\beta=$____（任写一组）；欲使力 $\\boldsymbol{F}$ 在 $x$、$y$ 轴上的投影相等，则 $\\theta=$____，$\\beta=$____。</p>",
+  "answer": "<p>分力相等：$\\theta=60^\\circ$，$\\beta=120^\\circ$（满足 $\\beta=2\\theta$ 的一组即可）；投影相等：$\\theta=45^\\circ$，$\\beta=90^\\circ$。</p>",
+  "explanation": "<p>【AI 生成】设 $x$、$y$ 轴夹角为 $\\beta$，力 $\\boldsymbol{F}$ 与 $x$ 轴夹角为 $\\theta$。分力大小 $F_x=F\\dfrac{\\sin(\\beta-\\theta)}{\\sin\\beta}$、$F_y=F\\dfrac{\\sin\\theta}{\\sin\\beta}$，相等时 $\\sin(\\beta-\\theta)=\\sin\\theta$，取 $\\beta=2\\theta$，如 $\\theta=60^\\circ,\\beta=120^\\circ$。投影 $p_x=F\\cos\\theta$、$p_y=F\\cos(\\beta-\\theta)$，相等时 $\\beta-\\theta=\\theta$，如 $\\theta=45^\\circ,\\beta=90^\\circ$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

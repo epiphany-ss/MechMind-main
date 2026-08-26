@@ -1,0 +1,19 @@
+{
+  "id": "q_557",
+  "overview": "求滑块A的运动微分方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理",
+    "振动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知滑块A质量为$m_A$，弹簧刚度系数为$k$，$AB=l$，小球B质量为$m_B$，$\\varphi=\\omega t$，$\\omega$为常数，AB杆上的力偶矩为$M$。不计弹簧质量，求滑块A的运动微分方程。</p>",
+  "answer": "<p>$$(m_A+m_B)\\ddot{x}+kx=m_B\\,l\\,\\omega^2\\sin(\\omega t)$$</p>",
+  "explanation": "<p>【AI 生成】取滑块A的水平位移为$x$（弹簧从原长算起）。小球B的水平坐标为<br>$$x_B=x+l\\sin\\varphi=x+l\\sin(\\omega t)$$<br>系统水平方向动量<br>$$p_x=m_A\\dot{x}+m_B(\\dot{x}+l\\omega\\cos\\omega t)$$<br>水平外力只有弹簧力 $-kx$，由动量定理<br>$$\\frac{dp_x}{dt}=-kx$$<br>即<br>$$(m_A+m_B)\\ddot{x}-m_B\\,l\\,\\omega^2\\sin(\\omega t)=-kx$$<br>整理得滑块A的运动微分方程<br>$$(m_A+m_B)\\ddot{x}+kx=m_B\\,l\\,\\omega^2\\sin(\\omega t)$$<br>杆上的力偶矩$M$是维持$\\varphi=\\omega t$匀速转动所需的驱动力偶，不影响滑块的水平运动方程。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

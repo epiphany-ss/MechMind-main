@@ -1,0 +1,23 @@
+{
+  "id": "q_472",
+  "overview": "求正方形板平动时动点相对与牵连加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平动",
+    "点的合成运动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>正方形板ABCD作平动，A点的运动方程为 $x_A=6\\cos(2t)$，$y_A=4\\sin(2t)$，点M沿AC以 $S=3t^2$ 的规律运动（其中 $x_A$、$y_A$ 和S皆以米计，t以秒计）。当 $t=\\pi/2$ 秒时，点M对板的相对加速度大小为______，牵连加速度大小为______，方向均须用图表示。</p><img src=\"qdata/q_472/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>相对加速度 $a_r=6\\,\\text{m/s}^2$（沿AC指向C）；牵连加速度 $a_e=24\\,\\text{m/s}^2$（沿x轴正方向）。</p>",
+  "explanation": "<p>【AI 生成】板作平动，各点加速度相同，均等于A点加速度。$\\ddot{x}_A=-24\\cos2t$，$\\ddot{y}_A=-16\\sin2t$，$t=\\pi/2$ 时 $\\ddot{x}_A=24$，$\\ddot{y}_A=0$，故 $a_e=24\\,\\text{m/s}^2$ 沿x轴正向。M沿AC作直线运动，$a_r=\\ddot{S}=6\\,\\text{m/s}^2$，方向沿AC指向C。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求正方形板平动时动点相对与牵连加速度",
+  "module": "运动学"
+}

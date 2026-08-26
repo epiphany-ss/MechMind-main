@@ -1,0 +1,22 @@
+{
+  "id": "q_344",
+  "overview": "求均质杆与物块平衡时杆与铅垂线的夹角",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，均质杆 OC 质量为 m，C 端靠在水平台面上的长方形物块 A 上，物块质量为 M。设物块 A 与杆的 C 端及与平台面之间的静摩擦因数均为 f，求平衡时 OC 杆与铅垂线间的夹角 $\\theta$。</p><img src=\"qdata/q_344/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\tan\\theta=\\dfrac{2fM}{f^2(2M+m)-m}$（临界滑动时）；一般平衡需该角度使两处摩擦均不超限。</p>",
+  "explanation": "<p>【AI 生成】设杆长 L，C 端靠在物块侧面，O 为铰。杆受 $mg$、O 铰力、C 处法向 N 与摩擦 f。对 O 取矩：$f\\sin\\theta-N\\cos\\theta=\\frac{mg}{2}\\sin\\theta$，即 $f=(N+\\frac{mg}{2})\\cot\\theta$。物块水平平衡 $f_{\\text{台}}=N$，竖直 $N_{\\text{台}}=Mg+f$。临界时 $f=fN$ 且 $N=f(Mg+f)$，联立解得 $\\tan\\theta=\\frac{2fM}{f^2(2M+m)-m}$。平衡存在的条件是分母为正（摩擦足够大）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "求均质杆与物块平衡时杆与铅垂线的夹角",
+  "module": "静力学"
+}

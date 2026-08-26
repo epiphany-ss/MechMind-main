@@ -1,0 +1,23 @@
+{
+  "id": "q_168",
+  "overview": "计算斜面滑块-摆杆系统对x的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力",
+    "虚位移"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $OA$ 长 $L$，重 $P$，在重力作用下可在铅垂平面内摆动，滑块 $O$ 质量不计，斜面倾角 $\\beta$，略去各处摩擦，若取 $x$ 及 $\\varphi$ 为广义坐标，则相应于 $x$ 的广义力为____。<br>(A) $P$；　(B) $\\dfrac{PL}{2}$；　(C) $PL\\sin\\varphi$；　(D) $-P\\sin\\beta$。</p><img src=\"qdata/q_168/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】广义力 $Q_x$ 对应沿斜面的虚位移 $\\delta x$。杆重 $P$ 作用于杆中点，系统沿斜面平移 $\\delta x$ 时杆中点的铅垂升高为 $\\delta x\\sin\\beta$，重力作虚功 $\\delta W=-P\\sin\\beta\\,\\delta x$，故 $Q_x=-P\\sin\\beta$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41",
+  "source": "练习册",
+  "title": "计算斜面滑块-摆杆系统对x的广义力",
+  "module": "分析力学"
+}

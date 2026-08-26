@@ -1,0 +1,20 @@
+{
+  "id": "q_445",
+  "overview": "求杆上B点速度与加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，杆$AB$长为$L$，圆轮半径为$R$，在水平面作纯滚动。在$\\varphi=45^\\circ$的图示位置时，轮心速度为$v$、加速度为$a$。试求此瞬时杆上$B$点的速度和加速度。</p><img src=\"qdata/q_445/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=v\\Big(1+\\dfrac{L}{\\sqrt2 R}\\Big)$（水平），$v_B^{(y)}=-\\dfrac{vL}{\\sqrt2 R}$；$a_B=\\Big(a-\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{i}+\\Big(\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{j}$</p>",
+  "explanation": "<p>【AI 生成】轮在水平面纯滚动，轮心$O$速度为$v$、加速度为$a$，则$$\\omega_{轮}=\\dfrac{v}{R},\\qquad \\alpha_{轮}=\\dfrac{a}{R}$$<br>杆$AB$固结于轮（$A$端在轮心$O$），$B$点位于与水平成$\\varphi=45^\\circ$处。以$A$（轮心）为基点：$$\\boldsymbol{v}_B=\\boldsymbol{v}_A+\\boldsymbol{\\omega}\\times\\boldsymbol{r}_{AB}=v\\boldsymbol{i}+\\dfrac{v}{R}\\boldsymbol{k}\\times L(\\cos45^\\circ\\boldsymbol{i}+\\sin45^\\circ\\boldsymbol{j})$$<br>$$\\Rightarrow\\quad \\boldsymbol{v}_B=\\Big(v+\\dfrac{vL}{\\sqrt2 R}\\Big)\\boldsymbol{i}-\\dfrac{vL}{\\sqrt2 R}\\boldsymbol{j}$$<br>加速度（含向心项）：$$\\boldsymbol{a}_B=a\\boldsymbol{i}+\\dfrac{a}{R}\\boldsymbol{k}\\times\\boldsymbol{r}_{AB}-\\Big(\\dfrac{v}{R}\\Big)^2\\boldsymbol{r}_{AB}$$<br>$$=\\Big(a-\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{i}+\\Big(\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{j}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_403",
+  "overview": "求纸盘角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>纸盘由厚度为 $a$ 的纸条卷成，令纸盘的中心不动，而以等速 $v$ 拉纸条。求纸盘的角加速度（以半径 $r$ 的函数表示）。</p><img src=\"qdata/q_403/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\alpha=\\dfrac{av^2}{2\\pi r^3}$</p>",
+  "explanation": "<p>【AI 生成】纸带无滑动，纸盘角速度 $\\omega=v/r$。拉出纸带使纸盘半径减小，单位时间拉出的纸带截面积为 $av$，故</p><p>$$\\frac{d(\\pi r^2)}{dt}=2\\pi r\\frac{dr}{dt}=-av,\\qquad \\frac{dr}{dt}=-\\frac{av}{2\\pi r}$$</p><p>纸盘角加速度</p><p>$$\\alpha=\\frac{d\\omega}{dt}=\\frac{d}{dt}\\left(\\frac{v}{r}\\right)=-\\frac{v}{r^2}\\frac{dr}{dt}=\\frac{av^2}{2\\pi r^3}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册"
+}

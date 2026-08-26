@@ -1,0 +1,19 @@
+{
+  "id": "q_116",
+  "overview": "复摆剪绳瞬时的角加速度与支座反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示复摆位于铅直面内，由均质细杆与均质圆盘固结而成。已知：杆长为 $2r$、质量为 $m$，圆盘半径为 $r$、质量也为 $m$，与铅直线夹角为 $\\theta$。试用动静法求 $E$ 处绳被剪断瞬时：(1) 复摆的角加速度；(2) 支座 $O$ 的反力。</p>",
+  "answer": "<p>(1) $\\alpha=\\dfrac{24g\\sin\\theta}{65r}$；(2) $F_{Ox}=\\dfrac{48}{65}mg\\sin2\\theta$，$F_{Oy}=2mg-\\dfrac{96}{65}mg\\sin^2\\theta$</p>",
+  "explanation": "<p>【AI 生成】复摆总质量 $2m$，质心 $C$ 距 $O$ 为 $2r$，对 $O$ 的转动惯量 $J_O=\\dfrac{65}{6}mr^2$。（1）剪绳瞬时，由对 $O$ 的动量矩定理 $J_O\\alpha=2mg\\cdot2r\\sin\\theta$，得 $\\alpha=\\dfrac{24g\\sin\\theta}{65r}$。（2）质心加速度 $a_C=2r\\alpha=\\dfrac{48g\\sin\\theta}{65}$，其分量 $a_{Cx}=a_C\\cos\\theta=\\dfrac{48g}{65}\\sin\\theta\\cos\\theta=\\dfrac{24g}{65}\\sin2\\theta$，$a_{Cy}=-a_C\\sin\\theta=-\\dfrac{48g}{65}\\sin^2\\theta$。由动静法平衡方程：$F_{Ox}=2ma_{Cx}=\\dfrac{48}{65}mg\\sin2\\theta$，$F_{Oy}=2mg-2m\\dfrac{48g}{65}\\sin^2\\theta=2mg-\\dfrac{96}{65}mg\\sin^2\\theta$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

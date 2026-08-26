@@ -1,0 +1,19 @@
+{
+  "id": "q_059",
+  "overview": "小圆盘绕固定圆盘纯滚动时系统动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>杆 $OA$ 长 $L$，以匀角速度 $\\omega$ 绕 $O$ 轴转动，其 $A$ 端与质量为 $m$、半径为 $r$ 的均质小圆盘的中心铰结，小圆盘在固定圆盘的圆周上作纯滚动，若不计杆重，则系统的动能为____。</p>",
+  "answer": "<p>$T=\\dfrac{3}{4}mL^2\\omega^2$</p>",
+  "explanation": "<p>【AI 生成】$A$ 端速度 $v_A=L\\omega$。小圆盘沿固定圆盘外侧纯滚动时，圆盘角速度 $\\omega_d=\\dfrac{v_A}{r}=\\dfrac{L\\omega}{r}$。故 $T=\\frac12mv_A^2+\\frac12\\cdot\\frac12mr^2\\omega_d^2=\\frac12mL^2\\omega^2+\\frac14mL^2\\omega^2=\\dfrac34mL^2\\omega^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

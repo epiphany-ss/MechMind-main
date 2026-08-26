@@ -1,0 +1,20 @@
+{
+  "id": "q_298",
+  "overview": "判断V型槽中圆柱的法向反力关系",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>重量为 P 的均质圆柱放在 V 型槽里，考虑摩擦。当圆柱上作用一力偶，其力偶矩为 M 时（如图所示），圆柱处于极限平衡状态。此时接触点处的法向反力 $F_{NA}$ 与 $F_{NB}$ 的关系为____。<br>(A) $F_{NA}=F_{NB}$；<br>(B) $F_{NA}&gt;F_{NB}$；<br>(C) $F_{NA}&lt;F_{NB}$。</p><img src=\"qdata/q_298/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】V 型槽两斜面关于铅垂线对称，圆柱为均质圆，力偶 M 只引起转动效应。将问题沿对称面镜像，极限平衡条件不变，故两接触点法向反力相等：$F_{NA}=F_{NB}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册"
+}

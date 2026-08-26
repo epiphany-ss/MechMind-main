@@ -1,0 +1,23 @@
+{
+  "id": "q_509",
+  "overview": "四连杆半圆板机构求M点绝对速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>四连杆机构由 $O_1A$、$O_2B$ 及半圆形平板ADB组成，各构件均在图示所在平面内运动，动点M沿圆弧运动。已知：$O_1A＝O_2B＝18$cm，且相互平行，R＝18cm，$\\phi=\\pi t/18$。圆弧 $BM＝S＝\\pi t$ cm，t以s计。试求当 $t=3$s时，M点的绝对速度及绝对加速度。</p><img src=\"qdata/q_509/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_M=\\pi\\sqrt{2}\\,\\text{cm/s}$；$a_M$ 由牵连、相对、科氏三部分合成。</p>",
+  "explanation": "<p>【AI 生成】$O_1A=O_2B$ 且平行，半圆板作平动。<br>（1）$t=3$s：$\\phi=\\pi/6$ rad，$\\dot\\phi=\\pi/18$ rad/s，$\\ddot\\phi=0$。<br>（2）板平动，$v_e=\\dot\\phi\\cdot R=\\dfrac{\\pi}{18}\\times18=\\pi$ cm/s，方向垂直 $O_1A$；$a_e=\\dot\\phi^2 R=\\pi^2/18$ cm/s$^2$ 指向 $O_1$。<br>（3）M沿圆弧BM运动，$S=\\pi t$，$v_r=\\dot S=\\pi$ cm/s，$a_r^n=v_r^2/R=\\pi^2/18$ cm/s$^2$ 指向圆弧中心。<br>（4）$v_M=\\sqrt{v_e^2+v_r^2}$（$v_e\\perp v_r$）= $\\pi\\sqrt2$ cm/s。加速度：$a_C=2\\omega\\times v_r=0$（板平动，$\\omega=0$），$a_M=a_e+a_r$（矢量合成，两分量均 $\\pi^2/18$）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "四连杆半圆板机构求M点绝对速度和加速度",
+  "module": "运动学"
+}

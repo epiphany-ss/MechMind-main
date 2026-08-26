@@ -1,0 +1,16 @@
+{
+  "overview": "将空间力系向原点O简化求主矢与主矩",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>力系中，F1=100 N，F2=300 N，F3=200 N，各力作用线的位置如图所示。试将力系向原点 O 简化。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>主矢：$\\vec{F}_R=(-345\\,\\mathbf{i}+250\\,\\mathbf{j}+10.6\\,\\mathbf{k})$ N，大小 $F_R=426$ N。</p><p>主矩：$\\vec{M}_O=(-51.8\\,\\mathbf{i}-36.6\\,\\mathbf{j}+104\\,\\mathbf{k})$ N·m，大小 $M_O=122$ N·m。</p>",
+  "explanation": "<p>解：由题意得，主矢各分量为</p><p>$F_{Rx}=-300\\times\\dfrac{2}{\\sqrt{13}}-200\\times\\dfrac{2}{\\sqrt{5}}=-345$ N，$F_{Ry}=300\\times\\dfrac{3}{\\sqrt{13}}=250$ N，$F_{Rz}=100-200\\times\\dfrac{1}{\\sqrt{5}}=10.6$ N。</p><p>主矢 $\\vec{F}_R=(-345\\,\\mathbf{i}+250\\,\\mathbf{j}+10.6\\,\\mathbf{k})$ N，$F_R=\\sqrt{345^2+250^2+10.6^2}=426$ N。</p><p>主矩各分量为</p><p>$M_x=-300\\times\\dfrac{3}{\\sqrt{13}}\\times0.1-200\\times\\dfrac{1}{\\sqrt{5}}\\times0.3=-51.8$ N·m，</p><p>$M_y=-100\\times0.2-300\\times\\dfrac{2}{\\sqrt{13}}\\times0.1=-36.6$ N·m，</p><p>$M_z=300\\times\\dfrac{3}{\\sqrt{13}}\\times0.2+200\\times\\dfrac{2}{\\sqrt{5}}\\times0.3=103.6$ N·m。</p><p>主矩 $\\vec{M}_O=(-51.8\\,\\mathbf{i}-36.6\\,\\mathbf{j}+104\\,\\mathbf{k})$ N·m，$M_O=\\sqrt{51.8^2+36.6^2+104^2}=122$ N·m。</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q13_0.png",
+    "题库/qbank2_figs/q13_1.jpeg"
+  ]
+}

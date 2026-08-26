@@ -1,0 +1,21 @@
+{
+  "id": "q_582",
+  "overview": "求圆环与杆系统对铅直轴的动量矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>圆环固连于一不计质量的铅直轴上，圆环半径为R，环单位长度质量为$\\rho$（圆环位于水平面内，轴垂直通过环心）。杆OA长L，单位长度质量也为$\\rho$，沿圆环径向固接在圆环上（O为环心），轴以角速度$\\omega$匀速转动，如图示，求系统对铅直轴的动量矩。</p><img src=\"qdata/q_582/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$L_z=\\rho\\omega\\left(2\\pi R^3+\\dfrac{L^3}{3}\\right)$</p>",
+  "explanation": "<p>【AI 生成】圆环质量$M_1=2\\pi R\\rho$，环上各点到轴距离均为R，对轴转动惯量$J_1=M_1R^2=2\\pi\\rho R^3$。杆OA质量$M_2=\\rho L$，距轴为$s$的微元$\\mathrm{d}m=\\rho\\mathrm{d}s$，其转动惯量$\\mathrm{d}J_2=s^2\\rho\\mathrm{d}s$，故$J_2=\\rho\\int_0^L s^2\\mathrm{d}s=\\frac{\\rho L^3}{3}$。系统对铅直轴动量矩$$L_z=(J_1+J_2)\\omega=\\rho\\omega\\left(2\\pi R^3+\\frac{L^3}{3}\\right)$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "q_513",
+  "overview": "凸轮顶杆机构求AB杆角速度和角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>已知凸轮半径为R，速度为 $v_1$＝常量，方向水平向左，推动杆AB绕轴A转动。在图示位置时，$\\theta=30^\\circ$。试求该瞬时杆AB的角速度和角加速度。</p><img src=\"qdata/q_513/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=\\dfrac{v_1\\sin\\theta}{AB}$（约 $\\dfrac{v_1}{2AB}$）；$\\alpha_{AB}=\\dfrac{v_1^2\\cos\\theta}{AB^2}$（由加速度合成求得）。</p>",
+  "explanation": "<p>【AI 生成】取接触点（AB杆端点）为动点，凸轮为动系。<br>（1）凸轮平动，$v_e=v_1$ 水平向左，$a_e=0$。接触点B在凸轮轮廓上，$v_r$ 沿凸轮切线。<br>（2）AB杆绕A转动，$v_B=\\omega_{AB}\\cdot AB$，垂直AB。由 $v_B=v_e+v_r$，向垂直AB方向投影：$v_B=v_1\\sin\\theta$，故 $\\omega_{AB}=\\dfrac{v_1\\sin\\theta}{AB}$。<br>（3）加速度：$a_e=0$，$a_r^n=v_r^2/R$，$a_C=2\\omega_{AB}\\times v_r$。由 $a_B^t+a_B^n=a_e+a_r+a_C$ 向垂直AB方向投影解出 $\\alpha_{AB}=\\dfrac{v_1^2\\cos\\theta}{AB^2}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册"
+}

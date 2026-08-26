@@ -1,0 +1,19 @@
+{
+  "id": "q_197",
+  "overview": "求悬臂梁弹簧组合系统的固有频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示系统由两悬臂梁和两弹簧及物块组成。已知：物块的质量为 $m$，两悬臂梁的等效刚性系数分别为 $k_1$ 和 $k_3$，两弹簧的刚性系数分别为 $k_2$ 和 $k_4$；不计悬臂梁和弹簧的质量。试求该系统的固有频率。</p><img src=\"qdata/q_197/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_n=\\sqrt{\\dfrac{1}{m}\\left(\\dfrac{k_1k_2}{k_1+k_2}+\\dfrac{k_3k_4}{k_3+k_4}\\right)}$</p>",
+  "explanation": "<p>【AI 生成】左侧悬臂梁与弹簧依次相连，属串联，等效刚度 $k_L=\\dfrac{k_1k_2}{k_1+k_2}$；右侧悬臂梁与弹簧亦为串联，等效刚度 $k_R=\\dfrac{k_3k_4}{k_3+k_4}$。左、右两支路共同支承物块，属并联，故总等效刚度$$k_{eq}=k_L+k_R=\\frac{k_1k_2}{k_1+k_2}+\\frac{k_3k_4}{k_3+k_4}$$固有频率$$\\omega_n=\\sqrt{\\frac{k_{eq}}{m}}=\\sqrt{\\frac{1}{m}\\left(\\frac{k_1k_2}{k_1+k_2}+\\frac{k_3k_4}{k_3+k_4}\\right)}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_134",
+  "overview": "判断定常约束的定义",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "约束分类"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>定常约束是约束方程中不显含时间t的约束。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】约束方程 $f(x_i,y_i,z_i)=0$ 中不显含时间 $t$ 的约束称为定常约束（稳定约束）；若约束方程中显含时间 $t$，则称为非定常约束。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39"
+}

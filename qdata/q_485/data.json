@@ -1,0 +1,24 @@
+{
+  "id": "q_485",
+  "overview": "刨齿机进刀机构求圆盘连杆角速度与刨刀速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "点的合成运动",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示为刨齿机的进刀机构，曲柄 $O_1A$ 以匀角速度 $\\omega_1$ 转动，通过连杆AB使圆盘绕 $O_2$ 轴摆动。圆盘上刻有直槽EF，圆盘摆动时，可在槽内滑动的滑块C推动刨刀D（与杆CD固连）往复运动。已知h及 $\\omega_1$，$O_1A=r$，$O_2B=2r$，$AB=3r$，求当连杆AB与刨刀运动方向平行时（即图示水平位置）：(1)圆盘的角速度 $\\omega_2$；(2)连杆AB的角速度 $\\omega_{AB}$；(3)刨刀的速度 $v_D$。</p><img src=\"qdata/q_485/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>(1) $\\omega_2=\\dfrac{\\sqrt{3}}{2}\\omega_1$；(2) $\\omega_{AB}=\\dfrac{v_{BA}}{AB}=\\dfrac{|v_B-v_A|}{3r}$（由速度矢量图得）；(3) $v_D=\\omega_2\\cdot O_2C\\cos\\beta$（$\\beta$ 为 $v_e$ 与水平线夹角，水平投影即刨刀速度）。</p>",
+  "explanation": "<p>【AI 生成】（1）对曲柄—连杆—摇杆 $O_1ABO_2$ 用速度投影定理。$v_A=\\omega_1 r$，垂直于 $O_1A$；$v_B=\\omega_2\\cdot O_2B=\\omega_2\\cdot2r$，垂直于 $O_2B$。连杆AB此时水平，沿AB方向投影：$v_A\\cos30^\\circ=v_B\\cos60^\\circ$（图示各杆夹角均为 $60^\\circ$），即 $\\omega_1 r\\times\\dfrac{\\sqrt3}{2}=\\omega_2(2r)\\times\\dfrac12$，得 $\\omega_2=\\dfrac{\\sqrt3}{2}\\omega_1$。<br>（2）AB杆作平面运动，$v_{BA}=v_B-v_A$，$\\omega_{AB}=\\dfrac{|v_{BA}|}{AB}=\\dfrac{|v_B-v_A|}{3r}$（速度矢量图求得）。<br>（3）刨刀水平往复运动。取滑块C为动点、圆盘（绕 $O_2$）为动系：$v_C=v_e+v_r$，$v_e=\\omega_2\\cdot O_2C$ 垂直于 $O_2C$，$v_r$ 沿直槽EF。刨刀与CD杆固连作水平运动，故 $v_D=v_C$ 的水平分量 $=\\omega_2\\cdot O_2C\\cos\\beta$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "刨齿机进刀机构求圆盘连杆角速度与刨刀速度",
+  "module": "运动学"
+}

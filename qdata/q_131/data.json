@@ -1,0 +1,20 @@
+{
+  "id": "q_131",
+  "overview": "判断虚位移原理是否给出平衡的充要条件",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>虚位移原理与静力学平衡方程都给出了质点系平衡的充分必要条件。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】虚位移原理（虚功原理）指出：具有理想约束的质点系平衡的充要条件是所有主动力在任一虚位移上所作虚功之和为零，即 $\\sum\\boldsymbol F_i\\cdot\\delta\\boldsymbol r_i=0$。它与静力学平衡方程等价，且对任意质点系（包括非自由质点系）都成立。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册",
+  "title": "判断虚位移原理是否给出平衡的充要条件",
+  "module": "分析力学"
+}

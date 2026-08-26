@@ -1,0 +1,20 @@
+{
+  "id": "q_404",
+  "overview": "求车床车刀切削工件的螺距",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>车床的传动装置如图所示。已知各齿轮的齿数分别为：$z_1=40$，$z_2=84$，$z_3=28$，$z_4=80$；带动刀具的丝杠的螺距为 $h_4=12$mm。求车刀切削工件的螺距 $h_1$。</p><img src=\"qdata/q_404/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$h_1=0.2\\,\\mathrm{cm}$</p>",
+  "explanation": "<p>【AI 生成】工件与齿轮 1 同转。工件每转一周（$\\theta_1=2\\pi$），丝杠（齿轮 4）转角为</p><p>$$\\theta_4=\\theta_1\\frac{z_1 z_3}{z_2 z_4}=2\\pi\\times\\frac{40\\times28}{84\\times80}=\\frac{2\\pi}{6}=\\frac{\\pi}{3}$$</p><p>刀具移动距离（丝杠螺距 $h_4=12$mm）</p><p>$$s=h_4\\frac{\\theta_4}{2\\pi}=12\\times\\frac{1}{6}=2\\,\\mathrm{mm}$$</p><p>工件每转一周刀具移动 2mm，即工件被切削的螺距 $h_1=2$mm$=0.2$cm。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:49",
+  "updated": "2026-08-07 18:49",
+  "source": "练习册"
+}

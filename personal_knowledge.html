@@ -1,13 +1,31 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-store">
 <title>个人知识网络 - 理论力学研究平台</title>
 <style>
 :root{--blue:#2563eb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb}*{box-sizing:border-box}body{margin:0;font-family:"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}header{background:linear-gradient(135deg,#123b8f,#2563eb);color:white;padding:28px max(22px,calc((100% - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}header h1{margin:0;font-size:1.6rem}header p{margin:6px 0 0;opacity:.8}.back{color:white;text-decoration:none;border:1px solid #ffffff66;padding:8px 14px;border-radius:18px;white-space:nowrap}.layout{max-width:1180px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:320px 1fr;gap:20px}.layout>*{min-width:0}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 24px #0f172a0a}.card h2{font-size:1rem;margin:0 0 16px}.field{margin-bottom:12px}.field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit}.field textarea{resize:vertical}.btn{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}.primary{background:var(--blue);color:#fff}.secondary{background:#eef4ff;color:#1d4ed8}.danger{background:#fee2e2;color:#b91c1c}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.node-list{overflow:auto;border-top:1px solid var(--line);margin-top:14px}.node-item{padding:10px 2px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}.node-item small{display:block;color:var(--muted);margin-top:2px}.node-item button{padding:5px 8px}.network{min-height:460px;position:relative;overflow:hidden;background:radial-gradient(circle at 12% 18%,rgba(147,197,253,0.30),transparent 38%),radial-gradient(circle at 88% 20%,rgba(196,181,253,0.24),transparent 42%),radial-gradient(circle at 84% 84%,rgba(125,211,252,0.28),transparent 42%),radial-gradient(circle at 16% 86%,rgba(186,230,253,0.30),transparent 40%),radial-gradient(circle at 50% 42%,#eef4ff,#ffffff 74%)}
 #graph{width:100%;height:420px;border-radius:10px;overflow:hidden;background:#0b1220}.empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.status{font-size:.82rem;color:var(--muted);margin-top:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.network{min-height:360px}#graph{height:320px}}.right-col{display:flex;flex-direction:column;gap:20px}.review-progress{margin:12px 0 16px}.review-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}.review-bar-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:4px;transition:width .4s}.review-count{font-size:.82rem;color:var(--muted);margin-top:6px}.review-list{display:flex;flex-direction:column;gap:8px;overflow:auto}.review-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafcff;transition:all .2s}.review-item.done{background:#f0fdf4;border-color:#bbf7d0}.review-check{font-size:1.4rem;cursor:pointer;line-height:1;user-select:none}.review-item .review-info{flex:1;min-width:0}.review-item .review-info b{display:block}.review-item .review-info small{color:var(--muted)}.review-item.done .review-info b{color:#16a34a}.encourage-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:50;opacity:0;transition:all .3s;pointer-events:none}.encourage-toast.show{opacity:1;transform:translateX(-50%) scale(1)}@media(max-width:800px){.review-card{grid-column:1}}
 </style>
-<style>.detail-overlay{position:fixed;inset:0;background:#0f172a99;display:none;place-items:center;z-index:20;padding:20px}.detail-overlay.show{display:grid}.detail-modal{position:relative;background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 20px 60px #0f172a55}.detail-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:26px;color:#64748b;cursor:pointer}.detail-modal h2{margin:0 28px 6px 0}.detail-modal h3{font-size:.95rem;margin:18px 0 7px;color:#1d4ed8}.detail-modal .detail-block{background:#f8fafc;border-radius:8px;padding:10px;margin:6px 0;font-size:.9rem;line-height:1.6}.detail-modal textarea{width:100%;min-height:180px;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}.detail-modal .detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}</style>
+<style>.detail-overlay{position:fixed;inset:0;background:#0f172a99;display:none;place-items:center;z-index:20;padding:20px}.detail-overlay.show{display:grid}.detail-modal{position:relative;background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 20px 60px #0f172a55}.detail-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:26px;color:#64748b;cursor:pointer}.detail-modal h2{margin:0 28px 6px 0}.detail-modal h3{font-size:.95rem;margin:18px 0 7px;color:#1d4ed8}.detail-modal .detail-block{background:#f8fafc;border-radius:8px;padding:10px;margin:6px 0;font-size:.9rem;line-height:1.6}.detail-modal textarea{width:100%;min-height:180px;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}.detail-modal .detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#reviewContent .pp-chip{display:inline-flex;align-items:center;gap:6px;background:#334155;color:#e2e8f0;border-radius:16px;padding:3px 6px 3px 10px;margin:3px;font-size:.8rem}
+#reviewContent .pp-jump{display:inline-flex;align-items:center;background:#2563eb;color:#fff;text-decoration:none;border-radius:12px;padding:2px 9px;font-size:.72rem;font-weight:700}
+#reviewContent .pp-jump:hover{background:#1d4ed8}
+#reviewContent .web-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+#reviewContent .web-links a{display:inline-flex;align-items:center;gap:4px;background:#eef4ff;color:#1d4ed8;border:1px solid #c7dbf3;border-radius:14px;padding:5px 11px;font-size:.8rem;font-weight:700;text-decoration:none}
+#reviewContent .web-links a:hover{background:#dbe7ff}
+#reviewContent .review-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#reviewContent .review-buttons .btn{width:auto;flex:1;min-width:120px}
+#knowledgeOverlay{z-index:80}
+#knowledgeContent .pp-chip{display:inline-flex;align-items:center;gap:6px;background:#334155;color:#e2e8f0;border-radius:16px;padding:3px 6px 3px 10px;margin:3px;font-size:.8rem}
+#knowledgeContent .pp-jump{display:inline-flex;align-items:center;background:#2563eb;color:#fff;text-decoration:none;border-radius:12px;padding:2px 9px;font-size:.72rem;font-weight:700}
+#knowledgeContent .pp-jump:hover{background:#1d4ed8}
+#knowledgeContent .web-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+#knowledgeContent .web-links a{display:inline-flex;align-items:center;gap:4px;background:#eef4ff;color:#1d4ed8;border:1px solid #c7dbf3;border-radius:14px;padding:5px 11px;font-size:.8rem;font-weight:700;text-decoration:none}
+#knowledgeContent .web-links a:hover{background:#dbe7ff}
+#knowledgeContent .review-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#knowledgeContent .review-buttons .btn{width:auto;flex:1;min-width:120px}
+</style>
 <style>
 /* ===== 3D 全景知识图谱 ===== */
 .net-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
@@ -47,7 +65,19 @@
 @media(max-width:640px){.g3d-info{right:10px;left:10px;width:270px}.g3d-popup{width:280px}}
 </style></head>
 <body>
-<header><div><h1>🕸️ 个人知识网络</h1><p>把概念、公式、题目与自己的理解连接起来</p></div><div><a class="back" href="learning_notes.html">学习记录</a> <a class="back" href="weaknesses.html">我的薄弱点</a> <a class="back" href="account.html">← 返回个人中心</a></div></header>
+<style>
+/* ===== 统一为 account.html 风格 ===== */
+:root{--blue:#1a56db}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1a56db;color:#fff;text-decoration:none;border-radius:25px;font-weight:600;font-size:0.9em;transition:all .3s;position:fixed;top:16px;left:16px;z-index:100;box-shadow:0 4px 12px rgba(26,86,219,0.3)}
+.back-home:hover{background:#0d3b9e;transform:translateY(-2px)}
+header{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;padding:70px 32px 40px;text-align:center;display:block}
+header h1{margin:0;font-size:2.2em;font-weight:800;letter-spacing:2px}
+header p{margin:10px 0 0;opacity:.9;font-size:1.05em}
+header .back{display:inline-block;margin:16px 6px 0;padding:8px 16px;border:1px solid #ffffff66;border-radius:18px;color:#fff;text-decoration:none;font-size:.9em;background:rgba(255,255,255,0.12)}
+.card{border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+</style>
+<a href="index.html" class="back-home">← 返回主页</a>
+<header><h1>🕸️ 个人知识网络</h1><p>把概念、公式、题目与自己的理解连接起来</p><div><a class="back" href="learning_notes.html">学习记录</a> <a class="back" href="weaknesses.html">我的薄弱点</a> <a class="back" href="account.html">← 返回个人中心</a></div></header>
 <main class="layout"><section class="card"><h2>新增知识节点</h2><div id="loginHint" class="hint"></div>
 <div class="field"><label for="label">知识点名称</label><input id="label" placeholder="例如：动量定理"></div>
 <div class="field"><label for="type">类型</label><select id="type"><option value="concept">概念</option><option value="formula">公式</option><option value="problem">题目</option><option value="insight">心得</option></select></div>
@@ -58,6 +88,8 @@
 <h2 style="margin-top:24px">节点列表</h2><div id="nodes" class="node-list"></div><div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div></section>
 <div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 知识网络图</h2><button class="btn primary" onclick="open3d()">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
 <div id="detailOverlay" class="detail-overlay" onclick="if(event.target===this)closeDetail()"><div class="detail-modal"><button class="detail-close" onclick="closeDetail()">×</button><div id="detailContent"></div></div></div>
+<div id="reviewOverlay" class="detail-overlay" onclick="if(event.target===this)closeReview()"><div class="detail-modal"><button class="detail-close" onclick="closeReview()">×</button><div id="reviewContent"></div></div></div>
+<div id="knowledgeOverlay" class="detail-overlay" onclick="if(event.target===this)closeKnowledge()"><div class="detail-modal"><button class="detail-close" onclick="closeKnowledge()">×</button><div id="knowledgeContent"></div></div></div>
 <div class="encourage-toast" id="encourageToast"></div>
 <div id="graph3dOverlay" class="graph3d-overlay">
   <div class="g3d-topbar">
@@ -71,8 +103,8 @@
   <div id="graph3dPopup" class="g3d-popup"></div>
 </div>
 <script src="js/learning-memory-api.js"></script>
-<script src="https://unpkg.com/3d-force-graph@1.73.5/dist/3d-force-graph.min.js"></script>
-<script src="https://unpkg.com/force-graph@1.43.1/dist/force-graph.min.js"></script>
+<script src="js/3d-force-graph.min.js?v=20260826b"></script>
+<script src="js/force-graph.min.js?v=20260826b"></script>
 <script>
 const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'null')}catch(e){return null}})();
 let graph={nodes:[],edges:[]};let memoryState=null;let selected=null;const key='personal_knowledge_'+(user?.id||user?.student_id||'guest');
@@ -126,7 +158,7 @@ function syncListHeights(){
 }
 window.addEventListener('resize',syncListHeights);
 function draw(){const svg=document.getElementById('graph'),w=800,h=520;svg.innerHTML='<defs><radialGradient id="ball" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#93c5fd"/><stop offset="55%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></radialGradient><radialGradient id="ballActive" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="55%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></radialGradient></defs>';document.getElementById('empty').style.display=graph.nodes.length?'none':'grid';const pos={};graph.nodes.forEach((n,i)=>{const a=-Math.PI/2+i*Math.PI*2/Math.max(graph.nodes.length,1);pos[n.id]={x:w/2+Math.cos(a)*Math.min(260,70+graph.nodes.length*22),y:h/2+Math.sin(a)*Math.min(170,50+graph.nodes.length*15)}});graph.edges.forEach(e=>{if(pos[e.source]&&pos[e.target])svg.insertAdjacentHTML('beforeend',`<line x1="${pos[e.source].x}" y1="${pos[e.source].y}" x2="${pos[e.target].x}" y2="${pos[e.target].y}"/>`)});graph.nodes.forEach(n=>{const p=pos[n.id],active=selected===n.id;const clicks=(getClicks()[n.label]||0);const r=(n.size==='L'?34:n.size==='M'?26:18)+Math.min(clicks,20)+(active?3:0);const color=n.color||'#3b82f6';const fs=r>=34?12:r>=26?11:9;const cut=r>=34?6:r>=26?5:4;svg.insertAdjacentHTML('beforeend',`<g onclick="pick('${n.id}')" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${color}" stroke="${active?'#fff':'rgba(15,23,42,0.28)'}" stroke-width="${active?3:1.5}"/><ellipse cx="${p.x-r*0.3}" cy="${p.y-r*0.4}" rx="${r*0.34}" ry="${r*0.22}" fill="rgba(255,255,255,0.38)"/><text x="${p.x}" y="${p.y+fs*0.35}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="${fs}">${esc(n.label).slice(0,cut)}</text></g>`)})}
-function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n)recordClick(n.label);if(selected&&selected!==id){const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
+function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n){recordClick(n.label);recordUsage(n.label,'c');}if(selected&&selected!==id){const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
 function addNode(){const label=document.getElementById('label').value.trim();if(!label)return alert('请输入知识点名称');graph.nodes.push({id:'node_'+Date.now(),label,type:document.getElementById('type').value,status:document.getElementById('status').value,note:document.getElementById('note').value.trim()});['label','note'].forEach(id=>document.getElementById(id).value='');render()}
 function removeNode(id){graph.nodes=graph.nodes.filter(n=>n.id!==id);graph.edges=graph.edges.filter(e=>e.source!==id&&e.target!==id);render()}
 const clickKey='knowledge_clicks_'+(user?.id||user?.student_id||'guest');
@@ -146,7 +178,7 @@ function renderReview(){
     return '<div class="review-item'+(isDone?' done':'')+'">'+
       '<span class="review-check" onclick="toggleReview(\''+esc(n.label)+'\')">'+(isDone?'☑':'☐')+'</span>'+
       '<div class="review-info"><b>'+esc(n.label)+'</b><small>'+esc(n.type)+' · 薄弱点</small></div>'+
-      '<button class="btn '+(isDone?'secondary':'primary')+'" onclick="toggleReview(\''+esc(n.label)+'\')">'+(isDone?'已完成':'去复习')+'</button>'+
+      '<button class="btn '+(isDone?'secondary':'primary')+'" onclick="'+(isDone?"toggleReview('"+esc(n.label)+"')":"showReviewModal('"+esc(n.label)+"')")+'">'+(isDone?'已完成':'去复习')+'</button>'+
     '</div>';
   }).join('');
   const doneCount=weak.filter(n=>done.includes(n.label)).length;
@@ -179,55 +211,1339 @@ function showEncourage(label){
   t.classList.add('show');
   setTimeout(function(){t.classList.remove('show')},2600);
 }
-function seedDemoNodes(){
-  const demos=[
-    {label:'牛顿运动定律',type:'concept',status:'mastered',note:'动力学基础，力与运动的关系',size:'L',color:'#3b82f6'},
-    {label:'动量定理',type:'concept',status:'mastered',note:'质点系动量变化等于合外力冲量',size:'L',color:'#22c55e'},
-    {label:'动能定理',type:'concept',status:'familiar',note:'合外力做功等于动能变化',size:'L',color:'#f97316'},
-    {label:'达朗贝尔原理',type:'concept',status:'learning',note:'惯性力与约束力构成平衡力系',size:'L',color:'#a855f7'},
-    {label:'质心运动定理',type:'concept',status:'familiar',note:'质心运动只取决于外力',size:'M',color:'#14b8a6'},
-    {label:'动量矩定理',type:'concept',status:'familiar',note:'动量矩变化率等于外力矩',size:'M',color:'#ec4899'},
-    {label:'虚位移原理',type:'concept',status:'learning',note:'理想约束下主动力虚功为零',size:'M',color:'#6366f1'},
-    {label:'静力学平衡方程',type:'formula',status:'mastered',note:'合力为零、合力矩为零',size:'M',color:'#06b6d4'},
-    {label:'受力分析',type:'concept',status:'mastered',note:'明确对象、画出全部主动力与约束力',size:'S',color:'#84cc16'},
-    {label:'摩擦',type:'concept',status:'familiar',note:'静摩擦与动摩擦，自锁现象',size:'S',color:'#8b5cf6'},
-    {label:'刚体转动',type:'concept',status:'learning',note:'定轴转动的角速度与角加速度',size:'S',color:'#eab308'},
-    {label:'科氏加速度',type:'concept',status:'learning',note:'牵连转动中的附加加速度',size:'S',color:'#10b981'},
-    {label:'拉格朗日方程',type:'formula',status:'learning',note:'d/dt(∂L/∂q̇)-∂L/∂q=Q',size:'S',color:'#f59e0b'},
-    {label:'哈密顿原理',type:'formula',status:'learning',note:'真实运动使作用量取极值',size:'S',color:'#f43f5e'},
-    {label:'转动惯量',type:'concept',status:'learning',note:'刚体转动惯性的度量',size:'S',color:'#d946ef'},
-    {label:'质心',type:'concept',status:'mastered',note:'质量分布的中心',size:'S',color:'#0ea5e9'},
-    {label:'约束反力',type:'concept',status:'familiar',note:'约束对物体的作用力',size:'S',color:'#fbbf24'},
-    {label:'惯性力',type:'concept',status:'learning',note:'达朗贝尔原理中的假想力',size:'S',color:'#ef4444'},
-    {label:'力的平移定理',type:'formula',status:'mastered',note:'力可沿作用线平移并附加一力偶',size:'S',color:'#0ea5e9'},
-    {label:'平面汇交力系',type:'concept',status:'mastered',note:'各力作用线汇交于一点',size:'S',color:'#84cc16'},
-    {label:'空间力系',type:'concept',status:'learning',note:'空间力系平衡需六个独立方程',size:'M',color:'#f97316'},
-    {label:'点的运动学',type:'concept',status:'familiar',note:'运动方程、速度、加速度',size:'S',color:'#3b82f6'},
-    {label:'刚体的基本运动',type:'concept',status:'familiar',note:'平动与定轴转动',size:'S',color:'#14b8a6'},
-    {label:'碰撞',type:'concept',status:'learning',note:'碰撞过程动量守恒、有动能损失',size:'M',color:'#f97316'},
-    {label:'广义坐标',type:'concept',status:'learning',note:'描述系统位形的最少独立参数',size:'S',color:'#f97316'},
-    {label:'欧拉方程',type:'formula',status:'learning',note:'刚体定点转动的动力学方程',size:'S',color:'#f97316'},
-    {label:'分析力学基础',type:'concept',status:'familiar',note:'广义坐标、虚位移、变分原理',size:'S',color:'#8b5cf6'},
-    {label:'保守系统',type:'concept',status:'mastered',note:'只有保守力做功，机械能守恒',size:'S',color:'#22c55e'}
-  ];
-  demos.forEach((d,i)=>graph.nodes.push({id:'seed_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color}));
-  const links=[
-    [0,1,'PREREQUISITE_OF'],[0,2,'PREREQUISITE_OF'],[0,3,'PREREQUISITE_OF'],
-    [1,4,'PREREQUISITE_OF'],[1,5,'RELATED_TO'],[2,5,'RELATED_TO'],
-    [3,6,'RELATED_TO'],[3,12,'PREREQUISITE_OF'],[3,13,'PREREQUISITE_OF'],[3,17,'RELATED_TO'],
-    [4,15,'RELATED_TO'],[5,14,'RELATED_TO'],[7,16,'RELATED_TO'],
-    [7,8,'PREREQUISITE_OF'],[8,9,'RELATED_TO'],[10,14,'RELATED_TO'],
-    [10,11,'RELATED_TO'],[12,6,'RELATED_TO'],[15,16,'RELATED_TO'],
-    [18,8,'RELATED_TO'],[19,7,'PREREQUISITE_OF'],[20,7,'PREREQUISITE_OF'],[20,14,'RELATED_TO'],
-    [21,10,'PREREQUISITE_OF'],[22,10,'RELATED_TO'],[23,1,'RELATED_TO'],[23,2,'RELATED_TO'],
-    [24,12,'PREREQUISITE_OF'],[24,6,'RELATED_TO'],[25,5,'RELATED_TO'],[25,14,'RELATED_TO'],
-    [26,12,'PREREQUISITE_OF'],[26,6,'RELATED_TO'],[27,2,'RELATED_TO']
-  ];
-  links.forEach(e=>graph.edges.push({id:'seed_'+e[0]+'-'+e[1],source:'seed_'+e[0],target:'seed_'+e[1],relation:e[2]}));
-  localStorage.setItem(key,JSON.stringify(graph));
-  setStatus('已插入示例知识点（可自行修改或清空）');
+// ===== 复习界面（核心知识点 + 关联知识点 + 网页内容）=====
+function showReviewModal(label){
+  const node=graph.nodes.find(n=>n.label===label);
+  const overlay=document.getElementById('reviewOverlay'),box=document.getElementById('reviewContent');
+  if(!node||!overlay||!box)return;
+  // 1) 直接联系的知识点（核心）
+  const direct=[];
+  const seen={};seen[label]=1;
+  graph.edges.forEach(e=>{
+    let nb=null;
+    if(e.source===node.id)nb=graph.nodes.find(x=>x.id===e.target);
+    else if(e.target===node.id)nb=graph.nodes.find(x=>x.id===e.source);
+    if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;direct.push(nb);}
+  });
+  // 2) 间接联系的知识点（二级邻居，关联）
+  const indirect=[];
+  direct.forEach(d=>{
+    graph.edges.forEach(e=>{
+      let nb=null;
+      if(e.source===d.id)nb=graph.nodes.find(x=>x.id===e.target);
+      else if(e.target===d.id)nb=graph.nodes.find(x=>x.id===e.source);
+      if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;indirect.push(nb);}
+    });
+  });
+  function chips(arr,empty){
+    if(!arr.length)return '<div class="hint" style="padding:4px 0;color:#94a3b8">'+empty+'</div>';
+    return arr.map(n=>'<span class="pp-chip">'+esc(n.label)+'<a class="pp-jump" href="'+conceptUrl(n.label)+'" target="_blank" onclick="recordUsage(\''+esc(n.label)+'\',\'s\')">跳转 ↗</a></span>').join('');
+  }
+  const directCore=direct.filter(function(n){return siteHasContent(n.label);});
+  box.innerHTML=
+    '<h2 style="margin-right:30px">🎯 复习：'+esc(node.label)+'</h2>'+
+    '<div class="hint" style="margin-bottom:8px">类型：'+esc(node.type)+' · 状态：'+esc(statusLabel(node.status))+'</div>'+
+    (node.note?'<div class="detail-block">📝 '+esc(node.note)+'</div>':'')+
+    '<h3>📌 核心知识点</h3>'+
+    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」直接联系、且本站有对应内容的知识点'+(direct.length>directCore.length?'（已隐藏 '+(direct.length-directCore.length)+' 个无网页内容的知识点）':'')+'</div>'+
+    '<div class="detail-block">'+chips(directCore,'暂无本站可跳转的核心知识点')+'</div>'+
+    '<h3>🔗 关联知识点</h3>'+
+    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」间接联系的知识点</div>'+
+    '<div class="detail-block">'+chips(indirect,'暂无间接关联知识点')+'</div>'+
+    '<h3>🌐 网页相关内容</h3>'+
+    '<div class="detail-block"><div class="web-links">'+
+      '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材知识点</a>'+
+      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
+      '<a href="http://localhost:8090" target="_blank">📝 相关题库</a>'+
+      '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
+      '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
+      '<a href="ai_qa.html" target="_blank">🤖 AI 问答</a>'+
+    '</div></div>'+
+    '<div class="review-buttons">'+
+      '<button class="btn primary" onclick="completeReview(\''+esc(node.label)+'\')">✅ 完成复习</button>'+
+      '<button class="btn secondary" onclick="closeReview()">稍后再说</button>'+
+    '</div>';
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
 }
-async function loadGraph(){try{const old=await fetch(apiUrl());if(old.ok){const oldData=await old.json();graph=oldData.graph||graph}const memory=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(memory.ok){const data=await memory.json(),state=data.state||{};const known=new Set(graph.nodes.map(n=>n.id));(state.concepts||[]).forEach(c=>{if(!known.has(c.id)){graph.nodes.push({id:c.id,label:c.name||c.concept_key,type:'concept',status:'learning',note:'来自本次学习整理'});known.add(c.id)}});(state.misconceptions||[]).forEach(m=>{if(!known.has(m.id)){graph.nodes.push({id:m.id,label:m.description||m.error_code,type:'insight',status:m.status||'learning',note:'待验证错误理解'});known.add(m.id)}});(state.concept_relations||[]).forEach(e=>{if(!graph.edges.some(x=>x.id===e.id))graph.edges.push({id:e.id,source:e.source_concept_id,target:e.target_concept_id,relation:e.relation_type||'关联'})});localStorage.setItem(key,JSON.stringify(graph));setStatus('已加载个人知识网络与学习整理结果')}else throw Error()}catch(e){try{graph=JSON.parse(localStorage.getItem(key)||'{"nodes":[],"edges":[]}')}catch(x){}setStatus('服务器不可用，已加载本机暂存')}if(graph.nodes.length===0)seedDemoNodes();render()}
+function completeReview(label){
+  const done=getReviewDone();
+  if(done.indexOf(label)<0){done.push(label);saveReviewDone(done);recordLearningLog(label);}
+  recordUsage(label,'c');
+  renderReview();
+  closeReview();
+  showEncourage(label);
+}
+function closeReview(){
+  const ov=document.getElementById('reviewOverlay');
+  if(ov)ov.classList.remove('show');
+  document.body.style.overflow='';
+}
+// ===== 本知识点：综合详情卡（定义+核心关联+关联+专项题目+资源）=====
+function showKnowledgePoint(label){
+  const node=graph.nodes.find(n=>n.label===label);
+  const overlay=document.getElementById('knowledgeOverlay'),box=document.getElementById('knowledgeContent');
+  if(!node||!overlay||!box)return;
+  // B：若3D视图已打开，聚焦高亮该节点及其直接关联
+  if(fg3d)setG3dFocus(node.id);
+  const direct=[],indirect=[];
+  const seen={};seen[label]=1;
+  graph.edges.forEach(e=>{
+    let nb=null;
+    if(e.source===node.id)nb=graph.nodes.find(x=>x.id===e.target);
+    else if(e.target===node.id)nb=graph.nodes.find(x=>x.id===e.source);
+    if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;direct.push(nb);}
+  });
+  direct.forEach(d=>{
+    graph.edges.forEach(e=>{
+      let nb=null;
+      if(e.source===d.id)nb=graph.nodes.find(x=>x.id===e.target);
+      else if(e.target===d.id)nb=graph.nodes.find(x=>x.id===e.source);
+      if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;indirect.push(nb);}
+    });
+  });
+  function chips(arr,empty){
+    if(!arr.length)return '<div class="hint" style="padding:4px 0;color:#94a3b8">'+empty+'</div>';
+    return arr.map(n=>'<span class="pp-chip">'+esc(n.label)+'<a class="pp-jump" href="'+conceptUrl(n.label)+'" target="_blank" onclick="recordUsage(\''+esc(n.label)+'\',\'s\')">跳转 ↗</a></span>').join('');
+  }
+  const typeIcon={concept:'💡 概念',formula:'🧮 公式',problem:'📝 题目',insight:'💭 心得'}[node.type]||'📘';
+  box.innerHTML=
+    '<h2 style="margin-right:30px">📖 '+esc(node.label)+'<span class="pp-badge" style="margin-left:8px">'+esc(statusLabel(node.status))+'</span></h2>'+
+    '<div class="hint" style="margin-bottom:8px">'+typeIcon+' · 知识点综合详解</div>'+
+    '<h3>📖 定义与要点</h3>'+
+    '<div class="detail-block">'+(node.note?esc(node.note):'暂无简介，点击下方教材章节可查看完整讲解')+'</div>'+
+    '<h3>📌 核心关联知识点</h3>'+
+    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」直接联系的知识点</div>'+
+    '<div class="detail-block">'+chips(direct,'暂无直接关联知识点')+'</div>'+
+    '<h3>🔗 关联知识点</h3>'+
+    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」间接联系的知识点</div>'+
+    '<div class="detail-block">'+chips(indirect,'暂无间接关联知识点')+'</div>'+
+    '<h3>📝 专项练习</h3>'+
+    '<div id="kpQuestions" class="detail-block">正在加载相关题目…</div>'+
+    '<h3>🌐 相关资源</h3>'+
+    '<div class="detail-block"><div class="web-links">'+
+      '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材章节</a>'+
+      '<a href="http://localhost:8090?q='+encodeURIComponent(node.label)+'" target="_blank">📝 题库</a>'+
+      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
+      '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
+      '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
+    '</div></div>'+
+    '<div class="review-buttons">'+
+      '<button class="btn primary" onclick="closeKnowledge()">✕ 关闭</button>'+
+    '</div>';
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
+  loadRelatedQuestions(node.label);
+}
+function loadRelatedQuestions(label){
+  const el=document.getElementById('kpQuestions');
+  function renderQ(list){
+    const kw=String(label||'').toLowerCase();
+    const rel=(list||[]).filter(function(q){
+      const t=String((q&&(q.title||q.id))||'')+' '+(String((q&&q.module)||''));
+      return t.toLowerCase().indexOf(kw)>=0;
+    });
+    if(!rel.length){
+      el.innerHTML='<div class="hint" style="color:#94a3b8">暂无该知识点的专项题目，可前往 <a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank" style="color:#2563eb;font-weight:700">题库</a> 查找相关题目</div>';
+      return;
+    }
+    el.innerHTML=rel.slice(0,6).map(function(q){
+      return '<div style="padding:8px 10px;border-bottom:1px dashed #d5e3f3;font-size:.85rem">'+
+        '<a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank" style="color:#1d4ed8;font-weight:600;text-decoration:none">'+esc(q.title||q.id)+'</a>'+
+        '<span class="hint" style="margin-left:6px">'+esc(q.module||'')+(q.difficulty?' · '+esc(q.difficulty):'')+'</span></div>';
+    }).join('')+'<div class="hint" style="margin-top:6px">更多题目 → <a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank" style="color:#2563eb;font-weight:700">进入题库</a></div>';
+  }
+  fetch('/api/list?_='+Date.now()).then(function(r){if(!r.ok)throw Error();return r.json();}).then(function(d){
+    renderQ(d&&(d.questions||d.items||Array.isArray(d)?d:[]));
+  }).catch(function(){
+    fetch('qdata/index.json?_='+Date.now()).then(function(r){if(!r.ok)throw Error();return r.json();}).then(function(d){
+      renderQ(d&&d.questions);
+    }).catch(function(){renderQ([]);});
+  });
+}
+function closeKnowledge(){
+  const ov=document.getElementById('knowledgeOverlay');
+  if(ov)ov.classList.remove('show');
+  document.body.style.overflow='';
+  clearG3dFocus();
+}
+const FULL_COURSE={
+  nodes:[
+    // ===== 静力学（青色）=====
+    {label:'静力学基础',type:'concept',status:'mastered',note:'研究力系简化与平衡的学科',size:'L',color:'#06b6d4'},
+    {label:'力的基本概念',type:'concept',status:'mastered',note:'力是物体间的相互作用',size:'M',color:'#06b6d4'},
+    {label:'力的三要素',type:'concept',status:'mastered',note:'大小、方向、作用点',size:'S',color:'#06b6d4'},
+    {label:'力的平行四边形法则',type:'formula',status:'mastered',note:'两共点力的合成为对角线',size:'M',color:'#06b6d4'},
+    {label:'合力与分力',type:'concept',status:'mastered',note:'等效力系的合成与分解',size:'S',color:'#06b6d4'},
+    {label:'力对点之矩',type:'formula',status:'mastered',note:'M=F×d，衡量转动效应',size:'M',color:'#06b6d4'},
+    {label:'力对轴之矩',type:'formula',status:'familiar',note:'空间力对轴的转动效应',size:'S',color:'#06b6d4'},
+    {label:'合力矩定理',type:'formula',status:'familiar',note:'合力之矩等于各分力矩之和',size:'S',color:'#06b6d4'},
+    {label:'力偶',type:'concept',status:'mastered',note:'大小相等、方向相反的平行力',size:'M',color:'#06b6d4'},
+    {label:'力偶矩',type:'formula',status:'mastered',note:'M=±F·d',size:'S',color:'#06b6d4'},
+    {label:'约束与约束反力',type:'concept',status:'mastered',note:'约束限制位移并产生反力',size:'L',color:'#06b6d4'},
+    {label:'光滑面约束',type:'concept',status:'mastered',note:'反力沿接触面法线方向',size:'S',color:'#06b6d4'},
+    {label:'铰链约束',type:'concept',status:'mastered',note:'反力分解为两个正交分量',size:'S',color:'#06b6d4'},
+    {label:'固定端约束',type:'concept',status:'mastered',note:'限制平动与转动，有反力与反力偶',size:'S',color:'#06b6d4'},
+    {label:'滚动支座',type:'concept',status:'familiar',note:'只限制法线方向位移',size:'S',color:'#06b6d4'},
+    {label:'柔索约束',type:'concept',status:'familiar',note:'反力沿索线方向，只能拉不能压',size:'S',color:'#06b6d4'},
+    {label:'二力杆',type:'concept',status:'mastered',note:'两端铰接只受两端力的杆',size:'S',color:'#06b6d4'},
+    {label:'约束反力',type:'concept',status:'mastered',note:'约束对物体的作用力',size:'S',color:'#06b6d4'},
+    {label:'受力分析',type:'concept',status:'mastered',note:'明确对象、画出全部主动力与约束力',size:'L',color:'#06b6d4'},
+    {label:'分离体',type:'concept',status:'mastered',note:'隔离研究对象以画受力图',size:'S',color:'#06b6d4'},
+    {label:'受力图',type:'concept',status:'mastered',note:'分离体上全部外力的图形表示',size:'S',color:'#06b6d4'},
+    {label:'平面汇交力系',type:'concept',status:'mastered',note:'各力作用线汇交于一点',size:'M',color:'#06b6d4'},
+    {label:'空间汇交力系',type:'concept',status:'familiar',note:'空间汇交力系的合成',size:'S',color:'#06b6d4'},
+    {label:'合力投影定理',type:'formula',status:'mastered',note:'合力在某轴的投影等于各分力投影之和',size:'S',color:'#06b6d4'},
+    {label:'力偶系',type:'concept',status:'mastered',note:'多个力偶的合成与平衡',size:'M',color:'#06b6d4'},
+    {label:'平面力偶系',type:'concept',status:'mastered',note:'平面力偶代数和为零',size:'S',color:'#06b6d4'},
+    {label:'力系简化',type:'concept',status:'mastered',note:'向一点平移并附加力偶',size:'M',color:'#06b6d4'},
+    {label:'主矢与主矩',type:'concept',status:'mastered',note:'简化结果：主矢+主矩',size:'M',color:'#06b6d4'},
+    {label:'简化中心',type:'concept',status:'mastered',note:'主矩随简化中心而变化',size:'S',color:'#06b6d4'},
+    {label:'平面任意力系',type:'concept',status:'mastered',note:'平面内任意分布的力系',size:'M',color:'#06b6d4'},
+    {label:'空间任意力系',type:'concept',status:'familiar',note:'空间力系的一般情形',size:'M',color:'#06b6d4'},
+    {label:'空间力系',type:'concept',status:'familiar',note:'空间力系平衡需六个独立方程',size:'M',color:'#06b6d4'},
+    {label:'静力学平衡方程',type:'formula',status:'mastered',note:'合力为零、合力矩为零',size:'L',color:'#06b6d4'},
+    {label:'平面力系平衡方程',type:'formula',status:'mastered',note:'∑Fx=0，∑Fy=0，∑Mo=0',size:'S',color:'#06b6d4'},
+    {label:'空间力系平衡方程',type:'formula',status:'familiar',note:'六个独立平衡方程',size:'S',color:'#06b6d4'},
+    {label:'平衡方程',type:'formula',status:'mastered',note:'力与力矩的平衡条件',size:'M',color:'#06b6d4'},
+    {label:'静定与超静定',type:'concept',status:'familiar',note:'比较未知量个数与方程个数',size:'S',color:'#06b6d4'},
+    {label:'力的平移定理',type:'formula',status:'mastered',note:'力可沿作用线平移并附加一力偶',size:'M',color:'#06b6d4'},
+    {label:'摩擦',type:'concept',status:'familiar',note:'接触面的阻力效应',size:'M',color:'#06b6d4'},
+    {label:'静摩擦',type:'concept',status:'familiar',note:'静止接触面间的摩擦',size:'S',color:'#06b6d4'},
+    {label:'动摩擦',type:'concept',status:'familiar',note:'相对滑动时的摩擦',size:'S',color:'#06b6d4'},
+    {label:'摩擦角',type:'concept',status:'familiar',note:'全反力与法线的夹角',size:'S',color:'#06b6d4'},
+    {label:'自锁',type:'concept',status:'familiar',note:'主动力在摩擦锥内则保持静止',size:'S',color:'#06b6d4'},
+    {label:'摩擦与自锁',type:'concept',status:'learning',note:'摩擦自锁的工程应用',size:'M',color:'#06b6d4'},
+    {label:'重心与形心',type:'concept',status:'familiar',note:'质量与几何中心',size:'M',color:'#06b6d4'},
+    {label:'重心',type:'concept',status:'familiar',note:'重力合力的作用点',size:'S',color:'#06b6d4'},
+    {label:'形心',type:'concept',status:'familiar',note:'几何形状的中心',size:'S',color:'#06b6d4'},
+    {label:'平行力系中心',type:'concept',status:'familiar',note:'平行力系合力的作用点',size:'S',color:'#06b6d4'},
+    {label:'桁架',type:'concept',status:'familiar',note:'由二力杆组成的杆系结构',size:'M',color:'#06b6d4'},
+    {label:'桁架节点法',type:'formula',status:'familiar',note:'逐节点取汇交力系平衡',size:'S',color:'#06b6d4'},
+    {label:'桁架截面法',type:'formula',status:'familiar',note:'用截面截断直接求内力',size:'S',color:'#06b6d4'},
+    {label:'零杆',type:'concept',status:'learning',note:'内力为零的杆件',size:'S',color:'#06b6d4'},
+    {label:'物系平衡',type:'concept',status:'familiar',note:'多个物体组成的系统平衡',size:'M',color:'#06b6d4'},
+    // ===== 运动学（蓝色）=====
+    {label:'点的运动学',type:'concept',status:'mastered',note:'运动方程、速度、加速度',size:'L',color:'#3b82f6'},
+    {label:'矢径法',type:'concept',status:'mastered',note:'用矢径描述点的位置',size:'S',color:'#3b82f6'},
+    {label:'直角坐标法',type:'concept',status:'mastered',note:'x(t)、y(t)、z(t)',size:'S',color:'#3b82f6'},
+    {label:'自然法',type:'concept',status:'mastered',note:'沿轨迹的弧坐标描述',size:'S',color:'#3b82f6'},
+    {label:'运动方程',type:'formula',status:'mastered',note:'位置随时间的变化关系',size:'S',color:'#3b82f6'},
+    {label:'轨迹',type:'concept',status:'mastered',note:'点的位置随时间扫出的曲线',size:'S',color:'#3b82f6'},
+    {label:'点的速度',type:'concept',status:'mastered',note:'位置矢量对时间的一阶导',size:'M',color:'#3b82f6'},
+    {label:'点的加速度',type:'concept',status:'mastered',note:'速度对时间的一阶导',size:'M',color:'#3b82f6'},
+    {label:'切向加速度',type:'formula',status:'mastered',note:'反映速度大小的变化',size:'S',color:'#3b82f6'},
+    {label:'法向加速度',type:'formula',status:'mastered',note:'反映速度方向的变化',size:'S',color:'#3b82f6'},
+    {label:'曲率半径',type:'concept',status:'mastered',note:'描述轨迹的弯曲程度',size:'S',color:'#3b82f6'},
+    {label:'刚体的基本运动',type:'concept',status:'mastered',note:'平动与定轴转动',size:'L',color:'#3b82f6'},
+    {label:'平动',type:'concept',status:'mastered',note:'刚体各点轨迹相同',size:'S',color:'#3b82f6'},
+    {label:'定轴转动',type:'concept',status:'mastered',note:'刚体绕固定轴转动',size:'M',color:'#3b82f6'},
+    {label:'角速度',type:'concept',status:'mastered',note:'转角对时间的导数',size:'S',color:'#3b82f6'},
+    {label:'角加速度',type:'concept',status:'mastered',note:'角速度对时间的导数',size:'S',color:'#3b82f6'},
+    {label:'刚体上各点速度',type:'concept',status:'mastered',note:'v=ω×r',size:'S',color:'#3b82f6'},
+    {label:'刚体转动',type:'concept',status:'learning',note:'定轴转动的角速度与角加速度',size:'S',color:'#3b82f6'},
+    {label:'齿轮传动',type:'concept',status:'familiar',note:'啮合传动传递运动',size:'S',color:'#3b82f6'},
+    {label:'传动比',type:'formula',status:'familiar',note:'角速度之比等于齿数反比',size:'S',color:'#3b82f6'},
+    {label:'点的合成运动',type:'concept',status:'mastered',note:'动点相对不同参考系的运动',size:'L',color:'#3b82f6'},
+    {label:'动点与动系',type:'concept',status:'mastered',note:'合理选择动点动系是关键',size:'S',color:'#3b82f6'},
+    {label:'绝对运动',type:'concept',status:'mastered',note:'相对定系的运动',size:'S',color:'#3b82f6'},
+    {label:'相对运动',type:'concept',status:'mastered',note:'相对动系的运动',size:'S',color:'#3b82f6'},
+    {label:'牵连运动',type:'concept',status:'mastered',note:'动系相对定系的运动',size:'S',color:'#3b82f6'},
+    {label:'速度合成定理',type:'formula',status:'mastered',note:'绝对速度=牵连速度+相对速度',size:'M',color:'#3b82f6'},
+    {label:'加速度合成定理',type:'formula',status:'familiar',note:'牵连+相对+科氏加速度',size:'M',color:'#3b82f6'},
+    {label:'科氏加速度',type:'concept',status:'learning',note:'牵连转动时的附加加速度',size:'M',color:'#3b82f6'},
+    {label:'速度合成',type:'concept',status:'mastered',note:'速度合成定理的应用',size:'S',color:'#3b82f6'},
+    {label:'加速度合成',type:'concept',status:'familiar',note:'加速度合成定理的应用',size:'S',color:'#3b82f6'},
+    {label:'刚体平面运动',type:'concept',status:'mastered',note:'刚体在平面内的运动',size:'L',color:'#3b82f6'},
+    {label:'基点法',type:'formula',status:'mastered',note:'平动+转动分解',size:'M',color:'#3b82f6'},
+    {label:'速度瞬心',type:'concept',status:'learning',note:'瞬时速度为零的点',size:'M',color:'#3b82f6'},
+    {label:'瞬心法',type:'formula',status:'familiar',note:'以瞬心为基点求速度',size:'S',color:'#3b82f6'},
+    {label:'平面运动方程',type:'formula',status:'familiar',note:'基点平动+绕基点转动',size:'S',color:'#3b82f6'},
+    // ===== 动力学（绿色）=====
+    {label:'质点动力学',type:'concept',status:'mastered',note:'牛顿定律描述的质点运动',size:'L',color:'#22c55e'},
+    {label:'牛顿运动定律',type:'concept',status:'mastered',note:'动力学基础，力与运动的关系',size:'L',color:'#22c55e'},
+    {label:'牛顿第二定律',type:'formula',status:'mastered',note:'F=ma',size:'M',color:'#22c55e'},
+    {label:'质点运动微分方程',type:'formula',status:'mastered',note:'建立运动与受力的微分关系',size:'S',color:'#22c55e'},
+    {label:'初始条件',type:'concept',status:'mastered',note:'定解微分方程的初值',size:'S',color:'#22c55e'},
+    {label:'质点系动力学',type:'concept',status:'mastered',note:'质点系受力的整体效果',size:'L',color:'#22c55e'},
+    {label:'动量',type:'concept',status:'mastered',note:'p=mv，描述运动量',size:'M',color:'#22c55e'},
+    {label:'冲量',type:'concept',status:'mastered',note:'力对时间的累积效应',size:'S',color:'#22c55e'},
+    {label:'动量定理',type:'formula',status:'mastered',note:'质点系动量变化等于合外力冲量',size:'M',color:'#22c55e'},
+    {label:'质心',type:'concept',status:'mastered',note:'质量分布的中心',size:'S',color:'#22c55e'},
+    {label:'质心运动定理',type:'formula',status:'familiar',note:'质心运动只取决于外力',size:'M',color:'#22c55e'},
+    {label:'动量矩',type:'concept',status:'mastered',note:'L=Jω，转动量度',size:'M',color:'#22c55e'},
+    {label:'动量矩定理',type:'formula',status:'familiar',note:'动量矩变化率等于外力矩',size:'M',color:'#22c55e'},
+    {label:'刚体定轴转动微分方程',type:'formula',status:'familiar',note:'Jα=M',size:'S',color:'#22c55e'},
+    {label:'转动惯量',type:'concept',status:'learning',note:'刚体转动惯性的度量',size:'M',color:'#22c55e'},
+    {label:'平行轴定理',type:'formula',status:'familiar',note:'J=Jc+md²',size:'S',color:'#22c55e'},
+    {label:'回转半径',type:'concept',status:'familiar',note:'ρ=√(J/m)',size:'S',color:'#22c55e'},
+    {label:'功',type:'concept',status:'mastered',note:'力沿位移的累积效应',size:'S',color:'#22c55e'},
+    {label:'功率',type:'concept',status:'mastered',note:'功对时间的导数',size:'S',color:'#22c55e'},
+    {label:'动能',type:'concept',status:'mastered',note:'T=½mv²',size:'S',color:'#22c55e'},
+    {label:'动能定理',type:'formula',status:'mastered',note:'合外力做功等于动能变化',size:'M',color:'#22c55e'},
+    {label:'势力场',type:'concept',status:'familiar',note:'存在势函数的力场',size:'S',color:'#22c55e'},
+    {label:'势能',type:'concept',status:'familiar',note:'与位置有关的能量',size:'S',color:'#22c55e'},
+    {label:'机械能守恒',type:'formula',status:'familiar',note:'保守系统动能势能之和不变',size:'S',color:'#22c55e'},
+    {label:'保守系统',type:'concept',status:'familiar',note:'只有保守力做功的系统',size:'S',color:'#22c55e'},
+    {label:'动力学普遍定理',type:'concept',status:'mastered',note:'动量、动量矩、动能三大定理',size:'L',color:'#22c55e'},
+    {label:'三大定理联合',type:'concept',status:'familiar',note:'综合运用三大定理解题',size:'M',color:'#22c55e'},
+    {label:'碰撞',type:'concept',status:'learning',note:'瞬时冲击，动量守恒',size:'M',color:'#22c55e'},
+    {label:'碰撞冲量',type:'concept',status:'learning',note:'碰撞过程中的冲量',size:'S',color:'#22c55e'},
+    {label:'恢复系数',type:'formula',status:'learning',note:'e=分离速度/接近速度',size:'S',color:'#22c55e'},
+    {label:'撞击中心',type:'concept',status:'learning',note:'打击后轴承无冲击的点',size:'S',color:'#22c55e'},
+    {label:'达朗贝尔原理',type:'concept',status:'learning',note:'惯性力与约束力构成平衡力系',size:'L',color:'#22c55e'},
+    {label:'惯性力',type:'concept',status:'learning',note:'达朗贝尔原理中的假想力',size:'M',color:'#22c55e'},
+    {label:'动静法',type:'formula',status:'learning',note:'将动力学问题化为静力学问题',size:'M',color:'#22c55e'},
+    {label:'刚体惯性力系简化',type:'concept',status:'learning',note:'刚体惯性力简化为合力与合力偶',size:'S',color:'#22c55e'},
+    // ===== 分析力学（紫色）=====
+    {label:'分析力学基础',type:'concept',status:'familiar',note:'广义坐标、虚位移、变分原理',size:'L',color:'#a855f7'},
+    {label:'广义坐标',type:'concept',status:'learning',note:'描述系统位形的最少独立参数',size:'M',color:'#a855f7'},
+    {label:'自由度',type:'concept',status:'familiar',note:'独立坐标的数目',size:'M',color:'#a855f7'},
+    {label:'完整约束与非完整约束',type:'concept',status:'learning',note:'约束对虚位移的限制方式',size:'S',color:'#a855f7'},
+    {label:'虚位移原理',type:'concept',status:'learning',note:'理想约束下主动力虚功为零',size:'L',color:'#a855f7'},
+    {label:'虚位移',type:'concept',status:'learning',note:'满足约束的任意微小位移',size:'S',color:'#a855f7'},
+    {label:'虚功',type:'concept',status:'learning',note:'力在虚位移上做的功',size:'S',color:'#a855f7'},
+    {label:'理想约束',type:'concept',status:'familiar',note:'约束反力虚功之和为零',size:'S',color:'#a855f7'},
+    {label:'广义力',type:'concept',status:'learning',note:'对应广义坐标的广义力',size:'S',color:'#a855f7'},
+    {label:'虚功原理应用',type:'concept',status:'learning',note:'虚位移原理的工程应用',size:'M',color:'#a855f7'},
+    {label:'拉格朗日方程',type:'formula',status:'learning',note:'d/dt(∂L/∂q̇)-∂L/∂q=Q',size:'L',color:'#a855f7'},
+    {label:'拉格朗日函数',type:'concept',status:'learning',note:'L=T-V',size:'S',color:'#a855f7'},
+    {label:'哈密顿原理',type:'formula',status:'learning',note:'真实运动使作用量取极值',size:'M',color:'#a855f7'},
+    {label:'哈密顿函数',type:'concept',status:'learning',note:'H=T+V，系统的总能量',size:'S',color:'#a855f7'},
+    {label:'正则方程',type:'formula',status:'learning',note:'哈密顿正则方程',size:'S',color:'#a855f7'},
+    {label:'循环坐标',type:'concept',status:'learning',note:'拉格朗日函数不含的坐标',size:'S',color:'#a855f7'},
+    {label:'守恒量',type:'concept',status:'learning',note:'循环坐标对应的守恒量',size:'S',color:'#a855f7'},
+    {label:'欧拉方程',type:'formula',status:'learning',note:'刚体定点转动的动力学方程',size:'M',color:'#a855f7'},
+    {label:'刚体定点运动',type:'concept',status:'learning',note:'刚体绕固定点的运动',size:'M',color:'#a855f7'},
+    {label:'进动',type:'concept',status:'learning',note:'陀螺的进动现象',size:'S',color:'#a855f7'},
+    // ===== 振动（粉色）=====
+    {label:'振动基础',type:'concept',status:'familiar',note:'系统在平衡位置附近的往复运动',size:'L',color:'#ec4899'},
+    {label:'单自由度自由振动',type:'formula',status:'familiar',note:'无阻尼简谐运动',size:'M',color:'#ec4899'},
+    {label:'固有频率',type:'concept',status:'familiar',note:'系统固有的振动频率',size:'S',color:'#ec4899'},
+    {label:'阻尼振动',type:'concept',status:'familiar',note:'有阻尼的衰减振动',size:'S',color:'#ec4899'},
+    {label:'受迫振动',type:'concept',status:'familiar',note:'周期性外力驱动下的振动',size:'S',color:'#ec4899'},
+    {label:'共振',type:'concept',status:'learning',note:'激励频率接近固有频率时振幅剧增',size:'S',color:'#ec4899'},
+    {label:'多自由度振动',type:'concept',status:'learning',note:'多个自由度的振动系统',size:'S',color:'#ec4899'},
+    {label:'拍振',type:'concept',status:'learning',note:'两个相近频率叠加产生拍',size:'S',color:'#ec4899'},
+    // ===== 综合解题（琥珀色）=====
+    {label:'解题技巧',type:'insight',status:'familiar',note:'受力、运动、能量三大分析的结合运用',size:'L',color:'#f59e0b'},
+    {label:'受力分析技巧',type:'insight',status:'mastered',note:'分离体选择与受力图的绘制',size:'S',color:'#f59e0b'},
+    {label:'速度分析技巧',type:'insight',status:'familiar',note:'基点法、瞬心法、合成法的选择',size:'S',color:'#f59e0b'},
+    {label:'能量法',type:'insight',status:'familiar',note:'优先用动能定理求速度',size:'S',color:'#f59e0b'},
+    {label:'动静法应用',type:'insight',status:'learning',note:'惯性力加入后的平衡分析',size:'S',color:'#f59e0b'},
+    // ===== 静力学·公理与材料力学基础（青色）=====
+    {label:'静力学公理',type:'concept',status:'mastered',note:'静力学理论体系的公理基础',size:'M',color:'#06b6d4'},
+    {label:'二力平衡公理',type:'formula',status:'mastered',note:'两力大小相等方向相反共线',size:'S',color:'#06b6d4'},
+    {label:'加减平衡力系原理',type:'concept',status:'mastered',note:'加减平衡力系不改变作用效果',size:'S',color:'#06b6d4'},
+    {label:'力的可传性',type:'concept',status:'mastered',note:'力可沿作用线滑移',size:'S',color:'#06b6d4'},
+    {label:'三力平衡汇交定理',type:'formula',status:'mastered',note:'三力平衡必汇交于一点',size:'S',color:'#06b6d4'},
+    {label:'作用与反作用定律',type:'formula',status:'mastered',note:'两物体间力等值反向共线',size:'S',color:'#06b6d4'},
+    {label:'平面力偶等效定理',type:'formula',status:'mastered',note:'平面力偶仅取决于力偶矩',size:'S',color:'#06b6d4'},
+    {label:'空间力偶系',type:'concept',status:'familiar',note:'空间力偶的合成与平衡',size:'S',color:'#06b6d4'},
+    {label:'力螺旋',type:'concept',status:'learning',note:'力与力偶共线的最简力系',size:'S',color:'#06b6d4'},
+    {label:'平行力系',type:'concept',status:'familiar',note:'各力作用线平行的力系',size:'S',color:'#06b6d4'},
+    {label:'平衡力系',type:'concept',status:'mastered',note:'合力为零的力系',size:'S',color:'#06b6d4'},
+    {label:'负面积法',type:'formula',status:'familiar',note:'组合图形形心的计算方法',size:'S',color:'#06b6d4'},
+    {label:'组合截面的形心',type:'concept',status:'familiar',note:'多个简单图形的形心组合',size:'S',color:'#06b6d4'},
+    {label:'截面惯性矩',type:'concept',status:'familiar',note:'截面面积对轴的二次矩',size:'S',color:'#06b6d4'},
+    {label:'极惯性矩',type:'concept',status:'familiar',note:'截面面积对点的二次矩',size:'S',color:'#06b6d4'},
+    {label:'应力与应变',type:'concept',status:'familiar',note:'材料力学的基础概念',size:'M',color:'#06b6d4'},
+    {label:'应力',type:'concept',status:'mastered',note:'单位面积上的内力',size:'S',color:'#06b6d4'},
+    {label:'应变',type:'concept',status:'mastered',note:'材料变形的相对量',size:'S',color:'#06b6d4'},
+    {label:'正应力',type:'concept',status:'mastered',note:'垂直于截面的应力',size:'S',color:'#06b6d4'},
+    {label:'切应力',type:'concept',status:'mastered',note:'平行于截面的应力',size:'S',color:'#06b6d4'},
+    {label:'截面法',type:'formula',status:'mastered',note:'用截面截开求内力的方法',size:'M',color:'#06b6d4'},
+    {label:'内力',type:'concept',status:'mastered',note:'材料内部的相互作用力',size:'S',color:'#06b6d4'},
+    {label:'轴力',type:'concept',status:'mastered',note:'沿杆轴方向的内力',size:'S',color:'#06b6d4'},
+    {label:'轴力图',type:'concept',status:'familiar',note:'轴力沿杆轴的分布图',size:'S',color:'#06b6d4'},
+    {label:'拉伸与压缩',type:'concept',status:'familiar',note:'轴向拉压杆件的强度',size:'M',color:'#06b6d4'},
+    {label:'拉压强度条件',type:'formula',status:'familiar',note:'σ=N/A≤[σ]',size:'S',color:'#06b6d4'},
+    {label:'剪切',type:'concept',status:'familiar',note:'剪切变形的强度计算',size:'S',color:'#06b6d4'},
+    {label:'扭转',type:'concept',status:'familiar',note:'圆轴扭转的应力与变形',size:'M',color:'#06b6d4'},
+    {label:'扭矩',type:'concept',status:'familiar',note:'扭转内力偶矩',size:'S',color:'#06b6d4'},
+    {label:'扭矩图',type:'concept',status:'familiar',note:'扭矩沿轴线的分布',size:'S',color:'#06b6d4'},
+    {label:'弯曲应力',type:'concept',status:'familiar',note:'弯曲正应力与切应力',size:'M',color:'#06b6d4'},
+    {label:'弯矩',type:'concept',status:'familiar',note:'弯曲内力偶矩',size:'S',color:'#06b6d4'},
+    {label:'剪力',type:'concept',status:'familiar',note:'垂直于轴线的内力',size:'S',color:'#06b6d4'},
+    {label:'弯矩图',type:'concept',status:'familiar',note:'弯矩沿梁的分布图',size:'S',color:'#06b6d4'},
+    {label:'剪力图',type:'concept',status:'familiar',note:'剪力沿梁的分布图',size:'S',color:'#06b6d4'},
+    {label:'弯曲变形',type:'concept',status:'familiar',note:'梁的挠度与转角',size:'M',color:'#06b6d4'},
+    {label:'挠度',type:'concept',status:'familiar',note:'梁轴线的竖向位移',size:'S',color:'#06b6d4'},
+    {label:'转角',type:'concept',status:'familiar',note:'梁截面的角位移',size:'S',color:'#06b6d4'},
+    {label:'组合变形',type:'concept',status:'learning',note:'几种基本变形的叠加',size:'M',color:'#06b6d4'},
+    {label:'斜弯曲',type:'concept',status:'learning',note:'弯曲平面与载荷面不重合',size:'S',color:'#06b6d4'},
+    {label:'弯扭组合',type:'concept',status:'learning',note:'弯曲与扭转同时作用',size:'S',color:'#06b6d4'},
+    {label:'压杆稳定',type:'concept',status:'learning',note:'压杆的失稳问题',size:'M',color:'#06b6d4'},
+    {label:'临界载荷',type:'concept',status:'learning',note:'压杆失稳的临界力',size:'S',color:'#06b6d4'},
+    {label:'长细比',type:'concept',status:'learning',note:'压杆柔度参数',size:'S',color:'#06b6d4'},
+    {label:'欧拉临界力',type:'formula',status:'learning',note:'Fcr=π²EI/(μl)²',size:'S',color:'#06b6d4'},
+    {label:'应力集中',type:'concept',status:'familiar',note:'截面突变处应力局部增大',size:'S',color:'#06b6d4'},
+    {label:'许用应力',type:'concept',status:'mastered',note:'允许使用的最大应力',size:'S',color:'#06b6d4'},
+    {label:'安全系数',type:'concept',status:'familiar',note:'强度裕度的度量',size:'S',color:'#06b6d4'},
+    {label:'强度理论',type:'concept',status:'learning',note:'复杂应力状态的失效判据',size:'M',color:'#06b6d4'},
+    // ===== 运动学·进阶（蓝色）=====
+    {label:'位移矢量',type:'concept',status:'mastered',note:'位置的变化量',size:'S',color:'#3b82f6'},
+    {label:'瞬时速度',type:'concept',status:'mastered',note:'极限意义下的速度',size:'S',color:'#3b82f6'},
+    {label:'瞬时加速度',type:'concept',status:'mastered',note:'极限意义下的加速度',size:'S',color:'#3b82f6'},
+    {label:'绝对速度',type:'concept',status:'mastered',note:'定系观察的速度',size:'S',color:'#3b82f6'},
+    {label:'牵连速度',type:'concept',status:'mastered',note:'动系上与动点重合点的速度',size:'S',color:'#3b82f6'},
+    {label:'相对速度',type:'concept',status:'mastered',note:'动系观察的速度',size:'S',color:'#3b82f6'},
+    {label:'绝对加速度',type:'concept',status:'familiar',note:'定系观察的加速度',size:'S',color:'#3b82f6'},
+    {label:'牵连加速度',type:'concept',status:'familiar',note:'动系上与动点重合点的加速度',size:'S',color:'#3b82f6'},
+    {label:'相对加速度',type:'concept',status:'familiar',note:'动系观察的加速度',size:'S',color:'#3b82f6'},
+    {label:'速度矢量三角形',type:'concept',status:'mastered',note:'速度合成关系的几何表示',size:'S',color:'#3b82f6'},
+    {label:'加速度矢量三角形',type:'concept',status:'familiar',note:'加速度合成关系的几何表示',size:'S',color:'#3b82f6'},
+    {label:'动系平动',type:'concept',status:'mastered',note:'动系作平动时的合成运动',size:'S',color:'#3b82f6'},
+    {label:'动系转动',type:'concept',status:'familiar',note:'动系转动时的科氏效应',size:'S',color:'#3b82f6'},
+    {label:'定轴转动刚体的加速度',type:'concept',status:'familiar',note:'切向与法向分量',size:'S',color:'#3b82f6'},
+    {label:'平面运动角速度',type:'concept',status:'familiar',note:'平面运动的角量',size:'S',color:'#3b82f6'},
+    {label:'平面运动角加速度',type:'concept',status:'familiar',note:'平面运动的角加速度',size:'S',color:'#3b82f6'},
+    {label:'速度投影定理',type:'formula',status:'familiar',note:'刚体两点速度在连线投影相等',size:'S',color:'#3b82f6'},
+    {label:'纯滚动',type:'concept',status:'familiar',note:'轮子只滚不滑',size:'S',color:'#3b82f6'},
+    {label:'滚动而不滑动',type:'concept',status:'learning',note:'纯滚动约束条件',size:'S',color:'#3b82f6'},
+    {label:'曲柄连杆机构',type:'concept',status:'familiar',note:'典型的平面机构',size:'S',color:'#3b82f6'},
+    {label:'凸轮机构',type:'concept',status:'familiar',note:'凸轮驱动的合成运动',size:'S',color:'#3b82f6'},
+    {label:'导杆机构',type:'concept',status:'familiar',note:'摆动导杆与曲柄',size:'S',color:'#3b82f6'},
+    {label:'轮系',type:'concept',status:'familiar',note:'多级齿轮传动',size:'S',color:'#3b82f6'},
+    {label:'行星轮系',type:'concept',status:'learning',note:'含行星轮的轮系',size:'S',color:'#3b82f6'},
+    {label:'齿轮齿条传动',type:'concept',status:'familiar',note:'转动与平动的转换',size:'S',color:'#3b82f6'},
+    {label:'运动分解',type:'concept',status:'mastered',note:'复杂运动分解为简单运动',size:'S',color:'#3b82f6'},
+    {label:'平面运动分解为平动与转动',type:'insight',status:'familiar',note:'基点法的基础',size:'S',color:'#3b82f6'},
+    // ===== 动力学·进阶（绿色）=====
+    {label:'动量守恒',type:'formula',status:'mastered',note:'外力为零时动量不变',size:'S',color:'#22c55e'},
+    {label:'动量矩守恒',type:'formula',status:'familiar',note:'外力矩为零时动量矩不变',size:'S',color:'#22c55e'},
+    {label:'角动量守恒',type:'formula',status:'familiar',note:'角动量不变的守恒律',size:'S',color:'#22c55e'},
+    {label:'冲量矩',type:'concept',status:'familiar',note:'力矩对时间的累积',size:'S',color:'#22c55e'},
+    {label:'角冲量',type:'concept',status:'familiar',note:'冲量矩的另一表述',size:'S',color:'#22c55e'},
+    {label:'质心守恒',type:'formula',status:'familiar',note:'外力为零时质心匀速运动',size:'S',color:'#22c55e'},
+    {label:'变质量系统',type:'concept',status:'learning',note:'质量随时间变化的系统',size:'S',color:'#22c55e'},
+    {label:'火箭运动方程',type:'formula',status:'learning',note:'变质量系统的基本方程',size:'S',color:'#22c55e'},
+    {label:'完全弹性碰撞',type:'concept',status:'learning',note:'恢复系数e=1',size:'S',color:'#22c55e'},
+    {label:'完全非弹性碰撞',type:'concept',status:'learning',note:'恢复系数e=0',size:'S',color:'#22c55e'},
+    {label:'正碰撞',type:'concept',status:'learning',note:'碰撞线沿质心连线',size:'S',color:'#22c55e'},
+    {label:'斜碰撞',type:'concept',status:'learning',note:'碰撞线斜交质心连线',size:'S',color:'#22c55e'},
+    {label:'偏心碰撞',type:'concept',status:'learning',note:'碰撞线与质心不共线',size:'S',color:'#22c55e'},
+    {label:'惯量张量',type:'concept',status:'learning',note:'刚体转动惯量的完整描述',size:'S',color:'#22c55e'},
+    {label:'惯性主轴',type:'concept',status:'learning',note:'惯量积为零的轴',size:'S',color:'#22c55e'},
+    {label:'中心惯性主轴',type:'concept',status:'learning',note:'过质心的惯性主轴',size:'S',color:'#22c55e'},
+    {label:'惯性积',type:'concept',status:'learning',note:'描述质量分布不对称的量',size:'S',color:'#22c55e'},
+    {label:'对称陀螺',type:'concept',status:'learning',note:'几何对称的旋转体',size:'S',color:'#22c55e'},
+    {label:'陀螺仪',type:'concept',status:'familiar',note:'定轴性保持指向',size:'S',color:'#22c55e'},
+    {label:'章动',type:'concept',status:'learning',note:'陀螺轴的上下摆动',size:'S',color:'#22c55e'},
+    {label:'无力矩运动',type:'concept',status:'learning',note:'不受外力矩的自由刚体转动',size:'S',color:'#22c55e'},
+    {label:'动平衡',type:'concept',status:'familiar',note:'转动惯性力系平衡',size:'S',color:'#22c55e'},
+    {label:'静平衡',type:'concept',status:'familiar',note:'重心落在转轴上',size:'S',color:'#22c55e'},
+    {label:'回转效应',type:'concept',status:'learning',note:'陀螺效应',size:'S',color:'#22c55e'},
+    // ===== 分析力学·进阶（紫色）=====
+    {label:'达朗贝尔-拉格朗日原理',type:'formula',status:'learning',note:'虚位移原理与达朗贝尔原理结合',size:'M',color:'#a855f7'},
+    {label:'最小作用量原理',type:'formula',status:'learning',note:'真实运动使作用量取极值',size:'M',color:'#a855f7'},
+    {label:'变分法',type:'concept',status:'learning',note:'泛函极值的数学方法',size:'M',color:'#a855f7'},
+    {label:'欧拉-拉格朗日方程',type:'formula',status:'learning',note:'由变分法导出的运动方程',size:'M',color:'#a855f7'},
+    {label:'诺特定理',type:'formula',status:'learning',note:'对称性对应守恒律',size:'S',color:'#a855f7'},
+    {label:'对称性与守恒律',type:'concept',status:'learning',note:'时空对称性与守恒量',size:'S',color:'#a855f7'},
+    {label:'位形空间',type:'concept',status:'learning',note:'广义坐标张成的空间',size:'S',color:'#a855f7'},
+    {label:'相空间',type:'concept',status:'learning',note:'坐标与动量张成的空间',size:'S',color:'#a855f7'},
+    {label:'勒让德变换',type:'formula',status:'learning',note:'从拉格朗日到哈密顿的变换',size:'S',color:'#a855f7'},
+    {label:'正则变量',type:'concept',status:'learning',note:'广义坐标与广义动量',size:'S',color:'#a855f7'},
+    {label:'泊松括号',type:'formula',status:'learning',note:'正则变量的泊松括号',size:'S',color:'#a855f7'},
+    {label:'正则变换',type:'concept',status:'learning',note:'保持正则形式的坐标变换',size:'S',color:'#a855f7'},
+    {label:'拉格朗日乘子法',type:'formula',status:'learning',note:'处理约束的数学方法',size:'S',color:'#a855f7'},
+    {label:'循环积分',type:'formula',status:'learning',note:'循环坐标的动量积分',size:'S',color:'#a855f7'},
+    {label:'能量积分',type:'formula',status:'learning',note:'保守系统的能量守恒积分',size:'S',color:'#a855f7'},
+    {label:'哈密顿-雅可比方程',type:'formula',status:'learning',note:'哈密顿理论的核心方程',size:'S',color:'#a855f7'},
+    {label:'作用变量',type:'concept',status:'learning',note:'作用-角变量的正则变量',size:'S',color:'#a855f7'},
+    {label:'角变量',type:'concept',status:'learning',note:'作用-角变量的正则变量',size:'S',color:'#a855f7'},
+    {label:'可积系统',type:'concept',status:'learning',note:'存在足够守恒量的系统',size:'S',color:'#a855f7'},
+    {label:'约束力',type:'concept',status:'mastered',note:'约束产生的力',size:'S',color:'#a855f7'},
+    // ===== 振动·进阶（粉色）=====
+    {label:'简谐振动',type:'concept',status:'mastered',note:'正弦规律的运动',size:'M',color:'#ec4899'},
+    {label:'振幅',type:'concept',status:'mastered',note:'振动的最大位移',size:'S',color:'#ec4899'},
+    {label:'周期',type:'concept',status:'mastered',note:'完成一次全振动的时长',size:'S',color:'#ec4899'},
+    {label:'频率',type:'concept',status:'mastered',note:'单位时间振动次数',size:'S',color:'#ec4899'},
+    {label:'相位',type:'concept',status:'mastered',note:'描述振动状态的量',size:'S',color:'#ec4899'},
+    {label:'初相位',type:'concept',status:'familiar',note:'初始时刻的相位',size:'S',color:'#ec4899'},
+    {label:'旋转矢量法',type:'formula',status:'familiar',note:'用圆周运动表示简谐振动',size:'S',color:'#ec4899'},
+    {label:'无阻尼自由振动',type:'concept',status:'familiar',note:'等幅简谐振动',size:'S',color:'#ec4899'},
+    {label:'阻尼比',type:'concept',status:'familiar',note:'阻尼相对大小的量',size:'S',color:'#ec4899'},
+    {label:'临界阻尼',type:'concept',status:'learning',note:'临界阻尼比下的状态',size:'S',color:'#ec4899'},
+    {label:'过阻尼',type:'concept',status:'learning',note:'阻尼比大于1的状态',size:'S',color:'#ec4899'},
+    {label:'欠阻尼',type:'concept',status:'familiar',note:'阻尼比小于1的状态',size:'S',color:'#ec4899'},
+    {label:'刚度系数',type:'concept',status:'familiar',note:'弹簧的刚度',size:'S',color:'#ec4899'},
+    {label:'等效刚度',type:'concept',status:'familiar',note:'复杂系统的等效弹簧刚度',size:'S',color:'#ec4899'},
+    {label:'弹簧串联',type:'concept',status:'familiar',note:'串联等效刚度公式',size:'S',color:'#ec4899'},
+    {label:'弹簧并联',type:'concept',status:'familiar',note:'并联等效刚度公式',size:'S',color:'#ec4899'},
+    {label:'受迫振动幅值',type:'concept',status:'learning',note:'稳态振幅随频率变化',size:'S',color:'#ec4899'},
+    {label:'共振频率',type:'concept',status:'learning',note:'振幅达到峰值的频率',size:'S',color:'#ec4899'},
+    {label:'品质因数',type:'concept',status:'learning',note:'描述共振峰尖锐程度',size:'S',color:'#ec4899'},
+    {label:'幅频特性',type:'concept',status:'learning',note:'振幅与频率的关系',size:'S',color:'#ec4899'},
+    {label:'相频特性',type:'concept',status:'learning',note:'相位差与频率的关系',size:'S',color:'#ec4899'},
+    {label:'隔振',type:'concept',status:'learning',note:'减小振动传递的措施',size:'S',color:'#ec4899'},
+    {label:'减振',type:'concept',status:'learning',note:'抑制振动的措施',size:'S',color:'#ec4899'},
+    {label:'主振型',type:'concept',status:'learning',note:'多自由度系统的振型',size:'S',color:'#ec4899'},
+    {label:'振型叠加法',type:'formula',status:'learning',note:'用振型叠加求解响应',size:'S',color:'#ec4899'},
+    {label:'耦合振动',type:'concept',status:'learning',note:'自由度之间的相互影响',size:'S',color:'#ec4899'},
+    {label:'数学摆',type:'concept',status:'familiar',note:'理想单摆',size:'S',color:'#ec4899'},
+    {label:'物理摆',type:'concept',status:'familiar',note:'刚体复摆',size:'S',color:'#ec4899'},
+    {label:'复摆',type:'concept',status:'familiar',note:'刚体绕水平轴摆动',size:'S',color:'#ec4899'},
+    {label:'小角度近似',type:'insight',status:'familiar',note:'sinθ≈θ的线性化',size:'S',color:'#ec4899'},
+    // ===== 综合解题·进阶（琥珀色）=====
+    {label:'动力学建模',type:'insight',status:'familiar',note:'从实际问题建立动力学方程',size:'M',color:'#f59e0b'},
+    {label:'受力图常见错误',type:'insight',status:'learning',note:'漏画、多画、错画受力的情况',size:'S',color:'#f59e0b'},
+    {label:'运动学分析步骤',type:'insight',status:'familiar',note:'先速度后加速度的分析流程',size:'S',color:'#f59e0b'},
+    {label:'动静法解题步骤',type:'insight',status:'familiar',note:'加惯性力后按平衡处理',size:'S',color:'#f59e0b'},
+    {label:'能量法解题步骤',type:'insight',status:'familiar',note:'用动能定理列能量方程',size:'S',color:'#f59e0b'},
+    {label:'虚功原理解题步骤',type:'insight',status:'learning',note:'给虚位移求广义力',size:'S',color:'#f59e0b'},
+    {label:'定理的选择策略',type:'insight',status:'familiar',note:'按待求量选择动量或能量定理',size:'M',color:'#f59e0b'},
+    // ===== 教材/知识框架补充（静力学·模型与摩擦细节，青色）=====
+    {label:'刚体模型',type:'concept',status:'mastered',note:'静力学中忽略变形的研究对象',size:'M',color:'#06b6d4'},
+    {label:'质点',type:'concept',status:'mastered',note:'只有质量没有大小的理想模型',size:'S',color:'#06b6d4'},
+    {label:'变形体',type:'concept',status:'familiar',note:'受力后形状改变的物体',size:'S',color:'#06b6d4'},
+    {label:'力的定义与作用效果',type:'concept',status:'mastered',note:'力使物体产生平动和转动效应',size:'M',color:'#06b6d4'},
+    {label:'力的两个重要特性',type:'concept',status:'mastered',note:'矢量性、作用点与可传性',size:'S',color:'#06b6d4'},
+    {label:'力的作用线',type:'concept',status:'mastered',note:'力的方向所在的直线',size:'S',color:'#06b6d4'},
+    {label:'外力',type:'concept',status:'mastered',note:'外界对研究对象的作用力',size:'S',color:'#06b6d4'},
+    {label:'平面力的正交分解',type:'concept',status:'mastered',note:'力分解为互相垂直的分量',size:'S',color:'#06b6d4'},
+    {label:'分量正负号判断',type:'insight',status:'mastered',note:'投影分量的正负号规则',size:'S',color:'#06b6d4'},
+    {label:'分布载荷',type:'concept',status:'familiar',note:'作用在面积或长度上的均布力',size:'S',color:'#06b6d4'},
+    {label:'求力矩的三种方法',type:'insight',status:'mastered',note:'直接定义、力臂法、合力矩定理',size:'S',color:'#06b6d4'},
+    {label:'取矩技巧',type:'insight',status:'familiar',note:'选择取矩点简化计算',size:'S',color:'#06b6d4'},
+    {label:'空间力矩与右手定则',type:'formula',status:'familiar',note:'空间力对点之矩用右手定则判断',size:'S',color:'#06b6d4'},
+    {label:'空间力分解',type:'concept',status:'familiar',note:'空间力沿坐标轴分解',size:'S',color:'#06b6d4'},
+    {label:'空间约束与支座反力',type:'concept',status:'familiar',note:'空间约束反力的形式',size:'S',color:'#06b6d4'},
+    {label:'物体系拆分',type:'insight',status:'familiar',note:'将物系拆成若干分离体分析',size:'S',color:'#06b6d4'},
+    {label:'连接处受力',type:'concept',status:'familiar',note:'铰链、支座等连接处的力',size:'S',color:'#06b6d4'},
+    {label:'平面桁架基本假设',type:'insight',status:'familiar',note:'光滑铰接、二力杆、节点载荷',size:'S',color:'#06b6d4'},
+    {label:'滑动摩擦',type:'concept',status:'familiar',note:'有滑动趋势时的接触摩擦',size:'S',color:'#06b6d4'},
+    {label:'静摩擦力',type:'concept',status:'mastered',note:'静止接触时的摩擦力',size:'S',color:'#06b6d4'},
+    {label:'最大静摩擦力',type:'concept',status:'familiar',note:'静摩擦临界最大值Fmax=μN',size:'S',color:'#06b6d4'},
+    {label:'滑动趋势',type:'concept',status:'familiar',note:'相对滑动的趋势方向',size:'S',color:'#06b6d4'},
+    {label:'摩擦因数',type:'concept',status:'familiar',note:'摩擦系数μ',size:'S',color:'#06b6d4'},
+    {label:'滚动摩阻',type:'concept',status:'learning',note:'滚动时产生的阻力矩',size:'S',color:'#06b6d4'},
+    {label:'滚动摩阻力臂',type:'concept',status:'learning',note:'滚动摩阻的力臂模型',size:'S',color:'#06b6d4'},
+    {label:'斜面自锁条件',type:'insight',status:'learning',note:'斜面的摩擦自锁条件',size:'S',color:'#06b6d4'},
+    {label:'自锁判定',type:'insight',status:'learning',note:'判断系统是否自锁的方法',size:'S',color:'#06b6d4'},
+    {label:'楔块与螺旋副',type:'insight',status:'learning',note:'楔块和螺旋机构中的自锁应用',size:'S',color:'#06b6d4'},
+    // ===== 教材/知识框架补充（动力学，绿色）=====
+    {label:'两类问题',type:'insight',status:'familiar',note:'已知力求运动、已知运动求力',size:'M',color:'#22c55e'},
+    {label:'平面运动微分方程',type:'formula',status:'familiar',note:'刚体平面运动的动力学方程',size:'S',color:'#22c55e'},
+    {label:'质点碰撞',type:'concept',status:'learning',note:'质点的碰撞问题',size:'S',color:'#22c55e'},
+    {label:'刚体碰撞',type:'concept',status:'learning',note:'刚体的碰撞问题',size:'S',color:'#22c55e'},
+    {label:'碰撞能量',type:'concept',status:'learning',note:'碰撞前后的动能损失',size:'S',color:'#22c55e'},
+    // ===== 教材/知识框架补充（分析力学，紫色）=====
+    {label:'约束分类',type:'concept',status:'familiar',note:'几何、运动、完整、非完整约束',size:'M',color:'#a855f7'},
+    {label:'动力学普遍方程',type:'formula',status:'learning',note:'达朗贝尔-拉格朗日方程',size:'M',color:'#a855f7'},
+    {label:'第二类拉格朗日方程',type:'formula',status:'learning',note:'完整约束系统的拉格朗日方程',size:'M',color:'#a855f7'},
+    // ===== 教材/知识框架补充（振动，粉色）=====
+    {label:'两自由度系统振动',type:'concept',status:'learning',note:'两个自由度的耦合振动',size:'S',color:'#ec4899'},
+    {label:'刚体微幅振荡',type:'concept',status:'learning',note:'刚体的小幅摆动',size:'S',color:'#ec4899'}
+  ],
+  edges:[
+    // ===== 静力学内部 =====
+    ['静力学基础','力的基本概念','PREREQUISITE_OF'],
+    ['静力学基础','约束与约束反力','PREREQUISITE_OF'],
+    ['力的基本概念','力的三要素','RELATED_TO'],
+    ['力的基本概念','力的平行四边形法则','PREREQUISITE_OF'],
+    ['力的平行四边形法则','合力与分力','RELATED_TO'],
+    ['力的平行四边形法则','平面汇交力系','PREREQUISITE_OF'],
+    ['力的基本概念','力对点之矩','RELATED_TO'],
+    ['力对点之矩','合力矩定理','PREREQUISITE_OF'],
+    ['力对点之矩','力偶','RELATED_TO'],
+    ['力对点之矩','力对轴之矩','RELATED_TO'],
+    ['力偶','力偶矩','RELATED_TO'],
+    ['力偶矩','力偶系','PREREQUISITE_OF'],
+    ['力偶系','平面力偶系','RELATED_TO'],
+    ['平面力偶系','平面任意力系','RELATED_TO'],
+    ['约束与约束反力','光滑面约束','RELATED_TO'],
+    ['约束与约束反力','铰链约束','RELATED_TO'],
+    ['约束与约束反力','固定端约束','RELATED_TO'],
+    ['约束与约束反力','滚动支座','RELATED_TO'],
+    ['约束与约束反力','柔索约束','RELATED_TO'],
+    ['约束与约束反力','约束反力','RELATED_TO'],
+    ['铰链约束','二力杆','RELATED_TO'],
+    ['约束与约束反力','受力分析','PREREQUISITE_OF'],
+    ['受力分析','分离体','RELATED_TO'],
+    ['受力分析','受力图','PREREQUISITE_OF'],
+    ['分离体','受力图','RELATED_TO'],
+    ['受力图','受力分析技巧','RELATED_TO'],
+    ['约束反力','受力图','RELATED_TO'],
+    ['二力杆','受力图','RELATED_TO'],
+    ['受力分析','物系平衡','PREREQUISITE_OF'],
+    ['受力分析','桁架','PREREQUISITE_OF'],
+    ['平面汇交力系','合力投影定理','RELATED_TO'],
+    ['平面汇交力系','空间汇交力系','RELATED_TO'],
+    ['力系简化','主矢与主矩','RELATED_TO'],
+    ['主矢与主矩','简化中心','RELATED_TO'],
+    ['力系简化','平面任意力系','PREREQUISITE_OF'],
+    ['力系简化','空间任意力系','RELATED_TO'],
+    ['力的平移定理','力系简化','PREREQUISITE_OF'],
+    ['平面任意力系','空间任意力系','RELATED_TO'],
+    ['平面任意力系','平面力系平衡方程','PREREQUISITE_OF'],
+    ['空间任意力系','空间力系平衡方程','PREREQUISITE_OF'],
+    ['空间力系','空间任意力系','RELATED_TO'],
+    ['静力学平衡方程','平面力系平衡方程','RELATED_TO'],
+    ['静力学平衡方程','空间力系平衡方程','RELATED_TO'],
+    ['平面力系平衡方程','平衡方程','RELATED_TO'],
+    ['空间力系平衡方程','平衡方程','RELATED_TO'],
+    ['平衡方程','静定与超静定','RELATED_TO'],
+    ['受力分析','平衡方程','PREREQUISITE_OF'],
+    ['受力图','平衡方程','PREREQUISITE_OF'],
+    ['平面任意力系','物系平衡','PREREQUISITE_OF'],
+    ['物系平衡','静定与超静定','RELATED_TO'],
+    ['摩擦','静摩擦','RELATED_TO'],
+    ['摩擦','动摩擦','RELATED_TO'],
+    ['摩擦','摩擦角','PREREQUISITE_OF'],
+    ['静摩擦','摩擦角','RELATED_TO'],
+    ['摩擦角','自锁','PREREQUISITE_OF'],
+    ['自锁','静摩擦','RELATED_TO'],
+    ['摩擦','摩擦与自锁','RELATED_TO'],
+    ['摩擦与自锁','自锁','RELATED_TO'],
+    ['摩擦与自锁','受力分析','RELATED_TO'],
+    ['摩擦','受力分析','RELATED_TO'],
+    ['摩擦','动能定理','RELATED_TO'],
+    ['重心与形心','重心','RELATED_TO'],
+    ['重心与形心','形心','RELATED_TO'],
+    ['重心与形心','平行力系中心','RELATED_TO'],
+    ['重心','形心','RELATED_TO'],
+    ['重心','平行力系中心','RELATED_TO'],
+    ['重心','质心','CONFUSED_WITH'],
+    ['质心','重心','CONFUSED_WITH'],
+    ['重心与形心','转动惯量','RELATED_TO'],
+    ['桁架','桁架节点法','RELATED_TO'],
+    ['桁架','桁架截面法','RELATED_TO'],
+    ['桁架节点法','平面汇交力系','APPLIES_TO'],
+    ['桁架截面法','平面任意力系','APPLIES_TO'],
+    ['桁架','零杆','RELATED_TO'],
+    ['桁架','二力杆','RELATED_TO'],
+    ['桁架截面法','物系平衡','RELATED_TO'],
+    ['二力杆','桁架','RELATED_TO'],
+    // ===== 运动学内部 =====
+    ['点的运动学','矢径法','RELATED_TO'],
+    ['点的运动学','直角坐标法','RELATED_TO'],
+    ['点的运动学','自然法','RELATED_TO'],
+    ['点的运动学','运动方程','RELATED_TO'],
+    ['矢径法','运动方程','RELATED_TO'],
+    ['直角坐标法','运动方程','RELATED_TO'],
+    ['运动方程','轨迹','RELATED_TO'],
+    ['自然法','轨迹','RELATED_TO'],
+    ['点的运动学','点的速度','PREREQUISITE_OF'],
+    ['点的速度','点的加速度','PREREQUISITE_OF'],
+    ['点的加速度','切向加速度','RELATED_TO'],
+    ['点的加速度','法向加速度','RELATED_TO'],
+    ['切向加速度','法向加速度','CONFUSED_WITH'],
+    ['点的加速度','曲率半径','RELATED_TO'],
+    ['法向加速度','曲率半径','RELATED_TO'],
+    ['刚体的基本运动','平动','RELATED_TO'],
+    ['刚体的基本运动','定轴转动','RELATED_TO'],
+    ['定轴转动','角速度','RELATED_TO'],
+    ['角速度','角加速度','RELATED_TO'],
+    ['定轴转动','刚体上各点速度','RELATED_TO'],
+    ['刚体的基本运动','刚体转动','RELATED_TO'],
+    ['刚体转动','角速度','RELATED_TO'],
+    ['刚体转动','转动惯量','RELATED_TO'],
+    ['点的运动学','刚体的基本运动','PREREQUISITE_OF'],
+    ['刚体的基本运动','齿轮传动','RELATED_TO'],
+    ['齿轮传动','传动比','RELATED_TO'],
+    ['齿轮传动','定轴转动','RELATED_TO'],
+    ['传动比','角速度','RELATED_TO'],
+    ['点的合成运动','动点与动系','PREREQUISITE_OF'],
+    ['动点与动系','绝对运动','RELATED_TO'],
+    ['动点与动系','相对运动','RELATED_TO'],
+    ['动点与动系','牵连运动','RELATED_TO'],
+    ['绝对运动','相对运动','CONFUSED_WITH'],
+    ['相对运动','牵连运动','CONFUSED_WITH'],
+    ['点的合成运动','速度合成定理','RELATED_TO'],
+    ['速度合成定理','速度合成','RELATED_TO'],
+    ['速度合成','加速度合成','PREREQUISITE_OF'],
+    ['点的合成运动','加速度合成定理','RELATED_TO'],
+    ['加速度合成定理','加速度合成','RELATED_TO'],
+    ['加速度合成定理','科氏加速度','PREREQUISITE_OF'],
+    ['科氏加速度','相对运动','RELATED_TO'],
+    ['科氏加速度','牵连运动','RELATED_TO'],
+    ['科氏加速度','速度合成','CONFUSED_WITH'],
+    ['科氏加速度','刚体转动','RELATED_TO'],
+    ['科氏加速度','点的合成运动','PREREQUISITE_OF'],
+    ['点的运动学','点的合成运动','PREREQUISITE_OF'],
+    ['相对运动','速度合成定理','PREREQUISITE_OF'],
+    ['牵连运动','速度合成定理','PREREQUISITE_OF'],
+    ['刚体平面运动','基点法','RELATED_TO'],
+    ['刚体平面运动','速度瞬心','RELATED_TO'],
+    ['刚体平面运动','平面运动方程','RELATED_TO'],
+    ['速度瞬心','瞬心法','RELATED_TO'],
+    ['基点法','平面运动方程','RELATED_TO'],
+    ['基点法','点的合成运动','RELATED_TO'],
+    ['瞬心法','速度分析技巧','APPLIES_TO'],
+    ['速度瞬心','点的合成运动','RELATED_TO'],
+    ['速度瞬心','动能定理','RELATED_TO'],
+    ['刚体平面运动','点的合成运动','RELATED_TO'],
+    ['刚体平面运动','动能定理','RELATED_TO'],
+    ['刚体平面运动','转动惯量','RELATED_TO'],
+    ['刚体平面运动','刚体转动','RELATED_TO'],
+    ['平动','基点法','RELATED_TO'],
+    ['角速度','点的速度','RELATED_TO'],
+    ['角加速度','点的加速度','RELATED_TO'],
+    // ===== 动力学内部 =====
+    ['质点动力学','牛顿运动定律','RELATED_TO'],
+    ['牛顿运动定律','牛顿第二定律','PREREQUISITE_OF'],
+    ['牛顿第二定律','质点运动微分方程','RELATED_TO'],
+    ['质点运动微分方程','初始条件','RELATED_TO'],
+    ['牛顿运动定律','动量定理','PREREQUISITE_OF'],
+    ['质点动力学','质点系动力学','PREREQUISITE_OF'],
+    ['质点系动力学','动量','RELATED_TO'],
+    ['动量','动量定理','PREREQUISITE_OF'],
+    ['动量定理','冲量','RELATED_TO'],
+    ['动量','冲量','PREREQUISITE_OF'],
+    ['质点系动力学','质心','RELATED_TO'],
+    ['质点系动力学','质心运动定理','RELATED_TO'],
+    ['质心运动定理','动量定理','RELATED_TO'],
+    ['质心运动定理','质心','PREREQUISITE_OF'],
+    ['动量矩','动量矩定理','PREREQUISITE_OF'],
+    ['动量矩定理','转动惯量','RELATED_TO'],
+    ['动量矩定理','刚体定轴转动微分方程','RELATED_TO'],
+    ['刚体定轴转动微分方程','转动惯量','RELATED_TO'],
+    ['转动惯量','平行轴定理','RELATED_TO'],
+    ['转动惯量','回转半径','RELATED_TO'],
+    ['转动惯量','动量矩定理','PREREQUISITE_OF'],
+    ['功','功率','RELATED_TO'],
+    ['功','动能','RELATED_TO'],
+    ['功','势能','RELATED_TO'],
+    ['动能','动能定理','PREREQUISITE_OF'],
+    ['动能定理','功','RELATED_TO'],
+    ['动能定理','功率','RELATED_TO'],
+    ['势能','势力场','PREREQUISITE_OF'],
+    ['势能','机械能守恒','RELATED_TO'],
+    ['机械能守恒','保守系统','RELATED_TO'],
+    ['动能定理','机械能守恒','RELATED_TO'],
+    ['动能定理','三大定理联合','RELATED_TO'],
+    ['动量定理','三大定理联合','RELATED_TO'],
+    ['动量矩定理','三大定理联合','RELATED_TO'],
+    ['三大定理联合','动力学普遍定理','RELATED_TO'],
+    ['三大定理联合','达朗贝尔原理','RELATED_TO'],
+    ['牛顿运动定律','达朗贝尔原理','RELATED_TO'],
+    ['达朗贝尔原理','惯性力','PREREQUISITE_OF'],
+    ['惯性力','动静法','RELATED_TO'],
+    ['达朗贝尔原理','动静法','RELATED_TO'],
+    ['动静法','刚体惯性力系简化','RELATED_TO'],
+    ['惯性力','受力分析','CONFUSED_WITH'],
+    ['动量定理','动量矩定理','RELATED_TO'],
+    ['动量定理','质心运动定理','RELATED_TO'],
+    ['动量定理','动能定理','RELATED_TO'],
+    ['动能定理','动量矩定理','RELATED_TO'],
+    ['碰撞','碰撞冲量','RELATED_TO'],
+    ['碰撞','恢复系数','RELATED_TO'],
+    ['碰撞','撞击中心','RELATED_TO'],
+    ['碰撞','动量定理','APPLIES_TO'],
+    ['碰撞','动能定理','APPLIES_TO'],
+    ['碰撞','能量法','APPLIES_TO'],
+    ['冲量','碰撞冲量','RELATED_TO'],
+    ['动力学普遍定理','碰撞','APPLIES_TO'],
+    ['动能定理','达朗贝尔原理','RELATED_TO'],
+    ['牛顿第二定律','动量定理','RELATED_TO'],
+    ['牛顿第二定律','动能定理','RELATED_TO'],
+    ['动量','动能','RELATED_TO'],
+    ['动量矩','动能定理','RELATED_TO'],
+    ['冲量','动量定理','RELATED_TO'],
+    ['质点系动力学','碰撞','RELATED_TO'],
+    // ===== 分析力学内部 =====
+    ['分析力学基础','广义坐标','RELATED_TO'],
+    ['分析力学基础','虚位移原理','RELATED_TO'],
+    ['分析力学基础','拉格朗日方程','RELATED_TO'],
+    ['虚位移原理','虚位移','PREREQUISITE_OF'],
+    ['虚位移原理','虚功','RELATED_TO'],
+    ['虚功','广义力','RELATED_TO'],
+    ['虚位移原理','理想约束','RELATED_TO'],
+    ['虚位移原理','虚功原理应用','RELATED_TO'],
+    ['虚功原理应用','平衡方程','RELATED_TO'],
+    ['虚位移原理','达朗贝尔原理','RELATED_TO'],
+    ['广义坐标','自由度','RELATED_TO'],
+    ['自由度','完整约束与非完整约束','RELATED_TO'],
+    ['完整约束与非完整约束','广义坐标','RELATED_TO'],
+    ['自由度','拉格朗日方程','RELATED_TO'],
+    ['拉格朗日方程','拉格朗日函数','RELATED_TO'],
+    ['拉格朗日方程','广义坐标','PREREQUISITE_OF'],
+    ['拉格朗日方程','虚位移原理','PREREQUISITE_OF'],
+    ['拉格朗日方程','哈密顿原理','RELATED_TO'],
+    ['拉格朗日方程','动能定理','RELATED_TO'],
+    ['哈密顿原理','哈密顿函数','RELATED_TO'],
+    ['哈密顿原理','拉格朗日函数','RELATED_TO'],
+    ['哈密顿函数','正则方程','RELATED_TO'],
+    ['拉格朗日函数','哈密顿函数','RELATED_TO'],
+    ['正则方程','循环坐标','RELATED_TO'],
+    ['循环坐标','守恒量','RELATED_TO'],
+    ['哈密顿原理','分析力学基础','RELATED_TO'],
+    ['欧拉方程','刚体定点运动','RELATED_TO'],
+    ['欧拉方程','动量矩定理','RELATED_TO'],
+    ['刚体定点运动','进动','RELATED_TO'],
+    ['刚体定点运动','转动惯量','RELATED_TO'],
+    ['刚体转动','刚体定点运动','RELATED_TO'],
+    ['虚位移原理','拉格朗日方程','PREREQUISITE_OF'],
+    ['拉格朗日函数','动能','RELATED_TO'],
+    ['广义力','功','RELATED_TO'],
+    ['理想约束','约束与约束反力','RELATED_TO'],
+    // ===== 振动 =====
+    ['振动基础','单自由度自由振动','RELATED_TO'],
+    ['单自由度自由振动','固有频率','RELATED_TO'],
+    ['单自由度自由振动','阻尼振动','RELATED_TO'],
+    ['阻尼振动','受迫振动','RELATED_TO'],
+    ['受迫振动','共振','RELATED_TO'],
+    ['振动基础','多自由度振动','RELATED_TO'],
+    ['多自由度振动','自由度','RELATED_TO'],
+    ['多自由度振动','拍振','RELATED_TO'],
+    ['振动基础','动能定理','RELATED_TO'],
+    ['振动基础','拉格朗日方程','RELATED_TO'],
+    ['振动基础','牛顿运动定律','RELATED_TO'],
+    ['单自由度自由振动','动能定理','RELATED_TO'],
+    ['多自由度振动','拉格朗日方程','RELATED_TO'],
+    ['阻尼振动','共振','RELATED_TO'],
+    ['拍振','共振','RELATED_TO'],
+    // ===== 综合解题与跨分支 =====
+    ['解题技巧','受力分析技巧','RELATED_TO'],
+    ['解题技巧','速度分析技巧','RELATED_TO'],
+    ['解题技巧','能量法','RELATED_TO'],
+    ['解题技巧','动静法应用','RELATED_TO'],
+    ['解题技巧','三大定理联合','RELATED_TO'],
+    ['解题技巧','受力分析','RELATED_TO'],
+    ['解题技巧','点的合成运动','RELATED_TO'],
+    ['解题技巧','刚体平面运动','RELATED_TO'],
+    ['受力分析技巧','受力图','APPLIES_TO'],
+    ['受力分析技巧','分离体','APPLIES_TO'],
+    ['速度分析技巧','基点法','APPLIES_TO'],
+    ['速度分析技巧','瞬心法','APPLIES_TO'],
+    ['能量法','动能定理','RELATED_TO'],
+    ['能量法','机械能守恒','RELATED_TO'],
+    ['能量法','三大定理联合','RELATED_TO'],
+    ['动静法应用','动静法','RELATED_TO'],
+    ['动静法应用','达朗贝尔原理','RELATED_TO'],
+    ['动静法应用','三大定理联合','RELATED_TO'],
+    ['受力分析技巧','摩擦与自锁','RELATED_TO'],
+    ['主矢与主矩','动量矩','RELATED_TO'],
+    ['力偶矩','动量矩','RELATED_TO'],
+    ['刚体上各点速度','点的速度','RELATED_TO'],
+    ['刚体上各点速度','速度合成定理','RELATED_TO'],
+    ['科氏加速度','加速度合成定理','PREREQUISITE_OF'],
+    ['速度合成','瞬心法','RELATED_TO'],
+    ['加速度合成','基点法','RELATED_TO'],
+    ['惯性力','达朗贝尔原理','RELATED_TO'],
+    ['动静法','惯性力','PREREQUISITE_OF'],
+    ['刚体惯性力系简化','转动惯量','RELATED_TO'],
+    ['刚体惯性力系简化','主矢与主矩','RELATED_TO'],
+    ['自由度','振动基础','RELATED_TO'],
+    // ===== 静力学·公理与材料力学 =====
+    ['静力学基础','静力学公理','PREREQUISITE_OF'],
+    ['静力学公理','二力平衡公理','RELATED_TO'],
+    ['静力学公理','加减平衡力系原理','RELATED_TO'],
+    ['静力学公理','三力平衡汇交定理','RELATED_TO'],
+    ['静力学公理','作用与反作用定律','RELATED_TO'],
+    ['加减平衡力系原理','力的可传性','RELATED_TO'],
+    ['二力平衡公理','三力平衡汇交定理','PREREQUISITE_OF'],
+    ['力的可传性','受力分析','RELATED_TO'],
+    ['作用与反作用定律','约束反力','RELATED_TO'],
+    ['平面力偶等效定理','力偶','RELATED_TO'],
+    ['空间力偶系','力偶系','RELATED_TO'],
+    ['力螺旋','力系简化','RELATED_TO'],
+    ['平行力系','重心','PREREQUISITE_OF'],
+    ['平衡力系','静力学平衡方程','RELATED_TO'],
+    ['负面积法','形心','APPLIES_TO'],
+    ['组合截面的形心','形心','RELATED_TO'],
+    ['组合截面的形心','负面积法','RELATED_TO'],
+    ['截面惯性矩','转动惯量','CONFUSED_WITH'],
+    ['极惯性矩','扭转','PREREQUISITE_OF'],
+    ['截面惯性矩','弯曲应力','PREREQUISITE_OF'],
+    ['应力与应变','应力','RELATED_TO'],
+    ['应力与应变','应变','RELATED_TO'],
+    ['应力','正应力','RELATED_TO'],
+    ['应力','切应力','RELATED_TO'],
+    ['应变','拉伸与压缩','RELATED_TO'],
+    ['截面法','内力','RELATED_TO'],
+    ['截面法','桁架','APPLIES_TO'],
+    ['内力','轴力','RELATED_TO'],
+    ['内力','弯矩','RELATED_TO'],
+    ['内力','剪力','RELATED_TO'],
+    ['轴力','轴力图','RELATED_TO'],
+    ['拉伸与压缩','轴力','RELATED_TO'],
+    ['拉伸与压缩','拉压强度条件','RELATED_TO'],
+    ['拉压强度条件','许用应力','RELATED_TO'],
+    ['剪切','切应力','RELATED_TO'],
+    ['扭转','扭矩','RELATED_TO'],
+    ['扭矩','扭矩图','RELATED_TO'],
+    ['弯曲应力','弯矩','RELATED_TO'],
+    ['弯曲应力','剪力','RELATED_TO'],
+    ['弯矩','弯矩图','RELATED_TO'],
+    ['剪力','剪力图','RELATED_TO'],
+    ['弯曲变形','挠度','RELATED_TO'],
+    ['弯曲变形','转角','RELATED_TO'],
+    ['弯曲应力','弯曲变形','RELATED_TO'],
+    ['组合变形','斜弯曲','RELATED_TO'],
+    ['组合变形','弯扭组合','RELATED_TO'],
+    ['弯曲应力','组合变形','RELATED_TO'],
+    ['扭转','弯扭组合','RELATED_TO'],
+    ['压杆稳定','临界载荷','RELATED_TO'],
+    ['压杆稳定','长细比','RELATED_TO'],
+    ['压杆稳定','欧拉临界力','RELATED_TO'],
+    ['应力集中','强度理论','RELATED_TO'],
+    ['许用应力','安全系数','RELATED_TO'],
+    ['许用应力','强度理论','RELATED_TO'],
+    ['应力与应变','压杆稳定','RELATED_TO'],
+    ['扭转','转动惯量','RELATED_TO'],
+    ['压杆稳定','弯曲变形','RELATED_TO'],
+    ['拉伸与压缩','应力与应变','RELATED_TO'],
+    ['扭转','应力与应变','RELATED_TO'],
+    ['弯曲应力','应力与应变','RELATED_TO'],
+    // ===== 运动学·进阶 =====
+    ['位移矢量','运动方程','RELATED_TO'],
+    ['瞬时速度','点的速度','RELATED_TO'],
+    ['瞬时加速度','点的加速度','RELATED_TO'],
+    ['绝对速度','绝对运动','RELATED_TO'],
+    ['相对速度','相对运动','RELATED_TO'],
+    ['牵连速度','牵连运动','RELATED_TO'],
+    ['绝对加速度','绝对速度','RELATED_TO'],
+    ['相对加速度','相对速度','RELATED_TO'],
+    ['牵连加速度','牵连速度','RELATED_TO'],
+    ['速度矢量三角形','速度合成定理','RELATED_TO'],
+    ['加速度矢量三角形','加速度合成定理','RELATED_TO'],
+    ['动系平动','点的合成运动','RELATED_TO'],
+    ['动系转动','科氏加速度','RELATED_TO'],
+    ['定轴转动刚体的加速度','刚体转动','RELATED_TO'],
+    ['平面运动角速度','刚体平面运动','RELATED_TO'],
+    ['平面运动角加速度','平面运动角速度','RELATED_TO'],
+    ['速度投影定理','刚体平面运动','RELATED_TO'],
+    ['纯滚动','速度瞬心','RELATED_TO'],
+    ['滚动而不滑动','纯滚动','RELATED_TO'],
+    ['曲柄连杆机构','刚体平面运动','RELATED_TO'],
+    ['凸轮机构','点的合成运动','RELATED_TO'],
+    ['导杆机构','点的合成运动','RELATED_TO'],
+    ['轮系','齿轮传动','RELATED_TO'],
+    ['行星轮系','轮系','RELATED_TO'],
+    ['齿轮齿条传动','齿轮传动','RELATED_TO'],
+    ['运动分解','点的合成运动','RELATED_TO'],
+    ['平面运动分解为平动与转动','基点法','RELATED_TO'],
+    ['绝对速度','速度合成定理','PREREQUISITE_OF'],
+    ['相对速度','速度合成定理','PREREQUISITE_OF'],
+    ['牵连速度','速度合成定理','PREREQUISITE_OF'],
+    ['动系平动','加速度合成定理','RELATED_TO'],
+    ['动系转动','加速度合成定理','RELATED_TO'],
+    ['曲柄连杆机构','速度瞬心','RELATED_TO'],
+    ['凸轮机构','动点与动系','RELATED_TO'],
+    ['齿轮齿条传动','刚体的基本运动','RELATED_TO'],
+    // ===== 动力学·进阶 =====
+    ['动量守恒','动量定理','RELATED_TO'],
+    ['动量矩守恒','动量矩定理','RELATED_TO'],
+    ['角动量守恒','动量矩守恒','CONFUSED_WITH'],
+    ['冲量矩','动量矩定理','RELATED_TO'],
+    ['角冲量','冲量矩','RELATED_TO'],
+    ['质心守恒','质心运动定理','RELATED_TO'],
+    ['变质量系统','动量定理','RELATED_TO'],
+    ['火箭运动方程','变质量系统','RELATED_TO'],
+    ['完全弹性碰撞','碰撞','RELATED_TO'],
+    ['完全非弹性碰撞','碰撞','RELATED_TO'],
+    ['正碰撞','碰撞','RELATED_TO'],
+    ['斜碰撞','碰撞','RELATED_TO'],
+    ['偏心碰撞','碰撞','RELATED_TO'],
+    ['完全弹性碰撞','恢复系数','RELATED_TO'],
+    ['完全非弹性碰撞','恢复系数','RELATED_TO'],
+    ['正碰撞','动量守恒','RELATED_TO'],
+    ['偏心碰撞','动量矩守恒','RELATED_TO'],
+    ['惯量张量','转动惯量','RELATED_TO'],
+    ['惯性主轴','惯量张量','RELATED_TO'],
+    ['中心惯性主轴','惯性主轴','RELATED_TO'],
+    ['惯性积','惯量张量','RELATED_TO'],
+    ['对称陀螺','陀螺仪','RELATED_TO'],
+    ['陀螺仪','进动','RELATED_TO'],
+    ['章动','进动','RELATED_TO'],
+    ['无力矩运动','动量矩守恒','RELATED_TO'],
+    ['动平衡','动静法','RELATED_TO'],
+    ['静平衡','重心','RELATED_TO'],
+    ['回转效应','陀螺仪','RELATED_TO'],
+    ['对称陀螺','欧拉方程','RELATED_TO'],
+    ['完全弹性碰撞','动量守恒','APPLIES_TO'],
+    ['完全非弹性碰撞','动量守恒','APPLIES_TO'],
+    ['碰撞','完全弹性碰撞','RELATED_TO'],
+    ['碰撞','完全非弹性碰撞','RELATED_TO'],
+    // ===== 分析力学·进阶 =====
+    ['达朗贝尔-拉格朗日原理','达朗贝尔原理','RELATED_TO'],
+    ['达朗贝尔-拉格朗日原理','虚位移原理','RELATED_TO'],
+    ['最小作用量原理','哈密顿原理','RELATED_TO'],
+    ['变分法','最小作用量原理','RELATED_TO'],
+    ['欧拉-拉格朗日方程','拉格朗日方程','RELATED_TO'],
+    ['欧拉-拉格朗日方程','变分法','RELATED_TO'],
+    ['诺特定理','对称性与守恒律','RELATED_TO'],
+    ['对称性与守恒律','守恒量','RELATED_TO'],
+    ['位形空间','广义坐标','RELATED_TO'],
+    ['相空间','位形空间','RELATED_TO'],
+    ['勒让德变换','哈密顿函数','RELATED_TO'],
+    ['正则变量','相空间','RELATED_TO'],
+    ['泊松括号','正则变量','RELATED_TO'],
+    ['正则变换','正则方程','RELATED_TO'],
+    ['拉格朗日乘子法','完整约束与非完整约束','RELATED_TO'],
+    ['循环积分','循环坐标','RELATED_TO'],
+    ['能量积分','机械能守恒','RELATED_TO'],
+    ['哈密顿-雅可比方程','正则方程','RELATED_TO'],
+    ['作用变量','角变量','RELATED_TO'],
+    ['可积系统','作用变量','RELATED_TO'],
+    ['约束力','约束反力','RELATED_TO'],
+    ['诺特定理','守恒量','RELATED_TO'],
+    ['最小作用量原理','变分法','RELATED_TO'],
+    ['哈密顿原理','最小作用量原理','RELATED_TO'],
+    ['拉格朗日方程','欧拉-拉格朗日方程','RELATED_TO'],
+    ['正则变量','泊松括号','RELATED_TO'],
+    ['正则方程','哈密顿-雅可比方程','RELATED_TO'],
+    // ===== 振动·进阶 =====
+    ['简谐振动','单自由度自由振动','RELATED_TO'],
+    ['振幅','简谐振动','RELATED_TO'],
+    ['周期','简谐振动','RELATED_TO'],
+    ['频率','简谐振动','RELATED_TO'],
+    ['相位','简谐振动','RELATED_TO'],
+    ['初相位','相位','RELATED_TO'],
+    ['旋转矢量法','简谐振动','RELATED_TO'],
+    ['无阻尼自由振动','单自由度自由振动','RELATED_TO'],
+    ['阻尼比','阻尼振动','RELATED_TO'],
+    ['临界阻尼','阻尼比','RELATED_TO'],
+    ['过阻尼','阻尼比','RELATED_TO'],
+    ['欠阻尼','阻尼比','RELATED_TO'],
+    ['刚度系数','等效刚度','RELATED_TO'],
+    ['等效刚度','弹簧串联','RELATED_TO'],
+    ['等效刚度','弹簧并联','RELATED_TO'],
+    ['弹簧串联','刚度系数','RELATED_TO'],
+    ['弹簧并联','刚度系数','RELATED_TO'],
+    ['受迫振动幅值','受迫振动','RELATED_TO'],
+    ['共振频率','共振','RELATED_TO'],
+    ['品质因数','受迫振动','RELATED_TO'],
+    ['幅频特性','受迫振动','RELATED_TO'],
+    ['相频特性','受迫振动','RELATED_TO'],
+    ['隔振','受迫振动','RELATED_TO'],
+    ['减振','受迫振动','RELATED_TO'],
+    ['主振型','多自由度振动','RELATED_TO'],
+    ['振型叠加法','主振型','RELATED_TO'],
+    ['耦合振动','多自由度振动','RELATED_TO'],
+    ['数学摆','简谐振动','RELATED_TO'],
+    ['物理摆','数学摆','RELATED_TO'],
+    ['复摆','物理摆','RELATED_TO'],
+    ['小角度近似','数学摆','RELATED_TO'],
+    ['固有频率','频率','RELATED_TO'],
+    ['阻尼振动','阻尼比','RELATED_TO'],
+    ['共振','共振频率','RELATED_TO'],
+    ['数学摆','小角度近似','RELATED_TO'],
+    // ===== 综合解题·进阶 =====
+    ['动力学建模','解题技巧','RELATED_TO'],
+    ['受力图常见错误','受力分析技巧','RELATED_TO'],
+    ['运动学分析步骤','速度分析技巧','RELATED_TO'],
+    ['动静法解题步骤','动静法应用','RELATED_TO'],
+    ['能量法解题步骤','能量法','RELATED_TO'],
+    ['虚功原理解题步骤','虚功原理应用','RELATED_TO'],
+    ['定理的选择策略','三大定理联合','RELATED_TO'],
+    ['动力学建模','质点动力学','RELATED_TO'],
+    ['受力图常见错误','受力图','RELATED_TO'],
+    ['运动学分析步骤','点的合成运动','RELATED_TO'],
+    ['动静法解题步骤','达朗贝尔原理','RELATED_TO'],
+    ['能量法解题步骤','动能定理','RELATED_TO'],
+    ['定理的选择策略','动量定理','RELATED_TO'],
+    ['定理的选择策略','动量矩定理','RELATED_TO'],
+    ['定理的选择策略','动能定理','RELATED_TO'],
+    // ===== 教材/知识框架补充关联 =====
+    ['刚体模型','质点','CONFUSED_WITH'],
+    ['刚体模型','变形体','CONFUSED_WITH'],
+    ['质点','质点动力学','PREREQUISITE_OF'],
+    ['刚体模型','受力分析','RELATED_TO'],
+    ['力的定义与作用效果','力的基本概念','RELATED_TO'],
+    ['力的两个重要特性','力的三要素','RELATED_TO'],
+    ['力的两个重要特性','力的可传性','RELATED_TO'],
+    ['力的作用线','力的三要素','RELATED_TO'],
+    ['力的作用线','力的平移定理','RELATED_TO'],
+    ['外力','内力','CONFUSED_WITH'],
+    ['外力','受力分析','RELATED_TO'],
+    ['平面力的正交分解','力的平行四边形法则','RELATED_TO'],
+    ['平面力的正交分解','合力与分力','RELATED_TO'],
+    ['分量正负号判断','平面力的正交分解','RELATED_TO'],
+    ['分布载荷','平面任意力系','RELATED_TO'],
+    ['求力矩的三种方法','力对点之矩','RELATED_TO'],
+    ['求力矩的三种方法','合力矩定理','RELATED_TO'],
+    ['取矩技巧','求力矩的三种方法','RELATED_TO'],
+    ['取矩技巧','平面力系平衡方程','APPLIES_TO'],
+    ['空间力矩与右手定则','力对点之矩','RELATED_TO'],
+    ['空间力分解','空间力系','RELATED_TO'],
+    ['空间约束与支座反力','空间任意力系','RELATED_TO'],
+    ['物体系拆分','物系平衡','RELATED_TO'],
+    ['连接处受力','物体系拆分','RELATED_TO'],
+    ['连接处受力','约束反力','RELATED_TO'],
+    ['平面桁架基本假设','桁架','PREREQUISITE_OF'],
+    ['平面桁架基本假设','二力杆','RELATED_TO'],
+    ['滑动摩擦','摩擦','RELATED_TO'],
+    ['静摩擦力','滑动摩擦','RELATED_TO'],
+    ['最大静摩擦力','静摩擦力','RELATED_TO'],
+    ['滑动趋势','静摩擦力','RELATED_TO'],
+    ['摩擦因数','摩擦角','RELATED_TO'],
+    ['最大静摩擦力','摩擦因数','RELATED_TO'],
+    ['滚动摩阻','滑动摩擦','CONFUSED_WITH'],
+    ['滚动摩阻力臂','滚动摩阻','RELATED_TO'],
+    ['滚动摩阻','摩擦','RELATED_TO'],
+    ['斜面自锁条件','自锁','RELATED_TO'],
+    ['自锁判定','自锁','RELATED_TO'],
+    ['楔块与螺旋副','斜面自锁条件','RELATED_TO'],
+    ['两类问题','质点动力学','RELATED_TO'],
+    ['两类问题','动力学普遍定理','RELATED_TO'],
+    ['平面运动微分方程','刚体平面运动','RELATED_TO'],
+    ['平面运动微分方程','牛顿第二定律','RELATED_TO'],
+    ['质点碰撞','碰撞','RELATED_TO'],
+    ['刚体碰撞','碰撞','RELATED_TO'],
+    ['质点碰撞','动量定理','APPLIES_TO'],
+    ['刚体碰撞','动量矩定理','APPLIES_TO'],
+    ['碰撞能量','动能定理','RELATED_TO'],
+    ['碰撞能量','恢复系数','RELATED_TO'],
+    ['约束分类','完整约束与非完整约束','RELATED_TO'],
+    ['约束分类','理想约束','RELATED_TO'],
+    ['约束分类','自由度','RELATED_TO'],
+    ['动力学普遍方程','达朗贝尔-拉格朗日原理','RELATED_TO'],
+    ['动力学普遍方程','虚位移原理','RELATED_TO'],
+    ['第二类拉格朗日方程','拉格朗日方程','RELATED_TO'],
+    ['第二类拉格朗日方程','完整约束与非完整约束','PREREQUISITE_OF'],
+    ['两自由度系统振动','多自由度振动','RELATED_TO'],
+    ['两自由度系统振动','主振型','RELATED_TO'],
+    ['刚体微幅振荡','物理摆','RELATED_TO'],
+    ['刚体微幅振荡','小角度近似','RELATED_TO'],
+    ['刚体微幅振荡','转动惯量','RELATED_TO']
+  ]
+};
+// ===== 备用知识节点池（不参与初始展示，随使用频率按日期迭代替换进来）=====
+const EXTRA_COURSE={
+  nodes:[
+    {label:'加速度瞬心',type:'concept',status:'learning',note:'瞬时加速度为零的点',size:'S',color:'#3b82f6'},
+    {label:'打滑',type:'concept',status:'learning',note:'车轮与地面有相对滑动',size:'S',color:'#3b82f6'},
+    {label:'牵连惯性力',type:'concept',status:'learning',note:'动系加速运动产生的惯性力',size:'S',color:'#22c55e'},
+    {label:'惯性力偶',type:'concept',status:'learning',note:'刚体惯性力系简化结果之一',size:'S',color:'#22c55e'},
+    {label:'冲击载荷',type:'concept',status:'learning',note:'突加荷载对结构的影响',size:'S',color:'#22c55e'},
+    {label:'对心碰撞',type:'concept',status:'learning',note:'碰撞线过质心的碰撞',size:'S',color:'#22c55e'},
+    {label:'非对心碰撞',type:'concept',status:'learning',note:'碰撞线不过质心的碰撞',size:'S',color:'#22c55e'},
+    {label:'应变能',type:'concept',status:'learning',note:'变形储存的能量',size:'S',color:'#22c55e'},
+    {label:'广义速度',type:'concept',status:'learning',note:'广义坐标对时间的导数',size:'S',color:'#a855f7'},
+    {label:'广义动量',type:'concept',status:'learning',note:'拉格朗日函数对广义速度的偏导',size:'S',color:'#a855f7'},
+    {label:'广义能量',type:'concept',status:'learning',note:'系统能量在广义坐标下的表达',size:'S',color:'#a855f7'},
+    {label:'位能函数',type:'concept',status:'learning',note:'势能函数的数学表达',size:'S',color:'#a855f7'},
+    {label:'哈密顿量守恒',type:'concept',status:'learning',note:'哈密顿函数不显含时间时守恒',size:'S',color:'#a855f7'},
+    {label:'广义力做功',type:'concept',status:'learning',note:'广义力在广义虚位移上做的功',size:'S',color:'#a855f7'},
+    {label:'约束反力的拉格朗日方法',type:'insight',status:'learning',note:'用拉格朗日乘子求约束反力',size:'S',color:'#a855f7'},
+    {label:'谐振子',type:'concept',status:'familiar',note:'简谐振动的理想模型',size:'S',color:'#ec4899'},
+    {label:'阻尼系数',type:'concept',status:'familiar',note:'阻尼力系数c',size:'S',color:'#ec4899'},
+    {label:'平衡点稳定性',type:'concept',status:'learning',note:'平衡点附近的稳定性',size:'S',color:'#ec4899'},
+    {label:'相轨线',type:'concept',status:'learning',note:'相平面中的运动轨迹',size:'S',color:'#ec4899'},
+    {label:'线性化方法',type:'insight',status:'learning',note:'在小邻域内将非线性线性化',size:'S',color:'#ec4899'},
+    {label:'简正坐标',type:'concept',status:'learning',note:'使方程解耦的坐标',size:'S',color:'#ec4899'},
+    {label:'模态分析',type:'concept',status:'learning',note:'系统的固有振动特性分析',size:'S',color:'#ec4899'},
+    {label:'傅里叶级数',type:'formula',status:'familiar',note:'周期信号的分解',size:'S',color:'#ec4899'},
+    {label:'周期激励',type:'concept',status:'learning',note:'周期性外激励作用',size:'S',color:'#ec4899'},
+    {label:'自激振动',type:'concept',status:'learning',note:'系统自身激发的振动',size:'S',color:'#ec4899'},
+    {label:'参变振动',type:'concept',status:'learning',note:'参数随时间变化的振动',size:'S',color:'#ec4899'},
+    {label:'非线性振动',type:'concept',status:'learning',note:'非线性系统的振动',size:'S',color:'#ec4899'},
+    {label:'混沌运动',type:'concept',status:'learning',note:'确定系统的不可预测行为',size:'S',color:'#ec4899'},
+    {label:'动力吸振器',type:'concept',status:'learning',note:'附加吸振装置',size:'S',color:'#ec4899'},
+    {label:'隔振传递率',type:'formula',status:'learning',note:'隔振效果的度量',size:'S',color:'#ec4899'},
+    {label:'弹性模量',type:'concept',status:'familiar',note:'应力与应变之比E',size:'S',color:'#06b6d4'},
+    {label:'泊松比',type:'concept',status:'familiar',note:'横向与纵向应变之比',size:'S',color:'#06b6d4'},
+    {label:'剪切模量',type:'concept',status:'familiar',note:'切应力与切应变之比G',size:'S',color:'#06b6d4'},
+    {label:'胡克定律',type:'formula',status:'familiar',note:'σ=Eε',size:'S',color:'#06b6d4'},
+    {label:'截面模量',type:'concept',status:'familiar',note:'抗弯截面系数W',size:'S',color:'#06b6d4'},
+    {label:'挠曲线微分方程',type:'formula',status:'learning',note:'梁挠度的微分方程',size:'S',color:'#06b6d4'},
+    {label:'卡氏定理',type:'formula',status:'learning',note:'应变能对广义力的偏导',size:'S',color:'#06b6d4'},
+    {label:'独立平衡方程',type:'concept',status:'familiar',note:'相互独立的平衡方程个数',size:'S',color:'#06b6d4'}
+  ],
+  edges:[
+    ['加速度瞬心','速度瞬心','RELATED_TO'],
+    ['加速度瞬心','刚体平面运动','RELATED_TO'],
+    ['加速度瞬心','加速度合成','RELATED_TO'],
+    ['打滑','纯滚动','CONFUSED_WITH'],
+    ['打滑','摩擦','RELATED_TO'],
+    ['牵连惯性力','惯性力','RELATED_TO'],
+    ['牵连惯性力','点的合成运动','RELATED_TO'],
+    ['惯性力偶','惯性力','RELATED_TO'],
+    ['惯性力偶','刚体惯性力系简化','RELATED_TO'],
+    ['冲击载荷','碰撞','RELATED_TO'],
+    ['冲击载荷','强度理论','RELATED_TO'],
+    ['对心碰撞','碰撞','RELATED_TO'],
+    ['对心碰撞','正碰撞','RELATED_TO'],
+    ['对心碰撞','动量守恒','RELATED_TO'],
+    ['非对心碰撞','碰撞','RELATED_TO'],
+    ['非对心碰撞','偏心碰撞','RELATED_TO'],
+    ['非对心碰撞','动量矩守恒','RELATED_TO'],
+    ['应变能','动能定理','RELATED_TO'],
+    ['应变能','势能','RELATED_TO'],
+    ['应变能','卡氏定理','PREREQUISITE_OF'],
+    ['广义速度','广义坐标','RELATED_TO'],
+    ['广义动量','广义速度','RELATED_TO'],
+    ['广义动量','拉格朗日方程','RELATED_TO'],
+    ['广义能量','哈密顿函数','RELATED_TO'],
+    ['广义能量','能量积分','RELATED_TO'],
+    ['位能函数','势能','RELATED_TO'],
+    ['哈密顿量守恒','哈密顿函数','RELATED_TO'],
+    ['哈密顿量守恒','守恒量','RELATED_TO'],
+    ['广义力做功','广义力','RELATED_TO'],
+    ['广义力做功','虚功','RELATED_TO'],
+    ['约束反力的拉格朗日方法','拉格朗日乘子法','RELATED_TO'],
+    ['约束反力的拉格朗日方法','完整约束与非完整约束','RELATED_TO'],
+    ['谐振子','简谐振动','RELATED_TO'],
+    ['谐振子','固有频率','RELATED_TO'],
+    ['阻尼系数','阻尼振动','RELATED_TO'],
+    ['阻尼系数','阻尼比','RELATED_TO'],
+    ['平衡点稳定性','振动基础','RELATED_TO'],
+    ['相轨线','相空间','RELATED_TO'],
+    ['线性化方法','平衡点稳定性','RELATED_TO'],
+    ['线性化方法','小角度近似','RELATED_TO'],
+    ['简正坐标','主振型','RELATED_TO'],
+    ['模态分析','简正坐标','RELATED_TO'],
+    ['模态分析','多自由度振动','RELATED_TO'],
+    ['傅里叶级数','周期激励','RELATED_TO'],
+    ['周期激励','受迫振动','RELATED_TO'],
+    ['自激振动','受迫振动','CONFUSED_WITH'],
+    ['自激振动','阻尼振动','RELATED_TO'],
+    ['参变振动','多自由度振动','RELATED_TO'],
+    ['非线性振动','振动基础','RELATED_TO'],
+    ['非线性振动','混沌运动','RELATED_TO'],
+    ['混沌运动','非线性振动','RELATED_TO'],
+    ['动力吸振器','受迫振动','RELATED_TO'],
+    ['动力吸振器','共振','RELATED_TO'],
+    ['隔振传递率','隔振','RELATED_TO'],
+    ['隔振传递率','受迫振动','RELATED_TO'],
+    ['弹性模量','应力与应变','RELATED_TO'],
+    ['泊松比','弹性模量','RELATED_TO'],
+    ['剪切模量','弹性模量','RELATED_TO'],
+    ['胡克定律','弹性模量','RELATED_TO'],
+    ['胡克定律','应力与应变','RELATED_TO'],
+    ['截面模量','弯曲应力','RELATED_TO'],
+    ['挠曲线微分方程','弯曲变形','RELATED_TO'],
+    ['挠曲线微分方程','挠度','RELATED_TO'],
+    ['卡氏定理','应变能','RELATED_TO'],
+    ['卡氏定理','能量法','RELATED_TO'],
+    ['独立平衡方程','平衡方程','RELATED_TO'],
+    ['独立平衡方程','静定与超静定','RELATED_TO']
+  ]
+};
+function seedDemoNodes(){
+  FULL_COURSE.nodes.forEach((d,i)=>{
+    if(!graph.nodes.some(function(n){return n.label===d.label;})){
+      graph.nodes.push({id:'fc_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color});
+    }
+  });
+  const byLabel={};graph.nodes.forEach(n=>{byLabel[n.label]=n.id;});
+  FULL_COURSE.edges.forEach((e,i)=>{
+    const s=byLabel[e[0]],t=byLabel[e[1]];
+    if(!s||!t||s===t)return;
+    if(graph.edges.some(x=>(x.source===s&&x.target===t)||(x.source===t&&x.target===s)))return;
+    graph.edges.push({id:'fc_'+i,source:s,target:t,relation:e[2]});
+  });
+  localStorage.setItem(key,JSON.stringify(graph));
+  setStatus('已插入完整理论力学知识网（共 '+FULL_COURSE.nodes.length+' 个知识点）');
+}
+function mergeFullCourse(){
+  const uid=(user&&(user.id||user.student_id))||'guest';
+  const v2Key='full_course_v2_'+uid;
+  let changed=0;
+  // 1) 清理旧版演示节点 seed_*（其标签已被完整课程 fc_* 替代）
+  const seedIds={};
+  graph.nodes.forEach(function(n){if(String(n.id).indexOf('seed_')===0)seedIds[n.id]=1;});
+  if(Object.keys(seedIds).length){
+    graph.nodes=graph.nodes.filter(function(n){return !seedIds[n.id];});
+    graph.edges=graph.edges.filter(function(e){return !seedIds[e.source]&&!seedIds[e.target];});
+    changed++;
+  }
+  // 2) 首次（或旧用户）回填完整课程节点与关联；已回填过则保留用户当前知识网络
+  let backfilled=false;
+  try{backfilled=!!localStorage.getItem(v2Key);}catch(e){}
+  if(!backfilled){
+    const byLabel={};graph.nodes.forEach(function(n){byLabel[n.label]=n.id;});
+    let added=0,addedE=0;
+    FULL_COURSE.nodes.forEach(function(d,i){
+      if(!byLabel[d.label]){
+        const id='fc_'+i;
+        graph.nodes.push({id:id,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color});
+        byLabel[d.label]=id;added++;
+      }
+    });
+    FULL_COURSE.edges.forEach(function(e,i){
+      const s=byLabel[e[0]],t=byLabel[e[1]];
+      if(!s||!t||s===t)return;
+      if(graph.edges.some(function(x){return (x.source===s&&x.target===t)||(x.source===t&&x.target===s);}))return;
+      graph.edges.push({id:'fc_'+i,source:s,target:t,relation:e[2]});addedE++;
+    });
+    if(added||addedE)changed++;
+    try{localStorage.setItem(v2Key,'1');}catch(e){}
+  }
+  if(changed){
+    localStorage.setItem(key,JSON.stringify(graph));
+    setStatus('知识网络已更新为完整课程版（清理旧节点，回填完整课程）');
+  }
+}
+// ===== 知识节点使用频率追踪与按频率更新迭代 =====
+function todayStr(){const d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
+function usageKey(){return 'knowledge_usage_'+(user&&(user.id||user.student_id)||'guest');}
+function getUsage(){try{return JSON.parse(localStorage.getItem(usageKey())||'{}')}catch(e){return {}}}
+function recordUsage(label,type){
+  if(!label)return;
+  const u=getUsage();
+  if(!u[label])u[label]={s:0,c:0,d:''};
+  if(type==='s')u[label].s=(u[label].s||0)+1;else u[label].c=(u[label].c||0)+1;
+  u[label].d=todayStr();
+  try{localStorage.setItem(usageKey(),JSON.stringify(u));}catch(e){}
+}
+function viewDateKey(){return 'knowledge_view_updated_'+(user&&(user.id||user.student_id)||'guest');}
+// 按使用频率把低频课程节点替换为高频储备节点；无新使用记录时保持节点数量与内容不变
+function applyViewSwap(){
+  try{
+    const usage=getUsage();
+    const lastUpdate=localStorage.getItem(viewDateKey())||'';
+    const today=todayStr();
+    // 仅当出现比上次更新更新的使用记录时才迭代（用户没搜新知识点→不变）
+    const hasNew=Object.keys(usage).some(function(k){return usage[k].d>lastUpdate;});
+    if(!hasNew)return;
+    const cap=FULL_COURSE.nodes.length;
+    // 候选池：当前已展示课程节点 + 备用池
+    const pool={};
+    graph.nodes.forEach(function(n){if(String(n.id).indexOf('fc_')===0)pool[n.label]=n;});
+    EXTRA_COURSE.nodes.forEach(function(d,i){if(!pool[d.label])pool[d.label]={id:'fcx_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color};});
+    // 打分：搜索权重高于点击
+    function score(label){const u=usage[label];return u?((u.s||0)*3+(u.c||0)):0;}
+    const ranked=Object.keys(pool).sort(function(a,b){return score(b)-score(a)||(pool[a].id<pool[b].id?-1:1);});
+    const desired=ranked.slice(0,cap);
+    const desiredSet={};desired.forEach(function(l){desiredSet[l]=1;});
+    const current=graph.nodes.filter(function(n){return String(n.id).indexOf('fc_')===0;}).map(function(n){return n.label;});
+    const same=current.length===desired.length&&current.every(function(l){return desiredSet[l];});
+    localStorage.setItem(viewDateKey(),today);
+    if(same)return;
+    // 移除不在期望集合中的课程节点（保留用户自建节点）
+    const keepIds={};
+    graph.nodes.forEach(function(n){if(String(n.id).indexOf('fc_')!==0)keepIds[n.id]=1;});
+    desired.forEach(function(l){keepIds[pool[l].id]=1;});
+    const removed={};
+    graph.nodes.forEach(function(n){if(String(n.id).indexOf('fc_')===0&&!keepIds[n.id])removed[n.id]=1;});
+    graph.nodes=graph.nodes.filter(function(n){return !removed[n.id];});
+    graph.edges=graph.edges.filter(function(e){return !removed[e.source]&&!removed[e.target];});
+    // 加入新增的高频储备节点
+    const byLabel={};graph.nodes.forEach(function(n){byLabel[n.label]=n.id;});
+    let addedCount=0;
+    desired.forEach(function(l){
+      if(!byLabel[l]){
+        const nd=pool[l];
+        graph.nodes.push({id:nd.id,label:nd.label,type:nd.type,status:nd.status,note:nd.note,size:nd.size,color:nd.color});
+        byLabel[nd.label]=nd.id;addedCount++;
+      }
+    });
+    // 重建课程节点之间的关联边
+    const allEdges=FULL_COURSE.edges.concat(EXTRA_COURSE.edges);
+    allEdges.forEach(function(e){
+      const s=byLabel[e[0]],t=byLabel[e[1]];
+      if(!s||!t||s===t)return;
+      if(graph.edges.some(function(x){return (x.source===s&&x.target===t)||(x.source===t&&x.target===s);}))return;
+      graph.edges.push({id:s+'-'+t,source:s,target:t,relation:e[2]});
+    });
+    localStorage.setItem(key,JSON.stringify(graph));
+    setStatus('🔁 知识图谱已按使用频率更新迭代：替换 '+addedCount+' 个低频节点为高频知识点');
+    // 若3D视图已打开，同步刷新其节点数据（左右两侧一起更新），并按初始视角重新框住
+    if(fg3d){
+      try{
+        fg3d.graphData(build3dData());
+        g3dFramed=false;
+        setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},800);
+      }catch(e2){}
+    }
+  }catch(e){console.warn('applyViewSwap:',e);}
+}
+async function loadGraph(){try{const old=await fetch(apiUrl());if(old.ok){const oldData=await old.json();graph=oldData.graph||graph}const memory=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(memory.ok){const data=await memory.json(),state=data.state||{};const known=new Set(graph.nodes.map(n=>n.id));(state.concepts||[]).forEach(c=>{if(!known.has(c.id)){graph.nodes.push({id:c.id,label:c.name||c.concept_key,type:'concept',status:'learning',note:'来自本次学习整理'});known.add(c.id)}});(state.misconceptions||[]).forEach(m=>{if(!known.has(m.id)){graph.nodes.push({id:m.id,label:m.description||m.error_code,type:'insight',status:m.status||'learning',note:'待验证错误理解'});known.add(m.id)}});(state.concept_relations||[]).forEach(e=>{if(!graph.edges.some(x=>x.id===e.id))graph.edges.push({id:e.id,source:e.source_concept_id,target:e.target_concept_id,relation:e.relation_type||'关联'})});localStorage.setItem(key,JSON.stringify(graph));setStatus('已加载个人知识网络与学习整理结果')}else throw Error()}catch(e){try{graph=JSON.parse(localStorage.getItem(key)||'{"nodes":[],"edges":[]}')}catch(x){}setStatus('服务器不可用，已加载本机暂存')}if(graph.nodes.length===0)seedDemoNodes();else mergeFullCourse();applyViewSwap();render()}
 async function saveGraph(){localStorage.setItem(key,JSON.stringify(graph));try{const r=await fetch(apiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(graph)});if(!r.ok)throw Error();setStatus('保存成功 · '+new Date().toLocaleTimeString())}catch(e){setStatus('已保存到本机，服务器暂不可用')}}
 function clearGraph(){if(!confirm('确定清空当前个人知识网络吗？'))return;graph={nodes:[],edges:[]};localStorage.removeItem(key);render();setStatus('已清空本机数据')}
 const RELATED_TOPICS={
@@ -351,12 +1667,110 @@ function closeDetail(){document.getElementById('detailOverlay').classList.remove
 async function saveDetailNote(id){try{await LearningMemoryAPI.updateNote(user,id,{title:document.getElementById('detailNoteTitle').value,markdown_content:document.getElementById('detailNoteBody').value,status:'edited'});setStatus('学习笔记已保存')}catch(e){alert(e.message)}}
 async function confirmDetailNote(id){try{await LearningMemoryAPI.confirmNote(user,id);setStatus('学习笔记已确认');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
 async function feedbackDetail(id,value){try{await LearningMemoryAPI.feedbackWeakness(user,id,value);setStatus('薄弱点反馈已保存');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
-function setStatus(t){document.getElementById('statusText').textContent=t}function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}loadGraph();
+function setStatus(t){document.getElementById('statusText').textContent=t}function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}try{const sp=new URLSearchParams(location.search);const q=sp.get('q');if(q)recordUsage(decodeURIComponent(q).trim(),'s');}catch(e){}// 支持 ?reset=1 一键重置知识网络数据（清除浏览器本地保存的知识网络与回填标记）
+try{const _sp2=new URLSearchParams(location.search);if(_sp2.get('reset')==='1'){Object.keys(localStorage).filter(function(k){return k.indexOf('personal_knowledge_')===0||k.indexOf('full_course_')===0||k.indexOf('knowledge_')===0;}).forEach(function(k){localStorage.removeItem(k);});location.replace('personal_knowledge.html?v=20260826b');}}catch(e){}
+loadGraph();
+// ===== 数据异步加载完成后安全重绘 2D 图谱，确保所有节点都渲染出来 =====
+setTimeout(function(){try{if(typeof graph2d!=='undefined'&&graph2d&&graph.nodes.length>0){graph2d.graphData(build3dData());}}catch(e){}},1200);
+setTimeout(function(){try{if(typeof graph2d!=='undefined'&&graph2d&&graph.nodes.length>0){graph2d.graphData(build3dData());}}catch(e){}},3000);
 async function loadManualNoteNodes(){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(!r.ok)return;const d=await r.json(),state=d.state||{};memoryState=state;const ids=new Set(graph.nodes.map(n=>n.id));(state.learning_notes||[]).forEach(n=>{if(!ids.has(n.id)){graph.nodes.push({id:n.id,label:n.title||'未命名笔记',type:'LEARNING_NOTE',status:n.status||'draft',note:n.markdown_content||''})}});render()}catch(e){console.warn('manual notes load failed',e)}}loadManualNoteNodes();
 setTimeout(loadManualNoteNodes,500);
 
 // ===== 3D 全景知识图谱（Obsidian 风格）=====
-let fg3d=null;let g3dHoverId=null;
+let fg3d=null;let g3dHoverId=null;let g3dFramed=false;let g3dFocusId=null;
+// 网站中确实包含内容的知识点 → 对应教材锚点（用于"去复习"核心知识点只展示有真实网页内容的知识点）
+const SITE_LINKS={
+  // ===== 静力学（statics/textbook.html）=====
+  '力的定义与作用效果':'textbooks/statics/textbook.html?target=m2',
+  '力的三要素':'textbooks/statics/textbook.html?target=m3',
+  '力的两个重要特性':'textbooks/statics/textbook.html?target=m4',
+  '刚体模型':'textbooks/statics/textbook.html?target=m6',
+  '质点':'textbooks/statics/textbook.html?target=m7',
+  '变形体':'textbooks/statics/textbook.html?target=m7',
+  '力的作用线':'textbooks/statics/textbook.html?target=m11',
+  '力的可传性':'textbooks/statics/textbook.html?target=m12',
+  '外力':'textbooks/statics/textbook.html?target=m14',
+  '内力':'textbooks/statics/textbook.html?target=m14',
+  '平面力的正交分解':'textbooks/statics/textbook.html?target=m17',
+  '分量正负号判断':'textbooks/statics/textbook.html?target=m18',
+  '力矩':'textbooks/statics/textbook.html?target=m21',
+  '力对点之矩':'textbooks/statics/textbook.html?target=m22',
+  '求力矩的三种方法':'textbooks/statics/textbook.html?target=m24',
+  '力偶':'textbooks/statics/textbook.html?target=m26',
+  '力偶矩':'textbooks/statics/textbook.html?target=m26',
+  '约束与约束反力':'textbooks/statics/textbook.html?target=m27',
+  '受力图':'textbooks/statics/textbook.html?target=m28',
+  '静力学公理':'textbooks/statics/textbook.html?target=m31',
+  '二力平衡公理':'textbooks/statics/textbook.html?target=m32',
+  '加减平衡力系原理':'textbooks/statics/textbook.html?target=m33',
+  '力的平行四边形法则':'textbooks/statics/textbook.html?target=m34',
+  '作用与反作用定律':'textbooks/statics/textbook.html?target=m35',
+  '力的平移定理':'textbooks/statics/textbook.html?target=m37',
+  '平面任意力系':'textbooks/statics/textbook.html?target=m51',
+  '力系简化':'textbooks/statics/textbook.html?target=m52',
+  '主矢与主矩':'textbooks/statics/textbook.html?target=m52',
+  '分布载荷':'textbooks/statics/textbook.html?target=m54',
+  '空间力系':'textbooks/statics/textbook.html?target=m56',
+  '空间力分解':'textbooks/statics/textbook.html?target=m56',
+  '空间力矩与右手定则':'textbooks/statics/textbook.html?target=m57',
+  '空间约束与支座反力':'textbooks/statics/textbook.html?target=m58',
+  '物系平衡':'textbooks/statics/textbook.html?target=m61',
+  '连接处受力':'textbooks/statics/textbook.html?target=m62',
+  '物体系拆分':'textbooks/statics/textbook.html?target=m63',
+  '桁架':'textbooks/statics/textbook.html?target=m66',
+  '桁架节点法':'textbooks/statics/textbook.html?target=m67',
+  '桁架截面法':'textbooks/statics/textbook.html?target=m68',
+  '零杆':'textbooks/statics/textbook.html?target=m69',
+  '摩擦':'textbooks/statics/textbook.html?target=m77',
+  '滑动摩擦':'textbooks/statics/textbook.html?target=m77',
+  '静摩擦力':'textbooks/statics/textbook.html?target=m78',
+  '最大静摩擦力':'textbooks/statics/textbook.html?target=m78',
+  '滑动趋势':'textbooks/statics/textbook.html?target=m78',
+  '摩擦角':'textbooks/statics/textbook.html?target=m82',
+  '摩擦因数':'textbooks/statics/textbook.html?target=m83',
+  '自锁':'textbooks/statics/textbook.html?target=m87',
+  '摩擦与自锁':'textbooks/statics/textbook.html?target=m87',
+  '斜面自锁条件':'textbooks/statics/textbook.html?target=m88',
+  '楔块与螺旋副':'textbooks/statics/textbook.html?target=m89',
+  '自锁判定':'textbooks/statics/textbook.html?target=m90',
+  '滚动摩阻':'textbooks/statics/textbook.html?target=m92',
+  '滚动摩阻力臂':'textbooks/statics/textbook.html?target=m93',
+  // ===== 运动学（kinematics/index.html）=====
+  '直角坐标法':'textbooks/kinematics/index.html?target=p1m2',
+  '自然法':'textbooks/kinematics/index.html?target=p1m3',
+  '切向加速度':'textbooks/kinematics/index.html?target=p1m4',
+  '法向加速度':'textbooks/kinematics/index.html?target=p1m4',
+  '平动':'textbooks/kinematics/index.html?target=part2',
+  '定轴转动':'textbooks/kinematics/index.html?target=p2m2',
+  '角速度':'textbooks/kinematics/index.html?target=p2m3',
+  '角加速度':'textbooks/kinematics/index.html?target=p2m3',
+  '动点与动系':'textbooks/kinematics/index.html?target=part3',
+  '速度合成定理':'textbooks/kinematics/index.html?target=p3m2',
+  '加速度合成定理':'textbooks/kinematics/index.html?target=p3m3',
+  '科氏加速度':'textbooks/kinematics/index.html?target=p3m4',
+  '基点法':'textbooks/kinematics/index.html?target=part4',
+  '速度投影定理':'textbooks/kinematics/index.html?target=p4m2',
+  '瞬心法':'textbooks/kinematics/index.html?target=p4m3',
+  '速度瞬心':'textbooks/kinematics/index.html?target=p4m3',
+  // ===== 动力学（dynamics/index.html）=====
+  '牛顿第二定律':'textbooks/dynamics/index.html?target=dyn1',
+  '动量':'textbooks/dynamics/index.html?target=dyn2',
+  '冲量':'textbooks/dynamics/index.html?target=dyn2',
+  '动量定理':'textbooks/dynamics/index.html?target=dyn2',
+  '转动惯量':'textbooks/dynamics/index.html?target=dyn3',
+  '功':'textbooks/dynamics/index.html?target=dyn4',
+  '动能':'textbooks/dynamics/index.html?target=dyn4',
+  '动能定理':'textbooks/dynamics/index.html?target=dyn4',
+  '机械能守恒':'textbooks/dynamics/index.html?target=dyn4',
+  // ===== 分析力学（analytical/index.html）=====
+  '惯性力':'textbooks/analytical/index.html?target=dalambert',
+  '动静法':'textbooks/analytical/index.html?target=kinetostatic',
+  '动力学普遍方程':'textbooks/analytical/index.html?target=lagrange',
+  '单自由度自由振动':'textbooks/analytical/index.html?target=vibration',
+  '碰撞':'textbooks/analytical/index.html?target=collision',
+  '质点碰撞':'textbooks/analytical/index.html?target=collision',
+  '刚体碰撞':'textbooks/analytical/index.html?target=collision'
+};
 const CONCEPT_LINKS={
   '力与刚体的基本概念':'textbooks/statics/textbook.html?target=m2',
   '静力学公理体系':'textbooks/statics/textbook.html?target=m31',
@@ -394,11 +1808,38 @@ const CONCEPT_LINKS={
   '刚体转动':'textbooks/kinematics/index.html?target=p2m1',
   '质心':'textbooks/dynamics/index.html?target=dyn2-2'
 };
-function conceptUrl(label){return CONCEPT_LINKS[label]||('search.html?q='+encodeURIComponent(label));}
+function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('search.html?q='+encodeURIComponent(label));}
+function siteHasContent(label){return !!(CONCEPT_LINKS[label]||SITE_LINKS[label]);}
 function statusLabel(s){return s==='mastered'?'已掌握':s==='familiar'?'已熟悉':s==='learning'?'学习中（薄弱）':'未知';}
 function statusColor(s){return s==='mastered'?'#22c55e':s==='familiar'?'#3b82f6':s==='learning'?'#f97316':'#94a3b8';}
-function g3dNodeVal(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.9;if(n.id===g3dHoverId)v*=1.8;return v;}
-function g3dNodeColor(n){return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));}
+function g3dNodeVal(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.9;if(n.id===g3dHoverId)v*=1.8;if(g3dFocusId){if(n.id===g3dFocusId)v*=3.2;else if(g3dIsRelatedToFocus(n.id))v*=1.6;else v*=0.45;}return v;}
+function g3dNodeColor(n){if(g3dFocusId&&!g3dIsRelatedToFocus(n.id))return '#2a3441';return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));}
+function g3dIsRelatedToFocus(id){if(!g3dFocusId)return true;if(id===g3dFocusId)return true;return graph.edges.some(function(e){return (e.source===g3dFocusId&&e.target===id)||(e.source===id&&e.target===g3dFocusId);});}
+function setG3dFocus(id){
+  g3dFocusId=id||null;
+  try{
+    fg3d.nodeVal(g3dNodeVal);
+    fg3d.nodeColor(g3dNodeColor);
+    fg3d.linkColor(function(l){
+      if(g3dFocusId){
+        const s=l.source&&(l.source.id||l.source),t=l.target&&(l.target.id||l.target);
+        if(g3dIsRelatedToFocus(s)&&g3dIsRelatedToFocus(t))return 'rgba(148,163,184,0.55)';
+        return 'rgba(30,41,59,0.22)';
+      }
+      return 'rgba(148,163,184,0.4)';
+    });
+  }catch(e){}
+  if(!g3dFocusId)return;
+  try{
+    const node=fg3d.graphData().nodes.find(function(x){return x.id===id;});
+    if(node)fg3d.cameraPosition({x:node.x+40,y:node.y+35,z:node.z+55},{x:node.x,y:node.y,z:node.z},800);
+  }catch(e){}
+}
+function clearG3dFocus(){
+  if(!g3dFocusId)return;
+  g3dFocusId=null;
+  try{fg3d.nodeVal(g3dNodeVal);fg3d.nodeColor(g3dNodeColor);fg3d.linkColor(function(){return 'rgba(148,163,184,0.4)';});}catch(e){}
+}
 function build3dData(){
   const nodes=graph.nodes.map(function(n){return {id:n.id,label:n.label,type:n.type,status:n.status,note:n.note,size:n.size,color:n.color};});
   const links=graph.edges.map(function(e){return {source:e.source,target:e.target,relation:e.relation};});
@@ -438,9 +1879,9 @@ function collectLearningSummary(node){
 function show3dPopup(n){
   if(!n)return;const popup=document.getElementById('graph3dPopup');if(!popup)return;
   const rel=collectRelatedLinks(n);
-  const relHtml=rel.length?rel.map(function(r){return '<span class="pp-chip">'+esc(r.label)+'<a class="pp-jump" href="'+conceptUrl(r.label)+'" target="_blank">跳转 ↗</a></span>';}).join(''):'<span class="pp-rec-empty">暂无相关知识点</span>';
+  const relHtml=rel.length?rel.map(function(r){return '<span class="pp-chip">'+esc(r.label)+'<a class="pp-jump" href="'+conceptUrl(r.label)+'" target="_blank" onclick="recordUsage(\''+esc(r.label)+'\',\'s\')">跳转 ↗</a></span>';}).join(''):'<span class="pp-rec-empty">暂无相关知识点</span>';
   popup.innerHTML=
-    '<div class="pp-title">'+esc(n.label)+'<span class="pp-badge">'+statusLabel(n.status)+'</span><a class="pp-jump" href="'+conceptUrl(n.label)+'" target="_blank">本知识点 ↗</a></div>'+
+    '<div class="pp-title">'+esc(n.label)+'<span class="pp-badge">'+statusLabel(n.status)+'</span><a class="pp-jump" href="javascript:void(0)" onclick="recordUsage(\''+esc(n.label)+'\',\'c\');showKnowledgePoint(\''+esc(n.label)+'\')">📖 本知识点</a></div>'+
     '<div class="pp-sec pp-rel"><div class="pp-sec-label">🔗 相关知识链路（'+rel.length+'）</div>'+relHtml+'</div>'+
     '<div class="pp-sec pp-rec"><div class="pp-sec-label">📜 历史学习记录</div>'+collectLearningSummary(n)+'</div>';
   popup.style.display='block';
@@ -465,7 +1906,71 @@ function position3dPopup(n){
   if(left<10)left=10;if(top<10)top=10;
   popup.style.left=left+'px';popup.style.top=top+'px';
 }
-function hide3dPopup(){const p=document.getElementById('graph3dPopup');if(p)p.style.display='none';}
+let g3dPopupHideTimer=null;
+function clearG3dPopupTimer(){if(g3dPopupHideTimer){clearTimeout(g3dPopupHideTimer);g3dPopupHideTimer=null;}}
+function scheduleHide3dPopup(delay){clearG3dPopupTimer();g3dPopupHideTimer=setTimeout(function(){hide3dPopup();},delay||400);}
+function hide3dPopup(){const p=document.getElementById('graph3dPopup');if(p)p.style.display='none';if(fg3d&&fg3d.controls())fg3d.controls().autoRotate=false;}
+(function(){const el=document.getElementById('graph3dPopup');if(el){el.addEventListener('mouseenter',clearG3dPopupTimer);el.addEventListener('mouseleave',function(){scheduleHide3dPopup(400);});}})();
+function findDenseCluster(){
+  const gd=fg3d.graphData().nodes.filter(function(n){return typeof n.x==='number'&&typeof n.y==='number'&&typeof n.z==='number';});
+  if(gd.length<2)return null;
+  const xs=gd.map(function(n){return n.x;}),ys=gd.map(function(n){return n.y;}),zs=gd.map(function(n){return n.z;});
+  const span=Math.max(Math.max.apply(null,xs)-Math.min.apply(null,xs),Math.max.apply(null,ys)-Math.min.apply(null,ys),Math.max.apply(null,zs)-Math.min.apply(null,zs),1);
+  const R=span*0.15;
+  // 统计每个节点的局部密度（半径R内邻居数），找到密度峰值点
+  let peak=gd[0],peakN=-1;
+  for(let i=0;i<gd.length;i++){
+    let c=0;
+    for(let j=0;j<gd.length;j++){
+      if(i===j)continue;
+      const dx=gd[i].x-gd[j].x,dy=gd[i].y-gd[j].y,dz=gd[i].z-gd[j].z;
+      if(dx*dx+dy*dy+dz*dz<=R*R)c++;
+    }
+    if(c>peakN){peakN=c;peak=gd[i];}
+  }
+  // 取离密度峰值最近的约30%节点作为密集核心
+  const targetCount=Math.max(40,Math.min(90,Math.floor(gd.length*0.30)));
+  const arr=gd.map(function(n){const dx=n.x-peak.x,dy=n.y-peak.y,dz=n.z-peak.z;return {n:n,d:dx*dx+dy*dy+dz*dz};});
+  arr.sort(function(a,b){return a.d-b.d;});
+  const core=arr.slice(0,targetCount).map(function(o){return o.n;});
+  let cx=0,cy=0,cz=0;
+  core.forEach(function(n){cx+=n.x;cy+=n.y;cz+=n.z;});
+  cx/=core.length;cy/=core.length;cz/=core.length;
+  let r=0;
+  core.forEach(function(n){const dx=n.x-cx,dy=n.y-cy,dz=n.z-cz;const d=Math.sqrt(dx*dx+dy*dy+dz*dz);if(d>r)r=d;});
+  return {cx:cx,cy:cy,cz:cz,r:r,count:core.length,span:span};
+}
+function frame3dCamera(){
+  if(!fg3d)return;
+  try{
+    const gd=fg3d.graphData();
+    if(!gd||!gd.nodes||!gd.nodes.length)return;
+    const ns=gd.nodes.filter(function(n){return typeof n.x==='number'&&typeof n.y==='number'&&typeof n.z==='number';});
+    if(!ns.length)return;
+    const xs=ns.map(function(n){return n.x;}),ys=ns.map(function(n){return n.y;}),zs=ns.map(function(n){return n.z;});
+    const span=Math.max(Math.max.apply(null,xs)-Math.min.apply(null,xs),Math.max.apply(null,ys)-Math.min.apply(null,ys),Math.max.apply(null,zs)-Math.min.apply(null,zs),1);
+    // 初始展示聚焦到知识点最密集的核心簇（放大显示密集部分）
+    const dense=findDenseCluster();
+    let cx,cy,cz,dist;
+    if(dense){
+      cx=dense.cx;cy=dense.cy;cz=dense.cz;
+      dist=Math.max(dense.r*1.35,span*0.08);
+    }else{
+      cx=(Math.min.apply(null,xs)+Math.max.apply(null,xs))/2;
+      cy=(Math.min.apply(null,ys)+Math.max.apply(null,ys))/2;
+      cz=(Math.min.apply(null,zs)+Math.max.apply(null,zs))/2;
+      dist=span*1.25;
+    }
+    const cam=fg3d.camera();
+    // 斜上方约35°俯角、45°方位角的立体视角
+    const dx=0.8,dy=0.75,dz=0.8;
+    const dl=Math.sqrt(dx*dx+dy*dy+dz*dz);
+    cam.position.set(cx+dx/dl*dist,cy+dy/dl*dist,cz+dz/dl*dist);
+    cam.lookAt(cx,cy,cz);
+    const controls=fg3d.controls();
+    if(controls){controls.target.set(cx,cy,cz);controls.update();}
+  }catch(e){}
+}
 function open3d(){
   const overlay=document.getElementById('graph3dOverlay');
   const canvas=document.getElementById('graph3d');
@@ -486,23 +1991,40 @@ function open3d(){
         .linkColor(function(){return 'rgba(148,163,184,0.4)';})
         .linkWidth(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
         .linkDirectionalParticles(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
-        .onNodeClick(function(n){if(n){hide3dPopup();showNodeDetail(n.id);}})
+        .onNodeClick(function(n){if(n){hide3dPopup();recordUsage(n.label,'c');showNodeDetail(n.id);}})
         .onBackgroundClick(hide3dPopup)
         .onNodeHover(function(n){
           canvas.style.cursor=n?'pointer':'grab';
           const id=n?n.id:null;
           if(id!==g3dHoverId){g3dHoverId=id;try{fg3d.nodeVal(g3dNodeVal);}catch(e){}}
-          if(n){if(fg3d.controls())fg3d.controls().autoRotate=false;show3dPopup(n);}
-          else{if(fg3d.controls())fg3d.controls().autoRotate=true;hide3dPopup();}
+          if(n){if(fg3d.controls())fg3d.controls().autoRotate=false;clearG3dPopupTimer();show3dPopup(n);}
+          else{scheduleHide3dPopup(400);}
         });
+      try{if(fg3d.controls())fg3d.controls().addEventListener('start',function(){g3dFramed=true;});}catch(e){}
     }catch(e){show3dError('3D 图谱初始化失败：'+e.message);fg3d=null;return;}
   }
   fg3d.graphData(build3dData());
-  if(fg3d.controls()){fg3d.controls().autoRotate=true;fg3d.controls().autoRotateSpeed=0.7;}
+  // 初始视角固定（不自动旋转），布局稳定后自动框住整张网络；用户可随时拖拽/缩放
+  g3dFramed=false;
+  if(fg3d.controls()){fg3d.controls().autoRotate=false;fg3d.controls().autoRotateSpeed=0;}
+  // 打开瞬间即按指定斜俯视角摆放相机（布局稳定后 frame3dCamera 再精调距离）
+  try{
+    const d0=0.8,d1=0.75,d2=0.8;
+    const dl=Math.sqrt(d0*d0+d1*d1+d2*d2);
+    const cam0=fg3d.camera(),ctl0=fg3d.controls();
+    cam0.position.set(d0/dl*1000,d1/dl*1000,d2/dl*1000);
+    cam0.lookAt(0,0,0);
+    if(ctl0){ctl0.target.set(0,0,0);ctl0.update();}
+  }catch(e){}
+  try{
+    if(fg3d.onEngineStop)fg3d.onEngineStop(function(){setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},1000);});
+  }catch(e){}
+  setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},4200);
   update3dLegend();
   requestAnimationFrame(function(){if(fg3d&&canvas.clientWidth>0&&canvas.clientHeight>0){fg3d.width(canvas.clientWidth).height(canvas.clientHeight);}});
 }
 function close3d(){
+  clearG3dPopupTimer();
   document.getElementById('graph3dOverlay').classList.remove('show');
   document.body.style.overflow='';
   if(fg3d&&fg3d.controls())fg3d.controls().autoRotate=false;

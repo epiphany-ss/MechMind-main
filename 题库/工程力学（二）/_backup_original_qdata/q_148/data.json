@@ -1,0 +1,17 @@
+{
+  "id": "q_148",
+  "overview": "二连杆机构平衡时虚位移关系与角θ",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>图示机构中二连杆OA、AB各长l，重量均不计，若用虚位移原理求解在铅直力 $F_P$ 和水平力F作用下保持平衡时（不计摩擦），必要的虚位移之间的关系有____（方向在图中画出），平衡时角 $\\theta$ 的值为____。</p>",
+  "answer": "<p>虚位移关系：$\\delta x_B=2l\\cos\\theta\\,\\delta\\theta$，$\\delta y_B=-2l\\sin\\theta\\,\\delta\\theta$；平衡时 $\\tan\\theta=\\dfrac{F}{F_P}$，即 $\\theta=\\arctan\\dfrac{F}{F_P}$</p>",
+  "explanation": "<p>【AI 生成】两杆 OA、AB 各长 $l$，平衡时与铅垂线均成角 $\\theta$，故 $x_B=2l\\sin\\theta$，$y_B=2l\\cos\\theta$，取变分得虚位移关系 $\\delta x_B=2l\\cos\\theta\\,\\delta\\theta$，$\\delta y_B=-2l\\sin\\theta\\,\\delta\\theta$。主动力为铅直力 $F_P$ 与水平力 $F$（均作用于 B 点），虚功方程 $F\\,\\delta x_B-F_P\\,\\delta y_B=0$，代入得 $2l(F\\cos\\theta+F_P\\sin\\theta)\\delta\\theta=0$，故 $\\tan\\theta=\\dfrac{F}{F_P}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

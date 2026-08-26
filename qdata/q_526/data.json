@@ -1,0 +1,22 @@
+{
+  "id": "q_526",
+  "overview": "剪断一绳瞬时另一绳拉力与重力关系",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>图中小球 $C$ 重 $P$，由绳索 $AC$、$BC$ 悬挂处于静止。此时由静力学可求得绳的张力 $F_{AC}=F_{BC}=P$。现将绳索 $BC$ 突然剪断，试判断：在剪断瞬时，绳索 $AC$ 的拉力 $F_{AC}$ 与力 $P$ 的大小关系 ____。</p><img src=\"qdata/q_526/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F_{AC}<P$（$F_{AC}=\\dfrac{P}{2}$）</p>",
+  "explanation": "<p>【AI 生成】剪断 $BC$ 的瞬时，小球速度为零，沿 $AC$ 方向（法向）的加速度 $a_n=\\dfrac{v^2}{l}=0$。由静力平衡 $F_{AC}=F_{BC}=P$ 可得 $AC$ 与铅垂线夹角 $\\theta=60^\\circ$。法向方程 $F_{AC}-P\\cos60^\\circ=ma_n=0$，故 $F_{AC}=\\dfrac{P}{2}<P$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "剪断一绳瞬时另一绳拉力与重力关系",
+  "module": "动力学"
+}

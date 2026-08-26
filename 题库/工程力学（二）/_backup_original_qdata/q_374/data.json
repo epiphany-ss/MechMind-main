@@ -1,0 +1,17 @@
+{
+  "id": "q_374",
+  "overview": "求直线运动某时刻的速度大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>点作直线运动，已知某瞬时加速度为 $a=-2\\,\\mathrm{m/s^2}$，$t=1$s 时速度为 $v_1=2\\,\\mathrm{m/s}$，则当 $t=2$s 时，该点的速度的大小为 。</p><p>(A) 0； (B) $-2\\,\\mathrm{m/s}$； (C) $4\\,\\mathrm{m/s}$； (D) 无法确定。</p>",
+  "answer": "<p>D</p>",
+  "explanation": "<p>【AI 生成】题设只给出某瞬时的加速度，未指明其为常值，故 $t=2$s 时的速度无法确定，选（D）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

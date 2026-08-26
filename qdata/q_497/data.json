@@ -1,0 +1,22 @@
+{
+  "id": "q_497",
+  "overview": "机构求摆杆EH角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，OA＝AB＝BD＝r，当图示 $\\theta=30^\\circ$ 位置时，曲柄OA的角速度 $\\omega_0$。试求此瞬时摆杆EH的角速度 $\\omega_{HE}$。</p>",
+  "answer": "<p>$\\omega_{HE}=\\dfrac{v_E}{HE}$（由速度分析求出，与 $\\omega_0$ 成比例）。</p>",
+  "explanation": "<p>【AI 生成】OA、AB、BD等长 $r$。<br>（1）$v_A=\\omega_0 r$，垂直OA。<br>（2）AB、BD杆作平面运动，逐杆用基点法：$v_B=v_A+\\omega_{AB}\\times\\overrightarrow{AB}$，再由D点约束（D与EH杆相连）确定 $\\omega_{BD}$、$v_D$。<br>（3）E为EH杆与机构连接点，$v_E=v_D+\\omega_{DE}\\times\\overrightarrow{DE}$，摆杆EH绕H（或E处约束）转动，$\\omega_{HE}=v_E/HE$。代入 $\\theta=30^\\circ$、$r$ 得数值。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52",
+  "source": "练习册",
+  "title": "机构求摆杆EH角速度",
+  "module": "运动学"
+}

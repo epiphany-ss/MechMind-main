@@ -1,0 +1,21 @@
+{
+  "id": "q_446",
+  "overview": "求滑块C的速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示，滑块$C$沿水平滑道运动。已知：行星轮$A$作纯滚动，$OA=36$cm，$r=16$cm，$AB=12$cm，$BC=30$cm。在图示位置时，$OA$杆铅垂，角速度$\\omega=2$rad/s、角加速度为零。$AB$处于水平。试求该瞬时滑块$C$的速度和加速度。</p><img src=\"qdata/q_446/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_C=18$ cm/s（水平）；$a_C\\approx112$ cm/s$^2$（水平向左）</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega\\cdot OA=2\\times36=72$ cm/s，方向水平；因$\\alpha=0$，$a_A=\\omega^2\\cdot OA=4\\times36=144$ cm/s$^2$，方向铅垂向下指向$O$。<br>行星轮$A$纯滚动，$\\omega_{轮}=\\dfrac{v_A}{r}=\\dfrac{72}{16}=4.5$ rad/s，$\\alpha_{轮}=0$。<br>$AB$水平，$\\boldsymbol{r}_{AB}=(12,0)$cm：$$\\boldsymbol{v}_B=72\\boldsymbol{i}-4.5\\times12\\,\\boldsymbol{j}=72\\boldsymbol{i}-54\\boldsymbol{j}\\quad(\\Rightarrow|v_B|=90\\ \\text{cm/s})$$<br>$BC=30$cm与水平成$45^\\circ$（图示），滑块$C$沿水平滑道，由投影定理：$$v_C\\cos45^\\circ=v_B\\cdot\\boldsymbol{e}_{BC}=72\\cdot\\tfrac{\\sqrt2}{2}-54\\cdot\\tfrac{\\sqrt2}{2}\\;\\Rightarrow\\;v_C=18\\ \\text{cm/s}$$<br>加速度：$a_B=a_A-\\omega_{轮}^2\\boldsymbol{r}_{AB}=(-243,-144)$cm/s$^2$，再由$a_C=a_B+\\alpha_{BC}\\times r_{BC}-\\omega_{BC}^2 r_{BC}$及$a_C$沿水平，解得$$a_C\\approx-112\\ \\text{cm/s}^2\\quad(\\text{水平向左})$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册"
+}

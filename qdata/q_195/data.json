@@ -1,0 +1,21 @@
+{
+  "id": "q_195",
+  "overview": "求阻尼系统方程临界阻尼与阻尼频率",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示振动系统中，已知：质点的质量为 $m$，弹簧的刚性系数为 $k$，阻尼器的阻尼系数为 $C$，刚杆的质量不计。试求：(1) 系统的运动微分方程；(2) 临界阻尼系数 $C_c$；(3) 有阻尼时的固有频率。</p>",
+  "answer": "<p>(1) $m\\ddot{x}+C\\dot{x}+kx=0$；(2) $C_c=2\\sqrt{km}$；(3) $\\omega_d=\\sqrt{\\dfrac{k}{m}-\\left(\\dfrac{C}{2m}\\right)^2}$</p>",
+  "explanation": "<p>【AI 生成】刚杆质量不计，可取质点位移 $x$ 为广义坐标，系统简化为单自由度质量—弹簧—阻尼器系统。由牛顿第二定律$$m\\ddot{x}+C\\dot{x}+kx=0$$令阻尼比 $\\xi=\\dfrac{C}{2\\sqrt{km}}$，临界阻尼系数$$C_c=2\\sqrt{km}$$欠阻尼（$\\xi<1$）时有阻尼固有频率$$\\omega_d=\\sqrt{\\frac{k}{m}-\\left(\\frac{C}{2m}\\right)^2}=\\omega_n\\sqrt{1-\\xi^2}$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "求阻尼系统方程临界阻尼与阻尼频率",
+  "module": "动力学"
+}

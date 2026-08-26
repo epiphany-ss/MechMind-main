@@ -1,0 +1,22 @@
+{
+  "id": "q_340",
+  "overview": "求空间结构绳索AD拉力及杆AB、AC内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示结构自重不计，已知：力 $P=70$kN，$\\theta=45°$，$\\beta=45°$，A、B、C 为铰链联接。绳索 AD 与杆 AB、AC 汇交于 A 点。试求绳索 AD 的拉力及杆 AB、AC 的内力。</p><img src=\"qdata/q_340/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$T_{AD}=\\dfrac{P}{\\cos\\theta\\cos\\beta}=\\dfrac{70}{0.5}=140$kN；$N_{AB}=N_{AC}=\\dfrac{T_{AD}\\sin\\theta}{2}=\\dfrac{140\\times0.707}{2}\\approx49.5$kN（拉）。</p>",
+  "explanation": "<p>【AI 生成】A 为空间汇交力系平衡。取 A 节点：三力（绳 AD、杆 AB、杆 AC）与荷载 P 汇交。以 A 为原点建立坐标，AB、AC 对称布置。沿铅垂方向：$T_{AD}\\cos\\theta\\cos\\beta=P\\Rightarrow T_{AD}=\\frac{P}{\\cos45°\\cos45°}=140$kN。水平面内对称：$N_{AB}=N_{AC}$，由 $\\sum F_x=0$ 得 $N_{AB}=N_{AC}=\\frac{T_{AD}\\sin\\theta}{2}\\approx49.5$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "求空间结构绳索AD拉力及杆AB、AC内力",
+  "module": "静力学"
+}

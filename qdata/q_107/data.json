@@ -1,0 +1,21 @@
+{
+  "id": "q_107",
+  "overview": "惯性力系向B点简化",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $AB$ 重 $P$、长 $l$，置于水平位置，在绳 $BC$ 突然剪断瞬时有角加速度 $\\alpha$，则杆上各点惯性力系向 $B$ 点简化，其主矢量的大小为______，主矩的大小为______，试在图中画出该主矢量与主矩。</p>",
+  "answer": "<p>主矢量的大小：$\\dfrac{Pl\\alpha}{2g}$；主矩的大小：$\\dfrac{Pl^2\\alpha}{3g}$</p>",
+  "explanation": "<p>【AI 生成】剪断绳 $BC$ 后杆绕 $A$ 端作瞬时定轴转动。主矢量 $F_I=ma_C=\\dfrac{P}{g}\\cdot\\dfrac{l}{2}\\alpha=\\dfrac{Pl\\alpha}{2g}$；对 $B$ 点的主矩等于对 $B$ 的转动惯量与 $\\alpha$ 的乘积，$M_{IB}=\\dfrac{1}{3}ml^2\\alpha=\\dfrac{Pl^2\\alpha}{3g}$，转向与 $\\alpha$ 相反。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册",
+  "title": "惯性力系向B点简化",
+  "module": "动力学"
+}

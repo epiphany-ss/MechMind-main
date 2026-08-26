@@ -1,0 +1,17 @@
+{
+  "id": "q_527",
+  "overview": "汽车过拱桥中点对桥面压力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>图中汽车的质量为 $1500\\,\\mathrm{kg}$，以速度 $v=10\\,\\mathrm{m/s}$ 驶过拱桥，如图所示。桥在中点处的曲率半径 $\\rho=50\\,\\mathrm{m}$。求汽车经过拱桥中点时对桥面的压力大小为 ____。</p>",
+  "answer": "<p>$11700\\,\\mathrm{N}$（约 $11.7\\,\\mathrm{kN}$）</p>",
+  "explanation": "<p>【AI 生成】在拱桥最高点，法向加速度指向圆心（向下）。由 $P-N=m\\dfrac{v^2}{\\rho}$，得 $N=mg-m\\dfrac{v^2}{\\rho}=1500\\times9.8-1500\\times\\dfrac{10^2}{50}=14700-3000=11700\\,\\mathrm{N}$。由作用力与反作用力，汽车对桥面压力亦为 $11700\\,\\mathrm{N}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53"
+}

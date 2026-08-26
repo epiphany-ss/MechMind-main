@@ -1,0 +1,21 @@
+{
+  "id": "q_334",
+  "overview": "求组合结构A、B约束力及各链杆内力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "桁架"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>求图示组合结构：A、B 两处的约束力及各链杆的内力。已知荷载 60kN、40kN、70kN，尺寸 3m、4m、4m、6m、4m、3m。</p>",
+  "answer": "<p>$R_A+R_B=60+40+70=170$kN；由对 A 取矩得 $R_B=\\dfrac{60\\times4+40\\times10+70\\times16}{16}=115$kN（↑），$R_A=55$kN（↑）；各链杆内力用节点法逐节点求解。</p>",
+  "explanation": "<p>【AI 生成】整体为静定组合结构。对 A 取矩：$16R_B=60\\times4+40\\times10+70\\times16$（按荷载从左至右布置于 4m、10m、16m 处），得 $R_B=115$kN；$\\sum F_y=0$：$R_A=170-115=55$kN。各链杆为二力杆，从仅含两未知力的节点开始，用节点法逐点列 $\\sum F_x=0,\\sum F_y=0$ 求解。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求组合结构A、B约束力及各链杆内力",
+  "module": "静力学"
+}

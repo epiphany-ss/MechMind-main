@@ -1,0 +1,17 @@
+{
+  "id": "q_309",
+  "overview": "求连续梁支座A、B、D的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>如下图所示连续梁 A-B-C-D，AB=BC=CD=$L$=1m，A 为固定铰支座，B、D 为滚动铰支座，C 处为中间铰。已知 $F=10$kN，$q=10$kN/m，$M=20$kN·m，$L=1$m。求支座 A、B、D 的约束力。</p>",
+  "answer": "<p>$R_D=20$kN（↑），$R_B=20$kN（↓），$R_A=20$kN（↑），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】①取 CD 段：$\\sum M_C=0$，$R_D L=M$，$R_D=20$kN（↑），C 铰给 ACB 段向上的力为 20kN。②取 ACB 段（AB 段受均布载荷 $qL=10$kN，BC 中点受 $F=10$kN，C 处受 20kN 向上）：对 A 取矩 $-10\\times0.5-10\\times1.5+20\\times2+R_B\\times1=0$，得 $R_B=-20$kN（↓）。③$\\sum F_y=0$：$R_A-10-10+20+(-20)=0$，得 $R_A=20$kN（↑）。整体校核 $\\sum F_y$：$20-20+20=20$kN 与总荷载 $10+10=20$kN 相符。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

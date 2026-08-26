@@ -1,0 +1,20 @@
+{
+  "id": "q_546",
+  "overview": "求杆和小球的动量大小",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>小球M重$Q$，固定在一根长为$L$，重为$P$的均质细杆上，杆的另一端铰接在以速度$v_0$运动的小车的顶板上，杆$OM$以角速度$\\omega$绕$O$轴转动，则图示瞬时杆的动量的大小为____，小球动量的大小为____。</p>",
+  "answer": "<p>设图示瞬时杆与水平面夹角为$60°$、杆绕$O$逆时针转动，则<br>杆的动量 $p_{\\text{杆}}=\\frac{P}{g}\\sqrt{v_0^2+\\frac{\\omega^2L^2}{4}-\\frac{\\sqrt{3}}{2}v_0\\omega L}$；<br>小球的动量 $p_{\\text{球}}=\\frac{Q}{g}\\sqrt{v_0^2+\\omega^2L^2-\\sqrt{3}\\,v_0\\omega L}$。</p>",
+  "explanation": "<p>【AI 生成】杆质心$C$（杆中点）相对$O$的速度为 $\\omega L/2$，小球$M$相对$O$的速度为 $\\omega L$，方向均垂直于杆。当杆与水平面成$60°$时，该相对速度方向与水平线成$150°$角。杆质心绝对速度 $\\boldsymbol{v}_C=\\boldsymbol{v}_0+\\boldsymbol{v}_{C/O}$，其大小<br>$$v_C^2=v_0^2+(\\omega L/2)^2+2v_0(\\omega L/2)\\cos150°=v_0^2+\\frac{\\omega^2L^2}{4}-\\frac{\\sqrt{3}}{2}v_0\\omega L$$<br>小球绝对速度大小<br>$$v_M^2=v_0^2+\\omega^2L^2+2v_0\\omega L\\cos150°=v_0^2+\\omega^2L^2-\\sqrt{3}v_0\\omega L$$<br>再由 $p=\\frac{\\text{重量}}{g}v$ 即得结果。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册",
+  "title": "求杆和小球的动量大小",
+  "module": "动力学"
+}

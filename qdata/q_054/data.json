@@ -1,0 +1,21 @@
+{
+  "id": "q_054",
+  "overview": "圆盘平面运动由两点速度求动能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>半径为 $R$，质量为 $m$ 的均质圆盘在其自身平面内作平面运动。在图示位置时，若已知图形上 $A$、$B$ 两点的速度方向如图示，$\\alpha=60^\\circ$，且知 $B$ 点速度大小为 $v_B$，则圆轮的动能为____。<br>(A) $\\dfrac{mv_B^2}{16}$；<br>(B) $\\dfrac{3mv_B^2}{16}$；<br>(C) $\\dfrac{mv_B^2}{4}$；<br>(D) $\\dfrac{3mv_B^2}{4}$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】由 $A$、$B$ 两点速度方向作垂线得速度瞬心 $I$。由几何关系（$\\alpha=60^\\circ$）求得 $BI$ 与 $CI$ 的比值，再由 $v_B=\\omega\\cdot BI$ 求 $\\omega$ 及质心速度 $v_C=\\omega\\cdot CI$，代入 $T=\\frac12mv_C^2+\\frac12\\cdot\\frac12mR^2\\omega^2$ 得 $T=\\dfrac{3}{16}mv_B^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册",
+  "title": "圆盘平面运动由两点速度求动能",
+  "module": "动力学"
+}

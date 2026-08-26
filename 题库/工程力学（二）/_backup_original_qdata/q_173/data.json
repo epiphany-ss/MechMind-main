@@ -1,0 +1,17 @@
+{
+  "id": "q_173",
+  "overview": "求杆上滑块系统的广义力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "广义力"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>细杆 $OA$ 可绕水平轴 $O$ 转动，其上缠一弹性系数为 $k$ 的弹簧，弹簧的一端固定于 $O$，另一端连接一质量为 $m$ 可沿细杆滑动的小球 $B$，设弹簧原长为 $l$。不计细杆质量和各处摩擦，则对应于广义坐标 $x$ 的广义力为____。</p>",
+  "answer": "<p>$Q_x=-k(x-l)-mg\\sin\\theta$</p>",
+  "explanation": "<p>【AI 生成】设细杆与水平面的夹角为 $\\theta$，小球 $B$ 距 $O$ 的距离为 $x$，则其高度为 $x\\sin\\theta$。系统势能 $V=\\frac{1}{2}k(x-l)^2+mgx\\sin\\theta$，由 $Q_x=-\\dfrac{\\partial V}{\\partial x}$ 得 $Q_x=-k(x-l)-mg\\sin\\theta$。也可用虚功法：虚位移 $\\delta x$ 时弹簧力作虚功 $-k(x-l)\\delta x$，重力作虚功 $-mg\\sin\\theta\\,\\delta x$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:41",
+  "updated": "2026-08-07 18:41"
+}

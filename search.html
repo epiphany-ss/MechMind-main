@@ -110,7 +110,7 @@ function getKnowledgeConcepts() {
     {type:'page',title:'思维导图',desc:'由主干到枝干由内向外分散排布的全知识体系',link:'mindmap.html',tags:['思维导图','知识树','全体系']},
     {type:'page',title:'AI智能问答',desc:'理论力学AI助手，支持公式识别与逐步推理',link:'ai_qa.html',tags:['AI','问答','智能','推理']},
     {type:'page',title:'问题探讨社区',desc:'理论力学学习交流、提问探讨、分享心得',link:'forum.html',tags:['论坛','讨论','提问','交流']},
-    {type:'page',title:'题库练习',desc:'四大模块分类练习、搜索筛选、在线作答',link:'questions.html',tags:['题库','练习','题目','测试']},
+    {type:'page',title:'题库练习',desc:'四大模块分类练习、搜索筛选、在线作答',link:'http://localhost:8090',tags:['题库','练习','题目','测试']},
   ];
 }
 
@@ -124,7 +124,7 @@ function buildIndex() {
     qs.forEach(function(q){
       searchIndex.push({
         type:'exercise', title:q.title, desc:(q.knowledge_points||[]).join(' · '),
-        link:'questions.html', tags:(q.knowledge_points||[]).join(' ')+' '+q.module+' '+q.title,
+        link:'http://localhost:8090', tags:(q.knowledge_points||[]).join(' ')+' '+q.module+' '+q.title,
         module:q.module, difficulty:q.difficulty||'medium'
       });
     });

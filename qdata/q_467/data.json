@@ -1,0 +1,22 @@
+{
+  "id": "q_467",
+  "overview": "选择偏心轮摇杆机构求角加速度的动点动系",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>图所示偏心轮摇杆机构中，$\\omega$、$\\alpha$为已知，欲求摇杆的角加速度，应取______。</p>\n<p>(A) 杆上的M为动点，轮为动系；&nbsp;&nbsp;(B) 轮上的M为动点，杆为动系；<br>\n(C) 轮心C为动点，杆为动系；&nbsp;&nbsp;(D) 轮心C为动点，轮为动系。</p><img src=\"qdata/q_467/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】偏心轮绕O以 $\\omega,\\alpha$ 转动，接触点M为轮上点，其绝对运动（随轮转动）完全已知；取轮上的M为动点、摇杆为动系时，M相对摇杆沿摇杆作直线滑动，相对运动方向已知，即可用加速度合成定理求出摇杆的角加速度，故选(B)。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "选择偏心轮摇杆机构求角加速度的动点动系",
+  "module": "运动学"
+}

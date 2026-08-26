@@ -1,0 +1,20 @@
+{
+  "id": "q_442",
+  "overview": "求B点速度大小",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面机构如图所示。已知：$OA=r=10$cm，$AB=3r$，$BC=2r$。在图示位置时，$\\varphi=\\theta=45^\\circ$，$OA\\perp AB$，$\\omega=2$rad/s，$v_C=10$cm/s。试求该瞬时$B$点的速度的大小。</p><img src=\"qdata/q_442/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_B=15\\sqrt2\\approx21.2$ cm/s</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega r=2\\times10=20$ cm/s，因$OA\\perp AB$，$v_A$沿$AB$方向。<br>$BC$与水平成$\\theta=45^\\circ$，滑块$C$的速度$v_C=10$ cm/s沿水平方向。由速度投影定理（沿$BC$投影）：$$v_B\\cdot\\cos\\beta=v_C\\cos45^\\circ=10\\times\\dfrac{\\sqrt2}{2}=5\\sqrt2$$<br>因$v_A\\perp BC$（$OA\\parallel BC$），$v_A$对$BC$方向无投影，故$B$点相对$A$的速度垂直于$AB$、沿$BC$方向，即$v_{BA}=5\\sqrt2$ cm/s。于是：$$v_B=\\sqrt{v_A^2+v_{BA}^2}=\\sqrt{20^2+(5\\sqrt2)^2}=15\\sqrt2\\ \\text{cm/s}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_317",
+  "overview": "求三角形板固定端A、铰B及活动支座C的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "重心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>直角均质三角形平板 BCD 的重为 $P=50$N，支承如图所示。BC 边水平，其上作用有矩为 $M=30$N·m 的力偶，杆 AB 的自重不计，已知 $L_1=9$m，$L_2=10$m。求固定端 A、铰 B 及活动支座 C 的约束力。</p>",
+  "answer": "<p>$R_C=\\dfrac{59}{3}\\approx19.67$N（↑），$B_y=\\dfrac{91}{3}\\approx30.33$N，$B_x=0$；$A_y=\\dfrac{91}{3}$N，$A_x=0$，$M_A\\approx136.5$N·m。</p>",
+  "explanation": "<p>【AI 生成】设三角板直角在 B，BC=$L_2=10$m 水平，$\\angle BCD=60°$，重心 G 在距 B 为 $\\frac{L_2}{3}$、$\\frac{BD}{3}$ 处（BD=$L_2\\tan60°=10\\sqrt3$m）。①取三角板：$\\sum M_B=0$：$10R_C-50\\times\\frac{10}{3}-30=0\\Rightarrow R_C=\\frac{59}{3}$N。$\\sum F_y=0$：$B_y+\\frac{59}{3}-50=0\\Rightarrow B_y=\\frac{91}{3}$N；$\\sum F_x=0$：$B_x=0$。②杆 AB 长 $L_1=9$m、与水平成 60°，固定端 A 受 B 处传来的力（$B_x,B_y$）与力矩：$A_x=0$，$A_y=\\frac{91}{3}$N，$M_A=B_y\\cdot9\\cos60°+B_x\\cdot9\\sin60°\\approx136.5$N·m。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册"
+}

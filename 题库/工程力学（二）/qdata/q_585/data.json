@@ -1,0 +1,21 @@
+{
+  "id": "q_585",
+  "overview": "求圆盘由水平位置释放瞬时A处约束反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>重为W的均质圆盘在铅垂面内绕水平轴A转动如图示（A在圆盘边缘，AB为直径）。开始运动时，直径AB在水平位置，初速为零。试求此瞬时A处的约束反力。</p><img src=\"qdata/q_585/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$A_x=0$，$A_y=\\dfrac{W}{3}$（方向铅垂向上）</p>",
+  "explanation": "<p>【AI 生成】此瞬时$\\omega=0$，质心C在A正右方水平距离R处。圆盘对A轴转动惯量$J_A=\\frac{1}{2}\\frac{W}{g}R^2+\\frac{W}{g}R^2=\\frac{3}{2}\\frac{W}{g}R^2$。对A取矩：$$\\alpha=\\frac{W\\cdot R}{J_A}=\\frac{2g}{3R},\\qquad a_C=\\alpha R=\\frac{2g}{3}\\ (向下)$$由质心运动定理$W-A_y=\\frac{W}{g}a_C$，得$A_y=W-\\frac{2W}{3}=\\frac{W}{3}$（向上）；水平方向$a_C=0$，故$A_x=0$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q_588",
+  "overview": "求人沿弦运动到B点时圆盘角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>半径为R、质量为M的均质圆盘，可绕通过其质心并与圆盘垂直的铅垂轴z转动。有一质量为m的人（视为质点），沿圆盘上到转轴距离$d=R/2$的弦AB作相对运动，相对速度大小$u$为常量。若人经过AB的中点时圆盘的角速度为$\\omega$，且不计轴承处摩擦。试求当人到达B点时圆盘的角速度。</p>",
+  "answer": "<p>$\\Omega=\\omega\\,\\dfrac{2M+m}{2M+4m}$</p>",
+  "explanation": "<p>【AI 生成】外力对z轴无矩，系统对z轴动量矩守恒。人相对速度$v_r$沿弦AB，其对z轴之矩等于$m v_r\\cdot d$（$d$为z轴到弦的垂直距离，沿弦为常量）。人在弦中点时距轴$d=R/2$，在B点时距轴$R$。由动量矩守恒$$\\left(\\frac{1}{2}MR^2+md^2\\right)\\omega+mv_rd=\\left(\\frac{1}{2}MR^2+mR^2\\right)\\Omega+mv_rd$$消去$mv_rd$，代入$d=R/2$，得$$\\Omega=\\omega\\,\\frac{\\frac{M}{2}+\\frac{m}{4}}{\\frac{M}{2}+m}=\\omega\\,\\frac{2M+m}{2M+4m}$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

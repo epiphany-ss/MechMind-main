@@ -1,0 +1,19 @@
+{
+  "id": "q_311",
+  "overview": "求铰接构架A、B支座约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>结构如图，C 处为铰链，自重不计。已知：$F=100$kN，$q=20$kN/m，$M=50$kN·m。构架由竖杆 AC 与横梁 CDB 在 C 处铰接，AC=2m，CD=1.5m，DB=1.5m；横梁受均布载荷 q，D 处受铅垂力 F，C 处受力偶 M。A 为固定铰支座，B 为滚动铰支座。试求 A、B 两支座的约束力。</p><img src=\"qdata/q_311/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_B=\\dfrac{190}{3}\\approx63.3$kN（↑），$R_{Ay}=\\dfrac{290}{3}\\approx96.7$kN（↑），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】①取 CB 段（C 铰、B 滚支，长 3m）：均布载荷合力 $q\\times3=60$kN 作用于中点，F=100kN 于 D（距 C 1.5m），力偶 M=50kN·m 于 C。对 C 取矩：$3R_B-60\\times1.5-100\\times1.5+50=0$，得 $R_B=\\frac{190}{3}$kN。②C 铰竖向力 $R_C=60+100-R_B=\\frac{290}{3}$kN（向上作用于 CB，即向下作用于 AC）。③取 AC：$\\sum M_A=0$ 与 $\\sum F_x=0$ 得 $R_{Ax}=0$，$\\sum F_y=0$ 得 $R_{Ay}=R_C=\\frac{290}{3}$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

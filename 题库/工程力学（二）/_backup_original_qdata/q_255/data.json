@@ -1,0 +1,17 @@
+{
+  "id": "q_255",
+  "overview": "空间二力偶等效的条件",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "力与力偶"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>空间二力偶等效的条件是____。</p>",
+  "answer": "<p>两个力偶的力偶矩矢相等（大小相等、转向相同、作用平面平行），即 $\\boldsymbol{M}_1=\\boldsymbol{M}_2$。</p>",
+  "explanation": "<p>【AI 生成】力偶矩矢是自由矢量，两个空间力偶等效当且仅当它们的力偶矩矢完全相同：大小相等、转向（方向）相同。力偶矩矢相等则两力偶可互相替代。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

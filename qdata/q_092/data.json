@@ -1,0 +1,22 @@
+{
+  "id": "q_092",
+  "overview": "轮O纯滚动与杆OA系统求速度加速度与反力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>机构如图，已知：匀质轮 $O$ 沿倾角为 $\\beta$ 的固定斜面作纯滚动，重为 $P$，半径为 $R$，匀质细杆 $OA$ 重 $Q$，且水平，初始时系统静止，忽略杆两端 $A$、$O$ 处的摩擦。试求：(1) 轮的中心 $O$ 的速度、加速度与经过的路程 $S$ 的关系；(2) $A$、$B$ 处的约束反力。</p>",
+  "answer": "<p>$v_O^2=\\dfrac{4(P+Q)gS\\sin\\beta}{3P+2Q}$，$a_O=\\dfrac{2(P+Q)g\\sin\\beta}{3P+2Q}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 杆 $OA$ 水平，$A$、$O$ 沿斜面同速运动，杆平动。轮纯滚动 $\\omega=v_O/R$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\omega^2+\\frac12\\frac{P}{g}v_O^2+\\frac12\\frac{Q}{g}v_O^2=\\dfrac{(3P+2Q)}{4g}v_O^2$。<br>(3) 重力功（沿斜面下降 $S$）：$W=(P+Q)S\\sin\\beta$。<br>(4) 动能定理：$\\dfrac{(3P+2Q)}{4g}v_O^2=(P+Q)S\\sin\\beta\\Rightarrow v_O^2=\\dfrac{4(P+Q)gS\\sin\\beta}{3P+2Q}$，对 $S$ 求导得 $a_O=\\dfrac{2(P+Q)g\\sin\\beta}{3P+2Q}$。<br>(5) 约束反力由达朗贝尔原理按杆、轮分别取分离体求得。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "轮O纯滚动与杆OA系统求速度加速度与反力",
+  "module": "动力学"
+}

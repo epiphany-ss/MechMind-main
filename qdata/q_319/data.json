@@ -1,0 +1,22 @@
+{
+  "id": "q_319",
+  "overview": "求结构A、B处约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>结构如图，各杆重不计，D、C 处为铰接。已知 $F=4$kN，$M=6$kN·m，$L_1=1.5$m，$L_2=2$m。A 为固定铰支座，B 为滚动铰支座。试求 A、B 处的约束力。</p><img src=\"qdata/q_319/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_B=\\dfrac{M}{L_2}=\\dfrac{6}{2}=3$kN（↑）；$R_A=1$kN（↑），$R_{Ax}=0$。</p>",
+  "explanation": "<p>【AI 生成】取含 B 支座的隔离体（铰接于 D）：对 D 取矩，力偶 M 与 B 支座反力平衡：$R_B L_2=M\\Rightarrow R_B=3$kN。再取整体：$\\sum F_y=0$：$R_A+R_B-F=0\\Rightarrow R_A=4-3=1$kN；$\\sum F_x=0$：$R_{Ax}=0$；对 A 取矩可校验与力偶 M 的平衡。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求结构A、B处约束力",
+  "module": "静力学"
+}

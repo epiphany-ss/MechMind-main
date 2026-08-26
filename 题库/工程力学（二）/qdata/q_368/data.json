@@ -1,0 +1,18 @@
+{
+  "id": "q_368",
+  "overview": "判断角速度公式是否适用于一般转动",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>刚体作定轴转动时，任一瞬时 $t$ 的角速度 $\\omega = \\omega_0 + \\alpha t$（式中 $\\omega_0$ 为初角速度，$\\alpha$ 为 $t$ 瞬时的角加速度）。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】$\\omega=\\omega_0+\\alpha t$ 仅在角加速度 $\\alpha$ 为常量的匀变速转动中成立；一般转动中 $\\alpha$ 随时间变化，不能使用该式。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册"
+}

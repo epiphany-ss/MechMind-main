@@ -1,0 +1,21 @@
+{
+  "id": "q_299",
+  "overview": "判断水平力增大时杆对物块的正压力变化",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "摩擦",
+    "受力分析"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>已知杆 OA 重 P，物块 M 重 Q，杆与物块间有摩擦，而物体与地面间的摩擦略去不计。当水平力 F 增大而物块仍然保持平衡时，杆对物块 M 的正压力____。<br>(A) 由小变大；<br>(B) 由大变小；<br>(C) 不变。</p><img src=\"qdata/q_299/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】F 增大时物块与杆之间的摩擦力随之增大。对杆 OA 取矩（矩心 O）：$N\\cdot L\\cos\\theta - f\\cdot L\\sin\\theta = P\\cdot\\frac{L}{2}\\cos\\theta$，即 $N=\\frac{P}{2}+f\\tan\\theta$，可见正压力 N 随摩擦力 f（即随 F）增大而由小变大。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册"
+}

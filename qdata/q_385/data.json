@@ -1,0 +1,22 @@
+{
+  "id": "q_385",
+  "overview": "求小环M的运动方程",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>杆 AB 绕 A 轴以 $\\varphi=5t$（$\\varphi$ 以 rad 计，$t$ 以 s 计）的规律转动，其上一小环 M 将杆 AB 和半径为 $R$（以 m 计）的固定大圆环连在一起，若以直角坐标 Oxy 为参考系，则小环 M 的运动方程为 。</p><img src=\"qdata/q_385/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x=R\\cos(10t)$，$y=R\\sin(10t)$</p>",
+  "explanation": "<p>【AI 生成】设 O 为圆心，A 位于圆周左端（OA=$R$）。杆 AB 与圆交点 M 在圆周上，由几何关系 $\\angle AOM=2\\varphi$，故 $x=R\\cos 2\\varphi=R\\cos 10t$，$y=R\\sin 2\\varphi=R\\sin 10t$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "求小环M的运动方程",
+  "module": "运动学"
+}

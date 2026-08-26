@@ -1,0 +1,16 @@
+{
+  "overview": "求由5个平行力组成的平行力系的合力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "difficulty": "easy",
+  "content": "<p>一平行力系由 5 个力组成，力的大小和作用线的位置如图所示。图中小正方格的边长为 10 mm。求平行力系的合力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>合力 $F_R=20$ N，作用线过点 C（60 mm，32.5 mm）。</p>",
+  "explanation": "<p>解：由题意得合力 $F_R$ 的大小为</p><p>$$F_R=\\sum F=15+10+20-10-15=20\\ \\mathrm{N}$$</p><p>合力作用线过点 C（$x_C,y_C,0$）。由合力矩定理：</p><p>$$x_C=\\dfrac{15\\times40+10\\times30+20\\times20-10\\times10-15\\times0}{20}=60\\ \\mathrm{mm}$$</p><p>$$y_C=\\dfrac{15\\times10+10\\times30+20\\times50-10\\times20-15\\times40}{20}=32.5\\ \\mathrm{mm}$$</p><p>故合力 $F_R=20$ N，作用于点 C（60，32.5）mm。（数值以原图为准）</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q14_0.png",
+    "题库/qbank2_figs/q14_1.png"
+  ]
+}

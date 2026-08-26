@@ -1,0 +1,19 @@
+{
+  "id": "q_559",
+  "overview": "求甲虫与圆环中心运动规律",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在光滑水平面上，平放一半径为$R$，质量为$M$的圆环，在某一瞬时，有一质量为$m$的甲虫开始以不变的相对速度$u$沿此环爬行，试求甲虫及圆环中心各自的运动规律。</p><img src=\"qdata/q_559/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>甲虫与圆环中心均绕系统的质心作匀速圆周运动，角速度均为 $u/R$（方向相反）。<br>甲虫的运动轨迹：以系统质心为圆心、半径为 $\\dfrac{MR}{M+m}$ 的圆；<br>圆环中心的运动轨迹：以系统质心为圆心、半径为 $\\dfrac{mR}{M+m}$ 的圆。</p>",
+  "explanation": "<p>【AI 生成】系统在水平方向不受外力，动量守恒，初始静止，故系统质心$O$固定不动。设圆环中心$C$到质心$O$的距离为$r_C$，甲虫到质心$O$的距离为$r_B$，则<br>$$Mr_C=mr_B,\\qquad r_C+r_B=R$$<br>解得<br>$$r_C=\\frac{mR}{M+m},\\qquad r_B=\\frac{MR}{M+m}$$<br>甲虫相对圆环的速度为$u$，即甲虫绕圆环中心转动的角速度为 $u/R$，由于质心不动、两圆共心，甲虫与圆环中心绕质心$O$的角速度均为 $u/R$，方向相反。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54"
+}

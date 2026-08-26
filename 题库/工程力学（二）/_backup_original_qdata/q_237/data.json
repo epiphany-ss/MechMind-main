@@ -1,0 +1,17 @@
+{
+  "id": "q_237",
+  "overview": "计算斜轴分解时力在y轴上的投影",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>将大小为 $100\\text{N}$ 的力 $\\boldsymbol{F}$ 沿 $x$、$y$ 方向分解，若 $\\boldsymbol{F}$ 在 $x$ 轴上的投影为 $86.6\\text{N}$，而沿 $x$ 方向的分力的大小为 $115.47\\text{N}$，则 $\\boldsymbol{F}$ 在 $y$ 轴上的投影为____。<br>(A) $0$；<br>(B) $50\\text{N}$；<br>(C) $70.7\\text{N}$；<br>(D) $86.6\\text{N}$；<br>(E) $100\\text{N}$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】设 $x$、$y$ 轴夹角为 $\\gamma$，$\\boldsymbol{F}$ 与 $x$ 轴夹角为 $\\alpha$。投影 $p_x=F\\cos\\alpha=86.6$，得 $\\alpha=30^\\circ$。沿 $x$ 方向分力 $$F_x=F\\frac{\\sin(\\gamma-\\alpha)}{\\sin\\gamma}=100\\frac{\\sin(\\gamma-30^\\circ)}{\\sin\\gamma}=115.47$$ 解得 $\\gamma=120^\\circ$，故 $\\boldsymbol{F}$ 与 $y$ 轴夹角 $\\gamma-\\alpha=90^\\circ$，$p_y=F\\cos90^\\circ=0$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43"
+}

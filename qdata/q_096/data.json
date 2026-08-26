@@ -1,0 +1,20 @@
+{
+  "id": "q_096",
+  "overview": "判断平动刚体惯性力系的简化",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>平动刚体惯性力系可简化为一个合力，该合力一定作用在刚体的质心上。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】平动刚体各点加速度相同且等于质心加速度 $a_C$，惯性力系为同向平行力系，可合成为一个合力 $F_I=-ma_C$，作用线过质心。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "判断平动刚体惯性力系的简化",
+  "module": "动力学"
+}

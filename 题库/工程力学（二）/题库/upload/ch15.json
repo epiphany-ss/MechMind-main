@@ -1,0 +1,176 @@
+{
+  "chapter": 15,
+  "category": "动力学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断质心共线碰撞是否对心碰撞",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "碰撞"
+      ],
+      "difficulty": "easy",
+      "content": "<p>两碰撞物体的质心在同一直线上的碰撞一定是对心碰撞。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】对心碰撞还要求碰撞前两物体的相对速度沿质心连线（即接触点公法线通过两质心）。仅两质心位置共线，若速度方向偏离该直线，则为偏心（斜）碰撞，故原命题错误。</p>"
+    },
+    {
+      "overview": "判断质心在转轴上时有无打击中心",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "碰撞",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>如果绕定轴转动的刚体的质心恰好在转动轴上，则不存在打击中心。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】打击中心到转轴的距离 $OK=\\dfrac{J_O}{m\\,OC}$。若质心 $C$ 恰在转动轴 $O$ 上，则 $OC=0$，$OK$ 趋于无穷大，即打击中心不存在。</p>"
+    },
+    {
+      "overview": "判断外碰撞冲量为零时动量是否守恒",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "碰撞",
+        "动量定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>两物体碰撞时，若外碰撞冲量为零，则系统的动量守恒。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由冲量定理，系统动量的增量等于外碰撞冲量；碰撞过程中内碰撞冲量不改变系统总动量。当外碰撞冲量为零时，系统动量守恒。</p>"
+    },
+    {
+      "overview": "判断弹性碰撞与塑性碰撞的主要区别",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "碰撞"
+      ],
+      "difficulty": "easy",
+      "content": "<p>弹性碰撞与塑性碰撞的主要区别是前者在碰撞后两物体有不同的速度而彼此分离。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】完全弹性碰撞（$e=1$）碰撞后两物体因弹性变形完全恢复而分离，速度一般不同；塑性碰撞（$e=0$）碰撞后两物体以相同速度一起运动不再分离。该说法正确。</p>"
+    },
+    {
+      "overview": "判断完全弹性碰撞是否可用动能定理求速度",
+      "question_type": "判断题",
+      "knowledge_points": [
+        "碰撞",
+        "机械能守恒"
+      ],
+      "difficulty": "medium",
+      "content": "<p>两物体在完全弹性碰撞时，无机械能损失，若已知碰撞前两物体速度的大小、方向，则可用动能定理完全确定碰撞后的速度。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】完全弹性碰撞满足动量守恒与动能守恒（无机械能损失），据此可确定碰后速度；但求解应使用动量守恒与恢复系数 $e=1$（或机械能守恒），而非“动能定理”，碰撞过程中冲量做功难以用动能定理直接处理，故说法错误。</p>"
+    },
+    {
+      "overview": "打桩与锻造对锤质量的要求",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "碰撞",
+        "动能定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>设锤的质量为 $M$，桩的质量为 $m_1$，锻件连同砧座的质量为 $m_2$，为了提高打桩和锻造的效率，则应____。<br>(A) $M&lt;m_1$，$M&lt;m_2$；<br>(B) $M&lt;m_1$，$M&gt;m_2$；<br>(C) $M&gt;m_1$，$M&lt;m_2$；<br>(D) $M&gt;m_1$，$M&gt;m_2$。</p>",
+      "figures": [],
+      "answer": "<p>C</p>",
+      "explanation": "<p>【AI 生成】打桩时希望碰撞后桩获得尽可能大的动能（与锤一起向下运动），故锤的质量应远大于桩的质量，即 $M&gt;m_1$；锻造时希望锤的动能尽量用于锻件变形而砧座几乎不动，故锤的质量应远小于砧座质量，即 $M&lt;m_2$。故选 (C)。</p>"
+    },
+    {
+      "overview": "求小球第二次反跳的高度",
+      "question_type": "选择题",
+      "knowledge_points": [
+        "碰撞",
+        "机械能守恒"
+      ],
+      "difficulty": "easy",
+      "content": "<p>一球自高 $H=1$ m，无初速度地自由落下，与固定平台相碰撞，已知恢复系数为 $0.1$，碰后铅垂反跳到最高点后又下落与平台再次碰撞，碰后又反跳，则第 2 次反跳的高度 $H_2$ 为____。<br>(A) $0.1$ m；<br>(B) $0.01$ m；<br>(C) $0.001$ m；<br>(D) $0.0001$ m。</p>",
+      "figures": [],
+      "answer": "<p>D</p>",
+      "explanation": "<p>【AI 生成】小球第 1 次碰前速度 $v_1=\\sqrt{2gH}$，碰后速度 $v_1'=e v_1$，故第 1 次反跳高度 $h_1=e^2H$。第 2 次碰前速度 $v_2=v_1'=e v_1$，碰后速度 $v_2'=e v_2=e^2 v_1$，于是 $H_2=\\dfrac{v_2'^2}{2g}=e^4H=0.1^4\\times 1=0.0001$ m。故选 (D)。</p>"
+    },
+    {
+      "overview": "求杆端带小球的打击中心位置",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "碰撞",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $OA$ 长 $L$，质量为 $m$，$A$ 端固连一个质量也为 $m$ 的小球（小球尺寸不计，视为质点），$O$ 为悬挂点，则打击中心 $K$ 至 $O$ 的距离 $OK=$____。</p>",
+      "figures": [],
+      "answer": "<p>$OK=\\dfrac{8}{9}L$</p>",
+      "explanation": "<p>【AI 生成】对 $O$ 轴的转动惯量 $J_O=\\frac{1}{3}mL^2+mL^2=\\frac{4}{3}mL^2$；总质量 $2m$，质心到 $O$ 的距离 $OC=\\dfrac{m\\frac L2+mL}{2m}=\\frac{3L}{4}$。由打击中心公式 $OK=\\dfrac{J_O}{m_{总}\\,OC}=\\dfrac{\\frac43 mL^2}{2m\\cdot\\frac{3L}{4}}=\\frac{8}{9}L$。</p>"
+    },
+    {
+      "overview": "子弹射入悬挂木杆后的角速度",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "碰撞",
+        "动量矩定理"
+      ],
+      "difficulty": "medium",
+      "content": "<p>一质量为 $m$ 的子弹 $A$，以速度 $v_A$ 水平射入一铅垂悬挂的均质木杆 $OB$ 的中点，并留在杆内。木杆的质量为 $M$，长 $L$，初始静止。则子弹射入后木杆的角速度为____。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega=\\dfrac{6mv_A}{(4M+3m)L}$</p>",
+      "explanation": "<p>【AI 生成】碰撞过程中杆绕 $O$ 轴转动，对 $O$ 轴动量矩守恒。碰前系统对 $O$ 的动量矩为 $mv_A\\cdot\\frac L2$；碰后子弹留在杆中点，$J_O=\\frac13 ML^2+m(\\frac L2)^2=\\frac13 ML^2+\\frac14 mL^2$。由 $mv_A\\frac L2=J_O\\,\\omega$ 解得 $\\omega=\\dfrac{mv_A\\frac L2}{(\\frac M3+\\frac m4)L^2}=\\dfrac{6mv_A}{(4M+3m)L}$。</p>"
+    },
+    {
+      "overview": "杆碰尖角使轴O无冲量时的OB距离",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "碰撞",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>均质细杆 $OA$ 长 $L$，质量为 $m$，自铅直位置经微小绕动后绕 $O$ 轴倒下，至水平位置时与一尖角 $B$ 相碰，为使轴 $O$ 处不产生碰撞冲量，$OB$ 的距离 $h$ 应为____。</p><img src=\"[[FIG1]]\">",
+      "figures": [
+        "题库/figures/ch126_idx578_0.png"
+      ],
+      "answer": "<p>$h=\\dfrac{2}{3}L$</p>",
+      "explanation": "<p>【AI 生成】为使轴 $O$ 处不产生碰撞冲量，碰撞点 $B$ 必须是打击中心。对绕端 $O$ 转动的均质杆，$J_O=\\frac13 mL^2$，质心距 $OC=\\frac L2$，故 $h=OK=\\dfrac{J_O}{m\\,OC}=\\dfrac{\\frac13 mL^2}{m\\cdot\\frac L2}=\\frac23 L$。</p>"
+    },
+    {
+      "overview": "摆锤轴承碰撞冲量为零的条件",
+      "question_type": "填空题",
+      "knowledge_points": [
+        "碰撞",
+        "转动惯量"
+      ],
+      "difficulty": "medium",
+      "content": "<p>某摆锤的对称面如图所示，质心为 $C$，转轴为 $O$。受冲击时轴承 $O$ 的碰撞冲量为零的条件是____。</p>",
+      "figures": [],
+      "answer": "<p>冲击冲量应作用于打击中心上，即冲击冲量的作用线垂直于 $OC$，并通过距 $O$ 为 $OK=\\dfrac{J_O}{m\\,OC}$ 的打击中心 $K$。</p>",
+      "explanation": "<p>【AI 生成】当冲击冲量恰好作用在打击中心 $K$（$OK=\\frac{J_O}{m\\,OC}$）且方向垂直于 $OC$ 时，轴承 $O$ 处不产生碰撞冲量。因此时冲击冲量在 $O$ 点产生的约束冲量为零。</p>"
+    },
+    {
+      "overview": "小球与光滑地面碰撞后的速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "碰撞",
+        "动能定理"
+      ],
+      "difficulty": "easy",
+      "content": "<p>小球以与水平面成夹角 $60^\\circ$ 的速度 $v=10$ cm/s 与光滑地面碰撞，若恢复系数 $e=0.9$，试求碰撞后小球的速度。</p>",
+      "figures": [],
+      "answer": "<p>碰后速度大小 $v'=\\dfrac{7\\sqrt7}{2}\\approx 9.26$ cm/s，方向与水平面夹角 $\\alpha=\\arctan(0.9\\sqrt3)\\approx 57.3^\\circ$（斜向上）。</p>",
+      "explanation": "<p>【AI 生成】地面光滑，碰撞时水平方向无摩擦冲量，故水平分速度不变：$v_x=v\\cos60^\\circ=5$ cm/s。</p><p>铅垂方向碰前速度 $v_y=v\\sin60^\\circ=5\\sqrt3$ cm/s（向下），由恢复系数定义（法向碰后速度与碰前法向速度之比）得碰后铅垂速度 $v_y'=e\\,v_y=0.9\\times5\\sqrt3=4.5\\sqrt3$ cm/s（向上）。</p><p>故碰后速度大小 $$v'=\\sqrt{v_x^2+v_y'^2}=\\sqrt{5^2+(4.5\\sqrt3)^2}=\\sqrt{85.75}=\\dfrac{7\\sqrt7}{2}\\approx 9.26\\ \\text{cm/s}$$</p><p>速度方向与水平面的夹角 $$\\alpha=\\arctan\\frac{v_y'}{v_x}=\\arctan(0.9\\sqrt3)\\approx 57.3^\\circ$$</p>"
+    },
+    {
+      "overview": "三根刚杆受冲量后的角速度与质心速度",
+      "question_type": "计算题",
+      "knowledge_points": [
+        "碰撞",
+        "动量定理"
+      ],
+      "difficulty": "hard",
+      "content": "<p>三根质量为 $m$、长度均为 $L$ 的刚杆，组成一刚性结构。开始时结构处于静止。若在垂直于杆 $AC$ 的中点处作用一冲量 $I$。试求碰撞后结构的角速度及其质心 $C$ 的速度。</p>",
+      "figures": [],
+      "answer": "<p>碰撞后结构的角速度 $\\omega=\\dfrac{I}{3ml}$，质心 $C$ 的速度 $v_C=\\dfrac{I}{3m}$（方向沿冲量 $I$ 的方向）。</p>",
+      "explanation": "<p>【AI 生成】三根等长等质量刚杆构成等边三角形刚性结构，总质量 $M=3m$，质心为 $C$。结构对质心 $C$ 的转动惯量为 $$J_C=3\\left[\\frac{1}{12}mL^2+m\\left(\\frac{\\sqrt3}{6}L\\right)^2\\right]=\\frac12 mL^2$$</p><p>（1）由冲量定理（动量定理）：结构初始静止，碰撞后系统动量的增量等于外碰撞冲量，即 $$3m\\,v_C=I\\quad\\Rightarrow\\quad v_C=\\frac{I}{3m}$$ 方向沿冲量 $I$ 的方向。</p><p>（2）对质心 $C$ 用动量矩定理：冲量 $I$ 对质心 $C$ 的矩等于结构对 $C$ 的动量矩的增量，即 $$J_C\\,\\omega=I\\,d$$ 其中 $d$ 为冲量作用线到质心 $C$ 的垂直距离。由杆 $AC$ 为中线的几何关系，冲量作用于其中点且垂直于 $AC$，可得 $d=\\dfrac{L}{6}$，故 $$\\omega=\\frac{I\\cdot\\frac L6}{\\frac12 mL^2}=\\frac{I}{3ml}$$</p>"
+    }
+  ]
+}

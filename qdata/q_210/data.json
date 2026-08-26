@@ -1,0 +1,21 @@
+{
+  "id": "q_210",
+  "overview": "小球与光滑地面碰撞后的速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "碰撞",
+    "动能定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "easy",
+  "content": "<p>小球以与水平面成夹角 $60^\\circ$ 的速度 $v=10$ cm/s 与光滑地面碰撞，若恢复系数 $e=0.9$，试求碰撞后小球的速度。</p>",
+  "answer": "<p>碰后速度大小 $v'=\\dfrac{7\\sqrt7}{2}\\approx 9.26$ cm/s，方向与水平面夹角 $\\alpha=\\arctan(0.9\\sqrt3)\\approx 57.3^\\circ$（斜向上）。</p>",
+  "explanation": "<p>【AI 生成】地面光滑，碰撞时水平方向无摩擦冲量，故水平分速度不变：$v_x=v\\cos60^\\circ=5$ cm/s。</p><p>铅垂方向碰前速度 $v_y=v\\sin60^\\circ=5\\sqrt3$ cm/s（向下），由恢复系数定义（法向碰后速度与碰前法向速度之比）得碰后铅垂速度 $v_y'=e\\,v_y=0.9\\times5\\sqrt3=4.5\\sqrt3$ cm/s（向上）。</p><p>故碰后速度大小 $$v'=\\sqrt{v_x^2+v_y'^2}=\\sqrt{5^2+(4.5\\sqrt3)^2}=\\sqrt{85.75}=\\dfrac{7\\sqrt7}{2}\\approx 9.26\\ \\text{cm/s}$$</p><p>速度方向与水平面的夹角 $$\\alpha=\\arctan\\frac{v_y'}{v_x}=\\arctan(0.9\\sqrt3)\\approx 57.3^\\circ$$</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "小球与光滑地面碰撞后的速度",
+  "module": "动力学"
+}

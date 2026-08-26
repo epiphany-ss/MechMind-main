@@ -2,9 +2,9 @@
   "users": [
     {
       "id": "u_001",
-      "name": "刘丰源",
-      "student_id": "202509020109",
-      "password": "202509020109",
+      "name": "孙晞凯",
+      "student_id": "202501040104",
+      "password": "Sxk20070413",
       "role": "admin",
       "created": "2026-07-01"
     },

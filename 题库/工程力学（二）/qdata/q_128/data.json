@@ -1,0 +1,19 @@
+{
+  "id": "q_128",
+  "overview": "两盘系统求摩擦力与绳张力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "动量矩定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示系统中，圆盘 $O$、$C$ 质量均为 $m$，半径均为 $R$，盘 $C$ 在斜面上只滚不滑。两盘用细绳系住，绳与盘之间无相对滑动。运用动静法求斜面对盘 $C$ 的摩擦力及绳内的张力。</p>",
+  "answer": "<p>$F_f=\\dfrac{3}{7}mg\\sin\\theta$，$F_T=\\dfrac{2}{7}mg\\sin\\theta$</p>",
+  "explanation": "<p>【AI 生成】盘 $C$ 沿斜面纯滚动，$a_C=R\\alpha_C$。绳从盘 $C$ 顶部引出并绕于固定盘 $O$ 上，绳速 $=2v_C$，故盘 $O$ 的角加速度 $\\alpha_O=\\dfrac{2a_C}{R}$。对盘 $O$ 用动静法（对轴取矩）：$F_T R=\\dfrac{1}{2}mR^2\\alpha_O=mRa_C$，得 $F_T=ma_C$。对盘 $C$：沿斜面 $mg\\sin\\theta-F_T-F_f=ma_C$；对质心取矩 $(F_f-F_T)R=\\dfrac{1}{2}mR^2\\alpha_C=\\dfrac{1}{2}mRa_C$。将 $F_T=ma_C$ 代入并联立，解得 $a_C=\\dfrac{2}{7}g\\sin\\theta$，$F_f=\\dfrac{3}{7}mg\\sin\\theta$，$F_T=\\dfrac{2}{7}mg\\sin\\theta$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "q_566",
+  "overview": "判断外力主矩不为零则动量矩不守恒",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>如果作用于质点系上的外力对固定点O的主矩不为零，则质点系对O点的动量矩一定不守恒。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】由动量矩定理$\\frac{\\mathrm{d}L_O}{\\mathrm{d}t}=\\sum M_O^{(e)}$，外力主矩不为零则$L_O$随时间变化，动量矩不守恒。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "q_595",
+  "overview": "求竖直杆受水平力时A点与质心的加速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆重90N，通过铰接在A端的小滚轮铅垂地搁置在光滑水平面上，滚轮质量可以略去不计。现在A点作用一水平力F，其大小为45N，使细杆由静止进入运动，试求运动初瞬时A点和细杆质心C的加速度。</p><img src=\"qdata/q_595/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_A=2g\\approx19.6\\ \\mathrm{m/s^2}$（水平向右）；$a_C=\\dfrac{g}{2}\\approx4.9\\ \\mathrm{m/s^2}$（水平向右）</p>",
+  "explanation": "<p>【AI 生成】杆竖直，A端在光滑水平面上，故A只能水平运动。设杆长L、质量$m=90/g$，角加速度$\\alpha$（逆时针）。初瞬时$\\omega=0$，质心加速度$a_C=(a_A-\\alpha L/2,\\,0)$。列方程：平移$F=m(a_A-\\alpha L/2)$；对质心取矩$F\\cdot\\frac{L}{2}=\\frac{1}{12}mL^2\\alpha$，得$\\alpha=\\frac{6F}{mL}=\\frac{3g}{L}$。再由$F=m(a_A-\\alpha L/2)$得$$a_A=\\frac{F}{m}+\\frac{\\alpha L}{2}=\\frac{g}{2}+\\frac{3g}{2}=2g,\\qquad a_C=\\frac{F}{m}=\\frac{g}{2}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册"
+}

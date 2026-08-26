@@ -1,0 +1,21 @@
+{
+  "id": "q_088",
+  "overview": "纯滚动轮与物A系统求加速度与杆内力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：纯滚动的匀质轮与物 $A$ 的质量均为 $m$，轮半径为 $r$，斜面倾角为 $\\beta$，物 $A$ 与斜面间的动摩擦系数为 $f'$，不计杆 $OA$ 的质量。试求：(1) $O$ 点的加速度；(2) 杆 $OA$ 的内力。</p><img src=\"qdata/q_088/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$a_O=\\dfrac{2}{5}g\\left(2\\sin\\beta-f'\\cos\\beta\\right)$；$F_{OA}=\\dfrac{mg}{5}\\left(3\\cos\\beta-f'\\sin\\beta\\right)$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 轮与物 $A$ 由杆 $OA$ 相连，沿斜面运动速度相同，加速度 $a$。取沿斜面向下为正。<br>(2) 对纯滚动轮：$ma=mg\\sin\\beta-f-F$，滚动条件 $f=\\frac12ma$（$J\\alpha=fr$，$a=r\\alpha$），得 $\\frac32ma=mg\\sin\\beta-F$。<br>(3) 对物 $A$：$ma=mg\\sin\\beta-f'mg\\cos\\beta+F$。<br>(4) 两式相加：$\\frac52ma=mg(2\\sin\\beta-f'\\cos\\beta)\\Rightarrow a=\\dfrac{2}{5}g(2\\sin\\beta-f'\\cos\\beta)$。<br>(5) 代入得杆内力 $F_{OA}=\\dfrac{mg}{5}(3\\cos\\beta-f'\\sin\\beta)$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

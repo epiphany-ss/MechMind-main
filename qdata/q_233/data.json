@@ -1,0 +1,20 @@
+{
+  "id": "q_233",
+  "overview": "判断主矢与主矩平行时能否合成一个力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>一空间力系向某点简化后，得主矢 $\\boldsymbol{F}_R$、主矩 $\\boldsymbol{M}_O$，若 $\\boldsymbol{F}_R$ 与 $\\boldsymbol{M}_O$ 平行，则此力系可进一步简化为一合力。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】主矢与主矩平行时，力系已是最简的力螺旋（力螺），不能再简化为单一合力。只有当主矢与主矩垂直时，才可通过平移作用线消去主矩而合成为一个力。</p>",
+  "media": [],
+  "created": "2026-08-07 18:43",
+  "updated": "2026-08-07 18:43",
+  "source": "练习册",
+  "title": "判断主矢与主矩平行时能否合成一个力",
+  "module": "静力学"
+}

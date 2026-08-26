@@ -1,0 +1,20 @@
+{
+  "id": "q_159",
+  "overview": "用虚位移原理求桁架杆AB内力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示桁架中，已知：F、a，试用虚位移原理求杆AB的内力。</p><img src=\"qdata/q_159/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$S_{AB}=F$（设 AB 为拉力）</p>",
+  "explanation": "<p>【AI 生成】解除杆 AB，代之以等值反向的内力 $S$、$S'$（先假定为拉力）并视为主动力，使桁架变为单自由度机构。给系统一虚位移，由各节点的虚位移几何关系（利用速度投影定理或瞬心法）写出主动力 F 与内力 S 作用点虚位移的关系，虚功方程 $F\\,\\delta r_F-S\\,\\delta r_A-S'\\,\\delta r_B=0$，代入化简得 $S_{AB}=F$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40",
+  "source": "练习册"
+}

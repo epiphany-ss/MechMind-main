@@ -1,0 +1,22 @@
+{
+  "id": "q_377",
+  "overview": "恒加速度矢量对应何种运动",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "easy",
+  "content": "<p>点作曲线运动如图所示。若点在不同位置时的加速度 $a_1=a_2=a_3$ 是一个恒矢量，则该点作 。</p><p>(A) 匀速运动； (B) 匀变速运动； (C) 变速运动。</p><img src=\"qdata/q_377/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】加速度为常矢量即加速度的大小和方向均不变，这样的运动称为匀变速运动，故选（B）。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "恒加速度矢量对应何种运动",
+  "module": "运动学"
+}

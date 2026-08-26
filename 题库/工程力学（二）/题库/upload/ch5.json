@@ -1,0 +1,417 @@
+{
+  "chapter": 5,
+  "category": "运动学",
+  "subject": "理论力学",
+  "questions": [
+    {
+      "overview": "判断平动与定轴转动是否为平面运动特例",
+      "question_type": "判断题",
+      "knowledge_points": ["刚体平面运动", "刚体平动"],
+      "difficulty": "easy",
+      "content": "<p>刚体的平动和定轴转动都是刚体平面运动的特殊情形。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平面运动可分解为随基点的平动和绕基点的转动两部分：当绕基点的角速度为零时，刚体作平动；当基点取在固定转轴上时，即成为定轴转动，所以二者都是平面运动的特殊情形。</p>"
+    },
+    {
+      "overview": "判断垂直于运动平面的直线是否作平动",
+      "question_type": "判断题",
+      "knowledge_points": ["刚体平动", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>平行于某固定平面作平面运动的刚体，其上任一条与此固定平面相垂直的直线都作平动。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】垂直于运动平面的直线上各点的速度、加速度完全相同（都平行于该固定平面），故该直线上所有点作相同的平动。</p>"
+    },
+    {
+      "overview": "判断角速度与基点选择是否有关",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>作平面运动的刚体相对于不同基点的平动坐标系有相同的角速度与角加速度。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】刚体作平面运动时，其角速度与角加速度是刚体自身的运动属性，与基点的选择无关，不同的基点只影响随基点平动的部分。</p>"
+    },
+    {
+      "overview": "判断平面图形角速度是否与基点选择无关",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>每一瞬时，平面图形对于固定参考系的角速度和角加速度与平面图形绕任选基点的角速度和角加速度相同。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平面图形绕任选基点的转动角速度（相对角速度）等于其绝对角速度，故角速度和角加速度均与基点选择无关。</p>"
+    },
+    {
+      "overview": "判断瞬心法求角速度及角加速度求法",
+      "question_type": "判断题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>刚体作平面运动时，其角速度$\\omega$可利用瞬心法求得，角加速度$\\alpha$可对$\\omega$求导得到。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由瞬心到任一点的距离与该点速度可求瞬时角速度$\\omega$，再由$\\alpha=\\dfrac{d\\omega}{dt}$对时间求导即可得角加速度。</p>"
+    },
+    {
+      "overview": "判断基点法分解中相对角速度等于绝对角速度",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>刚体作平面运动，用基点法可将运动分解为两部分，即随基点的平动与绕基点的转动，其中转动角速度是刚体绕基点的相对角速度，也等于刚体的绝对角速度。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】平动参考系无转动，绕基点的相对角速度即刚体相对于平动系的角速度，等于刚体的绝对角速度。</p>"
+    },
+    {
+      "overview": "判断两点加速度相同时各点速度是否相同",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>刚体作平面运动，若某瞬时其平面图形上有两点的加速度的大小和方向均相同，则该瞬时此刚体各点的速度都相同。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】两点加速度相同，则其相对加速度为零，由$a_{BA}^t+a_{BA}^n=0$可推出角速度$\\omega=0$、角加速度$\\alpha=0$，故该瞬时刚体作瞬时平动，各点速度相同。</p>"
+    },
+    {
+      "overview": "判断两点速度为零时角速度是否为零",
+      "question_type": "判断题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>已知平面图形上某瞬时两点速度为零，则此瞬时平面图形的角速度一定为零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】由$v_B=v_A+\\omega\\times r_{AB}$，若$v_A=v_B=0$且$r_{AB}\\neq 0$，则必有$\\omega=0$。</p>"
+    },
+    {
+      "overview": "判断两点加速度相同时角加速度是否为零",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>刚体作平面运动，若某瞬时其平面图形上有两点的加速度的大小和方向均相同，则该瞬时此刚体上各点的角加速度等于零。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】两点加速度相同导致相对切向加速度为零，即$\\alpha\\times r_{AB}=0$，故角加速度$\\alpha=0$。</p>"
+    },
+    {
+      "overview": "判断角速度是否随基点不同而变化",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "easy",
+      "content": "<p>若在作平面运动的刚体上选择不同的点作为基点时，则刚体绕不同的基点转动的角速度是不同的。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】刚体作平面运动时角速度与基点选择无关，绕任意基点的转动角速度都相同。</p>"
+    },
+    {
+      "overview": "判断ω=0瞬时垂直a0直线上点加速度指向",
+      "question_type": "判断题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>已知刚体作平面运动，某瞬时平面图形上一点$O$的加速度为$a_0$、角加速度为$\\alpha$，而角速度$\\omega=0$，则过$O$点并垂直$a_0$的直线上各点的加速度方向一定指向$O$点。 (    )</p>",
+      "figures": [],
+      "answer": "<p>错</p>",
+      "explanation": "<p>【AI 生成】当$\\omega=0$时$a_P=a_O+\\alpha\\times r_{OP}$。若$P$在过$O$垂直于$a_0$的直线上，则$r_{OP}\\perp a_0$，$\\alpha\\times r_{OP}$沿$a_0$方向，故$a_P$含有沿$a_0$的分量，并不一定指向$O$点。</p>"
+    },
+    {
+      "overview": "判断纯滚动轮心匀速时轮缘加速度指向",
+      "question_type": "判断题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>圆轮沿直线轨道作纯滚动，只要轮心作匀速运动，则轮缘上任意一点的加速度的方向均指向轮心。 (    )</p>",
+      "figures": [],
+      "answer": "<p>对</p>",
+      "explanation": "<p>【AI 生成】轮心匀速时$\\omega=v_O/R$为常量、$\\alpha=0$，轮缘上任一点相对轮心只有向心加速度$\\omega^2 r$，方向指向轮心。</p>"
+    },
+    {
+      "overview": "判断正方形图形运动是否可能",
+      "question_type": "选择题",
+      "knowledge_points": ["刚体平面运动", "速度瞬心"],
+      "difficulty": "medium",
+      "content": "<p>有一正方形平面图形在自身平面内运动，则图(a)的运动是______的，图(b)的运动是______的。<br>(A) 可能；<br>(B) 不可能；<br>(C) 不确定。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch47_idx232_0.png"],
+      "answer": "<p>图(a)选 B（不可能）；图(b)选 A（可能）</p>",
+      "explanation": "<p>【AI 生成】刚体平面运动的速度场必须满足速度投影定理（任意两点速度在连线上的投影相等）。图(a)中四角速度沿对角线方向分布，对角点速度在连线上投影不一致，相当于图形发生收缩或膨胀，不可能实现；图(b)中速度分布与绕某瞬心的转动一致，可能实现。</p>"
+    },
+    {
+      "overview": "求平面图形两点连线中点速度",
+      "question_type": "选择题",
+      "knowledge_points": ["刚体平面运动", "基点法"],
+      "difficulty": "easy",
+      "content": "<p>某瞬时平面图形上任意两点$A$、$B$的速度分别为$\\boldsymbol{v}_A$和$\\boldsymbol{v}_B$，则此时该两点连线中点$C$的速度为______。<br>(A) $\\boldsymbol{v}_C=\\boldsymbol{v}_A+\\boldsymbol{v}_B$；<br>(B) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A+\\boldsymbol{v}_B)$；<br>(C) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A-\\boldsymbol{v}_B)$；<br>(D) $\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_B-\\boldsymbol{v}_A)$。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch47_idx233_0.png"],
+      "answer": "<p>B</p>",
+      "explanation": "<p>【AI 生成】平面图形上速度分布是线性分布（$\\boldsymbol{v}=\\boldsymbol{v}_A+\\boldsymbol{\\omega}\\times\\boldsymbol{r}$），故连线中点速度等于两端点速度的平均值：$\\boldsymbol{v}_C=\\dfrac{1}{2}(\\boldsymbol{v}_A+\\boldsymbol{v}_B)$。</p>"
+    },
+    {
+      "overview": "判断两点加速度投影相等时角速度与角加速度",
+      "question_type": "选择题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>刚体作平面运动时，其平面图形上任意两点的加速度在该两点连线上的投影相等，则该瞬时刚体的角速度______，角加速度______。<br>(A) 必须等于零；<br>(B) 可以等于零，也可以不等于零；<br>(C) 必须不等于零。</p>",
+      "figures": [],
+      "answer": "<p>角速度选 A（必须等于零），角加速度选 B（可零可非零）</p>",
+      "explanation": "<p>【AI 生成】由基点法$a_B=a_A+\\alpha\\times r_{AB}-\\omega^2 r_{AB}$，沿$AB$方向投影：$(a_B-a_A)\\cdot e_{AB}=-\\omega^2|AB|$。若投影相等则$\\omega^2|AB|=0$，故$\\omega=0$；而$\\alpha\\times r_{AB}$垂直于$AB$，不影响投影，故$\\alpha$可任意。</p>"
+    },
+    {
+      "overview": "判断作平面运动的杆及其速度瞬心",
+      "question_type": "选择题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>在图示平面机构中，杆______作平面运动，则该瞬时此杆的速度瞬心在______。<br>(A) $OA$；<br>(B) $AB$；<br>(C) $O$点；<br>(D) $A$点；<br>(E) $B$点；<br>(F) 无穷远点。</p>",
+      "figures": [],
+      "answer": "<p>杆选 B（$AB$），速度瞬心选 F（无穷远点）</p>",
+      "explanation": "<p>【AI 生成】$OA$为绕$O$的定轴转动，$AB$作平面运动。图示瞬时$A$、$B$两点速度平行，即$v_A\\parallel v_B$，故$AB$杆瞬时平动，其速度瞬心在无穷远点。</p>"
+    },
+    {
+      "overview": "平行等长曲柄机构角速度角加速度关系",
+      "question_type": "选择题",
+      "knowledge_points": ["刚体平面运动", "刚体定轴转动"],
+      "difficulty": "medium",
+      "content": "<p>图示机构中，已知$O_1A=O_2B$，当$O_1A\\parallel O_2B$时，$O_1A$杆与$O_2B$杆的角速度、角加速度分别为$\\omega$、$\\alpha$与$\\omega'$、$\\alpha'$，则该瞬时______。<br>(A) $\\omega'=\\omega$，$\\alpha'=\\alpha$；<br>(B) $\\omega'\\neq\\omega$，$\\alpha'=\\alpha$；<br>(C) $\\omega'=\\omega$，$\\alpha'\\neq\\alpha$；<br>(D) $\\omega'\\neq\\omega$，$\\alpha'\\neq\\alpha$。</p>",
+      "figures": [],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】当$O_1A\\parallel O_2B$且$O_1A=O_2B$时，$AB$杆瞬时平动，$v_A=v_B$、$a_A=a_B$。由$v_A=\\omega\\cdot O_1A$、$v_B=\\omega'\\cdot O_2B$及$O_1A=O_2B$得$\\omega'=\\omega$；同理$\\alpha'=\\alpha$。</p>"
+    },
+    {
+      "overview": "等长平行杆瞬时角速度角加速度关系",
+      "question_type": "选择题",
+      "knowledge_points": ["刚体平面运动", "刚体定轴转动"],
+      "difficulty": "medium",
+      "content": "<p>图示机构中，$O_1A=O_2B$。若以$\\omega$、$\\alpha$与$\\omega'$、$\\alpha'$分别表示$O_1A$杆与$O_2B$杆的角速度和角加速度的大小，则当$O_1A\\parallel O_2B$时，有______。<br>(A) $\\omega'=\\omega$，$\\alpha'=\\alpha$；<br>(B) $\\omega'\\neq\\omega$，$\\alpha'=\\alpha$；<br>(C) $\\omega'=\\omega$，$\\alpha'\\neq\\alpha$；<br>(D) $\\omega'\\neq\\omega$，$\\alpha'\\neq\\alpha$。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch47_idx237_0.png"],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】当$O_1A\\parallel O_2B$且长度相等时，连杆$AB$在此瞬时作平动，故$v_A=v_B$、$a_A=a_B$，从而两杆角速度、角加速度的大小均相等，即$\\omega'=\\omega$，$\\alpha'=\\alpha$。</p>"
+    },
+    {
+      "overview": "撤去支撑轮后A点加速度方向",
+      "question_type": "选择题",
+      "knowledge_points": ["刚体平面运动", "基点法"],
+      "difficulty": "hard",
+      "content": "<p>均质长方形板由$A$、$B$两处的滑动轮支撑在光滑水平面上。初始板处于静止状态。若突然撤去$B$端的支撑轮，试问此瞬时______。<br>(A) $A$点有水平向左的加速度；<br>(B) $A$点有水平向右的加速度；<br>(C) $A$点加速度方向垂直向上；<br>(D) $A$点加速度为零。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch48_idx238_0.png"],
+      "answer": "<p>A</p>",
+      "explanation": "<p>【AI 生成】撤去$B$支撑后，板仅受重力与$A$处的法向反力，水平方向无外力，故质心无水平加速度$a_{Gx}=0$；$A$点被限制在水平面上$a_{Ay}=0$。由$a_G=a_A+\\alpha\\times r_{AG}$，解得$a_{Ax}=-R\\alpha<0$（板绕$A$顺时针倾倒），故$A$点有水平向左的加速度。</p>"
+    },
+    {
+      "overview": "求曲杆滑块机构连杆角速度与中点速度",
+      "question_type": "填空题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>已知曲杆滑块机构中的$OA=r$、$AB=L$，当$OA$在铅垂位置时、有角速度$\\omega$，其时连杆$AB$的角速度为______；$AB$中点$C$的速度为______。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch48_idx239_0.png"],
+      "answer": "<p>$\\omega_{AB}=0$；$v_C=r\\omega$（方向水平）</p>",
+      "explanation": "<p>【AI 生成】$OA$铅垂时$v_A=\\omega r$沿水平方向；滑块$B$速度沿水平导槽，故$v_A\\parallel v_B$，$AB$杆瞬时平动，$\\omega_{AB}=0$，中点$C$的速度$v_C=v_A=r\\omega$，方向水平。</p>"
+    },
+    {
+      "overview": "匀速直线行驶纯滚动车轮各点速度加速度",
+      "question_type": "填空题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>当车辆作匀速直线运动时，设车轮在路面上只滚不滑。则轮上$O$、$A$、$B$、$C$、$D$诸点中______点速度最小，______点速度最大，______点加速度最小，______点的加速度大小相等。</p>",
+      "figures": [],
+      "answer": "<p>$C$点速度最小；$A$点速度最大；$O$点加速度最小；$A$、$B$、$C$、$D$（轮缘上各点）加速度大小相等</p>",
+      "explanation": "<p>【AI 生成】纯滚动时接触点$C$为速度瞬心，$v_C=0$最小；轮顶$A$点速度$2v_O$最大；轮心$O$作匀速直线运动，$a_O=0$最小；轮缘上各点相对轮心只有向心加速度，大小均为$R\\omega^2$，故相等。</p>"
+    },
+    {
+      "overview": "判断机构中各构件运动形式并标瞬心",
+      "question_type": "填空题",
+      "knowledge_points": ["刚体平面运动", "速度瞬心", "刚体定轴转动"],
+      "difficulty": "medium",
+      "content": "<p>指出图示机构中各构件作何种运动，轮$A$（只滚不滑）作______；杆$BC$作______；杆$CD$作______；杆$DE$作______。并在图上画出作平面运动的构件在图示瞬时的速度瞬心。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch48_idx241_0.png"],
+      "answer": "<p>轮$A$作平面运动（纯滚动）；杆$BC$作平面运动；杆$CD$作平面运动；杆$DE$作定轴转动</p>",
+      "explanation": "<p>【AI 生成】轮$A$在固定面上只滚不滑，作纯滚动（平面运动）；$BC$、$CD$两端均以铰链相连，作平面运动；$DE$杆绕固定铰$E$转动，作定轴转动。作平面运动构件的瞬心可由相应杆上两点速度垂线的交点作出。</p>"
+    },
+    {
+      "overview": "求纯滚动圆轮轮心的速度与加速度",
+      "question_type": "填空题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>已知半径为$r$的圆轮在固定面上只滚不滑，若转动角速度$\\omega$为常量，试求图(a)、(b)二种情况下轮心$O$的速度与加速度，并在图中画出其方向。<br>(a) ______；<br>(b) ______。</p>",
+      "figures": [],
+      "answer": "<p>(a) $v_O=r\\omega$，$a_O=0$；<br>(b) $v_O=r\\omega$，$a_O=0$（方向如图示）</p>",
+      "explanation": "<p>【AI 生成】只滚不滑时接触点为速度瞬心，轮心速度$v_O=r\\omega$，方向沿固定面切向；因$\\omega$为常量，$\\alpha=0$，轮心加速度$a_O=r\\alpha=0$。两种情况均适用。</p>"
+    },
+    {
+      "overview": "求纯滚动圆盘瞬心的加速度",
+      "question_type": "填空题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>半径为$r$的圆盘，以匀角速度$\\omega$沿水平直线轨道作纯滚动，则其速度瞬心$C$点的加速度的大小等于______；方向______。</p>",
+      "figures": [],
+      "answer": "<p>大小等于$r\\omega^2$；方向竖直向上（指向轮心$O$）</p>",
+      "explanation": "<p>【AI 生成】轮心匀速直线运动时$a_O=0$，速度瞬心$C$相对轮心只有向心加速度，故$a_C=\\omega^2 r$，方向由接触点$C$指向轮心$O$（竖直向上）。</p>"
+    },
+    {
+      "overview": "求杆端点A速度的最小值",
+      "question_type": "填空题",
+      "knowledge_points": ["刚体平面运动", "基点法"],
+      "difficulty": "medium",
+      "content": "<p>杆$AB$作平面运动，已知某瞬时$B$点的速度大小为$v_B=6$m/s，方向如图所示，则在该瞬时$A$点的速度最小值为$v_{min}=$______。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch48_idx244_0.png"],
+      "answer": "<p>$v_{min}=v_B\\cos60^\\circ=3$ m/s</p>",
+      "explanation": "<p>【AI 生成】由速度投影定理，$A$点速度在$AB$方向的投影等于$v_B$在$AB$方向的投影：$v_{A(AB)}=v_B\\cos60^\\circ=3$ m/s；$A$点垂直于$AB$的分量可任意小，故$A$点速度最小值为$3$ m/s。</p>"
+    },
+    {
+      "overview": "求四连杆机构O1B杆角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>在图示四连杆机构中，曲柄$OA$以匀角速度$\\omega$转动，$OA=O_1B=r$。图示瞬时$AB\\perp O_1B$，$OA$与$AB$成$45^\\circ$。试求该瞬时$O_1B$杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch49_idx245_0.png"],
+      "answer": "<p>$\\omega_{O_1B}=\\dfrac{\\omega}{\\sqrt2}$</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega r$，方向垂直于$OA$。<br>因$AB\\perp O_1B$，$B$点绕$O_1$转动，$v_B\\perp O_1B$，故$v_B$沿$AB$方向。<br>由速度投影定理（沿$AB$投影）：$$v_B=v_A\\cos45^\\circ=\\omega r\\cdot\\dfrac{\\sqrt2}{2}$$<br>故 $O_1B$ 杆的角速度：$$\\omega_{O_1B}=\\dfrac{v_B}{r}=\\dfrac{\\omega}{\\sqrt2}$$</p>"
+    },
+    {
+      "overview": "求直角三角形板上C点速度与BD杆角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>图示平面机构中，$ABC$为一直角三角形板。已知：$OA$杆以匀角速度$\\omega=6$rad/s转动，$OA=10$cm，$AC=15$cm，$BC=45$cm，$BD=40$cm。在图示位置时，$OA$水平，$BD$铅垂，$AC\\perp OA$。试求该瞬时，$C$点的速度大小和$BD$杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch49_idx246_0.png"],
+      "answer": "<p>$v_C\\approx 0.63$ m/s；$\\omega_{BD}=0.5$ rad/s</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega\\cdot OA=6\\times0.1=0.6$ m/s，方向铅垂向上。<br>因$BD$铅垂，$v_B$沿水平方向。取三角形板为动系，由基点法：$$\\boldsymbol{v}_B=\\boldsymbol{v}_A+\\boldsymbol{\\omega}_{ABC}\\times\\boldsymbol{r}_{AB}$$<br>$A=(0,0)$，$C=(0,0.15)$，$B=(0.45,0.15)$，$\\boldsymbol{r}_{AB}=(0.45,0.15)$ m。<br>令$v_B$沿水平方向，解得$\\omega_{ABC}=-\\dfrac43$ rad/s，$v_B=0.2$ m/s。<br>$$v_C=v_A+\\omega_{ABC}\\times r_{AC}=0.6\\boldsymbol{j}+0.2\\boldsymbol{i}\\;\\Rightarrow\\;|v_C|=\\sqrt{0.2^2+0.6^2}\\approx0.63\\ \\text{m/s}$$<br>$$\\omega_{BD}=\\dfrac{v_B}{BD}=\\dfrac{0.2}{0.4}=0.5\\ \\text{rad/s}$$</p>"
+    },
+    {
+      "overview": "求纯滚动机构轮心E的速度",
+      "question_type": "计算题",
+      "knowledge_points": ["速度瞬心", "基点法"],
+      "difficulty": "hard",
+      "content": "<p>平面机构如图所示。轮沿固定水平轨道作纯滚动，滑块$B$沿固定铅垂槽滑动。已知：轮的半径为$R$，$BC=CD=3R$，$OA=AC=R$，杆$OA$以角速度$\\omega$转动，$O$与$B$在同一铅垂线上。在图示位置时，$OA$及$ED$都处于水平，$BC\\perp CD$。试求该瞬时轮心$E$的速度。</p>",
+      "figures": [],
+      "answer": "<p>$v_E=2R\\omega$（方向水平向右）</p>",
+      "explanation": "<p>【AI 生成】依次用基点法分析：$v_A=\\omega R$，方向铅垂（$OA$水平）。<br>对杆$ACB$，$B$沿铅垂槽运动、$A$速度已知，先由$AC$、$CB$两杆的速度投影关系解出$v_C$、$v_B$；再对杆$CD$用基点法由$v_C$求$v_D$（利用$BC\\perp CD$）；最后对杆$DE$（水平）用基点法，并由轮$E$作纯滚动$v_E$沿水平方向，联立解得$$v_E=2R\\omega$$方向水平向右。</p>"
+    },
+    {
+      "overview": "求行星轮系齿轮Ⅱ的角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["速度瞬心", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>图示行星轮系，齿轮Ⅱ的半径为$R$，长为$1.5R$的$OA$杆以角速度$\\omega$绕$O$轴逆时针转动，内齿轮Ⅰ以$\\omega_1=0.5\\omega$绕$O$轴顺时针转动。试求齿轮Ⅱ的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch49_idx248_0.png"],
+      "answer": "<p>$\\omega_{II}=2.75\\omega$（转向为顺时针）</p>",
+      "explanation": "<p>【AI 生成】内齿轮Ⅰ半径$R_1=OA+R=1.5R+R=2.5R$。<br>$A$点速度：$v_A=1.5R\\omega$；啮合点$P$（内齿轮Ⅰ上的点）速度：$v_P=\\omega_1 R_1=0.5\\omega\\times2.5R=1.25R\\omega$。<br>对齿轮Ⅱ用基点法（$A$为基点）：$$v_P=v_A+\\omega_{II}R$$<br>方向取定后：$1.25R\\omega=1.5R\\omega+\\omega_{II}R$，解得$$\\omega_{II}=-2.75\\omega$$即齿轮Ⅱ角速度大小为$2.75\\omega$，转向为顺时针。</p>"
+    },
+    {
+      "overview": "求行星轮机构B、C点速度与BC杆角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "hard",
+      "content": "<p>平面机构如图所示。已知：$OA=22$cm，行星轮半径$r=10$cm，$O$轮固定不动，$BC=30$cm，斜槽倾角$\\varphi=45^\\circ$。在图示位置时，$BC$铅垂，$O$、$A$、$B$三点在同一水平线上，$OA$杆的角速度$\\omega_0=3$rad/s。试求：该瞬时(1) $B$点和$C$点的速度；(2) $BC$杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch50_idx249_0.png"],
+      "answer": "<p>$v_B=132$ cm/s（向上）；$v_C=132\\sqrt2$ cm/s（沿斜槽向上）；$\\omega_{BC}=4.4$ rad/s</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega_0\\cdot OA=3\\times22=66$ cm/s，方向铅垂向上。<br>固定轮半径$=OA-r=12$ cm，行星轮在$A$处纯滚动，接触点为瞬心，故$\\omega_{轮}=\\dfrac{v_A}{r}=\\dfrac{66}{10}=6.6$ rad/s。<br>$B$为行星轮右端点：$$v_B=v_A+\\omega_{轮}\\times r_{AB}=66+66=132\\ \\text{cm/s（向上）}$$<br>$BC$铅垂、$C$沿$45^\\circ$斜槽运动，由速度投影定理：$$v_C\\sin45^\\circ=v_B\\;\\Rightarrow\\;v_C=132\\sqrt2\\ \\text{cm/s}$$<br>再由$\\boldsymbol{v}_C=\\boldsymbol{v}_B+\\boldsymbol{\\omega}_{BC}\\times\\boldsymbol{r}_{BC}$得$$\\omega_{BC}=\\dfrac{132}{30}=4.4\\ \\text{rad/s}$$</p>"
+    },
+    {
+      "overview": "求纯滚动机构中AB杆和圆轮角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "medium",
+      "content": "<p>平面机构如图所示。已知：半径为$r$的圆轮作纯滚动，$OA=r=20$cm，$AB=2r$。在图示位置时，$\\varphi=30^\\circ$，$OA$铅垂，$BC$水平，杆$OA$的角速度$\\omega=3$rad/s。试求该瞬时杆$AB$和圆轮的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch50_idx250_0.png"],
+      "answer": "<p>$\\omega_{AB}=0$（$AB$瞬时平动）；$\\omega_{轮}=\\dfrac{v_B}{r}=3$ rad/s</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega r=3\\times0.2=0.6$ m/s，方向水平（$OA$铅垂）。<br>圆轮在$B$处作纯滚动，$B$为轮心，故$v_B$沿水平方向。<br>对$AB$杆：$v_B=v_A+\\omega_{AB}\\times r_{AB}$，因$v_A$、$v_B$均水平，相对速度$\\omega_{AB}\\times r_{AB}$必沿铅垂，故$$\\omega_{AB}=0\\;\\Rightarrow\\;v_B=v_A=0.6\\ \\text{m/s}$$<br>圆轮纯滚动：$$\\omega_{轮}=\\dfrac{v_B}{r}=\\dfrac{60}{20}=3\\ \\text{rad/s}$$</p>"
+    },
+    {
+      "overview": "求B点、滑块C速度及BC杆角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "medium",
+      "content": "<p>平面机构如图，已知：曲柄$OA=r$，角速度为$\\omega$，$BF=BC=L$，滑块$C$可沿铅直槽滑动。在图示位置时，连杆$AB$位于水平，$\\theta=45^\\circ$，$\\varphi=45^\\circ$。试求该瞬时：(1) $B$点的速度；(2) 滑块$C$的速度；(3) $BC$杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch50_idx251_0.png"],
+      "answer": "<p>$v_B=\\sqrt2\\,\\omega r$；$v_C=2\\omega r$（沿铅垂槽向下）；$\\omega_{BC}=\\dfrac{\\sqrt2\\,\\omega r}{L}$</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega r$，方向垂直于$OA$；$AB$水平，故$A$、$B$等高，$v_{Bx}=v_{Ax}=\\omega r$。<br>由$BF=L$（$F$为固定铰）且$\\theta=45^\\circ$，$v_B\\perp BF$，结合$v_{Bx}=\\omega r$得：$$v_B=\\sqrt2\\,\\omega r\\qquad(\\text{方向与水平成}45^\\circ)$$<br>$BC=L$与铅垂成$\\varphi=45^\\circ$，滑块$C$沿铅垂槽运动，由速度投影定理：$$v_C\\cos45^\\circ=v_B\\;\\Rightarrow\\;v_C=2\\omega r$$<br>再由$\\boldsymbol{v}_C=\\boldsymbol{v}_B+\\boldsymbol{\\omega}_{BC}\\times\\boldsymbol{r}_{BC}$：$$\\omega_{BC}=\\dfrac{v_B}{L}=\\dfrac{\\sqrt2\\,\\omega r}{L}$$</p>"
+    },
+    {
+      "overview": "求两纯滚动轮连接机构中轮Ⅱ角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "hard",
+      "content": "<p>两轮沿固定水平直线轨道作纯滚动，两轮的半径都是$R$，$BC$杆长$L$，轮Ⅰ的轮心$A$以匀速$v$前进。试求在图示位置时（$\\varphi$、$\\theta$都是已知）轮Ⅱ的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch51_idx252_0.png"],
+      "answer": "<p>$\\omega_{II}=\\dfrac{v}{R}\\,\\dfrac{1+\\cos\\varphi}{1+\\cos\\theta}$（方向由纯滚动条件确定）</p>",
+      "explanation": "<p>【AI 生成】轮Ⅰ纯滚动：$\\omega_I=\\dfrac{v}{R}$。取$B$为轮Ⅰ上与水平半径成$\\varphi$的点：$$\\boldsymbol{v}_B=v(1+\\cos\\varphi)\\boldsymbol{i}-v\\sin\\varphi\\,\\boldsymbol{j}$$<br>轮Ⅱ纯滚动，设角速度为$\\omega_{II}$，轮心速度$v_{II}=\\omega_{II}R$。取$C$为轮Ⅱ上与水平半径成$\\theta$的点：$$\\boldsymbol{v}_C=\\omega_{II}R(1+\\cos\\theta)\\boldsymbol{i}-\\omega_{II}R\\sin\\theta\\,\\boldsymbol{j}$$<br>杆$BC$为刚体，由速度投影定理$\\boldsymbol{v}_C\\cdot\\boldsymbol{e}_{BC}=\\boldsymbol{v}_B\\cdot\\boldsymbol{e}_{BC}$，整理得：$$\\omega_{II}=\\dfrac{v}{R}\\cdot\\dfrac{1+\\cos\\varphi}{1+\\cos\\theta}$$</p>"
+    },
+    {
+      "overview": "求各杆角速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>平面机构如图所示。已知：$OA=20$cm，匀角速度$\\omega=3$rad/s，$AB=20\\sqrt3$cm，$BC=BD=30$cm，$DE=40$cm。在图示位置时，$\\varphi=\\theta=45^\\circ$，$DE\\parallel AB$，且分别垂直于$BD$和$OA$；$OB$处于铅垂线。试求该瞬时$AB$、$BC$、$BD$和$DE$各杆的角速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch51_idx253_0.png"],
+      "answer": "<p>$\\omega_{AB}=-\\dfrac{5\\sqrt3}{3}$ rad/s；$\\omega_{BC}=5$ rad/s；$\\omega_{BD}=\\dfrac{5\\sqrt3}{3}$ rad/s；$\\omega_{DE}=0$</p>",
+      "explanation": "<p>【AI 生成】因$OA\\perp AB$、$OB$铅垂，三角形$OAB$为直角三角形：$OB=\\sqrt{OA^2+AB^2}=40$cm。<br>$v_A=\\omega\\cdot OA=3\\times0.2=0.6$ m/s，方向垂直于$OA$。<br>以$A$为基点，$v_B=v_A+\\omega_{AB}\\times r_{AB}$，因$v_B\\perp OB$（铅垂）解得：$$\\omega_{AB}=-\\dfrac{5\\sqrt3}{3}\\ \\text{rad/s}$$<br>$BD\\parallel OA$、$DE\\parallel AB$，用基点法依次得：$$\\omega_{BD}=\\dfrac{5\\sqrt3}{3}\\ \\text{rad/s},\\qquad \\omega_{DE}=0\\ \\text{rad/s}$$<br>再由$BC=BD=30$cm且$\\varphi=45^\\circ$得：$$\\omega_{BC}=5\\ \\text{rad/s}$$</p>"
+    },
+    {
+      "overview": "求正方形板角速度与滑块E速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "hard",
+      "content": "<p>平面机构如图所示。已知：正方形板边长$L=10$cm，$O_1A=BE=2L$，$O_2C=L$，$\\theta=30^\\circ$。在图示位置时，$O_1A$杆的角速度$\\omega_1=3$rad/s，$\\varphi=60^\\circ$，$O_2$、$C$、$B$三点处于同一铅垂线，$BE$杆沿斜槽。试求：该瞬时(1) 正方形板的角速度；(2) 滑块$E$的速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch51_idx254_0.png"],
+      "answer": "<p>$\\omega_{板}=3\\sqrt3\\approx5.2$ rad/s；$v_E=15$ cm/s（沿斜槽）</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega_1\\cdot O_1A=3\\times20=60$ cm/s，方向垂直于$O_1A$（与水平成$120^\\circ$）。<br>$C$点在$O_2C$杆上且$O_2C$铅垂，故$v_C$沿水平方向。<br>以$A$为基点求正方形板：$\\boldsymbol{v}_C=\\boldsymbol{v}_A+\\boldsymbol{\\omega}_{板}\\times\\boldsymbol{r}_{AC}$，其中$\\boldsymbol{r}_{AC}=(-10,-10)$cm，由$v_C$水平解得：$$\\omega_{板}=\\dfrac{60\\sin60^\\circ}{10}=3\\sqrt3\\ \\text{rad/s}$$<br>$B$点速度：$v_B=(-30,0)$cm/s。$BE=20$cm沿$\\varphi=60^\\circ$斜槽，由速度投影定理：$$v_E=v_B\\cos60^\\circ=15\\ \\text{cm/s}$$方向沿斜槽。</p>"
+    },
+    {
+      "overview": "求B点速度大小",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>平面机构如图所示。已知：$OA=r=10$cm，$AB=3r$，$BC=2r$。在图示位置时，$\\varphi=\\theta=45^\\circ$，$OA\\perp AB$，$\\omega=2$rad/s，$v_C=10$cm/s。试求该瞬时$B$点的速度的大小。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch52_idx255_0.png"],
+      "answer": "<p>$v_B=15\\sqrt2\\approx21.2$ cm/s</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega r=2\\times10=20$ cm/s，因$OA\\perp AB$，$v_A$沿$AB$方向。<br>$BC$与水平成$\\theta=45^\\circ$，滑块$C$的速度$v_C=10$ cm/s沿水平方向。由速度投影定理（沿$BC$投影）：$$v_B\\cdot\\cos\\beta=v_C\\cos45^\\circ=10\\times\\dfrac{\\sqrt2}{2}=5\\sqrt2$$<br>因$v_A\\perp BC$（$OA\\parallel BC$），$v_A$对$BC$方向无投影，故$B$点相对$A$的速度垂直于$AB$、沿$BC$方向，即$v_{BA}=5\\sqrt2$ cm/s。于是：$$v_B=\\sqrt{v_A^2+v_{BA}^2}=\\sqrt{20^2+(5\\sqrt2)^2}=15\\sqrt2\\ \\text{cm/s}$$</p>"
+    },
+    {
+      "overview": "求AB杆角速度与角加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>已知：两直杆$OA$和$AB$在$A$处铰接，$OA=30$cm，$AB=40$cm，$AB$杆的$B$端沿水平面运动，匀速度$v_B=10$cm/s。在图示位置时，$OA$杆铅垂，$\\varphi=30^\\circ$。试求该瞬时$AB$杆的角速度和角加速度。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega_{AB}=0$；$\\alpha_{AB}=\\dfrac{10}{3\\times40\\cos30^\\circ}\\approx0.096$ rad/s$^2$</p>",
+      "explanation": "<p>【AI 生成】$OA$铅垂，$A$点速度垂直于$OA$即沿水平方向；$B$沿水平面运动，$v_B$沿水平方向，故$v_A\\parallel v_B$，$AB$瞬时平动：$$\\omega_{AB}=0\\;\\Rightarrow\\;v_A=v_B=10\\ \\text{cm/s}$$<br>$A$点的向心加速度（指向$O$）：$a_A^n=\\omega_{OA}^2\\cdot OA=\\left(\\dfrac{10}{30}\\right)^2\\times30=\\dfrac{10}{3}$ cm/s$^2$。<br>由$a_B=a_A+\\alpha_{AB}\\times r_{AB}$（$\\omega_{AB}=0$），沿垂直于$AB$方向投影：$$\\alpha_{AB}=\\dfrac{a_A^n}{AB\\cos30^\\circ}=\\dfrac{10/3}{40\\cos30^\\circ}\\approx0.096\\ \\text{rad/s}^2$$</p>"
+    },
+    {
+      "overview": "求纯滚动轮B的角速度与角加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，$OA$以匀角速度$\\omega=10$rad/s绕定轴$O$转动。$OA=r=10$cm，$L=4r$，$R=2r$；在图示瞬时，$\\varphi=30^\\circ$，$AO\\parallel BO_1$。试求该瞬时纯滚动轮$B$的角速度$\\omega_B$及角加速度$\\alpha_B$。</p>",
+      "figures": [],
+      "answer": "<p>$\\omega_B=\\dfrac{v_B}{R}$，$v_B=v_A\\cos\\varphi=\\omega r\\cos30^\\circ=50\\sqrt3$ cm/s，故$\\omega_B=\\dfrac{5\\sqrt3}{2}\\approx4.33$ rad/s；$\\alpha_B=\\dfrac{a_B^t}{R}=0$</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega r=10\\times10=100$ cm/s。<br>因$AO\\parallel BO_1$，$B$点绕$O_1$运动，$v_B\\perp BO_1$；又$\\varphi=30^\\circ$为$AB$与$AO$的夹角，由速度投影定理：$$v_B=v_A\\cos\\varphi=100\\cos30^\\circ=50\\sqrt3\\ \\text{cm/s}$$<br>轮$B$在固定面上纯滚动，$v_B=\\omega_B R$，故$$\\omega_B=\\dfrac{v_B}{R}=\\dfrac{50\\sqrt3}{20}=\\dfrac{5\\sqrt3}{2}\\approx4.33\\ \\text{rad/s}$$<br>$OA$匀角速转动，$\\alpha=0$，故$B$点切向加速度为零，轮$B$的角加速度$$\\alpha_B=0$$</p>"
+    },
+    {
+      "overview": "求杆上B点速度与加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "刚体平面运动"],
+      "difficulty": "hard",
+      "content": "<p>在图示机构中，杆$AB$长为$L$，圆轮半径为$R$，在水平面作纯滚动。在$\\varphi=45^\\circ$的图示位置时，轮心速度为$v$、加速度为$a$。试求此瞬时杆上$B$点的速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch52_idx258_0.png"],
+      "answer": "<p>$v_B=v\\Big(1+\\dfrac{L}{\\sqrt2 R}\\Big)$（水平），$v_B^{(y)}=-\\dfrac{vL}{\\sqrt2 R}$；$a_B=\\Big(a-\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{i}+\\Big(\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{j}$</p>",
+      "explanation": "<p>【AI 生成】轮在水平面纯滚动，轮心$O$速度为$v$、加速度为$a$，则$$\\omega_{轮}=\\dfrac{v}{R},\\qquad \\alpha_{轮}=\\dfrac{a}{R}$$<br>杆$AB$固结于轮（$A$端在轮心$O$），$B$点位于与水平成$\\varphi=45^\\circ$处。以$A$（轮心）为基点：$$\\boldsymbol{v}_B=\\boldsymbol{v}_A+\\boldsymbol{\\omega}\\times\\boldsymbol{r}_{AB}=v\\boldsymbol{i}+\\dfrac{v}{R}\\boldsymbol{k}\\times L(\\cos45^\\circ\\boldsymbol{i}+\\sin45^\\circ\\boldsymbol{j})$$<br>$$\\Rightarrow\\quad \\boldsymbol{v}_B=\\Big(v+\\dfrac{vL}{\\sqrt2 R}\\Big)\\boldsymbol{i}-\\dfrac{vL}{\\sqrt2 R}\\boldsymbol{j}$$<br>加速度（含向心项）：$$\\boldsymbol{a}_B=a\\boldsymbol{i}+\\dfrac{a}{R}\\boldsymbol{k}\\times\\boldsymbol{r}_{AB}-\\Big(\\dfrac{v}{R}\\Big)^2\\boldsymbol{r}_{AB}$$<br>$$=\\Big(a-\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{i}+\\Big(\\dfrac{aL}{\\sqrt2 R}-\\dfrac{v^2L}{\\sqrt2 R^2}\\Big)\\boldsymbol{j}$$</p>"
+    },
+    {
+      "overview": "求滑块C的速度和加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["基点法", "速度瞬心"],
+      "difficulty": "hard",
+      "content": "<p>平面机构如图所示，滑块$C$沿水平滑道运动。已知：行星轮$A$作纯滚动，$OA=36$cm，$r=16$cm，$AB=12$cm，$BC=30$cm。在图示位置时，$OA$杆铅垂，角速度$\\omega=2$rad/s、角加速度为零。$AB$处于水平。试求该瞬时滑块$C$的速度和加速度。</p><img src=\"[[FIG1]]\">",
+      "figures": ["题库/figures/ch53_idx259_0.png"],
+      "answer": "<p>$v_C=18$ cm/s（水平）；$a_C\\approx112$ cm/s$^2$（水平向左）</p>",
+      "explanation": "<p>【AI 生成】$v_A=\\omega\\cdot OA=2\\times36=72$ cm/s，方向水平；因$\\alpha=0$，$a_A=\\omega^2\\cdot OA=4\\times36=144$ cm/s$^2$，方向铅垂向下指向$O$。<br>行星轮$A$纯滚动，$\\omega_{轮}=\\dfrac{v_A}{r}=\\dfrac{72}{16}=4.5$ rad/s，$\\alpha_{轮}=0$。<br>$AB$水平，$\\boldsymbol{r}_{AB}=(12,0)$cm：$$\\boldsymbol{v}_B=72\\boldsymbol{i}-4.5\\times12\\,\\boldsymbol{j}=72\\boldsymbol{i}-54\\boldsymbol{j}\\quad(\\Rightarrow|v_B|=90\\ \\text{cm/s})$$<br>$BC=30$cm与水平成$45^\\circ$（图示），滑块$C$沿水平滑道，由投影定理：$$v_C\\cos45^\\circ=v_B\\cdot\\boldsymbol{e}_{BC}=72\\cdot\\tfrac{\\sqrt2}{2}-54\\cdot\\tfrac{\\sqrt2}{2}\\;\\Rightarrow\\;v_C=18\\ \\text{cm/s}$$<br>加速度：$a_B=a_A-\\omega_{轮}^2\\boldsymbol{r}_{AB}=(-243,-144)$cm/s$^2$，再由$a_C=a_B+\\alpha_{BC}\\times r_{BC}-\\omega_{BC}^2 r_{BC}$及$a_C$沿水平，解得$$a_C\\approx-112\\ \\text{cm/s}^2\\quad(\\text{水平向左})$$</p>"
+    },
+    {
+      "overview": "求齿条速度加速度及轮O角速度角加速度",
+      "question_type": "计算题",
+      "knowledge_points": ["刚体定轴转动", "刚体平面运动"],
+      "difficulty": "medium",
+      "content": "<p>在图示机构中，已知半径$r=6$cm的轮$O_1$通过齿条$AB$带动半径$R=10$cm的轮$O$作纯滚动。某瞬时轮$O_1$的角速度和角加速度大小分别为$\\omega=2$rad/s，$\\alpha=1$rad/s$^2$。试求此瞬时：(1) 齿条$AB$的速度$v$和加速度$a$；(2) 轮$O$的角速度$\\omega$和角加速度$\\alpha$。</p>",
+      "figures": [],
+      "answer": "<p>(1) $v=12$ cm/s，$a=6$ cm/s$^2$；<br>(2) $\\omega_O=0.6$ rad/s，$\\alpha_O=0.3$ rad/s$^2$</p>",
+      "explanation": "<p>【AI 生成】齿条与轮$O_1$啮合处无相对滑动，齿条速度等于轮$O_1$节圆上的线速度：$$v=\\omega r=2\\times6=12\\ \\text{cm/s},\\qquad a=\\alpha r=1\\times6=6\\ \\text{cm/s}^2$$<br>齿条又带动轮$O$（在水平面上纯滚动），轮$O$顶点的速度即齿条速度$v$。对纯滚动轮：顶点速度$v=2\\omega_O R$，故$$\\omega_O=\\dfrac{v}{2R}=\\dfrac{12}{2\\times10}=0.6\\ \\text{rad/s}$$<br>同理顶点加速度$a=2\\alpha_O R$：$$\\alpha_O=\\dfrac{a}{2R}=\\dfrac{6}{20}=0.3\\ \\text{rad/s}^2$$</p>"
+    }
+  ]
+}

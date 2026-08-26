@@ -1,0 +1,2701 @@
+{
+  "total": 20,
+  "questions": [
+    {
+      "page": 1,
+      "text": "1简单.画出下列各图中物体 A，ABC 或构件 AB，AC 的受力图。未画重力的各物体的\n自重不计，所有接触处均为光滑接触。 \n                                      \n \n \n \n                                          \n \n \n \n \n \n \n 2中等 .  画出下列每个标注字符的物体的受力图。题图中未画重力的各物体的自重不计，\n所有接触处均为光滑接触。",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 219,
+          "h": 169,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q1_0.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 161,
+          "h": 191,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q1_1.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "jpeg",
+          "w": 689,
+          "h": 298,
+          "type": "fig",
+          "text": "8 B",
+          "file": "题库/qbank2_figs/q1_2.jpeg",
+          "fulltext": "8 B"
+        },
+        {
+          "ext": "png",
+          "w": 540,
+          "h": 242,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q1_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "jpeg",
+          "w": 110,
+          "h": 106,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q1_4.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 120,
+          "h": 133,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q1_5.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 1,
+        "name": "静力学公理和物体的受力分析"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 219,
+            "h": 169,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q1_0.png"
+          },
+          {
+            "ext": "png",
+            "w": 161,
+            "h": 191,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q1_1.png"
+          },
+          {
+            "ext": "jpeg",
+            "w": 689,
+            "h": 298,
+            "type": "fig",
+            "text": "8 B",
+            "file": "题库/qbank2_figs/q1_2.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 540,
+            "h": 242,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q1_3.png"
+          },
+          {
+            "ext": "jpeg",
+            "w": 110,
+            "h": 106,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q1_4.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 120,
+            "h": 133,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q1_5.png"
+          }
+        ],
+        "answer": [],
+        "explain": []
+      }
+    },
+    {
+      "page": 2,
+      "text": "1中等.  铆接薄板在孔心 A ，B 和 C 处受 3 个力作用，如图 2-1a 所示。F1   = 100 N ，\n沿铅直方向；F3  = 50 N ，沿水平方向，并通过点 A ；F2  = 50 N ，力的作用线也通过点 \nA，尺寸如图。求此力系的合力。 \n \n                      \n \n \n \n                \n      \n \n \n \ny \n \nF1                  F2 \n \nA                    \nF3              x",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 195,
+          "h": 164,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q2_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 714,
+          "h": 415,
+          "type": "explain",
+          "text": "解 (1) 几何法 作力多边形@ge@;其封闭边 ad 即确定了合力瓯的大小和方向。 由图2-1。得 Rk = V(R; + X4/5)? +(}+丘*3/5)",
+          "file": "题库/qbank2_figs/q2_1.png",
+          "fulltext": "解 (1) 几何法 作力多边形@ge@;其封闭边 ad 即确定了合力瓯的大小和方向。 由图2-1。得 Rk = V(R; + X4/5)? +(}+丘*3/5)? V(IOO N+ 50 Nx 4/5)? + (50N+ 50 Nx3/5)? =161 N C(FR, R) = arccos(- 互tx455) FR 100 N+ 50 二 F[CCOS( 29.74\" =29\"44' 161N 解析法 建立如图 Z-lc 所示的直角坐标系 L。 C医 =F+EX3/5 ==SON+ 50NX 3/5 = 80N 2及 =F+EX4/5 =100Nt SONx 4/5 =140N FR = (80i+ 140j) N Ek = |(80N)? + (140N)? I6IN Nx4/S) =~"
+        },
+        {
+          "ext": "png",
+          "w": 412,
+          "h": 53,
+          "type": "answer",
+          "text": "Fk = V(8ON)? + (140N)? 161N",
+          "file": "题库/qbank2_figs/q2_2.png",
+          "fulltext": "Fk = V(8ON)? + (140N)? 161N"
+        },
+        {
+          "ext": "png",
+          "w": 182,
+          "h": 155,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q2_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 279,
+          "h": 226,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q2_4.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 2,
+        "name": "平面汇交力系与平面力偶系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 195,
+            "h": 164,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q2_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 182,
+            "h": 155,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q2_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 279,
+            "h": 226,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q2_4.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 412,
+            "h": 53,
+            "type": "answer",
+            "text": "Fk = V(8ON)? + (140N)? 161N",
+            "file": "题库/qbank2_figs/q2_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 714,
+            "h": 415,
+            "type": "explain",
+            "text": "解 (1) 几何法 作力多边形@ge@;其封闭边 ad 即确定了合力瓯的大小和方向。 由图2-1。得 Rk = V(R; + X4/5)? +(}+丘*3/5)",
+            "file": "题库/qbank2_figs/q2_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 3,
+      "text": "2简单.如图 所示，刚架的点 B作用 1 水平力 F，刚架重量不计。求支座 A ，D的约束力。 \n     \n \n \n \n                                       \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \ny \nC \nx \n \n \nD \nFD \nF \n \n \n \nFA \nB \n \n \n \n \nA",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 194,
+          "h": 128,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q3_0.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 761,
+          "h": 253,
+          "type": "explain",
+          "text": "解 研究对象: 刚架。由三力平衡汇交定理。 支座4 的约束力F』必通过点 C 方向如 图所示。取坐标系 Cy; 由平衡理论得 2 SE =0, F-FX 二 0",
+          "file": "题库/qbank2_figs/q3_1.png",
+          "fulltext": "解 研究对象: 刚架。由三力平衡汇交定理。 支座4 的约束力F』必通过点 C 方向如 图所示。取坐标系 Cy; 由平衡理论得 2 SE =0, F-FX 二 0  SE =0, Fo-F X- $ 二0 式(1)`(2)联立 解得 下= Fo = 0.SF YF=lI2F "
+        },
+        {
+          "ext": "png",
+          "w": 331,
+          "h": 66,
+          "type": "answer",
+          "text": "F= Fo = 0.SE F=1.12F ,",
+          "file": "题库/qbank2_figs/q3_2.png",
+          "fulltext": "F= Fo = 0.SE F=1.12F ,"
+        },
+        {
+          "ext": "png",
+          "w": 186,
+          "h": 120,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q3_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 86,
+          "h": 243,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q3_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 43,
+          "h": 175,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q3_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 31,
+          "h": 192,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q3_6.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 2,
+        "name": "平面汇交力系与平面力偶系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 194,
+            "h": 128,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q3_0.png"
+          },
+          {
+            "ext": "png",
+            "w": 186,
+            "h": 120,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q3_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 86,
+            "h": 243,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q3_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 43,
+            "h": 175,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q3_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 31,
+            "h": 192,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q3_6.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 331,
+            "h": 66,
+            "type": "answer",
+            "text": "F= Fo = 0.SE F=1.12F ,",
+            "file": "题库/qbank2_figs/q3_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 761,
+            "h": 253,
+            "type": "explain",
+            "text": "解 研究对象: 刚架。由三力平衡汇交定理。 支座4 的约束力F』必通过点 C 方向如 图所示。取坐标系 Cy; 由平衡理论得 2 SE =0, F-FX 二 0",
+            "file": "题库/qbank2_figs/q3_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 4,
+      "text": "3中等.在图 2-16a 所示结构中，各构件的自重略去不计，在构件 BC 上作用 1 力偶矩为 \nM的力偶，各尺寸如图。求支座 A的约束力。 \n                           \n \n \n \n \n \n       \n \n \n \n \n \n \n \n \n \n \n \n \ny \n \nC    FC \n45° \nFD \nA \nFA \nl            \nx",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 569,
+          "h": 293,
+          "type": "explain",
+          "text": "解 (1)  研究对象 BC。 受力如图所示. 为构成约束力偶。有 Fs = Fc SM = 0 FB .1+M = 0  | Fc = F = N 研究对象:",
+          "file": "题库/qbank2_figs/q4_0.png",
+          "fulltext": "解 (1)  研究对象 BC。 受力如图所示. 为构成约束力偶。有 Fs = Fc SM = 0 FB .1+M = 0  | Fc = F = N 研究对象: ADC。 受力如图所示 C- =0 - Fc + F{ cos 450 =0 V2M F=VZFC (方向如图) ' R = N"
+        },
+        {
+          "ext": "png",
+          "w": 227,
+          "h": 71,
+          "type": "answer",
+          "text": "V2M F= VFC",
+          "file": "题库/qbank2_figs/q4_1.png",
+          "fulltext": "V2M F= VFC"
+        },
+        {
+          "ext": "png",
+          "w": 143,
+          "h": 133,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q4_2.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 264,
+          "h": 277,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q4_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 18,
+          "h": 17,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q4_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 191,
+          "h": 99,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q4_5.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 2,
+        "name": "平面汇交力系与平面力偶系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 143,
+            "h": 133,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q4_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 264,
+            "h": 277,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q4_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 18,
+            "h": 17,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q4_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 191,
+            "h": 99,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q4_5.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 227,
+            "h": 71,
+            "type": "answer",
+            "text": "V2M F= VFC",
+            "file": "题库/qbank2_figs/q4_1.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 569,
+            "h": 293,
+            "type": "explain",
+            "text": "解 (1)  研究对象 BC。 受力如图所示. 为构成约束力偶。有 Fs = Fc SM = 0 FB .1+M = 0  | Fc = F = N 研究对象:",
+            "file": "题库/qbank2_figs/q4_0.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 5,
+      "text": "1中等.图中，已知F1   = 150 N ，F2   = 200 N ，F3   = 300 N ，F = F' = 200 N 。\n求力系向点 O 简化的结果；并求力系合力的大小及其与原点 O 的距离 d。 \n                                       \n \n \n \n \n \n \n \n \ny \n \n \nO       \nFR \nFR\nM O",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 194,
+          "h": 159,
+          "type": "fig",
+          "text": "Lo0 TI0",
+          "file": "题库/qbank2_figs/q5_0.jpeg",
+          "fulltext": "Lo0 TI0"
+        },
+        {
+          "ext": "png",
+          "w": 784,
+          "h": 550,
+          "type": "explain",
+          "text": "解 (1)求合力珉的大小 2 S =-6*尤-6*茄-6*3 二-150 Nx- 200N {*茄一 300Nx 二-437.62 N V5 CF = -卫 *",
+          "file": "题库/qbank2_figs/q5_1.png",
+          "fulltext": "解 (1)求合力珉的大小 2 S =-6*尤-6*茄-6*3 二-150 Nx- 200N {*茄一 300Nx 二-437.62 N V5 CF = -卫 * 尤 -及2 X }-R' V10 二 -150 N X - 200 N X - 300N X 二-161.62 N 10 主矢 瓯 =V(EE)' + (CE)' 437.62} +(-161.62)2 N= 466.5 NI 0.10 0.20 主矩 M。 =卫 皿 +卫 皿 -F X 0.08皿 V V5 0.10 0.20 二 ISON 300 N X 皿 -200 N X 0.08 皿 =21.44 N. 皿 (逆) V2 V5 合力Fe 在原点O 的左侧上方 如图所示。 且FR = FR 466.SN 求距离4 Mo 21.44 N.m 4 = 二0.0459皿 =4.59cm FR 466.5 N I +"
+        },
+        {
+          "ext": "png",
+          "w": 445,
+          "h": 70,
+          "type": "answer",
+          "text": "Mo 21.44 N.I 4 = =0.0459皿 = 4.59cm 「 466.5N",
+          "file": "题库/qbank2_figs/q5_2.png",
+          "fulltext": "Mo 21.44 N.I 4 = =0.0459皿 = 4.59cm 「 466.5N"
+        },
+        {
+          "ext": "png",
+          "w": 155,
+          "h": 128,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q5_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 96,
+          "h": 149,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q5_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 115,
+          "h": 83,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q5_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 40,
+          "h": 28,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q5_6.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 194,
+            "h": 159,
+            "type": "fig",
+            "text": "Lo0 TI0",
+            "file": "题库/qbank2_figs/q5_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 155,
+            "h": 128,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q5_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 96,
+            "h": 149,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q5_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 115,
+            "h": 83,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q5_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 40,
+            "h": 28,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q5_6.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 445,
+            "h": 70,
+            "type": "answer",
+            "text": "Mo 21.44 N.I 4 = =0.0459皿 = 4.59cm 「 466.5N",
+            "file": "题库/qbank2_figs/q5_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 784,
+            "h": 550,
+            "type": "explain",
+            "text": "解 (1)求合力珉的大小 2 S =-6*尤-6*茄-6*3 二-150 Nx- 200N {*茄一 300Nx 二-437.62 N V5 CF = -卫 *",
+            "file": "题库/qbank2_figs/q5_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 6,
+      "text": "2中等.如图所示，液压式汽车起重机全部 固定部分（包括汽车自重）总重为\nP1  = 60 kN ，旋转部 分 总重为 P2   = 20 kN ， a = 1.4 m ， b = 0.4 m  ， l1  = 1.85 m ， \nl2  = 1.4 m 。求：（1）当 l = 3 m ，起吊重为 P = 50 kN 时，支撑腿 A ，B  所受地面的约束\n力；（2）当 l = 5 m 时，为了保证起重机不致翻倒，问最大起重为多大？",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 252,
+          "h": 123,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q6_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 777,
+          "h": 356,
+          "type": "explain",
+          "text": "解  (1)  求当1 = 3皿 P =50 K 时的卫」, FB CMi= 0, _卫 (1 _a) _(1 +6) _P(l+ 1) _Fs(1+1)=0 ",
+          "file": "题库/qbank2_figs/q6_1.png",
+          "fulltext": "解  (1)  求当1 = 3皿 P =50 K 时的卫」, FB CMi= 0, _卫 (1 _a) _(1 +6) _P(l+ 1) _Fs(1+1)=0 EB = 一[(1-a)+ 卫(+b)+ P(1+4)] =96.8KN 1+12 0,卫」+ F8 _卫 _卫 _P=0 F4 =卫 +P +P_F =33.2u (2)求当1 =5皿肘。保证起重机不翻倒的卫。 起重机不翻倒的临界状态时。F=0 _ CMB = 0  P(a +) +卫( _6) _P(I _ 1) =0 P = 一[(a+1)+P(l-6]=52.2KN 1-12 52.2I I五 CF;"
+        },
+        {
+          "ext": "png",
+          "w": 181,
+          "h": 40,
+          "type": "fig",
+          "text": "7125 52.24",
+          "file": "题库/qbank2_figs/q6_2.png",
+          "fulltext": "7125 52.24"
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 252,
+            "h": 123,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q6_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 181,
+            "h": 40,
+            "type": "fig",
+            "text": "7125 52.24",
+            "file": "题库/qbank2_figs/q6_2.png"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 777,
+            "h": 356,
+            "type": "explain",
+            "text": "解  (1)  求当1 = 3皿 P =50 K 时的卫」, FB CMi= 0, _卫 (1 _a) _(1 +6) _P(l+ 1) _Fs(1+1)=0 ",
+            "file": "题库/qbank2_figs/q6_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 7,
+      "text": "3中等.如图所示，行动式起重机不计平衡锤的重为P = 500 kN ，其重心在离右轨1.5 m \n处。起重机的起重力为P1  = 250 kN ，突臂伸出离右轨 10 m。跑车本身重力略去不计，欲使\n跑车满载时起重机均不致翻倒，求平衡锤的最小重力P2  以及平衡锤到左轨的最大距离x。 \n \n                                            \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n10 m \n1 .5 m \nP \nFA            3 m   \nP2 \nP1 \nx",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 214,
+          "h": 146,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 755,
+          "h": 273,
+          "type": "explain",
+          "text": "解 起重机。 受力如图所示。 (1) 起重机满载时不向右倾倒临界状态下。E。=0 = 二0 R(r + 3皿 _尸 X1.5皿_卫1 X10皿 =0 (2) 起",
+          "file": "题库/qbank2_figs/q7_1.png",
+          "fulltext": "解 起重机。 受力如图所示。 (1) 起重机满载时不向右倾倒临界状态下。E。=0 = 二0 R(r + 3皿 _尸 X1.5皿_卫1 X10皿 =0 (2) 起重机空载时向左不倾斜临界状态下。 Fs = 0 EM= 0, Pr _ P(3 皿 +1.5皿) =0 式(1) , (2)联立。解得 卫 333 WN X = Xmw 二4.5 二6.75 I 卫 SMB 二 Pzmm"
+        },
+        {
+          "ext": "png",
+          "w": 278,
+          "h": 57,
+          "type": "answer",
+          "text": "X = Xmi 二4.5 6.75 I 卫",
+          "file": "题库/qbank2_figs/q7_2.png",
+          "fulltext": "X = Xmi 二4.5 6.75 I 卫"
+        },
+        {
+          "ext": "png",
+          "w": 68,
+          "h": 112,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 176,
+          "h": 32,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 29,
+          "h": 30,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 28,
+          "h": 29,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_6.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 18,
+          "h": 17,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q7_7.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 214,
+            "h": 146,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 68,
+            "h": 112,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 176,
+            "h": 32,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 29,
+            "h": 30,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 28,
+            "h": 29,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_6.png"
+          },
+          {
+            "ext": "png",
+            "w": 18,
+            "h": 17,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q7_7.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 278,
+            "h": 57,
+            "type": "answer",
+            "text": "X = Xmi 二4.5 6.75 I 卫",
+            "file": "题库/qbank2_figs/q7_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 755,
+            "h": 273,
+            "type": "explain",
+            "text": "解 起重机。 受力如图所示。 (1) 起重机满载时不向右倾倒临界状态下。E。=0 = 二0 R(r + 3皿 _尸 X1.5皿_卫1 X10皿 =0 (2) 起",
+            "file": "题库/qbank2_figs/q7_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 8,
+      "text": "4中等.飞机起落架，尺寸如图所示，A，B ，C 均为铰链，杆 OA 垂直于 AB 连线。当飞\n机等速直线滑行时，地面作用于轮上的铅直正压力FN  = 30 kN ，水平摩擦力和各杆自重\n都比较小，可略去不计。求 A 、B 两处的约束力。 \n                                      \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nC",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 643,
+          "h": 305,
+          "type": "explain",
+          "text": "解 如图。杆 BC 为二力杆. FB 沿 BC。 0.6 SM4 =0 , -F sinl59x1.2 m + FB X- x0.5m =0 V0.4' +0.",
+          "file": "题库/qbank2_figs/q8_0.png",
+          "fulltext": "解 如图。杆 BC 为二力杆. FB 沿 BC。 0.6 SM4 =0 , -F sinl59x1.2 m + FB X- x0.5m =0 V0.4' +0.62 F8 = 22.4 U 0.6 SE=0 Fu -Fsin 15 + Fa X 一 二 =0 V0.4'+0.6 =_4.67K 0.6 SF =0 Fly + FcoslSo + FB X 二0 V0.42 +0.62 h =_47.7u"
+        },
+        {
+          "ext": "png",
+          "w": 243,
+          "h": 53,
+          "type": "answer",
+          "text": "Fs = 22.4 KN (拉)",
+          "file": "题库/qbank2_figs/q8_1.png",
+          "fulltext": "Fs = 22.4 KN (拉)"
+        },
+        {
+          "ext": "png",
+          "w": 174,
+          "h": 227,
+          "type": "fig",
+          "text": "冒 too 唇 152 Bo",
+          "file": "题库/qbank2_figs/q8_2.png",
+          "fulltext": "冒 too 唇 152 Bo"
+        },
+        {
+          "ext": "png",
+          "w": 25,
+          "h": 26,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q8_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "jpeg",
+          "w": 172,
+          "h": 231,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q8_4.jpeg",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 174,
+            "h": 227,
+            "type": "fig",
+            "text": "冒 too 唇 152 Bo",
+            "file": "题库/qbank2_figs/q8_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 25,
+            "h": 26,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q8_3.png"
+          },
+          {
+            "ext": "jpeg",
+            "w": 172,
+            "h": 231,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q8_4.jpeg"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 243,
+            "h": 53,
+            "type": "answer",
+            "text": "Fs = 22.4 KN (拉)",
+            "file": "题库/qbank2_figs/q8_1.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 643,
+            "h": 305,
+            "type": "explain",
+            "text": "解 如图。杆 BC 为二力杆. FB 沿 BC。 0.6 SM4 =0 , -F sinl59x1.2 m + FB X- x0.5m =0 V0.4' +0.",
+            "file": "题库/qbank2_figs/q8_0.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 9,
+      "text": "5简单.图所示滑道连杆机构，在滑道连杆上作用着水平力F。已知 OA = r ，滑道倾角为 \nβ ,机构重力和各处摩擦均不计。求当机构平衡时，作用在曲柄 OA 上的力偶矩 M与角θ \n之间的关系。 \n                                      \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nA \nβ \nC        \nFC               \nB  \nF",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 214,
+          "h": 114,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 807,
+          "h": 231,
+          "type": "explain",
+          "text": "解 (1)  滑道连杆受力 SE=0 , FNsin 6 -E=0 = Fxa SIn 8 (2) 曲柄 O4 及滑块4受力 CM。 = 0 = _M + Ey",
+          "file": "题库/qbank2_figs/q9_1.png",
+          "fulltext": "解 (1)  滑道连杆受力 SE=0 , FNsin 6 -E=0 = Fxa SIn 8 (2) 曲柄 O4 及滑块4受力 CM。 = 0 = _M + Eycos(B _O) = 0 式(1) 代入(2)得 COS( 8-0) M = Fr Sin 8"
+        },
+        {
+          "ext": "png",
+          "w": 211,
+          "h": 50,
+          "type": "answer",
+          "text": "COS( 6 -0) M =F Sin 8",
+          "file": "题库/qbank2_figs/q9_2.png",
+          "fulltext": "COS( 6 -0) M =F Sin 8"
+        },
+        {
+          "ext": "png",
+          "w": 178,
+          "h": 86,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 105,
+          "h": 123,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 108,
+          "h": 31,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 59,
+          "h": 28,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_6.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 45,
+          "h": 30,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q9_7.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 214,
+            "h": 114,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 178,
+            "h": 86,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 105,
+            "h": 123,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 108,
+            "h": 31,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 59,
+            "h": 28,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_6.png"
+          },
+          {
+            "ext": "png",
+            "w": 45,
+            "h": 30,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q9_7.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 211,
+            "h": 50,
+            "type": "answer",
+            "text": "COS( 6 -0) M =F Sin 8",
+            "file": "题库/qbank2_figs/q9_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 807,
+            "h": 231,
+            "type": "explain",
+            "text": "解 (1)  滑道连杆受力 SE=0 , FNsin 6 -E=0 = Fxa SIn 8 (2) 曲柄 O4 及滑块4受力 CM。 = 0 = _M + Ey",
+            "file": "题库/qbank2_figs/q9_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 10,
+      "text": "6困难.图所示为 1  种闸门启闭设备的传动系统。已知各齿轮的半径分别为r1 , r2 , \nr3 , r4 ，鼓轮的半径为 r，闸门重力为 P，齿轮的压力角为θ ,不计各齿轮的自重，求最小\n的启门力偶矩 M 及轴 O3 的约束力。 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nF1,  θ \nF \n \n3 \nr2           O2 FO2x \nθ \n \n' F2 \n F1 \nθ \n3 \nF \nO3y \nF \nO3x \n r4    r \nP \n θ    \nFO1 \nO1 \nr\n \nθ \nF2 \nM",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 752,
+          "h": 436,
+          "type": "explain",
+          "text": "解 (1)  轮 Os, 受力如图所示 Pr CMo3 = 0 P + Ficos O .i =0 卫 = rcosd SF =0 Foi 卫 +E cos O",
+          "file": "题库/qbank2_figs/q10_0.png",
+          "fulltext": "解 (1)  轮 Os, 受力如图所示 Pr CMo3 = 0 P + Ficos O .i =0 卫 = rcosd SF =0 Foi 卫 +E cos O = 0 . Fp =P(I-7 Pr {愍 =0, Fo _及 sin 8 =0 . Fozr ta 8 轮 Oi, 受力如图所示 M SMoi =0 一Fcos8. i + M =0 下 = I COs8 (3〉 轮 O2 受力如图所示 CMa = 0  _凡 cos8.T = R cOs8.Tz , Fir; =Fr 式(1) , (2) (3)代入 (4) ,得 Pr M Prrs 73 = 7' U =  cos8 T COsO r"
+        },
+        {
+          "ext": "png",
+          "w": 137,
+          "h": 82,
+          "type": "fig",
+          "text": "U = rni Prre",
+          "file": "题库/qbank2_figs/q10_1.png",
+          "fulltext": "U = rni Prre"
+        },
+        {
+          "ext": "png",
+          "w": 121,
+          "h": 112,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_2.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 327,
+          "h": 191,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_3.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 85,
+          "h": 162,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "jpeg",
+          "w": 164,
+          "h": 69,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_5.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 75,
+          "h": 73,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_6.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 91,
+          "h": 150,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_7.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 9,
+          "h": 18,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_8.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 100,
+          "h": 69,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_9.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 14,
+          "h": 6,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_10.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 5,
+          "h": 18,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_11.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 96,
+          "h": 62,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_12.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 94,
+          "h": 66,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_13.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 116,
+          "h": 56,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_14.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 5,
+          "h": 5,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_15.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 50,
+          "h": 52,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_16.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 62,
+          "h": 74,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_17.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 136,
+          "h": 177,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_18.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 5,
+          "h": 18,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_19.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 5,
+          "h": 17,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_20.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 115,
+          "h": 199,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_21.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 4,
+          "h": 19,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_22.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 60,
+          "h": 61,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_23.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 64,
+          "h": 54,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q10_24.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 137,
+            "h": 82,
+            "type": "fig",
+            "text": "U = rni Prre",
+            "file": "题库/qbank2_figs/q10_1.png"
+          },
+          {
+            "ext": "png",
+            "w": 121,
+            "h": 112,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 327,
+            "h": 191,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 85,
+            "h": 162,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_4.png"
+          },
+          {
+            "ext": "jpeg",
+            "w": 164,
+            "h": 69,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_5.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 75,
+            "h": 73,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_6.png"
+          },
+          {
+            "ext": "png",
+            "w": 91,
+            "h": 150,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_7.png"
+          },
+          {
+            "ext": "png",
+            "w": 9,
+            "h": 18,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_8.png"
+          },
+          {
+            "ext": "png",
+            "w": 100,
+            "h": 69,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_9.png"
+          },
+          {
+            "ext": "png",
+            "w": 14,
+            "h": 6,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_10.png"
+          },
+          {
+            "ext": "png",
+            "w": 5,
+            "h": 18,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_11.png"
+          },
+          {
+            "ext": "png",
+            "w": 96,
+            "h": 62,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_12.png"
+          },
+          {
+            "ext": "png",
+            "w": 94,
+            "h": 66,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_13.png"
+          },
+          {
+            "ext": "png",
+            "w": 116,
+            "h": 56,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_14.png"
+          },
+          {
+            "ext": "png",
+            "w": 5,
+            "h": 5,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_15.png"
+          },
+          {
+            "ext": "png",
+            "w": 50,
+            "h": 52,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_16.png"
+          },
+          {
+            "ext": "png",
+            "w": 62,
+            "h": 74,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_17.png"
+          },
+          {
+            "ext": "png",
+            "w": 136,
+            "h": 177,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_18.png"
+          },
+          {
+            "ext": "png",
+            "w": 5,
+            "h": 18,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_19.png"
+          },
+          {
+            "ext": "png",
+            "w": 5,
+            "h": 17,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_20.png"
+          },
+          {
+            "ext": "png",
+            "w": 115,
+            "h": 199,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_21.png"
+          },
+          {
+            "ext": "png",
+            "w": 4,
+            "h": 19,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_22.png"
+          },
+          {
+            "ext": "png",
+            "w": 60,
+            "h": 61,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_23.png"
+          },
+          {
+            "ext": "png",
+            "w": 64,
+            "h": 54,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q10_24.png"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 752,
+            "h": 436,
+            "type": "explain",
+            "text": "解 (1)  轮 Os, 受力如图所示 Pr CMo3 = 0 P + Ficos O .i =0 卫 = rcosd SF =0 Foi 卫 +E cos O",
+            "file": "题库/qbank2_figs/q10_0.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 11,
+      "text": "7困难.由直角曲杆 ABC，DE，直杆 CD 及滑轮组成的结构如图所示，杆 AB 上作用有\n水平均布载荷q 。不计各构件的重力， 在 D 处作用 1 铅垂力 F，在滑轮上悬吊一重为 P的重\n物，滑轮的半径r = a ，且 P = 2F ， CO = OD 。求支座 E 及固定端 A的约束力。 \n \n         \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                \n \nFT’ \n4\n5° \nC\nM\nB\n \n \nF\nF\nq\nA\nF \nD \n \n \n \n \nE \nP \nFT \n \nFCx                     \n45° C \nFCy \nFE",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 168,
+          "h": 121,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_0.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 698,
+          "h": 372,
+          "type": "explain",
+          "text": "解 (1) DE为二力杆。取 CD+滑轮-重物 P+DE 为研究对象 受力如图所示. 且 FT = P=zF CMc = 0 F X3a 巨_FX3a _P(3",
+          "file": "题库/qbank2_figs/q11_1.png",
+          "fulltext": "解 (1) DE为二力杆。取 CD+滑轮-重物 P+DE 为研究对象 受力如图所示. 且 FT = P=zF CMc = 0 F X3a 巨_FX3a _P(3a12 +r) + F =0 FE =  F 2& =0 ,E FECOs 450 _ FICOs 450 =0  Fe = ( [+ IF n SF =0 F -斥 2 10。 F = (2+ VZ)F (2)直角曲杆 ABC。 受力如图所示 C医 =0 , 4 X 煦 Ee + Fr cos 45。 =0 隳 = Gqa _F C =0- Fw-F + Fr 乒-0 Fu=2F CMi= 0  Gqa . 3a + Fc:3a _Fc:3a _FIT = 0 Mi= SFa + 1gqc Y_P-F+ fE G4 _ Mi"
+        },
+        {
+          "ext": "png",
+          "w": 134,
+          "h": 51,
+          "type": "fig",
+          "text": "F = IE",
+          "file": "题库/qbank2_figs/q11_2.png",
+          "fulltext": "F = IE"
+        },
+        {
+          "ext": "png",
+          "w": 154,
+          "h": 57,
+          "type": "answer",
+          "text": "F = 2",
+          "file": "题库/qbank2_figs/q11_3.png",
+          "fulltext": "F = 2"
+        },
+        {
+          "ext": "png",
+          "w": 45,
+          "h": 112,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 48,
+          "h": 43,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 17,
+          "h": 128,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_6.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 27,
+          "h": 27,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_7.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 27,
+          "h": 25,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_8.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 13,
+          "h": 19,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_9.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 10,
+          "h": 12,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_10.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 182,
+          "h": 125,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_11.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 188,
+          "h": 283,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_12.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 142,
+          "h": 183,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_13.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 32,
+          "h": 33,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q11_14.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 168,
+            "h": 121,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_0.png"
+          },
+          {
+            "ext": "png",
+            "w": 134,
+            "h": 51,
+            "type": "fig",
+            "text": "F = IE",
+            "file": "题库/qbank2_figs/q11_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 45,
+            "h": 112,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 48,
+            "h": 43,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 17,
+            "h": 128,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_6.png"
+          },
+          {
+            "ext": "png",
+            "w": 27,
+            "h": 27,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_7.png"
+          },
+          {
+            "ext": "png",
+            "w": 27,
+            "h": 25,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_8.png"
+          },
+          {
+            "ext": "png",
+            "w": 13,
+            "h": 19,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_9.png"
+          },
+          {
+            "ext": "png",
+            "w": 10,
+            "h": 12,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_10.png"
+          },
+          {
+            "ext": "png",
+            "w": 182,
+            "h": 125,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_11.png"
+          },
+          {
+            "ext": "png",
+            "w": 188,
+            "h": 283,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_12.png"
+          },
+          {
+            "ext": "png",
+            "w": 142,
+            "h": 183,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_13.png"
+          },
+          {
+            "ext": "png",
+            "w": 32,
+            "h": 33,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q11_14.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 154,
+            "h": 57,
+            "type": "answer",
+            "text": "F = 2",
+            "file": "题库/qbank2_figs/q11_3.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 698,
+            "h": 372,
+            "type": "explain",
+            "text": "解 (1) DE为二力杆。取 CD+滑轮-重物 P+DE 为研究对象 受力如图所示. 且 FT = P=zF CMc = 0 F X3a 巨_FX3a _P(3",
+            "file": "题库/qbank2_figs/q11_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 12,
+      "text": "8中等.平面桁架尺寸如图所示（尺寸单位为 m ），载 荷 F1   = 240 kN ， F2   = \n720 kN 。试用最简便的方法求杆 BD 及 BE 的内力。 \n   \n \n \n \n \n \n \n                                                   \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nFCx \nFCy \nE \n \nC \nFBD \nB \nFBE      \nF2 \nD \nA        \nFAx \nF\nD \nFBE \nF1 \nB",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 164,
+          "h": 144,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 743,
+          "h": 176,
+          "type": "explain",
+          "text": "解  将杆 BD; BE 截断, 得受力图。由受力图得: COs O=2.13 si 8 =3.13 CMc = 0 = FBD X 3 皿 +F X1皿 =0",
+          "file": "题库/qbank2_figs/q12_1.png",
+          "fulltext": "解  将杆 BD; BE 截断, 得受力图。由受力图得: COs O=2.13 si 8 =3.13 CMc = 0 = FBD X 3 皿 +F X1皿 =0 FBD =240u 〈压) 再由受力图得: 二 0 , R X1m + FBD X 2 皿 + FBE cos 8X2 m + FBE Sin Ox 2皿 =0 FB = 86.53u (拉) SM"
+        },
+        {
+          "ext": "png",
+          "w": 211,
+          "h": 41,
+          "type": "answer",
+          "text": "Fso =240 L (压)",
+          "file": "题库/qbank2_figs/q12_2.png",
+          "fulltext": "Fso =240 L (压)"
+        },
+        {
+          "ext": "png",
+          "w": 254,
+          "h": 45,
+          "type": "fig",
+          "text": "86.53KN Fge",
+          "file": "题库/qbank2_figs/q12_3.png",
+          "fulltext": "86.53KN Fge"
+        },
+        {
+          "ext": "png",
+          "w": 75,
+          "h": 103,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_4.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 78,
+          "h": 93,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_5.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 80,
+          "h": 72,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_6.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 31,
+          "h": 91,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_7.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 113,
+          "h": 82,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_8.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 72,
+          "h": 88,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_9.png",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 104,
+          "h": 62,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q12_10.png",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 3,
+        "name": "平面任意力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 164,
+            "h": 144,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 254,
+            "h": 45,
+            "type": "fig",
+            "text": "86.53KN Fge",
+            "file": "题库/qbank2_figs/q12_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 75,
+            "h": 103,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_4.png"
+          },
+          {
+            "ext": "png",
+            "w": 78,
+            "h": 93,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_5.png"
+          },
+          {
+            "ext": "png",
+            "w": 80,
+            "h": 72,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_6.png"
+          },
+          {
+            "ext": "png",
+            "w": 31,
+            "h": 91,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_7.png"
+          },
+          {
+            "ext": "png",
+            "w": 113,
+            "h": 82,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_8.png"
+          },
+          {
+            "ext": "png",
+            "w": 72,
+            "h": 88,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_9.png"
+          },
+          {
+            "ext": "png",
+            "w": 104,
+            "h": 62,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q12_10.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 211,
+            "h": 41,
+            "type": "answer",
+            "text": "Fso =240 L (压)",
+            "file": "题库/qbank2_figs/q12_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 743,
+            "h": 176,
+            "type": "explain",
+            "text": "解  将杆 BD; BE 截断, 得受力图。由受力图得: COs O=2.13 si 8 =3.13 CMc = 0 = FBD X 3 皿 +F X1皿 =0",
+            "file": "题库/qbank2_figs/q12_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 13,
+      "text": "1中等.力系中，F1=100 N，F2=300 N，F3=200 N，各力作用线的位置如图所示。试将力\n系向原点 O简化。",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 730,
+          "h": 456,
+          "type": "explain",
+          "text": "解 由题意得 FRr = -300 * 200 二-345N V13 V5 FR = 300* 2SON V13 f =100 -200 x I0.6N M. ",
+          "file": "题库/qbank2_figs/q13_0.png",
+          "fulltext": "解 由题意得 FRr = -300 * 200 二-345N V13 V5 FR = 300* 2SON V13 f =100 -200 x I0.6N M. =-300* X0.1-200x x0.3 =-51.8N: I V13 V5 M, =-100 *0.20 + 200 x一 x0.1 =-36.6N. 皿 V13 M:= 300 x- X0.2+200x- 103.6 N.m V13 主矢 瓯 =屐+ += 426N FR (3451+250j 10.GKN 主矩 M。=   Mz + M +M 122NT 11 . M。 C51.8i 36.6j+ 104k)N X0.3 ="
+        },
+        {
+          "ext": "jpeg",
+          "w": 856,
+          "h": 97,
+          "type": "fig",
+          "text": "主矢 质 =  +l+l 二 426N Re (34Si 250j+ 10.6K)N 主矩 M。 = 巫+K +M 122N.皿 M。 CSI.8i 36.6j",
+          "file": "题库/qbank2_figs/q13_1.jpeg",
+          "fulltext": "主矢 质 =  +l+l 二 426N Re (34Si 250j+ 10.6K)N 主矩 M。 = 巫+K +M 122N.皿 M。 CSI.8i 36.6j+ I04k)N 皿"
+        },
+        {
+          "ext": "jpeg",
+          "w": 215,
+          "h": 139,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q13_2.jpeg",
+          "fulltext": ""
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 856,
+            "h": 97,
+            "type": "fig",
+            "text": "主矢 质 =  +l+l 二 426N Re (34Si 250j+ 10.6K)N 主矩 M。 = 巫+K +M 122N.皿 M。 CSI.8i 36.6j",
+            "file": "题库/qbank2_figs/q13_1.jpeg"
+          },
+          {
+            "ext": "jpeg",
+            "w": 215,
+            "h": 139,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q13_2.jpeg"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 730,
+            "h": 456,
+            "type": "explain",
+            "text": "解 由题意得 FRr = -300 * 200 二-345N V13 V5 FR = 300* 2SON V13 f =100 -200 x I0.6N M. ",
+            "file": "题库/qbank2_figs/q13_0.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 14,
+      "text": "2简单.   1平行力系由 5 个力组成，力的大小和作用线的位置如图所示。图中小正方格 \n的边长为 10 mm。求平行力系的合力。",
+      "imgs": [
+        {
+          "ext": "png",
+          "w": 528,
+          "h": 263,
+          "type": "explain",
+          "text": "解 由题意得合力Fe 的大小为 FR = SF=1N+ 10N+ 20 N_l0N_15 N= 20N FR 2OkN 合力作用线过点 (rc DC 0) XC",
+          "file": "题库/qbank2_figs/q14_0.png",
+          "fulltext": "解 由题意得合力Fe 的大小为 FR = SF=1N+ 10N+ 20 N_l0N_15 N= 20N FR 2OkN 合力作用线过点 (rc DC 0) XC 20(15*40+10x30- +20x20-10x10) = 60mm DC (15x10+10x30+20x50-10x20-15x40) 20 32.5 IlIl"
+        },
+        {
+          "ext": "png",
+          "w": 191,
+          "h": 40,
+          "type": "fig",
+          "text": "FR 2OkN",
+          "file": "题库/qbank2_figs/q14_1.png",
+          "fulltext": "FR 2OkN"
+        },
+        {
+          "ext": "png",
+          "w": 197,
+          "h": 152,
+          "type": "fig",
+          "text": "RZN",
+          "file": "题库/qbank2_figs/q14_2.png",
+          "fulltext": "RZN"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "png",
+            "w": 191,
+            "h": 40,
+            "type": "fig",
+            "text": "FR 2OkN",
+            "file": "题库/qbank2_figs/q14_1.png"
+          },
+          {
+            "ext": "png",
+            "w": 197,
+            "h": 152,
+            "type": "fig",
+            "text": "RZN",
+            "file": "题库/qbank2_figs/q14_2.png"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 528,
+            "h": 263,
+            "type": "explain",
+            "text": "解 由题意得合力Fe 的大小为 FR = SF=1N+ 10N+ 20 N_l0N_15 N= 20N FR 2OkN 合力作用线过点 (rc DC 0) XC",
+            "file": "题库/qbank2_figs/q14_0.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 15,
+      "text": "3中等.图所示 3 圆盘 A、B 和 C 的半径分别为 150 mm ，100 mm 和 50 mm 。3 轴OA ，\nOB 和 OC 在同 1 平面内， ∠AOB 为直角。在这 3 个圆盘上分别作用力偶，组成各力偶的\n力作用在轮缘上，它们的大小分别等于 10 N ，20 N 和 F。如这 3 个圆盘所构成的物系是自\n由的，不计物系重量，求能使此物系平衡的力 F 的大小和角 θ 。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 307,
+          "h": 271,
+          "type": "fig",
+          "text": "20N LON ZON CA? 提取文字 10N",
+          "file": "题库/qbank2_figs/q15_0.jpeg",
+          "fulltext": "20N LON ZON CA? 提取文字 10N"
+        },
+        {
+          "ext": "png",
+          "w": 767,
+          "h": 296,
+          "type": "explain",
+          "text": "解 画出3个力偶的力偶矩矢如图 4-llb 所示 由力偶矩矢三角形图可见 Nc= VM+Mi 130002 000 - 二50OON IlIl 由图可得 Mc ",
+          "file": "题库/qbank2_figs/q15_1.png",
+          "fulltext": "解 画出3个力偶的力偶矩矢如图 4-llb 所示 由力偶矩矢三角形图可见 Nc= VM+Mi 130002 000 - 二50OON IlIl 由图可得 Mc Mc = FxlO0 mm 下 一 二 SON 100 mm 由图可得 tan R = NL=3 R=36.87 =36052' MB 4 0 =180-8=143908' +4"
+        },
+        {
+          "ext": "png",
+          "w": 482,
+          "h": 318,
+          "type": "fig",
+          "text": "诏 20N 10N 川 川 8-90 川 10N M。 M 图41",
+          "file": "题库/qbank2_figs/q15_2.png",
+          "fulltext": "诏 20N 10N 川 川 8-90 川 10N M。 M 图41"
+        },
+        {
+          "ext": "png",
+          "w": 252,
+          "h": 77,
+          "type": "answer",
+          "text": "MC 卫 = SON 100 mm",
+          "file": "题库/qbank2_figs/q15_3.png",
+          "fulltext": "MC 卫 = SON 100 mm"
+        },
+        {
+          "ext": "png",
+          "w": 238,
+          "h": 35,
+          "type": "answer",
+          "text": "Q 180。 R=143908'",
+          "file": "题库/qbank2_figs/q15_4.png",
+          "fulltext": "Q 180。 R=143908'"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 307,
+            "h": 271,
+            "type": "fig",
+            "text": "20N LON ZON CA? 提取文字 10N",
+            "file": "题库/qbank2_figs/q15_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 482,
+            "h": 318,
+            "type": "fig",
+            "text": "诏 20N 10N 川 川 8-90 川 10N M。 M 图41",
+            "file": "题库/qbank2_figs/q15_2.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 252,
+            "h": 77,
+            "type": "answer",
+            "text": "MC 卫 = SON 100 mm",
+            "file": "题库/qbank2_figs/q15_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 238,
+            "h": 35,
+            "type": "answer",
+            "text": "Q 180。 R=143908'",
+            "file": "题库/qbank2_figs/q15_4.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 767,
+            "h": 296,
+            "type": "explain",
+            "text": "解 画出3个力偶的力偶矩矢如图 4-llb 所示 由力偶矩矢三角形图可见 Nc= VM+Mi 130002 000 - 二50OON IlIl 由图可得 Mc ",
+            "file": "题库/qbank2_figs/q15_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 16,
+      "text": "4中等.如图所示，已知镗刀杆的刀头上受切削力Fz   = 500 N，径向力Fx   = 150 N，轴向\n力Fy   = 75 N，刀尖位于 Oxy 平面内，其坐标 x=75  mm，y=200  mm。工件重量不计，求\n被切削工件左端 O 处的约束力。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 391,
+          "h": 233,
+          "type": "fig",
+          "text": "Z0",
+          "file": "题库/qbank2_figs/q16_0.jpeg",
+          "fulltext": "Z0"
+        },
+        {
+          "ext": "png",
+          "w": 825,
+          "h": 330,
+          "type": "explain",
+          "text": "解 镗刀杆为研究对象,受力如图  所示。 SE=0 -Er + For =0 (1) SE =0 ~Fi + Fo =0 (2) SE =0  -卫 + Fo:",
+          "file": "题库/qbank2_figs/q16_1.png",
+          "fulltext": "解 镗刀杆为研究对象,受力如图  所示。 SE=0 -Er + For =0 (1) SE =0 ~Fi + Fo =0 (2) SE =0  -卫 + Fo: =0 (3) SMr =0  ~FX0.2 m +M=0 (4) SM; =0, 5;X0.075 m+M, =0 (5) SM.=0 = 丘 X0.2 皿-卫 *0.075 m+M: =0 得 Fa =ISON Fo = 75N Fo: = SO0N; Mr = I00 N.n , M, =-37.5 N.n (与示反向), M: =-24.4N.m (与图示反向"
+        },
+        {
+          "ext": "png",
+          "w": 405,
+          "h": 246,
+          "type": "fig",
+          "text": "M_ M; h [ 3 200",
+          "file": "题库/qbank2_figs/q16_2.png",
+          "fulltext": "M_ M; h [ 3 200"
+        },
+        {
+          "ext": "png",
+          "w": 448,
+          "h": 36,
+          "type": "fig",
+          "text": "For ISON  Foy 75N, Fo: SOON",
+          "file": "题库/qbank2_figs/q16_3.png",
+          "fulltext": "For ISON  Foy 75N, Fo: SOON"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 391,
+            "h": 233,
+            "type": "fig",
+            "text": "Z0",
+            "file": "题库/qbank2_figs/q16_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 405,
+            "h": 246,
+            "type": "fig",
+            "text": "M_ M; h [ 3 200",
+            "file": "题库/qbank2_figs/q16_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 448,
+            "h": 36,
+            "type": "fig",
+            "text": "For ISON  Foy 75N, Fo: SOON",
+            "file": "题库/qbank2_figs/q16_3.png"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 825,
+            "h": 330,
+            "type": "explain",
+            "text": "解 镗刀杆为研究对象,受力如图  所示。 SE=0 -Er + For =0 (1) SE =0 ~Fi + Fo =0 (2) SE =0  -卫 + Fo:",
+            "file": "题库/qbank2_figs/q16_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 17,
+      "text": "5困难.使水涡轮转动的力偶矩为Mz= 1 200 N . m 。在锥齿轮B处受到的力分解为 3个\n分力：圆周力 Ft，轴向力 Fa 和径向力 Fr。这些力的比例为Ft   : Fa   : Fr   = 1 : 0.32 : 0.17 。\n已知水涡轮连同轴和锥齿轮的总重为 P = 12 kN ，其作用线沿轴 Cz ，锥齿轮的平均半\n径OB = 0.6 m ，其余尺寸如图所示。求止推轴承 C和轴承 A的约束力。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 317,
+          "h": 292,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q17_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 850,
+          "h": 526,
+          "type": "explain",
+          "text": "解 整个系统为研究对象。受力如图  所示。设 B处作用K' F' F 的合力F; 则 h 0.9402 下 VI + 0.172 +0.322 列平衡方程 CM",
+          "file": "题库/qbank2_figs/q17_1.png",
+          "fulltext": "解 整个系统为研究对象。受力如图  所示。设 B处作用K' F' F 的合力F; 则 h 0.9402 下 VI + 0.172 +0.322 列平衡方程 CM。=0  M. -0.940 2Fx0.60 m 下=2127N' 得 k =0.9402F =2 0O0N k =0.17k =340N E =0.32E = 640N CM,=0  一RX4m - Fy X3 m + F X0.6 m =0 Fl (640*0.6-340*4)=-325N (~) SM; =0 -RX4m + Fk X3 m =0  Flr 4*2000N= 2.67KN SE =0 一尺 + Fr + Ra=0 Far = E -Fur = -667N ( 与图设反向) SF =0  F+ Fl + Fa =0, Fc =-E- R =-14.7N (~) SE: =0 Fcy - Fa-P=0, Fc=F+P=12640N=12.6WN"
+        },
+        {
+          "ext": "png",
+          "w": 443,
+          "h": 62,
+          "type": "answer",
+          "text": "Fy (640x0.6-340*4)=-325N (一",
+          "file": "题库/qbank2_figs/q17_2.png",
+          "fulltext": "Fy (640x0.6-340*4)=-325N (一"
+        },
+        {
+          "ext": "png",
+          "w": 362,
+          "h": 39,
+          "type": "fig",
+          "text": "Fe -F +P-12640N -12.6KN",
+          "file": "题库/qbank2_figs/q17_3.png",
+          "fulltext": "Fe -F +P-12640N -12.6KN"
+        },
+        {
+          "ext": "png",
+          "w": 294,
+          "h": 315,
+          "type": "fig",
+          "text": "U r] F FaF",
+          "file": "题库/qbank2_figs/q17_4.png",
+          "fulltext": "U r] F FaF"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 317,
+            "h": 292,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q17_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 362,
+            "h": 39,
+            "type": "fig",
+            "text": "Fe -F +P-12640N -12.6KN",
+            "file": "题库/qbank2_figs/q17_3.png"
+          },
+          {
+            "ext": "png",
+            "w": 294,
+            "h": 315,
+            "type": "fig",
+            "text": "U r] F FaF",
+            "file": "题库/qbank2_figs/q17_4.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 443,
+            "h": 62,
+            "type": "answer",
+            "text": "Fy (640x0.6-340*4)=-325N (一",
+            "file": "题库/qbank2_figs/q17_2.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 850,
+            "h": 526,
+            "type": "explain",
+            "text": "解 整个系统为研究对象。受力如图  所示。设 B处作用K' F' F 的合力F; 则 h 0.9402 下 VI + 0.172 +0.322 列平衡方程 CM",
+            "file": "题库/qbank2_figs/q17_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 18,
+      "text": "6中等.图所示 6杆支撑 1水平板，在板角处受铅直力 F 作用。设板和杆自重不计，求各杆的\n内力。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 336,
+          "h": 221,
+          "type": "fig",
+          "text": "S00 000",
+          "file": "题库/qbank2_figs/q18_0.jpeg",
+          "fulltext": "S00 000"
+        },
+        {
+          "ext": "png",
+          "w": 887,
+          "h": 395,
+          "type": "explain",
+          "text": "解 截开6根杆。取有板的部分为研究对象, 受力如图  所示。 CM。 =0 一Ecoso. AD =0 SMBF =0 一Ecos0 . BC = 0 (2) ",
+          "file": "题库/qbank2_figs/q18_1.png",
+          "fulltext": "解 截开6根杆。取有板的部分为研究对象, 受力如图  所示。 CM。 =0 一Ecoso. AD =0 SMBF =0 一Ecos0 . BC = 0 (2) SE =0 , E AP =0 (3) FD 解得 卫 =0 , F=0, F=0 CMEG =0 , (F -下): EFsin R =0 CM =0 , (k +F): AB =0 CMBD = 0  (&- F): ABsin R =0 6) 解得 } =F(拉), Fs = -F (压), } =-下 (压)"
+        },
+        {
+          "ext": "png",
+          "w": 385,
+          "h": 231,
+          "type": "fig",
+          "text": "SUU 000",
+          "file": "题库/qbank2_figs/q18_2.png",
+          "fulltext": "SUU 000"
+        },
+        {
+          "ext": "png",
+          "w": 448,
+          "h": 62,
+          "type": "fig",
+          "text": "F =F(拉), F= -F (压),尺 =-F (压)",
+          "file": "题库/qbank2_figs/q18_3.png",
+          "fulltext": "F =F(拉), F= -F (压),尺 =-F (压)"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 336,
+            "h": 221,
+            "type": "fig",
+            "text": "S00 000",
+            "file": "题库/qbank2_figs/q18_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 385,
+            "h": 231,
+            "type": "fig",
+            "text": "SUU 000",
+            "file": "题库/qbank2_figs/q18_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 448,
+            "h": 62,
+            "type": "fig",
+            "text": "F =F(拉), F= -F (压),尺 =-F (压)",
+            "file": "题库/qbank2_figs/q18_3.png"
+          }
+        ],
+        "answer": [],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 887,
+            "h": 395,
+            "type": "explain",
+            "text": "解 截开6根杆。取有板的部分为研究对象, 受力如图  所示。 CM。 =0 一Ecoso. AD =0 SMBF =0 一Ecos0 . BC = 0 (2) ",
+            "file": "题库/qbank2_figs/q18_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 19,
+      "text": "7中等.图所示机床重50 kN，当水平放置时( θ = 0° )秤上读数为 15 kN，当θ = 20°时秤上读数\n为 10 kN，试确定机床重心的位置。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 331,
+          "h": 202,
+          "type": "fig",
+          "text": "",
+          "file": "题库/qbank2_figs/q19_0.jpeg",
+          "fulltext": ""
+        },
+        {
+          "ext": "png",
+          "w": 861,
+          "h": 305,
+          "type": "explain",
+          "text": "解 设机床相对水平地面倾斜0角仍处于平衡。其受力如图 4-226  所示。又设机床重心 C 的坐标为 xc 及JC' 则 CMB =0 50 KN.cos0 .",
+          "file": "题库/qbank2_figs/q19_1.png",
+          "fulltext": "解 设机床相对水平地面倾斜0角仍处于平衡。其受力如图 4-226  所示。又设机床重心 C 的坐标为 xc 及JC' 则 CMB =0 50 KN.cos0 .Yc - 50 KN.sin0. Dc - Fcosx 2.4 I =0 (1) 0 =0时, 下=15KN 代入式(1),得 Xc =0.72m 0 =200时; 下 = I0kN 且 Xc =0.72皿 代入式(1),得 Jc = 0.659 m"
+        },
+        {
+          "ext": "png",
+          "w": 313,
+          "h": 207,
+          "type": "fig",
+          "text": "4111",
+          "file": "题库/qbank2_figs/q19_2.png",
+          "fulltext": "4111"
+        },
+        {
+          "ext": "png",
+          "w": 161,
+          "h": 39,
+          "type": "answer",
+          "text": "Dc = 0.659m",
+          "file": "题库/qbank2_figs/q19_3.png",
+          "fulltext": "Dc = 0.659m"
+        },
+        {
+          "ext": "png",
+          "w": 145,
+          "h": 36,
+          "type": "fig",
+          "text": "XC 0.72 I",
+          "file": "题库/qbank2_figs/q19_4.png",
+          "fulltext": "XC 0.72 I"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 331,
+            "h": 202,
+            "type": "fig",
+            "text": "",
+            "file": "题库/qbank2_figs/q19_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 313,
+            "h": 207,
+            "type": "fig",
+            "text": "4111",
+            "file": "题库/qbank2_figs/q19_2.png"
+          },
+          {
+            "ext": "png",
+            "w": 145,
+            "h": 36,
+            "type": "fig",
+            "text": "XC 0.72 I",
+            "file": "题库/qbank2_figs/q19_4.png"
+          }
+        ],
+        "answer": [
+          {
+            "ext": "png",
+            "w": 161,
+            "h": 39,
+            "type": "answer",
+            "text": "Dc = 0.659m",
+            "file": "题库/qbank2_figs/q19_3.png"
+          }
+        ],
+        "explain": [
+          {
+            "ext": "png",
+            "w": 861,
+            "h": 305,
+            "type": "explain",
+            "text": "解 设机床相对水平地面倾斜0角仍处于平衡。其受力如图 4-226  所示。又设机床重心 C 的坐标为 xc 及JC' 则 CMB =0 50 KN.cos0 .",
+            "file": "题库/qbank2_figs/q19_1.png"
+          }
+        ]
+      }
+    },
+    {
+      "page": 20,
+      "text": "8，简单.均质曲杆尺寸如图所示，求此曲杆重心坐标。",
+      "imgs": [
+        {
+          "ext": "jpeg",
+          "w": 381,
+          "h": 287,
+          "type": "fig",
+          "text": "200 100 } 图4-25 200",
+          "file": "题库/qbank2_figs/q20_0.jpeg",
+          "fulltext": "200 100 } 图4-25 200"
+        },
+        {
+          "ext": "png",
+          "w": 808,
+          "h": 286,
+          "type": "fig",
+          "text": "CPxi 200X(-100)+100x 一50)+100x0 +200x100+100x200 解 TC S 200+100+100+200+100 21.4",
+          "file": "题库/qbank2_figs/q20_1.png",
+          "fulltext": "CPxi 200X(-100)+100x 一50)+100x0 +200x100+100x200 解 TC S 200+100+100+200+100 21.43 mm 三} 200x(-100) +100x0 +100x50 + 200x100 + 100x100 DC = S 700 21.43 mm 三贬 200x0+100x0+100x0+ 200x0+100x(-50 _ S 700 -7.143 mm"
+        },
+        {
+          "ext": "jpeg",
+          "w": 753,
+          "h": 307,
+          "type": "fig",
+          "text": "SPxi 200x(-100)+100x(-50)+100x0 +200x100+100x200 Xc SP 200+100+100+200+100 21.43",
+          "file": "题库/qbank2_figs/q20_2.jpeg",
+          "fulltext": "SPxi 200x(-100)+100x(-50)+100x0 +200x100+100x200 Xc SP 200+100+100+200+100 21.43 mm 三y = 200x(-100) +100x0 +100x50 + 200x100 + 100 xIOO De SP 700 21.43 mm 三贬 200x0 + I00x0 + I00x0 + 200x0 +100 x(-50) Fc S 700 二-7.143 ml"
+        }
+      ],
+      "chapter": {
+        "num": 4,
+        "name": "空间力系"
+      },
+      "classified": {
+        "figs": [
+          {
+            "ext": "jpeg",
+            "w": 381,
+            "h": 287,
+            "type": "fig",
+            "text": "200 100 } 图4-25 200",
+            "file": "题库/qbank2_figs/q20_0.jpeg"
+          },
+          {
+            "ext": "png",
+            "w": 808,
+            "h": 286,
+            "type": "fig",
+            "text": "CPxi 200X(-100)+100x 一50)+100x0 +200x100+100x200 解 TC S 200+100+100+200+100 21.4",
+            "file": "题库/qbank2_figs/q20_1.png"
+          },
+          {
+            "ext": "jpeg",
+            "w": 753,
+            "h": 307,
+            "type": "fig",
+            "text": "SPxi 200x(-100)+100x(-50)+100x0 +200x100+100x200 Xc SP 200+100+100+200+100 21.43",
+            "file": "题库/qbank2_figs/q20_2.jpeg"
+          }
+        ],
+        "answer": [],
+        "explain": []
+      }
+    }
+  ]
+}

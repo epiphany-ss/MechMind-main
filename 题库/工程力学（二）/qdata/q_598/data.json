@@ -1,0 +1,30 @@
+{
+  "id": "q_598",
+  "overview": "求圆柱离开斜面后的运动方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学",
+    "动能定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质圆柱体，质量为m，半径为R，在位置A沿倾角为$\\alpha$的斜面由静止无滑动地滚下，如图所示。若OA＝l（A为出发点，O为斜面底端边缘，即圆柱离开斜面处），试求圆柱体离开斜面后的运动方程（即表达成：$x_C=f(t)$，$y_C=f(t)$，$\\varphi=f(t)$）。取离开点为原点，x轴水平向右、y轴铅垂向上，$t=0$为离开斜面瞬时。</p><img src=\"qdata/q_598/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x_C=\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\cos\\alpha\\,t$；　$y_C=-\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\sin\\alpha\\,t-\\dfrac{1}{2}gt^2$；　$\\varphi=\\dfrac{1}{R}\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,t$</p>",
+  "explanation": "<p>【AI 生成】圆柱沿斜面纯滚动，$mg\\sin\\alpha-F_f=ma$，$F_fR=\\frac{1}{2}mR^2\\alpha$，$a=\\alpha R$，得$a=\\frac{2}{3}g\\sin\\alpha$。滚过距离$l$后（离开斜面）的速度$$v=\\sqrt{2al}=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}$$角速度$\\omega=v/R$。离开斜面后仅受重力，质心作抛体运动，角速度保持不变（对质心无矩）：$$x_C=v\\cos\\alpha\\,t,\\qquad y_C=-v\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\qquad \\varphi=\\frac{v}{R}t$$即$$x_C=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\cos\\alpha\\,t,\\quad y_C=-\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\quad \\varphi=\\frac{1}{R}\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\,t$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56",
+  "source": "练习册",
+  "narration": {
+    "path": "qdata/q_598/narration_1786782619.mp3",
+    "voice": "girl",
+    "voice_label": "少女音 · 宵宫",
+    "created": "2026-08-15 16:30",
+    "speakable_text": "同学们好，今天我们来讲解圆柱离开斜面后的运动方程。本题主要考察刚体在斜面上的纯滚动运动以及离开斜面后的平面运动分析。解题思路是先研究斜面上的滚动过程，求出圆柱离开时的速度和角速度，再分析离开后质心的抛体运动与圆柱的旋转。 首先，圆柱在斜面上纯滚动。重力沿斜面向下的分力减去摩擦力，等于质量乘以质心加速度；同时，摩擦力对质心的力矩等于转动惯量乘以角加速度。由于纯滚动，加速度等于角加速度乘以半径。联立这些方程，可以求出加速度为三分之二重力加速度乘以斜面倾角的正弦。 当圆柱滚动距离 l 后离开斜面时，利用运动学公式，速度等于根号下二乘以加速度乘以距离。角速度则等于速度除以半径。 离开斜面后，圆柱只受重力作用。质心在水平方向以初速度的水平分量匀速运动，在竖直方向做自由落体运动；同时，因为重力对质心没有力矩，圆柱的角速度保持不变。 因此，运动方程为：质心的水平位移等于初速度水平分量乘以时间；竖直位移等于初速度竖直分量乘以时间减去二分之一重力加速度乘以时间的平方；旋转角度等于角速度乘以时间。具体来说，水平位移是根号下三分之四glsinα乘以cosα乘以时间；竖直位移是负的根号下三分之四glsinα乘以sinα乘以时间减去二分之一gt的平方；旋转角度是根号下三分之四glsinα除以半径乘以时间。",
+    "ai_generated": true
+  }
+}

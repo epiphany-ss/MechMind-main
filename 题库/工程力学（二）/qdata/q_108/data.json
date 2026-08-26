@@ -1,0 +1,19 @@
+{
+  "id": "q_108",
+  "overview": "求平动杆应加的惯性力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>$AB$ 杆质量为 $m$、长为 $l$，曲轴 $O_1A$、$O_2B$ 质量不计，且 $O_1A=O_2B=R$，$O_1O_2=l$。当 $\\varphi=60°$ 时，$O_1A$ 杆绕 $O_1$ 轴转动，角速度与角加速度分别为 $\\omega$ 与 $\\alpha$，则该瞬时 $AB$ 杆应加的惯性力大小为______，方向应标明在图上。</p>",
+  "answer": "<p>$F_I=mR\\sqrt{\\omega^4+\\alpha^2}$</p>",
+  "explanation": "<p>【AI 生成】因 $O_1A=O_2B$、$O_1O_2=l=AB$，$AB$ 杆作平动，其加速度等于 $A$ 点加速度。$A$ 点有向心加速度 $R\\omega^2$（指向 $O_1$）和切向加速度 $R\\alpha$（垂直于 $O_1A$），故 $|a_A|=R\\sqrt{\\omega^4+\\alpha^2}$，惯性力 $F_I=ma_A=mR\\sqrt{\\omega^4+\\alpha^2}$，作用于杆的质心，方向与 $a_A$ 相反。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

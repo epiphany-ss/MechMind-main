@@ -1,0 +1,19 @@
+{
+  "id": "q_109",
+  "overview": "求t=1s时惯性力系向O简化的主矢主矩",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>质量 $m=1\\text{kg}$、长 $l=1\\text{m}$ 的均质细杆在铅直面内绕其一端 $O$ 按规律 $\\varphi=2t^3-t^2$ 转动，$t$ 以 s 计，$\\varphi$ 以 rad 计，则 $t=1\\text{s}$ 时，该杆的惯性力系向点 $O$ 简化的主矢和主矩的大小分别等于______和______。</p>",
+  "answer": "<p>主矢：$\\sqrt{89}\\,\\text{N}\\approx 9.43\\,\\text{N}$；主矩：$\\dfrac{10}{3}\\,\\text{N}\\cdot\\text{m}\\approx 3.33\\,\\text{N}\\cdot\\text{m}$</p>",
+  "explanation": "<p>【AI 生成】由 $\\varphi=2t^3-t^2$ 得 $\\omega=\\dot{\\varphi}=6t^2-2t$、$\\alpha=\\ddot{\\varphi}=12t-2$，$t=1\\text{s}$ 时 $\\omega=4\\,\\text{rad/s}$、$\\alpha=10\\,\\text{rad/s}^2$。向 $O$ 点简化：主矢 $F_I=m\\dfrac{l}{2}\\sqrt{\\omega^4+\\alpha^2}=\\dfrac{1}{2}\\sqrt{256+100}=\\sqrt{89}\\,\\text{N}$；主矩 $M_O=\\dfrac{1}{3}ml^2\\alpha=\\dfrac{1}{3}\\times1\\times10=\\dfrac{10}{3}\\,\\text{N}\\cdot\\text{m}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:39",
+  "updated": "2026-08-07 18:39",
+  "source": "练习册"
+}

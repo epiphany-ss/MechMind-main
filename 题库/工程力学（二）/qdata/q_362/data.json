@@ -1,0 +1,18 @@
+{
+  "id": "q_362",
+  "overview": "判断由直角坐标运动方程确定速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>已知直角坐标描述的点的运动方程为 $x=f_1(t),\\ y=f_2(t),\\ z=f_3(t)$，则任一瞬时点的速度、加速度即可确定。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】由 $v_x=\\dot x,\\ v_y=\\dot y,\\ v_z=\\dot z$ 和 $a_x=\\ddot x$ 等，任一瞬时的速度和加速度均可由运动方程求导得到。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_464",
+  "overview": "求滑块机构中AB杆与CD杆的角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>在图示系统中，滑块A以匀速度 $v_A=1\\,\\text{m/s}$ 向下运动，杆CD长1m。当 $\\alpha=45^\\circ$ 且杆CD水平时，AB杆的角速度 $\\omega_{AB}=\\underline{\\qquad}\\,\\text{rad/s}$，CD杆的角速度 $\\omega_{CD}=\\underline{\\qquad}\\,\\text{rad/s}$。</p>\n<p>(A) 0；&nbsp;&nbsp;(B) 0.5；&nbsp;&nbsp;(C) 1.0；&nbsp;&nbsp;(D) 2。</p><img src=\"qdata/q_464/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=0$（选A）；$\\omega_{CD}=1.0\\,\\text{rad/s}$（选C）。</p>",
+  "explanation": "<p>【AI 生成】滑块A沿铅垂导槽以 $v_A=1\\,\\text{m/s}$ 向下运动；B为AB杆与CD杆的铰接点，CD杆水平且绕C转动，故 $v_B$ 垂直于CD（铅垂）。AB杆与水平成 $\\alpha=45^\\circ$，由速度投影定理沿AB方向：$v_A\\cos45^\\circ=v_B\\cos45^\\circ$，得 $v_B=v_A=1\\,\\text{m/s}$。<br>A、B两点速度均为铅垂方向且大小相等，故AB杆该瞬时作瞬时平动，$\\omega_{AB}=0$。<br>又CD杆绕C转动，$CB=CD=1$m（B为CD杆端点），故 $\\omega_{CD}=\\dfrac{v_B}{CB}=\\dfrac{1}{1}=1.0$ rad/s。即 $\\omega_{AB}$ 取(A)0，$\\omega_{CD}$ 取(C)1.0。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51"
+}

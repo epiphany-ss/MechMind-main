@@ -1,0 +1,20 @@
+{
+  "id": "q_310",
+  "overview": "求矩形板支座A、E的约束力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "约束与约束反力"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>矩形板 ABCD 支承如图示，自重不计，E 处为固定端约束，D、A 为光滑铰链，A、D 分别由二力杆 AE、DE 与固定端 E 相连。已知：$q=20$kN/m，$M=50$kN·m，$F=10$kN，AD=4m，AB=1m，E 位于 AD 中点正下方 1m。试求 A、E 处约束力。</p><img src=\"qdata/q_310/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$R_A=25$kN（↑），$R_{Ax}=-10$kN；二力杆 DE 内力 $N=55$kN；E 处约束力 $F_{Ex}=10$kN，$F_{Ey}=25$kN。</p>",
+  "explanation": "<p>【AI 生成】取矩形板为研究对象。$q$ 合力 $Q=q\\cdot4=80$kN 作用于 BC 中点，F=10kN 水平作用于 C。设 A 处反力 $R_{Ax},R_{Ay}$，D 处链杆反力 N（铅垂）。$\\sum F_x=0$：$R_{Ax}+10=0\\Rightarrow R_{Ax}=-10$kN。$\\sum M_A=0$：$-80\\times2-10\\times1-M+4N=0\\Rightarrow N=55$kN。$\\sum F_y=0$：$R_{Ay}+55-80=0\\Rightarrow R_{Ay}=25$kN。E 为固定端，二力杆 DE 传力 55kN，故 E 处约束力与杆端力平衡：$F_{Ex}=10$kN，$F_{Ey}=25$kN。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46"
+}

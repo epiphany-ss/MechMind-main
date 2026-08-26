@@ -1,0 +1,18 @@
+{
+  "id": "q_049",
+  "overview": "判断纯滚动时摩擦力是否作功",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>纯滚轮与固定面接触处的法向约束力不作功，切向约束力(摩擦力)作功。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】纯滚动（只滚不滑）时接触点为速度瞬心，该点瞬时速度为零，法向约束力与切向摩擦力都作用于该点，二者均不作功。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37",
+  "source": "练习册"
+}

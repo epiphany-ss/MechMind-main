@@ -1,0 +1,23 @@
+{
+  "id": "q_198",
+  "overview": "求圆管内小球阻尼振动的运动规律",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动",
+    "质点动力学"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>半径 $r=49\\,\\mathrm{cm}$ 的圆管位于铅垂面中，管内放一质量为 $m$ 的小球，该球在平衡位置 A 获得初速度 $v_0=20\\,\\mathrm{cm/s}$，如图示，而后作微振动。设运动时的阻力 $F_R=-4mv$，$v$ 为小球的速度。试求小球的运动规律。</p><img src=\"qdata/q_198/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>角位移 $\\theta(t)=0.102\\,e^{-2t}\\sin(4t)\\,\\mathrm{rad}$，即沿管弧长 $s(t)=5e^{-2t}\\sin(4t)\\,\\mathrm{cm}$</p>",
+  "explanation": "<p>【AI 生成】小球在竖直圆管内沿圆弧运动，相当于摆长为 $r$ 的单摆。取角位移 $\\theta$（自最低点 A 计），切向运动方程为$$mr\\ddot{\\theta}=-mg\\sin\\theta-F_R=-mg\\theta-4mr\\dot{\\theta}$$即$$\\ddot{\\theta}+4\\dot{\\theta}+\\frac{g}{r}\\theta=0$$代入 $r=0.49\\,\\mathrm{m}$、$g=9.8\\,\\mathrm{m/s^2}$，得 $\\ddot{\\theta}+4\\dot{\\theta}+20\\theta=0$，故 $n=2\\,\\mathrm{s^{-1}}$，$\\omega_n=\\sqrt{20}=4.47\\,\\mathrm{rad/s}$，阻尼固有频率 $\\omega_d=\\sqrt{\\omega_n^2-n^2}=\\sqrt{20-4}=4\\,\\mathrm{rad/s}$。初条件 $\\theta(0)=0$，$\\dot{\\theta}(0)=v_0/r=0.2/0.49=0.408\\,\\mathrm{rad/s}$，通解 $\\theta(t)=e^{-2t}(C_1\\cos4t+C_2\\sin4t)$，代入得 $C_1=0$，$C_2=\\dot{\\theta}(0)/4=0.102$，故$$\\theta(t)=0.102\\,e^{-2t}\\sin(4t)\\,\\mathrm{rad}$$$$s(t)=r\\theta(t)=0.49\\times0.102\\,e^{-2t}\\sin(4t)=5e^{-2t}\\sin(4t)\\,\\mathrm{cm}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "求圆管内小球阻尼振动的运动规律",
+  "module": "动力学"
+}

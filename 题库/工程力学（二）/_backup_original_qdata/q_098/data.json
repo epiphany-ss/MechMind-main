@@ -1,0 +1,17 @@
+{
+  "id": "q_098",
+  "overview": "判断平面运动刚体惯性力系合力位置",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "达朗贝尔原理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "medium",
+  "content": "<p>平面运动刚体上惯性力系的合力必作用在刚体的质心上。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】平面运动刚体的惯性力系向质心 $C$ 简化，得到过质心的主矢 $F_I=-ma_C$ 和一个惯性力偶 $M_{IC}=-J_C\\alpha$；当 $\\alpha\\neq 0$ 时还存在力偶，不能合并为一个过质心的合力，故原说法错误。</p>",
+  "media": [],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38"
+}

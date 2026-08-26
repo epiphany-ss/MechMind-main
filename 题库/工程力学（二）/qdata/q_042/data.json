@@ -1,0 +1,19 @@
+{
+  "id": "q_042",
+  "overview": "判断动能改变时动量是否必变",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>任何一个质量不变的质点，其动能发生改变时，质点的动量不一定变化。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】质点动能 $T=\\frac12mv^2$ 改变意味着速率 $v$ 改变，而动量大小 $p=mv$ 也随之改变，故动能改变时动量必然变化。</p>",
+  "media": [],
+  "created": "2026-08-07 18:36",
+  "updated": "2026-08-07 18:36",
+  "source": "练习册"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_160",
+  "overview": "三杆机构平衡时弹簧的拉力",
+  "subject": "理论力学",
+  "category": "分析力学",
+  "knowledge_points": [
+    "虚位移原理",
+    "广义坐标"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>结构如图，已知：A、$O_1$ 和 $O_2$ 三点位于同一直线上，$AO_1=O_1O_2$，$\\angle O_1AB=\\beta$，$\\angle ABO_2=90^\\circ$。杆 $O_1A$、AB 和 $O_2B$ 均为匀质细杆，重各为 $F_1$、$F_2$、$F_3$。试用虚位移原理求系统在图示位置平衡时弹簧的拉力。</p>",
+  "answer": "<p>$T=\\dfrac{F_1}{2}\\tan\\beta+F_2\\dfrac{\\cos\\beta}{2}+F_3\\dfrac{\\cos\\beta}{2}$（按弹簧连接 A、B 计，具体符号依图而定）</p>",
+  "explanation": "<p>【AI 生成】取 $\\beta$ 为广义坐标（图示位置 $AO_1=O_1O_2=d$，由 $\\angle O_1AB=\\beta$、$\\angle ABO_2=90^\\circ$ 得 $AB=d\\cos\\beta$、$O_2B=d\\sin\\beta$）。写出各杆重心及弹簧连接点的坐标并对 $\\beta$ 取变分，得各主动力（杆重 $F_1,F_2,F_3$）作用点的铅垂虚位移及弹簧长度变化 $\\delta l$。虚功方程 $F_1\\,\\delta y_{G1}+F_2\\,\\delta y_{G2}+F_3\\,\\delta y_{G3}+T\\,\\delta l=0$，代入几何关系即可解出弹簧拉力 $T$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:40",
+  "updated": "2026-08-07 18:40"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_508",
+  "overview": "导槽销子机构求M的速度和加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "科氏加速度"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>导槽AB与CD之间有一销子M，导槽AB运动时，带动销子M在铅垂固定导槽CD内运动，如图所示。已知：$O_1A＝O_2B＝r＝20$cm，且 $O_1A$ 与 $O_2B$ 平行，$O_1A$ 以 $\\phi=\\phi_0\\cos pt$（弧度）的规律左右摆动，其中 $\\phi_0=\\pi/3$，$p=1\\,\\text{rad/s}$，t以s计。试求当 $\\phi=\\pi/6$ 时，M在导槽CD中运动的速度和加速度。</p><img src=\"qdata/q_508/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_M=r\\dot\\phi=r(-p\\phi_0\\sin pt)$；$a_M=-r(p^2\\phi_0\\cos pt)$（代入 $\\phi=\\pi/6$ 时刻）。</p>",
+  "explanation": "<p>【AI 生成】导槽AB随平行四边形机构（$O_1A$∥$O_2B$）作平动，AB上各点速度相同。<br>（1）$\\phi=\\phi_0\\cos pt$，$\\dot\\phi=-p\\phi_0\\sin pt$，$\\ddot\\phi=-p^2\\phi_0\\cos pt$。当 $\\phi=\\pi/6=\\phi_0\\cos pt$，$\\cos pt=1/2$，$\\sin pt=\\sqrt3/2$。<br>（2）AB平动，$v_e=r\\dot\\phi$（水平），$a_e=r\\ddot\\phi$。<br>（3）M在铅垂导槽CD内运动，$v_M$ 铅垂。$v_M=v_e+v_r$，$v_r$ 沿AB（水平），故 $v_M$ 的铅垂分量由 $v_r$ 提供：$v_M=v_r\\sin\\phi=v_e\\tan\\phi=r\\dot\\phi\\tan\\phi$。代入数值得 $v_M=20\\times(-\\sqrt3/2)\\times(1/\\sqrt3)=-10$ cm/s。<br>（4）加速度：M在CD中铅垂运动，由加速度合成与 $a_C=2\\omega\\times v_r$（AB平动，$\\omega=0$，$a_C=0$）求解。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "q_094",
+  "overview": "杆自铅垂倒下求角速度角加速度与摩擦系数",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "达朗贝尔原理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：匀质细杆 $AB$ 长 $L$、重为 $Q$，由铅垂位置绕 $A$ 端自由倒下。试求：(1) 杆 $AB$ 的角速度和角加速度（$A$ 点不滑动前的）；(2) 假定 $\\beta=60^\\circ$ 时 $A$ 端将开始滑动，此时杆与水平面之间的动摩擦系数 $f'$。</p><img src=\"qdata/q_094/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=\\sqrt{\\dfrac{3g(1-\\cos\\beta)}{L}}$，$\\alpha=\\dfrac{3g\\sin\\beta}{2L}$；$f'=\\dfrac{\\dfrac L2(\\omega^2\\sin\\beta-\\alpha\\cos\\beta)}{g-\\dfrac L2(\\alpha\\sin\\beta+\\omega^2\\cos\\beta)}$，代入 $\\beta=60^\\circ$ 得 $f'=3\\sqrt3\\approx5.20$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) $A$ 未滑动时杆绕 $A$ 转动，$J_A=\\frac13\\frac{Q}{g}L^2$，质心下降 $\\frac L2(1-\\cos\\beta)$。机械能守恒：$\\frac12J_A\\omega^2=Q\\frac L2(1-\\cos\\beta)\\Rightarrow \\omega=\\sqrt{\\dfrac{3g(1-\\cos\\beta)}{L}}$；对 $\\beta$ 求导 $\\alpha=\\dfrac{3g\\sin\\beta}{2L}$。<br>(2) 质心加速度 $a_{Cx}=\\frac L2(\\alpha\\cos\\beta-\\omega^2\\sin\\beta)$，$a_{Cy}=-\\frac L2(\\alpha\\sin\\beta+\\omega^2\\cos\\beta)$。$A$ 处反力 $R_x=\\frac{Q}{g}a_{Cx}$，$R_y=Q+\\frac{Q}{g}a_{Cy}$。滑动临界 $|R_x|=f'R_y$。代入 $\\beta=60^\\circ$（$\\omega^2=\\frac{3g}{2L}$，$\\alpha=\\frac{3\\sqrt3g}{4L}$）得 $R_x=-\\frac{3\\sqrt3}{16}Q$，$R_y=\\frac{Q}{16}$，故 $f'=\\dfrac{|R_x|}{R_y}=3\\sqrt3\\approx5.20$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "杆自铅垂倒下求角速度角加速度与摩擦系数",
+  "module": "动力学"
+}

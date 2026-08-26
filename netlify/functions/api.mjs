@@ -330,9 +330,12 @@ export default async function handler(req) {
       users = users.map(u => ({
         id: u.id, name: u.name, student_id: u.student_id, role: u.role, created: u.created
       }));
-      // Always include embedded admin
-      if (!users.some(u => u.student_id === "202509020109")) {
-        users.push({ id: "u_001", name: "刘丰源", student_id: "202509020109", role: "admin", created: "2026-07-01" });
+      // Always ensure embedded admin (孙晞凯) is present AND has admin role
+      const adminIdx = users.findIndex(u => u.student_id === "202501040104");
+      if (adminIdx >= 0) {
+        users[adminIdx].role = "admin";
+      } else {
+        users.push({ id: "u_001", name: "孙晞凯", student_id: "202501040104", role: "admin", created: "2026-07-01" });
       }
       return json({ ok: true, users });
     }

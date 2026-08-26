@@ -1,0 +1,21 @@
+{
+  "id": "q_207",
+  "overview": "子弹射入悬挂木杆后的角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "碰撞",
+    "动量矩定理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>一质量为 $m$ 的子弹 $A$，以速度 $v_A$ 水平射入一铅垂悬挂的均质木杆 $OB$ 的中点，并留在杆内。木杆的质量为 $M$，长 $L$，初始静止。则子弹射入后木杆的角速度为____。</p>",
+  "answer": "<p>$\\omega=\\dfrac{6mv_A}{(4M+3m)L}$</p>",
+  "explanation": "<p>【AI 生成】碰撞过程中杆绕 $O$ 轴转动，对 $O$ 轴动量矩守恒。碰前系统对 $O$ 的动量矩为 $mv_A\\cdot\\frac L2$；碰后子弹留在杆中点，$J_O=\\frac13 ML^2+m(\\frac L2)^2=\\frac13 ML^2+\\frac14 mL^2$。由 $mv_A\\frac L2=J_O\\,\\omega$ 解得 $\\omega=\\dfrac{mv_A\\frac L2}{(\\frac M3+\\frac m4)L^2}=\\dfrac{6mv_A}{(4M+3m)L}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "子弹射入悬挂木杆后的角速度",
+  "module": "动力学"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_055",
+  "overview": "两自由度弹簧质量系统总势能",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "机械能守恒",
+    "振动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>一质量弹簧系统铅垂悬挂如图所示。若取系统的静平衡位置为零势能位置，物体各自离开静平衡位置的位移为 $x_1$ 和 $x_2$，则系统总势能为____。<br>(A) $m_1gx_1+m_2gx_2+\\frac12k_1x_1^2+\\frac12k_2x_2^2$；<br>(B) $\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$；<br>(C) $m_1gx_1+m_2g(x_2-x_1)+\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$；<br>(D) $\\frac12k_1x_1^2+\\frac12k_2x_2^2$。</p>",
+  "answer": "<p>B</p>",
+  "explanation": "<p>【AI 生成】以静平衡位置为零势能点，重力势能与弹簧弹性势能的线性项在平衡位置相互抵消（$\\partial V/\\partial x_1=\\partial V/\\partial x_2=0$），只剩二次项：弹簧1变形增量 $x_1$，弹簧2变形增量 $x_2-x_1$，故 $V=\\frac12k_1x_1^2+\\frac12k_2(x_2-x_1)^2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

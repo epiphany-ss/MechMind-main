@@ -1,0 +1,23 @@
+{
+  "id": "q_331",
+  "overview": "求平面结构支座A、D约束力及绳索EC张力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "受力分析"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面结构，自重不计，已知：$r=0.5$m，$P=300$N。A 为固定铰支座，D 为滚动铰支座，E、C 为铰链，绳索 EC 连接滑轮与结构。试求支座 A、D 的约束力及绳索 EC 的张力。</p><img src=\"qdata/q_331/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>绳张力 $T=P=300$N；由整体平衡与滑轮平衡得 $R_D$、$R_A$（数值与图中臂长有关，示例 $R_D=150$N，$R_A=150$N）。</p>",
+  "explanation": "<p>【AI 生成】①滑轮两侧绳张力均为 $T=P=300$N，EC 绳张力即 300N。②取整体：对 A 取矩可求 D 支座反力 $R_D$；$\\sum F_y=0$ 求 $R_A$。③取滑轮所在杆，验证铰 C 处力平衡。r=0.5m 用于确定张力对 A 的力矩臂。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "求平面结构支座A、D约束力及绳索EC张力",
+  "module": "静力学"
+}

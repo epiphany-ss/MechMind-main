@@ -1,0 +1,23 @@
+{
+  "id": "q_087",
+  "overview": "圆盘纯滚动与轮O常力偶求角加速度与力",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>在图示机构中，已知：匀质圆盘 $A$ 重为 $P$，匀质轮 $O$ 重为 $Q$，半径均为 $R$，斜面的倾角为 $\\beta$，圆盘 $A$ 沿斜面作纯滚动，轮 $O$ 上作用一力偶矩为 $M$ 的常值力偶。试求：(1) 轮 $O$ 的角加速度 $\\alpha$；(2) 绳的拉力 $T$（表示成角速度 $\\alpha$ 的函数）；(3) 圆盘与斜面间的摩擦力 $F$（表示成角加速度 $\\alpha$ 的函数）。</p><img src=\"qdata/q_087/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\alpha=\\dfrac{2g(M-PR\\sin\\beta)}{R^2(3P+Q)}$；$T=\\dfrac{M}{R}-\\dfrac{QR\\alpha}{2g}$；$F=\\dfrac{PR\\alpha}{2g}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 两轮以同一绳相连，$v_A=R\\omega$，$\\omega_O=\\omega_A=\\omega$。<br>(2) 动能：$T=\\frac12\\cdot\\frac12\\frac{Q}{g}R^2\\omega^2+\\frac12\\cdot\\frac12\\frac{P}{g}R^2\\omega^2+\\frac12\\frac{P}{g}(R\\omega)^2=\\dfrac{(3P+Q)R^2}{4g}\\omega^2$。<br>(3) 功率：$P_m=M\\omega-P\\sin\\beta\\,v_A=\\omega(M-PR\\sin\\beta)$。由 $\\dfrac{dT}{dt}=P_m$：$\\alpha=\\dfrac{2g(M-PR\\sin\\beta)}{R^2(3P+Q)}$。<br>(4) 对轮 $O$：$\\frac12\\frac{Q}{g}R^2\\alpha=M-TR\\Rightarrow T=\\dfrac{M}{R}-\\dfrac{QR\\alpha}{2g}$。<br>(5) 对圆盘 $A$：$\\frac12\\frac{P}{g}R^2\\alpha=FR\\Rightarrow F=\\dfrac{PR\\alpha}{2g}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:38",
+  "updated": "2026-08-07 18:38",
+  "source": "练习册",
+  "title": "圆盘纯滚动与轮O常力偶求角加速度与力",
+  "module": "动力学"
+}

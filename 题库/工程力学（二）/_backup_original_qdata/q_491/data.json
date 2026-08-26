@@ -1,0 +1,20 @@
+{
+  "id": "q_491",
+  "overview": "摇杆机构求OC杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>一机构如图所示，已知：AE＝EB＝L，在图示瞬时 $\\phi=60^\\circ$，滑块A的速度为 $v_A$。试求该瞬时摇杆OC的角速度 $\\omega$。</p><img src=\"qdata/q_491/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega=\\dfrac{v_A}{OC}$（由几何代入 $OC$ 与 $\\phi$）。</p>",
+  "explanation": "<p>【AI 生成】取滑块A为动点，摇杆OC为动系。<br>（1）$v_A$ 为已知（沿水平导槽），$v_A=v_e+v_r$，$v_r$ 沿OC方向，$v_e=\\omega\\cdot OA$ 垂直于OC。<br>（2）AE＝EB＝L，$\\phi=60^\\circ$，几何确定A点到O的距离OA及OC位置。<br>（3）将 $v_A$ 向垂直于OC方向投影：$v_A\\cos\\alpha=v_e=\\omega\\cdot OA$，故 $\\omega=\\dfrac{v_A\\cos\\alpha}{OA}$。代入几何尺寸即可。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

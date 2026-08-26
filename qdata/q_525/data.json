@@ -1,0 +1,20 @@
+{
+  "id": "q_525",
+  "overview": "由直线运动规律求作用力及其极小值",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "质点动力学"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>质量 $m=0.1\\,\\mathrm{kg}$ 的质点按 $x=t^4-12t^3+60t^2$ 的规律作直线运动，其中 $x$ 以 $\\mathrm{m}$ 计，$t$ 以 $\\mathrm{s}$ 计。则作用于质点上的力为 ____，当 $t=$ ____ $\\mathrm{s}$ 时，该力达到极小值 ____。</p>",
+  "answer": "<p>$F=(1.2t^2-7.2t+12)\\,\\mathrm{N}$；$t=3\\,\\mathrm{s}$；$F_{\\min}=1.2\\,\\mathrm{N}$</p>",
+  "explanation": "<p>【AI 生成】由 $x=t^4-12t^3+60t^2$ 求导得 $\\ddot{x}=12t^2-72t+120$，故 $F=m\\ddot{x}=0.1(12t^2-72t+120)=1.2t^2-7.2t+12\\,\\mathrm{N}$。令 $F'(t)=2.4t-7.2=0$，得 $t=3\\,\\mathrm{s}$，此时 $F_{\\min}=1.2\\times9-7.2\\times3+12=1.2\\,\\mathrm{N}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:53",
+  "updated": "2026-08-07 18:53",
+  "source": "练习册",
+  "title": "由直线运动规律求作用力及其极小值",
+  "module": "动力学"
+}

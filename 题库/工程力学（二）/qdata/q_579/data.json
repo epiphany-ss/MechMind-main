@@ -1,0 +1,18 @@
+{
+  "id": "q_579",
+  "overview": "用平行轴定理求物体对B轴的转动惯量",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "easy",
+  "content": "<p>一物体的质量为M，已知该物体对通过点A、且垂直于图面的轴的转动惯量为$J_A$，C为物体质心。AC＝a，BC＝b，AB＝d，则该物体对通过点B且垂直于图面的轴的转动惯量$J_B$＝____。</p>",
+  "answer": "<p>$J_B=J_A+M(b^2-a^2)$</p>",
+  "explanation": "<p>【AI 生成】设对过质心C之轴的转动惯量为$J_C$，由平行轴定理$J_A=J_C+Ma^2$，$J_B=J_C+Mb^2$，两式相减得$J_B=J_A+M(b^2-a^2)$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册"
+}

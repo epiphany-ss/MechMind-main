@@ -1,0 +1,16 @@
+{
+  "overview": "求力系向点O简化的主矢、主矩及合力位置",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>图中，已知 $F_1=150\\ \\mathrm{N}$，$F_2=200\\ \\mathrm{N}$，$F_3=300\\ \\mathrm{N}$，$F=F'=200\\ \\mathrm{N}$。求力系向点O简化的结果；并求力系合力的大小及其与原点O的距离 $d$。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>主矢 $F_R'=466.5\\ \\mathrm{N}$，主矩 $M_O=21.44\\ \\mathrm{N\\cdot m}$（逆时针）；合力 $F_R=466.5\\ \\mathrm{N}$，位于原点O的左侧上方，距原点O的距离 $d=\\frac{M_O}{F_R}=\\frac{21.44\\ \\mathrm{N\\cdot m}}{466.5\\ \\mathrm{N}}=0.0459\\ \\mathrm{m}=4.59\\ \\mathrm{cm}$。</p>",
+  "explanation": "<p>解：</p><p>（1）求合力 $F_R$ 的大小。</p><p>$$\\sum F_x=-F_1\\times\\frac{1}{\\sqrt{2}}-F_2\\times\\frac{1}{\\sqrt{10}}-F_3\\times\\frac{2}{\\sqrt{5}}=-150\\times\\frac{1}{\\sqrt{2}}-200\\times\\frac{1}{\\sqrt{10}}-300\\times\\frac{2}{\\sqrt{5}}=-437.62\\ \\mathrm{N}$$</p><p>$$\\sum F_y=-F_1\\times\\frac{1}{\\sqrt{2}}-F_2\\times\\frac{3}{\\sqrt{10}}+F_3\\times\\frac{1}{\\sqrt{5}}=-150\\times\\frac{1}{\\sqrt{2}}-200\\times\\frac{3}{\\sqrt{10}}+300\\times\\frac{1}{\\sqrt{5}}=-161.62\\ \\mathrm{N}$$</p><p>主矢</p><p>$$F_R'=\\sqrt{(\\sum F_x)^2+(\\sum F_y)^2}=\\sqrt{437.62^2+161.62^2}=466.5\\ \\mathrm{N}$$</p><p>（2）求主矩。</p><p>$$M_O=F_1\\times\\frac{0.10}{\\sqrt{2}}\\ \\mathrm{m}+F_3\\times\\frac{0.20}{\\sqrt{5}}\\ \\mathrm{m}-F\\times0.08\\ \\mathrm{m}=150\\times\\frac{0.10}{\\sqrt{2}}+300\\times\\frac{0.20}{\\sqrt{5}}-200\\times0.08=21.44\\ \\mathrm{N\\cdot m}$$（逆时针）</p><p>合力 $F_R$ 在原点O的左侧上方，如图所示，且 $F_R=F_R'=466.5\\ \\mathrm{N}$。</p><p>（3）求距离 $d$。</p><p>$$d=\\frac{M_O}{F_R}=\\frac{21.44\\ \\mathrm{N\\cdot m}}{466.5\\ \\mathrm{N}}=0.0459\\ \\mathrm{m}=4.59\\ \\mathrm{cm}$$</p><img src=\"[[FIG1]]\">",
+  "figures": [
+    "题库/qbank2_figs/q5_0.jpeg",
+    "题库/qbank2_figs/q5_1.png"
+  ]
+}

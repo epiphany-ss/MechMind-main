@@ -1,0 +1,19 @@
+{
+  "id": "q_075",
+  "overview": "圆盘安装杆上由60°放下求角速度",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动能定理",
+    "转动惯量",
+    "机械能守恒"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>质量为 $10\\,\\mathrm{kg}$ 的均质圆盘安装在质量为 $5\\,\\mathrm{kg}$ 的均质杆 $AB$ 的 $A$ 端。若当 $\\theta=60^\\circ$ 时从静止状态放开，假设圆盘只滚不滑，求当 $\\theta=0^\\circ$ 时杆 $AB$ 的角速度。沿导杆的摩擦和滑块 $B$ 的质量均忽略不计。杆 $AB$ 长 $L=0.6\\,\\mathrm{m}$，圆盘半径 $r=0.1\\,\\mathrm{m}$。</p>",
+  "answer": "<p>$\\omega_{AB}=6.52\\,\\mathrm{rad/s}$</p>",
+  "explanation": "<p>【AI 生成】<br>(1) 取 $\\theta=60^\\circ$ 释放，质心下降。杆 $AB$ 绕 $B$ 转动，圆盘随 $A$ 端平动并沿固定面纯滚动（圆盘角速度 $\\omega_d=\\dfrac{v_A}{r}=\\dfrac{L\\omega_{AB}}{r}$）。<br>(2) 动能：$T=\\frac12\\cdot\\frac{m_1L^2}{3}\\omega_{AB}^2+\\frac12m_2v_A^2+\\frac12\\cdot\\frac12m_2r^2\\omega_d^2$，其中 $m_1=5\\,\\mathrm{kg}$（杆）、$m_2=10\\,\\mathrm{kg}$（盘）。<br>(3) 质心下降高度 $\\Delta h=\\frac L2\\sin60^\\circ$。机械能守恒：$T=(m_1\\frac L2+m_2L)g\\sin60^\\circ$。<br>(4) 代入数据解得 $\\omega_{AB}=6.52\\,\\mathrm{rad/s}$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:37",
+  "updated": "2026-08-07 18:37"
+}

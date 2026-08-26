@@ -1,0 +1,20 @@
+{
+  "id": "q_380",
+  "overview": "判断杆端加速度各情况下的角速度与角加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>杆 OA 绕定轴 O 转动，某瞬时杆端 A 点的加速度 $a$ 分别如图(a)、(b)、(c)所示。则该瞬时 的角速度为零， 的角加速度为零。</p><p>(A) 图(a)系统； (B) 图(b)系统； (C) 图(c)系统。</p>",
+  "answer": "<p>角速度为零：图(a)（A）；角加速度为零：图(c)（C）</p>",
+  "explanation": "<p>【AI 生成】$a_n=\\omega^2\\cdot OA$ 沿杆指向 O，$a_\\tau=\\alpha\\cdot OA$ 垂直于杆。图(a)中 $a$ 垂直于杆，$a_n=0$，故 $\\omega=0$；图(c)中 $a$ 沿杆指向 O，$a_\\tau=0$，故 $\\alpha=0$；图(b)中 $a$ 与杆成角，二者均不为零。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "判断杆端加速度各情况下的角速度与角加速度",
+  "module": "运动学"
+}

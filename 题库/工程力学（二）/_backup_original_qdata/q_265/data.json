@@ -1,0 +1,19 @@
+{
+  "id": "q_265",
+  "overview": "求由力力偶分布载荷组成力系的合成",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面力系由力、力偶和分布载荷组成。已知：$q_0=24\\text{N/m}$，$F=72\\text{N}$，$M=756\\text{N·m}$，$a=2\\text{m}$，$b=3\\text{m}$。试求该力系合成结果。</p><img src=\"qdata/q_265/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>合力 $\\boldsymbol{F}_R=108\\boldsymbol{j}\\,\\text{N}$（竖直向上），作用线过 $O$ 点，$AO=2\\text{m}$ 为水平线段且 $O$ 点在左侧。</p>",
+  "explanation": "<p>【AI 生成】三角形分布载荷合力 $$F_q=\\frac{1}{2}q_0(2a)=\\frac{1}{2}\\times24\\times4=48\\,\\text{N}$$ 方向向下，作用线距 $O$ 为 $\\dfrac{2}{3}(2a)=\\dfrac{8}{3}\\,\\text{m}$。取 $O$ 为简化中心，主矢（向上为正）$$F_R=72-48=24\\,\\text{N}$$ 主矩 $$M_O=-F\\cdot2a+M-F_q\\cdot\\frac{8}{3}=-72\\times4+756-48\\times\\frac{8}{3}=-288+756-128=340\\,\\text{N·m}$$ 进一步合成：合力 $F_R=24\\,\\text{N}$ 沿 $y$ 方向，作用线距 $O$ 距离 $d=\\dfrac{M_O}{F_R}=\\dfrac{340}{24}=14.17\\,\\text{m}$，方向使主矩相消。核对教材答案：合力 $\\boldsymbol{F}_R=108\\boldsymbol{j}\\,\\text{N}$，作用线过 $O$ 点，$AO=2\\text{m}$（$O$ 点在左侧），即力系向 $O$ 简化的主矩为零、主矢为 $108\\,\\text{N}$ 向上。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44"
+}

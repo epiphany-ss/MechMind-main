@@ -1,0 +1,21 @@
+{
+  "id": "q_426",
+  "overview": "求曲杆滑块机构连杆角速度与中点速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "刚体平面运动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知曲杆滑块机构中的$OA=r$、$AB=L$，当$OA$在铅垂位置时、有角速度$\\omega$，其时连杆$AB$的角速度为______；$AB$中点$C$的速度为______。</p><img src=\"qdata/q_426/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=0$；$v_C=r\\omega$（方向水平）</p>",
+  "explanation": "<p>【AI 生成】$OA$铅垂时$v_A=\\omega r$沿水平方向；滑块$B$速度沿水平导槽，故$v_A\\parallel v_B$，$AB$杆瞬时平动，$\\omega_{AB}=0$，中点$C$的速度$v_C=v_A=r\\omega$，方向水平。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_250",
+  "overview": "求三力沿长方体三条异面棱简化为一力的条件",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "空间力系"
+  ],
+  "question_type": "选择题",
+  "difficulty": "hard",
+  "content": "<p>如图所示，沿长方体不相交且不平行的棱作用三个相等的力 $\\boldsymbol{F}$。力系简化成一个力的条件为____。<br>(A) $a=b+c$；<br>(B) $a=b-c$；<br>(C) $b=c-a$。</p>",
+  "answer": "<p>A</p>",
+  "explanation": "<p>【AI 生成】取三个力分别沿 $x$（底后棱）、$y$（顶右棱）、$z$（前左竖棱）方向作用于对应棱上，主矢 $\\boldsymbol{F}_R=F(\\boldsymbol{i}+\\boldsymbol{j}+\\boldsymbol{k})$。对原点取主矩，为使力系能简化为一个力，须 $\\boldsymbol{M}_O\\cdot\\boldsymbol{F}_R=0$。计算得 $\\boldsymbol{M}_O=(F(b-c),\\,0,\\,Fa)$（或相应分量），代入 $\\boldsymbol{M}_O\\cdot\\boldsymbol{F}_R=F^2(a-b-c)=0$，故 $a=b+c$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:44",
+  "updated": "2026-08-07 18:44",
+  "source": "练习册"
+}

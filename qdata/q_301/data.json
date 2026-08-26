@@ -1,0 +1,21 @@
+{
+  "id": "q_301",
+  "overview": "求杆AC、BC中点受力时杆AB的受力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系",
+    "桁架"
+  ],
+  "question_type": "填空题",
+  "difficulty": "hard",
+  "content": "<p>结构自重不计，杆 AC、BC 的中点各作用一铅垂向下的力 F，则杆 AB 所受的力为____。</p>",
+  "answer": "<p>$\\dfrac{F}{2}$（杆 AB 受拉力）。</p>",
+  "explanation": "<p>【AI 生成】设 $\\alpha$ 为 AC（或 BC）与水平线的夹角。取整体由对称性知 A、B 支座反力各为 $F$（向上）。对节点 A 平衡，杆 AB 的水平分力与 AC 传来的水平分力平衡；由中间铰 C 处竖向平衡及杆 AC 对 A 的竖向分量 $F/2$，可得杆 AB 内力为 $F/(2\\tan\\alpha)$，当 $\\alpha=45°$ 时为 $F/2$。</p>",
+  "media": [],
+  "created": "2026-08-07 18:45",
+  "updated": "2026-08-07 18:45",
+  "source": "练习册",
+  "title": "求杆AC、BC中点受力时杆AB的受力",
+  "module": "静力学"
+}

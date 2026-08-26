@@ -1,0 +1,21 @@
+{
+  "id": "q_435",
+  "overview": "求行星轮系齿轮Ⅱ的角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "速度瞬心",
+    "刚体平面运动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>图示行星轮系，齿轮Ⅱ的半径为$R$，长为$1.5R$的$OA$杆以角速度$\\omega$绕$O$轴逆时针转动，内齿轮Ⅰ以$\\omega_1=0.5\\omega$绕$O$轴顺时针转动。试求齿轮Ⅱ的角速度。</p><img src=\"qdata/q_435/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{II}=2.75\\omega$（转向为顺时针）</p>",
+  "explanation": "<p>【AI 生成】内齿轮Ⅰ半径$R_1=OA+R=1.5R+R=2.5R$。<br>$A$点速度：$v_A=1.5R\\omega$；啮合点$P$（内齿轮Ⅰ上的点）速度：$v_P=\\omega_1 R_1=0.5\\omega\\times2.5R=1.25R\\omega$。<br>对齿轮Ⅱ用基点法（$A$为基点）：$$v_P=v_A+\\omega_{II}R$$<br>方向取定后：$1.25R\\omega=1.5R\\omega+\\omega_{II}R$，解得$$\\omega_{II}=-2.75\\omega$$即齿轮Ⅱ角速度大小为$2.75\\omega$，转向为顺时针。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册"
+}

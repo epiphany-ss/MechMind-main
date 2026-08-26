@@ -1,0 +1,23 @@
+{
+  "id": "q_437",
+  "overview": "求纯滚动机构中AB杆和圆轮角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>平面机构如图所示。已知：半径为$r$的圆轮作纯滚动，$OA=r=20$cm，$AB=2r$。在图示位置时，$\\varphi=30^\\circ$，$OA$铅垂，$BC$水平，杆$OA$的角速度$\\omega=3$rad/s。试求该瞬时杆$AB$和圆轮的角速度。</p><img src=\"qdata/q_437/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$\\omega_{AB}=0$（$AB$瞬时平动）；$\\omega_{轮}=\\dfrac{v_B}{r}=3$ rad/s</p>",
+  "explanation": "<p>【AI 生成】$v_A=\\omega r=3\\times0.2=0.6$ m/s，方向水平（$OA$铅垂）。<br>圆轮在$B$处作纯滚动，$B$为轮心，故$v_B$沿水平方向。<br>对$AB$杆：$v_B=v_A+\\omega_{AB}\\times r_{AB}$，因$v_A$、$v_B$均水平，相对速度$\\omega_{AB}\\times r_{AB}$必沿铅垂，故$$\\omega_{AB}=0\\;\\Rightarrow\\;v_B=v_A=0.6\\ \\text{m/s}$$<br>圆轮纯滚动：$$\\omega_{轮}=\\dfrac{v_B}{r}=\\dfrac{60}{20}=3\\ \\text{rad/s}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:50",
+  "updated": "2026-08-07 18:50",
+  "source": "练习册",
+  "title": "求纯滚动机构中AB杆和圆轮角速度",
+  "module": "运动学"
+}

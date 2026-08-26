@@ -1,0 +1,23 @@
+{
+  "id": "q_576",
+  "overview": "求圆盘只移动不滚动时力F的条件",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "动量定理"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>半径为R，重为W的均质圆盘静止地放在粗糙水平面上，滑动摩擦因数为f，不计滚动摩擦。今在圆盘上作用一水平力F，该力到O点的距离为e。欲使圆盘只移动而不滚动，F应满足的条件是____。</p><img src=\"qdata/q_576/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$F\\leqslant\\dfrac{fWR}{e}$</p>",
+  "explanation": "<p>【AI 生成】只移动不滚动要求圆盘对质心O的合力矩为零：$Fe=F_f\\cdot R$。而静摩擦力$F_f\\leqslant fN=fW$，故$F\\cdot e/R\\leqslant fW$，即$F\\leqslant\\frac{fWR}{e}$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:55",
+  "updated": "2026-08-07 18:55",
+  "source": "练习册",
+  "title": "求圆盘只移动不滚动时力F的条件",
+  "module": "动力学"
+}

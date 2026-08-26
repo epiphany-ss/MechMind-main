@@ -1,0 +1,18 @@
+{
+  "overview": "画出各图中物体A、ABC或构件AB、AC的受力图",
+  "category": "静力学",
+  "question_type": "解答题",
+  "knowledge_points": [
+    "受力分析"
+  ],
+  "difficulty": "easy",
+  "content": "<p>画出下列各图中物体A、ABC或构件AB、AC的受力图。未画重力的各物体的自重不计，所有接触处均为光滑接触。画出下列每个标注字符的物体的受力图。题图中未画重力的各物体的自重不计，所有接触处均为光滑接触。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>受力图（答案）：</p><img src=\"[[FIG1]]\">",
+  "explanation": "<p>解析：本题为受力分析作图题。取所研究的物体为分离体，解除约束后按约束类型画出全部约束反力：光滑接触面的约束反力沿公法线，铰链约束反力分解为两个正交分力，二力杆的约束反力沿杆端连线方向。各受力图见答案与附图。</p><img src=\"[[FIG2]]\"><img src=\"[[FIG3]]\">",
+  "figures": [
+    "题库/qbank2_figs/q1_4.jpeg",
+    "题库/qbank2_figs/q1_1.png",
+    "题库/qbank2_figs/q1_2.jpeg",
+    "题库/qbank2_figs/q1_5.png"
+  ]
+}

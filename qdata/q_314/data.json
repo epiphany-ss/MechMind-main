@@ -1,0 +1,20 @@
+{
+  "id": "q_314",
+  "overview": "用虚位移原理求压榨力",
+  "subject": "理论力学",
+  "category": "静力学",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>图示平面机构，各构件自重不计。已知：$M=50$N·m，OA=$r=0.1$m，BC=CD=CE=$0.3$m，且 $\\angle OAB=90°$，$\\theta=30°$。试求压榨力 F。</p>",
+  "answer": "<p>$F=\\dfrac{M}{r}\\cdot\\dfrac{1}{2\\tan30°+1}\\approx\\dfrac{50}{0.1}\\cdot0.536\\approx268$N。</p>",
+  "explanation": "<p>【AI 生成】用虚位移原理。设曲柄 OA 转过微小角 $d\\varphi$，A 点位移 $\\delta_A=r\\,d\\varphi$；由连杆机构几何关系，压板沿铅垂方向的虚位移 $\\delta y=\\delta_A\\cdot\\dfrac{1}{2\\tan\\theta+1}$。虚功方程 $M\\,d\\varphi=F\\,\\delta y$，代入 $r=0.1$、$\\theta=30°$：$F=\\frac{M}{r}(2\\tan30°+1)^{-1}=\\frac{50}{0.1}\\times\\frac{1}{1+1.155}\\approx268$N。</p>",
+  "media": [],
+  "created": "2026-08-07 18:46",
+  "updated": "2026-08-07 18:46",
+  "source": "练习册",
+  "title": "用虚位移原理求压榨力",
+  "module": "静力学"
+}

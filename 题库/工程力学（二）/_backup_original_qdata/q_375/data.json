@@ -1,0 +1,17 @@
+{
+  "id": "q_375",
+  "overview": "求按规律运动的路程",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "选择题",
+  "difficulty": "medium",
+  "content": "<p>若某点按 $S=8-2t^2$（$S$ 以米计，$t$ 以秒计）的规律运动，则 $t=3$ 秒时点经过的路程为 。</p><p>(A) 10 m； (B) 8 m； (C) 18 m； (D) 8 m 至 18 m 以外的一个数值。</p>",
+  "answer": "<p>C</p>",
+  "explanation": "<p>【AI 生成】$v=dS/dt=-4t<0\\ (t>0)$，点始终沿同一方向运动。$S(0)=8$，$S(3)=8-18=-10$，路程 $=|S(3)-S(0)|=18$ m，故选（C）。</p>",
+  "media": [],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48"
+}

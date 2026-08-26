@@ -1,0 +1,18 @@
+{
+  "overview": "求飞机起落架A、B两处的约束力",
+  "category": "静力学",
+  "question_type": "计算题",
+  "knowledge_points": [
+    "平面力系"
+  ],
+  "difficulty": "medium",
+  "content": "<p>飞机起落架，尺寸如图所示，A、B、C 均为铰链，杆 OA 垂直于 AB 连线。当飞机等速直线滑行时，地面作用于轮上的铅直正压力 $F_N = 30\\ \\mathrm{kN}$，水平摩擦力和各杆自重都比较小，可略去不计。求 A、B 两处的约束力。</p><img src=\"[[FIG0]]\">",
+  "answer": "<p>$F_B=22.4\\ \\mathrm{kN}$（拉）。<br>$F_{Ax}=-4.67\\ \\mathrm{kN}$，$F_{Ay}=-47.7\\ \\mathrm{kN}$（负号表示与图示假设方向相反）。</p><img src=\"[[FIG2]]\">",
+  "explanation": "<p>解：如图，杆 BC 为二力杆，$F_B$ 沿 BC。</p><p>$\\sum M_A=0$：</p><p>$$-F_N\\sin15^\\circ\\times1.2+F_B\\times\\frac{0.6}{\\sqrt{0.4^2+0.6^2}}\\times0.5=0$$</p><p>$$F_B=\\frac{F_N\\sin15^\\circ\\times1.2\\times\\sqrt{0.4^2+0.6^2}}{0.6\\times0.5}=22.4\\ \\mathrm{kN}\\quad(\\text{拉})$$</p><p>$\\sum F_x=0$：</p><p>$$F_{Ax}-F_N\\sin15^\\circ+F_B\\times\\frac{0.4}{\\sqrt{0.4^2+0.6^2}}=0\\quad\\Rightarrow\\quad F_{Ax}=-4.67\\ \\mathrm{kN}$$</p><p>$\\sum F_y=0$：</p><p>$$F_{Ay}+F_N\\cos15^\\circ+F_B\\times\\frac{0.6}{\\sqrt{0.4^2+0.6^2}}=0\\quad\\Rightarrow\\quad F_{Ay}=-47.7\\ \\mathrm{kN}$$</p><img src=\"[[FIG1]]\"><img src=\"[[FIG3]]\">",
+  "figures": [
+    "题库/qbank2_figs/q8_2.png",
+    "题库/qbank2_figs/q8_0.png",
+    "题库/qbank2_figs/q8_1.png",
+    "题库/qbank2_figs/q8_4.jpeg"
+  ]
+}

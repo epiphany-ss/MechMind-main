@@ -1,0 +1,20 @@
+{
+  "id": "q_353",
+  "overview": "判断动点速度的方向",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的运动学"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>动点速度的方向总是和运动方向一致。 (    )</p>",
+  "answer": "<p>对</p>",
+  "explanation": "<p>【AI 生成】速度方向沿轨迹的切线方向，即点在该瞬时的运动方向，两者始终一致。</p>",
+  "media": [],
+  "created": "2026-08-07 18:47",
+  "updated": "2026-08-07 18:47",
+  "source": "练习册",
+  "title": "判断动点速度的方向",
+  "module": "运动学"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_390",
+  "overview": "求T字杆上C点的速度与加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体定轴转动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>已知直角 T 字杆某瞬时以角速度 $\\omega$、角加速度 $\\alpha$ 在图示平面内绕 O 转动，则 C 点的速度为 ，加速度为 （方向均应在图上表示）。</p><img src=\"qdata/q_390/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$v_C=\\omega\\sqrt{a^2+b^2}$（垂直于 OC）；$a_C=\\sqrt{a^2+b^2}\\sqrt{\\omega^4+\\alpha^2}$（与 OC 夹角 $\\arctan(\\alpha/\\omega^2)$）</p>",
+  "explanation": "<p>【AI 生成】由图示尺寸，C 点到转轴 O 的距离 $OC=\\sqrt{a^2+b^2}$。定轴转动中 $v_C=\\omega\\cdot OC$，$a_C=OC\\cdot\\sqrt{\\omega^4+\\alpha^2}$，其中 $a_n=\\omega^2\\cdot OC$ 沿 OC 指向 O，$a_\\tau=\\alpha\\cdot OC$ 垂直于 OC。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:48",
+  "updated": "2026-08-07 18:48",
+  "source": "练习册",
+  "title": "求T字杆上C点的速度与加速度",
+  "module": "运动学"
+}

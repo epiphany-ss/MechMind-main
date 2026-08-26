@@ -1,0 +1,18 @@
+{
+  "id": "q_538",
+  "overview": "判断时间越长变力冲量是否一定越大",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量定理"
+  ],
+  "question_type": "判断题",
+  "difficulty": "easy",
+  "content": "<p>经过的时间越长，变力的冲量也一定越大。 (    )</p>",
+  "answer": "<p>错</p>",
+  "explanation": "<p>【AI 生成】冲量 $\\boldsymbol{I}=\\int_0^t\\boldsymbol{F}\\,dt$ 取决于力随时间的变化规律。若力减小、反向或为零，时间虽长冲量也不一定增大。</p>",
+  "media": [],
+  "created": "2026-08-07 18:54",
+  "updated": "2026-08-07 18:54",
+  "source": "练习册"
+}

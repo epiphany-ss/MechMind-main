@@ -1,0 +1,21 @@
+{
+  "id": "q_477",
+  "overview": "求以AB为动系时D点的牵连速度和牵连加速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "点的合成运动",
+    "刚体定轴转动"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>在图示平面机构中，杆AB=40cm，以 $\\omega_1=3\\,\\text{rad/s}$ 的匀角速度绕A轴转动，而CD以 $\\omega_2=1\\,\\text{rad/s}$ 绕B轴转动，BD=BC=30cm，图示瞬时AB$\\perp$CD。若取AB为动系，则此时D点的牵连速度的大小为______，牵连加速度的大小为______（方向均须在图中画出）。</p>",
+  "answer": "<p>$v_e=\\omega_1\\cdot AD=\\omega_1\\sqrt{AB^2+BD^2}=3\\times50=150\\,\\text{cm/s}$；$a_e=\\omega_1^2\\cdot AD=9\\times50=450\\,\\text{cm/s}^2$（指向A轴）。</p>",
+  "explanation": "<p>【AI 生成】取AB为动系，D点在动系上重合点到转轴A的距离 $AD=\\sqrt{AB^2+BD^2}=\\sqrt{40^2+30^2}=50$cm。AB作定轴转动，牵连运动为定轴转动，故牵连速度 $v_e=\\omega_1\\cdot AD=3\\times50=150\\,\\text{cm/s}$，方向垂直AD；牵连加速度（AB匀角速度，$\\omega_2$ 不影响牵连运动）$a_e=\\omega_1^2\\cdot AD=3^2\\times50=450\\,\\text{cm/s}^2$，指向A。</p>",
+  "media": [],
+  "created": "2026-08-07 18:51",
+  "updated": "2026-08-07 18:51",
+  "source": "练习册",
+  "title": "求以AB为动系时D点的牵连速度和牵连加速度",
+  "module": "运动学"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "q_192",
+  "overview": "比较四振系自振周期并求最长者",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "振动"
+  ],
+  "question_type": "计算题",
+  "difficulty": "medium",
+  "content": "<p>在图示四个振系中，已知：物块的质量均为 $M$，各个弹簧的刚性系数均为 $k$。试问哪个系统的自振周期最长，其周期为多少？</p><img src=\"qdata/q_192/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>弹簧串联的振系（等效刚度 $k/2$）自振周期最长，$T_{\\max}=2\\pi\\sqrt{\\dfrac{2M}{k}}$。</p>",
+  "explanation": "<p>【AI 生成】自振周期 $T=2\\pi\\sqrt{M/k_{eq}}$，等效刚度越小周期越长。弹簧并联时当量刚度增大，串联时减小；图中弹簧串联的振系 $k_{eq}=k/2$ 最小，故其周期最长：$$T_{\\max}=2\\pi\\sqrt{\\frac{M}{k/2}}=2\\pi\\sqrt{\\frac{2M}{k}}$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42",
+  "source": "练习册",
+  "title": "比较四振系自振周期并求最长者",
+  "module": "动力学"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "q_208",
+  "overview": "杆碰尖角使轴O无冲量时的OB距离",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "碰撞",
+    "转动惯量"
+  ],
+  "question_type": "填空题",
+  "difficulty": "medium",
+  "content": "<p>均质细杆 $OA$ 长 $L$，质量为 $m$，自铅直位置经微小绕动后绕 $O$ 轴倒下，至水平位置时与一尖角 $B$ 相碰，为使轴 $O$ 处不产生碰撞冲量，$OB$ 的距离 $h$ 应为____。</p><img src=\"qdata/q_208/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$h=\\dfrac{2}{3}L$</p>",
+  "explanation": "<p>【AI 生成】为使轴 $O$ 处不产生碰撞冲量，碰撞点 $B$ 必须是打击中心。对绕端 $O$ 转动的均质杆，$J_O=\\frac13 mL^2$，质心距 $OC=\\frac L2$，故 $h=OK=\\dfrac{J_O}{m\\,OC}=\\dfrac{\\frac13 mL^2}{m\\cdot\\frac L2}=\\frac23 L$。</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:42",
+  "updated": "2026-08-07 18:42"
+}

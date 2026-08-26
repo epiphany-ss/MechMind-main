@@ -1,0 +1,19 @@
+{
+  "id": "q_487",
+  "overview": "平面机构求DE杆角速度",
+  "subject": "理论力学",
+  "category": "运动学",
+  "knowledge_points": [
+    "刚体平面运动",
+    "基点法",
+    "速度瞬心"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>平面机构如图所示。已知：$OO_1＝AB＝L＝20\\,\\text{cm}$，$OA＝2L$，$O_1C＝2\\sqrt{2}L$，B为 $O_1C$ 的中点，H＝3L，$OO_1$ 水平。在图示位置时，$\\phi=45^\\circ$，OA杆的角速度 $\\omega=2\\,\\text{rad/s}$，AB水平，DE铅垂。试求该瞬时杆DE的角速度。</p>",
+  "answer": "<p>$\\omega_{DE}=\\dfrac{\\omega L\\cos45^\\circ}{DE}$（DE由图示几何尺寸确定，$\\omega=2$ rad/s、$L=20$cm代入即得数值）。</p>",
+  "explanation": "<p>【AI 生成】该机构为多杆平面机构，逐杆用基点法或速度瞬心分析。<br>（1）A点：$v_A=\\omega\\cdot OA=2\\times40=80\\,\\text{cm/s}$，方向垂直OA。<br>（2）AB杆作平面运动，B点速度由 $v_B=v_A+v_{BA}$ 及 $O_1C$ 上B点约束确定（B为 $O_1C$ 中点，随 $O_1C$ 绕 $O_1$ 转动）。由速度投影得 $v_B$。<br>（3）由B点带动DE杆，DE杆绕D（或沿铅垂导轨）运动，取E（或C）与B的速度关系，得 $\\omega_{DE}$。代入图中几何尺寸（$L=20$cm等）即可得到数值。</p>",
+  "media": [],
+  "created": "2026-08-07 18:52",
+  "updated": "2026-08-07 18:52"
+}

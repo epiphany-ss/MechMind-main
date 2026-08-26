@@ -1,0 +1,21 @@
+{
+  "id": "q_598",
+  "overview": "求圆柱离开斜面后的运动方程",
+  "subject": "理论力学",
+  "category": "动力学",
+  "knowledge_points": [
+    "动量矩定理",
+    "质点动力学",
+    "动能定理"
+  ],
+  "question_type": "计算题",
+  "difficulty": "hard",
+  "content": "<p>均质圆柱体，质量为m，半径为R，在位置A沿倾角为$\\alpha$的斜面由静止无滑动地滚下，如图所示。若OA＝l（A为出发点，O为斜面底端边缘，即圆柱离开斜面处），试求圆柱体离开斜面后的运动方程（即表达成：$x_C=f(t)$，$y_C=f(t)$，$\\varphi=f(t)$）。取离开点为原点，x轴水平向右、y轴铅垂向上，$t=0$为离开斜面瞬时。</p><img src=\"qdata/q_598/content_img_0.png\" alt=\"附图\" style=\"max-width:100%\">",
+  "answer": "<p>$x_C=\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\cos\\alpha\\,t$；　$y_C=-\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,\\sin\\alpha\\,t-\\dfrac{1}{2}gt^2$；　$\\varphi=\\dfrac{1}{R}\\sqrt{\\dfrac{4gl\\sin\\alpha}{3}}\\,t$</p>",
+  "explanation": "<p>【AI 生成】圆柱沿斜面纯滚动，$mg\\sin\\alpha-F_f=ma$，$F_fR=\\frac{1}{2}mR^2\\alpha$，$a=\\alpha R$，得$a=\\frac{2}{3}g\\sin\\alpha$。滚过距离$l$后（离开斜面）的速度$$v=\\sqrt{2al}=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}$$角速度$\\omega=v/R$。离开斜面后仅受重力，质心作抛体运动，角速度保持不变（对质心无矩）：$$x_C=v\\cos\\alpha\\,t,\\qquad y_C=-v\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\qquad \\varphi=\\frac{v}{R}t$$即$$x_C=\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\cos\\alpha\\,t,\\quad y_C=-\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\sin\\alpha\\,t-\\frac{1}{2}gt^2,\\quad \\varphi=\\frac{1}{R}\\sqrt{\\frac{4gl\\sin\\alpha}{3}}\\,t$$</p>",
+  "media": [
+    "content_img_0.png"
+  ],
+  "created": "2026-08-07 18:56",
+  "updated": "2026-08-07 18:56"
+}
