@@ -1,11 +1,18 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+<script src="js/auth.js"></script>
+
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-store">
 <title>个人知识网络 - 理论力学研究平台</title>
 <style>
 :root{--blue:#2563eb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb}*{box-sizing:border-box}body{margin:0;font-family:"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}header{background:linear-gradient(135deg,#123b8f,#2563eb);color:white;padding:28px max(22px,calc((100% - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}header h1{margin:0;font-size:1.6rem}header p{margin:6px 0 0;opacity:.8}.back{color:white;text-decoration:none;border:1px solid #ffffff66;padding:8px 14px;border-radius:18px;white-space:nowrap}.layout{max-width:1180px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:320px 1fr;gap:20px}.layout>*{min-width:0}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 24px #0f172a0a}.card h2{font-size:1rem;margin:0 0 16px}.field{margin-bottom:12px}.field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit}.field textarea{resize:vertical}.btn{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}.primary{background:var(--blue);color:#fff}.secondary{background:#eef4ff;color:#1d4ed8}.danger{background:#fee2e2;color:#b91c1c}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.node-list{overflow:auto;border-top:1px solid var(--line);margin-top:14px}.node-item{padding:10px 2px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}.node-item small{display:block;color:var(--muted);margin-top:2px}.node-item button{padding:5px 8px}.network{min-height:460px;position:relative;overflow:hidden;background:radial-gradient(circle at 12% 18%,rgba(147,197,253,0.30),transparent 38%),radial-gradient(circle at 88% 20%,rgba(196,181,253,0.24),transparent 42%),radial-gradient(circle at 84% 84%,rgba(125,211,252,0.28),transparent 42%),radial-gradient(circle at 16% 86%,rgba(186,230,253,0.30),transparent 40%),radial-gradient(circle at 50% 42%,#eef4ff,#ffffff 74%)}
-#graph{width:100%;height:420px;border-radius:10px;overflow:hidden;background:#0b1220}.empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.status{font-size:.82rem;color:var(--muted);margin-top:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.network{min-height:360px}#graph{height:320px}}.right-col{display:flex;flex-direction:column;gap:20px}.review-progress{margin:12px 0 16px}.review-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}.review-bar-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:4px;transition:width .4s}.review-count{font-size:.82rem;color:var(--muted);margin-top:6px}.review-list{display:flex;flex-direction:column;gap:8px;overflow:auto}.review-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafcff;transition:all .2s}.review-item.done{background:#f0fdf4;border-color:#bbf7d0}.review-check{font-size:1.4rem;cursor:pointer;line-height:1;user-select:none}.review-item .review-info{flex:1;min-width:0}.review-item .review-info b{display:block}.review-item .review-info small{color:var(--muted)}.review-item.done .review-info b{color:#16a34a}.encourage-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:50;opacity:0;transition:all .3s;pointer-events:none}.encourage-toast.show{opacity:1;transform:translateX(-50%) scale(1)}@media(max-width:800px){.review-card{grid-column:1}}
+#graph{width:100%;height:420px;border-radius:10px;overflow:hidden;background:#0b1220}
+#reviewGraph{width:100%;height:320px;border-radius:10px;overflow:hidden;background:#0b1220}
+.card.network.review-net{min-height:400px}
+.review-legend{display:flex;gap:12px;font-size:.78rem;color:#94a3b8}
+.review-legend span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.review-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}.empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.status{font-size:.82rem;color:var(--muted);margin-top:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.network{min-height:360px}#graph{height:320px}}.right-col{display:flex;flex-direction:column;gap:20px}.review-progress{margin:12px 0 16px}.review-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}.review-bar-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:4px;transition:width .4s}.review-count{font-size:.82rem;color:var(--muted);margin-top:6px}.review-list{display:flex;flex-direction:column;gap:8px;overflow:auto}.review-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafcff;transition:all .2s}.review-item.done{background:#f0fdf4;border-color:#bbf7d0}.review-check{font-size:1.4rem;cursor:pointer;line-height:1;user-select:none}.review-item .review-info{flex:1;min-width:0}.review-item .review-info b{display:block}.review-item .review-info small{color:var(--muted)}.review-item.done .review-info b{color:#16a34a}.encourage-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:50;opacity:0;transition:all .3s;pointer-events:none}.encourage-toast.show{opacity:1;transform:translateX(-50%) scale(1)}@media(max-width:800px){.review-card{grid-column:1}}
 </style>
 <style>.detail-overlay{position:fixed;inset:0;background:#0f172a99;display:none;place-items:center;z-index:20;padding:20px}.detail-overlay.show{display:grid}.detail-modal{position:relative;background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 20px 60px #0f172a55}.detail-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:26px;color:#64748b;cursor:pointer}.detail-modal h2{margin:0 28px 6px 0}.detail-modal h3{font-size:.95rem;margin:18px 0 7px;color:#1d4ed8}.detail-modal .detail-block{background:#f8fafc;border-radius:8px;padding:10px;margin:6px 0;font-size:.9rem;line-height:1.6}.detail-modal textarea{width:100%;min-height:180px;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}.detail-modal .detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 #reviewContent .pp-chip{display:inline-flex;align-items:center;gap:6px;background:#334155;color:#e2e8f0;border-radius:16px;padding:3px 6px 3px 10px;margin:3px;font-size:.8rem}
@@ -85,15 +92,15 @@ header .back{display:inline-block;margin:16px 6px 0;padding:8px 16px;border:1px 
 <div class="field"><label for="note">备注</label><textarea id="note" rows="3" placeholder="记录自己的理解、易错点或复习提示"></textarea></div>
 <button class="btn primary" onclick="addNode()">＋ 添加节点</button>
 <div class="field" style="margin-top:12px"><label for="relationType">新建关联类型</label><select id="relationType"><option value="RELATED_TO">相关于</option><option value="PREREQUISITE_OF">前置知识</option><option value="APPLIES_TO">应用于</option><option value="CONFUSED_WITH">容易混淆</option><option value="CORRECTED_BY">由……纠正</option></select></div>
-<h2 style="margin-top:24px">节点列表</h2><div id="nodes" class="node-list"></div><div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div></section>
-<div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 知识网络图</h2><button class="btn primary" onclick="open3d()">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
+<div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div><h2 style="margin-top:24px">节点列表</h2><div id="nodes" class="node-list"></div></section>
+<div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 学科知识点总览图</h2><button class="btn primary" onclick="open3d('overview')">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><section class="card network review-net"><div class="net-head"><h2>🎯 复习知识点网络图</h2><div class="review-legend"><span><i style="background:#22c55e"></i>已复习</span><span><i style="background:#ef4444"></i>未复习</span></div><button class="btn primary" onclick="open3d('review')">🔬 3D 全景</button></div><div id="reviewGraph"></div><div id="reviewGraphEmpty" class="empty">暂无薄弱知识点，完成学习后这里会展示与「重点推荐复习」关联的知识网络</div></section><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div id="reviewTierInfo" class="hint" style="margin-bottom:8px"></div><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
 <div id="detailOverlay" class="detail-overlay" onclick="if(event.target===this)closeDetail()"><div class="detail-modal"><button class="detail-close" onclick="closeDetail()">×</button><div id="detailContent"></div></div></div>
 <div id="reviewOverlay" class="detail-overlay" onclick="if(event.target===this)closeReview()"><div class="detail-modal"><button class="detail-close" onclick="closeReview()">×</button><div id="reviewContent"></div></div></div>
 <div id="knowledgeOverlay" class="detail-overlay" onclick="if(event.target===this)closeKnowledge()"><div class="detail-modal"><button class="detail-close" onclick="closeKnowledge()">×</button><div id="knowledgeContent"></div></div></div>
 <div class="encourage-toast" id="encourageToast"></div>
 <div id="graph3dOverlay" class="graph3d-overlay">
   <div class="g3d-topbar">
-    <div class="g3d-title">🧭 个人知识网络 · 3D 全景</div>
+    <div class="g3d-title">🧭 学科知识点总览图 · 3D 全景</div>
     <div class="g3d-legend" id="graph3dLegend"></div>
     <button class="g3d-close" onclick="close3d()">✕ 退出</button>
   </div>
@@ -110,20 +117,31 @@ const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'nu
 let graph={nodes:[],edges:[]};let memoryState=null;let selected=null;const key='personal_knowledge_'+(user?.id||user?.student_id||'guest');
 document.getElementById('loginHint').textContent=user?'当前用户：'+user.name+'（数据仅属于当前账户）':'未登录：将暂存于本机。建议先登录后使用。';
 function apiUrl(){return '/api/knowledge-network/'+encodeURIComponent(user?.id||user?.student_id||'guest')}
-function render(){const list=document.getElementById('nodes');list.innerHTML=graph.nodes.map(n=>`<div class="node-item"><div><b>${esc(n.label)}</b><small>${esc(n.type)} · ${esc(n.status)}</small></div><button class="btn danger" onclick="removeNode('${n.id}')">删除</button></div>`).join('')||'<div class="hint" style="padding:12px 0">还没有知识节点</div>';draw2d();renderReview();syncListHeights();}
+// 左侧节点列表数据 = 学科知识点总览图的全部课程节点(FULL_COURSE) + 个人自建节点(标签不重复)
+function listNodeData(){
+  const course=FULL_COURSE.nodes.map(function(d,i){return {id:'fc_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color,isCourse:true};});
+  const personal=graph.nodes.filter(function(n){return !FULL_COURSE.nodes.some(function(d){return d.label===n.label;});});
+  return course.concat(personal);
+}
+function render(){
+  const list=document.getElementById('nodes');
+  const items=listNodeData().map(n=>'<div class="node-item"><div><b>'+esc(n.label)+'</b><small>'+esc(n.type)+' · '+esc(n.status)+'</small></div>'+(n.isCourse?'':'<button class="btn danger" onclick="removeNode(\''+n.id+'\')">删除</button>')+'</div>').join('');
+  list.innerHTML=items||'<div class="hint" style="padding:12px 0">还没有知识节点</div>';
+  draw2d();renderReview();renderReviewGraph();syncListHeights();
+}
 let graph2d=null;let last2dSig='';
 function draw2d(){
   const el=document.getElementById('graph');
   const empty=document.getElementById('empty');
-  if(empty)empty.style.display=graph.nodes.length?'none':'grid';
+  if(empty)empty.style.display='none'; // 总览图恒定显示完整课程框架（351 节点），不显示空态提示
   if(!el)return;
   if(!graph2d){
     if(typeof ForceGraph==='undefined')return;
     graph2d=ForceGraph()(el)
       .backgroundColor('#0b1220')
-      .nodeLabel(function(n){return n.label+' · '+statusLabel(n.status);})
-      .nodeColor(function(n){return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));})
-      .nodeVal(function(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.8;return v;})
+      .nodeLabel(function(n){return n.label;})
+      .nodeColor(overviewColor)
+      .nodeVal(function(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));return v;}) // 总览图恒定标准：节点大小仅取课程框架，不随个人掌握状态变化
       .nodeRelSize(4)
       .linkColor(function(){return 'rgba(148,163,184,0.35)';})
       .linkWidth(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
@@ -142,23 +160,25 @@ function syncListHeights(){
   const nodeList=document.getElementById('nodes');
   const reviewList=document.getElementById('reviewList');
   if(!layout||!leftCard||!rightCol||!nodeList||!reviewList)return;
+  // 先全部展开，再测量两列的自然高度
   nodeList.style.maxHeight='none';
+  nodeList.style.height='';
   reviewList.style.maxHeight='none';
   layout.style.alignItems='start';
-  const leftNat=leftCard.offsetHeight;
   const rightNat=rightCol.offsetHeight;
-  layout.style.alignItems='';
-  if(leftNat>rightNat){
-    nodeList.style.maxHeight=Math.max(80,nodeList.scrollHeight-(leftNat-rightNat))+'px';
-    reviewList.style.maxHeight='none';
-  }else if(rightNat>leftNat){
-    reviewList.style.maxHeight=Math.max(80,reviewList.scrollHeight-(rightNat-leftNat))+'px';
-    nodeList.style.maxHeight='none';
+  // 节点列表上方内容的高度（表单等），用于让节点列表底端精确对齐右侧底部
+  const above=Math.max(0,nodeList.getBoundingClientRect().top-leftCard.getBoundingClientRect().top);
+  // 右侧（重点推荐复习）为主基准：始终完全展开，永不折叠
+  reviewList.style.maxHeight='none';
+  // 左侧节点列表：列表区高度以「右侧底部」为界 —— 内容不足时自然高度、超出时滚动折叠，
+  // 使左侧节点列表底端与右侧重点推荐复习底端对齐
+  if(rightNat>0){
+    nodeList.style.height=Math.max(80,rightNat-above)+'px';
   }
 }
 window.addEventListener('resize',syncListHeights);
 function draw(){const svg=document.getElementById('graph'),w=800,h=520;svg.innerHTML='<defs><radialGradient id="ball" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#93c5fd"/><stop offset="55%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></radialGradient><radialGradient id="ballActive" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="55%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></radialGradient></defs>';document.getElementById('empty').style.display=graph.nodes.length?'none':'grid';const pos={};graph.nodes.forEach((n,i)=>{const a=-Math.PI/2+i*Math.PI*2/Math.max(graph.nodes.length,1);pos[n.id]={x:w/2+Math.cos(a)*Math.min(260,70+graph.nodes.length*22),y:h/2+Math.sin(a)*Math.min(170,50+graph.nodes.length*15)}});graph.edges.forEach(e=>{if(pos[e.source]&&pos[e.target])svg.insertAdjacentHTML('beforeend',`<line x1="${pos[e.source].x}" y1="${pos[e.source].y}" x2="${pos[e.target].x}" y2="${pos[e.target].y}"/>`)});graph.nodes.forEach(n=>{const p=pos[n.id],active=selected===n.id;const clicks=(getClicks()[n.label]||0);const r=(n.size==='L'?34:n.size==='M'?26:18)+Math.min(clicks,20)+(active?3:0);const color=n.color||'#3b82f6';const fs=r>=34?12:r>=26?11:9;const cut=r>=34?6:r>=26?5:4;svg.insertAdjacentHTML('beforeend',`<g onclick="pick('${n.id}')" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${color}" stroke="${active?'#fff':'rgba(15,23,42,0.28)'}" stroke-width="${active?3:1.5}"/><ellipse cx="${p.x-r*0.3}" cy="${p.y-r*0.4}" rx="${r*0.34}" ry="${r*0.22}" fill="rgba(255,255,255,0.38)"/><text x="${p.x}" y="${p.y+fs*0.35}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="${fs}">${esc(n.label).slice(0,cut)}</text></g>`)})}
-function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n){recordClick(n.label);recordUsage(n.label,'c');}if(selected&&selected!==id){const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
+function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n){recordClick(n.label);recordUsage(n.label,'c');}if(selected&&selected!==id){const sNode=graph.nodes.find(x=>x.id===selected);const tNode=graph.nodes.find(x=>x.id===id);const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(sNode&&tNode&&!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
 function addNode(){const label=document.getElementById('label').value.trim();if(!label)return alert('请输入知识点名称');graph.nodes.push({id:'node_'+Date.now(),label,type:document.getElementById('type').value,status:document.getElementById('status').value,note:document.getElementById('note').value.trim()});['label','note'].forEach(id=>document.getElementById(id).value='');render()}
 function removeNode(id){graph.nodes=graph.nodes.filter(n=>n.id!==id);graph.edges=graph.edges.filter(e=>e.source!==id&&e.target!==id);render()}
 const clickKey='knowledge_clicks_'+(user?.id||user?.student_id||'guest');
@@ -167,31 +187,168 @@ function recordClick(label){const c=getClicks();c[label]=(c[label]||0)+1;localSt
 const reviewKey='review_done_'+(user?.id||user?.student_id||'guest');
 function getReviewDone(){try{return JSON.parse(localStorage.getItem(reviewKey)||'[]')}catch(e){return []}}
 function saveReviewDone(a){localStorage.setItem(reviewKey,JSON.stringify(a))}
+// 课程结构节点（完整课程知识网 fc_*/fcx_*/seed_*，所有用户展示一致）不属于个人薄弱点，
+// 重点复习列表只列用户自己添加或学习中沉淀的节点，保证新用户的复习记录为空白
+function isCourseNode(n){
+  var id=String((n&&n.id)||'');
+  return id.indexOf('fc_')===0||id.indexOf('fcx_')===0||id.indexOf('seed_')===0;
+}
+// 个人薄弱/待复习节点：复习列表与「复习知识点网络图」共用
+function getWeakNodes(){
+  return graph.nodes.filter(function(n){
+    if(nodeMastery(n.label)==='learning')return true; // 用户亲自标记为薄弱 → 显示
+    if(isCourseNode(n))return false;                  // 课程结构且未标记 → 不算个人薄弱点
+    return n.status==='learning';
+  });
+}
+// ===== 重点推荐复习列表：① 档位基础课程节点 + ② 个人使用记录补充 =====
+// 课程节点难度分级：C=基础 / B=中级 / A=高级（按章节颜色 + 专题关键词判定）
+function courseDifficulty(d){
+  const c=d&&d.color||'', label=d&&d.label||'';
+  if(c==='#a855f7'||c==='#ec4899'||c==='#f59e0b')return 'A';      // 分析力学/振动/综合 → 高级
+  if(c==='#22c55e'){                                               // 动力学 → 中级为主，高级专题为 A
+    if(/达朗贝尔|碰撞|动静法|惯性力|撞击中心|恢复系数/.test(label))return 'A';
+    return 'B';
+  }
+  if(c==='#3b82f6'){                                               // 运动学 → 基础为主，合成运动等为 B
+    if(/合成运动|速度瞬心|瞬心法|科氏|平面运动|基点法|加速度合成|速度合成/.test(label))return 'B';
+    return 'C';
+  }
+  return 'C';                                                      // 静力学 → 基础
+}
+// 档位基础数量：C=15 / B=25 / A=40（基础设定，可随使用情况调整）
+function tierBaseCount(t){return t==='A'?40:(t==='B'?25:15);}
+// 档位基础课程节点：取该难度级别中较重要的前 N 条（大节点优先）
+function tierBaseNodes(tier){
+  const diff=tier==='A'?'A':(tier==='B'?'B':'C');
+  const count=tierBaseCount(tier);
+  const sv=function(s){return s==='L'?3:(s==='M'?2:1);};
+  const list=FULL_COURSE.nodes.map(function(d,i){return {d:d,i:i,diff:courseDifficulty(d)};})
+    .filter(function(x){return x.diff===diff;})
+    .sort(function(a,b){if(sv(b.d.size)!==sv(a.d.size))return sv(b.d.size)-sv(a.d.size);return a.i-b.i;})
+    .slice(0,count);
+  return list.map(function(x){return {id:'fc_'+x.i,label:x.d.label,type:x.d.type,status:x.d.status,note:x.d.note,size:x.d.size,color:x.d.color,isBase:true};});
+}
+// 重点推荐复习列表 = 档位基础节点 + 个人薄弱点 + 个人高频使用知识点（按标签去重）
+function reviewListNodes(){
+  const out=tierBaseNodes(userTier());
+  const seen={};out.forEach(function(n){seen[n.label]=1;});
+  getWeakNodes().forEach(function(n){if(!seen[n.label]){seen[n.label]=1;out.push(n);}});
+  try{
+    const usage=getUsage();
+    const rank=Object.keys(usage).map(function(l){return {label:l,sc:(usage[l].s||0)*3+(usage[l].c||0)};}).filter(function(x){return x.sc>0;}).sort(function(a,b){return b.sc-a.sc;});
+    rank.slice(0,8).forEach(function(x){
+      if(seen[x.label])return;
+      const orig=FULL_COURSE.nodes.find(function(d){return d.label===x.label;});
+      if(orig){const i=FULL_COURSE.nodes.indexOf(orig);seen[x.label]=1;out.push({id:'fc_'+i,label:orig.label,type:orig.type,status:orig.status,note:orig.note,size:orig.size,color:orig.color,isBase:true});}
+    });
+  }catch(e){}
+  return out;
+}
 function renderReview(){
   const list=document.getElementById('reviewList');
   if(!list)return;
-  const weak=graph.nodes.filter(n=>n.status==='learning');
+  updateReviewTierInfo();
+  const nodes=reviewListNodes();
   const done=getReviewDone();
-  if(!weak.length){list.innerHTML='<div class="hint" style="padding:8px 0">暂无需要重点复习的知识点</div>';document.getElementById('reviewCount').textContent='0 / 0 已完成';document.getElementById('reviewBarFill').style.width='0%';return;}
-  list.innerHTML=weak.map(n=>{
+  if(!nodes.length){list.innerHTML='<div class="hint" style="padding:8px 0">暂无需要重点复习的知识点</div>';document.getElementById('reviewCount').textContent='0 / 0 已完成';document.getElementById('reviewBarFill').style.width='0%';return;}
+  list.innerHTML=nodes.map(n=>{
     const isDone=done.includes(n.label);
     return '<div class="review-item'+(isDone?' done':'')+'">'+
       '<span class="review-check" onclick="toggleReview(\''+esc(n.label)+'\')">'+(isDone?'☑':'☐')+'</span>'+
-      '<div class="review-info"><b>'+esc(n.label)+'</b><small>'+esc(n.type)+' · 薄弱点</small></div>'+
+      '<div class="review-info"><b>'+esc(n.label)+'</b><small>'+esc(n.type)+' · '+(n.isBase?'档位推荐':'薄弱点')+'</small></div>'+
       '<button class="btn '+(isDone?'secondary':'primary')+'" onclick="'+(isDone?"toggleReview('"+esc(n.label)+"')":"showReviewModal('"+esc(n.label)+"')")+'">'+(isDone?'已完成':'去复习')+'</button>'+
     '</div>';
   }).join('');
-  const doneCount=weak.filter(n=>done.includes(n.label)).length;
-  document.getElementById('reviewCount').textContent=doneCount+' / '+weak.length+' 已完成';
-  document.getElementById('reviewBarFill').style.width=(doneCount/weak.length*100)+'%';
+  const doneCount=nodes.filter(n=>done.includes(n.label)).length;
+  document.getElementById('reviewCount').textContent=doneCount+' / '+nodes.length+' 已完成';
+  document.getElementById('reviewBarFill').style.width=(doneCount/nodes.length*100)+'%';
+}
+// ===== 复习知识点网络图：展示「重点推荐复习」列表的全部节点及其连线（形成知识空间）=====
+let reviewGraph2d=null;let lastReviewSig='';
+function buildReviewGraphData(){
+  const list=reviewListNodes();
+  const nodes=[];const idSet={};const labelToId={};
+  list.forEach(function(n){
+    let id=n.id,node=n;
+    const orig=FULL_COURSE.nodes.find(function(d){return d.label===n.label;});
+    if(orig){const i=FULL_COURSE.nodes.indexOf(orig);id='fc_'+i;node={id:id,label:orig.label,type:orig.type,status:orig.status,note:orig.note,size:orig.size,color:orig.color};}
+    if(idSet[id])return;
+    idSet[id]=1;nodes.push(node);labelToId[node.label]=id;
+  });
+  const links=[];const seen={};
+  function addLink(s,t,rel){
+    if(!s||!t||s===t)return;
+    const k1=s+'|'+t,k2=t+'|'+s;
+    if(seen[k1]||seen[k2])return;
+    seen[k1]=1;links.push({source:s,target:t,relation:rel||'相关'});
+  }
+  // 课程框架连线：两个端点都在列表中（FULL_COURSE）
+  FULL_COURSE.edges.forEach(function(e){
+    addLink(labelToId[e[0]],labelToId[e[1]],e[2]);
+  });
+  // 个人网络连线：两个端点都在列表中（graph.edges）
+  const idToLabel={};nodes.forEach(function(n){idToLabel[n.id]=n.label;});
+  graph.edges.forEach(function(e){
+    const sl=idToLabel[e.source],tl=idToLabel[e.target];
+    if(sl&&tl)addLink(labelToId[sl],labelToId[tl],e.relation);
+  });
+  // 整体连通：把分离成多个分量的节点用「相关」边并入主网络，形成一张连通的整体知识网
+  const parent={};
+  function find(a){if(parent[a]===undefined)parent[a]=a;while(parent[a]!==a){parent[a]=parent[parent[a]];a=parent[a];}return a;}
+  function union(a,b){const ra=find(a),rb=find(b);if(ra!==rb)parent[ra]=rb;}
+  nodes.forEach(function(n){parent[n.id]=n.id;});
+  links.forEach(function(l){union(l.source,l.target);});
+  const root=nodes.length?find(nodes[0].id):null;
+  const mainIds={};nodes.forEach(function(n){if(root&&find(n.id)===root)mainIds[n.id]=1;});
+  nodes.forEach(function(n){
+    if(!root||find(n.id)===root)return;
+    // 在主分量中找课程顺序最近的一个节点作为桥接点
+    const ni=parseInt(String(n.id).substring(3),10)||0;
+    let best=null,bestDist=1e9;
+    Object.keys(mainIds).forEach(function(mid){
+      const mi=parseInt(String(mid).substring(3),10)||0;
+      const dist=Math.abs(mi-ni);
+      if(dist<bestDist){bestDist=dist;best=mid;}
+    });
+    parent[find(n.id)]=root;
+    mainIds[n.id]=1;
+    addLink(best||nodes[0].id,n.id,'相关');
+  });
+  return {nodes:nodes,links:links};
+}
+function renderReviewGraph(){
+  const el=document.getElementById('reviewGraph');
+  const empty=document.getElementById('reviewGraphEmpty');
+  if(!el)return;
+  const data=buildReviewGraphData();
+  if(empty)empty.style.display=data.nodes.length?'none':'grid';
+  if(!reviewGraph2d){
+    if(typeof ForceGraph==='undefined')return;
+    reviewGraph2d=ForceGraph()(el)
+      .backgroundColor('#0b1220')
+      .nodeLabel(function(n){return n.label+' · '+reviewStatusLabel(n);})
+      .nodeColor(reviewNodeColor)
+      .nodeVal(function(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(effectiveStatus(n)==='learning')v+=0.8;return v;})
+      .nodeRelSize(4)
+      .linkColor(function(){return 'rgba(148,163,184,0.35)';})
+      .linkWidth(function(l){return l.relation==='PREREQUISITE_OF'?2:1;})
+      .linkDirectionalArrowLength(4)
+      .linkDirectionalArrowRelPos(1)
+      .onNodeClick(function(n){if(n)pick(n.id);})
+      .onNodeHover(function(n){el.style.cursor=n?'pointer':'grab';});
+  }
+  const sig=data.nodes.map(function(n){return n.label;}).join(',')+'|'+data.links.length;
+  if(sig!==lastReviewSig){lastReviewSig=sig;reviewGraph2d.graphData(data);}
 }
 function toggleReview(label){
   const done=getReviewDone();
   const i=done.indexOf(label);
-  if(i>=0){done.splice(i,1);saveReviewDone(done);renderReview();return;}
+  if(i>=0){done.splice(i,1);saveReviewDone(done);renderReview();renderReviewGraph();return;}
   done.push(label);saveReviewDone(done);
   recordLearningLog(label);
   renderReview();
+  renderReviewGraph();
   showEncourage(label);
 }
 function recordLearningLog(label){
@@ -212,13 +369,61 @@ function showEncourage(label){
   setTimeout(function(){t.classList.remove('show')},2600);
 }
 // ===== 复习界面（核心知识点 + 关联知识点 + 网页内容）=====
+// ===== 重点推荐复习档位：按个人账户综合分数判定 =====
+// 综合分数与 activity.html「综合分数」同源（登录/做题/AI 活跃度加权，满分 100）
+// 判定规则：0-10 分 → C 档；10.1-20 分 → B 档；20.1-100 分 → A 档
+// A 档（学得最好）→ 复习内容最详细；B、C 档依次递减。
+function accountScore(){
+  const sid=(user&&user.student_id)||'guest';
+  let d={};try{d=JSON.parse(localStorage.getItem('user_activity_'+sid)||'{}');}catch(e){d={};}
+  // 与 activity.html 综合分数同口径：做题数 = 完成学习的「不同」题目数（q_list 跨天去重）
+  let qSet={},qSum=0,loginDays=0,aiDays=0,totalAiCount=0;
+  Object.keys(d).forEach(function(date){
+    const r=d[date]||{};
+    if(r.login)loginDays++;
+    if(r.questions>0)qSum+=r.questions;
+    (r.q_list||[]).forEach(function(qid){qSet[qid]=true;});
+    if(r.ai_count>0)totalAiCount+=r.ai_count;
+    if(r.ai_minutes>0||r.ai_count>0)aiDays++;
+  });
+  const totalQ=Object.keys(qSet).length>0?Object.keys(qSet).length:qSum;
+  const CAPS={questions:200,loginDays:160,aiDays:150,aiCount:750};
+  const q=Math.min(100,totalQ/CAPS.questions*100);
+  const l=Math.min(100,loginDays/CAPS.loginDays*100);
+  const ad=Math.min(100,aiDays/CAPS.aiDays*100);
+  const ac=Math.min(100,totalAiCount/CAPS.aiCount*100);
+  const ai=0.3*ad+0.7*ac;
+  return Math.round((0.6*q+0.3*ai+0.1*l)*10)/10;
+}
+function userTier(){
+  try{
+    const s=accountScore();
+    if(s>20)return 'A';
+    if(s>10)return 'B';
+    return 'C';
+  }catch(e){return 'C';}
+}
+function tierLabel(t){return t==='A'?'A 档（深度复习）':(t==='B'?'B 档（标准复习）':'C 档（基础复习）');}
+function updateReviewTierInfo(){
+  const el=document.getElementById('reviewTierInfo');
+  if(!el)return;
+  let s=0,t='C';
+  try{s=accountScore();t=userTier();}catch(e){}
+  el.innerHTML='📊 当前档位：<b>'+tierLabel(t)+'</b>　综合分数：<b>'+s+'</b> 分 <span style="color:#94a3b8">（0-10 C · 10.1-20 B · 20.1-100 A）</span>';
+}
 function showReviewModal(label){
-  const node=graph.nodes.find(n=>n.label===label);
+  // 课程节点信息恒定取自 FULL_COURSE（与总览图一致）；个人节点取个人网络
+  let node=graph.nodes.find(n=>n.label===label);
   const overlay=document.getElementById('reviewOverlay'),box=document.getElementById('reviewContent');
-  if(!node||!overlay||!box)return;
-  // 1) 直接联系的知识点（核心）
+  if(!overlay||!box)return;
+  if(!node){const orig=FULL_COURSE.nodes.find(d=>d.label===label);if(!orig)return;node={id:'fc_'+FULL_COURSE.nodes.indexOf(orig),label:orig.label,type:orig.type,status:orig.status,note:orig.note,size:orig.size,color:orig.color};}
+  // 1) 直接联系的知识点（核心）：课程框架关联 + 个人网络关联
   const direct=[];
   const seen={};seen[label]=1;
+  FULL_COURSE.edges.forEach(e=>{
+    if(e[0]===node.label&&!seen[e[1]]){seen[e[1]]=1;direct.push({label:e[1]});}
+    else if(e[1]===node.label&&!seen[e[0]]){seen[e[0]]=1;direct.push({label:e[0]});}
+  });
   graph.edges.forEach(e=>{
     let nb=null;
     if(e.source===node.id)nb=graph.nodes.find(x=>x.id===e.target);
@@ -228,6 +433,12 @@ function showReviewModal(label){
   // 2) 间接联系的知识点（二级邻居，关联）
   const indirect=[];
   direct.forEach(d=>{
+    FULL_COURSE.edges.forEach(e=>{
+      let nb=null;
+      if(e[0]===d.label)nb=e[1];
+      else if(e[1]===d.label)nb=e[0];
+      if(nb&&nb!==node.label&&!seen[nb]){seen[nb]=1;indirect.push({label:nb});}
+    });
     graph.edges.forEach(e=>{
       let nb=null;
       if(e.source===d.id)nb=graph.nodes.find(x=>x.id===e.target);
@@ -240,29 +451,38 @@ function showReviewModal(label){
     return arr.map(n=>'<span class="pp-chip">'+esc(n.label)+'<a class="pp-jump" href="'+conceptUrl(n.label)+'" target="_blank" onclick="recordUsage(\''+esc(n.label)+'\',\'s\')">跳转 ↗</a></span>').join('');
   }
   const directCore=direct.filter(function(n){return siteHasContent(n.label);});
-  box.innerHTML=
-    '<h2 style="margin-right:30px">🎯 复习：'+esc(node.label)+'</h2>'+
-    '<div class="hint" style="margin-bottom:8px">类型：'+esc(node.type)+' · 状态：'+esc(statusLabel(node.status))+'</div>'+
-    (node.note?'<div class="detail-block">📝 '+esc(node.note)+'</div>':'')+
-    '<h3>📌 核心知识点</h3>'+
-    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」直接联系、且本站有对应内容的知识点'+(direct.length>directCore.length?'（已隐藏 '+(direct.length-directCore.length)+' 个无网页内容的知识点）':'')+'</div>'+
-    '<div class="detail-block">'+chips(directCore,'暂无本站可跳转的核心知识点')+'</div>'+
-    '<h3>🔗 关联知识点</h3>'+
-    '<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」间接联系的知识点</div>'+
-    '<div class="detail-block">'+chips(indirect,'暂无间接关联知识点')+'</div>'+
-    '<h3>🌐 网页相关内容</h3>'+
-    '<div class="detail-block"><div class="web-links">'+
-      '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材知识点</a>'+
-      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
-      '<a href="http://localhost:8090" target="_blank">📝 相关题库</a>'+
-      '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
-      '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
-      '<a href="ai_qa.html" target="_blank">🤖 AI 问答</a>'+
-    '</div></div>'+
-    '<div class="review-buttons">'+
+  const tier=userTier();   // 内部档位：A 最详细 / B 中 / C 精简（不显示给用户）
+  let h='<h2 style="margin-right:30px">🎯 复习：'+esc(node.label)+'</h2>';
+  if(tier!=='C')h+='<div class="hint" style="margin-bottom:8px">类型：'+esc(node.type)+' · 状态：'+esc(statusLabel(effectiveStatus(node)))+'</div>';
+  if(node.note&&tier!=='C')h+='<div class="detail-block">📝 '+esc(node.note)+'</div>';
+  // 📌 核心知识点（所有档位都提供）
+  h+='<h3>📌 核心知识点</h3>';
+  if(tier==='A')h+='<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」直接联系、且本站有对应内容的知识点'+(direct.length>directCore.length?'（已隐藏 '+(direct.length-directCore.length)+' 个无网页内容的知识点）':'')+'</div>';
+  h+='<div class="detail-block">'+chips(directCore,'暂无本站可跳转的核心知识点')+'</div>';
+  // 🔗 关联知识点（A 全部 / B 前 3 个 / C 不显示）
+  if(tier!=='C'){
+    const showIndirect=(tier==='A')?indirect:indirect.slice(0,3);
+    h+='<h3>🔗 关联知识点</h3>';
+    if(tier==='A')h+='<div class="hint" style="margin-bottom:6px;color:#64748b">与「'+esc(node.label)+'」间接联系的知识点</div>';
+    h+='<div class="detail-block">'+chips(showIndirect,'暂无间接关联知识点')+'</div>';
+  }
+  // 🌐 网页相关内容（A 全链 / B 教材+AI 提问 / C 仅教材）
+  h+='<h3>🌐 网页相关内容</h3><div class="detail-block"><div class="web-links">';
+  h+='<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材知识点</a>';
+  if(tier==='A'||tier==='B')h+='<a href="ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced" target="_blank">🤖 AI 智能提问</a>';
+  if(tier==='A')h+='<a href="http://localhost:8090" target="_blank">📝 相关题库</a>';
+  if(tier==='A')h+='<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>';
+  if(tier==='A')h+='<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>';
+  if(tier==='A')h+='<a href="ai_qa.html" target="_blank">🤖 AI 问答</a>';
+  h+='</div></div>';
+  // A 档额外：历史学习记录
+  if(tier==='A')h+='<h3>📜 历史学习记录</h3>'+collectLearningSummary(node);
+  // 按钮
+  h+='<div class="review-buttons">'+
       '<button class="btn primary" onclick="completeReview(\''+esc(node.label)+'\')">✅ 完成复习</button>'+
       '<button class="btn secondary" onclick="closeReview()">稍后再说</button>'+
     '</div>';
+  box.innerHTML=h;
   overlay.classList.add('show');
   document.body.style.overflow='hidden';
 }
@@ -271,6 +491,7 @@ function completeReview(label){
   if(done.indexOf(label)<0){done.push(label);saveReviewDone(done);recordLearningLog(label);}
   recordUsage(label,'c');
   renderReview();
+  renderReviewGraph();
   closeReview();
   showEncourage(label);
 }
@@ -281,25 +502,28 @@ function closeReview(){
 }
 // ===== 本知识点：综合详情卡（定义+核心关联+关联+专项题目+资源）=====
 function showKnowledgePoint(label){
-  const node=graph.nodes.find(n=>n.label===label);
+  // 学科知识点总览图标准：课程节点信息恒定取自完整课程框架 FULL_COURSE，所有用户显示一致；
+  // 若个人网络中不存在该课程节点，则直接使用课程框架数据。
+  let node=graph.nodes.find(function(n){return n.label===label;});
   const overlay=document.getElementById('knowledgeOverlay'),box=document.getElementById('knowledgeContent');
-  if(!node||!overlay||!box)return;
+  if(!overlay||!box)return;
+  if(!node){const orig=FULL_COURSE.nodes.find(function(d){return d.label===label;});if(!orig)return;node={id:'fc_'+FULL_COURSE.nodes.indexOf(orig),label:orig.label,type:orig.type,status:orig.status,note:orig.note,size:orig.size,color:orig.color};}
   // B：若3D视图已打开，聚焦高亮该节点及其直接关联
   if(fg3d)setG3dFocus(node.id);
   const direct=[],indirect=[];
   const seen={};seen[label]=1;
-  graph.edges.forEach(e=>{
+  FULL_COURSE.edges.forEach(function(e){
     let nb=null;
-    if(e.source===node.id)nb=graph.nodes.find(x=>x.id===e.target);
-    else if(e.target===node.id)nb=graph.nodes.find(x=>x.id===e.source);
-    if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;direct.push(nb);}
+    if(e[0]===node.label)nb=e[1];
+    else if(e[1]===node.label)nb=e[0];
+    if(nb&&nb!==node.label&&!seen[nb]){seen[nb]=1;direct.push({label:nb});}
   });
-  direct.forEach(d=>{
-    graph.edges.forEach(e=>{
+  direct.forEach(function(d){
+    FULL_COURSE.edges.forEach(function(e){
       let nb=null;
-      if(e.source===d.id)nb=graph.nodes.find(x=>x.id===e.target);
-      else if(e.target===d.id)nb=graph.nodes.find(x=>x.id===e.source);
-      if(nb&&nb.id!==node.id&&!seen[nb.label]){seen[nb.label]=1;indirect.push(nb);}
+      if(e[0]===d.label)nb=e[1];
+      else if(e[1]===d.label)nb=e[0];
+      if(nb&&nb!==node.label&&!seen[nb]){seen[nb]=1;indirect.push({label:nb});}
     });
   });
   function chips(arr,empty){
@@ -324,7 +548,7 @@ function showKnowledgePoint(label){
     '<div class="detail-block"><div class="web-links">'+
       '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材章节</a>'+
       '<a href="http://localhost:8090?q='+encodeURIComponent(node.label)+'" target="_blank">📝 题库</a>'+
-      '<a href="search.html?q='+encodeURIComponent(node.label)+'" target="_blank">🔍 站内搜索</a>'+
+      '<a href="ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced" target="_blank">🤖 AI 智能提问（增强模式）</a>'+
       '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
       '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
     '</div></div>'+
@@ -1643,7 +1867,14 @@ function collectLearningRecords(node,state){
   const events=(state.learning_events||[]).filter(e=>{return (e.concept_id&&keySet.has(e.concept_id))||hit((e.event_type||'')+' '+JSON.stringify(e.payload||{}));});
   const relatedList=Array.from(nameSet).filter(n=>n!==label);
   let h='';
-  h+='<h2>'+esc(node.label)+'</h2><div class="hint">类型：'+esc(node.type)+' · 状态：'+esc(node.status)+'</div>';
+  h+='<h2>'+esc(node.label)+'</h2><div class="hint">类型：'+esc(node.type)+'</div>';
+  h+='<div class="detail-block" style="margin-top:8px"><div class="hint" style="margin-bottom:8px">🎨 我的掌握状态（决定节点颜色，仅对当前账户生效）：</div>'+
+    '<div class="detail-actions">'+
+      '<button class="btn '+(effectiveStatus(node)==='learning'?'danger':'secondary')+'" onclick="setMastery(\''+esc(node.label)+'\',\'learning\')">🔴 学习中（薄弱）</button>'+
+      '<button class="btn '+(effectiveStatus(node)==='familiar'?'primary':'secondary')+'" onclick="setMastery(\''+esc(node.label)+'\',\'familiar\')">🔵 已熟悉</button>'+
+      '<button class="btn '+(effectiveStatus(node)==='mastered'?'primary':'secondary')+'" onclick="setMastery(\''+esc(node.label)+'\',\'mastered\')">🟢 已掌握</button>'+
+      '<button class="btn secondary" onclick="setMastery(\''+esc(node.label)+'\',null)">清除标记</button>'+
+    '</div></div>';
   if(relatedList.length){h+='<h3>🔗 关联知识点</h3><div class="detail-block">'+relatedList.map(n=>'<span style="display:inline-block;background:#eef4ff;color:#1d4ed8;border-radius:10px;padding:2px 9px;margin:2px;font-size:.85rem">'+esc(n)+'</span>').join('')+'</div>';}
   h+='<h3>💬 学习对话（'+conversations.length+'）</h3>';
   if(conversations.length){h+=conversations.map(cv=>{const msgs=(state.messages||[]).filter(m=>m.conversation_id===cv.id&&m.role==='user');return '<div class="detail-block"><b>'+esc(cv.title||'对话')+'</b><div class="hint">'+esc((cv.created_at||'').slice(0,10))+'</div>'+(msgs.length?'<div>'+msgs.map(m=>'<div style="font-size:.85rem;color:#475569;margin:3px 0">▸ '+esc(m.content)+'</div>').join('')+'</div>':'')+'</div>';}).join('');}else{h+='<div class="detail-block">暂无相关学习对话</div>';}
@@ -1662,7 +1893,7 @@ function collectLearningRecords(node,state){
   return h;
 }
 function buildLocalState(){const uid=user?.id||user?.student_id||'guest';const notes=[];try{const log=JSON.parse(localStorage.getItem('learning_log_'+uid)||'[]');log.forEach(function(l,i){const point=l.point||'';notes.push({id:'local_note_'+i,title:'完成复习：'+point,markdown_content:'- 学习知识点：'+point+'\n- 完成时间：'+(l.date||'')+' '+(l.time||'')+'\n- 状态：已完成复习',structured_content:{title:'完成复习：'+point,concepts:point?[{name:point}]:[]},status:'confirmed',created_at:l.date||'',updated_at:l.date||''});});}catch(e){}return{schema_version:1,user_id:uid,conversations:[],messages:[],learning_events:[],concepts:[],concept_relations:[],user_thoughts:[],misconceptions:[],user_concept_states:[],learning_notes:notes,weaknesses:[],updated_at:null};}
-async function showNodeDetail(id){const node=graph.nodes.find(n=>n.id===id);if(!node)return;currentDetailId=id;const overlay=document.getElementById('detailOverlay'),box=document.getElementById('detailContent');overlay.classList.add('show');box.innerHTML='<p>正在加载该知识点的全部学习记录…</p>';try{let state=memoryState;let fromLocal=false;if(!state){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(r.ok){const d=await r.json();state=d.state||{};memoryState=state}else{state=buildLocalState();fromLocal=true}}catch(e){state=buildLocalState();fromLocal=true}}state=state||{};let html=collectLearningRecords(node,state);if(fromLocal)html='<div class="hint" style="margin-bottom:10px;color:#b45309">⚠️ 服务器未连接，以下仅为本机保存的学习记录</div>'+html;box.innerHTML=html;}catch(e){box.innerHTML='<p>学习记录加载失败：'+esc(e.message)+'</p>'}}
+async function showNodeDetail(id){const node=graph.nodes.find(n=>n.id===id);if(!node){const fcid=String(id);if(fcid.indexOf('fc_')===0){const o=FULL_COURSE.nodes[parseInt(fcid.substring(3),10)];if(o){showKnowledgePoint(o.label);return;}}return;}currentDetailId=id;const overlay=document.getElementById('detailOverlay'),box=document.getElementById('detailContent');overlay.classList.add('show');box.innerHTML='<p>正在加载该知识点的全部学习记录…</p>';try{let state=memoryState;let fromLocal=false;if(!state){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(r.ok){const d=await r.json();state=d.state||{};memoryState=state}else{state=buildLocalState();fromLocal=true}}catch(e){state=buildLocalState();fromLocal=true}}state=state||{};let html=collectLearningRecords(node,state);if(fromLocal)html='<div class="hint" style="margin-bottom:10px;color:#b45309">⚠️ 服务器未连接，以下仅为本机保存的学习记录</div>'+html;box.innerHTML=html;}catch(e){box.innerHTML='<p>学习记录加载失败：'+esc(e.message)+'</p>'}}
 function closeDetail(){document.getElementById('detailOverlay').classList.remove('show')}
 async function saveDetailNote(id){try{await LearningMemoryAPI.updateNote(user,id,{title:document.getElementById('detailNoteTitle').value,markdown_content:document.getElementById('detailNoteBody').value,status:'edited'});setStatus('学习笔记已保存')}catch(e){alert(e.message)}}
 async function confirmDetailNote(id){try{await LearningMemoryAPI.confirmNote(user,id);setStatus('学习笔记已确认');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
@@ -1677,7 +1908,7 @@ async function loadManualNoteNodes(){try{const r=await fetch('/api/learning-memo
 setTimeout(loadManualNoteNodes,500);
 
 // ===== 3D 全景知识图谱（Obsidian 风格）=====
-let fg3d=null;let g3dHoverId=null;let g3dFramed=false;let g3dFocusId=null;
+let fg3d=null;let g3dHoverId=null;let g3dFramed=false;let g3dFocusId=null;let g3dMode='overview';
 // 网站中确实包含内容的知识点 → 对应教材锚点（用于"去复习"核心知识点只展示有真实网页内容的知识点）
 const SITE_LINKS={
   // ===== 静力学（statics/textbook.html）=====
@@ -1808,13 +2039,56 @@ const CONCEPT_LINKS={
   '刚体转动':'textbooks/kinematics/index.html?target=p2m1',
   '质心':'textbooks/dynamics/index.html?target=dyn2-2'
 };
-function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('search.html?q='+encodeURIComponent(label));}
+function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('ai_qa.html?q='+encodeURIComponent(label)+'&mode=enhanced');}
 function siteHasContent(label){return !!(CONCEPT_LINKS[label]||SITE_LINKS[label]);}
 function statusLabel(s){return s==='mastered'?'已掌握':s==='familiar'?'已熟悉':s==='learning'?'学习中（薄弱）':'未知';}
 function statusColor(s){return s==='mastered'?'#22c55e':s==='familiar'?'#3b82f6':s==='learning'?'#f97316':'#94a3b8';}
-function g3dNodeVal(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.status==='learning')v+=0.9;if(n.id===g3dHoverId)v*=1.8;if(g3dFocusId){if(n.id===g3dFocusId)v*=3.2;else if(g3dIsRelatedToFocus(n.id))v*=1.6;else v*=0.45;}return v;}
-function g3dNodeColor(n){if(g3dFocusId&&!g3dIsRelatedToFocus(n.id))return '#2a3441';return n.status==='learning'?'#f97316':(n.color||statusColor(n.status));}
-function g3dIsRelatedToFocus(id){if(!g3dFocusId)return true;if(id===g3dFocusId)return true;return graph.edges.some(function(e){return (e.source===g3dFocusId&&e.target===id)||(e.source===id&&e.target===g3dFocusId);});}
+// ===== 个人掌握状态（按账户记录，驱动节点颜色随使用而变）=====
+// 设计：完整课程知识网先作为「整个学科的展示」，所有用户一致（分类主题色）；
+//      用户长期使用后，可在节点详情里标记自己的掌握状态，颜色随之按个人变化。
+function masteryKey(){return 'knowledge_mastery_'+(user&&(user.id||user.student_id)||'guest');}
+function getMasteryMap(){try{return JSON.parse(localStorage.getItem(masteryKey())||'{}')}catch(e){return {}}}
+function saveMasteryMap(m){try{localStorage.setItem(masteryKey(),JSON.stringify(m))}catch(e){}}
+function nodeMastery(label){return getMasteryMap()[label]||null;}
+function setNodeMastery(label,status){const m=getMasteryMap();if(status)m[label]=status;else delete m[label];saveMasteryMap(m);}
+function effectiveStatus(n){return nodeMastery(n.label)||n.status;}
+function nodeDisplayColor(n){
+  const m=nodeMastery(n.label);
+  if(m)return statusColor(m);                  // 用户标记过 → 个人状态色（随使用变化）
+  if(isCourseNode(n))return n.color||statusColor(n.status); // 课程结构 → 分类主题色（学科基线）
+  return statusColor(n.status);                // 个人节点 → 自带状态色
+}
+// 学科知识点总览图配色：按知识框架（学科）统一，所有用户一致，个人标记不影响总览图
+function overviewColor(n){return n.color||statusColor(n.status);}
+// 复习知识点网络图配色：跟随「重点推荐复习」的完成状态（已完成复习→绿，未完成→红）
+function reviewNodeColor(n){
+  if(getReviewDone().indexOf(n.label)>=0)return '#22c55e';
+  return '#ef4444';
+}
+function reviewStatusLabel(n){
+  return getReviewDone().indexOf(n.label)>=0?'已复习':'未复习';
+}
+function setMastery(label,status){
+  setNodeMastery(label,status);
+  const n=graph.nodes.find(function(x){return x.label===label;});
+  if(n){
+    if(status){n.status=status;}               // 标记 → 同步到节点状态，随个人知识网络持久化
+    else if(isCourseNode(n)){                  // 清除标记 → 课程节点恢复课程原始状态
+      let orig=null;
+      try{orig=FULL_COURSE.nodes.find(function(d){return d.label===label;});}catch(e){}
+      if(!orig){try{orig=EXTRA_COURSE.nodes.find(function(d){return d.label===label;});}catch(e){}}
+      if(orig)n.status=orig.status;
+    }
+    saveGraph();
+  }
+  render();
+  try{if(typeof fg3d!=='undefined'&&fg3d){fg3d.graphData(build3dData());g3dFramed=false;setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},600);}}catch(e){}
+  setStatus('已更新「'+label+'」的个人掌握状态'+(status?'：'+statusLabel(status):'（恢复学科分类色）'));
+  try{if(currentDetailId){showNodeDetail(currentDetailId);}}catch(e){}
+}
+function g3dNodeVal(n){var v=(n.size==='L'?3:(n.size==='M'?2:1.2));if(n.id===g3dHoverId)v*=1.8;if(g3dFocusId){if(n.id===g3dFocusId)v*=3.2;else if(g3dIsRelatedToFocus(n.id))v*=1.6;else v*=0.45;}return v;}// 总览图恒定标准：节点大小仅取课程框架，不随个人掌握状态变化
+function g3dNodeColor(n){if(g3dFocusId&&!g3dIsRelatedToFocus(n.id))return '#2a3441';return g3dMode==='review'?reviewNodeColor(n):overviewColor(n);}
+function g3dIsRelatedToFocus(id){if(!g3dFocusId)return true;if(id===g3dFocusId)return true;function labOf(fid){if(String(fid).indexOf('fc_')===0){const i=parseInt(String(fid).substring(3),10);return FULL_COURSE.nodes[i]?FULL_COURSE.nodes[i].label:null;}return null;}const a=labOf(g3dFocusId),b=labOf(id);if(!a||!b)return false;return FULL_COURSE.edges.some(function(e){return (e[0]===a&&e[1]===b)||(e[0]===b&&e[1]===a);});}
 function setG3dFocus(id){
   g3dFocusId=id||null;
   try{
@@ -1841,22 +2115,32 @@ function clearG3dFocus(){
   try{fg3d.nodeVal(g3dNodeVal);fg3d.nodeColor(g3dNodeColor);fg3d.linkColor(function(){return 'rgba(148,163,184,0.4)';});}catch(e){}
 }
 function build3dData(){
-  const nodes=graph.nodes.map(function(n){return {id:n.id,label:n.label,type:n.type,status:n.status,note:n.note,size:n.size,color:n.color};});
-  const links=graph.edges.map(function(e){return {source:e.source,target:e.target,relation:e.relation};});
+  // 学科知识点总览图 = 完整课程框架，恒定渲染 FULL_COURSE（351 节点 / 549 连线），与个人网络无关
+  const nodes=FULL_COURSE.nodes.map(function(n,i){return {id:'fc_'+i,label:n.label,type:n.type,status:n.status,note:n.note,size:n.size,color:n.color};});
+  const byLabel={};nodes.forEach(function(n){byLabel[n.label]=n.id;});
+  const links=FULL_COURSE.edges.map(function(e){return {source:byLabel[e[0]],target:byLabel[e[1]],relation:e[2]};});
   return {nodes:nodes,links:links};
 }
 function show3dError(msg){const m=document.getElementById('graph3dMsg');m.textContent=msg;m.style.display='block';}
-function update3dLegend(){
-  document.getElementById('graph3dLegend').innerHTML=
-    '<span><i style="background:#22c55e"></i>已掌握</span>'+
-    '<span><i style="background:#3b82f6"></i>已熟悉</span>'+
-    '<span><i style="background:#f97316"></i>薄弱点（学习中）</span>';
+function update3dLegend(mode){
+  const el=document.getElementById('graph3dLegend');
+  if(mode==='review'){
+    el.innerHTML='<span><i style="background:#22c55e"></i>已复习</span><span><i style="background:#ef4444"></i>未复习</span>';
+    return;
+  }
+  el.innerHTML='<span><i style="background:#06b6d4"></i>静力学</span>'+
+    '<span><i style="background:#3b82f6"></i>运动学</span>'+
+    '<span><i style="background:#22c55e"></i>动力学</span>'+
+    '<span><i style="background:#a855f7"></i>分析力学</span>'+
+    '<span><i style="background:#ec4899"></i>振动</span>'+
+    '<span><i style="background:#f59e0b"></i>综合解题</span>';
 }
 function collectRelatedLinks(node){
+  // 学科知识点总览图：相关知识链路恒定取自完整课程框架 FULL_COURSE，所有用户显示一致（不随个人网络变化）
   const seen={};seen[node.label]=1;const out=[];
-  graph.edges.forEach(function(e){
-    if(e.source===node.id){const nb=graph.nodes.find(function(x){return x.id===e.target;});if(nb&&!seen[nb.label]){seen[nb.label]=1;out.push({label:nb.label,relation:e.relation});}}
-    else if(e.target===node.id){const nb=graph.nodes.find(function(x){return x.id===e.source;});if(nb&&!seen[nb.label]){seen[nb.label]=1;out.push({label:nb.label,relation:e.relation});}}
+  FULL_COURSE.edges.forEach(function(e){
+    if(e[0]===node.label&&!seen[e[1]]){seen[e[1]]=1;out.push({label:e[1],relation:e[2]});}
+    else if(e[1]===node.label&&!seen[e[0]]){seen[e[0]]=1;out.push({label:e[0],relation:e[2]});}
   });
   const rt=RELATED_TOPICS[node.label]||[];
   rt.forEach(function(r){if(r.key&&!seen[r.key]){seen[r.key]=1;out.push({label:r.key,relation:'相关'});}});
@@ -1881,7 +2165,7 @@ function show3dPopup(n){
   const rel=collectRelatedLinks(n);
   const relHtml=rel.length?rel.map(function(r){return '<span class="pp-chip">'+esc(r.label)+'<a class="pp-jump" href="'+conceptUrl(r.label)+'" target="_blank" onclick="recordUsage(\''+esc(r.label)+'\',\'s\')">跳转 ↗</a></span>';}).join(''):'<span class="pp-rec-empty">暂无相关知识点</span>';
   popup.innerHTML=
-    '<div class="pp-title">'+esc(n.label)+'<span class="pp-badge">'+statusLabel(n.status)+'</span><a class="pp-jump" href="javascript:void(0)" onclick="recordUsage(\''+esc(n.label)+'\',\'c\');showKnowledgePoint(\''+esc(n.label)+'\')">📖 本知识点</a></div>'+
+    '<div class="pp-title">'+esc(n.label)+'<a class="pp-jump" href="javascript:void(0)" onclick="recordUsage(\''+esc(n.label)+'\',\'c\');showKnowledgePoint(\''+esc(n.label)+'\')">📖 本知识点</a></div>'+
     '<div class="pp-sec pp-rel"><div class="pp-sec-label">🔗 相关知识链路（'+rel.length+'）</div>'+relHtml+'</div>'+
     '<div class="pp-sec pp-rec"><div class="pp-sec-label">📜 历史学习记录</div>'+collectLearningSummary(n)+'</div>';
   popup.style.display='block';
@@ -1971,12 +2255,15 @@ function frame3dCamera(){
     if(controls){controls.target.set(cx,cy,cz);controls.update();}
   }catch(e){}
 }
-function open3d(){
+function open3d(mode){
+  g3dMode=(mode==='review')?'review':'overview';
   const overlay=document.getElementById('graph3dOverlay');
   const canvas=document.getElementById('graph3d');
   overlay.classList.add('show');
   document.body.style.overflow='hidden';
   document.getElementById('graph3dMsg').style.display='none';
+  const titleEl=document.querySelector('.g3d-title');
+  if(titleEl)titleEl.textContent=g3dMode==='review'?'🔬 复习知识点网络图 · 3D 全景':'🧭 学科知识点总览图 · 3D 全景';
   if(!fg3d){
     if(typeof ForceGraph3D==='undefined'){show3dError('3D 图谱库加载失败，请检查网络连接后刷新页面重试');return;}
     try{
@@ -1984,7 +2271,7 @@ function open3d(){
         .width(canvas.clientWidth||window.innerWidth)
         .height(canvas.clientHeight||(window.innerHeight-60))
         .backgroundColor('#0b1220')
-        .nodeLabel(function(n){return n.label+' · '+statusLabel(n.status);})
+        .nodeLabel(function(n){return n.label;})
         .nodeColor(g3dNodeColor)
         .nodeVal(g3dNodeVal)
         .nodeRelSize(4)
@@ -2003,7 +2290,8 @@ function open3d(){
       try{if(fg3d.controls())fg3d.controls().addEventListener('start',function(){g3dFramed=true;});}catch(e){}
     }catch(e){show3dError('3D 图谱初始化失败：'+e.message);fg3d=null;return;}
   }
-  fg3d.graphData(build3dData());
+  try{fg3d.nodeColor(g3dNodeColor);}catch(e){}
+  fg3d.graphData(g3dMode==='review'?buildReviewGraphData():build3dData());
   // 初始视角固定（不自动旋转），布局稳定后自动框住整张网络；用户可随时拖拽/缩放
   g3dFramed=false;
   if(fg3d.controls()){fg3d.controls().autoRotate=false;fg3d.controls().autoRotateSpeed=0;}
@@ -2020,7 +2308,7 @@ function open3d(){
     if(fg3d.onEngineStop)fg3d.onEngineStop(function(){setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},1000);});
   }catch(e){}
   setTimeout(function(){if(!g3dFramed){g3dFramed=true;frame3dCamera();}},4200);
-  update3dLegend();
+  update3dLegend(g3dMode);
   requestAnimationFrame(function(){if(fg3d&&canvas.clientWidth>0&&canvas.clientHeight>0){fg3d.width(canvas.clientWidth).height(canvas.clientHeight);}});
 }
 function close3d(){

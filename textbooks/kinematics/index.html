@@ -6,11 +6,12 @@
     body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
     a{text-decoration:none;color:var(--blue)}
     .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
-    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
     .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
     .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
     .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
-    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
+    .toc{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0;margin:4px 0;flex-shrink:0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
     .toc ol{list-style:none;margin:8px 0 0;padding:0}.toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}.toc li a:hover{background:#eaf4ff}
     .main{min-width:0}.hero{background:linear-gradient(180deg,#f4f9ff,#e8f4ff);border:1px solid #d5e8f7;border-radius:24px;padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
     .eyebrow{display:inline-block;background:#e2f1ff;color:var(--blue);border:1px solid #bddbf5;border-radius:999px;padding:5px 12px;font-weight:900;letter-spacing:2px;font-size:13px}
@@ -457,7 +458,7 @@
                 </div>
                 <figure class="module-map">
                   <div class="map-label">模块配图</div>
-                  <img src="assets/速度投影法知识总图.png" alt="速度投影法知识图解" loading="lazy">
+                  <img src="assets/速度投影法知识总图.png" alt="速度投影法知识图解">
                   <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
                 </figure>
               </div>
@@ -480,7 +481,7 @@
                 </div>
                 <figure class="module-map">
                   <div class="map-label">模块配图</div>
-                  <img src="assets/运动学瞬心法知识总图.png" alt="瞬心法知识图解" loading="lazy">
+                  <img src="assets/运动学瞬心法知识总图.png" alt="瞬心法知识图解">
                   <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
                 </figure>
               </div>
@@ -503,7 +504,7 @@
                 </div>
                 <figure class="module-map">
                   <div class="map-label">模块配图</div>
-                  <img src="assets/加速度合成知识总图.png" alt="加速度合成知识图解" loading="lazy">
+                  <img src="assets/加速度合成知识总图.png" alt="加速度合成知识图解">
                   <figcaption>看图提示：先观察图中的公式主线、运动示意、方法关联和易错提醒，再回到左侧内容区完成理解。</figcaption>
                 </figure>
               </div>
@@ -511,6 +512,9 @@
             
         </section>
         
-</main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+</main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var el=document.getElementById(t);if(el){var d=el.closest('details');if(d)d.open=true;var pg=el.closest('[id^=page]');if(pg&&pg.style.display==='none')pg.style.display='';el.scrollIntoView({block:'start',behavior:'auto'});}if(n<7){setTimeout(function(){jump(n+1)},450)}}setTimeout(function(){jump(0)},120);window.addEventListener('load',function(){setTimeout(function(){jump(0)},300)})}})();</script>
 <script>var modName="运动学";var secIds=['part1', 'part2', 'part3', 'part4'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../http://localhost:8090?module=运动学";btn.target="_blank";btn.textContent="📝 查看运动学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+<link rel="stylesheet" href="../../js/katex/katex.min.css">
+<script src="../../js/katex/katex.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.katex){document.querySelectorAll('.deep-formula').forEach(function(el){try{katex.render(el.textContent.trim(),el,{displayMode:true,throwOnError:false})}catch(e){}})}});</script>
 </body></html>

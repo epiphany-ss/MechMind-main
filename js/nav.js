@@ -32,6 +32,18 @@
       '<button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>';
     document.body.insertBefore(nav, document.body.firstChild);
 
+    // 顶栏显示当前登录用户（登录闸门保证已登录）
+    try {
+      var cuRaw = localStorage.getItem('current_user');
+      if (cuRaw) {
+        var cu = JSON.parse(cuRaw);
+        if (cu && cu.name) {
+          var acctLink = document.querySelector('#navLinks a.btn-nav');
+          if (acctLink) acctLink.textContent = '👤 ' + cu.name;
+        }
+      }
+    } catch (e) {}
+
     // Mobile menu
     var mobileMenu = document.createElement('div');
     mobileMenu.id = 'mobileMenu';

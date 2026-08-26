@@ -15,6 +15,7 @@
   <div class="nav-links">
     <a href="index.html" class="active">题库主页</a>
     <a href="upload.html">✏️ 上传题目</a>
+    <a href="http://localhost:8080/index.html">🏠 返回主界面</a>
   </div>
 </div>
 
@@ -89,6 +90,46 @@ let currentDetailId = null;
 let revealState = 0; // 0=仅题目 1=展示答案 2=展示解析
 const filterState = { search: '', subject: 'all', category: 'all', difficulty: 'all', kp: 'all', type: 'all', source: 'all' };
 
+// ==================== 用户活跃记录（做题学习完成时上报主平台） ====================
+// 题库(8090)与主平台(8080)不同源：用户身份通过 mechmind_uid Cookie（localhost 跨端口共享）识别
+const ACTIVITY_API = 'http://localhost:8080';
+function pad2(n){ return ('0'+n).slice(-2); }
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+function getActivityUid(){
+  try { const m = /(?:^|;\s*)mechmind_uid=([^;]+)/.exec(document.cookie); if (m) return decodeURIComponent(m[1]); } catch(e){}
+  try { const raw = localStorage.getItem('current_user'); if (raw) { const u = JSON.parse(raw); if (u && u.student_id) return u.student_id; } } catch(e){}
+  return null;
+}
+function recordQuestion(qid){
+  if (!qid) return;
+  const sid = getActivityUid();
+  if (!sid) return;
+  const t = todayStr();
+  // 1) 写入本源 localStorage（离线 / 8080 不可达时兜底）
+  try {
+    const key = 'user_activity_' + sid;
+    let data = {};
+    try { data = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e){}
+    if (!data[t]) data[t] = { login:false, questions:0, q_list:[], ai_minutes:0, ai_count:0, ai_questions:[] };
+    // 每天同一题只记录一次（超过 24 点日期更新后重新记录）
+    const ql = data[t].q_list || [];
+    if (ql.indexOf(qid) < 0) {
+      ql.push(qid);
+      data[t].questions = (data[t].questions || 0) + 1;
+      data[t].q_list = ql.slice(-500);
+    }
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch(e){}
+  // 2) 上报主平台 8080 服务器（跨源，尽力而为，失败静默）
+  try {
+    fetch(ACTIVITY_API + '/api/activity/record', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: sid, action: 'question', qid: qid, date: t })
+    }).catch(function(){});
+  } catch(e){}
+}
+
 // ==================== 数据加载 ====================
 async function init() {
   addModeBadge();
@@ -99,6 +140,9 @@ async function init() {
   updateStats();
   buildFilterCascades();
   filterQuestions();
+  // 支持 ?q=<题号> 参数：活跃页做题记录回跳，自动展开对应题目
+  const qm = /[?&]q=([^&]+)/.exec(location.search);
+  if (qm) { const qid = decodeURIComponent(qm[1]); if (getQuestion(qid)) openDetail(qid); }
 }
 
 async function loadQuestions() {
@@ -395,6 +439,8 @@ function advanceReveal() {
     bar.textContent = '✔ 已展示全部内容';
     bar.style.opacity = '0.55';
     bar.style.cursor = 'default';
+    // 到达「解析 + AI 讲解」最底部位置 → 才算完成一次学习，记录本题
+    recordQuestion(currentDetailId);
   }
 }
 

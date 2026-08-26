@@ -1091,6 +1091,11 @@ function init() {
   renderSidebar();
   scrollToBottom();
   initFavorites();
+  // 服务器恢复后补传离线期间的活跃记录
+  try {
+    const u = JSON.parse(localStorage.getItem('current_user') || 'null');
+    if (u && u.student_id) flushPendingActivity(u.student_id);
+  } catch(e) {}
 }
 init();
 
@@ -1477,11 +1482,13 @@ async function sendMessage() {
     addMessage('bot', fullResponse, formatTime());
   }
   saveChatHistory(); scrollToBottom();
-  recordAiUsage(sessionStart);
+  // 每次 AI 智能问答完成交互（AI 已给出回复）即计入一次；
+  // 用户取消（wasCancelled）已提前 return，不进入这里，因此不计入。
+  recordAiUsage(sessionStart, text);
   isProcessing = false; sendBtn.disabled = false; sendBtn.textContent = '➤'; currentAbortController = null;
 }
 
-function recordAiUsage(sessionStart) {
+function recordAiUsage(sessionStart, questionText) {
   try {
     const u = JSON.parse(localStorage.getItem('current_user') || 'null');
     if (!u || !u.student_id) return;
@@ -1493,7 +1500,52 @@ function recordAiUsage(sessionStart) {
     data[t].ai_count = (data[t].ai_count || 0) + 1;
     const elapsedMin = Math.max(1, Math.round((Date.now() - (sessionStart || Date.now())) / 60000));
     data[t].ai_minutes = (data[t].ai_minutes || 0) + elapsedMin;
+    // 记录该次提问内容（按日期归档，供活跃页点击查看当天明细）
+    const aq = data[t].ai_questions || [];
+    aq.push({ q: String(questionText || '').slice(0, 500), t: ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) });
+    data[t].ai_questions = aq.slice(-200);
     localStorage.setItem(key, JSON.stringify(data));
+    // 上报服务器：失败则进离线队列（服务器恢复后由活跃页/问答页补传）
+    const payload = {
+      id: u.student_id, action: 'ai', q: String(questionText || '').slice(0, 500),
+      minutes: elapsedMin, date: t,
+      t: ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
+    };
+    try {
+      fetch('/api/activity/record', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(r){ if (r.ok) return; throw new Error(); }).catch(function(){ queuePendingActivity(u.student_id, payload); });
+    } catch(e) { queuePendingActivity(u.student_id, payload); }
+  } catch(e) {}
+}
+
+// 离线补传队列：服务器不可达时的活跃记录先进本地，恢复后补传
+function queuePendingActivity(sid, payload) {
+  try {
+    const pk = 'activity_pending_' + sid;
+    let list = [];
+    try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
+    list.push(payload);
+    if (list.length > 300) list = list.slice(-300);
+    localStorage.setItem(pk, JSON.stringify(list));
+  } catch(e) {}
+}
+function flushPendingActivity(sid) {
+  try {
+    const pk = 'activity_pending_' + sid;
+    let list = [];
+    try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
+    if (!list.length) return;
+    Promise.all(list.map(function(payload){
+      return fetch('/api/activity/record', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+      }).then(function(r){ if (r.ok) return undefined; throw new Error(); }).catch(function(){ return payload; });
+    })).then(function(results){
+      const failed = results.filter(function(x){ return !!x; });
+      try { localStorage.setItem(pk, JSON.stringify(failed)); } catch(e) {}
+    }).catch(function(){});
   } catch(e) {}
 }
 

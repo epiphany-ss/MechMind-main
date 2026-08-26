@@ -14,11 +14,12 @@
     body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
     a{text-decoration:none;color:var(--blue)}
     .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
-    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
     .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
     .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
     .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
-    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}
+    .toc{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0;margin:4px 0;flex-shrink:0}
     .toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
     .toc ol{list-style:none;margin:8px 0 0;padding:0}
     .toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}
@@ -108,7 +109,11 @@
           <summary>第5页｜碰撞</summary>
           <ol><li><a href="#collision-concept"><span>5.1</span>碰撞概念</a></li><li><a href="#particle-collision"><span>5.2</span>质点碰撞</a></li><li><a href="#rigid-collision"><span>5.3</span>刚体碰撞</a></li><li><a href="#collision-energy"><span>5.4</span>碰撞能量</a></li></ol>
         </details>
-        </nav>
+        
+        <details open>
+          <summary>第6页｜六、哈密顿原理</summary>
+          <ol><li><a href="#hamilton-1"><span>6.1</span>作用量与哈密顿原理</a></li><li><a href="#hamilton-2"><span>6.2</span>与拉格朗日方程的等价关系</a></li><li><a href="#hamilton-3"><span>6.3</span>应用与意义</a></li></ol>
+        </details>        </nav>
   </aside>
 
   <main class="main" id="top">
@@ -1357,10 +1362,171 @@
             
         </section>
         
-  </main>
+  <section class="page-section" id="hamilton">
+          <div class="page-head">
+            <div class="page-num">六、</div>
+            <div>
+              <h2>哈密顿原理</h2>
+              <p>以变分思想为核心的积分形式变分原理，将力学问题归结为作用量取极值，是分析力学与理论物理的基石。</p>
+            </div>
+          </div>
+                    
+<div class="module-guide"><strong>本模块重点：</strong>先掌握作用量的定义与哈密顿原理表述，再理解它与拉格朗日方程的等价关系，最后体会其在现代物理中的意义。</div>
+
+            <article class="module" id="hamilton-1">
+              <div class="module-title-row">
+                <div class="module-index">6.1</div>
+                <div><h3>作用量与哈密顿原理</h3><div class="mini-tags"><span>核心原理</span><span>公式</span><span>变分</span></div></div>
+              </div>
+              <div class="focus-bar">本模块重点：哈密顿原理 = 最小作用量原理 δS = 0。</div>
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>先定义拉格朗日函数 L = T − V（动能减势能），再定义作用量 S 为 L 在时间区间上的积分。</p>
+<div class="deep-formula">L = T - V</div>
+<div class="deep-formula">S = \int_{t_1}^{t_2} L(q_i,\dot{q}_i,t)\,dt</div>
+<p><strong>哈密顿原理：</strong>在给定端点（t₁、t₂ 处广义坐标固定）的所有可能路径中，真实运动使作用量取驻值（通常为极小值），即 δS = 0。</p>
 </div>
-<script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>由达朗贝尔原理 + 虚位移原理可推导出哈密顿原理。</li><li>哈密顿原理是拉格朗日方程的积分形式来源。</li><li>广义坐标、完整约束等概念在此处被统一使用。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>作用量是"积分量"，是对整段时间的积分，不是某时刻的物理量。</li><li>变分 δ 与时间导数 d/dt 可交换：δ(q̇) = (δq)·。</li><li>端点必须固定：δq(t₁)=δq(t₂)=0，否则变分结果不同。</li><li>L 对保守系统取 T−V；非保守力需另行处理。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>写出系统的动能 T 与势能 V，得到 L。</li><li>写出作用量 S 并对路径作变分。</li><li>令 δS=0，积分变分后得到运动方程。</li><li>多自由度时对每个广义坐标独立变分。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>自由质点在势场 V(x) 中运动，写出其作用量 S 的表达式。</p>
+<p><strong>参考答案：</strong>S = ∫(½mẋ² − V(x)) dt，其中 L = ½mẋ² − V(x)。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>哈密顿原理：真实路径使作用量 S=∫(T−V)dt 取极值，δS=0。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：把"路径"想象成所有可能路线，真实路线让作用量最小——这是从牛顿力学到分析力学的关键一步。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/哈密顿原理学习图解.png" alt="哈密顿原理知识图解">
+                  <figcaption>看图提示：先看最小作用量示意与公式，再回读左侧内容。</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="module" id="hamilton-2">
+              <div class="module-title-row">
+                <div class="module-index">6.2</div>
+                <div><h3>与拉格朗日方程的等价关系</h3><div class="mini-tags"><span>关联深化</span><span>推导</span></div></div>
+              </div>
+              <div class="focus-bar">本模块重点：由 δS=0 可严格导出欧拉—拉格朗日方程。</div>
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>对作用量作变分并令 δS=0，可得到欧拉—拉格朗日方程：</p>
+<div class="deep-formula">\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0</div>
+<p>这正是第二类拉格朗日方程。因此哈密顿原理（积分形式）与拉格朗日方程（微分形式）完全等价。</p>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>哈密顿原理 ⇔ 欧拉—拉格朗日方程，二者互为表里。</li><li>广义坐标 q 可任意选取，方程形式不变（协变性）。</li><li>是"从最小作用量出发"这一思想的严格数学表达。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>广义坐标必须相互独立；不独立时需用拉格朗日乘子。</li><li>只有保守力系统直接取 L=T−V。</li><li>变分时把 q 与 q̇ 视为独立变量处理。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先求 ∂L/∂q̇ 与 ∂L/∂q。</li><li>再求 d/dt(∂L/∂q̇)，注意 ∂L/∂q̇ 可能含 q、q̇、t。</li><li>代入方程即可得运动微分方程。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>一维谐振子 L = ½mẋ² − ½kx²，用欧拉—拉格朗日方程求运动方程。</p>
+<p><strong>参考答案：</strong>d/dt(mẋ) + kx = 0，即 mẍ + kx = 0。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>哈密顿原理 δS=0 等价于欧拉—拉格朗日方程，是"积分 vs 微分"两种表述。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：亲手对简单系统（自由落体、谐振子）做一次 δS=0 推导，最能建立直观。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/哈密顿与拉格朗日等价知识图解.png" alt="先看等价关系与欧拉—拉格朗日方程，再回读左侧内容。">
+                  <figcaption>看图提示：先看等价关系与欧拉—拉格朗日方程，再回读左侧内容。</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="module" id="hamilton-3">
+              <div class="module-title-row">
+                <div class="module-index">6.3</div>
+                <div><h3>应用与意义</h3><div class="mini-tags"><span>拓展</span><span>现代物理</span></div></div>
+              </div>
+              <div class="focus-bar">本模块重点：哈密顿原理超越经典力学，是理论物理的统一出发点。</div>
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>哈密顿原理适用于任意广义坐标，可统一处理多自由度与复杂约束系统。</p>
+<p>它是"最小作用量"思想的一般表述，构成分析力学的核心出发点。</p>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>由 δS=0 可得到拉格朗日方程，进而求运动方程。</li><li>适用于任意广义坐标与多自由度系统，不必逐点列牛顿方程。</li><li>对称性 → 守恒律（诺特定理）：时间平移→能量守恒等。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>掌握变分法（泛函极值）是前提，直接套公式易出错。</li><li>哈密顿原理描述的是"路径"，与哈密顿正则方程（相空间表述）区分开。</li><li>含非保守力时不能简单用 L=T−V。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>判断系统是否保守，选好广义坐标。</li><li>写出 L，用欧拉—拉格朗日方程求运动方程。</li><li>遇到约束先看是否完整约束，再决定处理方法。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>为什么说哈密顿原理是"原理"而不是"定理"？</p>
+<p><strong>参考答案：</strong>因为它作为出发点（公设）被提出，其他力学规律可由它推得，故称原理。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>哈密顿原理是"最小作用量"思想的总纲，贯通分析力学的各种表述方法。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：若面向课程考试，掌握 6.1/6.2 的推导即可；6.3 作为理解性拓展。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/哈密顿原理应用知识图解.png" alt="先看哈密顿原理的经典力学应用，再回读左侧内容。">
+                  <figcaption>看图提示：先看哈密顿原理的经典力学应用，再回读左侧内容。</figcaption>
+                </figure>
+              </div>
+            </article>
+        </section>
+        </main>
+</div>
+<script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var el=document.getElementById(t);if(el){var d=el.closest('details');if(d)d.open=true;var pg=el.closest('[id^=page]');if(pg&&pg.style.display==='none')pg.style.display='';el.scrollIntoView({block:'start',behavior:'auto'});}if(n<7){setTimeout(function(){jump(n+1)},450)}}setTimeout(function(){jump(0)},120);window.addEventListener('load',function(){setTimeout(function(){jump(0)},300)})}})();</script>
 
 <script>var modName="分析力学";var secIds=['dalambert', 'virtual-work', 'lagrange', 'vibration', 'collision'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../http://localhost:8090?module=分析力学";btn.target="_blank";btn.textContent="📝 查看分析力学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+<link rel="stylesheet" href="../../js/katex/katex.min.css">
+<script src="../../js/katex/katex.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.katex){document.querySelectorAll('.deep-formula').forEach(function(el){try{katex.render(el.textContent.trim(),el,{displayMode:true,throwOnError:false})}catch(e){}})}});</script>
 </body>
 </html>

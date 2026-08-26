@@ -390,6 +390,57 @@ export default async function handler(req) {
       return json({ ok: true, message: "已提升为管理员" });
     }
 
+    // ============ USER ACTIVITY ============
+    // 用户活跃记录（登录 / 做题 / AI 问答），逻辑与本地 server.py 的 /api/activity 一致
+    if (path === "/activity" && method === "GET") {
+      const sid = (url.searchParams.get("id") || "").trim();
+      if (!sid) return json({ ok: false, message: "缺少用户 ID" }, 400);
+      const activity = await blobGetJSON("activity", `activity_${sid}`, {});
+      return json({ ok: true, activity });
+    }
+
+    if (path === "/activity/record" && method === "POST") {
+      const data = await parseBody(req);
+      const sid = String(data.id || "").trim();
+      if (!sid) return json({ ok: false, message: "缺少用户 ID" }, 400);
+      const action = data.action;
+      let today = String(data.date || "").slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(today)) today = now().split(" ")[0];
+      const key = `activity_${sid}`;
+      let act = await blobGetJSON("activity", key, {});
+      if (typeof act !== "object" || act === null || Array.isArray(act)) act = {};
+      let entry = act[today];
+      if (!entry || typeof entry !== "object") entry = { login:false, questions:0, q_list:[], ai_minutes:0, ai_count:0, ai_questions:[] };
+      if (action === "login") {
+        entry.login = true;
+      } else if (action === "question") {
+        const qid = String(data.qid || "").trim();
+        if (!qid) return json({ ok: false, message: "缺少题号 qid" }, 400);
+        // 每天同一题只记录一次
+        const ql = entry.q_list || [];
+        if (!ql.includes(qid)) {
+          ql.push(qid);
+          entry.questions = (entry.questions || 0) + 1;
+          entry.q_list = ql.slice(-500);
+        }
+      } else if (action === "ai") {
+        const q = String(data.q || "").slice(0, 500);
+        const minutes = Math.max(1, parseInt(data.minutes, 10) || 1);
+        entry.ai_count = (entry.ai_count || 0) + 1;
+        entry.ai_minutes = (entry.ai_minutes || 0) + minutes;
+        const aq = entry.ai_questions || []; aq.push({ q, t: String(data.t || "") }); entry.ai_questions = aq.slice(-200);
+      } else if (action === "seed") {
+        if (typeof data.activity !== "object" || data.activity === null) return json({ ok: false, message: "seed 数据无效" }, 400);
+        await blobSet("activity", key, JSON.stringify(data.activity));
+        return json({ ok: true });
+      } else {
+        return json({ ok: false, message: "未知操作" }, 400);
+      }
+      act[today] = entry;
+      await blobSet("activity", key, JSON.stringify(act));
+      return json({ ok: true });
+    }
+
     // ============ UNIFIED LEARNING MEMORY ============
     // One user-scoped document is the source of truth for learning records.
     // The document can later be split into stores without changing the API.

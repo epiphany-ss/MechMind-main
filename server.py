@@ -11,9 +11,13 @@ import re
 import shutil
 import base64
 import hashlib
+import socket
+import subprocess
+import sys
+import time
 from datetime import datetime
 from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 from pathlib import Path
 
 import tts_utils  # 语音讲解（edge-tts）
@@ -27,6 +31,8 @@ UPLOAD_IMG_DIR = QDATA  # 图片存在 qdata/ 下
 FDATA = ROOT / 'fdata'
 FORUM_INDEX = FDATA / 'index.json'
 PDATA = ROOT / 'pdata'
+ADATA = ROOT / 'adata'                      # 用户活跃记录（登录/做题/AI问答）
+QB_DIR = ROOT / '题库' / '工程力学（二）'   # 独立题库服务器目录（8090）
 
 PORT = 8080
 
@@ -42,6 +48,25 @@ def load_index():
 def save_index(data):
     """写入 index.json"""
     with open(INDEX_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def load_activity(sid):
+    """读取某用户的活跃记录（adata/activity_<sid>.json）"""
+    path = ADATA / f'activity_{sid}.json'
+    if path.exists():
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+
+def save_activity(sid, data):
+    """写入某用户的活跃记录"""
+    ADATA.mkdir(exist_ok=True)
+    with open(ADATA / f'activity_{sid}.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
@@ -136,7 +161,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
-        path = parsed.path.lstrip('/')
+        path = unquote(parsed.path.lstrip('/'))
 
         # Forum API
         if path == 'api/forum/list':
@@ -149,6 +174,11 @@ class Handler(BaseHTTPRequestHandler):
 
         if path.startswith('api/learning-memory/'):
             self.handle_learning_memory('GET')
+            return
+
+        # 用户活跃记录 API
+        if path == 'api/activity':
+            self.handle_activity_get()
             return
 
         # 语音讲解 API
@@ -202,7 +232,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_cors()
             self.send_header('Content-Type', content_type)
-            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            # 彻底禁止缓存：每次访问都从服务器拿最新文件（no-store + 旧协议头兜底）
+            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0')
+            self.send_header('Expires', '0')
+            self.send_header('Pragma', 'no-cache')
             self.end_headers()
             # 全部按原始字节读取，保证服务器提供的内容与本地文件逐字节一致（不做行尾符/编码转换）
             with open(file_path, 'rb') as f:
@@ -223,10 +256,14 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_knowledge_network('POST')
         elif self.path.startswith('/api/learning-memory/'):
             self.handle_learning_memory('POST')
+        elif self.path == '/api/activity/record':
+            self.handle_activity_record()
         elif self.path == '/api/tts':
             self.handle_tts_preview()
         elif self.path == '/api/narrate':
             self.handle_narrate()
+        elif self.path == '/api/open-question-bank':
+            self.handle_open_question_bank()
         else:
             self.send_error(404, 'Not Found')
 
@@ -713,8 +750,42 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_cors()
         self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0')
+        self.send_header('Expires', '0')
+        self.send_header('Pragma', 'no-cache')
         self.end_headers()
         self.wfile.write(json.dumps(data, ensure_ascii=False).encode('utf-8'))
+
+    # ==================== 题库一键打开 ====================
+    # 作用：确保题库服务器（8090，题库/工程力学（二）/server.py）在运行；
+    #       未运行则自动启动（等价于「启动题库.bat」），再让前端跳转过去。
+    def handle_open_question_bank(self):
+        def port_up(port, timeout=0.4):
+            try:
+                with socket.create_connection(('127.0.0.1', port), timeout=timeout):
+                    return True
+            except OSError:
+                return False
+
+        if port_up(8090):
+            self.send_json(200, {'ok': True, 'ready': True, 'message': '题库服务器已在运行'})
+            return
+        # 启动题库服务器（独立黑色窗口，与「启动题库.bat」一致）
+        try:
+            subprocess.Popen([sys.executable, 'server.py'], cwd=str(QB_DIR),
+                             creationflags=getattr(subprocess, 'CREATE_NEW_CONSOLE', 0))
+        except Exception as e:
+            self.send_json(500, {'ok': False, 'message': '启动题库服务器失败: %s' % e})
+            return
+        # 等待端口就绪（最多约 8 秒）
+        ready = False
+        for _ in range(40):
+            time.sleep(0.2)
+            if port_up(8090):
+                ready = True
+                break
+        self.send_json(200, {'ok': True, 'ready': ready,
+                             'message': '题库服务器已启动' if ready else '题库服务器启动中，请稍候刷新'})
 
     # ==================== Forum API ====================
 
@@ -898,6 +969,81 @@ class Handler(BaseHTTPRequestHandler):
         print(f'[Account] 用户提升为管理员: {uid}')
         self.send_json(200, {'ok': True, 'message': f'用户 {uid} 已提升为管理员'})
 
+    def handle_activity_get(self):
+        """读取某用户的活跃记录（GET /api/activity?id=<学号>）"""
+        parsed = urlparse(self.path)
+        qs = parse_qs(parsed.query)
+        sid = (qs.get('id') or [''])[0].strip()
+        if not sid or not re.match(r'^[A-Za-z0-9_.-]{1,80}$', sid):
+            self.send_json(400, {'ok': False, 'message': '用户 ID 无效'})
+            return
+        self.send_json(200, {'ok': True, 'activity': load_activity(sid)})
+
+    def handle_activity_record(self):
+        """记录用户活跃行为（POST /api/activity/record）
+        支持 action：
+          - login      置当天 login=true
+          - question   做题完成：questions+1、q_list 追加题号
+          - ai         AI 问答已答：ai_count+1、ai_minutes+=minutes、ai_questions 追加 {q,t}
+          - seed       整包覆盖（用于把本地历史迁移到服务器）
+        """
+        data = self.read_body_json()
+        if data is None:
+            return
+        sid = str(data.get('id') or '').strip()
+        if not sid or not re.match(r'^[A-Za-z0-9_.-]{1,80}$', sid):
+            self.send_json(400, {'ok': False, 'message': '用户 ID 无效'})
+            return
+        action = data.get('action')
+        today = str(data.get('date') or '')[:10]
+        if not re.match(r'^\d{4}-\d{2}-\d{2}$', today):
+            today = datetime.now().strftime('%Y-%m-%d')
+
+        act = load_activity(sid)
+        entry = act.get(today)
+        if not isinstance(entry, dict):
+            entry = {'login': False, 'questions': 0, 'q_list': [], 'ai_minutes': 0, 'ai_count': 0, 'ai_questions': []}
+
+        if action == 'login':
+            entry['login'] = True
+        elif action == 'question':
+            qid = str(data.get('qid') or '').strip()
+            if not qid:
+                self.send_json(400, {'ok': False, 'message': '缺少题号 qid'})
+                return
+            # 每天同一题只记录一次（超过 24 点按新的一天重新计数，日期键控）
+            ql = entry.get('q_list') or []
+            if qid not in ql:
+                ql.append(qid)
+                entry['questions'] = (entry.get('questions') or 0) + 1
+                entry['q_list'] = ql[-500:]
+        elif action == 'ai':
+            q = str(data.get('q') or '')[:500]
+            try:
+                minutes = int(data.get('minutes'))
+            except (TypeError, ValueError):
+                minutes = 1
+            entry['ai_count'] = (entry.get('ai_count') or 0) + 1
+            entry['ai_minutes'] = (entry.get('ai_minutes') or 0) + max(1, minutes)
+            aq = entry.get('ai_questions') or []
+            aq.append({'q': q, 't': str(data.get('t') or datetime.now().strftime('%H:%M'))})
+            entry['ai_questions'] = aq[-200:]
+        elif action == 'seed':
+            seed = data.get('activity')
+            if not isinstance(seed, dict):
+                self.send_json(400, {'ok': False, 'message': 'seed 数据无效'})
+                return
+            save_activity(sid, seed)
+            self.send_json(200, {'ok': True})
+            return
+        else:
+            self.send_json(400, {'ok': False, 'message': '未知操作'})
+            return
+
+        act[today] = entry
+        save_activity(sid, act)
+        self.send_json(200, {'ok': True})
+
 
 def main():
     print(f'==========================================')
@@ -917,7 +1063,19 @@ def main():
     print(f'  按 Ctrl+C 停止服务器')
     print(f'==========================================')
 
-    server = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
+    try:
+        server = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
+    except OSError as e:
+        print('\n[错误] 无法监听端口 %d: %s' % (PORT, e))
+        print('该端口可能已被其他程序（如旧副本的服务器）占用。')
+        print('解决办法：使用「启动平台.bat」一键启动，它会自动关闭残留的旧服务器；')
+        print('或先在任务管理器中结束占用该端口的进程，再重新启动。')
+        print('按回车键退出…')
+        try:
+            input()
+        except (KeyboardInterrupt, EOFError):
+            pass
+        sys.exit(1)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script src="js/auth.js"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>长沙理工大学 · 理论力学研究平台</title>
@@ -323,7 +325,7 @@ body{
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">首页</a></li>
-    <li><a href="http://localhost:8090">理论力学题库</a></li>
+    <li><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a></li>
     <li><a href="mechanism.html">机构运动演示</a></li>
     <li><a href="ai_qa.html">AI智能问答</a></li>
     <li><a href="knowledge_framework.html">知识框架</a></li>
@@ -343,7 +345,7 @@ body{
   <div style="background:#fff;width:280px;height:100vh;padding:24px;overflow-y:auto" onclick="event.stopPropagation()">
     <h3 style="margin-bottom:20px">导航菜单</h3>
     <a href="index.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🏠 首页</a>
-    <a href="http://localhost:8090" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">📝 理论力学题库</a>
+    <a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">📝 理论力学题库</a>
     <a href="mechanism.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">⚙️ 机构运动演示</a>
     <a href="ai_qa.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🤖 AI智能问答</a>
     <a href="knowledge_framework.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🧠 知识框架</a>
@@ -382,7 +384,7 @@ body{
 <section class="section" id="features">
   <div class="section-header"><div class="section-tag">CORE MODULES</div><h2>平台核心功能</h2><div class="divider"></div><p>为理论力学学习与研究提供一站式数字化解决方案</p></div>
   <div class="features-grid">
-    <a class="feature-card" href="http://localhost:8090"><div class="card-icon c1">📝</div><h3>理论力学题库</h3><p>涵盖静力学、运动学、动力学、分析力学四大模块，596 精选习题，按难度分级，支持智能组卷与自动批改。</p><span class="card-arrow">进入题库 →</span></a>
+    <a class="feature-card" href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()"><div class="card-icon c1">📝</div><h3>理论力学题库</h3><p>涵盖静力学、运动学、动力学、分析力学四大模块，596 精选习题，按难度分级，支持智能组卷与自动批改。</p><span class="card-arrow">进入题库 →</span></a>
     <a class="feature-card" href="mechanism.html"><div class="card-icon c2">⚙️</div><h3>机构运动演示</h3><p>4种交互式机构动画（导杆/滑块/正弦/行星减速）+ 手绘曲线自动生成四连杆机构。</p><span class="card-arrow">查看演示 →</span></a>
     <a class="feature-card" href="ai_qa.html"><div class="card-icon c3">🤖</div><h3>AI智能体问答</h3><p>基于大语言模型的理论力学习题解答与概念讲解，支持公式识别与逐步推理。</p><span class="card-arrow">开始对话 →</span></a>
     <a class="feature-card" href="knowledge_framework.html"><div class="card-icon c4">🧠</div><h3>知识框架梳理</h3><p>体系化的理论力学知识图谱，从基础概念到高级应用，帮助构建完整知识体系。</p><span class="card-arrow">查看框架 →</span></a>
@@ -400,7 +402,7 @@ body{
     <div class="preview-card"><span class="diff medium">中等</span><h4>判断直角坐标法的适用范围</h4><p>描述点的运动常采用矢量法、直角坐标法和自然法。矢量法能同时表示出点的运动参数的大小和…</p><div class="tags"><span>运动学</span><span>点的运动学</span></div></div>
     <div class="preview-card"><span class="diff medium">中等</span><h4>判断平面运动刚体动能表达式是否正确</h4><p>作平面运动刚体的动能等于它随基点平动的动能和绕基点转动的动能之和。 ( )</p><div class="tags"><span>动力学</span><span>动能定理</span><span>转动惯量</span></div></div>
   </div>
-  <div style="text-align:center;margin-top:32px"><a href="http://localhost:8090" style="color:var(--primary);font-weight:700;text-decoration:none;font-size:1.05em">查看全部题库 →</a></div>
+  <div style="text-align:center;margin-top:32px"><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()" style="color:var(--primary);font-weight:700;text-decoration:none;font-size:1.05em">查看全部题库 →</a></div>
 </section>
 
 <!-- Mechanism Demo Preview -->
@@ -470,16 +472,34 @@ body{
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand"><h3>长沙理工大学 · 理论力学研究平台</h3><p>致力于为工程力学教育提供全方位数字化支撑。</p><p>集知识学习、机构演示、AI智能问答于一体，助力每一位力学学子的成长。</p><p style="margin-top:8px;font-size:0.8em">📍 湖南省长沙市天心区万家丽南路二段960号</p></div>
-    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="ai_qa.html">AI智能问答</a></div>
+    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="ai_qa.html">AI智能问答</a></div>
     <div class="footer-col"><h4>关于我们</h4><a href="about.html">平台介绍</a><a href="contact.html">联系我们</a><a href="forum.html">问题探讨</a><a href="help.html">使用帮助</a></div>
     <div class="footer-col"><h4>更多</h4><a href="account.html">个人账户</a><a href="search.html">功能搜索</a><a href="feedback.html">意见反馈</a></div>
   </div>
-  <div class="footer-bottom">© 2026 长沙理工大学 工程力学系 · 理论力学研究平台 | 云塘校区</div>
+  <div class="footer-bottom">© 2026 长沙理工大学 工程力学系 · 理论力学研究平台 | 云塘校区 | <span style="color:#0d9488">数据版本 v20260828 · 服务器实时加载</span></div>
 </footer>
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
+// 打开"理论力学题库"（确保 8090 题库服务器运行后跳转；file:// 主页也能调用 8080 接口）
+function openQuestionBank(){
+  function openServer(){ location.href='http://localhost:8090'; }
+  function openLocal(){ location.href='题库/工程力学（二）/index.html'; }
+  // 优先调用 8080 平台服务器的接口（自动启动 8090 题库服务器）
+  fetch('http://localhost:8080/api/open-question-bank',{method:'POST'})
+    .then(function(r){return r.json().catch(function(){return {ok:false};});})
+    .then(function(d){
+      if(d&&d.ok&&d.ready){setTimeout(openServer,150);}
+      else{openLocal();}
+    })
+    .catch(function(){
+      // 8080 不可达 → 直接探测 8090 是否在运行
+      fetch('http://localhost:8090/?_='+Date.now(),{mode:'no-cors'})
+        .then(function(){openServer();})
+        .catch(function(){openLocal();});
+    });
+}
 // Carousel
 let currentSlide=0;
 const slides=document.querySelectorAll('.hero-slide');

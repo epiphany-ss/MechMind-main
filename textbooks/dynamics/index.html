@@ -6,11 +6,12 @@
     body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5fb,#f8fbff 45%,#edf5fb);line-height:1.75}
     a{text-decoration:none;color:var(--blue)}
     .layout{display:grid;grid-template-columns:315px minmax(0,1fr);gap:28px;max-width:1840px;margin:0 auto;padding:24px}
-    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+    .sidebar{position:sticky;top:16px;height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
     .sidebar h2{margin:0 0 14px;background:linear-gradient(135deg,var(--blue),#154e93);color:#fff;text-align:center;border-radius:12px;padding:16px;font-size:22px}
     .nav-note{font-size:13px;color:#3f5d74;background:#f4f9ff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
     .home-link{display:block;text-align:center;border:1px solid var(--line);background:#edf6ff;border-radius:10px;padding:9px 10px;font-weight:800;margin-bottom:12px}
-    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
+    .toc{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+    .toc details{border-bottom:1px dashed #c8dcec;padding:10px 0;margin:4px 0;flex-shrink:0}.toc summary{cursor:pointer;font-weight:900;color:var(--blue2)}
     .toc ol{list-style:none;margin:8px 0 0;padding:0}.toc li a{display:grid;grid-template-columns:38px 1fr;gap:5px;align-items:start;padding:5px 4px;border-radius:8px;font-size:14px;color:#244b6e}.toc li a:hover{background:#eaf4ff}
     .main{min-width:0}.hero{background:linear-gradient(180deg,#f4f9ff,#e8f4ff);border:1px solid #d5e8f7;border-radius:24px;padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
     .eyebrow{display:inline-block;background:#e2f1ff;color:var(--blue);border:1px solid #bddbf5;border-radius:999px;padding:5px 12px;font-weight:900;letter-spacing:2px;font-size:13px}
@@ -41,7 +42,7 @@
     @media print{.sidebar,.btns,.page-tabs{display:none}.layout{display:block;max-width:none}.page-section,.module,.overview,.hero{box-shadow:none;break-inside:avoid}}
     </style></head>
 <body><a href="../../knowledge_framework.html" style="position:fixed;top:12px;right:170px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(5,150,105,0.25);transition:all 0.2s" onmouseover="this.style.background="#047857";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="#059669";this.style.transform="translateY(0)"">← 返回知识框架</a><a href="../../index.html" style="position:fixed;top:12px;right:16px;z-index:100;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--blue);color:#fff;text-decoration:none;border-radius:20px;font-weight:700;font-size:0.82em;box-shadow:0 4px 12px rgba(8,60,122,0.25);transition:all 0.2s" onmouseover="this.style.background="var(--blue2)";this.style.transform="translateY(-1px)"" onmouseout="this.style.background="var(--blue)";this.style.transform="translateY(0)"">🏠 返回平台首页</a><div class="layout">
-<aside class="sidebar"><h2>子目录导航</h2><div class="nav-note">建议使用方式：先看每页的大图总览，再阅读每个模块的“重点一句话”和配图；练习区可按需展开。</div><a class="home-link" href="#top">回到首页</a><nav class="toc"><details open><summary>第1页｜一、质点动力学</summary><ol><li><a href="#dyn1-1"><span>1.1</span>牛顿第二定律</a></li><li><a href="#dyn1-2"><span>1.2</span>运动微分方程</a></li><li><a href="#dyn1-3"><span>1.3</span>两类问题</a></li></ol></details><details open><summary>第2页｜二、动量定理</summary><ol><li><a href="#dyn2-1"><span>2.1</span>动量与冲量</a></li><li><a href="#dyn2-2"><span>2.2</span>质心运动定理</a></li><li><a href="#dyn2-3"><span>2.3</span>变质量系统</a></li></ol></details><details open><summary>第3页｜三、动量矩定理</summary><ol><li><a href="#dyn3-1"><span>3.1</span>转动惯量</a></li><li><a href="#dyn3-2"><span>3.2</span>定轴转动方程</a></li><li><a href="#dyn3-3"><span>3.3</span>平面运动微分方程</a></li></ol></details><details open><summary>第4页｜四、动能定理</summary><ol><li><a href="#dyn4-1"><span>4.1</span>功与动能</a></li><li><a href="#dyn4-2"><span>4.2</span>动能定理</a></li><li><a href="#dyn4-3"><span>4.3</span>机械能守恒</a></li><li><a href="#dyn4-4"><span>4.4</span>普遍定理综合</a></li></ol></details></nav></aside>
+<aside class="sidebar"><h2>子目录导航</h2><div class="nav-note">建议使用方式：先看每页的大图总览，再阅读每个模块的“重点一句话”和配图；练习区可按需展开。</div><a class="home-link" href="#top">回到首页</a><nav class="toc"><details open><summary>第1页｜一、质点动力学</summary><ol><li><a href="#dyn1-1"><span>1.1</span>牛顿第二定律</a></li><li><a href="#dyn1-2"><span>1.2</span>运动微分方程</a></li><li><a href="#dyn1-3"><span>1.3</span>两类问题</a></li></ol></details><details open><summary>第2页｜二、动量定理</summary><ol><li><a href="#dyn2-1"><span>2.1</span>动量与冲量</a></li><li><a href="#dyn2-2"><span>2.2</span>质心运动定理</a></li><li><a href="#dyn2-3"><span>2.3</span>变质量系统</a></li></ol></details><details open><summary>第3页｜三、动量矩定理</summary><ol><li><a href="#dyn3-1"><span>3.1</span>转动惯量</a></li><li><a href="#dyn3-2"><span>3.2</span>定轴转动方程</a></li><li><a href="#dyn3-3"><span>3.3</span>平面运动微分方程</a></li></ol></details><details open><summary>第4页｜四、动能定理</summary><ol><li><a href="#dyn4-1"><span>4.1</span>功与动能</a></li><li><a href="#dyn4-2"><span>4.2</span>动能定理</a></li><li><a href="#dyn4-3"><span>4.3</span>机械能守恒</a></li><li><a href="#dyn4-4"><span>4.4</span>普遍定理综合</a></li></ol></details><details open><summary>第5页｜五、功率与机械效率</summary><ol><li><a href="#power-eff-1"><span>5.1</span>功率的概念与计算</a></li><li><a href="#power-eff-2"><span>5.2</span>机械效率</a></li></ol></details></nav></aside>
 <main class="main" id="top">
 <header class="hero"><span class="eyebrow">THEORETICAL MECHANICS · （三）</span><h1>大学理论力学知识体系梳理（三）—— 动力学</h1><p>这是第三部分“动力学”的第一部分风格统一版：左侧子目录导航、首页总览卡片、每页模块化学习区、配图讲解、公式拆解和练习区统一排版。</p>
 <div class="hero-grid"><section class="hero-card"><h3>推荐学习路线</h3><p>1. 先看页卡总览：把章节结构建立起来。</p><p>2. 再读模块卡片：抓“学习目标、公式拆解、解题流程、易错难点”。</p><p>3. 最后做练习：用小练巩固公式和方法选择。</p><div class="btns"><a class="btn" href="#" onclick="window.print();return false;">打印 / 导出 PDF</a><a class="btn" href="#overview">查看全篇总图</a></div></section>
@@ -400,6 +401,120 @@
             
         </section>
         
-</main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var a=document.querySelector('.toc a[href="#'+t+'"]');if(a){a.click();setTimeout(function(){var el=document.getElementById(t);if(el){el.scrollIntoView({block:'start'})}},200);if(n<2){setTimeout(function(){jump(n+1)},500)}}}setTimeout(function(){jump(1)},300)}})();</script>
+<section class="page-section" id="power-efficiency">
+          <div class="page-head">
+            <div class="page-num">五、</div>
+            <div>
+              <h2>功率与机械效率</h2>
+              <p>功率描述力做功的快慢，机械效率描述能量利用的有效程度，是动力学中衡量工作性能的核心指标。</p>
+            </div>
+          </div>
+                    
+<div class="module-guide"><strong>本模块重点：</strong>先理解功率的定义与瞬时计算，再掌握机械效率及其在机组中的应用，最后用例题巩固。</div>
+
+            <article class="module" id="power-eff-1">
+              <div class="module-title-row">
+                <div class="module-index">5.1</div>
+                <div><h3>功率的概念与计算</h3><div class="mini-tags"><span>核心概念</span><span>公式</span><span>计算</span></div></div>
+              </div>
+              <div class="focus-bar">本模块重点：功率 = 功对时间的变化率，瞬时功率 P = F·v。</div>
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>功率表示力（或力矩）做功的快慢，即单位时间内做的功。</p>
+<div class="deep-formula">\bar{P} = \dfrac{W}{t}\quad\text{(平均功率)}</div>
+<div class="deep-formula">P = \dfrac{dW}{dt} = \boldsymbol{F}\cdot\boldsymbol{v}\quad\text{(瞬时功率)}</div>
+<div class="deep-formula">P = M\,\omega\quad	ext{(转动力矩功率)}</div>
+<p>当力与速度同向时 P = Fv；有夹角 θ 时 P = Fv cosθ。</p>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>功率是功的时间导数，先有"功"再有"功率"。</li><li>由动能定理 W = ΔT，可推出 P = dT/dt。</li><li>转动情形把"力"换成"力矩"、"速度"换成"角速度"。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>功率是标量，但可正可负：P&gt;0 表示做正功、给系统输入能量。</li><li>平均功率与瞬时功率勿混淆：瞬时功率用 P=F·v 在瞬时取值。</li><li>F·v 是点积，必须考虑力的方向与速度方向的夹角。</li><li>单位：瓦特 W = J/s，工程中常用千瓦（kW）、马力。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>求瞬时功率：先求该瞬时的速度 v，再算 P=F·v cosθ。</li><li>求转动功率：P = Mω，注意 ω 用 rad/s。</li><li>求平均功率：总功除以总时间 W/t。</li><li>涉及"功率恒定"的牵引问题，用 P=Fv 且 P 为常量。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>质量为 m 的物体在恒力 F 作用下沿光滑水平面移动，某瞬时的速度为 v，求此时力的瞬时功率。</p>
+<p><strong>参考答案：</strong>若 F 与 v 同向，P = Fv；若夹角为 θ，则 P = Fv cosθ。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>功率衡量做功快慢：瞬时功率 P=F·v，平均功率 P=W/t，转动 P=Mω。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：结合动能定理理解 P=dT/dt，牢记"瞬时用 F·v、平均用 W/t"。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/功率与机械效率知识图谱.png" alt="功率与机械效率知识图解">
+                  <figcaption>看图提示：先看功率公式与效率流程，再回读左侧内容。</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="module" id="power-eff-2">
+              <div class="module-title-row">
+                <div class="module-index">5.2</div>
+                <div><h3>机械效率</h3><div class="mini-tags"><span>核心概念</span><span>应用</span></div></div>
+              </div>
+              <div class="focus-bar">本模块重点：机械效率 = 有用输出与输入之比，恒小于 1。</div>
+              <div class="module-main">
+                <div class="module-left">
+                  <section class="deep-module">
+<div class="deep-grid">
+<div class="deep-card core">
+<h5>① 内容核心</h5>
+<p>机械效率反映能量被有效利用的程度，等于有用输出功（或功率）与输入功（或功率）之比。</p>
+<div class="deep-formula">\eta = \dfrac{W_{\text{出}}}{W_{\text{入}}} = \dfrac{P_{\text{出}}}{P_{\text{入}}}</div>
+<p>由于摩擦、变形等必然存在能量损失，效率恒小于 1（0 &lt; η &lt; 1）。</p>
+</div>
+<div class="deep-card relation">
+<h5>② 知识点关联</h5>
+<ul><li>损耗功率：P损耗 = P输入 - P输出，常表现为摩擦生热。</li><li>串联机组总效率 = 各机效率之积：η总 = η1·η2·…·ηn。</li><li>与功率直接相关：已知输入功率和效率即可求输出功率。</li></ul>
+</div>
+<div class="deep-card warn">
+<h5>③ 难点与易错点</h5>
+<ul><li>效率无量纲，恒在 0 与 1 之间，不能大于 1。</li><li>区分"有用功/输出功"与"总功/输入功"，不要把损耗也算成有用。</li><li>串联机组效率连乘会显著下降，勿误用相加。</li></ul>
+</div>
+<div class="deep-card skill">
+<h5>④ 解题技巧</h5>
+<ul><li>先明确哪些是输入、哪些是有用输出。</li><li>用 η = P出/P入 由任意两个量求第三个。</li><li>多级传动：逐级求效率后相乘。</li><li>结合 P=Fv 求传动系统的输出功率与牵引力。</li></ul>
+</div>
+<div class="deep-card practice">
+<h5>⑤ 课后小练</h5>
+<p><strong>题目：</strong>某机械输入功率 10 kW，机械效率 80%，求其有用输出功率与损耗功率。</p>
+<p><strong>参考答案：</strong>P出 = 10×0.8 = 8 kW；P损耗 = 10 − 8 = 2 kW。</p>
+</div>
+<div class="deep-card">
+<h5>⑥ 本模块一句话总结</h5>
+<p>机械效率 η = P出/P入 恒小于 1，串联机组效率连乘。</p>
+</div>
+</div>
+<div class="deep-summary">学习建议：把效率与功率联动记忆，工程问题常由"输入功率×效率"得输出能力。</div>
+</section>
+                </div>
+                <figure class="module-map">
+                  <div class="map-label">模块配图</div>
+                  <img src="assets/机械效率知识图解.png" alt="先看效率公式与流程，再回读左侧内容。">
+                  <figcaption>看图提示：先看效率公式与流程，再回读左侧内容。</figcaption>
+                </figure>
+              </div>
+            </article>
+        </section>
+        </main></div><script>(function(){var p=new URLSearchParams(location.search);var t=p.get('target');if(t){function jump(n){var el=document.getElementById(t);if(el){var d=el.closest('details');if(d)d.open=true;var pg=el.closest('[id^=page]');if(pg&&pg.style.display==='none')pg.style.display='';el.scrollIntoView({block:'start',behavior:'auto'});}if(n<7){setTimeout(function(){jump(n+1)},450)}}setTimeout(function(){jump(0)},120);window.addEventListener('load',function(){setTimeout(function(){jump(0)},300)})}})();</script>
 <script>var modName="动力学";var secIds=['dyn1', 'dyn2', 'dyn3', 'dyn4'];secIds.forEach(function(sid){var el=document.getElementById(sid);if(el){var btn=document.createElement("a");btn.href="../../http://localhost:8090?module=动力学";btn.target="_blank";btn.textContent="📝 查看动力学相关习题 →";btn.style.cssText="display:block;text-align:center;margin:20px 0;padding:14px 28px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.9em;letter-spacing:1px;transition:all 0.25s;box-shadow:0 4px 16px rgba(26,86,219,0.2)";btn.onmouseover=function(){this.style.transform="translateY(-2px)";this.style.boxShadow="0 8px 24px rgba(26,86,219,0.35)"};btn.onmouseout=function(){this.style.transform="translateY(0)";this.style.boxShadow="0 4px 16px rgba(26,86,219,0.2)"};el.appendChild(btn);}})</script>
+<link rel="stylesheet" href="../../js/katex/katex.min.css">
+<script src="../../js/katex/katex.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.katex){document.querySelectorAll('.deep-formula').forEach(function(el){try{katex.render(el.textContent.trim(),el,{displayMode:true,throwOnError:false})}catch(e){}})}});</script>
 </body></html>

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script src="js/auth.js"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>用户活跃状态 - 长沙理工大学理论力学研究平台</title>
 <style>
 :root{--primary:#1a56db;--primary-dark:#0d3b9e;--primary-light:#e8f0fe;--bg:#f5f7fa;--card-bg:#fff;--text:#2c3e50;--text-light:#5a6c7d;--text-lighter:#8899aa;--border:#e2e8f0;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px}
@@ -95,6 +100,20 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
 .empty{text-align:center;padding:24px;color:#94a3b8;font-size:0.85em}
 .badge{display:inline-block;font-size:0.72em;font-weight:700;padding:2px 10px;border-radius:10px;background:#fef3c7;color:#b45309;margin-left:8px}
 
+/* 做题题号标签 + AI 提问明细弹窗 */
+.q-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.q-chip{display:inline-block;font-size:0.72em;font-weight:700;color:var(--primary);background:#eef4ff;border:1px solid #c7d7fe;border-radius:10px;padding:1px 8px;text-decoration:none;line-height:1.6}
+.q-chip:hover{background:#dbe7ff}
+.detail-link{font-size:0.72em;font-weight:600;color:#0d9488;border-bottom:1px dashed #0d9488;margin-left:4px}
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal-box{background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.25);max-width:560px;width:100%;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-box .m-hd{padding:14px 20px;background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.modal-box .m-hd button{background:none;border:none;color:#fff;font-size:1.2em;cursor:pointer;line-height:1}
+.modal-box .m-body{padding:16px 20px;overflow-y:auto}
+.ai-q-item{padding:10px 12px;margin-bottom:8px;background:#f8fafc;border:1px solid var(--border);border-radius:8px;font-size:0.85em;line-height:1.6}
+.ai-q-item .q-t{color:#0d9488;font-weight:700;font-size:0.72em;margin-bottom:3px}
+
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 28px;border-radius:22px;font-weight:700;font-size:0.95em;cursor:pointer;border:none;transition:all 0.2s;letter-spacing:0.5px;width:100%;text-decoration:none}
 .btn-primary{background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,0.3)}
@@ -106,6 +125,14 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
 <header class="cf-header" id="cfHeader"></header>
 <div class="container" id="mainContainer"></div>
 
+<!-- AI 提问明细弹窗 -->
+<div class="modal-overlay" id="aiModal" onclick="if(event.target===this)closeAiModal()">
+  <div class="modal-box">
+    <div class="m-hd"><span id="aiModalTitle">🤖 AI 提问明细</span><button onclick="closeAiModal()" title="关闭">✕</button></div>
+    <div class="m-body" id="aiModalBody"></div>
+  </div>
+</div>
+
 <script>
 (function(){
   var currentUser = null;
@@ -116,6 +143,23 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
   function aKey(sid){ return 'user_activity_' + sid; }
   function getActivity(sid){ try { return JSON.parse(localStorage.getItem(aKey(sid)) || '{}'); } catch(e) { return {}; } }
   function saveActivity(sid, d){ try { localStorage.setItem(aKey(sid), JSON.stringify(d)); } catch(e) {} }
+  // 离线补传队列：服务器停机期间产生的活跃记录先进本地，恢复后补传到服务器
+  function flushPendingActivity(sid) {
+    try {
+      var pk = 'activity_pending_' + sid;
+      var list = [];
+      try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
+      if (!list.length) return;
+      Promise.all(list.map(function(payload){
+        return fetch('/api/activity/record', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+          .then(function(r){ if (r.ok) return undefined; throw new Error(); })
+          .catch(function(){ return payload; });
+      })).then(function(results){
+        var failed = results.filter(function(x){ return !!x; });
+        try { localStorage.setItem(pk, JSON.stringify(failed)); } catch(e) {}
+      }).catch(function(){});
+    } catch(e) {}
+  }
 
   var CAPS = { questions: 200, loginDays: 160, aiDays: 150, aiCount: 750 };
   var LEVELS = [
@@ -146,26 +190,221 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
   var created = currentUser.created;
   if (!created) { var f = new Date(); f.setDate(f.getDate() - 45); created = ds(f); }
 
+  // 活跃记录以服务器（8080，adata/activity_<sid>.json）为主；
+  // 但服务器停机/旧版本期间产生的记录只存在浏览器 localStorage，读取时合并展示并回写服务器。
   var data = getActivity(sid);
-  var stats = computeStats(data);
+  function loadActivityFromServer(sid, cb) {
+    fetch('/api/activity?id=' + encodeURIComponent(sid) + '&_=' + Date.now())
+      .then(function(r){ if (r.ok) return r.json(); throw new Error(); })
+      .then(function(d){
+        if (d && d.ok && d.activity) { cb(d.activity, true); }
+        else { throw new Error(); }
+      })
+      .catch(function(){ cb(getActivity(sid), false); });
+  }
+  // 合并：服务器权威，本地兜底（AI 记录服务器缺失时用本地），做题 q_list 取并集去重
+  function mergeActivity(sv, lo) {
+    sv = sv || {}; lo = lo || {};
+    var dates = {};
+    Object.keys(sv).forEach(function(d){ dates[d] = 1; });
+    Object.keys(lo).forEach(function(d){ dates[d] = 1; });
+    var out = {};
+    Object.keys(dates).sort().forEach(function(date){
+      var s = sv[date] || {}, l = lo[date] || {}, e = {};
+      e.login = !!(s.login || l.login);
+      var qset = {};
+      (s.q_list || []).forEach(function(q){ qset[q] = 1; });
+      (l.q_list || []).forEach(function(q){ qset[q] = 1; });
+      var ql = Object.keys(qset);
+      e.q_list = ql;
+      e.questions = ql.length || Math.max(s.questions || 0, l.questions || 0);
+      if ((s.ai_questions || []).length > 0 || (s.ai_count || 0) > 0) {
+        e.ai_questions = s.ai_questions || [];
+        e.ai_count = (s.ai_count || 0) > 0 ? s.ai_count : (s.ai_questions || []).length;
+        e.ai_minutes = s.ai_minutes || 0;
+      } else if ((l.ai_questions || []).length > 0 || (l.ai_count || 0) > 0) {
+        e.ai_questions = l.ai_questions || [];
+        e.ai_count = (l.ai_count || 0) > 0 ? l.ai_count : (l.ai_questions || []).length;
+        e.ai_minutes = l.ai_minutes || 0;
+      } else {
+        e.ai_questions = []; e.ai_count = 0; e.ai_minutes = 0;
+      }
+      out[date] = e;
+    });
+    return out;
+  }
+  function stripHtmlBasic(s) {
+    return String(s || '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
+      .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'").replace(/\s+/g, ' ').trim();
+  }
+  // 从聊天记录(qa_conversations)推导每天的 AI 问答次数（口径：AI 产出解答结果才算一次；
+  // 取消「已停止回答」、兜底「未收录」不计入）。仅当活动记录缺失 AI 时兜底显示。
+  function deriveAiFromConversations() {
+    var convs = [];
+    try {
+      var raw = localStorage.getItem('qa_conversations');
+      if (!raw || raw === '[]') raw = localStorage.getItem('qa_conversations_' + sid);
+      if (raw) convs = JSON.parse(raw) || [];
+    } catch(e) {}
+    var byDate = {};
+    (convs || []).forEach(function(c) {
+      if (!c || !c.messages || !c.messages.length) return;
+      var d = new Date(c.createdAt || Date.now());
+      var dateStr = d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
+      var pending = null;
+      (c.messages || []).forEach(function(m) {
+        if (m.type === 'user') { pending = m.text || ''; }
+        else if (m.type === 'bot' && pending) {
+          var txt = (m.text || '');
+          var isCancel = txt.indexOf('已停止回答') >= 0;
+          var isFallback = txt.indexOf('本地知识库中暂未收录') >= 0;
+          if (!isCancel && !isFallback) {
+            var r = byDate[dateStr] || { count: 0, minutes: 0, questions: [] };
+            r.count++;
+            r.questions.push({ q: stripHtmlBasic(pending).slice(0, 200), t: (m.time || '--:--') });
+            byDate[dateStr] = r;
+          }
+          pending = null;
+        }
+      });
+    });
+    return byDate;
+  }
+  function mergeDerivedAi(data) {
+    var derived = deriveAiFromConversations();
+    Object.keys(derived).forEach(function(date) {
+      var e = data[date];
+      if (!e) { e = { login:false, questions:0, q_list:[], ai_minutes:0, ai_count:0, ai_questions:[] }; data[date] = e; }
+      if ((e.ai_count || 0) === 0 && (e.ai_questions || []).length === 0) {
+        e.ai_count = derived[date].count;
+        e.ai_minutes = derived[date].minutes || 0;
+        e.ai_questions = derived[date].questions;
+      }
+    });
+  }
+  // 从服务器学习记忆（learning-memory API，点"整理本次学习"同步过的对话）推导——服务器可靠、跨浏览器
+  function deriveAiFromServerMemory() {
+    var userId = currentUser && (currentUser.id || currentUser.student_id);
+    if (!userId) return Promise.resolve({});
+    return fetch('/api/learning-memory/' + encodeURIComponent(userId) + '?_=' + Date.now())
+      .then(function(r){ if (r.ok) return r.json(); throw new Error(); })
+      .then(function(d){
+        var msgs = (d && d.state && d.state.messages) || [];
+        var byDate = {};
+        var pending = null;
+        msgs.forEach(function(m) {
+          var role = m.role, content = String(m.content || '');
+          if (role === 'user') { pending = content; }
+          else if (role === 'assistant' && pending !== null) {
+            var isCancel = content.indexOf('已停止回答') >= 0;
+            var isFallback = content.indexOf('本地知识库中暂未收录') >= 0;
+            if (!isCancel && !isFallback) {
+              var t = String(m.created_at || '');
+              var dateStr = t.slice(0, 10);
+              var r = byDate[dateStr] || { count: 0, minutes: 0, questions: [] };
+              r.count++;
+              r.questions.push({ q: stripHtmlBasic(pending).slice(0, 200), t: (t.slice(11,16) || '--:--') });
+              byDate[dateStr] = r;
+            }
+            pending = null;
+          }
+        });
+        return byDate;
+      })
+      .catch(function(){ return {}; });
+  }
+  function mergeDerivedInto(data, derived) {
+    Object.keys(derived || {}).forEach(function(date) {
+      var e = data[date];
+      if (!e) { e = { login:false, questions:0, q_list:[], ai_minutes:0, ai_count:0, ai_questions:[] }; data[date] = e; }
+      if ((e.ai_count || 0) === 0 && (e.ai_questions || []).length === 0) {
+        e.ai_count = derived[date].count;
+        e.ai_minutes = derived[date].minutes || 0;
+        e.ai_questions = derived[date].questions;
+      }
+    });
+  }
+  function renderAll() {
+    var stats = computeStats(data);
+    window.__activityData = data;
+    renderHeader(currentUser, stats, created);
+    container.innerHTML =
+      renderScoreCurve(data, created) +
+      renderHeatmap(data) +
+      renderDetails(stats, data);
+  }
 
-  renderHeader(currentUser, stats, created);
+  function finishLoad(serverData, fromServer) {
+    flushPendingActivity(sid); // 服务器可用时补传离线期间的活跃记录
+    if (fromServer) {
+      var local = getActivity(sid);
+      data = mergeActivity(serverData, local);
+      // 本地带来了服务器缺失的记录（如停机期间产生的 AI 问答）→ 合并回写服务器持久化
+      if (JSON.stringify(data) !== JSON.stringify(serverData)) {
+        try {
+          fetch('/api/activity/record', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ id: sid, action: 'seed', activity: data })
+          }).catch(function(){});
+        } catch(e) {}
+      }
+    }
+    mergeDerivedAi(data);
+    deriveAiFromServerMemory().then(function(sv){
+      mergeDerivedInto(data, sv);
+      renderAll();
+    });
+  }
+  loadActivityFromServer(sid, finishLoad);
 
-  container.innerHTML =
-    renderSummary(stats) +
-    renderScoreCurve(data, created) +
-    renderHeatmap(data) +
-    renderDetails(stats, data);
+  // 时刻跟随网站使用情况：窗口重新获得焦点时重新拉取刷新（合并本地缺失记录）
+  window.addEventListener('focus', function(){
+    loadActivityFromServer(sid, function(serverData, fromServer){
+      data = fromServer ? mergeActivity(serverData, getActivity(sid)) : getActivity(sid);
+      mergeDerivedAi(data);
+      deriveAiFromServerMemory().then(function(sv){
+        mergeDerivedInto(data, sv);
+        renderAll();
+      });
+    });
+  });
+
+  // ===== AI 提问明细弹窗 =====
+  window.__showAiDetail = function(date) {
+    var items = (window.__activityData && window.__activityData[date] && window.__activityData[date].ai_questions) || [];
+    var title = document.getElementById('aiModalTitle');
+    var body = document.getElementById('aiModalBody');
+    if (title) title.textContent = '🤖 ' + date + ' 提问明细（' + items.length + ' 次）';
+    if (body) {
+      if (!items.length) {
+        body.innerHTML = '<div class="empty">该日暂无提问明细</div>';
+      } else {
+        body.innerHTML = items.map(function(it){
+          return '<div class="ai-q-item"><div class="q-t">🕐 ' + escHtml(it.t || '') + '</div>' + escHtml(it.q || '') + '</div>';
+        }).join('');
+      }
+    }
+    var ov = document.getElementById('aiModal');
+    if (ov) ov.classList.add('show');
+  };
+  window.closeAiModal = function() {
+    var ov = document.getElementById('aiModal');
+    if (ov) ov.classList.remove('show');
+  };
 
   function computeStats(d) {
     var loginDays = [], qDays = [], aiDays = [], totalQ = 0, totalAi = 0, totalAiCount = 0;
+    var qSet = {}, qSum = 0;
     Object.keys(d).sort().forEach(function(date) {
       var r = d[date];
       if (r.login) loginDays.push(date);
-      if (r.questions > 0) { totalQ += r.questions; qDays.push({ date:date, count:r.questions }); }
+      if (r.questions > 0) { qSum += r.questions; qDays.push({ date:date, count:r.questions }); }
+      // 做题总数 = 完成学习的「不同」题目数（跨天去重；同一题每天只记一次）
+      (r.q_list || []).forEach(function(qid){ qSet[qid] = true; });
       if (r.ai_count > 0) totalAiCount += r.ai_count;
       if ((r.ai_minutes > 0) || (r.ai_count > 0)) { totalAi += (r.ai_minutes || 0); aiDays.push({ date:date, min:(r.ai_minutes||0), count:(r.ai_count||0) }); }
     });
+    totalQ = Object.keys(qSet).length > 0 ? Object.keys(qSet).length : qSum;
     loginDays.sort(function(a,b){ return a < b ? 1 : -1; });
     qDays.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
     aiDays.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
@@ -216,26 +455,19 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
     return min + '分钟';
   }
 
-  function renderSummary(s) {
-    return '<div class="card"><div class="card-body">' +
-      '<div class="section-title">📊 活跃概览</div>' +
-      '<div class="stats-grid">' +
-        '<div class="stat-item"><div class="s-val">' + s.loginDays.length + '</div><div class="s-lbl">累计登录天数</div></div>' +
-        '<div class="stat-item"><div class="s-val">' + s.totalQ + '</div><div class="s-lbl">累计做题数</div></div>' +
-        '<div class="stat-item"><div class="s-val">' + fmtDuration(s.totalAi) + '</div><div class="s-lbl">累计AI问答时长</div></div>' +
-      '</div></div></div>';
-  }
-
   function buildScoreHistory(d, created) {
     var dates = Object.keys(d).sort();
     var pts = [{ date: created, score: 0 }];
-    var totalQ = 0, loginDays = 0, aiDays = 0, aiCount = 0;
+    // 与综合分数同口径：做题数 = 完成学习的「不同」题目数（q_list 跨天去重）
+    var qSet = {}, qSum = 0, loginDays = 0, aiDays = 0, aiCount = 0;
     dates.forEach(function(date) {
       var r = d[date];
-      if (r.questions) totalQ += r.questions;
+      if (r.questions) qSum += r.questions;
+      (r.q_list || []).forEach(function(qid){ qSet[qid] = true; });
       if (r.login) loginDays++;
       if ((r.ai_count > 0) || (r.ai_minutes > 0)) aiDays++;
       if (r.ai_count) aiCount += r.ai_count;
+      var totalQ = Object.keys(qSet).length > 0 ? Object.keys(qSet).length : qSum;
       pts.push({ date: date, score: scoreFromTotals(totalQ, loginDays, aiDays, aiCount) });
     });
     return pts;
@@ -390,26 +622,36 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
       rows.forEach(function(r) { html += '<div class="row">' + fmt(r) + '</div>'; });
       return html;
     }
-    function actText(r) {
-      var parts = [];
-      if (r && r.questions) parts.push(r.questions + ' 题');
-      if (r && r.ai_minutes) parts.push(r.ai_minutes + ' 分钟');
-      return parts.length ? parts.join(' · ') : '仅登录';
-    }
     var loginList = list(s.loginDays, function(date) {
-      var r = d[date];
-      return '<span class="d"><span class="tag">' + weekdayLabel(date) + '</span>' + date + '</span>' +
-             '<span class="v">' + actText(r) + '</span>';
+      // 登录记录只显示准确日期
+      return '<span class="d"><span class="tag">' + weekdayLabel(date) + '</span>' + date + '</span>';
     }, '暂无登录记录');
 
     var qList = list(s.qDays, function(r) {
-      return '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
-             '<span class="v">' + r.count + ' 道题</span>';
+      // 对接到题库每一道题：显示具体题号，点击回跳题库自动展开该题
+      var ql = (d[r.date] && d[r.date].q_list) || [];
+      var chips = ql.map(function(qid){
+        var href = (location.protocol === 'file:')
+          ? '题库/工程力学（二）/index.html?q=' + encodeURIComponent(qid)
+          : 'http://localhost:8090/?q=' + encodeURIComponent(qid);
+        return '<a class="q-chip" href="' + href + '" target="_blank" title="打开题目 ' + escHtml(qid) + '">#' + escHtml(qid) + '</a>';
+      }).join('');
+      return '<span style="display:flex;flex-direction:column;gap:6px;width:100%">' +
+        '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
+        '<span class="v">' + r.count + ' 道题</span>' +
+        (chips ? '<span class="q-chips">' + chips + '</span>' : '') +
+      '</span>';
     }, '暂无做题记录');
 
     var aiList = list(s.aiDays, function(r) {
-      return '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
-             '<span class="v">' + fmtDuration(r.min) + '</span>';
+      var n = r.count || 0;
+      var inner = '<span class="d"><span class="tag">' + weekdayLabel(r.date) + '</span>' + r.date + '</span>' +
+                  '<span class="v">🤖 ' + n + ' 次提问' + (r.min > 0 ? ' · ' + fmtDuration(r.min) : '') +
+                  (n > 0 ? '<span class="detail-link">查看明细 ›</span>' : '') + '</span>';
+      if (n > 0) {
+        return '<span style="display:flex;align-items:center;justify-content:space-between;width:100%;cursor:pointer" onclick="window.__showAiDetail(\'' + r.date + '\')">' + inner + '</span>';
+      }
+      return inner;
     }, '暂无AI问答记录');
 
     return '<div class="card"><div class="card-body">' +
@@ -417,7 +659,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
       '<div class="records-grid">' +
         '<div class="record-col"><div class="sub-title">🔑 登录记录 <span class="sub">共 ' + s.loginDays.length + ' 天</span></div><div class="rows">' + loginList + '</div></div>' +
         '<div class="record-col"><div class="sub-title">📝 做题记录 <span class="sub">共 ' + s.totalQ + ' 道</span></div><div class="rows">' + qList + '</div></div>' +
-        '<div class="record-col"><div class="sub-title">🤖 AI问答记录 <span class="sub">共 ' + fmtDuration(s.totalAi) + '</span></div><div class="rows">' + aiList + '</div></div>' +
+        '<div class="record-col"><div class="sub-title">🤖 AI问答记录 <span class="sub">共 ' + s.totalAiCount + ' 次提问</span></div><div class="rows">' + aiList + '</div></div>' +
       '</div>' +
     '</div></div>';
   }
