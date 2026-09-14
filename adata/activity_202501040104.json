@@ -356,5 +356,26 @@
     "ai_questions": [],
     "ai_count": 0,
     "ai_minutes": 0
+  },
+  "2026-09-14": {
+    "login": true,
+    "questions": 0,
+    "q_list": [],
+    "ai_minutes": 3,
+    "ai_count": 3,
+    "ai_questions": [
+      {
+        "q": "空间力系",
+        "t": "15:01"
+      },
+      {
+        "q": "摩擦力",
+        "t": "15:02"
+      },
+      {
+        "q": "解题技巧",
+        "t": "15:02"
+      }
+    ]
   }
 }
