@@ -2,17 +2,28 @@
 <html lang="zh-CN">
 <head>
 <script src="js/auth.js"></script>
+<script src="js/user-store.js?v=20260911"></script>
 
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-store">
 <title>个人知识网络 - 理论力学研究平台</title>
 <style>
 :root{--blue:#2563eb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb}*{box-sizing:border-box}body{margin:0;font-family:"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}header{background:linear-gradient(135deg,#123b8f,#2563eb);color:white;padding:28px max(22px,calc((100% - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}header h1{margin:0;font-size:1.6rem}header p{margin:6px 0 0;opacity:.8}.back{color:white;text-decoration:none;border:1px solid #ffffff66;padding:8px 14px;border-radius:18px;white-space:nowrap}.layout{max-width:1180px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:320px 1fr;gap:20px}.layout>*{min-width:0}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 24px #0f172a0a}.card h2{font-size:1rem;margin:0 0 16px}.field{margin-bottom:12px}.field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit}.field textarea{resize:vertical}.btn{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}.primary{background:var(--blue);color:#fff}.secondary{background:#eef4ff;color:#1d4ed8}.danger{background:#fee2e2;color:#b91c1c}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.node-list{overflow:auto;border-top:1px solid var(--line);margin-top:14px}.node-item{padding:10px 2px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}.node-item small{display:block;color:var(--muted);margin-top:2px}.node-item button{padding:5px 8px}.network{min-height:460px;position:relative;overflow:hidden;background:radial-gradient(circle at 12% 18%,rgba(147,197,253,0.30),transparent 38%),radial-gradient(circle at 88% 20%,rgba(196,181,253,0.24),transparent 42%),radial-gradient(circle at 84% 84%,rgba(125,211,252,0.28),transparent 42%),radial-gradient(circle at 16% 86%,rgba(186,230,253,0.30),transparent 40%),radial-gradient(circle at 50% 42%,#eef4ff,#ffffff 74%)}
 #graph{width:100%;height:420px;border-radius:10px;overflow:hidden;background:#0b1220}
-#reviewGraph{width:100%;height:320px;border-radius:10px;overflow:hidden;background:#0b1220}
-.card.network.review-net{min-height:400px}
+#reviewGraph{width:100%;flex:1;min-height:0;border-radius:10px;overflow:hidden;background:#0b1220}
+.card.network.review-net{display:flex;flex-direction:column;min-height:0}
 .review-legend{display:flex;gap:12px;font-size:.78rem;color:#94a3b8}
 .review-legend span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
 .review-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}.empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.status{font-size:.82rem;color:var(--muted);margin-top:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.network{min-height:360px}#graph{height:320px}}.right-col{display:flex;flex-direction:column;gap:20px}.review-progress{margin:12px 0 16px}.review-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}.review-bar-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:4px;transition:width .4s}.review-count{font-size:.82rem;color:var(--muted);margin-top:6px}.review-list{display:flex;flex-direction:column;gap:8px;overflow:auto}.review-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fafcff;transition:all .2s}.review-item.done{background:#f0fdf4;border-color:#bbf7d0}.review-check{font-size:1.4rem;cursor:pointer;line-height:1;user-select:none}.review-item .review-info{flex:1;min-width:0}.review-item .review-info b{display:block}.review-item .review-info small{color:var(--muted)}.review-item.done .review-info b{color:#16a34a}.encourage-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) scale(.9);background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:50;opacity:0;transition:all .3s;pointer-events:none}.encourage-toast.show{opacity:1;transform:translateX(-50%) scale(1)}@media(max-width:800px){.review-card{grid-column:1}}
+
+/* 新增知识节点 · 与复习知识点网络图左右并排 */
+/* 复习行：整行限高，左右两张卡片底部平齐，各自内容超出时内部滚轮滚动 */
+.review-row{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:stretch;height:520px}
+.review-row .add-node-card{display:flex;flex-direction:column;overflow:hidden}
+.review-row .add-node-card>h2{flex:none}
+.review-row .add-node-card .add-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:6px}
+.review-row .add-node-card .add-scroll::-webkit-scrollbar{width:6px}
+.review-row .add-node-card .add-scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:6px}
+@media(max-width:1000px){.review-row{grid-template-columns:1fr;height:auto}.review-row .add-node-card .add-scroll{overflow:visible}}
 </style>
 <style>.detail-overlay{position:fixed;inset:0;background:#0f172a99;display:none;place-items:center;z-index:20;padding:20px}.detail-overlay.show{display:grid}.detail-modal{position:relative;background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 20px 60px #0f172a55}.detail-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:26px;color:#64748b;cursor:pointer}.detail-modal h2{margin:0 28px 6px 0}.detail-modal h3{font-size:.95rem;margin:18px 0 7px;color:#1d4ed8}.detail-modal .detail-block{background:#f8fafc;border-radius:8px;padding:10px;margin:6px 0;font-size:.9rem;line-height:1.6}.detail-modal textarea{width:100%;min-height:180px;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit}.detail-modal .detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 #reviewContent .pp-chip{display:inline-flex;align-items:center;gap:6px;background:#334155;color:#e2e8f0;border-radius:16px;padding:3px 6px 3px 10px;margin:3px;font-size:.8rem}
@@ -85,15 +96,15 @@ header .back{display:inline-block;margin:16px 6px 0;padding:8px 16px;border:1px 
 </style>
 <a href="index.html" class="back-home">← 返回主页</a>
 <header><h1>🕸️ 个人知识网络</h1><p>把概念、公式、题目与自己的理解连接起来</p><div><a class="back" href="learning_notes.html">学习记录</a> <a class="back" href="weaknesses.html">我的薄弱点</a> <a class="back" href="account.html">← 返回个人中心</a></div></header>
-<main class="layout"><section class="card"><h2>新增知识节点</h2><div id="loginHint" class="hint"></div>
+<main class="layout"><section class="card"><h2>节点列表</h2><div id="nodes" class="node-list"></div></section>
+<div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 学科知识点总览图</h2><button class="btn primary" onclick="open3d('overview')">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><div class="review-row"><section class="card add-node-card"><h2>新增知识节点</h2><div class="add-scroll"><div id="loginHint" class="hint"></div>
 <div class="field"><label for="label">知识点名称</label><input id="label" placeholder="例如：动量定理"></div>
 <div class="field"><label for="type">类型</label><select id="type"><option value="concept">概念</option><option value="formula">公式</option><option value="problem">题目</option><option value="insight">心得</option></select></div>
 <div class="field"><label for="status">掌握状态</label><select id="status"><option value="learning">学习中</option><option value="familiar">已熟悉</option><option value="mastered">已掌握</option></select></div>
 <div class="field"><label for="note">备注</label><textarea id="note" rows="3" placeholder="记录自己的理解、易错点或复习提示"></textarea></div>
 <button class="btn primary" onclick="addNode()">＋ 添加节点</button>
 <div class="field" style="margin-top:12px"><label for="relationType">新建关联类型</label><select id="relationType"><option value="RELATED_TO">相关于</option><option value="PREREQUISITE_OF">前置知识</option><option value="APPLIES_TO">应用于</option><option value="CONFUSED_WITH">容易混淆</option><option value="CORRECTED_BY">由……纠正</option></select></div>
-<div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div><h2 style="margin-top:24px">节点列表</h2><div id="nodes" class="node-list"></div></section>
-<div class="right-col"><section class="card network"><div class="net-head"><h2>🕸️ 学科知识点总览图</h2><button class="btn primary" onclick="open3d('overview')">🔮 3D 全景</button></div><div id="graph"></div><div id="empty" class="empty">添加两个以上节点后，可在图中选择节点建立关联</div></section><section class="card network review-net"><div class="net-head"><h2>🎯 复习知识点网络图</h2><div class="review-legend"><span><i style="background:#22c55e"></i>已复习</span><span><i style="background:#ef4444"></i>未复习</span></div><button class="btn primary" onclick="open3d('review')">🔬 3D 全景</button></div><div id="reviewGraph"></div><div id="reviewGraphEmpty" class="empty">暂无薄弱知识点，完成学习后这里会展示与「重点推荐复习」关联的知识网络</div></section><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div id="reviewTierInfo" class="hint" style="margin-bottom:8px"></div><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
+<div class="actions" style="margin-top:14px"><button class="btn primary" onclick="saveGraph()">保存网络</button><button class="btn secondary" onclick="loadGraph()">重新加载</button><button class="btn danger" onclick="clearGraph()">清空</button></div><div id="statusText" class="status"></div></div></section><section class="card network review-net"><div class="net-head"><h2>🎯 复习知识点网络图</h2><div class="review-legend"><span><i style="background:#22c55e"></i>已复习</span><span><i style="background:#ef4444"></i>未复习</span></div><button class="btn primary" onclick="open3d('review')">🔬 3D 全景</button></div><div id="reviewGraph"></div><div id="reviewGraphEmpty" class="empty">暂无薄弱知识点，完成学习后这里会展示与「重点推荐复习」关联的知识网络</div></section></div><section class="card review-card"><h2>🎯 重点推荐复习</h2><p class="hint">把薄弱知识点逐个击破，完成复习后自动打勾 ✅</p><div id="reviewTierInfo" class="hint" style="margin-bottom:8px"></div><div class="review-progress"><div class="review-bar"><div class="review-bar-fill" id="reviewBarFill" style="width:0%"></div></div><div class="review-count" id="reviewCount">0 / 0 已完成</div></div><div class="review-list" id="reviewList"></div></section></div></main>
 <div id="detailOverlay" class="detail-overlay" onclick="if(event.target===this)closeDetail()"><div class="detail-modal"><button class="detail-close" onclick="closeDetail()">×</button><div id="detailContent"></div></div></div>
 <div id="reviewOverlay" class="detail-overlay" onclick="if(event.target===this)closeReview()"><div class="detail-modal"><button class="detail-close" onclick="closeReview()">×</button><div id="reviewContent"></div></div></div>
 <div id="knowledgeOverlay" class="detail-overlay" onclick="if(event.target===this)closeKnowledge()"><div class="detail-modal"><button class="detail-close" onclick="closeKnowledge()">×</button><div id="knowledgeContent"></div></div></div>
@@ -177,28 +188,49 @@ function syncListHeights(){
   }
 }
 window.addEventListener('resize',syncListHeights);
+// 复习知识点网络图跟随容器尺寸（总览图不动）
+window.addEventListener('resize',function(){
+  const el=document.getElementById('reviewGraph');
+  if(reviewGraph2d&&el&&el.clientWidth&&el.clientHeight){
+    reviewGraph2d.width(el.clientWidth).height(el.clientHeight);
+  }
+});
 function draw(){const svg=document.getElementById('graph'),w=800,h=520;svg.innerHTML='<defs><radialGradient id="ball" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#93c5fd"/><stop offset="55%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></radialGradient><radialGradient id="ballActive" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="55%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></radialGradient></defs>';document.getElementById('empty').style.display=graph.nodes.length?'none':'grid';const pos={};graph.nodes.forEach((n,i)=>{const a=-Math.PI/2+i*Math.PI*2/Math.max(graph.nodes.length,1);pos[n.id]={x:w/2+Math.cos(a)*Math.min(260,70+graph.nodes.length*22),y:h/2+Math.sin(a)*Math.min(170,50+graph.nodes.length*15)}});graph.edges.forEach(e=>{if(pos[e.source]&&pos[e.target])svg.insertAdjacentHTML('beforeend',`<line x1="${pos[e.source].x}" y1="${pos[e.source].y}" x2="${pos[e.target].x}" y2="${pos[e.target].y}"/>`)});graph.nodes.forEach(n=>{const p=pos[n.id],active=selected===n.id;const clicks=(getClicks()[n.label]||0);const r=(n.size==='L'?34:n.size==='M'?26:18)+Math.min(clicks,20)+(active?3:0);const color=n.color||'#3b82f6';const fs=r>=34?12:r>=26?11:9;const cut=r>=34?6:r>=26?5:4;svg.insertAdjacentHTML('beforeend',`<g onclick="pick('${n.id}')" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${color}" stroke="${active?'#fff':'rgba(15,23,42,0.28)'}" stroke-width="${active?3:1.5}"/><ellipse cx="${p.x-r*0.3}" cy="${p.y-r*0.4}" rx="${r*0.34}" ry="${r*0.22}" fill="rgba(255,255,255,0.38)"/><text x="${p.x}" y="${p.y+fs*0.35}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="${fs}">${esc(n.label).slice(0,cut)}</text></g>`)})}
 function pick(id){const n=graph.nodes.find(x=>x.id===id);if(n){recordClick(n.label);recordUsage(n.label,'c');}if(selected&&selected!==id){const sNode=graph.nodes.find(x=>x.id===selected);const tNode=graph.nodes.find(x=>x.id===id);const exists=graph.edges.some(e=>(e.source===selected&&e.target===id)||(e.source===id&&e.target===selected));if(sNode&&tNode&&!exists)graph.edges.push({id:selected+'-'+id,source:selected,target:id,relation:document.getElementById('relationType').value});selected=null}else selected=id;render();showNodeDetail(id)}
 function addNode(){const label=document.getElementById('label').value.trim();if(!label)return alert('请输入知识点名称');graph.nodes.push({id:'node_'+Date.now(),label,type:document.getElementById('type').value,status:document.getElementById('status').value,note:document.getElementById('note').value.trim()});['label','note'].forEach(id=>document.getElementById(id).value='');render()}
 function removeNode(id){graph.nodes=graph.nodes.filter(n=>n.id!==id);graph.edges=graph.edges.filter(e=>e.source!==id&&e.target!==id);render()}
-const clickKey='knowledge_clicks_'+(user?.id||user?.student_id||'guest');
-function getClicks(){try{return JSON.parse(localStorage.getItem(clickKey)||'{}')}catch(e){return {}}}
-function recordClick(label){const c=getClicks();c[label]=(c[label]||0)+1;localStorage.setItem(clickKey,JSON.stringify(c));return c[label]}
-const reviewKey='review_done_'+(user?.id||user?.student_id||'guest');
-function getReviewDone(){try{return JSON.parse(localStorage.getItem(reviewKey)||'[]')}catch(e){return []}}
-function saveReviewDone(a){localStorage.setItem(reviewKey,JSON.stringify(a))}
+// ===== 以下进度数据的读写统一走 UserStore（本机缓存 + 服务端按账户同步）=====
+// 直接读写 localStorage 会让同一账户在不同源/不同页面看到的数据不一致，换浏览器还会丢。
+const US_UID=(user?.id||user?.student_id||'guest');
+function getClicks(){return UserStore.get('knowledge_clicks',{})}
+function recordClick(label){const c=getClicks();c[label]=(c[label]||0)+1;UserStore.set('knowledge_clicks',c);return c[label]}
+function getReviewDone(){return UserStore.get('review_done',[])}
+function saveReviewDone(a){UserStore.set('review_done',a)}
 // 课程结构节点（完整课程知识网 fc_*/fcx_*/seed_*，所有用户展示一致）不属于个人薄弱点，
 // 重点复习列表只列用户自己添加或学习中沉淀的节点，保证新用户的复习记录为空白
 function isCourseNode(n){
   var id=String((n&&n.id)||'');
   return id.indexOf('fc_')===0||id.indexOf('fcx_')===0||id.indexOf('seed_')===0;
 }
+// 「完成复习：X」是 recordLearningLog 写下的学习笔记标题，本身不是知识点名。
+// 但 loadGraph() / loadManualNoteNodes() 会把每条笔记直接变成一个网络节点（节点名=笔记标题），
+// 于是「完成复习：X」混进了知识网络和「重点推荐复习」，点开也查不到任何关联资料。
+// 这里统一把这类标题还原成真正的知识点 X；能对上课程框架的，直接采用框架里的正式资料。
+const NOTE_TITLE_RE=/^完成复习\s*[：:]\s*/;
+function normalizeNodeLabel(label){return String(label||'').replace(NOTE_TITLE_RE,'').trim();}
+function findCourseNode(label){return FULL_COURSE.nodes.find(function(d){return d.label===label;})||null;}
+function deriveNode(id,rawLabel,fallback){
+  const label=normalizeNodeLabel(rawLabel)||fallback.label;
+  const orig=findCourseNode(label);
+  if(orig)return {id:id,label:label,type:orig.type,status:orig.status,note:orig.note||fallback.note};
+  return {id:id,label:label,type:fallback.type,status:fallback.status,note:fallback.note};
+}
 // 个人薄弱/待复习节点：复习列表与「复习知识点网络图」共用
 function getWeakNodes(){
   return graph.nodes.filter(function(n){
     if(nodeMastery(n.label)==='learning')return true; // 用户亲自标记为薄弱 → 显示
     if(isCourseNode(n))return false;                  // 课程结构且未标记 → 不算个人薄弱点
-    return n.status==='learning';
+    return true;                                      // 个人自建节点：一律进入复习推荐与复习知识点网络图
   });
 }
 // ===== 重点推荐复习列表：① 档位基础课程节点 + ② 个人使用记录补充 =====
@@ -326,6 +358,10 @@ function renderReviewGraph(){
   if(!reviewGraph2d){
     if(typeof ForceGraph==='undefined')return;
     reviewGraph2d=ForceGraph()(el)
+      // 显式按容器尺寸初始化：否则 force-graph 会退回用窗口尺寸，
+      // 图心落到容器可视区之外，整张复习图看起来是空的
+      .width(el.clientWidth||window.innerWidth)
+      .height(el.clientHeight||window.innerHeight)
       .backgroundColor('#0b1220')
       .nodeLabel(function(n){return n.label+' · '+reviewStatusLabel(n);})
       .nodeColor(reviewNodeColor)
@@ -356,8 +392,7 @@ function recordLearningLog(label){
   const ts=now.toLocaleString();
   const dateStr=now.getFullYear()+'-'+('0'+(now.getMonth()+1)).slice(-2)+'-'+('0'+now.getDate()).slice(-2);
   try{LearningMemoryAPI.createNote(user,{title:'完成复习：'+label,markdown_content:'- 学习知识点：'+label+'\n- 完成时间：'+ts+'\n- 状态：已完成复习',status:'confirmed'}).catch(function(){});}catch(e){}
-  const logKey='learning_log_'+(user?.id||user?.student_id||'guest');
-  try{const log=JSON.parse(localStorage.getItem(logKey)||'[]');log.unshift({point:label,date:dateStr,time:now.toLocaleTimeString()});localStorage.setItem(logKey,JSON.stringify(log));}catch(e){}
+  try{const log=UserStore.get('learning_log',[]);log.unshift({point:label,date:dateStr,time:now.toLocaleTimeString()});UserStore.set('learning_log',log.slice(0,500));}catch(e){}
 }
 function showEncourage(label){
   const t=document.getElementById('encourageToast');
@@ -373,9 +408,36 @@ function showEncourage(label){
 // 综合分数与 activity.html「综合分数」同源（登录/做题/AI 活跃度加权，满分 100）
 // 判定规则：0-10 分 → C 档；10.1-20 分 → B 档；20.1-100 分 → A 档
 // A 档（学得最好）→ 复习内容最详细；B、C 档依次递减。
-function accountScore(){
+// ===== 活动记录：以服务端 adata/activity_<学号>.json 为权威源 =====
+// account.html / activity.html / ai_qa.html 都是 POST /api/activity/record 写服务端，
+// 而这里过去只读本机 localStorage，于是同一账户在不同页面/不同入口看到的分数和档位对不上。
+let serverActivity=null;
+async function loadActivity(){
   const sid=(user&&user.student_id)||'guest';
-  let d={};try{d=JSON.parse(localStorage.getItem('user_activity_'+sid)||'{}');}catch(e){d={};}
+  try{
+    const r=await fetch('/api/activity?id='+encodeURIComponent(sid)+'&_='+Date.now());
+    if(!r.ok)throw Error('HTTP '+r.status);
+    const j=await r.json();
+    if(j&&j.ok&&j.activity&&Object.keys(j.activity).length){
+      serverActivity=j.activity;                                   // 服务端有记录 → 以它为准
+      try{localStorage.setItem('user_activity_'+sid,JSON.stringify(serverActivity));}catch(e){}  // 同时刷新本机缓存
+      if(typeof renderReview==='function')renderReview();           // 档位/推荐列表随之刷新
+      if(typeof renderReviewGraph==='function')renderReviewGraph();
+    }
+  }catch(e){
+    // 服务器不可用（含 file:// 本地文件模式：/api/* 会解析成 file:///api/* 直接失败）
+    // 此时退回本机缓存，保证页面仍可用
+    console.warn('活动记录读取失败，暂用本机缓存：',e.message);
+  }
+}
+// 权威值优先；尚未取到（或服务端为空）时用本机缓存兜底
+function activityData(){
+  if(serverActivity)return serverActivity;
+  const sid=(user&&user.student_id)||'guest';
+  try{return JSON.parse(localStorage.getItem('user_activity_'+sid)||'{}')}catch(e){return {}}
+}
+function accountScore(){
+  const d=activityData();
   // 与 activity.html 综合分数同口径：做题数 = 完成学习的「不同」题目数（q_list 跨天去重）
   let qSet={},qSum=0,loginDays=0,aiDays=0,totalAiCount=0;
   Object.keys(d).forEach(function(date){
@@ -1656,7 +1718,6 @@ function seedDemoNodes(){
 }
 function mergeFullCourse(){
   const uid=(user&&(user.id||user.student_id))||'guest';
-  const v2Key='full_course_v2_'+uid;
   let changed=0;
   // 1) 清理旧版演示节点 seed_*（其标签已被完整课程 fc_* 替代）
   const seedIds={};
@@ -1668,7 +1729,7 @@ function mergeFullCourse(){
   }
   // 2) 首次（或旧用户）回填完整课程节点与关联；已回填过则保留用户当前知识网络
   let backfilled=false;
-  try{backfilled=!!localStorage.getItem(v2Key);}catch(e){}
+  try{backfilled=!!UserStore.get('full_course_v2','');}catch(e){}
   if(!backfilled){
     const byLabel={};graph.nodes.forEach(function(n){byLabel[n.label]=n.id;});
     let added=0,addedE=0;
@@ -1686,7 +1747,7 @@ function mergeFullCourse(){
       graph.edges.push({id:'fc_'+i,source:s,target:t,relation:e[2]});addedE++;
     });
     if(added||addedE)changed++;
-    try{localStorage.setItem(v2Key,'1');}catch(e){}
+    try{UserStore.set('full_course_v2','1');}catch(e){}
   }
   if(changed){
     localStorage.setItem(key,JSON.stringify(graph));
@@ -1695,22 +1756,20 @@ function mergeFullCourse(){
 }
 // ===== 知识节点使用频率追踪与按频率更新迭代 =====
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
-function usageKey(){return 'knowledge_usage_'+(user&&(user.id||user.student_id)||'guest');}
-function getUsage(){try{return JSON.parse(localStorage.getItem(usageKey())||'{}')}catch(e){return {}}}
+function getUsage(){return UserStore.get('knowledge_usage',{})}
 function recordUsage(label,type){
   if(!label)return;
   const u=getUsage();
   if(!u[label])u[label]={s:0,c:0,d:''};
   if(type==='s')u[label].s=(u[label].s||0)+1;else u[label].c=(u[label].c||0)+1;
   u[label].d=todayStr();
-  try{localStorage.setItem(usageKey(),JSON.stringify(u));}catch(e){}
+  try{UserStore.set('knowledge_usage',u);}catch(e){}
 }
-function viewDateKey(){return 'knowledge_view_updated_'+(user&&(user.id||user.student_id)||'guest');}
 // 按使用频率把低频课程节点替换为高频储备节点；无新使用记录时保持节点数量与内容不变
 function applyViewSwap(){
   try{
     const usage=getUsage();
-    const lastUpdate=localStorage.getItem(viewDateKey())||'';
+    const lastUpdate=UserStore.get('knowledge_view_updated','');
     const today=todayStr();
     // 仅当出现比上次更新更新的使用记录时才迭代（用户没搜新知识点→不变）
     const hasNew=Object.keys(usage).some(function(k){return usage[k].d>lastUpdate;});
@@ -1727,7 +1786,7 @@ function applyViewSwap(){
     const desiredSet={};desired.forEach(function(l){desiredSet[l]=1;});
     const current=graph.nodes.filter(function(n){return String(n.id).indexOf('fc_')===0;}).map(function(n){return n.label;});
     const same=current.length===desired.length&&current.every(function(l){return desiredSet[l];});
-    localStorage.setItem(viewDateKey(),today);
+    UserStore.set('knowledge_view_updated',today);
     if(same)return;
     // 移除不在期望集合中的课程节点（保留用户自建节点）
     const keepIds={};
@@ -1767,9 +1826,23 @@ function applyViewSwap(){
     }
   }catch(e){console.warn('applyViewSwap:',e);}
 }
-async function loadGraph(){try{const old=await fetch(apiUrl());if(old.ok){const oldData=await old.json();graph=oldData.graph||graph}const memory=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(memory.ok){const data=await memory.json(),state=data.state||{};const known=new Set(graph.nodes.map(n=>n.id));(state.concepts||[]).forEach(c=>{if(!known.has(c.id)){graph.nodes.push({id:c.id,label:c.name||c.concept_key,type:'concept',status:'learning',note:'来自本次学习整理'});known.add(c.id)}});(state.misconceptions||[]).forEach(m=>{if(!known.has(m.id)){graph.nodes.push({id:m.id,label:m.description||m.error_code,type:'insight',status:m.status||'learning',note:'待验证错误理解'});known.add(m.id)}});(state.concept_relations||[]).forEach(e=>{if(!graph.edges.some(x=>x.id===e.id))graph.edges.push({id:e.id,source:e.source_concept_id,target:e.target_concept_id,relation:e.relation_type||'关联'})});localStorage.setItem(key,JSON.stringify(graph));setStatus('已加载个人知识网络与学习整理结果')}else throw Error()}catch(e){try{graph=JSON.parse(localStorage.getItem(key)||'{"nodes":[],"edges":[]}')}catch(x){}setStatus('服务器不可用，已加载本机暂存')}if(graph.nodes.length===0)seedDemoNodes();else mergeFullCourse();applyViewSwap();render()}
+async function loadGraph(){try{const old=await fetch(apiUrl());if(old.ok){const oldData=await old.json();graph=oldData.graph||graph}const memory=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(memory.ok){const data=await memory.json(),state=data.state||{};const known=new Set(graph.nodes.map(n=>n.id));(state.concepts||[]).forEach(c=>{if(!known.has(c.id)){graph.nodes.push(deriveNode(c.id,c.name||c.concept_key,{label:'未命名概念',type:'concept',status:'learning',note:'来自本次学习整理'}));known.add(c.id)}});(state.misconceptions||[]).forEach(m=>{if(!known.has(m.id)){graph.nodes.push({id:m.id,label:m.description||m.error_code,type:'insight',status:m.status||'learning',note:'待验证错误理解'});known.add(m.id)}});(state.concept_relations||[]).forEach(e=>{if(!graph.edges.some(x=>x.id===e.id))graph.edges.push({id:e.id,source:e.source_concept_id,target:e.target_concept_id,relation:e.relation_type||'关联'})});localStorage.setItem(key,JSON.stringify(graph));setStatus('已加载个人知识网络与学习整理结果')}else throw Error()}catch(e){try{graph=JSON.parse(localStorage.getItem(key)||'{"nodes":[],"edges":[]}')}catch(x){}setStatus('服务器不可用，已加载本机暂存')}if(graph.nodes.length===0)seedDemoNodes();else mergeFullCourse();applyViewSwap();render()}
 async function saveGraph(){localStorage.setItem(key,JSON.stringify(graph));try{const r=await fetch(apiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(graph)});if(!r.ok)throw Error();setStatus('保存成功 · '+new Date().toLocaleTimeString())}catch(e){setStatus('已保存到本机，服务器暂不可用')}}
-function clearGraph(){if(!confirm('确定清空当前个人知识网络吗？'))return;graph={nodes:[],edges:[]};localStorage.removeItem(key);render();setStatus('已清空本机数据')}
+// 清空必须连服务端一起删：过去只删本机 localStorage，而服务端还留着图，
+// 下次 loadGraph() 会把服务端的图重新拉回来——「清空」看起来毫无效果。
+async function clearGraph(){
+  if(!confirm('确定清空当前个人知识网络吗？\n会同时删除服务端与本机保存的个人网络，不可撤销。'))return;
+  graph={nodes:[],edges:[]};
+  localStorage.removeItem(key);
+  render();
+  try{
+    const r=await fetch(apiUrl(),{method:'DELETE'});
+    if(!r.ok)throw Error('HTTP '+r.status);
+    setStatus('已清空个人知识网络（服务端 + 本机）');
+  }catch(e){
+    setStatus('本机已清空，但服务端删除失败：'+e.message+'（重启平台后再试）');
+  }
+}
 const RELATED_TOPICS={
   '速度瞬心': [{ key: '刚体平面运动', reason: '瞬心是平面运动速度分析的核心方法' },{ key: '点的合成运动', reason: '两者均用于速度分析，可互为补充' },{ key: '科氏加速度', reason: '动系转动时瞬心法需结合科氏加速度' },{ key: '动能定理', reason: '求速度后可结合动能定理求角速度' }],
   '受力图': [{ key: '平衡方程', reason: '受力图是列平衡方程的前提' },{ key: '二力杆', reason: '识别二力杆可简化受力图' },{ key: '桁架', reason: '桁架分析依赖正确的节点受力图' },{ key: '虚位移原理', reason: '两者均涉及约束反力的处理方式' }],
@@ -1900,12 +1973,26 @@ async function confirmDetailNote(id){try{await LearningMemoryAPI.confirmNote(use
 async function feedbackDetail(id,value){try{await LearningMemoryAPI.feedbackWeakness(user,id,value);setStatus('薄弱点反馈已保存');showNodeDetail(currentDetailId)}catch(e){alert(e.message)}}
 function setStatus(t){document.getElementById('statusText').textContent=t}function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}try{const sp=new URLSearchParams(location.search);const q=sp.get('q');if(q)recordUsage(decodeURIComponent(q).trim(),'s');}catch(e){}// 支持 ?reset=1 一键重置知识网络数据（清除浏览器本地保存的知识网络与回填标记）
 try{const _sp2=new URLSearchParams(location.search);if(_sp2.get('reset')==='1'){Object.keys(localStorage).filter(function(k){return k.indexOf('personal_knowledge_')===0||k.indexOf('full_course_')===0||k.indexOf('knowledge_')===0;}).forEach(function(k){localStorage.removeItem(k);});location.replace('personal_knowledge.html?v=20260826b');}}catch(e){}
+// 进度数据统一走 UserStore：先用本机数据秒开，再拉服务端权威值并重渲染。
+// 这样同一账户在任何入口/任何浏览器看到的都一致，换账户才不同。
+UserStore.init(US_UID, {
+  keys: ['review_done','knowledge_mastery','knowledge_usage','knowledge_clicks',
+         'learning_log','knowledge_view_updated','full_course_v2'],
+  onSync: function(){
+    try{render()}catch(e){}
+    try{renderReview()}catch(e){}
+    try{renderReviewGraph()}catch(e){}
+  }
+});
 loadGraph();
 // ===== 数据异步加载完成后安全重绘 2D 图谱，确保所有节点都渲染出来 =====
 setTimeout(function(){try{if(typeof graph2d!=='undefined'&&graph2d&&graph.nodes.length>0){graph2d.graphData(build3dData());}}catch(e){}},1200);
 setTimeout(function(){try{if(typeof graph2d!=='undefined'&&graph2d&&graph.nodes.length>0){graph2d.graphData(build3dData());}}catch(e){}},3000);
-async function loadManualNoteNodes(){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(!r.ok)return;const d=await r.json(),state=d.state||{};memoryState=state;const ids=new Set(graph.nodes.map(n=>n.id));(state.learning_notes||[]).forEach(n=>{if(!ids.has(n.id)){graph.nodes.push({id:n.id,label:n.title||'未命名笔记',type:'LEARNING_NOTE',status:n.status||'draft',note:n.markdown_content||''})}});render()}catch(e){console.warn('manual notes load failed',e)}}loadManualNoteNodes();
+async function loadManualNoteNodes(){try{const r=await fetch('/api/learning-memory/'+encodeURIComponent(user?.id||user?.student_id||'guest'));if(!r.ok)return;const d=await r.json(),state=d.state||{};memoryState=state;const ids=new Set(graph.nodes.map(n=>n.id));(state.learning_notes||[]).forEach(n=>{if(!ids.has(n.id)){graph.nodes.push(deriveNode(n.id,n.title,{label:'未命名笔记',type:'LEARNING_NOTE',status:n.status||'draft',note:n.markdown_content||''}))}});render()}catch(e){console.warn('manual notes load failed',e)}}loadManualNoteNodes();
 setTimeout(loadManualNoteNodes,500);
+// 活动记录（分数/档位）取服务端权威值；切回标签页时刷新一次，避免停在旧分数上
+loadActivity();
+window.addEventListener('focus',loadActivity);
 
 // ===== 3D 全景知识图谱（Obsidian 风格）=====
 let fg3d=null;let g3dHoverId=null;let g3dFramed=false;let g3dFocusId=null;let g3dMode='overview';
@@ -2039,16 +2126,34 @@ const CONCEPT_LINKS={
   '刚体转动':'textbooks/kinematics/index.html?target=p2m1',
   '质心':'textbooks/dynamics/index.html?target=dyn2-2'
 };
-function conceptUrl(label){return CONCEPT_LINKS[label]||SITE_LINKS[label]||('ai_qa.html?q='+encodeURIComponent(label)+'&mode=enhanced');}
-function siteHasContent(label){return !!(CONCEPT_LINKS[label]||SITE_LINKS[label]);}
-function statusLabel(s){return s==='mastered'?'已掌握':s==='familiar'?'已熟悉':s==='learning'?'学习中（薄弱）':'未知';}
+// 课程框架节点按主题色归到对应教材篇章，保证每个知识点都能落到具体网页
+const SECTION_BOOK={
+  '#06b6d4':'textbooks/statics/textbook.html',      // 静力学
+  '#3b82f6':'textbooks/kinematics/index.html',      // 运动学
+  '#22c55e':'textbooks/dynamics/index.html',        // 动力学
+  '#a855f7':'textbooks/analytical/index.html',      // 分析力学
+  '#ec4899':'textbooks/analytical/index.html',      // 分析力学（专题）
+  '#f59e0b':'textbooks/analytical/index.html'       // 综合专题
+};
+function courseNodeOf(label){return FULL_COURSE.nodes.find(function(d){return d.label===label})||null;}
+function conceptUrl(label){
+  if(CONCEPT_LINKS[label])return CONCEPT_LINKS[label];
+  if(SITE_LINKS[label])return SITE_LINKS[label];
+  const d=courseNodeOf(label);                      // 没有专属锚点 → 退到该篇教材
+  if(d&&SECTION_BOOK[d.color])return SECTION_BOOK[d.color];
+  return 'ai_qa.html?q='+encodeURIComponent(label)+'&mode=enhanced';
+}
+// 「本站有内容」= 有专属锚点，或者是课程框架里的知识点（每篇教材都覆盖）
+// 只有个人自建节点仍算「无网页内容」，过滤才不至于把 71% 的课程知识点一并滤掉
+function siteHasContent(label){return !!(CONCEPT_LINKS[label]||SITE_LINKS[label])||!!courseNodeOf(label);}
+// 兜底不再输出「未知」：笔记类状态（draft/confirmed/edited）单独给名字
+function statusLabel(s){return {mastered:'已掌握',familiar:'已熟悉',learning:'学习中（薄弱）',draft:'笔记草稿',confirmed:'笔记已确认',edited:'笔记已编辑'}[s]||(s?'待确认':'未标记');}
 function statusColor(s){return s==='mastered'?'#22c55e':s==='familiar'?'#3b82f6':s==='learning'?'#f97316':'#94a3b8';}
 // ===== 个人掌握状态（按账户记录，驱动节点颜色随使用而变）=====
 // 设计：完整课程知识网先作为「整个学科的展示」，所有用户一致（分类主题色）；
 //      用户长期使用后，可在节点详情里标记自己的掌握状态，颜色随之按个人变化。
-function masteryKey(){return 'knowledge_mastery_'+(user&&(user.id||user.student_id)||'guest');}
-function getMasteryMap(){try{return JSON.parse(localStorage.getItem(masteryKey())||'{}')}catch(e){return {}}}
-function saveMasteryMap(m){try{localStorage.setItem(masteryKey(),JSON.stringify(m))}catch(e){}}
+function getMasteryMap(){return UserStore.get('knowledge_mastery',{})}
+function saveMasteryMap(m){try{UserStore.set('knowledge_mastery',m)}catch(e){}}
 function nodeMastery(label){return getMasteryMap()[label]||null;}
 function setNodeMastery(label,status){const m=getMasteryMap();if(status)m[label]=status;else delete m[label];saveMasteryMap(m);}
 function effectiveStatus(n){return nodeMastery(n.label)||n.status;}

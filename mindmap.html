@@ -2,10 +2,12 @@
 <html lang="zh-CN">
 <head>
 <script src="js/auth.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/mindmap_nodes.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>理论力学知识框架 · 思维导图</title>
+<title>理论力学 · 知识图谱</title>
 <style>
 :root {
   --bg: #060b14;
@@ -20,36 +22,41 @@ body:active{cursor:grabbing}
 body.panning{cursor:grabbing}
 
 #starCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-#svgLayer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
-#svgLayer path{pointer-events:none}
-#nodeLayer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
 
-.node-wrap{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;transition:filter 0.3s}
-.node-wrap:hover{filter:brightness(1.3)}
-.node-wrap .pill{padding:7px 16px;border-radius:22px;font-weight:700;text-align:center;white-space:nowrap;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);border:2px solid transparent;position:relative}
+/* ===== 三维树：WebGL 画布 + 标签浮层 ===== */
+#gl{position:fixed;inset:0;z-index:1;touch-action:none}
+#gl canvas{display:block}
+#labels{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden;touch-action:none}
+.node-wrap{touch-action:none}
+
+/* 标签是三维坐标投影到屏幕的 DOM 浮层——天然正对镜头，转到任何角度都清晰可读 */
+.node-wrap{position:absolute;top:0;left:0;transform-origin:0 0;pointer-events:auto;cursor:pointer;will-change:transform}
+.node-face{display:inline-block;transition:filter 0.3s}
+.node-wrap:hover .node-face{filter:brightness(1.3)}
+.node-wrap .pill{padding:7px 16px;border-radius:22px;font-weight:700;text-align:center;white-space:nowrap;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);border:2px solid transparent;position:relative;display:inline-block}
 .node-wrap:hover .pill{transform:scale(1.08)}
 
-.node-wrap.root .pill{font-size:22px;padding:20px 36px;border-radius:36px;
+.node-wrap.root .pill{font-size:17px;padding:11px 24px;border-radius:26px;
   background:radial-gradient(ellipse at center,rgba(59,130,246,0.3),transparent 70%),linear-gradient(135deg,#0f2b5c,#0d3b9e);
   color:#fff;border-color:rgba(96,165,250,0.6);letter-spacing:3px;
   box-shadow:0 0 40px rgba(59,130,246,0.35),0 0 80px rgba(59,130,246,0.15),inset 0 1px 0 rgba(255,255,255,0.1)}
 .node-wrap.root .pill::after{content:'';position:absolute;inset:-3px;border-radius:38px;background:conic-gradient(from 0deg,#3b82f6,#8b5cf6,#3b82f6);opacity:0.3;z-index:-1;animation:spin 4s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-.node-wrap.lv1 .pill{font-size:17px;padding:12px 28px;border-radius:26px;letter-spacing:1px}
+.node-wrap.lv1 .pill{font-size:13px;padding:7px 16px;border-radius:20px;letter-spacing:0.5px}
 .node-wrap.lv1 .pill.c0{background:linear-gradient(135deg,var(--c0g),var(--c0));color:#fff;border-color:#60a5fa;box-shadow:0 0 24px var(--c0s)}
 .node-wrap.lv1 .pill.c1{background:linear-gradient(135deg,var(--c1g),var(--c1));color:#fff;border-color:#fbbf24;box-shadow:0 0 24px var(--c1s)}
 .node-wrap.lv1 .pill.c2{background:linear-gradient(135deg,var(--c2g),var(--c2));color:#fff;border-color:#f87171;box-shadow:0 0 24px var(--c2s)}
 .node-wrap.lv1 .pill.c3{background:linear-gradient(135deg,var(--c3g),var(--c3));color:#fff;border-color:#c4b5fd;box-shadow:0 0 24px var(--c3s)}
 
-.node-wrap.lv2 .pill{font-size:13px;padding:6px 16px;border-radius:18px;
+.node-wrap.lv2 .pill{font-size:10px;padding:4px 10px;border-radius:14px;
   background:rgba(20,30,50,0.92);color:#cbd5e1;border-color:rgba(100,116,139,0.3);backdrop-filter:blur(4px)}
 .node-wrap.lv2 .pill.c0{border-color:rgba(59,130,246,0.4);color:#93c5fd}
 .node-wrap.lv2 .pill.c1{border-color:rgba(245,158,11,0.4);color:#fcd34d}
 .node-wrap.lv2 .pill.c2{border-color:rgba(239,68,68,0.4);color:#fca5a5}
 .node-wrap.lv2 .pill.c3{border-color:rgba(167,139,250,0.4);color:#c4b5fd}
 
-.node-wrap.lv3 .pill{font-size:11px;padding:4px 12px;border-radius:14px;
+.node-wrap.lv3 .pill{font-size:9px;padding:3px 8px;border-radius:11px;
   background:rgba(15,23,42,0.85);color:#94a3b8;border-color:rgba(71,85,105,0.2)}
 .node-wrap.lv3 .pill.c0{border-color:rgba(59,130,246,0.25);color:#60a5fa}
 .node-wrap.lv3 .pill.c1{border-color:rgba(245,158,11,0.25);color:#fbbf24}
@@ -94,6 +101,10 @@ body.panning{cursor:grabbing}
 .modal .detail-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .modal .detail-list li{padding:8px 12px;background:rgba(30,41,59,0.5);border-radius:8px;font-size:0.85em;color:#cbd5e1;border:1px solid rgba(100,116,139,0.1)}
 .modal .detail-list li::before{content:'▸ ';color:#60a5fa;font-size:0.8em}
+/* 来自个人知识网络的节点 */
+.net-note{font-size:0.9em;color:#cbd5e1;line-height:1.7;padding:12px 16px;
+  background:rgba(30,41,59,0.5);border-left:3px solid #22c55e;border-radius:8px}
+.net-meta{margin-top:10px;font-size:0.75em;color:#64748b;letter-spacing:0.5px}
 .modal .link-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .modal .link-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;
   background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;border-radius:22px;
@@ -137,8 +148,8 @@ body.panning{cursor:grabbing}
 </div>
 
 <canvas id="starCanvas"></canvas>
-<svg id="svgLayer"></svg>
-<div id="nodeLayer"></div>
+<div id="gl"></div>
+<div id="labels"></div>
 <div id="tooltip"></div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
@@ -159,7 +170,7 @@ body.panning{cursor:grabbing}
   <button onclick="collapseToLv(1)">📋 收起细节</button>
   <button onclick="resetView()">🔄 重置</button>
 </div>
-<div class="tip">🖱 拖拽平移 · 滚轮缩放 · 点击节点展开 · 点击叶子查看详情</div>
+<div class="tip">🖱 拖动旋转 · 右键拖动平移 · 滚轮缩放 · 点击枝干展开 · 点击叶片查看详情</div>
 
 <script>
 // ==================== STARFIELD BACKGROUND ====================
@@ -370,123 +381,371 @@ const TB_LINKS={
   a5c:'textbooks/analytical/index.html?target=rigid-collision',a5d:'textbooks/analytical/index.html?target=collision-energy',
 };
 
+// ==================== 真三维树（three.js） ====================
+// 树干是真实的圆柱体（靠光照产生明暗过渡才有"筒状"体积感），
+// 枝条在 360° 方位上生长——转到前后左右任何角度都是一棵完整的树。
+const labelLayer=document.getElementById('labels');
+const glHost=document.getElementById('gl');
+
+const renderer=new THREE.WebGLRenderer({antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0);              // 透明，透出后面的星空
+glHost.appendChild(renderer.domElement);
+
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 12000);
+
+// 打光决定体积感：主光右上偏暖（让褐干和绿叶显色），补光左下偏冷，再加一盏紫色轮廓光勾边
+scene.add(new THREE.AmbientLight(0xb6cbe6, 0.9));
+const keyLight=new THREE.DirectionalLight(0xfff2df, 2.3); keyLight.position.set(340,560,420); scene.add(keyLight);
+const fillLight=new THREE.DirectionalLight(0x5b86c8, 0.55); fillLight.position.set(-420,120,300); scene.add(fillLight);
+const rimLight=new THREE.DirectionalLight(0x9d7cff, 0.95); rimLight.position.set(-260,240,-520); scene.add(rimLight);
+
+const treeGroup=new THREE.Group();
+scene.add(treeGroup);
+
+// 木质部分统一褐色（四条主枝用略有深浅的四种褐，保留一点层次但不破坏整体）
+const WOOD_HEX=[0x7a5636,0x6b4a2c,0x84603d,0x5d3f24];
+const LEAF_HEX=[0x4e9c3a,0x3f8a33,0x62b23f,0x2f7a30];   // 绿色树冠，四片叶簇深浅略不同
+const BRANCH_MATS=WOOD_HEX.map(c=>new THREE.MeshStandardMaterial({color:c, roughness:0.92, metalness:0.02}));
+const TRUNK_MAT=new THREE.MeshStandardMaterial({color:0x69492b, roughness:0.95, metalness:0.02});
+const LEAF_MATS=LEAF_HEX.map(c=>new THREE.MeshStandardMaterial({color:c, roughness:0.72, metalness:0.0,
+  side:THREE.DoubleSide, emissive:c, emissiveIntensity:0.10}));
+
+// 叶片几何：一枚尖椭圆叶
+const LEAF_GEO=(()=>{
+  const s=new THREE.Shape();
+  s.moveTo(0,0);
+  s.bezierCurveTo(0.55,0.6, 0.55,1.6, 0,2.3);
+  s.bezierCurveTo(-0.55,1.6, -0.55,0.6, 0,0);
+  const g=new THREE.ShapeGeometry(s,10);
+  g.translate(0,-1.15,0);
+  return g;
+})();
+
+// 每个节点一个稳定种子：展开/收起重建后，叶子不会乱跳
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296}}
+function seedOf(id){let h=2166136261;for(let i=0;i<id.length;i++){h^=id.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+
+// ==================== 接入个人知识网络的节点 ====================
+// 数据来自 js/mindmap_nodes.js（从 personal_knowledge.html 的 FULL_COURSE 抽取生成，源文件未做任何改动）
+// 按章节挂到四大主枝下作为额外叶节点——节点数量上去了，树冠才够枝繁叶茂
+const TYPE_NAME={concept:'概念',formula:'公式',insight:'理解'};
+const STATUS_NAME={mastered:'已掌握',familiar:'较熟悉',learning:'学习中'};
+(function injectNetNodes(){
+  const net=window.NET_NODES||[];
+  treeData.children.forEach(function(sec,i){
+    (net[i]||[]).forEach(function(n,j){
+      sec.children.push({
+        id:'net_'+i+'_'+j, label:n.label, note:n.note,
+        ntype:n.t, nstatus:n.s, isNet:true
+      });
+    });
+  });
+})();
+
 // ==================== STATE ====================
-let expanded=new Set(['root']);
-let panX=0,panY=0,scale=1;
-let isPanning=false,startX,startY;
-const INITIAL_LEVEL=1;
+// 初始状态就是"全部展开"：打开即是满树知识点
+let expanded=new Set();
+(function addAll(n){expanded.add(n.id); if(n.children)n.children.forEach(addAll);})(treeData);
 
-// Init: show root + 4 branches
-treeData.children.forEach(c=>expanded.add(c.id));
+let camTheta=-0.72, camPhi=1.12, camDist=900;
+const camTarget=new THREE.Vector3(0,300,0);
+let autoSpin=true, dragging=false, dragMode=0, lastX=0, lastY=0;
+let downX=0, downY=0, moved=false;      // 用于区分"点击标签"与"拖动转树"
+let labels=[];
 
-// ==================== LAYOUT ====================
-function getLayout(){
-  const w=window.innerWidth,h=window.innerHeight,cx=w/2,cy=h/2;
-  const pos=new Map();
-  const angles=[Math.PI*0.78,Math.PI*0.22,-Math.PI*0.22,-Math.PI*0.78];
+function visibleKids(node){
+  return (node.children && node.children.length && expanded.has(node.id)) ? node.children : null;
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 
-  function place(node,ang,rad,span,lv){
-    const x=cx+rad*Math.cos(ang)+panX,y=cy+rad*Math.sin(ang)+panY;
-    pos.set(node.id,{x,y,lv,node});
-    if(!node.children||!expanded.has(node.id))return;
-    const n=node.children.length;
-    const cr=rad+(lv===0?180:lv===1?150:lv===2?125:105);
-    const ca=span*0.82;
-    const sa=ang-ca/2;
-    const gap=n>1?ca/(n-1):0;
-    node.children.forEach((c,i)=>place(c,n===1?ang:sa+i*gap,cr,gap,lv+1));
-  }
-  pos.set('root',{x:cx+panX,y:cy+panY,lv:0,node:treeData});
-  treeData.children.forEach((c,i)=>place(c,angles[i],170,Math.PI*0.38,1));
-  return{pos,cx,cy};
+// ==================== 建模 ====================
+const UP=new THREE.Vector3(0,1,0);
+
+function addSeg(p0,p1,r0,r1,mat){
+  const dir=new THREE.Vector3().subVectors(p1,p0);
+  const len=dir.length();
+  if(len<1e-4) return;
+  const geo=new THREE.CylinderGeometry(r1,r0,len,10,1,true);   // 开口圆柱，省掉两端面
+  geo.translate(0,len/2,0);
+  const mesh=new THREE.Mesh(geo,mat);
+  mesh.position.copy(p0);
+  mesh.quaternion.setFromUnitVectors(UP, dir.normalize());
+  treeGroup.add(mesh);
 }
 
-// ==================== RENDER ====================
-const svgL=document.getElementById('svgLayer');
-const nodeL=document.getElementById('nodeLayer');
+// 子枝方向：绕父枝轴均匀铺开，再向上抬一点——这是树能"参天"而不是摊平的关键
+function childDir(parentDir, i, n, depth, rnd){
+  const axis=parentDir.clone().normalize();
+  const ref=Math.abs(axis.y)>0.92 ? new THREE.Vector3(1,0,0) : UP;
+  const u=new THREE.Vector3().crossVectors(axis,ref).normalize();
+  const v=new THREE.Vector3().crossVectors(axis,u).normalize();
+  // 张开角和方位角都加随机扰动——枝条不再是规整的伞骨，彼此会交错穿插
+  const spread=0.78+depth*0.07 + (rnd()-0.5)*0.34;
+  const az=(i/n)*Math.PI*2 + (rnd()-0.5)*1.6;
+  const d=axis.clone().multiplyScalar(Math.cos(spread))
+      .addScaledVector(u, Math.sin(spread)*Math.cos(az))
+      .addScaledVector(v, Math.sin(spread)*Math.sin(az));
+  d.y+=0.03;                     // 几乎不上抬，树冠向四周大幅铺开
+  return d.normalize();
+}
 
-function render(){
-  const{pos}=getLayout();
-  // SVG paths
-  let paths='';
-  function drawPaths(node,pc){
-    if(!pos.has(node.id))return;
-    const p=pos.get(node.id);
-    if(node.children&&expanded.has(node.id)){
-      node.children.forEach(c=>{
-        if(!pos.has(c.id))return;
-        const cp=pos.get(c.id);
-        const dx=cp.x-p.x,dy=cp.y-p.y;
-        const mx=p.x+dx*0.45,my=p.y+dy*0.45;
-        const lw=cp.lv<=2?2.5:cp.lv<=3?1.5:0.8;
-        const op=cp.lv<=2?0.45:cp.lv<=3?0.22:0.1;
-        const clr=pc>=0?BRANCH_COLORS[pc]:'#64748b';
-        paths+=`<path d="M${p.x},${p.y} Q${mx},${my} ${cp.x},${cp.y}" stroke="${clr}" stroke-width="${lw}" fill="none" opacity="${op}" stroke-linecap="round"/>`;
-        drawPaths(c,pc>=0?pc:node.color);
-      });
-    }
+// 叶子用 InstancedMesh 批量画：几万片也只有 4 次绘制调用，才敢把树冠堆到"密不透风"
+const LEAF_PER_TIP=160;    // 每个末端知识点的叶簇大小（调大：树冠更饱满）
+const LEAF_R=195;          // 叶簇半径（调大：相邻枝条的叶簇会彼此交汇、连成一片树冠，铺满画面四角）
+let leafXforms=[[],[],[],[]];
+
+function addLeafCluster(pos, li, rnd){
+  const N=LEAF_PER_TIP, R=LEAF_R;
+  const _p=new THREE.Vector3(), _q=new THREE.Quaternion(), _e=new THREE.Euler(), _s=new THREE.Vector3();
+  for(let i=0;i<N;i++){
+    // 球体内均匀取点（cbrt 让叶子填满整个球，而不是只贴在壳上）
+    const u=rnd()*2-1, th=rnd()*Math.PI*2, rad=R*Math.cbrt(rnd());
+    const sx=Math.sqrt(1-u*u);
+    _p.copy(pos).add(new THREE.Vector3(rad*sx*Math.cos(th), rad*u*0.85, rad*sx*Math.sin(th)));
+    _e.set(rnd()*Math.PI, rnd()*Math.PI*2, rnd()*Math.PI);
+    _q.setFromEuler(_e);
+    _s.setScalar(5.5+rnd()*7);
+    leafXforms[li].push(new THREE.Matrix4().compose(_p,_q,_s));
   }
-  treeData.children.forEach((c,i)=>drawPaths(c,i));
-  svgL.innerHTML=paths;
+}
 
-  // HTML nodes
-  let html='';
-  pos.forEach((p,id)=>{
-    const n=p.node;
-    const lvCls=p.lv===0?'root':`lv${Math.min(p.lv,4)}`;
-    const cCls=n.color>=0?` ${COLORS[n.color]}`:'';
-    const isExp=expanded.has(id);
-    const hasKids=n.children&&n.children.length>0;
-    const kidCls=hasKids?(isExp?'expanded':'has-kids'):'leaf';
-    html+=`<div class="node-wrap ${lvCls} ${kidCls}" id="n_${id}" style="left:${p.x}px;top:${p.y}px" data-id="${id}" data-lv="${p.lv}" onclick="handleClick('${id}')" onmouseenter="showTT(event,'${id}')" onmouseleave="hideTT()"><span class="pill${cCls}">${n.label}</span></div>`;
+function flushLeaves(){
+  for(let li=0;li<4;li++){
+    const arr=leafXforms[li];
+    if(!arr.length) continue;
+    const im=new THREE.InstancedMesh(LEAF_GEO, LEAF_MATS[li], arr.length);
+    for(let i=0;i<arr.length;i++) im.setMatrixAt(i, arr[i]);
+    im.instanceMatrix.needsUpdate=true;
+    im.frustumCulled=false;
+    treeGroup.add(im);
+  }
+}
+
+function addLabel(node, pos3, depth, li){
+  const el=document.createElement('div');
+  const hasKids=!!(node.children&&node.children.length);
+  const kidCls=hasKids?(expanded.has(node.id)?' expanded':' has-kids'):' leaf';
+  const lvCls=depth===0?'root':'lv'+Math.min(depth,3);
+  const cCls=li>=0?' '+COLORS[li]:'';
+  el.className='node-wrap '+lvCls+kidCls;
+  el.innerHTML='<span class="node-face"><span class="pill'+cCls+'">'+node.label+'</span></span>';
+  el.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(moved) return;                     // 刚才是拖动转树，不是点击
+    handleClick(node.id);
   });
-  nodeL.innerHTML=html;
+  el.addEventListener('mouseenter', function(e){showTT(e, node.id);});
+  el.addEventListener('mouseleave', hideTT);
+  labelLayer.appendChild(el);
+  labels.push({el:el, pos:pos3.clone(), depth:depth});
+}
 
-  // Update parent refs for visibility
-  function setParent(node,pid){node.parentId=pid;if(node.children)node.children.forEach(c=>setParent(c,node.id))}
-  treeData.children.forEach(c=>setParent(c,'root'));
+// 递归生长：一截枝分两段带点弯，末端挂标签、长叶子或继续分叉
+function grow(node, p0, dir, len, r0, depth, li){
+  const rnd=mulberry32(seedOf(node.id));
+  const r1=r0*0.60;
+  const mid=p0.clone().addScaledVector(dir, len*0.5);
+  const dir2=dir.clone().add(new THREE.Vector3(0,0.035,0)).normalize();
+  const end=mid.clone().addScaledVector(dir2, len*0.5);
+  const mat=BRANCH_MATS[li>=0?li:0];
+  addSeg(p0, mid, r0, (r0+r1)/2, mat);
+  addSeg(mid, end, (r0+r1)/2, r1, mat);
+
+  addLabel(node, end, depth, li);
+
+  const kids=visibleKids(node);
+  if(!kids){
+    addLeafCluster(end, li>=0?li:0, rnd);
+    return;
+  }
+  kids.forEach(function(c,i){
+    grow(c, end, childDir(dir2, i, kids.length, depth, rnd), len*0.84, r1, depth+1, li);
+  });
+}
+
+function buildTree(){
+  const TRUNK_TOP=132, TRUNK_R=28;
+
+  // 树干：一个旋转体，底部按角度做周期调制，直接"长"出板根。
+  // 比用一堆圆柱去拼板根干净得多——根和干是同一个曲面，没有穿插缝隙。
+  // 底部收得更窄、往下扎得更深，避免摊成一个扁平的星形
+  const prof=[[80,-112],[74,-92],[60,-64],[47,-32],[39,6],[34,46],[31,86],[TRUNK_R,TRUNK_TOP]]
+    .map(function(p){return new THREE.Vector2(p[0],p[1]);});
+  const tGeo=new THREE.LatheGeometry(prof, 96, 0, Math.PI*2);
+  const LO=9, R_TOP=-10, R_BOT=-112;                          // 9 条棱脊，振幅收敛
+  const pa=tGeo.attributes.position;
+  for(let i=0;i<pa.count;i++){
+    const x=pa.getX(i), y=pa.getY(i), z=pa.getZ(i);
+    const r=Math.hypot(x,z); if(r<1e-6) continue;
+    const t=clamp((R_TOP-y)/(R_TOP-R_BOT), 0, 1);             // 越靠底部，棱脊越强
+    const amp=1 + 0.24*t*t*Math.cos(LO*Math.atan2(z,x));
+    pa.setX(i, x*amp); pa.setZ(i, z*amp);
+  }
+  tGeo.computeVertexNormals();
+  treeGroup.add(new THREE.Mesh(tGeo, TRUNK_MAT));
+
+  addLabel(treeData, new THREE.Vector3(0,-196,0), 0, -1);     // 根节点挂在树基下方
+
+  const limbs=visibleKids(treeData)||[];
+  limbs.forEach(function(c,i){
+    const az=(i/limbs.length)*Math.PI*2 + 0.4;                // 360° 均匀分布
+    const spread=1.12;                                        // 主枝更向外张开：树冠横铺到画面左右两侧
+    const d=new THREE.Vector3(Math.sin(spread)*Math.sin(az), Math.cos(spread), Math.sin(spread)*Math.cos(az)).normalize();
+    grow(c, new THREE.Vector3(0,TRUNK_TOP,0), d, 335, TRUNK_R, 1, i);
+  });
+
+  flushLeaves();          // 所有叶簇一次性实例化提交
+}
+
+function clearTree(){
+  treeGroup.traverse(function(o){
+    if(o.isMesh && o.geometry && o.geometry!==LEAF_GEO) o.geometry.dispose();
+  });
+  treeGroup.clear();
+  leafXforms=[[],[],[],[]];
+  labels.forEach(function(l){l.el.remove();});
+  labels=[];
+}
+
+// ==================== 相机与交互 ====================
+function updateCamera(){
+  const sp=Math.sin(camPhi), cp=Math.cos(camPhi);
+  camera.position.set(
+    camTarget.x + camDist*sp*Math.sin(camTheta),
+    camTarget.y + camDist*cp,
+    camTarget.z + camDist*sp*Math.cos(camTheta)
+  );
+  camera.lookAt(camTarget);
+}
+function fitCamera(){
+  const box=new THREE.Box3().setFromObject(treeGroup);
+  labels.forEach(function(l){box.expandByPoint(l.pos);});   // 标签也算进取景范围，否则树冠会被切顶
+  const size=box.getSize(new THREE.Vector3());
+  const center=box.getCenter(new THREE.Vector3());
+  // 视线压低到树心以下：树冠整体被顶到画面上方，铺满并溢出屏幕顶部，
+  // 树干与树根顺势落到画面下半部/画面外——一进页面就是"满屏枝叶"。
+  camTarget.set(0, center.y - size.y*0.24, 0);
+  camDist=Math.max(size.x, size.y, size.z)*0.70;   // 刻意放大：树冠大幅溢出画面边缘，四角也铺满枝叶
+  updateCamera();
+}
+
+// 拖动可以落在整屏任何位置，**包括标签上**。
+// 树冠铺满屏幕后满屏都是标签，如果按在标签上就 return，用户会以为"拖不动"。
+// 用移动距离阈值区分"点击标签"和"拖动转树"：位移超过 4px 就算拖动，不再触发点击。
+const DRAG_TOL=4;
+window.addEventListener('pointerdown', function(e){
+  if(e.target.closest('.modal-overlay')||e.target.closest('.controls')||e.target.closest('.nav-btns')) return;
+  dragging=true; dragMode=(e.button===2?2:1);
+  downX=lastX=e.clientX; downY=lastY=e.clientY; moved=false;
+  autoSpin=false;
+});
+window.addEventListener('pointermove', function(e){
+  if(!dragging) return;
+  if(Math.abs(e.clientX-downX)+Math.abs(e.clientY-downY)>DRAG_TOL) moved=true;
+  const dx=e.clientX-lastX, dy=e.clientY-lastY;
+  lastX=e.clientX; lastY=e.clientY;
+  if(dragMode===1){
+    camTheta -= dx*0.0062;                                  // 左右拖动：绕树转一圈
+    camPhi   = clamp(camPhi - dy*0.0062, 0.22, 1.50);       // 上下拖动：俯仰
+  }else{
+    const right=new THREE.Vector3().setFromMatrixColumn(camera.matrix,0);
+    const up=new THREE.Vector3().setFromMatrixColumn(camera.matrix,1);
+    const k=camDist*0.0016;
+    camTarget.addScaledVector(right, -dx*k).addScaledVector(up, dy*k);
+  }
+  updateCamera();
+});
+window.addEventListener('pointerup', function(){dragging=false;});
+window.addEventListener('pointercancel', function(){dragging=false;});
+glHost.addEventListener('contextmenu', function(e){e.preventDefault();});
+glHost.addEventListener('wheel', function(e){
+  e.preventDefault();
+  camDist=clamp(camDist*(e.deltaY>0?1.09:0.917), 150, 5000);
+  updateCamera();
+},{passive:false});
+
+// ==================== 标签投影 ====================
+const _v=new THREE.Vector3();
+function projectLabels(){
+  const w=window.innerWidth, h=window.innerHeight;
+  const cand=[];
+  for(let i=0;i<labels.length;i++){
+    const L=labels[i];
+    _v.copy(L.pos).project(camera);
+    if(_v.z>1){ L.el.style.display='none'; continue; }        // 跑到相机背后的不画
+    L._x=(_v.x*0.5+0.5)*w;
+    L._y=(-_v.y*0.5+0.5)*h;
+    L._z=_v.z;
+    if(L.w===undefined){ L.w=L.el.offsetWidth; L.h=L.el.offsetHeight; }
+    cand.push(L);
+  }
+  // 层级浅的优先、离相机近的优先；跟已放置的标签压住就暂时隐藏
+  cand.sort(function(a,b){ return (a.depth-b.depth) || (a._z-b._z); });
+  const placed=[];
+  for(let i=0;i<cand.length;i++){
+    const L=cand[i];
+    const hw=L.w/2+3, hh=L.h/2+3;
+    let hit=false;
+    for(let j=0;j<placed.length;j++){
+      if(Math.abs(L._x-placed[j].x)<hw+placed[j].hw && Math.abs(L._y-placed[j].y)<hh+placed[j].hh){hit=true;break;}
+    }
+    if(hit){ L.el.style.display='none'; continue; }            // 放大后重叠消失，标签会自己浮现
+    placed.push({x:L._x, y:L._y, hw:hw, hh:hh});
+    L.el.style.display='';
+    L.el.style.transform='translate(-50%,-50%) translate('+L._x.toFixed(1)+'px,'+L._y.toFixed(1)+'px)';
+    L.el.style.zIndex=String(Math.round((1-L._z)*100000));
+    L.el.style.opacity=(1-clamp((L._z+1)/2,0,1)*0.35).toFixed(2);   // 远处的淡一点，强化纵深
+  }
 }
 
 // ==================== INTERACTION ====================
-function handleClick(id){
-  const n=findNode(treeData,id);if(!n)return;
-  if(n.children&&n.children.length>0){
-    if(expanded.has(id))collapse(id);
-    else{expanded.add(id);n.children.forEach(c=>expanded.add(c.id))}
-    render();
-  }else{showModal(n)}
+function findNode(t,id){
+  if(t.id===id)return t;
+  if(t.children)for(let i=0;i<t.children.length;i++){const r=findNode(t.children[i],id);if(r)return r}
+  return null;
 }
 function collapse(id){
   expanded.delete(id);
   const n=findNode(treeData,id);
-  if(n&&n.children)n.children.forEach(c=>collapse(c.id));
+  if(n&&n.children)n.children.forEach(function(c){collapse(c.id);});
 }
-function findNode(t,id){
-  if(t.id===id)return t;
-  if(t.children)for(const c of t.children){const r=findNode(c,id);if(r)return r}
-  return null;
+function handleClick(id){
+  const n=findNode(treeData,id);if(!n)return;
+  if(n.children&&n.children.length>0){
+    if(expanded.has(id))collapse(id);
+    else{expanded.add(id);n.children.forEach(function(c){expanded.add(c.id);});}
+    rebuild();
+  }else{showModal(n)}
 }
+function rebuild(){ clearTree(); buildTree(); fitCamera(); }
 
 // ==================== MODAL ====================
 function showModal(node){
-  const path=[];(function fp(t,id,p){if(t.id===id){path.push(...p,t);return true}if(t.children)for(const c of t.children)if(fp(c,id,[...p,t]))return true;return false})(treeData,node.id,[]);
-  const bc=path.slice(1).map(n=>n.label).join(' › ');
+  const path=[];(function fp(t,id,p){if(t.id===id){path.push.apply(path,p);path.push(t);return true}if(t.children)for(const c of t.children)if(fp(c,id,p.concat([t])))return true;return false})(treeData,node.id,[]);
+  const bc=path.slice(1).map(function(n){return n.label;}).join(' › ');
   const topSect=path[1]||{};
-  const sectKey=topSect.id||'';
   const badgeCls=topSect.color>=0?BADGES[topSect.color]:'badge-s';
   const sectName=topSect.color>=0?SECTIONS[topSect.color]:'';
-  const link=TB_LINKS[node.id]||TB_LINKS['s1a'];
+  const isNet=!!node.isNet;
+  const link=isNet?null:(TB_LINKS[node.id]||TB_LINKS['s1a']);
 
   let det='';
-  if(node.detail&&node.detail.length>0)det='<ul class="detail-list">'+node.detail.map(d=>`<li>${d}</li>`).join('')+'</ul>';
+  if(isNet){
+    // 来自个人知识网络的节点：显示说明 + 类型/掌握状态
+    const meta=[TYPE_NAME[node.ntype]||'', STATUS_NAME[node.nstatus]||''].filter(Boolean).join(' · ');
+    det=(node.note?'<div class="net-note">'+node.note+'</div>':'')
+       +(meta?'<div class="net-meta">'+meta+'</div>':'');
+  }else if(node.detail&&node.detail.length>0){
+    det='<ul class="detail-list">'+node.detail.map(function(d){return '<li>'+d+'</li>';}).join('')+'</ul>';
+  }
 
-  document.getElementById('modalContent').innerHTML=`
-    <h3>${node.label}<span class="badge ${badgeCls}">${sectName}</span></h3>
-    <div class="breadcrumb">${bc}</div>
-    ${det}
-    <div class="link-row">
-      <a class="link-btn" href="${link}" target="_blank">📖 查看详细知识框架 →</a>
-    </div>`;
+  document.getElementById('modalContent').innerHTML=
+    '<h3>'+node.label+'<span class="badge '+badgeCls+'">'+sectName+'</span></h3>'
+    +'<div class="breadcrumb">'+bc+'</div>'+det
+    +(link?'<div class="link-row"><a class="link-btn" href="'+link+'" target="_blank">📖 查看详细知识框架 →</a></div>':'');
   document.getElementById('modalOverlay').classList.add('show');
 }
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
@@ -495,25 +754,39 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function showTT(e,id){
   const n=findNode(treeData,id);if(!n)return;
   const tt=document.getElementById('tooltip');
-  if((!n.children||n.children.length===0)&&n.detail){tt.innerHTML=`<div class="tt-title">${n.label}</div><div class="tt-desc">${n.detail.join(' · ')} · 点击查看详情</div>`;tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px'}
-  else if(n.desc){tt.innerHTML=`<div class="tt-title">${n.label}</div><div class="tt-desc">${n.desc} · 点击展开</div>`;tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px'}
-  else{tt.style.display='none'}
+  const leafDetail=n.isNet?(n.note||''):(n.detail?n.detail.join(' · '):'');
+  if((!n.children||n.children.length===0)&&leafDetail){
+    tt.innerHTML='<div class="tt-title">'+n.label+'</div><div class="tt-desc">'+leafDetail+' · 点击查看详情</div>';
+    tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px';
+  }else if(n.desc){
+    tt.innerHTML='<div class="tt-title">'+n.label+'</div><div class="tt-desc">'+n.desc+' · 点击展开</div>';
+    tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px';
+  }else{tt.style.display='none'}
 }
 function hideTT(){document.getElementById('tooltip').style.display='none'}
 
-// ==================== PAN/ZOOM ====================
-window.addEventListener('mousedown',e=>{if(e.target.closest('.node-wrap')||e.target.closest('.modal-overlay'))return;isPanning=true;startX=e.clientX-panX;startY=e.clientY-panY;document.body.classList.add('panning')});
-window.addEventListener('mousemove',e=>{if(!isPanning)return;panX=e.clientX-startX;panY=e.clientY-startY;render()});
-window.addEventListener('mouseup',()=>{isPanning=false;document.body.classList.remove('panning')});
-window.addEventListener('wheel',e=>{e.preventDefault();const d=e.deltaY>0?0.9:1.1;scale=Math.max(0.3,Math.min(3,scale*d));panX=e.clientX-(e.clientX-panX)*d;panY=e.clientY-(e.clientY-panY)*d;render()},{passive:false});
-
 // ==================== CONTROLS ====================
-function expandAll(){(function add(n){expanded.add(n.id);if(n.children)n.children.forEach(add)})(treeData);render()}
-function collapseToLv(lv){expanded.clear();expanded.add('root');(function add(n,l){if(l<=lv){expanded.add(n.id);if(n.children)n.children.forEach(c=>add(c,l+1))}})(treeData,0);render()}
-function resetView(){panX=0;panY=0;scale=1;expanded.clear();expanded.add('root');treeData.children.forEach(c=>expanded.add(c.id));render()}
+function expandAll(){(function add(n){expanded.add(n.id);if(n.children)n.children.forEach(add);})(treeData);rebuild();}
+function collapseToLv(lv){expanded.clear();expanded.add('root');(function add(n,l){if(l<=lv){expanded.add(n.id);if(n.children)n.children.forEach(function(c){add(c,l+1);});}})(treeData,0);rebuild();}
+function resetView(){camTheta=-0.72;camPhi=1.12;autoSpin=true;expanded.clear();expanded.add('root');treeData.children.forEach(function(c){expanded.add(c.id);});rebuild();}
+
+// ==================== 主循环 ====================
+function tick(){
+  requestAnimationFrame(tick);
+  if(autoSpin&&!dragging){ camTheta+=0.0018; updateCamera(); }   // 缓慢自转，能看清这是一棵立体的树
+  renderer.render(scene,camera);
+  projectLabels();
+}
+window.addEventListener('resize', function(){
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 // ==================== INIT ====================
-render();
+buildTree();
+fitCamera();
+tick();
 </script>
 </body>
 </html>

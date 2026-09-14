@@ -145,7 +145,7 @@ function flushPendingActivity(sid) {
     try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
     if (!list.length) return;
     Promise.all(list.map(function(payload){
-      return fetch('/api/activity/record', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+      return fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
         .then(function(r){ if (r.ok) return undefined; throw new Error(); })
         .catch(function(){ return payload; });
     })).then(function(results){
@@ -334,7 +334,7 @@ function recordLogin(sid) {
   saveActivity(sid, data);
   // 同步到服务器（尽力而为，失败静默；供活跃页跨端口读取）
   try {
-    fetch('/api/activity/record', {
+    fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ id: sid, action: 'login', date: t })
     }).catch(function(){});
@@ -720,14 +720,54 @@ function deleteMyAccount() {
   render();
 }
 
+// ===== 个人内容统一从服务端取 =====
+// 过去「我的帖子/我的评论/已做题目」只读本机 localStorage，于是同一账户
+// 从不同端口/不同浏览器进入个人中心看到的内容都不一样。改为读服务端的权威数据：
+//   帖子、评论 → fdata/index.json（按学号筛）    做题数 → adata/activity_<学号>.json
+// 服务端不可达时才退回本机副本（仅作离线查看）。
+var myContent = { posts: [], comments: [], questions: 0, fromServer: false };
+async function refreshMyContent(sid) {
+  if (!sid) return;
+  var posts = [], comments = [], serverOK = false;
+  try {
+    var r = await fetch('/api/forum/list?_=' + Date.now());
+    if (r.ok) {
+      var j = await r.json();
+      ((j && (j.posts || j.items)) || []).forEach(function (p) {
+        if (String(p.student_id || '') === String(sid)) posts.push({ title: p.title, time: p.time });
+        (p.comments || []).forEach(function (c) {
+          if (String(c.student_id || '') === String(sid)) comments.push({ content: c.content, time: c.time });
+        });
+      });
+      serverOK = true;
+    }
+  } catch (e) { serverOK = false; }
+  if (!serverOK) {   // 离线：退回本机副本
+    try { var rp = localStorage.getItem('user_posts_' + sid); if (rp) posts = JSON.parse(rp); } catch (e) {}
+    try { var rc = localStorage.getItem('user_comments_' + sid); if (rc) comments = JSON.parse(rc); } catch (e) {}
+  }
+  var qCount = 0;
+  try {
+    var ra = await fetch('/api/activity?id=' + encodeURIComponent(sid) + '&_=' + Date.now());
+    if (ra.ok) {
+      var ja = await ra.json();
+      var act = (ja && ja.activity) || {};
+      var uniq = {};
+      Object.keys(act).forEach(function (d) { (act[d].q_list || []).forEach(function (q) { uniq[q] = 1; }); });
+      qCount = Object.keys(uniq).length;
+    }
+  } catch (e) {}
+  myContent = { posts: posts, comments: comments, questions: qCount, fromServer: serverOK };
+  if (currentUser && String(currentUser.student_id) === String(sid)) render();
+}
+
 function renderMyContent() {
   var sid = currentUser.student_id;
   var catLabel = {qa:'提问',share:'分享',discuss:'讨论',other:'其他'};
   var html = '';
 
-  // My posts
-  var posts = [];
-  try { var r=localStorage.getItem('user_posts_'+sid); if(r)posts=JSON.parse(r); } catch(e) {}
+  // My posts（服务端数据）
+  var posts = myContent.posts || [];
   if (posts.length > 0) {
     html += '<div class="section-title">📝 我的帖子 (' + posts.length + ')</div>';
     posts.slice(0,10).forEach(function(p) {
@@ -737,9 +777,8 @@ function renderMyContent() {
     });
   }
 
-  // My comments
-  var comments = [];
-  try { var rc=localStorage.getItem('user_comments_'+sid); if(rc)comments=JSON.parse(rc); } catch(e) {}
+  // My comments（服务端数据）
+  var comments = myContent.comments || [];
   if (comments.length > 0) {
     html += '<div class="section-title" style="margin-top:18px">💬 我的评论 (' + comments.length + ')</div>';
     comments.slice(0,10).forEach(function(c) {
@@ -749,12 +788,11 @@ function renderMyContent() {
     });
   }
 
-  // My questions
-  var questions = [];
-  try { var rq=localStorage.getItem('user_questions_'+sid); if(rq)questions=JSON.parse(rq); } catch(e) {}
-  if (questions.length > 0) {
-    html += '<div class="section-title" style="margin-top:18px">✅ 已做题目 (' + questions.length + ')</div>';
-    html += '<div style="font-size:0.8em;color:#64748b">共完成 ' + questions.length + ' 道题目</div>';
+  // My questions（服务端活跃记录里的去重题号；过去读的本机键从来没有写入点，恒为空）
+  var qCount = myContent.questions || 0;
+  if (qCount > 0) {
+    html += '<div class="section-title" style="margin-top:18px">✅ 已做题目 (' + qCount + ')</div>';
+    html += '<div style="font-size:0.8em;color:#64748b">共完成 ' + qCount + ' 道题目</div>';
   }
 
   return html || '<div style="text-align:center;padding:20px;color:#94a3b8;font-size:0.85em">暂无个人内容，去论坛发帖或做题吧！</div>';
@@ -770,6 +808,8 @@ function showToast(msg, type) { var t = document.getElementById('toast'); t.text
 currentUser = getCurrentUser();
 if (currentUser && currentUser.student_id) recordLogin(currentUser.student_id);
 render();
+if (currentUser && currentUser.student_id) refreshMyContent(currentUser.student_id);   // 我的帖子/评论/做题数走服务端
+window.addEventListener('focus', function () { if (currentUser && currentUser.student_id) refreshMyContent(currentUser.student_id); });
 syncPendingRegistrations();
 
 // ===== 数据迁移：从 file:// 打开时，把本地旧数据合并上传到服务器 =====

@@ -1,4 +1,559 @@
 <!doctype html><html lang="zh-CN"><head>
 <script src="js/auth.js"></script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>我的薄弱点 - 理论力学研究平台</title><style>body{margin:0;background:#f5f7fb;color:#172033;font-family:"Microsoft YaHei",sans-serif}.head{background:linear-gradient(135deg,#7f1d1d,#dc2626);color:#fff;padding:28px max(20px,calc((100% - 980px)/2));display:flex;justify-content:space-between}.head h1{margin:0}.head a{color:#fff;text-decoration:none}.wrap{max-width:980px;margin:24px auto;padding:0 16px}.weak{background:#fff;border:1px solid #fecaca;border-left:5px solid #dc2626;border-radius:12px;padding:20px;margin-bottom:16px}.weak h2{margin:0 0 8px;font-size:1.1rem}.meta{color:#64748b;font-size:.85em;line-height:1.7}.btn{border:0;border-radius:7px;padding:9px 13px;margin:10px 8px 0 0;cursor:pointer}.yes{background:#dcfce7;color:#166534}.no{background:#fee2e2;color:#991b1b}.empty{background:#fff;padding:40px;text-align:center;color:#64748b;border-radius:12px}</style></head><body><header class="head"><div><h1>⚠️ 我的薄弱点</h1><p>查看诊断依据并反馈判断是否准确</p></div><a href="personal_knowledge.html?v=20260826b">返回知识网络 →</a></header><main class="wrap" id="list"></main><script src="js/learning-memory-api.js"></script><script>
-const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'null')||{}}catch(e){return{}}})();let items=[];function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function render(){document.getElementById('list').innerHTML=items.length?items.map(w=>`<article class="weak"><h2>待验证薄弱点</h2><div class="meta">判断等级：${esc(w.level)} · 用户反馈：${esc(w.user_feedback||'unknown')}</div><p>${esc(w.reasons||'暂无判断理由')}</p><div class="meta">证据 ID：${esc((w.evidence_ids||[]).join(', ')||'暂无')}</div><button class="btn yes" onclick="feedback('${w.id}','accurate')">判断准确</button><button class="btn no" onclick="feedback('${w.id}','inaccurate')">判断不准确</button></article>`).join(''):'<div class="empty">暂时没有薄弱点记录。完成一次学习整理后，系统会生成待验证判断。</div>'}async function feedback(id,value){try{const r=await LearningMemoryAPI.feedbackWeakness(user,id,value);Object.assign(items.find(x=>x.id===id),r.weakness);render()}catch(e){alert(e.message)}}async function init(){try{const r=await LearningMemoryAPI.listWeaknesses(user);items=r.weaknesses||[];render()}catch(e){document.getElementById('list').innerHTML='<div class="empty">加载失败：'+esc(e.message)+'</div>'}}init();</script></body></html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>我的薄弱点 - 理论力学研究平台</title><style>
+body{margin:0;background:#f5f7fb;color:#172033;font-family:"Microsoft YaHei",sans-serif}
+.head{background:linear-gradient(135deg,#7f1d1d,#dc2626);color:#fff;padding:28px max(20px,calc((100% - 980px)/2));display:flex;justify-content:space-between}
+.head h1{margin:0}.head a{color:#fff;text-decoration:none}
+.wrap{max-width:980px;margin:24px auto;padding:0 16px}
+.weak{background:#fff;border:1px solid #fecaca;border-left:5px solid #dc2626;border-radius:12px;padding:20px;margin-bottom:16px}
+.weak h2{margin:0 0 8px;font-size:1.1rem}.meta{color:#64748b;font-size:.85em;line-height:1.7}
+.btn{border:0;border-radius:7px;padding:9px 13px;margin:10px 8px 0 0;cursor:pointer}.yes{background:#dcfce7;color:#166534}.no{background:#fee2e2;color:#991b1b}
+.empty{background:#fff;padding:40px;text-align:center;color:#64748b;border-radius:12px}
+
+/* ===== 重点推荐复习（只读列表）===== */
+.sec-title{font-size:1.05rem;margin:28px 0 12px;color:#334155}
+.card{background:#fff;border:1px solid #dbe6f3;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+.card-head h2{margin:0;font-size:1.15rem;color:#1d4ed8}
+.card-head .tier{color:#64748b;font-size:.82em}
+.hint{color:#64748b;font-size:.85em;margin:6px 0 14px;line-height:1.7}
+.hint b{color:#1d4ed8}
+.progress{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bar{flex:1;height:8px;background:#e8eef7;border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a);transition:width .3s}
+.count{font-size:.82em;color:#475569;white-space:nowrap}
+.rv-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid #e6edf6;border-radius:10px;margin-bottom:8px;background:#fbfdff;
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s,border-color .18s,background .18s;cursor:pointer}
+.rv-item:hover,.rv-item.hot{transform:scale(1.025);background:#eef5ff;border-color:#93c5fd;box-shadow:0 6px 20px rgba(59,130,246,.18)}
+.rv-item.done{background:#f7fdf9;border-color:#bbf7d0}
+.rv-item.done.hot,.rv-item.done:hover{background:#ecfdf3;border-color:#4ade80;box-shadow:0 6px 20px rgba(34,197,94,.18)}
+.rv-check{font-size:1.05rem;width:20px;text-align:center;color:#16a34a;flex:none}
+.rv-name{font-weight:700;font-size:.95rem;color:#172033}
+.rv-item.hot .rv-name{color:#1d4ed8;font-size:1.03rem}
+.rv-meta{color:#64748b;font-size:.78em;flex:1;text-align:right}
+.rv-go{flex:none;background:#2563eb;color:#fff;border-radius:12px;padding:3px 10px;font-size:.74em;font-weight:700;text-decoration:none}
+.rv-go:hover{background:#1d4ed8}
+.rv-hint{color:#94a3b8;font-size:.72em;flex:none}
+.rv-item.hot .rv-hint{color:#2563eb}
+.empty-sm{color:#64748b;font-size:.88em;padding:16px 4px;text-align:center}
+
+/* ===== 节点管理 ===== */
+.mg-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.mg-btn{border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:8px;padding:7px 13px;font-size:.82em;cursor:pointer;font-weight:600}
+.mg-btn:hover{background:#f1f5f9;border-color:#94a3b8}
+.mg-btn.danger{background:#dc2626;border-color:#dc2626;color:#fff}
+.mg-btn.danger:hover{background:#b91c1c}
+.mg-item{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid #e6edf6;border-radius:9px;margin-bottom:6px;background:#fbfdff;font-size:.86em}
+.mg-item:hover{background:#eef5ff;border-color:#bfdbfe}
+.mg-item.junk{border-color:#fed7aa;background:#fffbf5}
+.mg-item input{margin-top:3px;flex:none;width:15px;height:15px;cursor:pointer}
+.mg-body{flex:1;min-width:0}
+.mg-text{color:#172033;word-break:break-all;line-height:1.5}
+.mg-sub{color:#94a3b8;font-size:.82em;margin-top:2px}
+.mg-kind{flex:none;font-size:.76em;color:#475569;background:#eef2f7;border-radius:9px;padding:2px 9px;white-space:nowrap}
+.mg-item.junk .mg-kind{background:#ffedd5;color:#c2410c}
+.mg-empty{color:#64748b;text-align:center;padding:20px}
+
+/* ===== 知识点详解面板 ===== */
+.kp-overlay{position:fixed;inset:0;z-index:100;background:rgba(15,23,42,.62);display:none;justify-content:center;align-items:center;backdrop-filter:blur(3px)}
+.kp-overlay.show{display:flex}
+.kp-modal{position:relative;background:#fff;border-radius:16px;width:min(760px,94vw);max-height:86vh;overflow-y:auto;padding:30px 34px;
+  box-shadow:0 24px 64px rgba(15,23,42,.35);animation:kpIn .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes kpIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.kp-modal::-webkit-scrollbar{width:6px}.kp-modal::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:6px}
+.kp-close{position:absolute;right:16px;top:14px;border:0;background:#f1f5f9;color:#64748b;width:32px;height:32px;border-radius:50%;font-size:1.15rem;cursor:pointer}
+.kp-close:hover{background:#fee2e2;color:#b91c1c}
+.kp-modal h2{margin:0 0 6px;font-size:1.45rem;color:#0f172a;padding-right:36px}
+.kp-badge{display:inline-block;margin-left:10px;padding:3px 11px;border-radius:11px;font-size:.62em;font-weight:800;vertical-align:middle}
+.kp-modal h3{font-size:1rem;margin:22px 0 8px;color:#1e293b}
+.kp-block{background:#f6f9fd;border:1px solid #e3ecf7;border-radius:10px;padding:12px 15px;font-size:.9em;line-height:1.75;color:#334155}
+.kp-chip{display:inline-flex;align-items:center;gap:6px;background:#e8f0fe;color:#1e3a8a;border-radius:14px;padding:4px 6px 4px 11px;margin:4px 5px 0 0;font-size:.82em}
+.kp-jump{background:#2563eb;color:#fff;text-decoration:none;border-radius:10px;padding:2px 8px;font-size:.86em;font-weight:700}
+.kp-jump:hover{background:#1d4ed8}
+.kp-q{padding:8px 10px;border-bottom:1px dashed #d5e3f3;font-size:.88em}
+.kp-q:last-child{border-bottom:0}
+.kp-q a{color:#1d4ed8;font-weight:600;text-decoration:none}.kp-q a:hover{text-decoration:underline}
+.kp-links{display:flex;flex-wrap:wrap;gap:8px}
+.kp-links a{display:inline-flex;align-items:center;gap:5px;background:#eef4ff;color:#1d4ed8;border:1px solid #c7dbf3;border-radius:16px;padding:7px 14px;font-size:.83em;font-weight:700;text-decoration:none}
+.kp-links a:hover{background:#dbe7ff}
+</style></head><body>
+<header class="head"><div><h1>⚠️ 我的薄弱点</h1><p>查看诊断依据并反馈判断是否准确</p></div><a href="personal_knowledge.html?v=20260826b">返回知识网络 →</a></header>
+<main class="wrap">
+  <section class="card">
+    <div class="card-head"><h2>🎯 重点推荐复习</h2><span class="tier" id="reviewTierInfo"></span></div>
+    <p class="hint">与「个人知识网络」页的重点推荐复习列表同源（只读展示）。<b>鼠标悬停 1.5 秒</b>即可展开该知识点的完整详解。</p>
+    <div class="progress"><div class="bar"><div class="bar-fill" id="reviewBarFill"></div></div><div class="count" id="reviewCount">0 / 0 已完成</div></div>
+    <div id="reviewList"></div>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>🧹 节点管理</h2><span class="tier" id="manageCount"></span></div>
+    <p class="hint">下面列出所有<b>不属于课程框架</b>的节点——它们由学习记录和 AI 自动整理产生，也是混进「重点推荐复习」的源头。删除会同时清除<b>服务端学习记忆</b>和本机知识网络，不会在下次加载时复活。</p>
+    <div class="mg-toolbar">
+      <button class="mg-btn" onclick="mgSelect('all')">全选</button>
+      <button class="mg-btn" onclick="mgSelect('none')">全不选</button>
+      <button class="mg-btn" onclick="mgSelect('junk')">只选疑似垃圾</button>
+      <button class="mg-btn danger" onclick="mgDeleteSelected()">🗑 删除选中</button>
+    </div>
+    <div id="manageList"></div>
+  </section>
+
+  <h2 class="sec-title">⚠️ 待验证薄弱点</h2>
+  <div id="list"></div>
+</main>
+
+<div class="kp-overlay" id="kpOverlay">
+  <div class="kp-modal">
+    <button class="kp-close" onclick="closePanel()">✕</button>
+    <div id="kpContent"></div>
+  </div>
+</div>
+
+<script src="js/user-store.js?v=20260911"></script>
+<script src="js/learning-memory-api.js"></script>
+<script src="js/course_framework.js"></script>
+<script>
+/* ============================================================
+   我的薄弱点页
+   - 平台原有部分：待验证薄弱点（服务端 LearningMemoryAPI）
+   - 新增部分：「重点推荐复习」只读列表，与 personal_knowledge.html 同源同算法
+     悬停即时高亮放大，停留 1.5 秒弹出完整知识点详解
+   数据只读：FULL_COURSE 来自 js/course_framework.js（派生文件，源文件未改动）
+   ============================================================ */
+const user=(()=>{try{return JSON.parse(localStorage.getItem('current_user')||'null')||{}}catch(e){return{}}})();
+let items=[];
+function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){document.getElementById('list').innerHTML=items.length?items.map(w=>`<article class="weak"><h2>待验证薄弱点</h2><div class="meta">判断等级：${esc(w.level)} · 用户反馈：${esc(w.user_feedback||'unknown')}</div><p>${esc(w.reasons||'暂无判断理由')}</p><div class="meta">证据 ID：${esc((w.evidence_ids||[]).join(', ')||'暂无')}</div><button class="btn yes" onclick="feedback('${w.id}','accurate')">判断准确</button><button class="btn no" onclick="feedback('${w.id}','inaccurate')">判断不准确</button></article>`).join(''):'<div class="empty">暂时没有薄弱点记录。完成一次学习整理后，系统会生成待验证判断。</div>'}
+async function feedback(id,value){try{const r=await LearningMemoryAPI.feedbackWeakness(user,id,value);Object.assign(items.find(x=>x.id===id),r.weakness);render()}catch(e){alert(e.message)}}
+async function loadWeaknesses(){try{const r=await LearningMemoryAPI.listWeaknesses(user);items=r.weaknesses||[];render()}catch(e){document.getElementById('list').innerHTML='<div class="empty">加载失败：'+esc(e.message)+'</div>'}}
+
+/* ==================== 「重点推荐复习」数据层 ====================
+   与 personal_knowledge.html 的 reviewListNodes() 同源同口径，只是不提供写操作 */
+const uid=user.id||user.student_id||'guest';
+const graph=(function(){try{return JSON.parse(localStorage.getItem('personal_knowledge_'+uid)||'{"nodes":[],"edges":[]}')}catch(e){return{nodes:[],edges:[]}}})();
+// 与个人知识网络页共用同一套账户数据（UserStore：本机缓存 + 服务端按账户同步）
+function getReviewDone(){return UserStore.get('review_done',[])}
+function getMasteryMap(){return UserStore.get('knowledge_mastery',{})}
+function nodeMastery(label){return getMasteryMap()[label]||null}
+function getUsage(){return UserStore.get('knowledge_usage',{})}
+function isCourseNode(n){const id=String((n&&n.id)||'');return id.indexOf('fc_')===0||id.indexOf('fcx_')===0||id.indexOf('seed_')===0}
+
+/* ---- 笔记名 → 知识点名的归一化 ----
+   个人知识网络里，每点一次「完成复习」都会写入一条标题为「完成复习：X」的学习笔记，
+   并且被当成一个网络节点存了下来（id 形如 note_xxx）。它不是知识点，只是笔记。
+   这里把它还原成真正的知识点名 X，再回课程框架取出该知识点的正式资料，
+   否则面板会按「完成复习：X」去查，简介/关联/题目全都匹配不上而显示「暂无」。 */
+const NOTE_PREFIX=/^完成复习\s*[：:]\s*/;
+function normalizeLabel(label){return String(label||'').replace(NOTE_PREFIX,'').trim()}
+const courseIndex={};
+FULL_COURSE.nodes.forEach(function(d,i){if(courseIndex[d.label]===undefined)courseIndex[d.label]=i});
+function courseNode(label){
+  const i=courseIndex[label];
+  if(i===undefined)return null;
+  const d=FULL_COURSE.nodes[i];
+  return {id:'fc_'+i,label:d.label,type:d.type,status:d.status,note:d.note,size:d.size,color:d.color};
+}
+// 个人网络里的节点 → 尽可能解析成课程知识点；解析不了才保留为个人节点
+function resolvePersonal(n){
+  const label=normalizeLabel(n.label);
+  const c=courseNode(label);
+  const src=NOTE_PREFIX.test(String(n.label||''))?'note':'weak';
+  if(c)return Object.assign({},c,{isBase:false,src:src});
+  return {id:n.id,label:label,type:n.type,status:n.status,note:n.note,color:n.color,isBase:false,src:'weak'};
+}
+function getWeakNodes(){
+  return graph.nodes.filter(function(n){
+    if(nodeMastery(normalizeLabel(n.label))==='learning')return true;   // 用户亲自标记为薄弱 → 显示
+    if(isCourseNode(n))return false;                                    // 课程结构且未标记 → 不算个人薄弱点
+    return true;
+  }).map(resolvePersonal);
+}
+function courseDifficulty(d){const c=(d&&d.color)||'',label=(d&&d.label)||'';
+  if(c==='#a855f7'||c==='#ec4899'||c==='#f59e0b')return 'A';
+  if(c==='#22c55e'){if(/达朗贝尔|碰撞|动静法|惯性力|撞击中心|恢复系数/.test(label))return 'A';return 'B'}
+  if(c==='#3b82f6'){if(/合成运动|速度瞬心|瞬心法|科氏|平面运动|基点法|加速度合成|速度合成/.test(label))return 'B';return 'C'}
+  return 'C'}
+function tierBaseCount(t){return t==='A'?40:(t==='B'?25:15)}
+function tierBaseNodes(tier){
+  const diff=tier==='A'?'A':(tier==='B'?'B':'C'),count=tierBaseCount(tier);
+  const sv=function(s){return s==='L'?3:(s==='M'?2:1)};
+  return FULL_COURSE.nodes.map(function(d,i){return {d:d,i:i,diff:courseDifficulty(d)}})
+    .filter(function(x){return x.diff===diff})
+    .sort(function(a,b){if(sv(b.d.size)!==sv(a.d.size))return sv(b.d.size)-sv(a.d.size);return a.i-b.i})
+    .slice(0,count)
+    .map(function(x){return {id:'fc_'+x.i,label:x.d.label,type:x.d.type,status:x.d.status,note:x.d.note,size:x.d.size,color:x.d.color,isBase:true,src:'tier'}});
+}
+// 活动记录以服务端 adata/activity_<学号>.json 为权威源（与个人知识网络页、activity.html 同口径），
+// 本机 localStorage 只作离线兜底——否则同一账户在不同页面看到的分数/档位会对不上。
+// 注意：活动记录按【学号】存档（adata/activity_<学号>.json），与按 id 存的 UserStore 不同键
+const actSid=(user&&user.student_id)||'guest';
+let serverActivity=null;
+async function loadActivity(){
+  try{
+    const r=await fetch('/api/activity?id='+encodeURIComponent(actSid)+'&_='+Date.now());
+    if(!r.ok)throw Error('HTTP '+r.status);
+    const j=await r.json();
+    if(j&&j.ok&&j.activity&&Object.keys(j.activity).length){
+      serverActivity=j.activity;
+      try{localStorage.setItem('user_activity_'+actSid,JSON.stringify(serverActivity))}catch(e){}
+      renderReview();
+    }
+  }catch(e){console.warn('活动记录读取失败，暂用本机缓存：',e.message)}
+}
+function activityData(){
+  if(serverActivity)return serverActivity;
+  try{return JSON.parse(localStorage.getItem('user_activity_'+actSid)||'{}')}catch(e){return{}}
+}
+function accountScore(){
+  const d=activityData();
+  let qSet={},qSum=0,loginDays=0,aiDays=0,totalAiCount=0;
+  Object.keys(d).forEach(function(date){const r=d[date]||{};
+    if(r.login)loginDays++;
+    if(r.questions>0)qSum+=r.questions;
+    (r.q_list||[]).forEach(function(qid){qSet[qid]=true});
+    if(r.ai_count>0)totalAiCount+=r.ai_count;
+    if(r.ai_minutes>0||r.ai_count>0)aiDays++;});
+  const totalQ=Object.keys(qSet).length>0?Object.keys(qSet).length:qSum;
+  const q=Math.min(100,totalQ/200*100),l=Math.min(100,loginDays/160*100);
+  const ad=Math.min(100,aiDays/150*100),ac=Math.min(100,totalAiCount/750*100);
+  return Math.round((0.6*q+0.3*(0.3*ad+0.7*ac)+0.1*l)*10)/10;
+}
+function userTier(){const s=accountScore();return s>20?'A':(s>10?'B':'C')}
+function tierLabel(t){return t==='A'?'A 档（深度复习）':(t==='B'?'B 档（标准复习）':'C 档（基础复习）')}
+function reviewListNodes(){
+  const out=tierBaseNodes(userTier());
+  const seen={};out.forEach(function(n){seen[n.label]=1});
+  getWeakNodes().forEach(function(n){if(!seen[n.label]){seen[n.label]=1;out.push(n)}});
+  try{
+    const usage=getUsage();
+    Object.keys(usage).map(function(l){return {label:l,sc:(usage[l].s||0)*3+(usage[l].c||0)}})
+      .filter(function(x){return x.sc>0}).sort(function(a,b){return b.sc-a.sc}).slice(0,8)
+      .forEach(function(x){
+        if(seen[x.label])return;
+        const orig=FULL_COURSE.nodes.find(function(d){return d.label===x.label});
+        if(orig){seen[x.label]=1;out.push({id:'fc_'+FULL_COURSE.nodes.indexOf(orig),label:orig.label,type:orig.type,status:orig.status,note:orig.note,size:orig.size,color:orig.color,isBase:true,src:'usage'})}
+      });
+  }catch(e){}
+  return out;
+}
+
+/* ==================== 展示层 ==================== */
+const TYPE_NAME={concept:'概念',formula:'公式',problem:'题目',insight:'心得'};
+const STATUS_COLOR={mastered:'#dcfce7;color:#166534',familiar:'#dbeafe;color:#1d4ed8',learning:'#ffedd5;color:#c2410c'};
+// 兜底不再输出「未知」：笔记类状态（draft/confirmed/edited）单独给名字
+function statusLabel(s){
+  return {mastered:'已掌握',familiar:'已熟悉',learning:'学习中（薄弱）',
+          draft:'笔记草稿',confirmed:'笔记已确认',edited:'笔记已编辑'}[s]||(s?'待确认':'未标记');
+}
+function statusStyle(s){return STATUS_COLOR[s]||'#e2e8f0;color:#475569'}
+// 每个知识点都要有具体落点：专属映射 → 该篇教材 → 题库检索 → AI 问答
+const SECTION_BOOK={
+  '#06b6d4':'textbooks/statics/textbook.html',      // 静力学
+  '#3b82f6':'textbooks/kinematics/index.html',      // 运动学
+  '#22c55e':'textbooks/dynamics/index.html',        // 动力学
+  '#a855f7':'textbooks/analytical/index.html',      // 分析力学
+  '#ec4899':'textbooks/analytical/index.html',      // 分析力学（专题）
+  '#f59e0b':'textbooks/analytical/index.html'       // 综合专题
+};
+function conceptUrl(label){
+  if(SITE_LINKS[label])return SITE_LINKS[label];
+  if(CONCEPT_LINKS[label])return CONCEPT_LINKS[label];
+  const c=courseNode(label);
+  if(c&&SECTION_BOOK[c.color])return SECTION_BOOK[c.color];
+  return 'http://localhost:8090?q='+encodeURIComponent(label);
+}
+function recordUsage(label,type){
+  if(!label)return;
+  try{const k='knowledge_usage_'+uid;const u=JSON.parse(localStorage.getItem(k)||'{}');
+    if(!u[label])u[label]={s:0,c:0,d:''};
+    if(type==='s')u[label].s=(u[label].s||0)+1;else u[label].c=(u[label].c||0)+1;
+    u[label].d=new Date().toISOString().slice(0,10);
+    localStorage.setItem(k,JSON.stringify(u));}catch(e){}
+}
+function renderReview(){
+  const box=document.getElementById('reviewList');
+  document.getElementById('reviewTierInfo').innerHTML='📊 当前档位：<b>'+tierLabel(userTier())+'</b>　综合分数：<b>'+accountScore()+'</b> 分';
+  const nodes=reviewListNodes(),done=getReviewDone();
+  if(!nodes.length){
+    box.innerHTML='<div class="empty-sm">暂无需要重点复习的知识点</div>';
+    document.getElementById('reviewCount').textContent='0 / 0 已完成';
+    document.getElementById('reviewBarFill').style.width='0%';
+    return;
+  }
+  const SRC_NAME={tier:'档位推荐',usage:'高频使用',note:'复习记录',weak:'薄弱点'};
+  box.innerHTML=nodes.map(function(n){
+    const isDone=done.indexOf(n.label)>=0;
+    return '<div class="rv-item'+(isDone?' done':'')+'" data-label="'+esc(n.label)+'">'+
+      '<span class="rv-check">'+(isDone?'☑':'☐')+'</span>'+
+      '<span class="rv-name">'+esc(n.label)+'</span>'+
+      '<span class="rv-meta">'+esc(TYPE_NAME[n.type]||n.type||'')+' · '+esc(SRC_NAME[n.src]||'推荐')+(nodeMastery(n.label)?' · 我的标记：'+esc(statusLabel(nodeMastery(n.label))):'')+'</span>'+
+      '<a class="rv-go" href="'+conceptUrl(n.label)+'" target="_blank" onclick="event.stopPropagation();recordUsage(\''+esc(n.label)+'\',\'s\')">→ 去学习</a>'+
+      '<span class="rv-hint">悬停 1.5s 看详解</span>'+
+    '</div>';
+  }).join('');
+  const doneCount=nodes.filter(function(n){return done.indexOf(n.label)>=0}).length;
+  document.getElementById('reviewCount').textContent=doneCount+' / '+nodes.length+' 已完成';
+  document.getElementById('reviewBarFill').style.width=(doneCount/nodes.length*100)+'%';
+  Array.prototype.forEach.call(box.querySelectorAll('.rv-item'),function(el){
+    const label=el.getAttribute('data-label');
+    el.addEventListener('mouseenter',function(){armHover(el,label)});
+    el.addEventListener('mouseleave',function(){disarmHover(el)});
+    el.addEventListener('click',function(){openPanel(label)});
+  });
+}
+
+/* ---- 悬停：即时高亮放大，停留 1.5 秒弹详解 ---- */
+const HOVER_MS=600;   // 快速划过不触发；稍作停留才弹出详解
+let hoverTimer=null,hoverLabel=null;
+function armHover(el,label){
+  if(hoverLabel===label&&document.getElementById('kpOverlay').classList.contains('show'))return;  // 已在看这个
+  disarmHover();
+  el.classList.add('hot');
+  hoverLabel=label;
+  hoverTimer=setTimeout(function(){hoverTimer=null;openPanel(label)},HOVER_MS);
+}
+function disarmHover(el){
+  if(hoverTimer){clearTimeout(hoverTimer);hoverTimer=null}
+  hoverLabel=null;
+  Array.prototype.forEach.call(document.querySelectorAll('.rv-item.hot'),function(x){x.classList.remove('hot')});
+}
+
+/* ---- 知识点详解面板（结构与「个人知识网络」页一致）---- */
+function findNode(label){
+  const c=courseNode(label);
+  if(c)return c;
+  const p=graph.nodes.find(function(n){return normalizeLabel(n.label)===label});
+  return p?{id:p.id,label:label,type:p.type,status:p.status,note:p.note}:{label:label,type:'concept',status:'',note:''};
+}
+// 个人节点之间的连线也按标签并入，保证个人节点同样有「直接联系」可显示
+const labelById={};
+graph.nodes.forEach(function(n){labelById[n.id]=normalizeLabel(n.label)});
+function neighborLabels(label){
+  const out=[];
+  FULL_COURSE.edges.forEach(function(e){
+    if(e[0]===label)out.push(e[1]);else if(e[1]===label)out.push(e[0]);
+  });
+  graph.edges.forEach(function(e){
+    const s=labelById[e.source],t=labelById[e.target];
+    if(s===label&&t)out.push(t);else if(t===label&&s)out.push(s);
+  });
+  return out;
+}
+function chips(labels){
+  if(!labels.length)return '<span style="color:#64748b">暂无直接连线，可前往 <a href="knowledge_framework.html" target="_blank" style="color:#2563eb;font-weight:700">知识图谱</a> 查看它在学科里的大结构</span>';
+  return labels.map(function(l){
+    return '<span class="kp-chip">'+esc(l)+'<a class="kp-jump" href="'+conceptUrl(l)+'" target="_blank" onclick="recordUsage(\''+esc(l)+'\',\'s\')">跳转 ↗</a></span>';
+  }).join('');
+}
+function openPanel(label){
+  if(!label)return;
+  const node=findNode(label);
+  const direct=[],indirect=[],seen={};seen[label]=1;
+  neighborLabels(label).forEach(function(l){
+    if(!l||l===label||seen[l])return;
+    seen[l]=1;direct.push(l);
+  });
+  direct.forEach(function(d){
+    neighborLabels(d).forEach(function(l){
+      if(!l||l===label||seen[l])return;
+      seen[l]=1;indirect.push(l);
+    });
+  });
+  // 徽章只反映「用户自己标记过的掌握状态」：课程框架自带的默认状态不在这里冒充个人状态
+  const mine=nodeMastery(node.label);
+  document.getElementById('kpContent').innerHTML=
+    '<h2>📖 '+esc(node.label)+(mine?'<span class="kp-badge" style="background:'+statusStyle(mine)+'">我的标记：'+esc(statusLabel(mine))+'</span>':'')+'</h2>'+
+    '<div class="hint">'+esc(TYPE_NAME[node.type]||'📘')+' · 知识点综合详解</div>'+
+    '<h3>📖 定义与要点</h3>'+
+    '<div class="kp-block">'+(node.note?esc(node.note):'该知识点暂无简介，可前往 <a href="'+conceptUrl(node.label)+'" target="_blank" style="color:#2563eb;font-weight:700">教材章节</a> 查看完整讲解')+'</div>'+
+    '<h3>📌 核心关联知识点</h3>'+
+    '<div class="hint">与「'+esc(node.label)+'」直接联系的知识点</div>'+
+    '<div class="kp-block">'+chips(direct)+'</div>'+
+    '<h3>🔗 关联知识点</h3>'+
+    '<div class="hint">与「'+esc(node.label)+'」间接联系的知识点</div>'+
+    '<div class="kp-block">'+chips(indirect)+'</div>'+
+    '<h3>📝 专项练习</h3>'+
+    '<div class="kp-block" id="kpQuestions">正在加载相关题目…</div>'+
+    '<h3>🌐 相关资源</h3>'+
+    '<div class="kp-block"><div class="kp-links">'+
+      '<a href="'+conceptUrl(node.label)+'" target="_blank" onclick="recordUsage(\''+esc(node.label)+'\',\'s\')">📖 教材章节</a>'+
+      '<a href="http://localhost:8090?q='+encodeURIComponent(node.label)+'" target="_blank">📝 题库</a>'+
+      '<a href="ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced" target="_blank">🤖 AI 智能提问（增强模式）</a>'+
+      '<a href="mindmap.html" target="_blank">🕸️ 思维导图</a>'+
+      '<a href="knowledge_framework.html" target="_blank">🧭 知识框架</a>'+
+    '</div></div>';
+  document.getElementById('kpOverlay').classList.add('show');
+  document.body.style.overflow='hidden';
+  loadRelatedQuestions(node.label);
+}
+function loadRelatedQuestions(label){
+  const el=document.getElementById('kpQuestions');
+  if(!el)return;
+  function qText(q){
+    const kps=(q&&(q.knowledge_points||q.knowledgePoints))||[];
+    return [q&&(q.title||q.id),q&&q.overview,q&&q.module,q&&q.category,
+            Array.isArray(kps)?kps.join(' '):kps].join(' ').toLowerCase();
+  }
+  function renderQ(list){
+    const kw=String(label||'').toLowerCase();
+    const rel=(list||[]).filter(function(q){return qText(q).indexOf(kw)>=0});
+    if(!rel.length){
+      el.innerHTML='<span style="color:#64748b">暂无该知识点的专项题目，可前往 <a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank" style="color:#2563eb;font-weight:700">题库</a> 查找相关题目</span>';
+      return;
+    }
+    el.innerHTML=rel.slice(0,6).map(function(q){
+      return '<div class="kp-q"><a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank">'+esc(q.title||q.overview||q.id)+'</a>'+
+        '<span style="color:#64748b;margin-left:6px;font-size:.86em">'+esc(q.module||q.category||'')+(q.difficulty?' · '+esc(q.difficulty):'')+'</span></div>';
+    }).join('')+'<div style="color:#64748b;font-size:.86em;margin-top:6px">更多题目 → <a href="http://localhost:8090?q='+encodeURIComponent(label)+'" target="_blank" style="color:#2563eb;font-weight:700">进入题库</a></div>';
+  }
+  // 与「个人知识网络」页同样的两级取数：先题库服务，再退回本机题库索引
+  fetch('/api/list?_='+Date.now()).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){
+    renderQ(d&&(d.questions||d.items||Array.isArray(d)?d:[]));
+  }).catch(function(){
+    fetch('qdata/index.json?_='+Date.now()).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){
+      renderQ(d&&d.questions);
+    }).catch(function(){renderQ([])});
+  });
+}
+function closePanel(){
+  document.getElementById('kpOverlay').classList.remove('show');
+  document.body.style.overflow='';
+  disarmHover();
+}
+document.getElementById('kpOverlay').addEventListener('click',function(e){if(e.target===this)closePanel()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel()});
+
+/* ==================== 🧹 节点管理 ====================
+   列出所有「不属于课程框架」的节点，支持勾选删除。
+   这些节点由服务端学习记忆（learning_notes / concepts / misconceptions）在
+   personal_knowledge.html 的 loadGraph() 里逐个变成网络节点，再被 getWeakNodes()
+   收进「重点推荐复习」。所以删除必须落到服务端，否则下次加载会重新长出来。 */
+let mgState=null,mgItems=[];
+const MG_KIND={misconception:'⚠️ 错误理解',note:'🔁 复习记录',concept:'🧠 AI 整理概念',local:'✏️ 自建节点'};
+const MG_ORDER=['misconception','note','concept','local'];
+const MG_ENDPOINT={note:'notes',concept:'concepts',misconception:'misconceptions'};
+
+// 疑似垃圾：AI 误判的「错误理解」、以及「完成复习：」之类的自动标题、异常长句
+function looksJunk(it){
+  const t=String(it.text||'');
+  return it.kind==='misconception'||/^完成复习\s*[：:]/.test(t)||t.length>18;
+}
+function buildManagerItems(){
+  const st=mgState||{};
+  const notes=st.learning_notes||[],concepts=st.concepts||[],mics=st.misconceptions||[];
+  const items=[],noteIds={};
+  notes.forEach(function(n){noteIds[n.id]=1});
+  mics.forEach(function(m){
+    items.push({id:m.id,kind:'misconception',text:m.description||m.error_code||'(无描述)',
+      sub:'AI 从对话里判定的错误理解'+(m.status?' · '+m.status:'')});
+  });
+  notes.forEach(function(n){
+    items.push({id:n.id,kind:'note',text:n.title||'(无标题)',
+      sub:'自动写入的学习笔记 · '+(n.created_at||'').slice(0,10)});
+  });
+  concepts.forEach(function(c){
+    if(noteIds[c.id])return;                       // 与笔记同 id：是同一条，删笔记时服务端会连带删
+    items.push({id:c.id,kind:'concept',text:c.name||c.concept_key||'(无名)',
+      sub:'AI 从对话里整理出的概念'+(c.type?' · '+c.type:'')});
+  });
+  const seen={};items.forEach(function(x){seen[x.id]=1});
+  (graph.nodes||[]).forEach(function(n){
+    if(isCourseNode(n)||seen[n.id])return;         // 课程框架节点不归这里管
+    items.push({id:n.id,kind:'local',text:normalizeLabel(n.label)||'(无名)',
+      sub:'只存在于本机知识网络里的节点'});
+  });
+  items.sort(function(a,b){return MG_ORDER.indexOf(a.kind)-MG_ORDER.indexOf(b.kind)});
+  items.forEach(function(x){x.checked=!!x.checked});
+  return items;
+}
+async function loadManager(){
+  try{
+    const r=await fetch('/api/learning-memory/'+encodeURIComponent(uid)+'?_='+Date.now());
+    mgState=r.ok?((await r.json()).state||null):null;
+  }catch(e){mgState=null}
+  const prev={};mgItems.forEach(function(x){prev[x.id]=x.checked});
+  mgItems=buildManagerItems();
+  mgItems.forEach(function(x){if(prev[x.id])x.checked=true});
+  renderManager();
+}
+function renderManager(){
+  const box=document.getElementById('manageList');
+  const junkN=mgItems.filter(looksJunk).length;
+  document.getElementById('manageCount').innerHTML=mgState
+    ?('共 <b>'+mgItems.length+'</b> 个节点，其中 <b>'+junkN+'</b> 个疑似垃圾')
+    :'⚠️ 服务端未连接，只能看到本机节点';
+  if(!mgItems.length){box.innerHTML='<div class="mg-empty">没有需要管理的节点，知识网络是干净的 ✅</div>';return}
+  box.innerHTML=mgItems.map(function(it,i){
+    return '<label class="mg-item'+(looksJunk(it)?' junk':'')+'">'+
+      '<input type="checkbox" data-i="'+i+'"'+(it.checked?' checked':'')+'>'+
+      '<span class="mg-body"><span class="mg-text">'+esc(it.text)+'</span>'+
+        '<span class="mg-sub" style="display:block">'+esc(it.sub)+'</span></span>'+
+      '<span class="mg-kind">'+esc(MG_KIND[it.kind]||it.kind)+'</span>'+
+    '</label>';
+  }).join('');
+  Array.prototype.forEach.call(box.querySelectorAll('input[type=checkbox]'),function(cb){
+    cb.addEventListener('change',function(){mgItems[+cb.getAttribute('data-i')].checked=cb.checked});
+  });
+}
+function mgSelect(mode){
+  mgItems.forEach(function(it){it.checked=(mode==='all')||(mode==='junk'&&looksJunk(it))});
+  renderManager();
+}
+function removeLocalNode(id){
+  const before=graph.nodes.length;
+  graph.nodes=graph.nodes.filter(function(n){return n.id!==id});
+  graph.edges=graph.edges.filter(function(e){return e.source!==id&&e.target!==id});
+  return graph.nodes.length<before;
+}
+async function mgDeleteSelected(){
+  const sel=mgItems.filter(function(x){return x.checked});
+  if(!sel.length){alert('请先勾选要删除的节点');return}
+  if(!confirm('确定删除选中的 '+sel.length+' 个节点吗？\n会同时清除服务端学习记忆和本机知识网络，且不可撤销。'))return;
+
+  const bar=document.getElementById('manageCount');
+  let ok=0,local=0;
+  const failed=[];
+  let staleServer=false;                   // 服务端没重启时，删除路由不存在，返回的是 HTML 404 页
+  for(let i=0;i<sel.length;i++){
+    const it=sel[i];
+    const ep=MG_ENDPOINT[it.kind];
+    if(ep&&mgState){                       // 有服务端来源的必须先删服务端，否则下次加载会复活
+      try{
+        const r=await fetch('/api/learning-memory/'+encodeURIComponent(uid)+'/'+ep+'/'+encodeURIComponent(it.id),{method:'DELETE'});
+        if(r.ok)ok++;
+        else{
+          const ct=r.headers.get('Content-Type')||'';
+          if(!ct.includes('application/json'))staleServer=true;
+          failed.push(it.text.slice(0,30)+'（HTTP '+r.status+'）');
+        }
+      }catch(e){failed.push(it.text.slice(0,30)+'（'+e.message+'）')}
+    }else{ok++}
+    if(removeLocalNode(it.id))local++;
+    bar.textContent='正在删除… '+(i+1)+' / '+sel.length;
+  }
+  try{localStorage.setItem('personal_knowledge_'+uid,JSON.stringify(graph))}catch(e){}
+  await loadManager();
+  renderReview();
+  const msg='已删除 '+ok+' 个节点'+(local?'（本机同步移除 '+local+' 个）':'');
+  if(staleServer){
+    alert(msg+'\n\n⚠️ 服务端删除接口没有生效：8080 上运行的还是旧版 server.py。\n'+
+      '这些条目会在下次打开知识网络时重新出现（它们仍存在服务端）。\n\n'+
+      '请重启平台：关掉黑色服务器窗口，重新运行「启动平台.bat」，再回来删除。');
+  }else if(failed.length){
+    alert(msg+'\n\n有 '+failed.length+' 个删除失败：\n'+failed.slice(0,5).join('\n'));
+  }
+}
+
+// 与个人知识网络页共用同一套账户数据：先用本机缓存秒开，再拉服务端权威值并重渲染
+UserStore.init(uid, {
+  keys: ['review_done','knowledge_mastery','knowledge_usage'],
+  onSync: function(){
+    try{renderReview()}catch(e){}
+    try{loadManager()}catch(e){}
+  }
+});
+renderReview();
+loadWeaknesses();
+loadManager();
+loadActivity();
+window.addEventListener('focus',loadActivity);
+</script></body></html>

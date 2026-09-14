@@ -70,6 +70,23 @@ def save_activity(sid, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# 按账户的通用进度存储：单个账户一份 JSON，按键合并写入
+USERDATA_MAX = 2 * 1024 * 1024                                            # 单账户上限 2MB
+USERDATA_BLOCKED = {'ai_api_key', 'ai_api_endpoint', 'ai_api_model'}      # 敏感配置不上传
+
+
+def load_userdata(path):
+    """读取某账户的同步数据；文件不存在或损坏时返回空字典"""
+    if path.exists():
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data if isinstance(data, dict) else {}
+        except Exception:
+            return {}
+    return {}
+
+
 def load_forum():
     if FORUM_INDEX.exists():
         with open(FORUM_INDEX, 'r', encoding='utf-8') as f:
@@ -168,6 +185,10 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_forum_list()
             return
 
+        if path.startswith('api/forum/comments/'):
+            self.handle_forum_comments()
+            return
+
         if path.startswith('api/knowledge-network/'):
             self.handle_knowledge_network('GET')
             return
@@ -179,6 +200,11 @@ class Handler(BaseHTTPRequestHandler):
         # 用户活跃记录 API
         if path == 'api/activity':
             self.handle_activity_get()
+            return
+
+        # 按账户的通用进度存储
+        if path.startswith('api/userdata/'):
+            self.handle_userdata('GET')
             return
 
         # 语音讲解 API
@@ -248,6 +274,8 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_upload()
         elif self.path == '/api/forum/upload':
             self.handle_forum_upload()
+        elif self.path.startswith('/api/forum/comment'):
+            self.handle_forum_comment_post()
         elif self.path == '/api/account/register':
             self.handle_account_register()
         elif self.path.startswith('/api/account/promote/'):
@@ -258,6 +286,8 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_learning_memory('POST')
         elif self.path == '/api/activity/record':
             self.handle_activity_record()
+        elif self.path.startswith('/api/userdata/'):
+            self.handle_userdata('POST')
         elif self.path == '/api/tts':
             self.handle_tts_preview()
         elif self.path == '/api/narrate':
@@ -276,6 +306,10 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_account_delete()
         elif self.path.startswith('/api/knowledge-network/'):
             self.handle_knowledge_network('DELETE')
+        elif self.path.startswith('/api/learning-memory/'):
+            self.handle_learning_memory('DELETE')
+        elif self.path.startswith('/api/userdata/'):
+            self.handle_userdata('DELETE')
         elif self.path.startswith('/api/narrate'):
             self.handle_narrate_delete()
         else:
@@ -524,6 +558,36 @@ class Handler(BaseHTTPRequestHandler):
                      'payload': data.get('payload') or {}, 'created_at': self.learning_now()}
             state['learning_events'].append(event); save_state()
             self.send_json(200, {'ok': True, 'event': event}); return
+
+        # ===== 删除：清理自动生成/误建的条目 =====
+        # 这些条目会被前端 loadGraph() 变成知识网络节点，进而混进「重点推荐复习」列表。
+        # 此前没有任何删除途径，删掉也会在下次加载时从服务端复活，所以管理功能需要这个接口。
+        if len(parts) == 3 and method == 'DELETE' and parts[1] in ('notes', 'concepts', 'misconceptions'):
+            collection = {'notes': 'learning_notes', 'concepts': 'concepts',
+                          'misconceptions': 'misconceptions'}[parts[1]]
+            target_id = parts[2]
+            before = len(state[collection])
+            state[collection] = [x for x in state[collection] if x.get('id') != target_id]
+            if len(state[collection]) == before:
+                self.send_json(404, {'ok': False, 'message': '目标不存在'}); return
+            removed = {collection: 1}
+            # 建笔记时服务端会同时写入一条同 id 的 concept（见上面 notes POST），
+            # 删除必须成对，否则剩下那条 concept 仍会作为节点出现在知识网络里。
+            if collection == 'learning_notes':
+                n = len(state['concepts'])
+                state['concepts'] = [c for c in state['concepts'] if c.get('id') != target_id]
+                if len(state['concepts']) < n: removed['concepts'] = 1
+            elif collection == 'concepts':
+                n = len(state['learning_notes'])
+                state['learning_notes'] = [x for x in state['learning_notes'] if x.get('id') != target_id]
+                if len(state['learning_notes']) < n: removed['learning_notes'] = 1
+            elif collection == 'misconceptions':
+                n = len(state['weaknesses'])
+                state['weaknesses'] = [w for w in state['weaknesses']
+                                       if w.get('misconception_id') != target_id]
+                if len(state['weaknesses']) < n: removed['weaknesses'] = n - len(state['weaknesses'])
+            save_state()
+            self.send_json(200, {'ok': True, 'removed': removed}); return
         self.send_json(404, {'ok': False, 'message': '未知学习记忆接口'})
 
     def read_json_body(self):
@@ -844,14 +908,67 @@ class Handler(BaseHTTPRequestHandler):
             'title': title,
             'content': content,
             'author': data.get('author', '匿名用户').strip() or '匿名用户',
+            # 记录作者学号：个人中心的「我的帖子」要按学号从服务端筛，否则只能靠本机副本
+            'student_id': str(data.get('student_id') or '')[:40],
             'time': datetime.now().strftime('%Y-%m-%d %H:%M'),
             'views': 0,
-            'replies': 0
+            'replies': 0,
+            'comments': []
         }
         posts.insert(0, post)
         save_forum({'posts': posts})
         print(f'[Forum] 帖子已发布: {new_id} - {title}')
         self.send_json(200, {'ok': True, 'id': new_id, 'post': post})
+
+    # ==================== 论坛评论（原先服务端没有，评论只留在发帖人本机）====================
+    # GET  /api/forum/comments/<postId>   读取某帖的全部评论
+    # POST /api/forum/comment             发表评论 {post_id, content, author, student_id, image}
+    def handle_forum_comments(self):
+        post_id = unquote(self.path.split('/api/forum/comments/', 1)[1].split('?', 1)[0]).strip('/')
+        if not post_id:
+            self.send_json(400, {'ok': False, 'message': '缺少帖子 ID'})
+            return
+        post = next((p for p in load_forum().get('posts', []) if p.get('id') == post_id), None)
+        if not post:
+            self.send_json(404, {'ok': False, 'message': '帖子不存在'})
+            return
+        self.send_json(200, {'ok': True, 'comments': post.get('comments') or []})
+
+    def handle_forum_comment_post(self):
+        data = self.read_json_body()
+        # 兼容两种写法：/api/forum/comment/<帖子ID> 与 /api/forum/comment + body.post_id
+        from_path = self.path.split('/api/forum/comment', 1)[1].split('?', 1)[0].strip('/')
+        post_id = unquote(from_path) if from_path else str(data.get('post_id') or '').strip()
+        content = str(data.get('content') or '').strip()
+        if not post_id or not content:
+            self.send_json(400, {'ok': False, 'message': '缺少帖子 ID 或评论内容'})
+            return
+        forum_data = load_forum()
+        posts = forum_data.get('posts', [])
+        post = next((p for p in posts if p.get('id') == post_id), None)
+        if not post:
+            self.send_json(404, {'ok': False, 'message': '帖子不存在'})
+            return
+        image = data.get('image') or ''
+        if image and str(image).startswith('data:'):
+            try:
+                image = 'fdata/' + save_base64_image(image, FDATA, f'forum_{post_id}_c{len(post.get("comments") or [])}')
+            except Exception:
+                image = ''
+        comment = {
+            'id': f'c_{post_id}_{len(post.get("comments") or []) + 1}',
+            'author': str(data.get('author') or '匿名').strip()[:60] or '匿名',
+            'student_id': str(data.get('student_id') or '')[:40],      # 供「我的评论」按学号从服务端筛
+            'content': content[:5000],
+            'image': image,
+            'time': datetime.now().strftime('%Y-%m-%d %H:%M'),
+        }
+        comments = post.get('comments') or []
+        comments.append(comment)
+        post['comments'] = comments
+        post['replies'] = len(comments)
+        save_forum(forum_data)
+        self.send_json(200, {'ok': True, 'comment': comment, 'comments': comments})
 
     def handle_forum_delete(self):
         qid = self.path.replace('/api/forum/delete/', '').strip()
@@ -1043,6 +1160,49 @@ class Handler(BaseHTTPRequestHandler):
         act[today] = entry
         save_activity(sid, act)
         self.send_json(200, {'ok': True})
+
+    # ==================== 按账户的通用进度存储 ====================
+    # 已复习勾选、掌握状态、使用频率、点击次数、复习流水等过去只存在浏览器 localStorage，
+    # 换浏览器/换入口就丢，同一个账户在不同页面看到的也不一致。
+    # 这里统一按账户落盘成 pdata/userdata_<uid>.json，前端走 /api/userdata/<uid> 读写。
+    def handle_userdata(self, method):
+        parts = self.path.split('/api/userdata/', 1)[1].split('?', 1)[0].strip('/')
+        uid = parts.split('/')[0] if parts else ''
+        if not uid or not re.match(r'^[A-Za-z0-9_.-]{1,80}$', uid):
+            self.send_json(400, {'ok': False, 'message': '用户 ID 无效'})
+            return
+        PDATA.mkdir(exist_ok=True)
+        path = PDATA / f'userdata_{uid}.json'
+
+        if method == 'GET':
+            self.send_json(200, {'ok': True, 'data': load_userdata(path)})
+            return
+        if method == 'DELETE':
+            if path.exists():
+                path.unlink()
+            self.send_json(200, {'ok': True, 'message': '本账户的同步数据已清空'})
+            return
+
+        body = self.read_json_body()
+        patch = body.get('data') if isinstance(body.get('data'), dict) else body
+        if not isinstance(patch, dict):
+            self.send_json(400, {'ok': False, 'message': '数据格式无效'})
+            return
+        data = load_userdata(path)
+        for key, value in patch.items():                 # 按键合并：一次只写几个键也不会互相覆盖
+            key = str(key)[:60]
+            if key in USERDATA_BLOCKED:                  # API 密钥等敏感配置不上传
+                continue
+            if value is None:
+                data.pop(key, None)
+            else:
+                data[key] = value
+        if len(json.dumps(data, ensure_ascii=False)) > USERDATA_MAX:
+            self.send_json(413, {'ok': False, 'message': '同步数据过大，已拒绝写入'})
+            return
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        self.send_json(200, {'ok': True, 'data': data})
 
 
 def main():

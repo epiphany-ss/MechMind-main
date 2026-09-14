@@ -124,6 +124,87 @@
       gap: 8px;
     }
 
+    /* ===== 长沙理工大学特色条（校训 + 学校元素轮播）===== */
+    .csust-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 8px 24px;
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 48%, #0ea5e9 100%);
+      color: #fff;
+      font-size: 0.76em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .csust-bar .csust-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 24px;
+      border-radius: 6px;
+      flex: none;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      font-size: 0.72em;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .csust-bar .csust-motto {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      white-space: nowrap;
+    }
+
+    .csust-bar .csust-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.32);
+      flex: none;
+    }
+
+    .csust-bar .csust-fact {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .csust-bar .csust-fact-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fde68a;
+      flex: none;
+      box-shadow: 0 0 8px #fde68a;
+    }
+
+    .csust-bar .csust-fact-text {
+      transition: opacity 0.45s ease;
+    }
+
+    .csust-bar .csust-fact-text.fade {
+      opacity: 0;
+    }
+
+    @media (max-width: 640px) {
+      .csust-bar {
+        font-size: 0.7em;
+        padding: 7px 14px;
+        gap: 10px;
+      }
+      .csust-bar .csust-motto {
+        letter-spacing: 1px;
+      }
+    }
+
     .btn-back {
       display: inline-flex;
       align-items: center;
@@ -202,6 +283,32 @@
       color: var(--primary);
       border-color: var(--primary-lighter);
     }
+
+    /* ===== 今日使用记录（侧栏底部，每次提问后实时刷新） ===== */
+    .usage-panel {
+      margin-top: auto;
+      border-top: 1px solid var(--border-light);
+      padding: 12px 14px 14px;
+      font-size: 0.72em;
+      color: var(--text-muted);
+    }
+    .usage-head {
+      display: flex; justify-content: space-between; align-items: center;
+      font-weight: 700; color: var(--text); margin-bottom: 8px; font-size: 1.08em;
+    }
+    .usage-date { font-weight: 500; color: var(--text-muted); font-size: 0.9em; }
+    .usage-stats { display: flex; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+    .usage-stats b { color: var(--primary); font-size: 1.2em; }
+    .usage-list {
+      display: flex; flex-direction: column; gap: 4px;
+      max-height: 130px; overflow-y: auto;
+    }
+    .usage-list::-webkit-scrollbar { width: 4px; }
+    .usage-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .usage-row { display: flex; gap: 6px; line-height: 1.45; }
+    .usage-time { color: var(--text-muted); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .usage-q { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .usage-empty { opacity: 0.7; }
 
     .conv-list {
       flex: 1;
@@ -1755,6 +1862,17 @@
     </div>
   </nav>
 
+  <!-- ===== 长沙理工大学特色条：校训常驻 + 学校元素轮播 ===== -->
+  <div class="csust-bar">
+    <span class="csust-seal">长理</span>
+    <span class="csust-motto">博学 · 力行 · 守正 · 拓新</span>
+    <span class="csust-divider"></span>
+    <span class="csust-fact">
+      <span class="csust-fact-dot"></span>
+      <span class="csust-fact-text" id="csustFactText">甘当铺路石，脚踏实地、艰苦奋斗、乐于奉献、锐意进取</span>
+    </span>
+  </div>
+
   <!-- ===== Sidebar Toggle (Mobile) ===== -->
   <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="对话记录">☰</button>
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
@@ -1770,6 +1888,8 @@
       <div class="conv-list" id="convList">
         <div class="conv-empty">暂无对话记录<br>开始提问吧</div>
       </div>
+      <!-- 今日使用记录：每次提问后实时刷新 -->
+      <div class="usage-panel" id="usagePanel"></div>
     </aside>
 
     <!-- ===== Main Container ===== -->
@@ -1812,12 +1932,15 @@
             <div class="msg-avatar">AI</div>
             <div>
               <div class="msg-bubble">
-                您好！我是<strong>理论力学AI智能助教</strong> 🤖<br><br>
+                您好！我是<strong>长沙理工大学理论力学AI智能助教</strong> 🤖<br>
+                <span style="opacity:.85;font-size:.94em">博学 · 力行 · 守正 · 拓新 —— 甘当铺路石，脚踏实地、艰苦奋斗、乐于奉献、锐意进取</span><br><br>
                 我可以帮助您：<br>
                 📐 <strong>解答问题</strong>：静力学、运动学、动力学、分析力学<br>
                 📝 <strong>逐步推导</strong>：公式证明、定理推导、解题过程<br>
                 💡 <strong>概念讲解</strong>：力学概念的物理意义与工程应用<br>
                 🔬 <strong>机构分析</strong>：运动学特性、速度加速度计算<br><br>
+                🚄 <strong>行业对接</strong>：这里的问题常常通向交通、电力、水利、轻工的工程现场<br>
+                🎯 <strong>培养目标</strong>：底色亮、实践强、有情怀、敢担当<br><br>
                 🔌 <strong>AI增强模式</strong>：在上方API设置中输入密钥，保存后即可启用<br>
                 🌐 <strong>联网搜索</strong>：超出知识库的问题可一键跳转搜索引擎<br><br>
                 请随时向我提问！
@@ -1908,7 +2031,7 @@
       if (convs.length > 50) convs.length = 50;
       saveConversations(convs);
       document.getElementById('chatBody').innerHTML = '';
-      addMessage('bot', '您好！我是<strong>理论力学AI智能助教</strong> 🤖<br><br>我可以帮助您：<br>📐 <strong>解答问题</strong>：静力学、运动学、动力学、分析力学<br>📝 <strong>逐步推导</strong>：公式证明、定理推导、解题过程<br>💡 <strong>概念讲解</strong>：力学概念的物理意义与工程应用<br>🔬 <strong>机构分析</strong>：运动学特性、速度加速度计算<br><br>🔌 <strong>AI增强模式</strong>：在上方API设置中输入密钥，保存后即可启用<br>🌐 <strong>联网搜索</strong>：超出知识库的问题可一键跳转搜索引擎<br><br>请随时向我提问！', '刚刚');
+      addMessage('bot', '您好！我是<strong>长沙理工大学理论力学AI智能助教</strong> 🤖<br><span style="opacity:.85;font-size:.94em">博学 · 力行 · 守正 · 拓新 —— 甘当铺路石，脚踏实地、艰苦奋斗、乐于奉献、锐意进取</span><br><br>我可以帮助您：<br>📐 <strong>解答问题</strong>：静力学、运动学、动力学、分析力学<br>📝 <strong>逐步推导</strong>：公式证明、定理推导、解题过程<br>💡 <strong>概念讲解</strong>：力学概念的物理意义与工程应用<br>🔬 <strong>机构分析</strong>：运动学特性、速度加速度计算<br><br>🔌 <strong>AI增强模式</strong>：在上方API设置中输入密钥，保存后即可启用<br>🌐 <strong>联网搜索</strong>：超出知识库的问题可一键跳转搜索引擎<br><br>请随时向我提问！', '刚刚');
       updateMemoryBadge(0);
       renderSidebar();
       if (window.innerWidth <= 768) toggleSidebar();
@@ -1926,7 +2049,7 @@
       if (conv && conv.messages.length > 0) {
         conv.messages.forEach(msg => addMessage(msg.type, msg.text, msg.time));
       } else {
-        addMessage('bot', '您好！我是<strong>理论力学AI智能助教</strong> 🤖<br><br>请随时向我提问！', '刚刚');
+        addMessage('bot', '您好！我是<strong>长沙理工大学理论力学AI智能助教</strong> 🤖<br><span style="opacity:.85;font-size:.94em">博学 · 力行 · 守正 · 拓新 —— 甘当铺路石，脚踏实地、艰苦奋斗、乐于奉献、锐意进取</span><br><br>请随时向我提问！', '刚刚');
       }
       updateMemoryBadge(conv ? conv.messages.length : 0);
       renderSidebar();
@@ -1963,9 +2086,39 @@
       }).join('');
     }
 
+    // ==================== 今日使用记录（侧栏底部，每次提问后实时刷新） ====================
+    function renderUsagePanel() {
+      const el = document.getElementById('usagePanel');
+      if (!el) return;
+      let u = null;
+      try { u = JSON.parse(localStorage.getItem('current_user') || 'null'); } catch (e) {}
+      if (!u || !u.student_id) { el.innerHTML = ''; return; }
+
+      const d = new Date();
+      let data = {};
+      try { data = JSON.parse(localStorage.getItem('user_activity_' + u.student_id) || '{}'); } catch (e) {}
+      const day = data[dayKey(Date.now())] || {};
+      const qs = day.ai_questions || [];
+
+      const rows = qs.slice(-6).reverse().map(function (x) {
+        const q = escapeHTML(x.q || '');
+        return '<div class="usage-row"><span class="usage-time">' + escapeHTML(x.t || '') + '</span>'
+             + '<span class="usage-q" title="' + q + '">' + q + '</span></div>';
+      }).join('');
+
+      el.innerHTML =
+        '<div class="usage-head"><span>📊 今日使用记录</span>'
+        + '<span class="usage-date">' + (d.getMonth() + 1) + '月' + d.getDate() + '日</span></div>'
+        + '<div class="usage-stats"><span>提问 <b>' + (day.ai_count || 0) + '</b> 次</span>'
+        + '<span>时长 <b>' + (day.ai_minutes || 0) + '</b> 分钟</span></div>'
+        + (rows ? '<div class="usage-list">' + rows + '</div>'
+                : '<div class="usage-empty">今天还没有提问</div>');
+    }
+
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('open');
       document.getElementById('sidebarOverlay').classList.toggle('show');
+      if (document.getElementById('sidebar').classList.contains('open')) renderUsagePanel();
     }
 
     // ==================== 知识库 ====================
@@ -2962,24 +3115,41 @@ n = 质点数，s = 完整约束方程数<br>
 
 用户的问题是：`;
 
+    // 日期键（YYYY-MM-DD），用来判断"今天是否已经开过一页"
+    function dayKey(ts) {
+      const d = new Date(ts);
+      return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+    }
+
     function init() {
       loadAPIConfig();
       buildQuickQuestions();
       renderQuickQuestions('all');
-      // 初始化对话记录
+      // 初始化对话记录：每天第一次打开自动开一页新对话；同一天再打开则回到当天那一页
       const convs = getConversations();
-      if (convs.length === 0) {
-        newConversation();
+      const todayKey = dayKey(Date.now());
+      const todays = convs.filter(function (c) { return dayKey(c.createdAt) === todayKey; });
+      if (todays.length === 0) {
+        newConversation();                 // 今天还没开过 → 新的一页
       } else {
-        currentConvId = convs[0].id;
+        currentConvId = todays[0].id;      // convs 按时间倒序，[0] 就是今天最近的一页
         loadChatHistory();
       }
       renderSidebar();
+      renderUsagePanel();
       scrollToBottom();
       initFavorites();
       handleUrlQuestion();
     }
     init();
+
+    // 使用记录持续刷新：
+    //  · 每 30 秒轮询一次，保证"一直更新"
+    //  · 切回标签页/窗口获得焦点时立即刷新
+    //  · 面板读的是"当天"的键，所以跨过零点会自动切到新的一天
+    setInterval(renderUsagePanel, 30000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) renderUsagePanel(); });
+    window.addEventListener('focus', renderUsagePanel);
 
     // ==================== URL 直达提问（支持 ?q= 与 mode=enhanced）====================
     // 从个人知识网络等页面跳转而来时，自动填入问题并按AI增强模式提问
@@ -3481,6 +3651,7 @@ ${messages.map(m => `[${m.id}] ${m.role}: ${m.content}`).join('\n')}`;
       saveChatHistory(); scrollToBottom();
       // 记录本次 AI 使用（次数+提问内容，实时上传服务器；取消已提前 return 不进入这里）
       recordAiUsage(sessionStart, text);
+      renderUsagePanel();   // 侧栏"今日使用记录"立即刷新
       // 自动把对话同步到服务器（聊天记录也上传，跨浏览器可查）
       autoSyncConversationToMemory();
       isProcessing = false; sendBtn.disabled = false; sendBtn.textContent = '➤'; currentAbortController = null;
@@ -3506,7 +3677,7 @@ ${messages.map(m => `[${m.id}] ${m.role}: ${m.content}`).join('\n')}`;
         // 上传服务器：失败则进离线队列，恢复后补传
         const payload = { id: u.student_id, action: 'ai', q: String(questionText || '').slice(0, 500), minutes: elapsedMin, date: t, t: ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) };
         try {
-          fetch('/api/activity/record', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+          fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
             .then(function(r){ if (r.ok) return; throw new Error(); })
             .catch(function(){ queuePendingActivity(u.student_id, payload); });
         } catch(e) { queuePendingActivity(u.student_id, payload); }
@@ -3529,7 +3700,7 @@ ${messages.map(m => `[${m.id}] ${m.role}: ${m.content}`).join('\n')}`;
         try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
         if (!list.length) return;
         Promise.all(list.map(function(payload){
-          return fetch('/api/activity/record', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+          return fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
             .then(function(r){ if (r.ok) return undefined; throw new Error(); })
             .catch(function(){ return payload; });
         })).then(function(results){
@@ -3814,6 +3985,38 @@ ${messages.map(m => `[${m.id}] ${m.role}: ${m.content}`).join('\n')}`;
       const _u = JSON.parse(localStorage.getItem('current_user') || 'null');
       if (_u && _u.student_id) flushPendingActivity(_u.student_id);
     } catch(e) {}
+
+    // ==================== 长沙理工大学特色轮播 ====================
+    // 校训常驻在左侧，右侧轮播校训释义与学校标志性元素
+    (function csustMarquee() {
+      const FACTS = [
+        '「博学」——崇尚科学，勤奋好学，博采众长，厚积薄发',
+        '「力行」——身体力行，脚踏实地，知行统一',
+        '「守正」——恪守正道，坚持真理，秉于公道，清白为人',
+        '「拓新」——秉承传统，开拓创新，与时俱进，追求卓越',
+        '🪨 「铺路石」精神：脚踏实地、艰苦奋斗、乐于奉献、锐意进取',
+        '🎓 校风：团结进取，严谨务实',
+        '🚄 鲜明的交通 · 电力 · 水利 · 轻工行业特色',
+        '🏛️ 2003 年由长沙交通学院与长沙电力学院合并组建',
+        '📈 9 个学科进入 ESI 全球前 1%，其中工程学进入前 1‰',
+        '🎯 培养「底色亮、实践强、有情怀、敢担当」的行业精英',
+        '🛣️ 「绿色交通联盟」六所高校之一 · 教育部卓越工程师教育培养计划高校',
+        '🏗️ 5 个博士后科研流动站：交通运输工程 · 土木工程 · 工商管理 · 水利工程 · 电气工程',
+        '🌏 与 30 多个国家和地区的 90 余所高校合作，共建 3 所孔子学院',
+        '⚡ 金盆岭 · 云塘 两个校区，60 余年培养 50 余万高级专门人才'
+      ];
+      const el = document.getElementById('csustFactText');
+      if (!el) return;
+      let i = 0;
+      setInterval(function () {
+        el.classList.add('fade');
+        setTimeout(function () {
+          i = (i + 1) % FACTS.length;
+          el.textContent = FACTS[i];
+          el.classList.remove('fade');
+        }, 460);
+      }, 6000);
+    })();
   </script>
 
 </body>

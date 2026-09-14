@@ -837,6 +837,16 @@
       "source_message_ids": [],
       "created_at": "2026-08-28T11:18:36",
       "updated_at": "2026-08-28T11:18:36"
+    },
+    {
+      "id": "note_1a08fa07e99_95a6ce5d",
+      "concept_key": "note_1a08fa07e99_95a6ce5d",
+      "name": "完成复习：用户输入“点的接速度”，疑似将“速度”误写为“接速度”，可能反映对术语掌握不牢固",
+      "type": "LEARNING_NOTE",
+      "confidence": 1,
+      "source_message_ids": [],
+      "created_at": "2026-09-11T16:40:55",
+      "updated_at": "2026-09-11T16:40:55"
     }
   ],
   "concept_relations": [
@@ -893,7 +903,24 @@
       "created_at": "2026-08-26T14:58:48"
     }
   ],
-  "misconceptions": [],
+  "misconceptions": [
+    {
+      "id": "misconception_1a03cdd43ff_b44ed400",
+      "user_id": "u_001",
+      "conversation_id": "conv_1787727146574",
+      "concept_ids": [],
+      "error_code": "UNCLASSIFIED",
+      "description": "用户输入“点的接速度”，疑似将“速度”误写为“接速度”，可能反映对术语掌握不牢固",
+      "status": "suspected",
+      "evidence_ids": [
+        "local_conv_1787727146574_7"
+      ],
+      "confidence": 0.4,
+      "first_detected_at": "2026-08-26T14:58:48",
+      "last_detected_at": "2026-08-26T14:58:48",
+      "occurrence_count": 1
+    }
+  ],
   "user_concept_states": [
     {
       "id": "state_1a03cdd43ff_6a530a1e",
@@ -918,6 +945,21 @@
     }
   ],
   "learning_notes": [
+    {
+      "id": "note_1a08fa07e99_95a6ce5d",
+      "user_id": "u_001",
+      "conversation_id": null,
+      "title": "完成复习：用户输入“点的接速度”，疑似将“速度”误写为“接速度”，可能反映对术语掌握不牢固",
+      "markdown_content": "- 学习知识点：用户输入“点的接速度”，疑似将“速度”误写为“接速度”，可能反映对术语掌握不牢固\n- 完成时间：2026/9/11 16:40:55\n- 状态：已完成复习",
+      "structured_content": {
+        "source": "manual",
+        "note_id": "note_1a08fa07e99_95a6ce5d"
+      },
+      "version": 1,
+      "status": "draft",
+      "created_at": "2026-09-11T16:40:55",
+      "updated_at": "2026-09-11T16:40:55"
+    },
     {
       "id": "note_1a046605fee_0761f4d3",
       "user_id": "u_001",
@@ -1454,6 +1496,22 @@
       "updated_at": "2026-08-26T14:58:48"
     }
   ],
-  "weaknesses": [],
-  "updated_at": "2026-09-11T18:00:27"
+  "weaknesses": [
+    {
+      "id": "weakness_1a03cdd43ff_cbaa1d0b",
+      "user_id": "u_001",
+      "misconception_id": "misconception_1a03cdd43ff_b44ed400",
+      "level": "suspected",
+      "score": null,
+      "reasons": "本次对话提取到待验证的错误理解",
+      "evidence_ids": [
+        "local_conv_1787727146574_7"
+      ],
+      "recommendation_id": null,
+      "user_feedback": "accurate",
+      "created_at": "2026-08-26T14:58:48",
+      "updated_at": "2026-09-11T16:40:43"
+    }
+  ],
+  "updated_at": "2026-09-11T16:40:55"
 }

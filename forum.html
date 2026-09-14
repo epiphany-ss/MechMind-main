@@ -824,7 +824,7 @@
       var btn = document.getElementById('btnSubmit'); btn.disabled = true; btn.textContent = '发布中…';
       var content = raw;
       if (selectedImages.length > 0) content = raw + '\n\n' + selectedImages.map(function (img) { return '<img src="' + img + '" style="max-width:100%;border-radius:8px;margin:8px 0">'; }).join('');
-      fetch('/api/forum/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ category: cat, title: title, content: content, _contentImages: selectedImages }) })
+      fetch('/api/forum/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ category: cat, title: title, content: content, author: getMyName(), student_id: getMySid(), _contentImages: selectedImages }) })
         .then(function (r) { if (r.ok) return r.json(); throw new Error('server'); })
         .then(function (d) { if (d.ok) { showToast('帖子发布成功！（已同步至服务器）', 'success'); closeModal(); resetForm(); return reloadPosts(); } throw new Error(d.message || 'fail'); })
         .catch(function (err) { console.warn('Server unavailable:', err.message); saveLocal(cat, title, content); })
@@ -878,7 +878,7 @@
         var item = pending[0];
         fetch('/api/forum/upload', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ category: item.category, title: item.title, content: item.content, author: item.author, _contentImages: item._contentImages || [] })
+          body: JSON.stringify({ category: item.category, title: item.title, content: item.content, author: item.author, student_id: getMySid(), _contentImages: item._contentImages || [] })
         }).then(function (r) { if (r.ok) return r.json(); throw new Error(); })
           .then(function (d) {
             if (d.ok) {

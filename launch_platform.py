@@ -94,10 +94,12 @@ def main():
         print('[*] 连接主界面: %s' % main_url)
         webbrowser.open(main_url)
     else:
-        # 服务器未就绪的兜底：直接打开本地 index.html 文件
-        local_url = 'file:///' + os.path.join(BASE, 'index.html').replace('\\', '/')
-        print('[!] 服务器未就绪，改为直接打开本地文件: %s' % local_url)
-        webbrowser.open(local_url)
+        # 不再退回 file://（本地文件方式）。
+        # file:// 与 http://localhost:8080 是两个独立的存储源，用 file:// 打开会另起一套
+        # 无法与服务端同步的数据，导致同一账户在不同入口看到的进度不一致。
+        print('[!] 服务器未就绪，暂不打开页面。')
+        print('    file:// 本地文件方式会产生一套无法同步的独立数据，因此不再自动使用。')
+        print('    请稍等几秒后手动访问: http://localhost:8080/index.html')
 
     print('[*] 完成。只打开主界面；需要题库时点击主界面的「理论力学题库」即可。')
     try:

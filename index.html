@@ -146,6 +146,7 @@ body{
 .card-icon.c4{background:#e6f7ec; color:#27ae60}
 .card-icon.c5{background:#e0f7f6; color:#0d9488}
 .card-icon.c6{background:#fde8e8; color:#e74c3c}
+.card-icon.c7{background:#e8f7ee; color:#15803d}
 .feature-card h3{font-size:1.15em; font-weight:700; margin-bottom:8px}
 .feature-card p{color:var(--text-light); font-size:0.88em; line-height:1.6}
 .feature-card .card-arrow{display:inline-block; margin-top:16px; color:var(--primary); font-weight:600; font-size:0.85em; transition:transform var(--transition)}
@@ -314,6 +315,164 @@ body{
   .nav-brand .nav-title{font-size:0.85em}
   .nav-brand .nav-title small{font-size:0.65em}
 }
+
+/* ============================================================
+   虚拟课程展厅（位置已预留，内容为初步框架 · 数据待填真实信息）
+   ============================================================ */
+.hall{
+  position:relative; padding:80px 32px; color:#e8eefc; overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 12% 0%,rgba(59,130,246,0.22),transparent 62%),
+    radial-gradient(760px 400px at 88% 8%,rgba(167,139,250,0.20),transparent 60%),
+    radial-gradient(700px 500px at 50% 108%,rgba(240,160,48,0.12),transparent 60%),
+    linear-gradient(160deg,#0b1224 0%,#121b34 45%,#0d1526 100%);
+}
+.hall::before{content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,transparent,#3b82f6,#a78bfa,#f0a030,transparent); opacity:0.85}
+.hall-inner{max-width:var(--max-width); margin:0 auto; position:relative; z-index:1}
+.hall-header{text-align:center; margin-bottom:44px}
+.hall-header .hall-tag{display:inline-block; color:#7dd3fc; font-weight:700; font-size:0.78em;
+  letter-spacing:4px; text-transform:uppercase; margin-bottom:12px; padding:6px 16px;
+  border:1px solid rgba(125,211,252,0.3); border-radius:20px; background:rgba(56,189,248,0.08)}
+.hall-header h2{font-size:2.3em; font-weight:800; letter-spacing:3px; margin-bottom:14px;
+  background:linear-gradient(135deg,#ffffff 20%,#a5c8ff 55%,#c4b5fd 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+.hall-header .hall-divider{width:70px; height:4px; margin:0 auto 18px; border-radius:2px;
+  background:linear-gradient(90deg,#3b82f6,#a78bfa,#f0a030)}
+.hall-header p{color:#94a9c9; font-size:1em; max-width:640px; margin:0 auto}
+
+.hall-tabs{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:36px}
+.hall-tabs button{display:inline-flex; align-items:center; gap:8px; padding:11px 26px;
+  border-radius:26px; cursor:pointer; font-family:inherit; font-size:0.92em; font-weight:700;
+  letter-spacing:0.5px; color:#a9bcd8; background:rgba(255,255,255,0.04);
+  border:1px solid rgba(140,170,220,0.22); transition:all var(--transition)}
+.hall-tabs button:hover{color:#fff; background:rgba(255,255,255,0.09); transform:translateY(-2px)}
+.hall-tabs button.active{color:#fff; border-color:rgba(96,165,250,0.65);
+  background:linear-gradient(135deg,rgba(29,78,216,0.85),rgba(59,130,246,0.6));
+  box-shadow:0 6px 24px rgba(59,130,246,0.35)}
+
+.hall-panel{display:none; animation:hallIn 0.4s cubic-bezier(0.22,1,0.36,1)}
+.hall-panel.active{display:block}
+@keyframes hallIn{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:translateY(0)}}
+
+.hall-card{background:linear-gradient(160deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025));
+  border:1px solid rgba(140,170,220,0.18); border-radius:18px; backdrop-filter:blur(10px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.28); transition:all var(--transition)}
+
+/* —— 展区一：课程概览 —— */
+.overview-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:22px; align-items:stretch}
+.id-card{padding:32px 34px; position:relative; overflow:hidden}
+.id-card::after{content:''; position:absolute; right:-60px; top:-60px; width:220px; height:220px;
+  border-radius:50%; background:radial-gradient(circle,rgba(59,130,246,0.28),transparent 68%)}
+.id-top{display:flex; align-items:center; gap:16px; margin-bottom:24px; position:relative; z-index:1}
+.id-emblem{width:66px; height:66px; flex-shrink:0; border-radius:16px; display:flex;
+  align-items:center; justify-content:center; font-size:2em;
+  background:linear-gradient(135deg,rgba(59,130,246,0.35),rgba(167,139,250,0.22));
+  border:1px solid rgba(147,180,240,0.4); box-shadow:0 0 34px rgba(59,130,246,0.3)}
+.id-top h3{font-size:1.28em; color:#fff; font-weight:800; letter-spacing:1px; line-height:1.35}
+.id-top h3 small{display:block; font-size:0.6em; font-weight:500; color:#8fa7c8; letter-spacing:0.5px; margin-top:3px}
+.id-course{position:relative; z-index:1; padding:18px 20px; border-radius:14px; margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(26,86,219,0.35),rgba(124,58,237,0.18));
+  border:1px solid rgba(96,165,250,0.3)}
+.id-course .cn{font-size:1.5em; font-weight:800; color:#fff; letter-spacing:4px}
+.id-course .en{font-size:0.76em; color:#9db4d6; letter-spacing:2px; text-transform:uppercase; margin-top:4px}
+.id-list{list-style:none; position:relative; z-index:1; display:grid; gap:10px}
+.id-list li{display:flex; gap:12px; font-size:0.9em; padding-bottom:10px; border-bottom:1px dashed rgba(140,170,220,0.16)}
+.id-list li:last-child{border-bottom:none; padding-bottom:0}
+.id-list .k{flex-shrink:0; width:74px; color:#8fa7c8}
+.id-list .v{color:#dbe7fb}
+
+.overview-right{display:flex; flex-direction:column; gap:22px}
+.stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.stat{padding:20px 14px; text-align:center; border-radius:16px;
+  background:linear-gradient(160deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02));
+  border:1px solid rgba(140,170,220,0.18); transition:all var(--transition)}
+.stat:hover{transform:translateY(-4px); border-color:rgba(96,165,250,0.5);
+  box-shadow:0 12px 30px rgba(59,130,246,0.22)}
+.stat .num{font-size:1.7em; font-weight:800; line-height:1.1;
+  background:linear-gradient(135deg,#93c5fd,#c4b5fd);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+.stat .num i{font-size:0.5em; font-style:normal; margin-left:2px;
+  -webkit-text-fill-color:#8fa7c8; color:#8fa7c8}
+.stat .lb{font-size:0.78em; color:#90a6c6; margin-top:6px; letter-spacing:0.5px}
+
+.feat-card{padding:24px 26px; flex:1}
+.feat-card h4{font-size:1em; color:#fff; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px}
+.feat-card h4::before{content:''; width:4px; height:16px; border-radius:2px;
+  background:linear-gradient(180deg,#60a5fa,#a78bfa)}
+.chips{display:flex; flex-wrap:wrap; gap:9px}
+.chips span{font-size:0.78em; padding:6px 14px; border-radius:16px;
+  background:rgba(59,130,246,0.13); color:#a9c8f5; border:1px solid rgba(96,165,250,0.25)}
+.chips span:nth-child(2n){background:rgba(167,139,250,0.14); color:#cabdfb; border-color:rgba(167,139,250,0.28)}
+.chips span:nth-child(3n){background:rgba(240,160,48,0.14); color:#fbd39a; border-color:rgba(240,160,48,0.28)}
+
+/* —— 展区二：师资团队 —— */
+.faculty-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+.teacher{padding:26px 22px; text-align:center; position:relative; overflow:hidden}
+.teacher:hover{transform:translateY(-6px); border-color:rgba(96,165,250,0.5);
+  box-shadow:0 18px 46px rgba(59,130,246,0.25)}
+.teacher .avatar{width:82px; height:82px; margin:0 auto 16px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:2em; font-weight:800;
+  color:#fff; border:2px solid rgba(147,180,240,0.45); box-shadow:0 0 30px rgba(59,130,246,0.28)}
+.teacher .avatar.a1{background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+.teacher .avatar.a2{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.teacher .avatar.a3{background:linear-gradient(135deg,#d97706,#f0a030)}
+.teacher .avatar.a4{background:linear-gradient(135deg,#0f766e,#2dd4bf)}
+.teacher h4{font-size:1.06em; color:#fff; font-weight:800; letter-spacing:1px}
+.teacher .title{font-size:0.78em; color:#7dd3fc; margin:5px 0 12px; letter-spacing:0.5px}
+.teacher .field{font-size:0.82em; color:#a9bcd8; line-height:1.7; padding-top:12px;
+  border-top:1px dashed rgba(140,170,220,0.18)}
+.teacher .field b{color:#8fa7c8; font-weight:600}
+.teacher .tagline{position:absolute; top:14px; right:14px; font-size:0.66em; padding:3px 10px;
+  border-radius:10px; background:rgba(240,160,48,0.16); color:#fbd39a; border:1px solid rgba(240,160,48,0.3)}
+
+/* —— 展区三：课程成就 —— */
+.honor-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:22px; align-items:start}
+.medal-wall{padding:26px 28px}
+.medal-wall h4,.timeline h4{font-size:1em; color:#fff; font-weight:700; margin-bottom:18px; display:flex; align-items:center; gap:8px}
+.medal-wall h4::before{content:''; width:4px; height:16px; border-radius:2px;
+  background:linear-gradient(180deg,#f0a030,#f87171)}
+.medal{display:flex; gap:14px; align-items:center; padding:14px 16px; margin-bottom:12px;
+  border-radius:14px; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(140,170,220,0.16); transition:all var(--transition)}
+.medal:hover{transform:translateX(6px); border-color:rgba(240,160,48,0.5); background:rgba(240,160,48,0.09)}
+.medal .icon{width:46px; height:46px; flex-shrink:0; border-radius:12px; display:flex;
+  align-items:center; justify-content:center; font-size:1.4em;
+  background:linear-gradient(135deg,rgba(240,160,48,0.28),rgba(248,113,113,0.16));
+  border:1px solid rgba(240,160,48,0.32)}
+.medal .txt{font-size:0.88em; color:#dbe7fb; line-height:1.5}
+.medal .txt small{display:block; color:#8fa7c8; font-size:0.8em; margin-top:2px}
+
+.timeline{padding:26px 28px}
+.timeline h4::before{content:''; width:4px; height:16px; border-radius:2px;
+  background:linear-gradient(180deg,#60a5fa,#a78bfa)}
+.tl{position:relative; padding-left:30px}
+.tl::before{content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(180deg,#3b82f6,#a78bfa,rgba(167,139,250,0.05))}
+.tl-item{position:relative; padding-bottom:24px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:''; position:absolute; left:-30px; top:5px; width:16px; height:16px;
+  border-radius:50%; background:#0d1526; border:3px solid #60a5fa; box-shadow:0 0 14px rgba(96,165,250,0.6)}
+.tl-item:nth-child(2n)::before{border-color:#a78bfa; box-shadow:0 0 14px rgba(167,139,250,0.6)}
+.tl-item:nth-child(3n)::before{border-color:#f0a030; box-shadow:0 0 14px rgba(240,160,48,0.6)}
+.tl-year{font-size:0.76em; font-weight:800; color:#7dd3fc; letter-spacing:1px}
+.tl-item:nth-child(2n) .tl-year{color:#c4b5fd}
+.tl-item:nth-child(3n) .tl-year{color:#fbd39a}
+.tl-title{font-size:0.95em; color:#fff; font-weight:700; margin:2px 0 3px}
+.tl-desc{font-size:0.82em; color:#9db4d6; line-height:1.6}
+
+@media(max-width:1024px){
+  .overview-grid{grid-template-columns:1fr}
+  .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .honor-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hall{padding:48px 16px}
+  .hall-header h2{font-size:1.6em; letter-spacing:1px}
+  .faculty-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .hall-tabs button{padding:9px 16px; font-size:0.82em}
+}
 </style>
 </head>
 <body>
@@ -329,6 +488,7 @@ body{
     <li><a href="mechanism.html">机构运动演示</a></li>
     <li><a href="ai_qa.html">AI智能问答</a></li>
     <li><a href="knowledge_framework.html">知识框架</a></li>
+    <li><a href="mindmap.html">知识图谱</a></li>
     <li><a href="personal_knowledge.html?v=20260826b">个人知识网络</a></li>
     <li><a href="forum.html">问题探讨</a></li>
     <li><a href="account.html" class="btn-nav">个人账户</a></li>
@@ -349,6 +509,7 @@ body{
     <a href="mechanism.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">⚙️ 机构运动演示</a>
     <a href="ai_qa.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🤖 AI智能问答</a>
     <a href="knowledge_framework.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🧠 知识框架</a>
+    <a href="mindmap.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🌳 知识图谱</a>
     <a href="forum.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">💬 问题探讨</a>
     <a href="account.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">👤 个人账户</a>
     <a href="personal_knowledge.html?v=20260826b" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🕸️ 个人知识网络</a>
@@ -387,7 +548,8 @@ body{
     <a class="feature-card" href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()"><div class="card-icon c1">📝</div><h3>理论力学题库</h3><p>涵盖静力学、运动学、动力学、分析力学四大模块，596 精选习题，按难度分级，支持智能组卷与自动批改。</p><span class="card-arrow">进入题库 →</span></a>
     <a class="feature-card" href="mechanism.html"><div class="card-icon c2">⚙️</div><h3>机构运动演示</h3><p>4种交互式机构动画（导杆/滑块/正弦/行星减速）+ 手绘曲线自动生成四连杆机构。</p><span class="card-arrow">查看演示 →</span></a>
     <a class="feature-card" href="ai_qa.html"><div class="card-icon c3">🤖</div><h3>AI智能体问答</h3><p>基于大语言模型的理论力学习题解答与概念讲解，支持公式识别与逐步推理。</p><span class="card-arrow">开始对话 →</span></a>
-    <a class="feature-card" href="knowledge_framework.html"><div class="card-icon c4">🧠</div><h3>知识框架梳理</h3><p>体系化的理论力学知识图谱，从基础概念到高级应用，帮助构建完整知识体系。</p><span class="card-arrow">查看框架 →</span></a>
+    <a class="feature-card" href="knowledge_framework.html"><div class="card-icon c4">🧠</div><h3>知识框架梳理</h3><p>体系化的理论力学知识框架，从基础概念到高级应用，帮助构建完整知识体系。</p><span class="card-arrow">查看框架 →</span></a>
+    <a class="feature-card" href="mindmap.html"><div class="card-icon c7">🌳</div><h3>知识图谱</h3><p>一棵会生长的三维知识树：351 个课程知识点长成满树枝叶，拖动旋转、点击枝干展开、点击叶片看详情。</p><span class="card-arrow">进入图谱 →</span></a>
     <a class="feature-card" href="account.html"><div class="card-icon c5">👤</div><h3>个人学习中心</h3><p>记录学习进度、收藏重点题目、查看答题统计，个性化学习路径推荐。</p><span class="card-arrow">进入账户 →</span></a>
     <a class="feature-card" href="personal_knowledge.html?v=20260826b"><div class="card-icon c6">🕸️</div><h3>个人知识网络</h3><p>自主添加知识点并建立概念关联，沉淀属于自己的理论力学知识结构。</p><span class="card-arrow">开始构建 →</span></a>
     <a class="feature-card" href="search.html"><div class="card-icon c6">🔍</div><h3>功能搜索</h3><p>全站知识内容检索，快速定位所需的理论力学知识点、习题与演示内容。</p><span class="card-arrow">搜索内容 →</span></a>
@@ -443,6 +605,171 @@ body{
   <div style="text-align:center;margin-top:32px"><a href="knowledge_framework.html" style="color:var(--primary);font-weight:700;text-decoration:none;font-size:1.05em">查看完整知识框架 →</a></div>
 </section>
 
+<!-- ============================================================
+     虚拟课程展厅（位置已预留 · 内容为初步框架，文字数据均为占位示例）
+     三个展区：课程概览（学院信息 + 课程速览 + 课程特色）
+               师资团队（任课老师）
+               课程成就（荣誉墙 + 发展时间轴）
+     待真实信息确定后，直接替换各卡片内的文字即可，样式无需再动。
+     ============================================================ -->
+<section class="hall" id="courseHall">
+  <div class="hall-inner">
+
+    <div class="hall-header">
+      <div class="hall-tag">VIRTUAL COURSE HALL</div>
+      <h2>虚拟课程展厅</h2>
+      <div class="hall-divider"></div>
+      <p>一门课的完整档案：从学院与师资，到它一路走来拿下的每一份荣誉</p>
+    </div>
+
+    <div class="hall-tabs">
+      <button class="active" data-tab="overview">🏛️ 课程概览</button>
+      <button data-tab="faculty">👩🏫 师资团队</button>
+      <button data-tab="honor">🏆 课程成就</button>
+    </div>
+
+    <!-- ---------- 展区一：课程概览 ---------- -->
+    <div class="hall-panel active" data-panel="overview">
+      <div class="overview-grid">
+
+        <!-- 学院信息名片 -->
+        <div class="hall-card id-card">
+          <div class="id-top">
+            <div class="id-emblem">🏛️</div>
+            <h3>长沙理工大学
+              <small>土木工程学院 · 工程力学系</small>
+            </h3>
+          </div>
+          <div class="id-course">
+            <div class="cn">理论力学</div>
+            <div class="en">Theoretical Mechanics</div>
+          </div>
+          <ul class="id-list">
+            <li><span class="k">课程性质</span><span class="v">专业基础必修课 · 省级一流本科课程</span></li>
+            <li><span class="k">面向专业</span><span class="v">土木工程 / 机械设计制造及其自动化 / 工程力学</span></li>
+            <li><span class="k">开课学期</span><span class="v">大二上 · 秋季学期</span></li>
+            <li><span class="k">授课团队</span><span class="v">工程力学系理论力学课程组（4 人）</span></li>
+          </ul>
+        </div>
+
+        <!-- 课程速览 + 课程特色 -->
+        <div class="overview-right">
+          <div class="stat-grid">
+            <div class="stat"><div class="num">3.5<i>学分</i></div><div class="lb">学分</div></div>
+            <div class="stat"><div class="num">56<i>学时</i></div><div class="lb">总学时</div></div>
+            <div class="stat"><div class="num">351<i>个</i></div><div class="lb">知识节点</div></div>
+            <div class="stat"><div class="num">596<i>道</i></div><div class="lb">精选习题</div></div>
+            <div class="stat"><div class="num">4<i>大</i></div><div class="lb">课程篇章</div></div>
+            <div class="stat"><div class="num">12<i>k+</i></div><div class="lb">累计学习人次</div></div>
+          </div>
+          <div class="hall-card feat-card">
+            <h4>课程特色</h4>
+            <div class="chips">
+              <span>🧠 立体知识图谱</span>
+              <span>🤖 AI 智能助教</span>
+              <span>⚙️ 机构运动可视化</span>
+              <span>📝 596 题智能题库</span>
+              <span>📐 公式推导逐步解析</span>
+              <span>🔬 虚拟仿真实验</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ---------- 展区二：师资团队 ---------- -->
+    <div class="hall-panel" data-panel="faculty">
+      <div class="faculty-grid">
+        <div class="hall-card teacher">
+          <div class="tagline">课程负责人</div>
+          <div class="avatar a1">张</div>
+          <h4>张明远</h4>
+          <div class="title">教授 · 博士生导师</div>
+          <div class="field"><b>研究方向</b><br>非线性动力学与振动控制</div>
+        </div>
+        <div class="hall-card teacher">
+          <div class="avatar a2">李</div>
+          <h4>李思远</h4>
+          <div class="title">副教授 · 硕士生导师</div>
+          <div class="field"><b>研究方向</b><br>计算力学与数值仿真</div>
+        </div>
+        <div class="hall-card teacher">
+          <div class="avatar a3">王</div>
+          <h4>王雅琴</h4>
+          <div class="title">副教授</div>
+          <div class="field"><b>研究方向</b><br>机构学与运动学分析</div>
+        </div>
+        <div class="hall-card teacher">
+          <div class="avatar a4">陈</div>
+          <h4>陈立行</h4>
+          <div class="title">讲师</div>
+          <div class="field"><b>研究方向</b><br>力学教学法与虚拟仿真</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- 展区三：课程成就 ---------- -->
+    <div class="hall-panel" data-panel="honor">
+      <div class="honor-grid">
+
+        <div class="hall-card medal-wall">
+          <h4>荣誉墙</h4>
+          <div class="medal">
+            <div class="icon">🏅</div>
+            <div class="txt">省级一流本科课程（线下）<small>湖南省教育厅 · 2024</small></div>
+          </div>
+          <div class="medal">
+            <div class="icon">🏆</div>
+            <div class="txt">高等教育教学成果奖 一等奖<small>湖南省 · 2023</small></div>
+          </div>
+          <div class="medal">
+            <div class="icon">🎖️</div>
+            <div class="txt">全国大学生力学竞赛 团体优胜奖<small>中国力学学会 · 2022</small></div>
+          </div>
+          <div class="medal">
+            <div class="icon">📚</div>
+            <div class="txt">校级精品在线开放课程<small>长沙理工大学 · 2021</small></div>
+          </div>
+        </div>
+
+        <div class="hall-card timeline">
+          <h4>课程发展历程</h4>
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-year">2024</div>
+              <div class="tl-title">获评省级一流本科课程</div>
+              <div class="tl-desc">建成"知识图谱 + AI 助教 + 虚拟仿真"三位一体的数字化教学体系</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2023</div>
+              <div class="tl-title">教学成果奖一等奖</div>
+              <div class="tl-desc">"理论力学数字化教学资源建设与混合式教学实践"通过鉴定</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2022</div>
+              <div class="tl-title">全国大学生力学竞赛获奖</div>
+              <div class="tl-desc">指导学生获团体优胜奖及个人奖项若干</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2021</div>
+              <div class="tl-title">校级精品在线开放课程</div>
+              <div class="tl-desc">课程视频、题库与知识框架全量上线，面向校内外开放</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2020</div>
+              <div class="tl-title">出版配套教材与习题集</div>
+              <div class="tl-desc">形成"教材 + 题库 + 演示程序"的立体化教学资源包</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- Forum Preview -->
 <section class="section">
   <div class="section-header"><div class="section-tag">DISCUSSION FORUM</div><h2>问题探讨</h2><div class="divider"></div><p>理论力学学习交流社区，提问探讨、分享心得、共同进步</p></div>
@@ -472,7 +799,7 @@ body{
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand"><h3>长沙理工大学 · 理论力学研究平台</h3><p>致力于为工程力学教育提供全方位数字化支撑。</p><p>集知识学习、机构演示、AI智能问答于一体，助力每一位力学学子的成长。</p><p style="margin-top:8px;font-size:0.8em">📍 湖南省长沙市天心区万家丽南路二段960号</p></div>
-    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="ai_qa.html">AI智能问答</a></div>
+    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="mindmap.html">知识图谱</a><a href="ai_qa.html">AI智能问答</a></div>
     <div class="footer-col"><h4>关于我们</h4><a href="about.html">平台介绍</a><a href="contact.html">联系我们</a><a href="forum.html">问题探讨</a><a href="help.html">使用帮助</a></div>
     <div class="footer-col"><h4>更多</h4><a href="account.html">个人账户</a><a href="search.html">功能搜索</a><a href="feedback.html">意见反馈</a></div>
   </div>
@@ -539,6 +866,21 @@ window.addEventListener('scroll',()=>{
   document.getElementById('topNav').classList.toggle('scrolled',window.scrollY>50);
   document.getElementById('backToTop').classList.toggle('visible',window.scrollY>300);
 });
+
+// 虚拟课程展厅：三个展区标签切换
+(function(){
+  var tabs=document.querySelectorAll('.hall-tabs button');
+  var panels=document.querySelectorAll('.hall-panel');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      tabs.forEach(function(b){b.classList.remove('active');});
+      panels.forEach(function(p){p.classList.remove('active');});
+      btn.classList.add('active');
+      var target=document.querySelector('.hall-panel[data-panel="'+btn.dataset.tab+'"]');
+      if(target)target.classList.add('active');
+    });
+  });
+})();
 </script>
 </body>
 </html>

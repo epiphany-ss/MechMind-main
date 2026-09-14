@@ -151,7 +151,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
       try { list = JSON.parse(localStorage.getItem(pk) || '[]'); } catch(e) {}
       if (!list.length) return;
       Promise.all(list.map(function(payload){
-        return fetch('/api/activity/record', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+        return fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
           .then(function(r){ if (r.ok) return undefined; throw new Error(); })
           .catch(function(){ return payload; });
       })).then(function(results){
@@ -342,7 +342,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
       // 本地带来了服务器缺失的记录（如停机期间产生的 AI 问答）→ 合并回写服务器持久化
       if (JSON.stringify(data) !== JSON.stringify(serverData)) {
         try {
-          fetch('/api/activity/record', {
+          fetch((window.mmApi?mmApi('/api/activity/record'):'/api/activity/record'), {
             method:'POST', headers:{'Content-Type':'application/json'},
             body: JSON.stringify({ id: sid, action: 'seed', activity: data })
           }).catch(function(){});
