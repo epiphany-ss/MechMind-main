@@ -377,5 +377,13 @@
         "t": "15:02"
       }
     ]
+  },
+  "2026-09-15": {
+    "login": true,
+    "questions": 0,
+    "q_list": [],
+    "ai_minutes": 0,
+    "ai_count": 0,
+    "ai_questions": []
   }
 }

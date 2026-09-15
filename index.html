@@ -317,6 +317,48 @@ body{
 }
 
 /* ============================================================
+   进入 3D 虚拟展厅：独立页面 hall.html，以全屏内嵌方式打开（不离开首页）
+   ============================================================ */
+.hall-enter{display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 0 34px}
+.hall-enter-btn{
+  display:flex;align-items:center;gap:18px;width:min(520px,100%);cursor:pointer;
+  padding:18px 26px;border-radius:18px;font-family:inherit;text-align:left;
+  color:#fff;border:1px solid rgba(96,165,250,0.45);
+  background:linear-gradient(135deg,rgba(29,78,216,0.55),rgba(124,58,237,0.35));
+  box-shadow:0 14px 40px rgba(29,78,216,0.35),inset 0 1px 0 rgba(255,255,255,0.1);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.hall-enter-btn:hover{transform:translateY(-3px);border-color:rgba(147,197,253,0.8);
+  box-shadow:0 20px 54px rgba(29,78,216,0.5),inset 0 1px 0 rgba(255,255,255,0.16)}
+.hall-enter-btn .he-ic{font-size:2em;line-height:1;flex-shrink:0}
+.hall-enter-btn .he-tx{flex:1;min-width:0}
+.hall-enter-btn .he-tx b{display:block;font-size:1.12em;font-weight:800;letter-spacing:2px}
+.hall-enter-btn .he-tx i{display:block;font-style:normal;font-size:0.78em;color:#b7cdf0;margin-top:5px;letter-spacing:0.5px}
+.hall-enter-btn .he-go{font-size:1.4em;opacity:0.75;transition:transform .25s ease}
+.hall-enter-btn:hover .he-go{transform:translateX(5px);opacity:1}
+.hall-enter-link{font-size:0.76em;color:#8fb0dd;text-decoration:none;border-bottom:1px dashed rgba(143,176,221,0.5);padding-bottom:1px}
+.hall-enter-link:hover{color:#cfe0ff;border-bottom-color:#cfe0ff}
+
+.vh-overlay{position:fixed;inset:0;z-index:2000;display:none;background:#070c16}
+.vh-overlay.show{display:block}
+.vh-frame-wrap{position:absolute;inset:0;display:flex;flex-direction:column}
+.vh-bar{
+  display:flex;align-items:center;gap:14px;padding:11px 18px;flex-shrink:0;
+  background:rgba(11,18,34,0.96);border-bottom:1px solid rgba(120,150,200,0.22);
+  color:#e8eefc;font-size:0.86em;
+}
+.vh-bar .vh-title{font-weight:800;letter-spacing:2px}
+.vh-bar .vh-open{margin-left:auto;color:#93c5fd;text-decoration:none;font-size:0.92em}
+.vh-bar .vh-open:hover{color:#fff;text-decoration:underline}
+.vh-bar .vh-close{
+  padding:8px 18px;border-radius:18px;border:none;cursor:pointer;font-family:inherit;
+  font-size:0.92em;font-weight:700;color:#fff;background:rgba(239,68,68,0.75);transition:background .2s;
+}
+.vh-bar .vh-close:hover{background:#ef4444}
+.vh-frame-wrap iframe{flex:1;width:100%;border:none;display:block;background:#070c16}
+body.vh-open{overflow:hidden}
+
+/* ============================================================
    虚拟课程展厅（位置已预留，内容为初步框架 · 数据待填真实信息）
    ============================================================ */
 .hall{
@@ -484,11 +526,12 @@ body{
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">首页</a></li>
-    <li><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a></li>
+    <li><a href="hall.html">虚拟展厅</a></li>
     <li><a href="mechanism.html">机构运动演示</a></li>
     <li><a href="ai_qa.html">AI智能问答</a></li>
     <li><a href="knowledge_framework.html">知识框架</a></li>
     <li><a href="mindmap.html">知识图谱</a></li>
+    <li><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a></li>
     <li><a href="personal_knowledge.html?v=20260826b">个人知识网络</a></li>
     <li><a href="forum.html">问题探讨</a></li>
     <li><a href="account.html" class="btn-nav">个人账户</a></li>
@@ -510,6 +553,7 @@ body{
     <a href="ai_qa.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🤖 AI智能问答</a>
     <a href="knowledge_framework.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🧠 知识框架</a>
     <a href="mindmap.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🌳 知识图谱</a>
+    <a href="hall.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🏛️ 虚拟展厅</a>
     <a href="forum.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">💬 问题探讨</a>
     <a href="account.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">👤 个人账户</a>
     <a href="personal_knowledge.html?v=20260826b" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🕸️ 个人知识网络</a>
@@ -620,6 +664,19 @@ body{
       <h2>虚拟课程展厅</h2>
       <div class="hall-divider"></div>
       <p>一门课的完整档案：从学院与师资，到它一路走来拿下的每一份荣誉</p>
+    </div>
+
+    <!-- 3D 虚拟展厅入口：打开的是独立页面 hall.html，以全屏内嵌方式显示在本页 -->
+    <div class="hall-enter">
+      <button class="hall-enter-btn" onclick="openVirtualHall()">
+        <span class="he-ic">🚪</span>
+        <span class="he-tx">
+          <b>进入虚拟展厅</b>
+          <i>3D 大厅 · 四面墙四个展馆 · 走近按 E 看内容</i>
+        </span>
+        <span class="he-go">→</span>
+      </button>
+      <a class="hall-enter-link" href="hall.html" target="_blank" rel="noopener">在新标签页中打开 ↗</a>
     </div>
 
     <div class="hall-tabs">
@@ -799,7 +856,7 @@ body{
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand"><h3>长沙理工大学 · 理论力学研究平台</h3><p>致力于为工程力学教育提供全方位数字化支撑。</p><p>集知识学习、机构演示、AI智能问答于一体，助力每一位力学学子的成长。</p><p style="margin-top:8px;font-size:0.8em">📍 湖南省长沙市天心区万家丽南路二段960号</p></div>
-    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="mindmap.html">知识图谱</a><a href="ai_qa.html">AI智能问答</a></div>
+    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="mindmap.html">知识图谱</a><a href="hall.html">虚拟展厅</a><a href="ai_qa.html">AI智能问答</a></div>
     <div class="footer-col"><h4>关于我们</h4><a href="about.html">平台介绍</a><a href="contact.html">联系我们</a><a href="forum.html">问题探讨</a><a href="help.html">使用帮助</a></div>
     <div class="footer-col"><h4>更多</h4><a href="account.html">个人账户</a><a href="search.html">功能搜索</a><a href="feedback.html">意见反馈</a></div>
   </div>
@@ -807,6 +864,18 @@ body{
 </footer>
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- 虚拟展厅全屏内嵌层：iframe 的 src 在第一次点击时才写入，避免拖慢首页加载 -->
+<div class="vh-overlay" id="vhOverlay">
+  <div class="vh-frame-wrap">
+    <div class="vh-bar">
+      <span class="vh-title">🏛️ 虚拟展厅 · 理论力学</span>
+      <a class="vh-open" href="hall.html" target="_blank" rel="noopener">在新标签页打开 ↗</a>
+      <button class="vh-close" onclick="closeVirtualHall()">✕ 返回首页</button>
+    </div>
+    <iframe id="vhFrame" title="虚拟展厅" allow="fullscreen"></iframe>
+  </div>
+</div>
 
 <script>
 // 打开"理论力学题库"（确保 8090 题库服务器运行后跳转；file:// 主页也能调用 8080 接口）
@@ -879,6 +948,27 @@ window.addEventListener('scroll',()=>{
       var target=document.querySelector('.hall-panel[data-panel="'+btn.dataset.tab+'"]');
       if(target)target.classList.add('active');
     });
+  });
+})();
+
+// ===== 3D 虚拟展厅：全屏内嵌 hall.html（首次点击才加载 iframe）=====
+(function(){
+  var overlay=document.getElementById('vhOverlay');
+  var frame=document.getElementById('vhFrame');
+  if(!overlay||!frame)return;
+  window.openVirtualHall=function(){
+    if(!frame.getAttribute('src'))frame.setAttribute('src','hall.html');
+    overlay.classList.add('show');
+    document.body.classList.add('vh-open');
+    // 展厅里要用鼠标环视，先把首页的滚动锁住，退出时再恢复
+    try{frame.focus();}catch(e){}
+  };
+  window.closeVirtualHall=function(){
+    overlay.classList.remove('show');
+    document.body.classList.remove('vh-open');
+  };
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('show'))window.closeVirtualHall();
   });
 })();
 </script>

@@ -47,6 +47,15 @@ a.ktree-module-header:hover::after{opacity:1;transform:translateX(4px)}
 .ktopic-link:hover{background:var(--primary);color:#fff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(26,86,219,0.25)}
 .ktopic-link::after{content:' ↗';font-size:0.85em;opacity:0.7}
 
+/* ===== 从「知识图谱」跳转过来时的定位高亮 =====
+   锚点 id 常量：kp-root / kp-{statics|kinematics|dynamics|analytical} / kp-{s1..s5,k1..k4,d1..d4,a1..a5} / kp-{叶子 id，如 s2d}
+   这套 id 与 mindmap.html 的节点 id 一一对应，两边改动需同步 */
+@keyframes kpGlow{0%,55%{box-shadow:0 0 0 7px rgba(240,160,48,0.5)}100%{box-shadow:0 0 0 0 rgba(240,160,48,0)}}
+.kp-flash{animation:kpGlow 2.6s ease-out 1;position:relative;z-index:2}
+a.ktopic-link.kp-flash{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-1px)}
+.ktree-topic.kp-flash{outline:3px solid var(--accent);outline-offset:4px;border-radius:8px}
+.ktree-module.kp-flash{outline:3px solid var(--accent);outline-offset:3px}
+
 /* Relations diagram */
 .relation-diagram{text-align:center;margin:40px 0;padding:32px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
 .relation-diagram h3{margin-bottom:24px;font-size:1.3em}
@@ -140,50 +149,50 @@ a.ktree-module-header:hover::after{opacity:1;transform:translateX(4px)}
   </div>
 
   <!-- Knowledge Tree -->
-  <div class="ktree">
+  <div class="ktree" id="kp-root">
     <div class="ktree-root">理论力学 · 知识体系</div>
     <p style="text-align:center;font-size:0.8em;color:var(--text-lighter);margin-bottom:24px">💡 <strong>点击模块标题</strong>（如 <span style="color:var(--primary);font-weight:700">📐 第一篇：静力学 →</span>）可跳转到对应知识框架详细页面；蓝色标签 <span style="color:var(--primary);border:1px solid var(--primary);border-radius:6px;padding:1px 6px;font-size:0.9em">力的定义 ↗</span> 可跳转到详细知识框架中对应章节</p>
 
     <div class="ktree-level">
-      <div class="ktree-module">
+      <div class="ktree-module" id="kp-statics">
         <a href="textbooks/statics/textbook.html" class="ktree-module-header s1" title="点击进入静力学知识框架">📐 第一篇：静力学</a>
         <div class="ktree-module-body">
-          <div class="ktree-topic"><h5>力的基本概念</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m3" class="ktopic-link" title="跳转到：力的三要素与单位">力的定义与三要素</a><a href="textbooks/statics/textbook.html?target=m6" class="ktopic-link" title="跳转到：什么是刚体模型">刚体模型</a><a href="textbooks/statics/textbook.html?target=m12" class="ktopic-link" title="跳转到：力的可传性原理">力的可传性</a><a href="textbooks/statics/textbook.html?target=m31" class="ktopic-link" title="跳转到：静力学公理总览与学习地位">静力学公理</a></div></div>
-          <div class="ktree-topic"><h5>力的运算与简化</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m17" class="ktopic-link" title="跳转到：平面力的正交分解">力的分解与投影</a><a href="textbooks/statics/textbook.html?target=m21" class="ktopic-link" title="跳转到：什么是力矩">力矩与力臂</a><a href="textbooks/statics/textbook.html?target=m37" class="ktopic-link" title="跳转到：力的平移定理：内容与图解">力的平移定理</a></div></div>
-          <div class="ktree-topic"><h5>约束与受力分析</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m26" class="ktopic-link" title="跳转到：什么是力偶">力偶</a><a href="textbooks/statics/textbook.html?target=m27" class="ktopic-link" title="跳转到：约束与约束反力">约束类型</a><a href="textbooks/statics/textbook.html?target=m28" class="ktopic-link" title="跳转到：怎样画受力图">受力图画法</a></div></div>
-          <div class="ktree-topic"><h5>力系的平衡</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m51" class="ktopic-link" title="跳转到：平面任意力系的概念与分类">平面任意力系</a><a href="textbooks/statics/textbook.html?target=m56" class="ktopic-link" title="跳转到：空间力系的概念与空间力分解">空间力系</a><a href="textbooks/statics/textbook.html?target=m61" class="ktopic-link" title="跳转到：物体系平衡的概念与分析层次">物体系平衡</a><a href="textbooks/statics/textbook.html?target=m66" class="ktopic-link" title="跳转到：平面桁架基本假设与杆件轴力">平面桁架</a></div></div>
-          <div class="ktree-topic"><h5>摩擦</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m77" class="ktopic-link" title="跳转到：滑动摩擦的概念、分类与产生条件">滑动摩擦</a><a href="textbooks/statics/textbook.html?target=m82" class="ktopic-link" title="跳转到：摩擦角的定义与几何意义">摩擦角</a><a href="textbooks/statics/textbook.html?target=m87" class="ktopic-link" title="跳转到：自锁的概念与判断思路">自锁</a><a href="textbooks/statics/textbook.html?target=m92" class="ktopic-link" title="跳转到：滚动摩阻的概念与形成机理">滚动摩阻</a></div></div>
+          <div class="ktree-topic" id="kp-s1"><h5>力的基本概念</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m3" id="kp-s1a" class="ktopic-link" title="跳转到：力的三要素与单位">力的定义与三要素</a><a href="textbooks/statics/textbook.html?target=m6" id="kp-s1b" class="ktopic-link" title="跳转到：什么是刚体模型">刚体模型</a><a href="textbooks/statics/textbook.html?target=m12" id="kp-s1c" class="ktopic-link" title="跳转到：力的可传性原理">力的可传性</a><a href="textbooks/statics/textbook.html?target=m31" id="kp-s1d" class="ktopic-link" title="跳转到：静力学公理总览与学习地位">静力学公理</a></div></div>
+          <div class="ktree-topic" id="kp-s2"><h5>力的运算与简化</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m17" id="kp-s2a" class="ktopic-link" title="跳转到：平面力的正交分解">力的分解与投影</a><a href="textbooks/statics/textbook.html?target=m21" id="kp-s2b" class="ktopic-link" title="跳转到：什么是力矩">力矩与力臂</a><a href="textbooks/statics/textbook.html?target=m37" id="kp-s2d" class="ktopic-link" title="跳转到：力的平移定理：内容与图解">力的平移定理</a></div></div>
+          <div class="ktree-topic" id="kp-s3"><h5>约束与受力分析</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m26" id="kp-s2c" class="ktopic-link" title="跳转到：什么是力偶">力偶</a><a href="textbooks/statics/textbook.html?target=m27" id="kp-s3a" class="ktopic-link" title="跳转到：约束与约束反力">约束类型</a><a href="textbooks/statics/textbook.html?target=m28" id="kp-s3b" class="ktopic-link" title="跳转到：怎样画受力图">受力图画法</a></div></div>
+          <div class="ktree-topic" id="kp-s4"><h5>力系的平衡</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m51" id="kp-s4a" class="ktopic-link" title="跳转到：平面任意力系的概念与分类">平面任意力系</a><a href="textbooks/statics/textbook.html?target=m56" id="kp-s4b" class="ktopic-link" title="跳转到：空间力系的概念与空间力分解">空间力系</a><a href="textbooks/statics/textbook.html?target=m61" id="kp-s4c" class="ktopic-link" title="跳转到：物体系平衡的概念与分析层次">物体系平衡</a><a href="textbooks/statics/textbook.html?target=m66" id="kp-s4d" class="ktopic-link" title="跳转到：平面桁架基本假设与杆件轴力">平面桁架</a></div></div>
+          <div class="ktree-topic" id="kp-s5"><h5>摩擦</h5><div class="subtopics"><a href="textbooks/statics/textbook.html?target=m77" id="kp-s5a" class="ktopic-link" title="跳转到：滑动摩擦的概念、分类与产生条件">滑动摩擦</a><a href="textbooks/statics/textbook.html?target=m82" id="kp-s5b" class="ktopic-link" title="跳转到：摩擦角的定义与几何意义">摩擦角</a><a href="textbooks/statics/textbook.html?target=m87" id="kp-s5c" class="ktopic-link" title="跳转到：自锁的概念与判断思路">自锁</a><a href="textbooks/statics/textbook.html?target=m92" id="kp-s5d" class="ktopic-link" title="跳转到：滚动摩阻的概念与形成机理">滚动摩阻</a></div></div>
         </div>
       </div>
 
-      <div class="ktree-module">
+      <div class="ktree-module" id="kp-kinematics">
         <a href="textbooks/kinematics/index.html" class="ktree-module-header s2" title="点击进入运动学知识框架">🏃 第二篇：运动学</a>
         <div class="ktree-module-body">
-          <div class="ktree-topic"><h5>点的运动学</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p1m1" class="ktopic-link" title="跳转到：矢量法">矢量法</a><a href="textbooks/kinematics/index.html?target=p1m2" class="ktopic-link" title="跳转到：直角坐标法">直角坐标法</a><a href="textbooks/kinematics/index.html?target=p1m3" class="ktopic-link" title="跳转到：自然法">自然法</a><a href="textbooks/kinematics/index.html?target=p1m4" class="ktopic-link" title="跳转到：切向/法向加速度">切向/法向加速度</a></div></div>
-          <div class="ktree-topic"><h5>刚体的基本运动</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p2m1" class="ktopic-link" title="跳转到：平动">平动</a><a href="textbooks/kinematics/index.html?target=p2m2" class="ktopic-link" title="跳转到：定轴转动">定轴转动</a><a href="textbooks/kinematics/index.html?target=p2m3" class="ktopic-link" title="跳转到：角速度/角加速度">角速度/角加速度</a></div></div>
-          <div class="ktree-topic"><h5>点的合成运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p3m1" class="ktopic-link" title="跳转到：动点/动系选择">动点/动系选择</a><a href="textbooks/kinematics/index.html?target=p3m2" class="ktopic-link" title="跳转到：速度合成">速度合成 vₐ=vₑ+vᵣ</a><a href="textbooks/kinematics/index.html?target=p3m3" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a><a href="textbooks/kinematics/index.html?target=p3m4" class="ktopic-link" title="跳转到：科氏加速度">科氏加速度</a></div></div>
-          <div class="ktree-topic"><h5>刚体平面运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p4m1" class="ktopic-link" title="跳转到：基点法">基点法</a><a href="textbooks/kinematics/index.html?target=p4m2" class="ktopic-link" title="跳转到：速度投影法">速度投影法</a><a href="textbooks/kinematics/index.html?target=p4m3" class="ktopic-link" title="跳转到：瞬心法">瞬心法</a><a href="textbooks/kinematics/index.html?target=p4m4" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a></div></div>
+          <div class="ktree-topic" id="kp-k1"><h5>点的运动学</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p1m1" id="kp-k1a" class="ktopic-link" title="跳转到：矢量法">矢量法</a><a href="textbooks/kinematics/index.html?target=p1m2" id="kp-k1b" class="ktopic-link" title="跳转到：直角坐标法">直角坐标法</a><a href="textbooks/kinematics/index.html?target=p1m3" id="kp-k1c" class="ktopic-link" title="跳转到：自然法">自然法</a><a href="textbooks/kinematics/index.html?target=p1m4" id="kp-k1d" class="ktopic-link" title="跳转到：切向/法向加速度">切向/法向加速度</a></div></div>
+          <div class="ktree-topic" id="kp-k2"><h5>刚体的基本运动</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p2m1" id="kp-k2a" class="ktopic-link" title="跳转到：平动">平动</a><a href="textbooks/kinematics/index.html?target=p2m2" id="kp-k2b" class="ktopic-link" title="跳转到：定轴转动">定轴转动</a><a href="textbooks/kinematics/index.html?target=p2m3" id="kp-k2c" class="ktopic-link" title="跳转到：角速度/角加速度">角速度/角加速度</a></div></div>
+          <div class="ktree-topic" id="kp-k3"><h5>点的合成运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p3m1" id="kp-k3a" class="ktopic-link" title="跳转到：动点/动系选择">动点/动系选择</a><a href="textbooks/kinematics/index.html?target=p3m2" id="kp-k3b" class="ktopic-link" title="跳转到：速度合成">速度合成 vₐ=vₑ+vᵣ</a><a href="textbooks/kinematics/index.html?target=p3m3" id="kp-k3c" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a><a href="textbooks/kinematics/index.html?target=p3m4" id="kp-k3d" class="ktopic-link" title="跳转到：科氏加速度">科氏加速度</a></div></div>
+          <div class="ktree-topic" id="kp-k4"><h5>刚体平面运动 ★</h5><div class="subtopics"><a href="textbooks/kinematics/index.html?target=p4m1" id="kp-k4a" class="ktopic-link" title="跳转到：基点法">基点法</a><a href="textbooks/kinematics/index.html?target=p4m2" id="kp-k4b" class="ktopic-link" title="跳转到：速度投影法">速度投影法</a><a href="textbooks/kinematics/index.html?target=p4m3" id="kp-k4c" class="ktopic-link" title="跳转到：瞬心法">瞬心法</a><a href="textbooks/kinematics/index.html?target=p4m4" id="kp-k4d" class="ktopic-link" title="跳转到：加速度合成">加速度合成</a></div></div>
         </div>
       </div>
 
-      <div class="ktree-module">
+      <div class="ktree-module" id="kp-dynamics">
         <a href="textbooks/dynamics/index.html" class="ktree-module-header s3" title="点击进入动力学知识框架">🚀 第三篇：动力学</a>
         <div class="ktree-module-body">
-          <div class="ktree-topic"><h5>质点动力学</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn1-1" class="ktopic-link" title="跳转到：牛顿第二定律">牛顿第二定律</a><a href="textbooks/dynamics/index.html?target=dyn1-2" class="ktopic-link" title="跳转到：运动微分方程">运动微分方程</a><a href="textbooks/dynamics/index.html?target=dyn1-3" class="ktopic-link" title="跳转到：两类问题">两类问题</a></div></div>
-          <div class="ktree-topic"><h5>动量定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn2-1" class="ktopic-link" title="跳转到：动量与冲量">动量与冲量</a><a href="textbooks/dynamics/index.html?target=dyn2-2" class="ktopic-link" title="跳转到：质心运动定理">质心运动定理</a><a href="textbooks/dynamics/index.html?target=dyn2-3" class="ktopic-link" title="跳转到：变质量系统">变质量系统</a></div></div>
-          <div class="ktree-topic"><h5>动量矩定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn3-1" class="ktopic-link" title="跳转到：转动惯量">转动惯量</a><a href="textbooks/dynamics/index.html?target=dyn3-2" class="ktopic-link" title="跳转到：定轴转动方程">定轴转动方程</a><a href="textbooks/dynamics/index.html?target=dyn3-3" class="ktopic-link" title="跳转到：平面运动微分方程">平面运动微分方程</a></div></div>
-          <div class="ktree-topic"><h5>动能定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn4-1" class="ktopic-link" title="跳转到：功与动能">功与动能</a><a href="textbooks/dynamics/index.html?target=dyn4-2" class="ktopic-link" title="跳转到：动能定理">动能定理</a><a href="textbooks/dynamics/index.html?target=dyn4-3" class="ktopic-link" title="跳转到：机械能守恒">机械能守恒</a><a href="textbooks/dynamics/index.html?target=dyn4-4" class="ktopic-link" title="跳转到：普遍定理综合">普遍定理综合</a></div></div>
+          <div class="ktree-topic" id="kp-d1"><h5>质点动力学</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn1-1" id="kp-d1a" class="ktopic-link" title="跳转到：牛顿第二定律">牛顿第二定律</a><a href="textbooks/dynamics/index.html?target=dyn1-2" id="kp-d1b" class="ktopic-link" title="跳转到：运动微分方程">运动微分方程</a><a href="textbooks/dynamics/index.html?target=dyn1-3" id="kp-d1c" class="ktopic-link" title="跳转到：两类问题">两类问题</a></div></div>
+          <div class="ktree-topic" id="kp-d2"><h5>动量定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn2-1" id="kp-d2a" class="ktopic-link" title="跳转到：动量与冲量">动量与冲量</a><a href="textbooks/dynamics/index.html?target=dyn2-2" id="kp-d2b" class="ktopic-link" title="跳转到：质心运动定理">质心运动定理</a><a href="textbooks/dynamics/index.html?target=dyn2-3" id="kp-d2c" class="ktopic-link" title="跳转到：变质量系统">变质量系统</a></div></div>
+          <div class="ktree-topic" id="kp-d3"><h5>动量矩定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn3-1" id="kp-d3a" class="ktopic-link" title="跳转到：转动惯量">转动惯量</a><a href="textbooks/dynamics/index.html?target=dyn3-2" id="kp-d3b" class="ktopic-link" title="跳转到：定轴转动方程">定轴转动方程</a><a href="textbooks/dynamics/index.html?target=dyn3-3" id="kp-d3c" class="ktopic-link" title="跳转到：平面运动微分方程">平面运动微分方程</a></div></div>
+          <div class="ktree-topic" id="kp-d4"><h5>动能定理</h5><div class="subtopics"><a href="textbooks/dynamics/index.html?target=dyn4-1" id="kp-d4a" class="ktopic-link" title="跳转到：功与动能">功与动能</a><a href="textbooks/dynamics/index.html?target=dyn4-2" id="kp-d4b" class="ktopic-link" title="跳转到：动能定理">动能定理</a><a href="textbooks/dynamics/index.html?target=dyn4-3" id="kp-d4c" class="ktopic-link" title="跳转到：机械能守恒">机械能守恒</a><a href="textbooks/dynamics/index.html?target=dyn4-4" id="kp-d4d" class="ktopic-link" title="跳转到：普遍定理综合">普遍定理综合</a></div></div>
         </div>
       </div>
 
-      <div class="ktree-module">
+      <div class="ktree-module" id="kp-analytical">
         <a href="textbooks/analytical/index.html" class="ktree-module-header s4" title="点击进入分析力学知识框架">🔬 第四篇：分析力学</a>
         <div class="ktree-module-body">
-          <div class="ktree-topic"><h5>达朗贝尔原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=inertia-force" class="ktopic-link" title="跳转到：惯性力">惯性力</a><a href="textbooks/analytical/index.html?target=kinetostatic" class="ktopic-link" title="跳转到：动静法">动静法</a><a href="textbooks/analytical/index.html?target=rigid-inertia-system" class="ktopic-link" title="跳转到：刚体惯性力系简化">刚体惯性力系简化</a></div></div>
-          <div class="ktree-topic"><h5>虚位移原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=constraints" class="ktopic-link" title="跳转到：约束分类">约束分类</a><a href="textbooks/analytical/index.html?target=virtual-displacement-work" class="ktopic-link" title="跳转到：虚位移/虚功">虚位移/虚功</a><a href="textbooks/analytical/index.html?target=ideal-constraint" class="ktopic-link" title="跳转到：理想约束">理想约束</a><a href="textbooks/analytical/index.html?target=generalized-force" class="ktopic-link" title="跳转到：广义力">广义力</a></div></div>
-          <div class="ktree-topic"><h5>拉格朗日方程</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=general-dynamics-equation" class="ktopic-link" title="跳转到：动力学普遍方程">动力学普遍方程</a><a href="textbooks/analytical/index.html?target=lagrange-second-kind" class="ktopic-link" title="跳转到：第二类拉格朗日方程">第二类拉格朗日方程</a><a href="textbooks/analytical/index.html?target=energy-integral" class="ktopic-link" title="跳转到：能量积分">能量积分</a><a href="textbooks/analytical/index.html?target=cyclic-integral" class="ktopic-link" title="跳转到：循环积分">循环积分</a></div></div>
-          <div class="ktree-topic"><h5>振动</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=sdof-free" class="ktopic-link" title="跳转到：单自由度系统自由振动">单自由度系统自由振动</a><a href="textbooks/analytical/index.html?target=sdof-forced" class="ktopic-link" title="跳转到：单自由度系统受迫振动">单自由度系统受迫振动</a><a href="textbooks/analytical/index.html?target=two-dof-vibration" class="ktopic-link" title="跳转到：两自由度系统振动">两自由度系统振动</a><a href="textbooks/analytical/index.html?target=multi-dof-vibration" class="ktopic-link" title="跳转到：多自由度系统（拓展）">多自由度系统</a><a href="textbooks/analytical/index.html?target=rigid-small-oscillation" class="ktopic-link" title="跳转到：刚体微幅振荡">刚体微幅振荡</a></div></div>
-          <div class="ktree-topic"><h5>碰撞</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=collision-concept" class="ktopic-link" title="跳转到：碰撞概念">碰撞概念</a><a href="textbooks/analytical/index.html?target=particle-collision" class="ktopic-link" title="跳转到：质点碰撞">质点碰撞</a><a href="textbooks/analytical/index.html?target=rigid-collision" class="ktopic-link" title="跳转到：刚体碰撞">刚体碰撞</a><a href="textbooks/analytical/index.html?target=collision-energy" class="ktopic-link" title="跳转到：碰撞能量">碰撞能量</a></div></div>
+          <div class="ktree-topic" id="kp-a1"><h5>达朗贝尔原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=inertia-force" id="kp-a1a" class="ktopic-link" title="跳转到：惯性力">惯性力</a><a href="textbooks/analytical/index.html?target=kinetostatic" id="kp-a1b" class="ktopic-link" title="跳转到：动静法">动静法</a><a href="textbooks/analytical/index.html?target=rigid-inertia-system" id="kp-a1c" class="ktopic-link" title="跳转到：刚体惯性力系简化">刚体惯性力系简化</a></div></div>
+          <div class="ktree-topic" id="kp-a2"><h5>虚位移原理</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=constraints" id="kp-a2a" class="ktopic-link" title="跳转到：约束分类">约束分类</a><a href="textbooks/analytical/index.html?target=virtual-displacement-work" id="kp-a2b" class="ktopic-link" title="跳转到：虚位移/虚功">虚位移/虚功</a><a href="textbooks/analytical/index.html?target=ideal-constraint" id="kp-a2c" class="ktopic-link" title="跳转到：理想约束">理想约束</a><a href="textbooks/analytical/index.html?target=generalized-force" id="kp-a2d" class="ktopic-link" title="跳转到：广义力">广义力</a></div></div>
+          <div class="ktree-topic" id="kp-a3"><h5>拉格朗日方程</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=general-dynamics-equation" id="kp-a3a" class="ktopic-link" title="跳转到：动力学普遍方程">动力学普遍方程</a><a href="textbooks/analytical/index.html?target=lagrange-second-kind" id="kp-a3b" class="ktopic-link" title="跳转到：第二类拉格朗日方程">第二类拉格朗日方程</a><a href="textbooks/analytical/index.html?target=energy-integral" id="kp-a3c" class="ktopic-link" title="跳转到：能量积分">能量积分</a><a href="textbooks/analytical/index.html?target=cyclic-integral" id="kp-a3d" class="ktopic-link" title="跳转到：循环积分">循环积分</a></div></div>
+          <div class="ktree-topic" id="kp-a4"><h5>振动</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=sdof-free" id="kp-a4a" class="ktopic-link" title="跳转到：单自由度系统自由振动">单自由度系统自由振动</a><a href="textbooks/analytical/index.html?target=sdof-forced" id="kp-a4b" class="ktopic-link" title="跳转到：单自由度系统受迫振动">单自由度系统受迫振动</a><a href="textbooks/analytical/index.html?target=two-dof-vibration" id="kp-a4c" class="ktopic-link" title="跳转到：两自由度系统振动">两自由度系统振动</a><a href="textbooks/analytical/index.html?target=multi-dof-vibration" id="kp-a4d" class="ktopic-link" title="跳转到：多自由度系统（拓展）">多自由度系统</a><a href="textbooks/analytical/index.html?target=rigid-small-oscillation" id="kp-a4e" class="ktopic-link" title="跳转到：刚体微幅振荡">刚体微幅振荡</a></div></div>
+          <div class="ktree-topic" id="kp-a5"><h5>碰撞</h5><div class="subtopics"><a href="textbooks/analytical/index.html?target=collision-concept" id="kp-a5a" class="ktopic-link" title="跳转到：碰撞概念">碰撞概念</a><a href="textbooks/analytical/index.html?target=particle-collision" id="kp-a5b" class="ktopic-link" title="跳转到：质点碰撞">质点碰撞</a><a href="textbooks/analytical/index.html?target=rigid-collision" id="kp-a5c" class="ktopic-link" title="跳转到：刚体碰撞">刚体碰撞</a><a href="textbooks/analytical/index.html?target=collision-energy" id="kp-a5d" class="ktopic-link" title="跳转到：碰撞能量">碰撞能量</a></div></div>
         </div>
       </div>
     </div>
@@ -294,6 +303,27 @@ function toggleCard(cardId) {
   var card = document.getElementById(cardId);
   card.classList.toggle('open');
 }
+
+// ===== 从「知识图谱」(mindmap.html) 跳转过来时：滚动到对应知识点并高亮 =====
+// URL 形如 knowledge_framework.html#kp-s2d，其中 s2d 就是知识图谱里那个节点的 id
+(function(){
+  var m = (location.hash||'').match(/^#kp-(.+)$/);
+  if (!m) return;
+  var id = 'kp-' + decodeURIComponent(m[1]);
+  function locate(){
+    var el = document.getElementById(id);
+    if (!el) return false;
+    var card = el.closest('.interact-card');       // 若落在可折叠卡片里，先展开
+    if (card) card.classList.add('open');
+    el.scrollIntoView({block:'center', behavior:'smooth'});
+    el.classList.add('kp-flash');
+    setTimeout(function(){ el.classList.remove('kp-flash'); }, 3000);
+    return true;
+  }
+  // 字体/图片加载会改变布局位置，多试几次确保最终停在目标上
+  setTimeout(locate, 200);
+  window.addEventListener('load', function(){ setTimeout(locate, 300); });
+})();
 </script>
 </body>
 </html>

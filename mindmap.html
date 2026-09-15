@@ -4,6 +4,12 @@
 <script src="js/auth.js"></script>
 <script src="js/three.min.js"></script>
 <script src="js/mindmap_nodes.js"></script>
+<!-- 纯数据文件（只挂 window.FULL_COURSE / SITE_LINKS / CONCEPT_LINKS，无任何 DOM 操作）：
+     用来复现 personal_knowledge.html「知识节点」那套知识点跳转规则 -->
+<script src="js/course_framework.js"></script>
+<!-- 生成的映射表：给「个人知识网络」注入的那批节点补上精确落点（第三节标题级、第四节正文级）。
+     详见 js/kp_links.js 头部注释。 -->
+<script src="js/kp_links.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +37,7 @@ body.panning{cursor:grabbing}
 
 /* 标签是三维坐标投影到屏幕的 DOM 浮层——天然正对镜头，转到任何角度都清晰可读 */
 .node-wrap{position:absolute;top:0;left:0;transform-origin:0 0;pointer-events:auto;cursor:pointer;will-change:transform}
-.node-face{display:inline-block;transition:filter 0.3s}
+.node-face{display:inline-block;position:relative;transition:filter 0.3s}
 .node-wrap:hover .node-face{filter:brightness(1.3)}
 .node-wrap .pill{padding:7px 16px;border-radius:22px;font-weight:700;text-align:center;white-space:nowrap;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);border:2px solid transparent;position:relative;display:inline-block}
 .node-wrap:hover .pill{transform:scale(1.08)}
@@ -71,6 +77,18 @@ body.panning{cursor:grabbing}
 .node-wrap.leaf .pill::after{content:' ↗';font-size:0.8em;opacity:0.4;margin-left:3px}
 .node-wrap.leaf .pill{cursor:pointer}
 
+/* 节点 → 对应知识点 的跳转徽标：悬停节点时右上角浮出，点它直达那个知识点 */
+.node-wrap .kf-jump{position:absolute;top:-7px;right:-7px;width:17px;height:17px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:9px;line-height:1;
+  background:rgba(240,160,48,0.92);color:#1a1206;text-decoration:none;font-weight:700;
+  opacity:0;transform:scale(0.5);transition:opacity 0.2s ease,transform 0.2s ease;
+  pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.55)}
+.node-wrap:hover .kf-jump{opacity:1;transform:scale(1);pointer-events:auto}
+.node-wrap .kf-jump:hover{background:#f0a030;transform:scale(1.3)}
+/* 站内没有这个知识点：徽标换成蓝色，点了是去 AI 问答提问 */
+.node-wrap .kf-jump.to-ai{background:rgba(96,165,250,0.95);color:#06121f}
+.node-wrap .kf-jump.to-ai:hover{background:#60a5fa}
+
 /* Tooltip */
 #tooltip{position:fixed;z-index:20;pointer-events:none;
   background:rgba(10,16,28,0.95);border:1px solid rgba(100,116,139,0.3);border-radius:10px;
@@ -78,6 +96,8 @@ body.panning{cursor:grabbing}
   box-shadow:0 8px 32px rgba(0,0,0,0.6);backdrop-filter:blur(8px)}
 #tooltip .tt-title{font-weight:700;color:#fbbf24;margin-bottom:4px}
 #tooltip .tt-desc{color:#94a3b8;font-size:11px}
+#tooltip .tt-jump{margin-top:6px;padding-top:6px;border-top:1px solid rgba(100,116,139,0.25);
+  color:#fbbf24;font-size:10.5px;letter-spacing:0.3px}
 
 /* Modal */
 .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.75);
@@ -111,6 +131,8 @@ body.panning{cursor:grabbing}
   text-decoration:none;font-size:0.88em;font-weight:700;transition:all 0.25s;
   box-shadow:0 4px 16px rgba(59,130,246,0.3)}
 .modal .link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(59,130,246,0.5);filter:brightness(1.15)}
+.modal .link-btn.ghost{background:transparent;color:#93c5fd;border:1px solid rgba(96,165,250,0.45);box-shadow:none}
+.modal .link-btn.ghost:hover{background:rgba(59,130,246,0.15);color:#fff;box-shadow:none}
 .modal .close-btn{position:absolute;top:14px;right:18px;background:rgba(100,116,139,0.15);
   border:none;color:#94a3b8;font-size:1.3em;cursor:pointer;width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;transition:all 0.2s}
@@ -170,7 +192,7 @@ body.panning{cursor:grabbing}
   <button onclick="collapseToLv(1)">📋 收起细节</button>
   <button onclick="resetView()">🔄 重置</button>
 </div>
-<div class="tip">🖱 拖动旋转 · 右键拖动平移 · 滚轮缩放 · 点击枝干展开 · 点击叶片查看详情</div>
+<div class="tip">🖱 拖动旋转 · 右键拖动平移 · 滚轮缩放 · 点击枝干展开 · 点击叶片查看详情 · 点节点右上角 🧭 直达对应知识点</div>
 
 <script>
 // ==================== STARFIELD BACKGROUND ====================
@@ -381,6 +403,59 @@ const TB_LINKS={
   a5c:'textbooks/analytical/index.html?target=rigid-collision',a5d:'textbooks/analytical/index.html?target=collision-energy',
 };
 
+// ==================== 节点 → 「站内对应的知识点」URL ====================
+// 落地优先级（每一级都比下一级更精确）：
+//   ① 节点自带的教材直链（叶子节点；与知识框架页蓝色标签的 href 逐条一致）
+//   ② 按名称查全站知识点表（js/course_framework.js 的 SITE_LINKS / CONCEPT_LINKS）
+//   ③ 生成的映射表 js/kp_links.js —— 靠「教材小节标题」或「本篇正文出现」定的位，
+//      给个人知识网络注入的那批节点补精确落点（带 ?target= 的落到具体小节）
+//   ④ 退到所属篇章的教材
+//   ⑤ 站内确实没有这部分内容 → 带着这个问题去 AI 智能问答提问
+// 注意：跳的是「知识点」本身，不再跳 knowledge_framework.html 那张体系图。
+const SECTION_BOOK=['textbooks/statics/textbook.html','textbooks/kinematics/index.html',
+                    'textbooks/dynamics/index.html','textbooks/analytical/index.html'];
+// FULL_COURSE 的课程节点用颜色标篇，与 personal_knowledge.html 的 SECTION_BOOK 同一套色值
+const HEX_BOOK={
+  '#06b6d4':'textbooks/statics/textbook.html',
+  '#3b82f6':'textbooks/kinematics/index.html',
+  '#22c55e':'textbooks/dynamics/index.html',
+  '#a855f7':'textbooks/analytical/index.html',
+  '#ec4899':'textbooks/analytical/index.html',
+  '#f59e0b':'textbooks/analytical/index.html'
+};
+function courseNodeOf(label){
+  const N=(window.FULL_COURSE&&FULL_COURSE.nodes)||[];
+  for(let i=0;i<N.length;i++){ if(N[i].label===label) return N[i]; }
+  return null;
+}
+// 每个节点属于哪一篇（0-3）。必须在 injectNetNodes() 之后调用，网络节点才在册。
+const NODE_SECTION={};
+function tagSections(){
+  treeData.children.forEach(function(sec,i){
+    (function walk(n){ NODE_SECTION[n.id]=i; (n.children||[]).forEach(walk); })(sec);
+  });
+}
+// 返回 {url, kind}：point=直达具体知识点 · section=退到该篇教材 · ai=站内没有，去问答
+function kpTargetFor(node){
+  if(!node) return {url:'index.html', kind:'point'};
+  const direct=node.isNet?null:TB_LINKS[node.id];                                   // ①
+  if(direct) return {url:direct, kind:'point'};
+  const byName=(window.SITE_LINKS||{})[node.label]||(window.CONCEPT_LINKS||{})[node.label];  // ②
+  if(byName) return {url:byName, kind:'point'};
+  const gen=(window.KP_LINKS||{})[node.label];                                      // ③
+  if(gen) return {url:gen.url, kind:gen.url.indexOf('?target=')>0?'point':'section'};
+  // ④ 个人知识网络注入的节点：上三级都没命中 = 四篇教材里确实没有这部分内容
+  //    （材料力学那些，以及陀螺仪/进动/泊松括号这类超纲的，都在这一批）
+  //    → 不再往教材首页硬塞，直接带着问题去 AI 问答
+  if(node.isNet) return {url:'ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced', kind:'ai'};
+  const cn=courseNodeOf(node.label);                                                // ⑤ 图谱自身的篇章/主题：退到该篇
+  if(cn&&HEX_BOOK[cn.color]) return {url:HEX_BOOK[cn.color], kind:'section'};
+  const sec=NODE_SECTION[node.id];
+  if(sec>=0&&sec!=null&&SECTION_BOOK[sec]) return {url:SECTION_BOOK[sec], kind:'section'};
+  return {url:'ai_qa.html?q='+encodeURIComponent(node.label)+'&mode=enhanced', kind:'ai'};
+}
+function kpUrlFor(node){ return kpTargetFor(node).url; }
+
 // ==================== 真三维树（three.js） ====================
 // 树干是真实的圆柱体（靠光照产生明暗过渡才有"筒状"体积感），
 // 枝条在 360° 方位上生长——转到前后左右任何角度都是一棵完整的树。
@@ -444,6 +519,7 @@ const STATUS_NAME={mastered:'已掌握',familiar:'较熟悉',learning:'学习中
     });
   });
 })();
+tagSections();      // 节点齐了，给每个节点登记所属篇章（kpTargetFor 的第 ③ 级兜底要用）
 
 // ==================== STATE ====================
 // 初始状态就是"全部展开"：打开即是满树知识点
@@ -531,7 +607,18 @@ function addLabel(node, pos3, depth, li){
   const lvCls=depth===0?'root':'lv'+Math.min(depth,3);
   const cCls=li>=0?' '+COLORS[li]:'';
   el.className='node-wrap '+lvCls+kidCls;
-  el.innerHTML='<span class="node-face"><span class="pill'+cCls+'">'+node.label+'</span></span>';
+  const kp=kpTargetFor(node);
+  const kpHint=kp.kind==='ai'?'站内暂无这个知识点，去 AI 问答提问：'
+              :(kp.kind==='section'?'到该篇教材中查看：':'直达知识点：');
+  el.innerHTML='<span class="node-face"><span class="pill'+cCls+'">'+node.label+'</span>'
+    +'<a class="kf-jump'+(kp.kind==='ai'?' to-ai':'')+'" href="'+kp.url+'" target="_blank" title="'+kpHint+node.label+'">'+(kp.kind==='ai'?'🤖':'🧭')+'</a>'
+    +'</span>';
+  const jumpEl=el.querySelector('.kf-jump');
+  jumpEl.addEventListener('click', function(e){    // 点徽标只跳转，不触发展开/弹窗
+    e.stopPropagation();
+    if(moved){ e.preventDefault(); return; }       // 刚才是拖动转树，不是点徽标
+    hideTT();
+  });
   el.addEventListener('click', function(e){
     e.stopPropagation();
     if(moved) return;                     // 刚才是拖动转树，不是点击
@@ -730,7 +817,9 @@ function showModal(node){
   const badgeCls=topSect.color>=0?BADGES[topSect.color]:'badge-s';
   const sectName=topSect.color>=0?SECTIONS[topSect.color]:'';
   const isNet=!!node.isNet;
-  const link=isNet?null:(TB_LINKS[node.id]||TB_LINKS['s1a']);
+  const kp=kpTargetFor(node);            // 站点里对应的知识点；站内没有则是 AI 问答提问
+  const kpLabel=kp.kind==='ai' ? '🤖 站内暂无 · 去 AI 问答提问 →'
+              : (kp.kind==='section' ? '🧭 到该篇教材中查看 →' : '🧭 直达知识点 →');
 
   let det='';
   if(isNet){
@@ -745,7 +834,9 @@ function showModal(node){
   document.getElementById('modalContent').innerHTML=
     '<h3>'+node.label+'<span class="badge '+badgeCls+'">'+sectName+'</span></h3>'
     +'<div class="breadcrumb">'+bc+'</div>'+det
-    +(link?'<div class="link-row"><a class="link-btn" href="'+link+'" target="_blank">📖 查看详细知识框架 →</a></div>':'');
+    +'<div class="link-row">'
+      +'<a class="link-btn'+(kp.kind==='ai'?' ghost':'')+'" href="'+kp.url+'" target="_blank">'+kpLabel+'</a>'
+    +'</div>';
   document.getElementById('modalOverlay').classList.add('show');
 }
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
@@ -754,14 +845,23 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function showTT(e,id){
   const n=findNode(treeData,id);if(!n)return;
   const tt=document.getElementById('tooltip');
-  const leafDetail=n.isNet?(n.note||''):(n.detail?n.detail.join(' · '):'');
-  if((!n.children||n.children.length===0)&&leafDetail){
-    tt.innerHTML='<div class="tt-title">'+n.label+'</div><div class="tt-desc">'+leafDetail+' · 点击查看详情</div>';
+  const leafDetail=n.isNet?(n.note||'来自个人知识网络的课程知识点'):(n.detail?n.detail.join(' · '):'');
+  const kpTT=kpTargetFor(n);
+  const jumpHint=kpTT.kind==='ai'
+    ? '<div class="tt-jump">🤖 站内暂无这个知识点 → 点右上角图标去 AI 问答提问</div>'
+    : '<div class="tt-jump">🧭 点右上角图标 → 直达'+(kpTT.kind==='section'?'该篇教材':'对应知识点')+'</div>';
+  const isLeaf=!n.children||n.children.length===0;
+  if(isLeaf){
+    tt.innerHTML='<div class="tt-title">'+n.label+'</div>'
+      +'<div class="tt-desc">'+(leafDetail?leafDetail+' · ':'')+'点击查看详情，弹窗内可直达知识点</div>'+jumpHint;
     tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px';
   }else if(n.desc){
-    tt.innerHTML='<div class="tt-title">'+n.label+'</div><div class="tt-desc">'+n.desc+' · 点击展开</div>';
+    tt.innerHTML='<div class="tt-title">'+n.label+'</div><div class="tt-desc">'+n.desc+' · 点击展开</div>'+jumpHint;
     tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px';
-  }else{tt.style.display='none'}
+  }else{
+    tt.innerHTML='<div class="tt-title">'+n.label+'</div>'+jumpHint;
+    tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-12)+'px';
+  }
 }
 function hideTT(){document.getElementById('tooltip').style.display='none'}
 

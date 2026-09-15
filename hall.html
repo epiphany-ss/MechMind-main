@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="js/auth.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/hall_data.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>虚拟展厅 - 长沙理工大学理论力学研究平台</title>
+<style>
+:root{
+  --accent:#3b82f6;
+  --hall-accent:#3b82f6;          /* 打开某个展馆时由脚本改写为该展馆主色 */
+  --ink:#e8eefc; --ink-dim:#93a7c4; --ink-dimmer:#6c7f9c;
+  --panel:#0d1526; --line:rgba(120,150,200,0.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+  background:#070c16; color:var(--ink); overflow:hidden;
+  -webkit-user-select:none; user-select:none;
+}
+#hallCanvas{position:fixed;inset:0;z-index:1}
+#hallCanvas canvas{display:block; cursor:crosshair}
+
+/* ===================== 加载 / 开始 ===================== */
+.cover{
+  position:fixed; inset:0; z-index:60; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:18px; text-align:center; padding:24px;
+  background:radial-gradient(700px 420px at 50% 40%,rgba(59,130,246,0.18),transparent 70%),#070c16;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.cover.hide{opacity:0; visibility:hidden; pointer-events:none}
+.cover .emblem{
+  width:88px;height:88px;border-radius:26px;display:flex;align-items:center;justify-content:center;
+  font-size:2.6em;background:linear-gradient(135deg,rgba(59,130,246,0.28),rgba(167,139,250,0.22));
+  border:1px solid rgba(96,165,250,0.4); box-shadow:0 0 60px rgba(59,130,246,0.3);
+}
+.cover h1{font-size:1.9em;font-weight:800;letter-spacing:6px}
+.cover p{color:var(--ink-dim);font-size:0.92em;line-height:1.9}
+.cover .keys{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.cover .keys b{
+  font-weight:700;font-size:0.78em;letter-spacing:1px;padding:6px 14px;border-radius:9px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--line);color:#cfe0ff;
+}
+.cover .go{
+  margin-top:10px;padding:14px 40px;border:none;border-radius:30px;cursor:pointer;
+  font-size:1em;font-weight:800;letter-spacing:2px;color:#fff;font-family:inherit;
+  background:linear-gradient(135deg,#1d4ed8,#3b82f6);box-shadow:0 8px 30px rgba(59,130,246,0.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.cover .go:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(59,130,246,0.6)}
+.spinner{width:26px;height:26px;border-radius:50%;border:3px solid rgba(150,180,230,0.25);border-top-color:#60a5fa;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===================== 顶栏 ===================== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:12px;padding:16px 20px;pointer-events:none}
+.topbar>*{pointer-events:auto}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;
+  font-weight:700;font-size:0.82em;text-decoration:none;color:#cbd5e1;
+  background:rgba(13,22,40,0.82);border:1px solid var(--line);backdrop-filter:blur(8px);
+  transition:all .2s;cursor:pointer;font-family:inherit;
+}
+.nav-btn:hover{background:rgba(59,130,246,0.22);border-color:#3b82f6;color:#fff;transform:translateY(-2px)}
+.nav-btn.home{background:rgba(59,130,246,0.85);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(59,130,246,0.35)}
+.nav-btn.home:hover{background:#3b82f6}
+.brandline{margin-left:auto;text-align:right;font-size:0.78em;color:var(--ink-dimmer);letter-spacing:1px;line-height:1.6}
+.brandline b{display:block;color:#dbe6fb;font-size:1.08em;letter-spacing:2px}
+
+/* ===================== 右侧导览目录 ===================== */
+.nav-panel{
+  position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:30;width:262px;
+  background:rgba(11,18,34,0.88);border:1px solid var(--line);border-radius:16px;
+  padding:14px 12px;backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,0.5);
+}
+.nav-panel h4{font-size:0.76em;color:var(--ink-dimmer);letter-spacing:2px;font-weight:700;
+  padding:0 6px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+#hallNavList{display:flex;flex-direction:column;gap:6px}
+#hallNavList button{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;cursor:pointer;
+  padding:10px 12px;border-radius:11px;border:1px solid transparent;background:rgba(255,255,255,0.035);
+  color:#cbd5e1;font-family:inherit;transition:all .2s;
+}
+#hallNavList button:hover{background:rgba(59,130,246,0.18);border-color:rgba(96,165,250,0.45);transform:translateX(-3px)}
+#hallNavList .ni{font-size:1.15em;flex-shrink:0}
+#hallNavList .nn{flex:1;min-width:0}
+#hallNavList .nn b{display:block;font-size:0.86em;font-weight:700;color:#e8eefc}
+#hallNavList .nn i{display:block;font-size:0.7em;color:var(--ink-dimmer);font-style:normal;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#hallNavList .nk{font-size:0.66em;color:var(--ink-dimmer);border:1px solid var(--line);
+  border-radius:5px;padding:1px 6px;flex-shrink:0}
+.nav-panel .hint{font-size:0.68em;color:var(--ink-dimmer);line-height:1.7;margin-top:12px;
+  padding-top:10px;border-top:1px solid var(--line)}
+
+/* ===================== 底部提示 / 准星 ===================== */
+.crosshair{position:fixed;left:50%;top:50%;z-index:20;width:6px;height:6px;margin:-3px 0 0 -3px;
+  border-radius:50%;background:rgba(255,255,255,0.75);box-shadow:0 0 8px rgba(255,255,255,0.6);pointer-events:none}
+.hintbar{position:fixed;left:20px;bottom:18px;z-index:30;font-size:0.72em;color:var(--ink-dimmer);
+  letter-spacing:0.5px;line-height:1.9;pointer-events:none}
+.hintbar b{color:#a9bcd8;font-weight:700}
+#hallPrompt{
+  position:fixed;left:50%;bottom:76px;transform:translate(-50%,14px);z-index:30;
+  padding:11px 26px;border-radius:26px;font-size:0.9em;color:#e8eefc;
+  background:rgba(11,18,34,0.9);border:1px solid rgba(96,165,250,0.45);
+  box-shadow:0 10px 34px rgba(0,0,0,0.55),0 0 0 1px rgba(255,255,255,0.04);
+  opacity:0;visibility:hidden;transition:all .25s ease;pointer-events:none;backdrop-filter:blur(10px);
+}
+#hallPrompt.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+#hallPrompt b{color:#fff}
+#hallForward{
+  position:fixed;right:20px;bottom:20px;z-index:30;display:none;
+  width:74px;height:74px;border-radius:50%;border:1px solid rgba(96,165,250,0.5);
+  background:rgba(29,78,216,0.5);color:#fff;font-size:0.74em;font-weight:800;letter-spacing:1px;
+  font-family:inherit;backdrop-filter:blur(8px);
+}
+body.touch #hallForward{display:block}
+/* 触屏没有空格键，另给一个跳跃键：跳起来能瞄一眼大型展品的顶部 */
+#hallJump{
+  position:fixed;right:20px;bottom:104px;z-index:30;display:none;
+  width:60px;height:60px;border-radius:50%;border:1px solid rgba(96,165,250,0.5);
+  background:rgba(29,78,216,0.4);color:#fff;font-size:0.72em;font-weight:800;letter-spacing:1px;
+  font-family:inherit;backdrop-filter:blur(8px);
+}
+body.touch #hallJump{display:block}
+
+/* ===================== 展馆内容弹层 ===================== */
+.panel{
+  position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;
+  background:rgba(4,8,16,0.78);backdrop-filter:blur(6px);padding:28px;
+}
+.panel.show{display:flex}
+.panel-box{
+  width:min(1080px,100%);max-height:88vh;display:flex;flex-direction:column;
+  background:linear-gradient(165deg,#101a30,#0b1220);
+  border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 30px 90px rgba(0,0,0,0.7);
+  animation:pop .3s cubic-bezier(.34,1.4,.64,1);
+}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.panel-head{
+  position:relative;padding:24px 30px;flex-shrink:0;
+  /* overflow 必须可见：磁吸时关闭按钮会跟着指针移出头部，裁掉就点不着了。
+     外框 .panel-box 自带 overflow:hidden + border-radius，圆角依旧。 */
+  border-bottom:1px solid var(--line);overflow:visible;
+}
+/* 用一层低透明度主色渐变做头部底色，避免依赖 color-mix() 的浏览器支持 */
+.panel-head::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:0.20;
+  background:linear-gradient(135deg,var(--hall-accent),transparent 72%);
+}
+.panel-head .row,.panel-head .bar{position:relative;z-index:1}
+.panel-head .row{display:flex;align-items:center;gap:16px}
+.panel-head .ic{font-size:2.3em;line-height:1}
+.panel-head h2{font-size:1.5em;font-weight:800;letter-spacing:2px;color:#fff}
+.panel-head p{font-size:0.84em;color:var(--ink-dim);margin-top:4px}
+.panel-head .bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--hall-accent)}
+.panel-close{
+  position:absolute;top:18px;right:22px;width:34px;height:34px;border-radius:50%;
+  border:none;background:rgba(255,255,255,0.08);color:#cbd5e1;font-size:1.15em;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;z-index:3;
+  /* 磁吸位移由 JS 逐帧插值，这里只过渡配色，别再过渡 transform（否则会和 JS 打架） */
+  transition:background .2s,color .2s,box-shadow .2s;
+  will-change:transform;
+}
+.panel-close:hover{background:rgba(239,68,68,0.28);color:#fca5a5}
+/* 热区：外观还是 34px 的圆，实际可点范围向外扩到约 76px，点偏一点也算命中 */
+.panel-close::after{content:'';position:absolute;inset:-21px;border-radius:50%}
+/* 磁吸光圈：指针进入吸附半径后浮现 */
+.panel-close::before{
+  content:'';position:absolute;inset:-9px;border-radius:50%;pointer-events:none;
+  border:1px dashed rgba(248,113,113,0.6);
+  opacity:0;transform:scale(.7);transition:opacity .18s ease,transform .18s ease;
+}
+.panel-close.magnet::before{opacity:1;transform:scale(1)}
+.panel-close.magnet{background:rgba(239,68,68,0.3);color:#fecaca;box-shadow:0 0 22px rgba(239,68,68,0.45)}
+.panel-close.lockon{box-shadow:0 0 0 3px rgba(248,113,113,0.3),0 0 30px rgba(239,68,68,0.75)}
+.panel-body{padding:26px 30px 32px;overflow-y:auto;flex:1}
+.panel-body::-webkit-scrollbar{width:7px}
+.panel-body::-webkit-scrollbar-thumb{background:rgba(120,150,200,0.3);border-radius:4px}
+
+/* --- 内容区块 --- */
+.hb-block{margin-bottom:30px}
+.hb-block:last-child{margin-bottom:0}
+.hb-title{
+  font-size:1.02em;font-weight:800;color:#fff;letter-spacing:1px;margin-bottom:14px;
+  display:flex;align-items:center;gap:9px;
+}
+.hb-title::before{content:'';width:4px;height:17px;border-radius:2px;background:var(--hall-accent);flex-shrink:0}
+.hb-p{font-size:0.9em;color:#bccce4;line-height:1.95}
+
+.hb-list{display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.hb-list>div{display:flex;gap:16px;padding:12px 18px;background:rgba(255,255,255,0.03)}
+.hb-list>div:nth-child(odd){background:rgba(255,255,255,0.055)}
+.hb-list dt{width:132px;flex-shrink:0;font-size:0.84em;font-weight:700;color:#8fa7c8}
+.hb-list dd{font-size:0.88em;color:#dbe6fb}
+
+.hb-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.hb-stat{
+  background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:13px;
+  padding:20px 14px;text-align:center;
+}
+.hb-stat .n{font-size:2em;font-weight:800;color:var(--hall-accent);line-height:1.1;letter-spacing:1px}
+.hb-stat .n i{font-size:0.34em;font-style:normal;margin-left:3px;color:#8fa7c8;letter-spacing:0}
+.hb-stat .l{font-size:0.76em;color:var(--ink-dimmer);margin-top:7px;letter-spacing:1px}
+
+.hb-timeline{list-style:none;position:relative;padding-left:26px}
+.hb-timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--hall-accent),rgba(120,150,200,0.15))}
+.hb-timeline li{position:relative;padding:0 0 22px}
+.hb-timeline li:last-child{padding-bottom:0}
+.hb-timeline li::before{content:'';position:absolute;left:-24px;top:7px;width:11px;height:11px;
+  border-radius:50%;background:var(--hall-accent);box-shadow:0 0 0 4px rgba(11,18,32,1),0 0 12px var(--hall-accent)}
+.hb-timeline .y{font-size:0.8em;font-weight:800;color:var(--hall-accent);letter-spacing:1px;margin-bottom:4px}
+.hb-timeline h4{font-size:0.92em;color:#fff;font-weight:700;margin-bottom:3px}
+.hb-timeline p{font-size:0.84em;color:#a9bcd8;line-height:1.8}
+
+.hb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px}
+.hb-card{
+  background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:14px;
+  padding:20px;transition:all .25s;
+}
+.hb-card:hover{transform:translateY(-3px);border-color:var(--hall-accent);
+  box-shadow:0 12px 30px rgba(0,0,0,0.35)}
+.hb-card .ic{font-size:1.9em;margin-bottom:9px;line-height:1}
+.hb-card h4{font-size:1em;color:#fff;font-weight:800;letter-spacing:1px}
+.hb-card .sub{font-size:0.76em;color:var(--hall-accent);margin:5px 0 10px;letter-spacing:0.5px}
+.hb-card p{font-size:0.83em;color:#a9bcd8;line-height:1.85}
+.hb-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.hb-card .tags span{font-size:0.68em;padding:3px 10px;border-radius:8px;
+  background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);color:#93c5fd}
+
+.hb-medals{display:flex;flex-direction:column;gap:11px}
+.hb-medal{
+  display:flex;align-items:center;gap:15px;padding:15px 19px;border-radius:13px;
+  background:linear-gradient(90deg,rgba(240,160,48,0.12),rgba(255,255,255,0.03));
+  border:1px solid rgba(240,160,48,0.26);transition:all .25s;
+}
+.hb-medal:hover{transform:translateX(4px);border-color:rgba(240,160,48,0.55)}
+.hb-medal .m-ic{font-size:1.7em;flex-shrink:0}
+.hb-medal h4{font-size:0.96em;color:#fff;font-weight:700}
+.hb-medal .m-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
+.hb-medal .m-meta span{font-size:0.7em;padding:2px 9px;border-radius:7px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--line);color:#a9bcd8}
+.hb-medal .m-meta .lv{background:rgba(240,160,48,0.18);border-color:rgba(240,160,48,0.4);color:#fbbf24;font-weight:700}
+
+@media(max-width:900px){
+  .nav-panel{display:none}
+  .brandline{display:none}
+  .hintbar{font-size:0.66em}
+  .hb-list dt{width:96px}
+  .panel{padding:12px}
+  .panel-head{padding:18px 20px}
+  .panel-head h2{font-size:1.2em}
+  .panel-body{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- 3D 场景挂载点 -->
+<div id="hallCanvas"></div>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <a href="index.html" class="nav-btn home">← 返回首页</a>
+  <button class="nav-btn" onclick="HALL_VIEW.go(HALL_DATA.halls[0].id)">📜 从第一馆开始</button>
+  <div class="brandline"><b>虚拟展厅</b>理论力学 · 长沙理工大学</div>
+</div>
+
+<!-- 右侧导览目录 -->
+<aside class="nav-panel">
+  <h4>展 馆 目 录</h4>
+  <div id="hallNavList"></div>
+  <div class="hint">点目录可直接前往对应展馆并展开内容；<br>也可以在展厅里走过去，按 <b>E</b> 查看。</div>
+</aside>
+
+<!-- 准星 / 提示 -->
+<div class="crosshair"></div>
+<div id="hallPrompt"></div>
+<div class="hintbar">
+  <b>W A S D</b> 走动 · <b>鼠标</b> 环视 · <b>Shift</b> 加速 · <b>空格</b> 跳跃 · <b>E</b> 查看展馆 · <b>Esc</b> 退出鼠标
+</div>
+<button id="hallForward">前进</button>
+<button id="hallJump">跳跃</button>
+
+<!-- 展馆内容弹层 -->
+<div class="panel" id="hallPanel">
+  <div class="panel-box">
+    <div class="panel-head">
+      <div class="bar"></div>
+      <div class="row">
+        <div class="ic" id="hpIcon">🏛️</div>
+        <div>
+          <h2 id="hpName">展馆</h2>
+          <p id="hpSub"></p>
+        </div>
+      </div>
+      <button class="panel-close" onclick="HALL_VIEW.close()" title="关闭 (Esc)">✕</button>
+    </div>
+    <div class="panel-body" id="hpBody"></div>
+  </div>
+</div>
+
+<!-- 进场遮罩：加载完成 + 点击开始漫游 -->
+<div class="cover" id="hallLoading">
+  <div class="emblem">🏛️</div>
+  <h1>虚拟展厅</h1>
+  <p>正在构建展厅…</p>
+  <div class="spinner"></div>
+</div>
+<div class="cover" id="hallStart">
+  <div class="emblem">🏛️</div>
+  <h1>虚拟展厅</h1>
+  <p>一间大厅，四面墙各挂一个展馆<br>走进去，按 E 打开它</p>
+  <div class="keys">
+    <b>W A S D 走动</b><b>鼠标 环视</b><b>Shift 加速</b><b>空格 跳跃</b><b>E 查看</b><b>Esc 释放鼠标</b>
+  </div>
+  <button class="go" id="hallStartBtn">点击进入展厅</button>
+</div>
+
+<script src="js/hall_engine.js"></script>
+<script>
+// 触屏设备：把“点击进入”按钮接到开始遮罩上
+(function(){
+  if('ontouchstart' in window) document.body.classList.add('touch');
+  var btn=document.getElementById('hallStartBtn');
+  var cover=document.getElementById('hallStart');
+  if(btn) btn.addEventListener('click', function(){ cover.classList.add('hide'); });
+})();
+
+/* 关闭按钮磁吸：指针靠近右上角 ✕ 时，按钮被“吸”向指针，越近吸得越紧；
+   再叠加 ::after 扩出来的热区，基本不会点不中。 */
+(function(){
+  var panel = document.getElementById('hallPanel');
+  var btn = panel && panel.querySelector('.panel-close');
+  if(!panel || !btn || 'ontouchstart' in window) return;   // 触屏没有 hover，交给热区
+
+  var R      = 130;   // 吸附半径(px)：指针进这个圈就开始吸
+  var PULL   = 0.8;   // 吸附强度：按钮朝指针方向靠拢的比例
+  var MAX    = 44;    // 最大位移(px)，别让按钮跑飞
+  var LOCKED = 34;    // 距离小于它算“吸住”，高亮提示
+
+  var on=false, mx=0, my=0;
+  var cx=0, cy=0, cs=1, raf=0;
+
+  // 按钮“未位移”时的中心点：offsetLeft/offsetTop 取的是布局位置，不受自身 transform 影响，
+  // 所以不会出现“按钮追指针、指针又追按钮”的回授抖动。
+  function base(){
+    var host = btn.offsetParent || panel;
+    var r = host.getBoundingClientRect();
+    return { x: r.left + btn.offsetLeft + btn.offsetWidth  / 2,
+             y: r.top  + btn.offsetTop  + btn.offsetHeight / 2 };
+  }
+
+  function want(){
+    if(!on) return { x:0, y:0, s:1, d:Infinity };
+    var b = base(), dx = mx - b.x, dy = my - b.y;
+    var d = Math.sqrt(dx*dx + dy*dy) || 0.001;
+    if(d > R) return { x:0, y:0, s:1, d:d };
+    var t = 1 - d / R;                    // 0 = 刚进圈，1 = 正在按钮上
+    var k = PULL * (0.55 + 0.45 * t);     // 越近吸得越紧
+    var ox = dx * k, oy = dy * k;
+    var len = Math.sqrt(ox*ox + oy*oy);
+    if(len > MAX){ ox *= MAX/len; oy *= MAX/len; }
+    return { x:ox, y:oy, s:1 + 0.24*t, d:d };
+  }
+
+  function frame(){
+    raf = 0;
+    var w = want();
+    cx += (w.x - cx) * 0.2;
+    cy += (w.y - cy) * 0.2;
+    cs += (w.s - cs) * 0.2;
+    btn.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px) scale(' + cs.toFixed(3) + ')';
+    btn.classList.toggle('magnet', on && w.d <= R);
+    btn.classList.toggle('lockon', on && w.d <= LOCKED);
+    var settled = Math.abs(w.x-cx) < 0.12 && Math.abs(w.y-cy) < 0.12 && Math.abs(w.s-cs) < 0.003;
+    if(!settled) raf = requestAnimationFrame(frame);   // 停稳就歇着，不空转
+  }
+  function kick(){ if(!raf) raf = requestAnimationFrame(frame); }
+
+  function reset(){
+    on = false; cx = cy = 0; cs = 1;
+    if(raf){ cancelAnimationFrame(raf); raf = 0; }
+    btn.style.transform = '';
+    btn.classList.remove('magnet','lockon');
+  }
+
+  panel.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; on = true; kick(); });
+  panel.addEventListener('mouseleave', function(){ on = false; kick(); });
+  btn.addEventListener('click', reset);              // 关掉后复位，下次打开还是干净的
+
+  // 万一还差一点点没点到按钮（吸附圈内、但落在按钮外面），也当作点到了关闭。
+  // 圈里只有标题区，没有别的可点东西；正文区排除掉，免得在正文里点到空白被误关。
+  panel.addEventListener('click', function(e){
+    if(!panel.classList.contains('show')) return;
+    if(e.target === btn || btn.contains(e.target)) return;      // 点了按钮本身，走它自己的逻辑
+    if(e.target.closest && e.target.closest('.panel-body')) return;
+    var b = base();
+    if(Math.hypot(e.clientX - b.x, e.clientY - b.y) <= R) close();
+  });
+  function close(){
+    if(window.HALL_VIEW && HALL_VIEW.close) HALL_VIEW.close();
+    else { panel.classList.remove('show'); reset(); }
+  }
+
+  new MutationObserver(function(){
+    if(!panel.classList.contains('show')) reset();
+  }).observe(panel, { attributes:true, attributeFilter:['class'] });
+})();
+</script>
+</body>
+</html>
