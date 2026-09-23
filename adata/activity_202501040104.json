@@ -1,333 +1,335 @@
 {
   "2026-07-02": {
     "login": true,
-    "q_list": [],
     "questions": 3,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 5,
+    "ai_questions": []
   },
   "2026-07-04": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-06": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 26,
+    "ai_questions": []
   },
   "2026-07-07": {
     "login": true,
-    "q_list": [],
     "questions": 5,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-09": {
     "login": true,
-    "q_list": [],
     "questions": 4,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 12,
+    "ai_questions": []
   },
   "2026-07-10": {
     "login": true,
-    "q_list": [],
     "questions": 4,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 20,
+    "ai_questions": []
   },
   "2026-07-12": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-13": {
     "login": true,
-    "q_list": [],
     "questions": 5,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 28,
+    "ai_questions": []
   },
   "2026-07-14": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-16": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 31,
+    "ai_questions": []
   },
   "2026-07-19": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-22": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 23,
+    "ai_questions": []
   },
   "2026-07-24": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-25": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-26": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-27": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 20,
+    "ai_questions": []
   },
   "2026-07-28": {
     "login": true,
-    "q_list": [],
     "questions": 4,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 27,
+    "ai_questions": []
   },
   "2026-07-29": {
     "login": true,
-    "q_list": [],
     "questions": 5,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-07-30": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-01": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-02": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-03": {
     "login": true,
-    "q_list": [],
     "questions": 3,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 16,
+    "ai_questions": []
   },
   "2026-08-04": {
     "login": true,
-    "q_list": [],
     "questions": 3,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 25,
+    "ai_questions": []
   },
   "2026-08-05": {
     "login": true,
-    "q_list": [],
     "questions": 4,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-06": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 27,
+    "ai_questions": []
   },
   "2026-08-07": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-08": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-09": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-10": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 6,
+    "ai_questions": []
   },
   "2026-08-11": {
     "login": true,
-    "q_list": [],
     "questions": 2,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 24,
+    "ai_questions": []
   },
   "2026-08-12": {
     "login": true,
-    "q_list": [],
     "questions": 5,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-13": {
     "login": true,
-    "q_list": [],
     "questions": 1,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-14": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 30,
+    "ai_questions": []
   },
   "2026-08-15": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-18": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-19": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-22": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-25": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-26": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-27": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-08-28": {
     "login": true,
+    "questions": 4,
     "q_list": [
       "q_591",
       "q_010",
       "q_596",
       "q_602"
     ],
-    "questions": 4,
+    "ai_count": 2,
+    "ai_minutes": 2,
     "ai_questions": [
       {
         "q": "达朗贝尔原理",
@@ -337,32 +339,30 @@
         "q": "碰撞理论",
         "t": "14:30"
       }
-    ],
-    "ai_count": 2,
-    "ai_minutes": 2
+    ]
   },
   "2026-09-10": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-09-11": {
     "login": true,
-    "q_list": [],
     "questions": 0,
-    "ai_questions": [],
+    "q_list": [],
     "ai_count": 0,
-    "ai_minutes": 0
+    "ai_minutes": 0,
+    "ai_questions": []
   },
   "2026-09-14": {
     "login": true,
     "questions": 0,
     "q_list": [],
-    "ai_minutes": 3,
     "ai_count": 3,
+    "ai_minutes": 3,
     "ai_questions": [
       {
         "q": "空间力系",
@@ -380,10 +380,60 @@
   },
   "2026-09-15": {
     "login": true,
+    "questions": 1,
+    "q_list": [
+      "q_593"
+    ],
+    "ai_count": 2,
+    "ai_minutes": 2,
+    "ai_questions": [
+      {
+        "q": "震荡",
+        "t": "17:08"
+      },
+      {
+        "q": "空间力系",
+        "t": "17:08"
+      }
+    ]
+  },
+  "2026-09-16": {
+    "login": true,
     "questions": 0,
     "q_list": [],
     "ai_minutes": 0,
     "ai_count": 0,
     "ai_questions": []
+  },
+  "2026-09-19": {
+    "login": true,
+    "questions": 0,
+    "q_list": [],
+    "ai_minutes": 0,
+    "ai_count": 0,
+    "ai_questions": []
+  },
+  "2026-09-22": {
+    "login": true,
+    "questions": 1,
+    "q_list": [
+      "q_591"
+    ],
+    "ai_minutes": 3,
+    "ai_count": 3,
+    "ai_questions": [
+      {
+        "q": "自由度",
+        "t": "17:16"
+      },
+      {
+        "q": "振动基础",
+        "t": "17:16"
+      },
+      {
+        "q": "功率与效率",
+        "t": "17:17"
+      }
+    ]
   }
 }

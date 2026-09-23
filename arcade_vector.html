@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矢量竞速 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<style>
+  /* 动画是主角：舞台居中、答题面板跟在其正下方（不再左右分栏挤在一边） */
+  .v-stage-wrap { max-width: 940px; margin: 0 auto 18px; }
+  .v-panel { max-width: 940px; margin: 0 auto; }
+  .v-timer { height: 5px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .v-timer > i { display: block; height: 100%; background: var(--primary); transition: width .2s linear; }
+  .v-q { font-weight: 700; margin-bottom: 4px; }
+  .v-sub { font-size: .82em; color: var(--text-light); margin-bottom: 12px; }
+  .v-arrows { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .v-arrows { grid-template-columns: repeat(2, 1fr); } }
+  .v-arrow {
+    background: #fff; border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 10px; cursor: pointer; transition: all .18s; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .v-arrow:hover:not(:disabled) { border-color: var(--primary); background: #f5f8ff; }
+  .v-arrow:disabled { cursor: default; }
+  .v-arrow.correct { border-color: #22c55e; background: #f0fdf4; }
+  .v-arrow.wrong { border-color: #ef4444; background: #fef2f2; }
+  .v-arrow svg { display: block; }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>➡️ 矢量竞速</h1>
+    <p>先看两秒动画，画面定格后点出<b>高亮那个点</b>的速度或加速度方向。考的不是认形状，是方向。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="v-stage-wrap">
+    <div class="ac-stage">
+      <canvas id="cv"></canvas>
+    </div>
+  </div>
+
+  <aside class="ac-side v-panel">
+    <div class="ac-hud">
+      <span class="ac-chip" id="chipScore">0 分</span>
+      <span class="ac-chip" id="chipStreak">连击 0</span>
+      <span class="ac-chip" id="chipIdx">第 1 题</span>
+    </div>
+    <div class="v-timer"><i id="timerBar" style="width:100%"></i></div>
+
+    <div class="v-q" id="qText">准备中…</div>
+    <div class="v-sub" id="qSub"></div>
+    <div class="v-arrows" id="opts"></div>
+    <div id="feedback" style="margin-top:12px;font-size:.86em;line-height:1.6"></div>
+
+    <div style="margin-top:16px;display:flex;gap:8px">
+      <button class="ac-btn" id="btnNext" disabled>下一题</button>
+      <button class="ac-btn ghost" id="btnEnd">结束本轮</button>
+    </div>
+  </aside>
+</div>
+
+<div class="ac-modal" id="modal">
+  <div class="ac-modal-box">
+    <h3>本轮结束</h3>
+    <div class="big" id="mScore">0</div>
+    <p id="mDetail" style="color:var(--text-light)"></p>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center">
+      <button class="ac-btn" id="mAgain">再来一轮</button>
+      <a class="ac-btn ghost" href="arcade.html" style="text-decoration:none;line-height:1.6">回游乐园</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/arcade_mech.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var LIMIT = 12;         // 定格后答题秒数
+  var WATCH = 2.2;        // 观察动画秒数
+  var ROUND = 10;
+
+  var mech = ArcadeMech.create(document.getElementById('cv'), 'guideBar');
+  // 矢量竞速不隐藏机构身份（左侧说明里就写着机构名与动点），标注全程显示，
+  // 让「动点 M」这样的字样在图上有对应物
+  mech.setLabels(true);
+  var KEYS = ArcadeMech.KEYS;
+
+  var st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: true };
+
+  // 箭头图标：沿 +x 画一支箭，再整体旋转。数学角 θ 逆时针为正，SVG 的 y 轴向下，故取 -θ
+  function arrowSVG(thetaRad, color) {
+    var deg = (-thetaRad * 180 / Math.PI).toFixed(1);
+    return '<svg width="58" height="58" viewBox="-29 -29 58 58">' +
+      '<g transform="rotate(' + deg + ')">' +
+      '<line x1="-17" y1="0" x2="13" y2="0" stroke="' + color + '" stroke-width="3.4" stroke-linecap="round"/>' +
+      '<polygon points="19,0 8.5,-7 8.5,7" fill="' + color + '"/>' +
+      '</g></svg>';
+  }
+
+  function pickCase() {
+    // 挑一个「矢量足够大」的瞬时，否则方向无意义
+    for (var tries = 0; tries < 40; tries++) {
+      var key = Arcade.pick(KEYS);
+      var th = Math.random() * Math.PI * 2;
+      mech.setMech(key);
+      var kin = ArcadeMech[
+        key === 'guideBar' ? 'computeGuideBar' :
+        key === 'sliderCrank' ? 'computeSliderCrank' :
+        key === 'scotchYoke' ? 'computeScotchYoke' : 'computePlanetaryGear'
+      ](th, mech.params().omega, mech.params().r,
+        key === 'guideBar' ? mech.params().d :
+        key === 'sliderCrank' ? mech.params().L :
+        key === 'scotchYoke' ? 0 : mech.params().sunR,
+        key === 'sliderCrank' ? mech.params().e : mech.params().planetR);
+      if (!kin) continue;
+
+      var askVel = Math.random() < 0.5;
+      var vx = askVel ? kin.va_x : kin.aa_x;
+      var vy = askVel ? kin.va_y : kin.aa_y;
+      var mag = Math.hypot(vx, vy);
+      var ref = (mech.params().omega * mech.params().r);
+      if (mag < ref * 0.25) continue;   // 太小就换一个瞬时
+      return { key: key, theta: th, askVel: askVel, angle: Math.atan2(vy, vx), mag: mag };
+    }
+    return null;
+  }
+
+  var cur = null, tick = null, phase = 'idle', watchLeft = 0, left = LIMIT;
+
+  function startQuestion() {
+    st.locked = true;
+    document.getElementById('feedback').innerHTML = '';
+    document.getElementById('btnNext').disabled = true;
+    document.getElementById('opts').innerHTML = '';
+    document.getElementById('qSub').textContent = '';
+    document.getElementById('qText').textContent = '👀 观察动画…';
+    document.getElementById('chipIdx').textContent = '第 ' + (st.idx + 1) + ' 题';
+    document.getElementById('timerBar').style.width = '100%';
+
+    cur = pickCase();
+    if (!cur) { document.getElementById('qText').textContent = '出题失败，请点下一题'; document.getElementById('btnNext').disabled = false; return; }
+
+    mech.setMech(cur.key);
+    mech.setTheta(cur.theta);
+    mech.setMark(false);   // 观察阶段不标记，定格后才圈出高亮点（sticky 状态每题重置）
+    phase = 'watch';
+    watchLeft = WATCH;
+  }
+
+  function freezeAndAsk() {
+    phase = 'ask';
+    mech.render();
+    mech.mark('#4cc9f0');
+
+    document.getElementById('qText').textContent = cur.askVel ? '高亮点的速度方向是？' : '高亮点的加速度方向是？';
+    document.getElementById('qSub').textContent =
+      mech.facts().name + ' · 动点 ' + mech.facts().movingPoint + ' · 已定格';
+
+    // 四个正交方向作为选项——对的就是对的，其余三个一定错
+    var a = cur.angle;
+    var opts = [
+      { ang: a, ok: true },
+      { ang: a + Math.PI / 2, ok: false },
+      { ang: a + Math.PI, ok: false },
+      { ang: a + Math.PI * 1.5, ok: false }
+    ];
+    opts = Arcade.shuffle(opts);
+
+    var box = document.getElementById('opts');
+    box.innerHTML = '';
+    opts.forEach(function (o) {
+      var b = document.createElement('button');
+      b.className = 'v-arrow';
+      b.dataset.ok = o.ok ? '1' : '0';
+      b.dataset.ang = o.ang;
+      b.innerHTML = arrowSVG(o.ang, '#1a56db');
+      b.onclick = function () { answer(o.ok, b); };
+      box.appendChild(b);
+    });
+
+    st.locked = false;
+    left = LIMIT;
+    clearInterval(tick);
+    tick = setInterval(function () {
+      left -= 0.1;
+      document.getElementById('timerBar').style.width = Math.max(0, left / LIMIT * 100) + '%';
+      if (left <= 0) { clearInterval(tick); answer(null, null); }
+    }, 100);
+  }
+
+  function answer(ok, btn) {
+    if (st.locked) return;
+    st.locked = true;
+    clearInterval(tick);
+    st.total++;
+    if (ok) st.correct++;
+
+    var gained = 0;
+    if (ok === true) {
+      st.streak++;
+      if (st.streak > st.bestStreak) st.bestStreak = st.streak;
+      gained = 10 + Math.min(10, (st.streak - 1) * 2);
+      st.score += gained;
+      Arcade.toast('答对了 +' + gained + ' 分', 'ok');
+    } else {
+      st.streak = 0;
+      Arcade.toast(ok === null ? '超时了' : '答错了', 'err');
+    }
+
+    // 正确答案必须标出来，否则玩家答错也不知道对的是哪支，学不到东西
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('#opts .v-arrow'));
+    nodes.forEach(function (n) { n.disabled = true; });
+    var right = nodes.filter(function (n) { return n.dataset.ok === '1'; })[0];
+    if (right) {
+      right.classList.add('correct');
+      right.innerHTML = arrowSVG(parseFloat(right.dataset.ang), '#22c55e');
+    }
+    if (btn && !ok) {
+      btn.classList.add('wrong');
+      btn.innerHTML = arrowSVG(parseFloat(btn.dataset.ang), '#ef4444');
+    }
+
+    document.getElementById('feedback').innerHTML = '<div style="color:var(--text-light)">' +
+      (cur.askVel ? '速度' : '加速度') + '真实方向已标绿 —— 与水平方向约成 ' +
+      (cur.angle * 180 / Math.PI).toFixed(0) + '°（逆时针为正，水平即图中机架/导轨方向）' +
+      '</div>';
+
+    st.idx++;
+    document.getElementById('chipScore').textContent = st.score + ' 分';
+    document.getElementById('chipStreak').textContent = '连击 ' + st.streak;
+    document.getElementById('chipStreak').className = 'ac-chip' + (st.streak >= 3 ? ' hot' : '');
+
+    if (st.idx >= ROUND) setTimeout(finish, 900);
+    else document.getElementById('btnNext').disabled = false;
+  }
+
+  function finish() {
+    phase = 'idle';
+    var res = Arcade.recordGame('vector', {
+      score: st.score, correct: st.correct, total: st.total, streak: st.bestStreak
+    });
+    document.getElementById('mScore').textContent = st.score + ' 分';
+    document.getElementById('mDetail').innerHTML =
+      '答对 ' + st.correct + ' / ' + st.total + ' 题 · 最高连击 ' + st.bestStreak +
+      (res.tierUp ? '<br><b style="color:' + res.tierUp.hex + '">🎉 段位提升：' + res.tierUp.name + '</b>' : '');
+    document.getElementById('modal').classList.add('show');
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+  }
+
+  function reset() {
+    st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: true };
+    document.getElementById('chipScore').textContent = '0 分';
+    document.getElementById('chipStreak').textContent = '连击 0';
+    document.getElementById('modal').classList.remove('show');
+    startQuestion();
+  }
+
+  document.getElementById('btnNext').onclick = startQuestion;
+  document.getElementById('btnEnd').onclick = finish;
+  document.getElementById('mAgain').onclick = reset;
+
+  var lastT = 0;
+  function loop(ts) {
+    if (!lastT) lastT = ts;
+    var dt = Math.min(0.05, (ts - lastT) / 1000);
+    lastT = ts;
+
+    if (phase === 'watch') {
+      mech.step(dt);
+      watchLeft -= dt;
+      if (watchLeft <= 0) freezeAndAsk();
+    }
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', function () {
+    mech.fit();
+    if (phase === 'ask') { mech.render(); mech.mark('#4cc9f0'); }
+  });
+
+  Arcade.mountLevelBar(document.getElementById('levelBar'));
+  startQuestion();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

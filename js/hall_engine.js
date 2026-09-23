@@ -1672,6 +1672,42 @@
         h += '</div>';
         break;
 
+      case 'media':
+        // 图片 / 视频。视频文件放 hall_media/ 下。中文文件名要 encodeURI，否则部分浏览器拿不到文件。
+        // 视频**不**内嵌播放器：渲染成一张卡片（封面 + 播放键），点一下弹大窗播放（见 openMediaView）。
+        // 每张卡下面另挂一条「原视频链接」，可以直接在新窗口打开/存下来。
+        h += '<div class="hb-media">';
+        items.forEach(function (it) {
+          var raw = it.src || '';
+          var src = encodeURI(raw);
+          var el;
+          if (it.kind === 'video') {
+            // 有封面就用封面图；没给封面就退回 <video preload=metadata> 让它自己显示第一帧
+            var cover = it.poster
+              ? '<img class="m-el m-cover" loading="lazy" alt="' + esc(it.title || '') + '" src="' + esc(encodeURI(it.poster)) + '">'
+              : '<video class="m-el m-cover" preload="metadata" muted playsinline src="' + esc(src) + '"></video>';
+            el = '<button class="m-open" type="button"'
+              + ' data-mv-src="' + esc(raw) + '" data-mv-title="' + esc(it.title || '') + '"'
+              + ' title="点击播放">' + cover + '<span class="m-play">▶</span></button>';
+          } else {
+            el = '<img class="m-el" loading="lazy" alt="' + esc(it.title || '') + '" src="' + esc(src) + '">';
+          }
+          h += '<figure class="hb-media-item' + (it.kind === 'video' ? ' is-video' : '') + '">' + el
+            + ((it.title || it.caption)
+                ? '<figcaption class="m-cap">'
+                  + (it.title ? '<h4>' + esc(it.title) + '</h4>' : '')
+                  + (it.caption ? '<p>' + esc(it.caption) + '</p>' : '')
+                  + '</figcaption>'
+                : '')
+            + (it.kind === 'video'
+                ? '<a class="m-link" href="' + esc(src) + '" target="_blank" rel="noopener"'
+                  + ' title="在新窗口直接打开这个视频文件">' + esc(raw) + '</a>'
+                : '')
+            + '</figure>';
+        });
+        h += '</div>';
+        break;
+
       case 'medals':
         h += '<div class="hb-medals">';
         items.forEach(function (it) {
@@ -1711,6 +1747,76 @@
     var ov = $('hallPanel');
     if (ov) ov.classList.remove('show');
     if (!touchMode) requestLock();
+  }
+
+  /* ======================== 视频大窗播放 ========================
+     展板上点一下视频卡 → 弹出覆盖全屏的播放器（标记在 hall.html 里，样式也是）。
+     全站只用这一个 <video>：换片子改 src，关掉时把 src 清空再 load() ——
+     只 pause() 不清 src 的话浏览器会接着在后台缓冲甚至继续播。
+     ================================================================= */
+  var $mv, $mvVideo, $mvTitle, $mvLink, $mvFile;
+
+  function mediaViewOpen() {
+    return !!($mv && $mv.classList.contains('show'));
+  }
+
+  function openMediaView(src, title) {
+    if (!$mv) return;
+    var url = encodeURI(src || '');
+    $mvVideo.src = url;
+    $mvTitle.textContent = title || src || '授课视频';
+    $mvLink.href = url;
+    $mvFile.textContent = src || '';
+    // 大窗不在 #hallPanel 里，继承不到展馆主色（--hall-accent 是脚本设在 #hallPanel 上的），
+    // 这里把当前展馆的主色抄过来，按钮 hover 的配色才和展馆一致。
+    var panel = $('hallPanel');
+    if (panel) {
+      var accent = getComputedStyle(panel).getPropertyValue('--hall-accent');
+      $mv.style.setProperty('--hall-accent', (accent || '').trim() || '#3b82f6');
+    }
+
+    $mv.classList.add('show');
+    updateCover();      // 「点击进入」那层遮罩 z-index 更高，得让它避开
+
+    // 键盘运动键先清零，否则大窗开着角色还在原地走
+    keys.fwd = keys.back = keys.left = keys.right = keys.shift = 0;
+    // 让出鼠标：不然指针还被锁着，点不到播放器的控制条
+    if (document.exitPointerLock && document.pointerLockElement) document.exitPointerLock();
+
+    var p = $mvVideo.play();
+    if (p && p.catch) p.catch(function () { /* 自动播放被浏览器拦下就等用户点播放键 */ });
+  }
+
+  function closeMediaView() {
+    if (!mediaViewOpen()) return;
+    $mv.classList.remove('show');
+    try { $mvVideo.pause(); } catch (e) { /* 忽略 */ }
+    $mvVideo.removeAttribute('src');
+    $mvVideo.load();          // 断开连接，把已缓冲的几百 MB 放掉
+    updateCover();
+    if (!touchMode && !panelOpen()) requestLock();
+  }
+
+  /* 视频大窗的 DOM 与事件（只绑一次）。点击走事件委托：
+     展板内容是每次 openHall 时整块重写的，绑在 hpBody 上就不用反复重绑。 */
+  function bindMediaView() {
+    $mv = $('mediaView');
+    if (!$mv) return;                     // 页面上没有这块标记就直接不启用
+    $mvVideo = $('mvVideo');
+    $mvTitle = $('mvTitle');
+    $mvLink = $('mvLink');
+    $mvFile = $('mvFile');
+
+    $mv.querySelector('.mv-close').addEventListener('click', closeMediaView);
+    // 点空白处关闭；点播放器本体/标题栏不关
+    $mv.addEventListener('click', function (e) { if (e.target === $mv) closeMediaView(); });
+
+    $('hpBody').addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.m-open') : null;   // 点封面图/播放键都算
+      if (!btn) return;
+      e.preventDefault();
+      openMediaView(btn.getAttribute('data-mv-src'), btn.getAttribute('data-mv-title'));
+    });
   }
 
   /* ======================== 导览目录 ======================== */
@@ -1790,6 +1896,8 @@
 
     document.addEventListener('keydown', function (e) {
       var k = e.code;
+      // 大窗播放时键盘整个让给播放器（空格=暂停、左右=快进），只留 Esc 关闭
+      if (mediaViewOpen()) { if (k === 'Escape') closeMediaView(); return; }
       if (k === 'KeyW' || k === 'ArrowUp') keys.fwd = 1;
       else if (k === 'KeyS' || k === 'ArrowDown') keys.back = 1;
       else if (k === 'KeyA' || k === 'ArrowLeft') keys.left = 1;
@@ -1923,6 +2031,7 @@
     buildRoom();
     buildHalls();
     buildNav();
+    bindMediaView();
     bindInput();
 
     ready = true;

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>力学沙盒 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<style>
+  /* 动画是主角：舞台居中；滑杆做成动画下方的横向控制台；
+     任务卡单独一行三列排在最后 —— 不再顺着右侧栏一路往下掉、超出动画一大截 */
+  .sb-stage-wrap { max-width: 940px; margin: 0 auto 18px; }
+  .sb-deck { max-width: 940px; margin: 0 auto 18px; }
+  .sb-sliders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 26px; }
+  @media (max-width: 860px) { .sb-sliders { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .sb-sliders { grid-template-columns: 1fr; } }
+  .sb-slider { margin-bottom: 8px; }
+  .sb-slider .row { display: flex; justify-content: space-between; font-size: .84em; margin-bottom: 3px; }
+  .sb-slider .row b { font-weight: 700; }
+  .sb-slider .row span { color: var(--text-light); }
+  .sb-slider input { width: 100%; accent-color: var(--primary); }
+  .sb-btns { display: flex; gap: 8px; margin-top: 12px; }
+  .sb-btns .ac-btn { flex: 1; }
+  .sb-tasks {
+    max-width: 940px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 860px) { .sb-tasks { grid-template-columns: 1fr; } }
+  .sb-task {
+    border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 14px;
+    background: #fff; transition: border-color .2s;
+  }
+  .sb-task.done { border-color: #22c55e; background: #f0fdf4; }
+  .sb-task h4 { margin: 0 0 4px; font-size: .9em; display: flex; justify-content: space-between; align-items: center; }
+  .sb-task .badge { font-size: .78em; font-weight: 800; color: #15803d; }
+  .sb-task p { margin: 0 0 8px; font-size: .78em; color: var(--text-light); line-height: 1.55; }
+  .sb-meter { height: 8px; background: #eef2f7; border-radius: 999px; overflow: hidden; }
+  .sb-meter > i { display: block; height: 100%; background: var(--primary); border-radius: 999px; transition: width .25s; }
+  .sb-task.done .sb-meter > i { background: #22c55e; }
+  .sb-metric { font-size: .74em; color: var(--text-light); margin-top: 4px; }
+  .sb-metric b { color: var(--primary); }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>🧩 力学沙盒</h1>
+    <p>一台<b>四杆机构</b>实验台：调六个数（四根杆 + 连杆上一点的位置与偏移），看点 P 实时画出什么轨迹。完成三张任务卡。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="sb-stage-wrap">
+    <div class="ac-stage">
+      <canvas id="cv"></canvas>
+      <div class="sb-metric" id="stageTip" style="margin-top:10px">青色曲线 = 点 P 一个周期画出的「连杆曲线」</div>
+    </div>
+  </div>
+
+  <aside class="ac-side sb-deck">
+    <div class="ac-hud">
+      <span class="ac-chip" id="chipAsm">检查装配…</span>
+      <span class="ac-chip" id="chipDone">任务 0 / 3</span>
+    </div>
+
+    <div class="sb-sliders">
+      <div class="sb-slider"><div class="row"><b>曲柄 r₁</b><span id="v_r1"></span></div>
+        <input type="range" id="s_r1" min="20" max="90" step="1" value="50"></div>
+      <div class="sb-slider"><div class="row"><b>连杆 L₂</b><span id="v_L2"></span></div>
+        <input type="range" id="s_L2" min="60" max="200" step="1" value="140"></div>
+      <div class="sb-slider"><div class="row"><b>摇杆 r₃</b><span id="v_r3"></span></div>
+        <input type="range" id="s_r3" min="60" max="200" step="1" value="110"></div>
+      <div class="sb-slider"><div class="row"><b>机架 d</b><span id="v_d"></span></div>
+        <input type="range" id="s_d" min="60" max="220" step="1" value="160"></div>
+      <div class="sb-slider"><div class="row"><b>点 P 位置 u（沿连杆 A→B）</b><span id="v_u"></span></div>
+        <input type="range" id="s_u" min="0" max="140" step="1" value="70"></div>
+      <div class="sb-slider"><div class="row"><b>点 P 偏移 v（垂直连杆）</b><span id="v_v"></span></div>
+        <input type="range" id="s_v" min="-60" max="60" step="1" value="20"></div>
+    </div>
+
+    <div class="sb-btns">
+      <button class="ac-btn ghost" id="btnRandom">🎲 随机一组能转的</button>
+    </div>
+  </aside>
+
+  <div class="sb-tasks" id="tasks"></div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var N = 240;          // 一个周期采样点数
+  var OMEGA = 1.6;      // 曲柄角速度（rad/s），纯观感
+  var TH_AWARD = 100;   // 每个任务首次达成的分数
+
+  /* ==================== 任务卡定义 ==================== */
+  // 三个阈值都经过参数空间数值搜索验证【可达成】：
+  //   直线  最优 0.007 / 随机通过率 ~1.6%   ← 近「瓦特直线」摆法
+  //   圆    平行四边形摆法可精确到 0        ← 点不能贴 A/B 铰链（贴上去天然是圆）
+  //   停歇  最优 0.10 / 阈值 0.30           ← 曲线带近尖点，点在那里几乎停下
+  var TASKS = {
+    line:   { name: '让 P 走直线', icon: '📏', thr: 0.05,
+              desc: '让 P 的连杆曲线接近一条直线（最大偏差 < 曲线尺寸的 5%）。',
+              hint: '提示：曲柄调短、机架拉长，P 放在连杆中段偏外试试。' },
+    circle: { name: '让 P 走圆', icon: '⭕', thr: 0.04,
+              desc: '让 P 的连杆曲线接近一个圆（半径涨落 < 4%）。P 不能贴着 A、B 铰链。',
+              hint: '提示：让四根杆摆成平行四边形（r₁=r₃、L₂=d），连杆上任意点都走圆。' },
+    dwell:  { name: '让 P 近似停歇', icon: '⏸️', thr: 0.30,
+              desc: '存在至少 15% 周期的时间，P 几乎不动（期间最大速度 < 平均速度的 30%）。',
+              hint: '提示：连杆曲线出现接近尖点（打结）的地方时，点在那里会停一下。' }
+  };
+
+  var P = { r1: 50, L2: 140, r3: 110, d: 160, u: 70, v: 20 };
+  var trace = null;        // {px:[], py:[]} 或 null（无法整周装配）
+  var theta = 0;
+  var animPrev = null;     // 动画帧间的 B 点（连续性选支用）
+  var awarded = {};        // 本次会话里已发分的任务（防重复发分）
+
+  /* ==================== 四杆求解 ==================== */
+  // O1=(0,0)，O2=(d,0)，曲柄 O1A=r₁，连杆 AB=L₂，摇杆 O2B=r₃。
+  // 装配条件：h² = L₂² − val²·D² ≥ 0（圆与圆有交点）。val 可大于 1（内切），不能拿 |val|≤1 当条件。
+  // 分支选择【按连杆方向连续性】：真实机构靠惯性保支，静力求解器要自己模拟这一点。
+  // 主判据 = 连杆方向与上一步的余弦距离；平局用 B 点位置距离。
+  // 为什么不用位置距离当主判据：平行四边形机构（r₁=r₃、L₂=d）在 θ=0/π 是变点（h=0），
+  // 两个分支的候选点到前一点距离一阶相等，位置判据会平局判错跳到反平行四边形，
+  // 轨迹立刻不是圆；而连杆方向（AB 的单位向量）在变点处依然连续，能稳选平行支。
+  function fourBarRaw(th, prev) {
+    var r1 = P.r1, L2 = P.L2, r3 = P.r3, d = P.d;
+    var Ax = r1 * Math.cos(th), Ay = r1 * Math.sin(th);
+    var dx = d - Ax, dy = -Ay;
+    var D2 = dx * dx + dy * dy;
+    if (D2 < 1e-9) return null;
+    var val = (L2 * L2 - r3 * r3 + D2) / (2 * D2);
+    var h2 = L2 * L2 - val * val * D2;
+    if (h2 < -1e-6) return null;
+    var h = Math.sqrt(Math.max(h2, 0));
+    var sq = Math.sqrt(D2);
+    var Ex = Ax + val * dx, Ey = Ay + val * dy;
+    var cands = [
+      { Bx: Ex - h * dy / sq, By: Ey + h * dx / sq },
+      { Bx: Ex + h * dy / sq, By: Ey - h * dx / sq }
+    ];
+    cands.forEach(function (c) {
+      c.ux = (c.Bx - Ax) / L2; c.uy = (c.By - Ay) / L2;
+    });
+    var pick;
+    if (!prev) {
+      pick = cands[0].By >= cands[1].By ? 0 : 1;
+    } else {
+      var s0 = 1 - (cands[0].ux * prev.ux + cands[0].uy * prev.uy);
+      var s1 = 1 - (cands[1].ux * prev.ux + cands[1].uy * prev.uy);
+      if (s0 < s1 - 1e-12) pick = 0;
+      else if (s1 < s0 - 1e-12) pick = 1;
+      else {
+        var p0 = (cands[0].Bx - prev.x) * (cands[0].Bx - prev.x) + (cands[0].By - prev.y) * (cands[0].By - prev.y);
+        var p1 = (cands[1].Bx - prev.x) * (cands[1].Bx - prev.x) + (cands[1].By - prev.y) * (cands[1].By - prev.y);
+        pick = p0 <= p1 ? 0 : 1;
+      }
+    }
+    var B = cands[pick];
+    return {
+      Ax: Ax, Ay: Ay, Bx: B.Bx, By: B.By, ux: B.ux, uy: B.uy,
+      Px: Ax + P.u * B.ux - P.v * B.uy,
+      Py: Ay + P.u * B.uy + P.v * B.ux
+    };
+  }
+
+  function computeTrace() {
+    var px = [], py = [], prev = null;
+    for (var i = 0; i < N; i++) {
+      var k = fourBarRaw(i * Math.PI * 2 / N, prev);
+      if (!k) return null;
+      prev = { x: k.Bx, y: k.By, ux: k.ux, uy: k.uy };
+      px.push(k.Px); py.push(k.Py);
+    }
+    return { px: px, py: py };
+  }
+
+  /* ==================== 三个形状指标 ==================== */
+
+  // 直线度：主方向拟合，最大垂直偏差 / 曲线延展
+  function lineMetric(t) {
+    var n = N, mx = 0, my = 0, i;
+    for (i = 0; i < n; i++) { mx += t.px[i]; my += t.py[i]; }
+    mx /= n; my /= n;
+    var sxx = 0, syy = 0, sxy = 0;
+    for (i = 0; i < n; i++) {
+      var X = t.px[i] - mx, Y = t.py[i] - my;
+      sxx += X * X; syy += Y * Y; sxy += X * Y;
+    }
+    var ang = 0.5 * Math.atan2(2 * sxy, sxx - syy);
+    var s = Math.sin(ang), c = Math.cos(ang);
+    var dev = 0, ext = 0;
+    for (i = 0; i < n; i++) {
+      var X2 = t.px[i] - mx, Y2 = t.py[i] - my;
+      dev = Math.max(dev, Math.abs(-X2 * s + Y2 * c));
+      ext = Math.max(ext, Math.hypot(X2, Y2));
+    }
+    return dev / Math.max(ext * 2, 1e-9);
+  }
+
+  // 圆度：Kasa 代数拟合，最大半径涨落 / 拟合半径
+  function circleMetric(t) {
+    var n = N, i;
+    var sx = 0, sy = 0, sxx = 0, syy = 0, sxy = 0, sxz = 0, syz = 0, sz = 0;
+    for (i = 0; i < n; i++) {
+      var x = t.px[i], y = t.py[i], z = x * x + y * y;
+      sx += x; sy += y; sxx += x * x; syy += y * y; sxy += x * y;
+      sxz += x * z; syz += y * z; sz += z;
+    }
+    // 3×3 线性方程组 [sxx sxy sx; sxy syy sy; sx sy n]·[a b c]=[sxz syz sz]，克莱姆法则
+    var m = [
+      [sxx, sxy, sx, sxz],
+      [sxy, syy, sy, syz],
+      [sx, sy, n, sz]
+    ];
+    for (var col = 0; col < 3; col++) {
+      for (var r2 = col + 1; r2 < 3; r2++) {
+        var f = m[r2][col] / m[col][col];
+        for (var c2 = col; c2 < 4; c2++) m[r2][c2] -= m[col][c2] * f;
+      }
+    }
+    var cc = m[2][3] / m[2][2], bb = (m[1][3] - m[1][2] * cc) / m[1][1],
+        aa = (m[0][3] - m[0][1] * bb - m[0][2] * cc) / m[0][0];
+    var cx = aa / 2, cy = bb / 2;
+    var R = Math.sqrt(Math.max(cc + cx * cx + cy * cy, 1e-12));
+    var dev = 0;
+    for (i = 0; i < n; i++) {
+      dev = Math.max(dev, Math.abs(Math.hypot(t.px[i] - cx, t.py[i] - cy) - R));
+    }
+    return dev / Math.max(R, 1e-9);
+  }
+
+  // 停歇度：15% 周期窗口里最大速度 / 全程平均速度的最小值
+  function dwellMetric(t) {
+    var sp = [], i;
+    for (i = 0; i < N; i++) {
+      var j = (i + 1) % N;
+      sp.push(Math.hypot(t.px[j] - t.px[i], t.py[j] - t.py[i]));
+    }
+    var mean = 0;
+    for (i = 0; i < N; i++) mean += sp[i];
+    mean /= N;
+    var w = Math.max(4, Math.round(N * 0.15));
+    var best = Infinity;
+    for (var s = 0; s + w <= N; s++) {
+      var mx = 0;
+      for (var k = s; k < s + w; k++) mx = Math.max(mx, sp[k]);
+      best = Math.min(best, mx);
+    }
+    return best / Math.max(mean, 1e-12);
+  }
+
+  // 圆任务的附加规则：P 不能贴 A、B 铰链（贴上去天然是圆，就没意思了）
+  function pinViolation() {
+    return P.u < 15 || P.u > P.L2 - 15 || Math.abs(P.v) < 12;
+  }
+
+  /* ==================== 绘制 ==================== */
+
+  var cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+  var view = { W: 0, H: 0, s: 1, ox: 0, oy: 0 };
+
+  function fit() {
+    var rect = cv.getBoundingClientRect();
+    var w = rect.width || 640;
+    var h = Math.max(320, Math.round(w * 0.5));
+    var dpr = window.devicePixelRatio || 1;
+    cv.width = Math.floor(w * dpr);
+    cv.height = Math.floor(h * dpr);
+    cv.style.height = h + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    view.W = w; view.H = h;
+  }
+
+  function autoFit(pts) {
+    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    var all = pts.concat([{ x: 0, y: 0 }, { x: P.d, y: 0 }]);
+    all.forEach(function (p) {
+      minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x);
+      minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y);
+    });
+    var bw = Math.max(maxX - minX, 1), bh = Math.max(maxY - minY, 1);
+    var pad = 46;
+    view.s = Math.min((view.W - pad * 2) / bw, (view.H - pad * 2) / bh, 1.8);
+    var cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+    view.ox = view.W / 2 - cx * view.s;
+    view.oy = view.H / 2 + cy * view.s;
+  }
+  function S(x, y) { return { x: view.ox + x * view.s, y: view.oy - y * view.s }; }
+
+  function joint(x, y, r, fill) {
+    var s = S(x, y);
+    ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 1.2; ctx.stroke();
+  }
+  function seg(x1, y1, x2, y2, color, lw) {
+    var a = S(x1, y1), b = S(x2, y2);
+    ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  function ground(x, y) {
+    var s = S(x, y);
+    ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(s.x - 12, s.y); ctx.lineTo(s.x + 12, s.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(s.x, s.y - 8); ctx.lineTo(s.x, s.y + 8); ctx.stroke();
+    for (var i = -10; i <= 10; i += 5) {
+      ctx.beginPath(); ctx.moveTo(s.x + i, s.y + 8); ctx.lineTo(s.x + i - 4, s.y + 14); ctx.stroke();
+    }
+  }
+  function label(x, y, txt, color) {
+    var s = S(x, y);
+    ctx.fillStyle = color || '#cbd5e1';
+    ctx.font = '12px -apple-system, "Microsoft YaHei", sans-serif';
+    ctx.fillText(txt, s.x + 8, s.y - 8);
+  }
+
+  function draw() {
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(0, 0, view.W, view.H);
+
+    var pts = [];
+    if (trace) {
+      for (var i = 0; i < N; i++) pts.push({ x: trace.px[i], y: trace.py[i] });
+    }
+    autoFit(pts.length ? pts : [{ x: -100, y: -100 }, { x: P.d + 100, y: 100 }]);
+
+    // 连杆曲线（淡青）
+    if (trace) {
+      ctx.strokeStyle = 'rgba(76,201,240,.55)';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      for (var j = 0; j < N; j++) {
+        var s0 = S(trace.px[j], trace.py[j]);
+        if (j === 0) ctx.moveTo(s0.x, s0.y); else ctx.lineTo(s0.x, s0.y);
+      }
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    // 动画也按方向连续性选支（animPrev 跟着帧走，与 computeTrace 的轨迹一致）
+    var k = fourBarRaw(theta, animPrev);
+    if (!k) return;
+    animPrev = { x: k.Bx, y: k.By, ux: k.ux, uy: k.uy };
+
+    // 机架 + 曲柄 + 摇杆 + 连杆
+    ground(0, 0); ground(P.d, 0);
+    seg(0, 0, k.Ax, k.Ay, '#f5d060', 5);
+    seg(k.Ax, k.Ay, k.Bx, k.By, '#88bbdd', 4);
+    seg(P.d, 0, k.Bx, k.By, '#77ccaa', 5);
+    joint(0, 0, 6, '#334155'); joint(P.d, 0, 6, '#334155');
+    joint(k.Ax, k.Ay, 5, '#f59e0b'); joint(k.Bx, k.By, 5, '#38bdf8');
+
+    // 点 P（高亮）
+    var sp = S(k.Px, k.Py);
+    ctx.beginPath(); ctx.arc(sp.x, sp.y, 10, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(248,113,113,.4)'; ctx.lineWidth = 5; ctx.stroke();
+    joint(k.Px, k.Py, 5.5, '#ef4444');
+
+    label(k.Ax, k.Ay, 'A', '#fde68a');
+    label(k.Bx, k.By, 'B', '#bae6fd');
+    label(k.Px, k.Py, 'P', '#fca5a5');
+
+    // 无法整周装配时给出提示（画在画布上，不弹窗打断调参）
+    if (!trace) {
+      ctx.fillStyle = 'rgba(248,113,113,.85)';
+      ctx.font = 'bold 14px -apple-system, "Microsoft YaHei", sans-serif';
+      ctx.fillText('⚠ 当前尺寸组合无法整周回转 —— 调整杆长直到曲线出现', 18, 28);
+    }
+  }
+
+  /* ==================== 任务面板 ==================== */
+
+  function renderTasks() {
+    var p = Arcade.progress();
+    var done = p.games.sandbox.tasks || {};
+    awarded = {};
+    document.getElementById('tasks').innerHTML = Object.keys(TASKS).map(function (key) {
+      var t = TASKS[key];
+      return '<div class="sb-task' + (done[key] ? ' done' : '') + '" id="task_' + key + '">' +
+        '<h4>' + t.icon + ' ' + t.name + (done[key] ? '<span class="badge">✅ 已达成</span>' : '') + '</h4>' +
+        '<p>' + t.desc + '<br>' + t.hint + '</p>' +
+        '<div class="sb-meter"><i id="meter_' + key + '" style="width:0%"></i></div>' +
+        '<div class="sb-metric" id="metric_' + key + '">—</div>' +
+        '</div>';
+    }).join('');
+    var n = Object.keys(done).filter(function (k) { return done[k]; }).length;
+    document.getElementById('chipDone').textContent = '任务 ' + n + ' / 3';
+  }
+
+  function setMeter(key, pct, metric, extra) {
+    var m = document.getElementById('meter_' + key);
+    var t = document.getElementById('metric_' + key);
+    if (m) m.style.width = Math.max(0, Math.min(100, pct)) + '%';
+    if (t) t.innerHTML = (extra ? extra + ' · ' : '') +
+      '当前 <b>' + (metric * 100).toFixed(1) + '%</b> / 目标 < ' + (TASKS[key].thr * 100) + '%';
+  }
+
+  function checkAwards() {
+    var p = Arcade.progress();
+    var done = p.games.sandbox.tasks || {};
+    Object.keys(TASKS).forEach(function (key) {
+      if (done[key] || awarded[key] || !trace) return;
+      var pass = false, extra = '';
+      if (key === 'line') {
+        pass = lineMetric(trace) < TASKS.line.thr;
+      } else if (key === 'circle') {
+        if (pinViolation()) extra = '（P 贴着铰链，不算）';
+        else pass = circleMetric(trace) < TASKS.circle.thr;
+      } else if (key === 'dwell') {
+        pass = dwellMetric(trace) < TASKS.dwell.thr;
+      }
+      if (pass) {
+        awarded[key] = true;
+        done[key] = 1;
+        p.games.sandbox.tasks = done;
+        Arcade.saveProgress(p);
+        Arcade.recordGame('sandbox', { score: TH_AWARD });
+        var el = document.getElementById('task_' + key);
+        if (el) {
+          el.classList.add('done');
+          var h4 = el.querySelector('h4');
+          if (h4 && !h4.querySelector('.badge')) {
+            var b = document.createElement('span');
+            b.className = 'badge'; b.textContent = '✅ 已达成';
+            h4.appendChild(b);
+          }
+        }
+        Arcade.toast('🎉 任务达成：' + TASKS[key].name + ' +' + TH_AWARD + ' 分', 'ok');
+        var n = Object.keys(done).filter(function (k) { return done[k]; }).length;
+        document.getElementById('chipDone').textContent = '任务 ' + n + ' / 3';
+        Arcade.mountLevelBar(document.getElementById('levelBar'));
+      }
+    });
+  }
+
+  function update() {
+    trace = computeTrace();
+    var asm = document.getElementById('chipAsm');
+    if (trace) { asm.textContent = '✓ 可整周回转'; asm.className = 'ac-chip ok'; }
+    else { asm.textContent = '⚠ 无法整周回转'; asm.className = 'ac-chip hot'; }
+
+    if (trace) {
+      setMeter('line', TASKS.line.thr / Math.max(lineMetric(trace), 1e-9) * 100, lineMetric(trace));
+      setMeter('circle', pinViolation() ? 0 : TASKS.circle.thr / Math.max(circleMetric(trace), 1e-9) * 100,
+        circleMetric(trace), pinViolation() ? 'P 贴着 A/B 铰链' : '');
+      setMeter('dwell', TASKS.dwell.thr / Math.max(dwellMetric(trace), 1e-9) * 100, dwellMetric(trace));
+    } else {
+      setMeter('line', 0, 1, '装配不完整');
+      setMeter('circle', 0, 1, '装配不完整');
+      setMeter('dwell', 0, 1, '装配不完整');
+    }
+    checkAwards();
+  }
+
+  /* ==================== 滑杆绑定 ==================== */
+
+  var SLIDERS = ['r1', 'L2', 'r3', 'd', 'u', 'v'];
+  function syncLabels() {
+    document.getElementById('v_r1').textContent = P.r1;
+    document.getElementById('v_L2').textContent = P.L2;
+    document.getElementById('v_r3').textContent = P.r3;
+    document.getElementById('v_d').textContent = P.d;
+    document.getElementById('v_u').textContent = P.u + ' / ' + P.L2;
+    document.getElementById('v_v').textContent = P.v;
+  }
+  var pending = false;
+  function onParam() {
+    // u 的最大值跟随 L2：连杆变短时把点拉回杆上
+    P.u = Math.min(P.u, P.L2);
+    document.getElementById('s_u').max = P.L2;
+    document.getElementById('s_u').value = P.u;
+    syncLabels();
+    if (!pending) {
+      pending = true;
+      requestAnimationFrame(function () { pending = false; update(); draw(); });
+    }
+  }
+
+  SLIDERS.forEach(function (k) {
+    document.getElementById('s_' + k).addEventListener('input', function () {
+      P[k] = +this.value;
+      onParam();
+    });
+  });
+
+  // 随机一组满足 Grashof（曲柄最短 + 最短+最长 ≤ 其余两杆和）的尺寸
+  document.getElementById('btnRandom').onclick = function () {
+    for (var tries = 0; tries < 500; tries++) {
+      var r1 = 20 + Math.floor(Math.random() * 70);
+      var L2 = 60 + Math.floor(Math.random() * 140);
+      var r3 = 60 + Math.floor(Math.random() * 140);
+      var d = 60 + Math.floor(Math.random() * 160);
+      var arr = [L2, r3, d].sort(function (a, b) { return a - b; });
+      if (r1 <= arr[0] && r1 + arr[2] <= arr[0] + arr[1]) {
+        P.r1 = r1; P.L2 = L2; P.r3 = r3; P.d = d;
+        P.u = Math.floor(Math.random() * L2);
+        P.v = Math.floor(Math.random() * 121) - 60;
+        ['r1', 'L2', 'r3', 'd', 'u', 'v'].forEach(function (k) { document.getElementById('s_' + k).value = P[k]; });
+        document.getElementById('s_u').max = P.L2;
+        onParam();
+        return;
+      }
+    }
+  };
+
+  window.addEventListener('resize', function () { fit(); draw(); });
+
+  fit();
+  renderTasks();
+  syncLabels();
+  update();
+  (function loop() {
+    theta += OMEGA / 60;
+    theta %= Math.PI * 2;
+    draw();
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>

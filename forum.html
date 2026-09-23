@@ -82,12 +82,13 @@
     }
 
     .container {
-      max-width: 1100px;
+      /* 放宽容器，把原来页面两侧的空白用起来：窄侧栏靠左，讨论列表占满右侧 */
+      max-width: 1400px;
       margin: 0 auto;
       padding: 40px 24px;
       display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 24px
+      grid-template-columns: 208px 1fr;
+      gap: 22px
     }
 
     .forum-main {
@@ -106,6 +107,92 @@
       border-bottom: 2px solid var(--border);
       background: var(--bg);
       flex-wrap: wrap
+    }
+
+    /* 右上角的搜索框（margin-left:auto 把它推到 tab 栏最右） */
+    .forum-search {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 7px 12px
+    }
+
+    .forum-search input {
+      width: 186px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.82em;
+      font-family: inherit;
+      outline: none;
+      transition: all var(--transition)
+    }
+
+    .forum-search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1)
+    }
+
+    /* 搜索框右侧的圆形小按钮（清空 / 刷新） */
+    .forum-search .fbtn {
+      width: 26px;
+      height: 26px;
+      border: none;
+      border-radius: 50%;
+      background: var(--border);
+      color: var(--text-light);
+      font-size: 0.8em;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition)
+    }
+
+    .forum-search .fbtn:hover {
+      background: #cbd5e1;
+      color: var(--text)
+    }
+
+    /* 清空按钮只在有输入时出现；刷新按钮常驻 */
+    #forumSearchClear {
+      display: none
+    }
+
+    #forumSearchClear.show {
+      display: flex
+    }
+
+    #forumRefreshBtn.spinning {
+      animation: forum-spin 0.8s linear infinite;
+      pointer-events: none
+    }
+
+    @keyframes forum-spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .forum-search-hint {
+      display: none;
+      padding: 10px 20px;
+      font-size: 0.82em;
+      color: var(--text-light);
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .forum-search-hint.show {
+      display: block
+    }
+
+    .forum-search-hint b {
+      color: var(--primary)
     }
 
     .forum-tabs .tab {
@@ -168,6 +255,20 @@
     .forum-post-item .post-body {
       flex: 1;
       min-width: 0
+    }
+
+    /* 评论头像：与列表头像一个样式，只是小一号 */
+    .cm-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82em;
+      color: #fff;
+      font-weight: 700
     }
 
     .forum-post-item .post-title {
@@ -303,7 +404,32 @@
     .forum-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 16px
+      gap: 12px;
+      /* DOM 里主内容仍在前（利于手机端和读屏），桌面端靠 order 排到左边 */
+      order: -1
+    }
+
+    /* 社区统计：单列排布，每行「数字 + 名称」，窄侧栏里比 2×2 更省地方 */
+    .side-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.8em
+    }
+
+    .side-stats > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 11px;
+      background: var(--bg);
+      border-radius: 8px;
+      color: var(--text-lighter)
+    }
+
+    .side-stats b {
+      font-size: 1.25em;
+      font-weight: 800
     }
 
     .forum-btn-new-post {
@@ -330,7 +456,7 @@
     .sidebar-card {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 14px 15px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow)
     }
@@ -541,6 +667,11 @@
         grid-template-columns: 1fr
       }
 
+      /* 单列时恢复 DOM 顺序：讨论列表在前，侧栏在后 */
+      .forum-sidebar {
+        order: 0
+      }
+
       .page-header {
         padding: 70px 16px 24px
       }
@@ -574,7 +705,16 @@
         <span class="tab" onclick="switchTab(this,'share')">📤 分享</span>
         <span class="tab" onclick="switchTab(this,'discuss')">💭 讨论</span>
         <span class="tab" onclick="switchTab(this,'other')">📌 其他</span>
+        <!-- 右上角搜索 + 刷新 -->
+        <div class="forum-search">
+          <input type="text" id="forumSearchInput" placeholder="搜索讨论内容…" autocomplete="off"
+            oninput="onForumSearch(this.value)"
+            onkeydown="if(event.key==='Escape')clearForumSearch()">
+          <button type="button" class="fbtn" id="forumSearchClear" title="清空搜索" onclick="clearForumSearch()">✕</button>
+          <button type="button" class="fbtn" id="forumRefreshBtn" title="刷新讨论列表" onclick="refreshPosts()">⟳</button>
+        </div>
       </div>
+      <div class="forum-search-hint" id="forumSearchHint"></div>
       <div class="forum-post-list" id="forumPostList">
         <div class="forum-empty">
           <div class="empty-icon">📭</div>
@@ -588,23 +728,11 @@
       <button class="forum-btn-new-post" onclick="openNewPostModal()">✏️ 发布新帖</button>
       <div class="sidebar-card">
         <h4>📊 社区统计</h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.8em">
-          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
-            <div style="font-size:1.3em;font-weight:800;color:var(--primary)" id="statPosts">0</div>
-            <div style="color:var(--text-lighter)">帖子总数</div>
-          </div>
-          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
-            <div style="font-size:1.3em;font-weight:800;color:#059669" id="statQa">0</div>
-            <div style="color:var(--text-lighter)">提问</div>
-          </div>
-          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
-            <div style="font-size:1.3em;font-weight:800;color:#e67e22" id="statShare">0</div>
-            <div style="color:var(--text-lighter)">分享</div>
-          </div>
-          <div style="text-align:center;padding:10px;background:var(--bg);border-radius:8px">
-            <div style="font-size:1.3em;font-weight:800;color:#7c3aed" id="statDiscuss">0</div>
-            <div style="color:var(--text-lighter)">讨论</div>
-          </div>
+        <div class="side-stats">
+          <div><b style="color:var(--primary)" id="statPosts">0</b><span>帖子总数</span></div>
+          <div><b style="color:#059669" id="statQa">0</b><span>提问</span></div>
+          <div><b style="color:#e67e22" id="statShare">0</b><span>分享</span></div>
+          <div><b style="color:#7c3aed" id="statDiscuss">0</b><span>讨论</span></div>
         </div>
       </div>
     </div>
@@ -649,6 +777,7 @@
     var DATA_BASE = 'fdata/';
     var allPosts = [];
     var currentTab = 'all';
+    var currentQuery = '';   // 右上角搜索关键字（已转小写、去空白）
     var currentPage = 1;
     var PER_PAGE = 20;
     var selectedImages = [];
@@ -697,6 +826,10 @@
         }).then(function (idx) {
           var list = idx.posts || [];
           var tasks = list.map(function (p) {
+            // 索引条目里已经带了正文，就直接用它，不必再逐条拉 data.json。
+            // 否则帖子一多会打出等量的请求（而且绝大多数是 404）——
+            // 实测 2060 条帖子会产生 2060 个请求，页面要卡好几秒。
+            if (p && p.content) return Promise.resolve(p);
             return fetch(DATA_BASE + p.id + '/data.json?_=' + Date.now()).then(function (r) { if (r.ok) return r.json(); throw new Error('no data'); }).catch(function () { return p; });
           });
           return Promise.all(tasks);
@@ -759,12 +892,90 @@
 
     // ===== Render =====
     var avatars = ['#1a56db', '#e67e22', '#27ae60', '#7c3aed', '#e74c3c', '#0d9488', '#f0a030', '#8b5cf6'];
+
+    // 按名字取头像底色：同一个人在不同位置颜色一致（评论头像用）
+    function avatarColor(name) {
+      var s = String(name || '匿'), h = 0;
+      for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 9973;
+      return avatars[h % avatars.length];
+    }
     var catLabel = { qa: '提问', share: '分享', discuss: '讨论', other: '其他' };
+
+    // ===== 搜索 =====
+    function onForumSearch(v) {
+      currentQuery = String(v || '').trim().toLowerCase();
+      currentPage = 1;
+      var btn = document.getElementById('forumSearchClear');
+      if (btn) btn.classList.toggle('show', currentQuery.length > 0);
+      renderPosts();
+    }
+
+    function clearForumSearch() {
+      var el = document.getElementById('forumSearchInput');
+      if (el) { el.value = ''; el.focus(); }
+      onForumSearch('');
+    }
+
+    // ===== 刷新 =====
+    // 重新拉一遍数据，并把筛选状态清干净（关键字 / 分类 / 页码都回到初始）
+    function refreshPosts() {
+      var btn = document.getElementById('forumRefreshBtn');
+      if (btn) btn.classList.add('spinning');
+
+      var input = document.getElementById('forumSearchInput');
+      if (input) input.value = '';
+      currentQuery = '';
+      var cb = document.getElementById('forumSearchClear');
+      if (cb) cb.classList.remove('show');
+      var hint = document.getElementById('forumSearchHint');
+      if (hint) hint.className = 'forum-search-hint';
+      currentTab = 'all';
+      currentPage = 1;
+      document.querySelectorAll('.forum-tabs .tab').forEach(function (t, i) {
+        t.classList.toggle('active', i === 0);
+      });
+
+      // reloadPosts 内部：loadPosts → 过滤已删 → 同步本地 → updateStats + renderPosts
+      return reloadPosts().then(function () {
+        if (btn) btn.classList.remove('spinning');
+        showToast('已刷新', 'success');
+      }).catch(function () {
+        if (btn) btn.classList.remove('spinning');
+        showToast('刷新失败，请检查服务器', 'error');
+      });
+    }
 
     function renderPosts() {
       var list = document.getElementById('forumPostList');
       var filtered = currentTab === 'all' ? allPosts : allPosts.filter(function (p) { return p.category === currentTab });
-      if (filtered.length === 0) { list.innerHTML = '<div class="forum-empty"><div class="empty-icon">📭</div><p>暂无帖子，快来发布第一篇吧！</p></div>'; document.getElementById('pagination').innerHTML = ''; return; }
+      // 搜索：只匹配「页面上看得见的内容」——标题 / 正文 / 分类名。
+      // 特意不搜 author：姓名已经不在界面上显示了，若按作者名命中，
+      // 用户会看到正文里根本没有关键词的结果，完全不知道为什么被搜出来。
+      if (currentQuery) {
+        filtered = filtered.filter(function (p) {
+          var hay = (String(p.title || '') + ' ' + stripHtml(p.content || '') + ' ' + (catLabel[p.category] || '')).toLowerCase();
+          return hay.indexOf(currentQuery) >= 0;
+        });
+      }
+      // 搜索结果提示条
+      var hint = document.getElementById('forumSearchHint');
+      if (hint) {
+        if (currentQuery) {
+          hint.className = 'forum-search-hint show';
+          hint.innerHTML = '「<b>' + escHtml(currentQuery) + '</b>」共找到 <b>' + filtered.length + '</b> 条讨论'
+            + (currentTab === 'all' ? '' : '（限当前分类）');
+        } else {
+          hint.className = 'forum-search-hint';
+        }
+      }
+      if (filtered.length === 0) {
+        var emptyMsg = currentQuery
+          ? '没有找到包含「' + escHtml(currentQuery) + '」的讨论，换个关键词试试'
+          : '暂无帖子，快来发布第一篇吧！';
+        list.innerHTML = '<div class="forum-empty"><div class="empty-icon">' + (currentQuery ? '🔍' : '📭') + '</div><p>' + emptyMsg + '</p></div>';
+        document.getElementById('pagination').innerHTML = '';
+        return;
+      }
       var total = Math.ceil(filtered.length / PER_PAGE);
       if (currentPage > total) currentPage = total || 1;
       var page = filtered.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
@@ -776,7 +987,8 @@
           '<div class="post-body">' +
           '<div class="post-title"><span class="category-tag cat-' + p.category + '">' + (catLabel[p.category] || p.category) + '</span>' + escHtml(p.title) + '</div>' +
           '<div class="post-excerpt">' + escHtml(ex) + '</div>' +
-          '<div class="post-meta"><span>👤 ' + escHtml(p.author || '匿名用户') + '</span><span>📅 ' + (p.time || '') + '</span><span>👁 ' + (p.views || 0) + '</span></div>' +
+          // 只显示圆形头像（一个字），不再显示具体姓名
+          '<div class="post-meta"><span>📅 ' + (p.time || '') + '</span><span>👁 ' + (p.views || 0) + '</span></div>' +
           '</div>' +
           '<div class="post-stats"><div class="reply-count">' + getRealReplyCount(p.id) + '</div><div class="reply-label">回复</div></div>' +
           '</div>';
@@ -962,7 +1174,8 @@
           commentsHtml += '<div style="padding:16px 20px;margin-bottom:10px;background:#fff;border-radius:10px;border:1px solid #e2e8f0;position:relative">' +
             (isAdminUser() ? '<button onclick="deleteComment(\'' + id + '\',' + ci + ',\'' + ovId + '\')" title="删除此评论" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2em;padding:0;line-height:1;transition:color 0.2s" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'#94a3b8\'">×</button>' : '') +
             '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-right:28px">' +
-            '<span style="font-weight:700;font-size:0.88em;color:#1a56db">' + escHtml(cm.author || '匿名') + '</span>' +
+            // 评论同样只显示圆形头像，不显示姓名
+            '<span class="cm-avatar" style="background:' + avatarColor(cm.author) + '">' + escHtml((cm.author || '匿').charAt(0)) + '</span>' +
             '<span style="font-size:0.75em;color:#94a3b8">' + (cm.time || '') + '</span>' +
             '</div>' +
             '<div style="font-size:0.92em;line-height:1.8;color:#334155">' + (cm.content || '') + '</div>' +
@@ -994,8 +1207,9 @@
         '<h3 style="margin:8px 0;font-size:1.3em;line-height:1.4">' + escHtml(post.title) + '</h3></div>' +
         '<div style="padding-right:80px">' +
         '</div>' +
-        '<div style="color:#5a6c7d;font-size:0.85em;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e2e8f0">' +
-        '👤 ' + escHtml(post.author || '匿名用户') + ' · 📅 ' + (post.time || '') + ' · 👁 ' + (post.views || 0) + ' 次浏览 · 💬 ' + realReplyCount + ' 评论</div>' +
+        '<div style="color:#5a6c7d;font-size:0.85em;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:8px">' +
+        '<span class="cm-avatar" style="background:' + avatarColor(post.author) + '">' + escHtml((post.author || '匿').charAt(0)) + '</span>' +
+        '<span>📅 ' + (post.time || '') + ' · 👁 ' + (post.views || 0) + ' 次浏览 · 💬 ' + realReplyCount + ' 评论</span></div>' +
         '<div style="line-height:2;font-size:1em;color:#2c3e50">' + (post.content || '暂无内容') + '</div>' +
         commentsHtml +
         commentFormHtml +

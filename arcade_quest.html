@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闯关地图 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<link rel="stylesheet" href="js/katex/katex.min.css">
+<style>
+  .ac-game { grid-template-columns: 1fr 400px; }
+  @media (max-width: 1080px) { .ac-game { grid-template-columns: 1fr; } }
+  .q-chapter { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+               padding: 16px 18px; box-shadow: var(--shadow); margin-bottom: 16px; }
+  .q-chapter h3 { margin: 0 0 4px; font-size: 1.02em; font-weight: 800; }
+  .q-chapter .blurb { font-size: .8em; color: var(--text-light); margin-bottom: 12px; }
+  .q-nodes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .q-node {
+    width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid var(--border);
+    background: #fff; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 1px; font-weight: 800;
+    font-size: .95em; transition: all .18s; font-family: inherit; color: var(--text);
+  }
+  .q-node .stars { font-size: .62em; letter-spacing: -1px; color: var(--accent); line-height: 1; }
+  .q-node:hover:not(:disabled) { border-color: var(--primary); transform: translateY(-3px); }
+  .q-node:disabled { cursor: default; opacity: .45; }
+  .q-node.cleared { border-color: #22c55e; background: #f0fdf4; }
+  .q-node.active { border-color: var(--primary); background: #e8f0fe; }
+  .q-timer { height: 5px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .q-timer > i { display: block; height: 100%; background: #22c55e; transition: width .2s linear; }
+  .q-qs { font-weight: 700; margin-bottom: 10px; line-height: 1.7; }
+  .q-meta { font-size: .8em; color: var(--text-light); margin-bottom: 10px; }
+  .q-total { font-size: .85em; color: var(--text-light); }
+  .q-total b { color: var(--accent); font-size: 1.1em; }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>🥋 闯关地图</h1>
+    <p>四章 × 五关 × 每关三题。<b>全对才算通关</b>，按用时评星（40 秒内 ★★★ / 80 秒内 ★★ / 完成即可 ★）。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="ac-game">
+    <div>
+      <div id="map"></div>
+      <div class="q-total" id="totalStars"></div>
+    </div>
+
+    <aside class="ac-side">
+      <div class="ac-hud">
+        <span class="ac-chip" id="chipIdx">未开战</span>
+        <span class="ac-chip" id="chipTime">0.0 秒</span>
+      </div>
+      <div class="q-timer" id="timerWrap" style="display:none"><i id="timerBar" style="width:100%"></i></div>
+
+      <div id="playArea">
+        <div style="color:var(--text-light);font-size:.9em;line-height:1.8">
+          挑一个亮着的关卡开始（灰色🔒的要先通过前一关）。<br>
+          · 判断题点「对 / 错」<br>
+          · 选择题点选项字母<br>
+          · 答错任意一题，本关立即失败，重来时要换一批新题
+        </div>
+      </div>
+      <div id="feedback" style="margin-top:12px;font-size:.86em;line-height:1.7"></div>
+    </aside>
+  </div>
+</div>
+
+<div class="ac-modal" id="modal">
+  <div class="ac-modal-box">
+    <h3 id="mTitle">闯关结束</h3>
+    <div class="big" id="mStars"></div>
+    <p id="mDetail" style="color:var(--text-light)"></p>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center">
+      <button class="ac-btn" id="mRetry">重新挑战</button>
+      <button class="ac-btn ghost" id="mBack">回地图</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/data.js"></script>
+<script src="js/katex/katex.min.js"></script>
+<script src="js/katex/contrib/auto-render.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var Q_PER_LEVEL = 3;                 // 每关题数
+  var LEVELS = 5;                      // 每章关数
+  var STAR3_SEC = 40, STAR2_SEC = 80;  // 评星阈值（秒）
+  var CLEAR_BONUS = 30, STAR3_BONUS = 20;
+
+  var CHAPTERS = [
+    { cat: '静力学',   icon: '⚖️', blurb: '力系简化 · 受力分析 · 平衡方程' },
+    { cat: '运动学',   icon: '⏱️', blurb: '点的合成运动 · 刚体平面运动' },
+    { cat: '动力学',   icon: '🚀', blurb: '动量 · 动量矩 · 动能定理' },
+    { cat: '分析力学', icon: '🧮', blurb: '虚功原理 · 达朗贝尔 · 拉格朗日方程' }
+  ];
+  // 关卡难度阶梯：1-2 关简单，3-4 关中等，第 5 关上强度
+  var DIFF = ['easy', 'easy', 'medium', 'medium', 'hard'];
+
+  var run = null;   // {ci, lv, qs, idx, correct, t0, timer, locked}
+  var openLv = null; // 地图上当前点开的关卡（高亮用）
+
+  function lvKey(ci, lv) { return CHAPTERS[ci].cat + '-' + lv; }
+
+  function isUnlocked(ci, lv) {
+    if (lv === 1) return true;
+    var p = Arcade.progress();
+    return !!(p.games.quest.cleared || {})[lvKey(ci, lv - 1)];
+  }
+
+  // 组一关的题：先按难度取，不够就同章任取；优先出没做过的
+  function pickQuestions(ci, lv) {
+    var pool = Arcade.pool();
+    var cat = CHAPTERS[ci].cat;
+    var graded = pool.judge.concat(pool.choice);
+    var done = Arcade.doneSet();
+    function byDiff(d) {
+      var arr = graded.filter(function (q) { return q.category === cat && q.diff === d; });
+      var fresh = arr.filter(function (q) { return !done[q.id]; });
+      return fresh.length >= Q_PER_LEVEL ? Arcade.sample(fresh, Q_PER_LEVEL) : Arcade.sample(arr, Q_PER_LEVEL);
+    }
+    var qs = byDiff(DIFF[lv - 1]);
+    if (qs.length < Q_PER_LEVEL) {
+      var all = graded.filter(function (q) { return q.category === cat; });
+      var fresh = all.filter(function (q) { return !done[q.id]; });
+      qs = fresh.length >= Q_PER_LEVEL ? Arcade.sample(fresh, Q_PER_LEVEL) : Arcade.sample(all, Q_PER_LEVEL);
+    }
+    // 不变式：每题必须可判分（判断题有对/错，选择题有唯一字母答案与选项）
+    qs.forEach(function (q) {
+      var gradable = (q.type === '判断题' && /^(对|错)$/.test(q.ans)) ||
+                     (q.type === '选择题' && /^[A-H]$/.test(q.ans) && q.opts && q.opts.length >= 2);
+      if (!gradable) console.error('【闯关不变式被破坏】题目 ' + q.id + ' 不可判分');
+    });
+    return qs;
+  }
+
+  /* ==================== 地图渲染 ==================== */
+
+  function renderMap() {
+    var p = Arcade.progress();
+    var cleared = p.games.quest.cleared || {};
+    var stars = p.games.quest.stars || {};
+
+    document.getElementById('map').innerHTML = CHAPTERS.map(function (ch, ci) {
+      var nodes = [];
+      for (var lv = 1; lv <= LEVELS; lv++) {
+        var key = lvKey(ci, lv);
+        var unlocked = isUnlocked(ci, lv);
+        var cls = 'q-node' + (cleared[key] ? ' cleared' : '') + (openLv === key ? ' active' : '');
+        var stTxt = stars[key] ? '★★★'.slice(0, stars[key]) + '☆☆'.slice(0, 3 - stars[key]) : '···';
+        nodes.push('<button class="' + cls + '" data-ci="' + ci + '" data-lv="' + lv + '"' +
+          (unlocked ? '' : ' disabled title="先通过前一关"') + '>' +
+          '<span>第' + lv + '关</span><span class="stars">' + (unlocked ? stTxt : '🔒') + '</span></button>');
+      }
+      return '<div class="q-chapter"><h3>' + ch.icon + ' ' + ch.cat + '</h3>' +
+        '<div class="blurb">' + ch.blurb + '</div><div class="q-nodes">' + nodes.join('') + '</div></div>';
+    }).join('');
+
+    var total = 0, clearedN = 0;
+    Object.keys(stars).forEach(function (k) { total += stars[k] || 0; });
+    clearedN = Object.keys(cleared).length;
+    document.getElementById('totalStars').innerHTML =
+      '已通关 <b>' + clearedN + '</b> / ' + (CHAPTERS.length * LEVELS) + ' 关 · 累计 <b>' + total + '</b> 颗星';
+
+    Array.prototype.forEach.call(document.querySelectorAll('.q-node:not([disabled])'), function (b) {
+      b.onclick = function () { startLevel(+b.dataset.ci, +b.dataset.lv); };
+    });
+  }
+
+  /* ==================== 关卡流程 ==================== */
+
+  function startLevel(ci, lv) {
+    var qs = pickQuestions(ci, lv);
+    if (qs.length < Q_PER_LEVEL) {
+      Arcade.toast('这一章的可判分题不够了，去题库补点题再来', 'err');
+      return;
+    }
+    openLv = lvKey(ci, lv);
+    run = { ci: ci, lv: lv, qs: qs, idx: 0, correct: 0, locked: false, t0: Date.now() };
+    document.getElementById('timerWrap').style.display = 'block';
+    document.getElementById('chipIdx').textContent = CHAPTERS[ci].cat + ' · 第' + lv + '关';
+    document.getElementById('feedback').innerHTML = '';
+    clearInterval(run.timer);
+    run.timer = setInterval(function () {
+      var s = (Date.now() - run.t0) / 1000;
+      document.getElementById('chipTime').textContent = s.toFixed(1) + ' 秒';
+      document.getElementById('timerBar').style.width =
+        Math.max(0, 100 - Math.min(100, s / STAR2_SEC * 100)) + '%';
+    }, 100);
+    renderMap();
+    showQuestion();
+  }
+
+  function showQuestion() {
+    run.locked = false;
+    var q = run.qs[run.idx];
+    var box = document.getElementById('playArea');
+    var html = '<div class="q-meta">第 ' + (run.idx + 1) + ' / ' + run.qs.length + ' 题 · ' +
+      Arcade.esc(q.category) + ' · ' + Arcade.esc(q.type) + '</div>' +
+      '<div class="q-qs">' + Arcade.esc(q.text) + '</div><div class="ac-opts" id="opts"></div>';
+    box.innerHTML = html;
+    Arcade.renderMath(box);
+
+    var optsBox = document.getElementById('opts');
+    if (q.type === '判断题') {
+      [{ t: '对', ok: q.ans === '对' }, { t: '错', ok: q.ans === '错' }].forEach(function (o) {
+        var b = document.createElement('button');
+        b.className = 'ac-opt';
+        b.textContent = o.t;
+        b.onclick = function () { answer(q, o.ok, o.t, b); };
+        optsBox.appendChild(b);
+      });
+    } else {
+      q.opts.forEach(function (o) {
+        var b = document.createElement('button');
+        b.className = 'ac-opt';
+        b.textContent = '(' + o.key + ') ' + o.text;
+        b.onclick = function () { answer(q, o.key === q.ans, '(' + o.key + ')', b); };
+        optsBox.appendChild(b);
+      });
+    }
+  }
+
+  function answer(q, ok, label, btn) {
+    if (run.locked) return;
+    run.locked = true;
+    var nodes = document.querySelectorAll('#opts .ac-opt');
+    Array.prototype.forEach.call(nodes, function (n) { n.disabled = true; });
+    // 正确项必须标出来
+    Array.prototype.forEach.call(nodes, function (n) {
+      if (n.textContent.indexOf(label) === 0 && ok) n.className = 'ac-opt correct';
+    });
+    if (ok) {
+      btn.className = 'ac-opt correct';
+      run.correct++;
+      Arcade.toast('答对了', 'ok');
+      run.idx++;
+      setTimeout(function () {
+        if (run.idx >= run.qs.length) clearLevel();
+        else showQuestion();
+      }, 550);
+    } else {
+      btn.className = 'ac-opt wrong';
+      // 标出真正确项
+      Array.prototype.forEach.call(nodes, function (n, i) {
+        var right = q.type === '判断题' ? n.textContent === q.ans : n.textContent.indexOf('(' + q.ans + ')') === 0;
+        if (right) n.className = 'ac-opt correct';
+      });
+      failLevel(q, btn);
+    }
+  }
+
+  function levelScore() { return run.correct * 10; }
+
+  // 全对通关：按用时评星
+  function clearLevel() {
+    var sec = (Date.now() - run.t0) / 1000;
+    var stars = sec <= STAR3_SEC ? 3 : (sec <= STAR2_SEC ? 2 : 1);
+    var key = lvKey(run.ci, run.lv);
+    var p = Arcade.progress();
+    p.games.quest.stars[key] = Math.max(p.games.quest.stars[key] || 0, stars);
+    p.games.quest.cleared[key] = 1;
+    Arcade.saveProgress(p);
+    Arcade.markDone(run.qs.map(function (q) { return q.id; }));
+
+    var earned = levelScore() + CLEAR_BONUS + (stars === 3 ? STAR3_BONUS : 0);
+    var res = Arcade.recordGame('quest', { score: earned, correct: run.qs.length, total: run.qs.length });
+    stopTimer();
+
+    document.getElementById('mTitle').textContent = '🎉 通关！' + CHAPTERS[run.ci].cat + ' 第' + run.lv + '关';
+    document.getElementById('mStars').textContent = '★★★'.slice(0, stars) + '☆☆☆'.slice(0, 3 - stars);
+    document.getElementById('mDetail').innerHTML =
+      '用时 ' + sec.toFixed(1) + ' 秒 · +' + earned + ' 分（含通关 ' + CLEAR_BONUS +
+      (stars === 3 ? ' + 满星 ' + STAR3_BONUS : '') + '）' +
+      (res.tierUp ? '<br><b style="color:' + res.tierUp.hex + '">段位提升：' + res.tierUp.name + '</b>' : '');
+    var nextOk = run.lv < LEVELS;
+    document.getElementById('mRetry').textContent = nextOk ? '下一关' : '再战本关';
+    document.getElementById('mRetry').onclick = function () {
+      hideModal();
+      startLevel(run.ci, nextOk ? run.lv + 1 : run.lv);
+    };
+    showModal();
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+  }
+
+  // 答错即失败：亮出正确答案与解析
+  function failLevel(wrongQ) {
+    var sec = (Date.now() - run.t0) / 1000;
+    var correctN = run.correct;
+    var qsSnapshot = run.qs, ci = run.ci, lv = run.lv;
+    var earned = levelScore();
+    if (earned > 0) {
+      Arcade.recordGame('quest', { score: earned, correct: correctN, total: run.idx + 1 });
+    }
+    Arcade.markDone(qsSnapshot.map(function (q) { return q.id; }));
+    stopTimer();
+
+    var fb = document.getElementById('feedback');
+    fb.innerHTML = '<div style="color:#b91c1c;font-weight:700">❌ 本关失败（第 ' + (run.idx + 1) +
+      ' 题答错）</div><div class="ac-exp" style="margin-top:10px">' +
+      '<b style="color:#b45309">正确答案：' + Arcade.esc(wrongQ.ans) + '</b><br>' +
+      Arcade.esc(wrongQ.expText || '（本题暂无解析）') + '</div>';
+    Arcade.renderMath(fb);
+
+    document.getElementById('mTitle').textContent = '💥 闯关失败';
+    document.getElementById('mStars').textContent = '—';
+    document.getElementById('mDetail').innerHTML =
+      CHAPTERS[ci].cat + ' 第' + lv + '关 · 答对 ' + correctN + ' / ' + qsSnapshot.length +
+      ' · 用时 ' + sec.toFixed(1) + ' 秒<br>全对才能通关，再试一次（会换一批题）';
+    document.getElementById('mRetry').textContent = '再战本关';
+    document.getElementById('mRetry').onclick = function () {
+      hideModal();
+      startLevel(ci, lv);
+    };
+    setTimeout(showModal, 1600);
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+  }
+
+  function stopTimer() { if (run && run.timer) clearInterval(run.timer); }
+  function showModal() { document.getElementById('modal').classList.add('show'); }
+  function hideModal() { document.getElementById('modal').classList.remove('show'); }
+
+  document.getElementById('mBack').onclick = function () {
+    hideModal();
+    openLv = null;
+    run = null;
+    renderMap();
+  };
+
+  Arcade.mountLevelBar(document.getElementById('levelBar'));
+  renderMap();
+})();
+</script>
+</body>
+</html>

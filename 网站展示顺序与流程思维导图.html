@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理论力学研究平台 · 思维导图</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:
+      radial-gradient(1100px 620px at 50% 8%, #eaf0fd 0%, transparent 62%),
+      radial-gradient(900px 560px at 12% 92%, #e9f7f2 0%, transparent 58%),
+      radial-gradient(900px 560px at 88% 92%, #f3eefe 0%, transparent 58%),
+      #f6f8fc;
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+    color:#1e293b;
+    display:flex;flex-direction:column;
+    height:100%;overflow:hidden;
+  }
+
+  header{
+    flex:0 0 auto;text-align:center;padding:13px 20px 2px;
+  }
+  header h1{
+    margin:0;font-size:1.28em;letter-spacing:1px;
+    background:linear-gradient(90deg,#1a56db,#0d9488 55%,#7c3aed);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  header p{margin:3px 0 0;font-size:.75em;color:#7b879b}
+
+  .stage{
+    flex:1 1 auto;min-height:0;overflow:hidden;
+    padding:2px 14px 10px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  #fit{position:relative}
+  #canvas{position:relative;transform-origin:top left}
+  #wires{position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible}
+  #nodes{position:relative;z-index:1}
+
+  .node{
+    position:absolute;left:0;top:0;
+    display:flex;flex-direction:column;justify-content:center;
+    border-radius:14px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .node:hover{transform:scale(1.028);z-index:5}
+
+  /* 中心主题 */
+  .n-root{
+    width:208px;min-height:74px;align-items:center;text-align:center;
+    background:linear-gradient(135deg,#1a56db,#3b82f6 55%,#0ea5e9);
+    color:#fff;border-radius:18px;
+    box-shadow:0 8px 22px rgba(26,86,219,.32);
+    padding:11px 13px;
+  }
+  .n-root .t{font-size:.98em;font-weight:800;letter-spacing:.8px;line-height:1.3}
+  .n-root .s{font-size:.63em;opacity:.9;margin-top:5px;line-height:1.35}
+
+  /* 一级分支：实心彩条 */
+  .n-branch{
+    width:184px;min-height:46px;
+    padding:8px 12px;color:#fff;border-radius:11px;
+  }
+  .n-branch .t{font-size:.85em;font-weight:800;line-height:1.25;letter-spacing:.2px}
+  .n-branch .s{font-size:.62em;opacity:.9;margin-top:3px;line-height:1.3}
+
+  /* 叶子：白卡片 + 色条 */
+  .n-leaf{
+    width:252px;min-height:36px;
+    background:#fff;border:1px solid #e5eaf2;border-left:3px solid #cbd5e1;
+    padding:6px 11px;border-radius:9px;
+    box-shadow:0 1px 2px rgba(15,23,42,.06);
+  }
+  .n-leaf.align-right{text-align:right}
+  .n-leaf .t{font-size:.75em;font-weight:700;line-height:1.3}
+  .n-leaf .s{font-size:.64em;color:#7b879b;margin-top:1px;line-height:1.3}
+
+  /* 分组配色：--c1/--c2 直接挂在元素上 */
+  .g1{--c1:#2563eb;--c2:#3b82f6}
+  .g2{--c1:#0d9488;--c2:#14b8a6}
+  .g3{--c1:#7c3aed;--c2:#a855f7}
+  .g4{--c1:#ea580c;--c2:#f97316}
+  .g5{--c1:#16a34a;--c2:#22c55e}
+  .g6{--c1:#dc2626;--c2:#ef4444}
+  .g7{--c1:#4f46e5;--c2:#6366f1}
+  .g8{--c1:#94a3b8;--c2:#cbd5e1}
+
+  .n-branch{background:linear-gradient(135deg,var(--c1,#64748b),var(--c2,#94a3b8))}
+  .n-leaf{border-left-color:var(--c1,#cbd5e1)}
+  .n-leaf .t{color:var(--c1,#334155)}
+  .n-leaf.align-right{
+    border-left-width:1px;border-left-color:#e5eaf2;
+    border-right:3px solid var(--c1,#cbd5e1);
+  }
+  .g8.n-leaf{background:#fbfcfe}
+
+  @media print{
+    body{background:#fff}
+    .node{box-shadow:none}
+    header{padding-top:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>理论力学研究平台 · 思维导图</h1>
+  <p>展示顺序与流程 · 中心发散 · 左右分列</p>
+</header>
+
+<div class="stage">
+  <div id="fit">
+    <div id="canvas">
+      <svg id="wires"></svg>
+      <div id="nodes"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   数据（8 条主分支，右 4 条 / 左 4 条）
+   ============================================================ */
+const ROOT = {
+  t: '理论力学研究平台',
+  s: '长沙理工大学 · 工程力学系',
+  children: [
+    /* ---------- 右侧 ---------- */
+    { g:'g1', side:'R', t:'① 启动与访问', s:'一键启动 → 登录 → 进首页', children:[
+      { t:'一键启动', s:'清理端口残留 → 起题库 8090 → 起主平台 8080' },
+      { t:'登录闸门', s:'未登录自动跳账户页，登录后跳回原页面' },
+      { t:'三种打开方式', s:'8080 服务器模式（推荐）· file:// 本地 · 8090 直连' },
+    ]},
+    { g:'g2', side:'R', t:'② 首页展示顺序', s:'落地页从上到下', children:[
+      { t:'顶部区', s:'①顶栏 ②Hero 轮播（4 张）③数据条' },
+      { t:'功能区', s:'④ 8 张功能卡 —— 通往各功能区的总入口' },
+      { t:'预览区', s:'⑤题库 ⑥机构 ⑦AI ⑧知识框架' },
+      { t:'收尾区', s:'⑨虚拟展厅 ⑩问题探讨 ⑪页脚' },
+    ]},
+    { g:'g3', side:'R', t:'③ 学知识', s:'体系 → 教材 → 图谱', children:[
+      { t:'知识框架', s:'三大板块关系 + 知识树 + 学习路径 + 核心能力' },
+      { t:'四篇教材正文', s:'静力学 · 运动学 · 动力学 · 分析力学' },
+      { t:'知识图谱（3D）', s:'点枝干展开 · 点叶片看详情 · 徽标直达知识点' },
+    ]},
+    { g:'g4', side:'R', t:'④ 看机构', s:'单机构 + 复合 + 生成器', children:[
+      { t:'4 种单机构', s:'曲柄导杆 · 曲柄滑块 · 正弦机构 · 行星减速' },
+      { t:'复合机构演示库', s:'双滑块并联 · 串联复合 · 双正弦合成 · 双导杆科氏' },
+      { t:'连杆机构生成器', s:'手绘任意曲线 → 自动拟合生成四连杆' },
+    ]},
+
+    /* ---------- 左侧 ---------- */
+    { g:'g5', side:'L', t:'⑤ 问 AI', s:'两种模式 + 学习整理', children:[
+      { t:'知识库模式（默认）', s:'本地知识库匹配，无需联网' },
+      { t:'AI 增强模式', s:'填入 API Key 后启用，支持公式推理' },
+      { t:'整理本次学习', s:'生成结构化学习记忆，供知识网络读取' },
+    ]},
+    { g:'g6', side:'L', t:'⑥ 做题', s:'独立题库服务器 8090', children:[
+      { t:'入口三级降级', s:'接口就绪 → 异常 → 不可达探活，逐级回落' },
+      { t:'六级筛选', s:'学科 · 大类 · 知识点 · 难度 · 题型 · 来源' },
+      { t:'逐步揭示 + 语音讲解', s:'记录回写，影响综合评分与复习档位' },
+    ]},
+    { g:'g7', side:'L', t:'⑦ 学习沉淀闭环', s:'全站记忆层 · 越用越准', children:[
+      { t:'自动沉淀', s:'做题 / 问 AI / 复习 → 统一学习记忆' },
+      { t:'个人知识网络', s:'351 节点学科总览图 + 复习网络图 + 重点推荐' },
+      { t:'薄弱点反馈', s:'判断「准确 / 不准确」→ 回写记忆（闭环）' },
+    ]},
+    { g:'g8', side:'L', t:'⑧ 受保护区域', s:'改前必读 · 默认不动', children:[
+      { t:'三合一保护对象', s:'学科知识点总览图 = 知识网络 = 351 节点课程框架' },
+      { t:'恒定不变', s:'固定的学科地图永远不变' },
+    ]},
+  ],
+};
+
+/* ============================================================
+   布局参数
+   ============================================================ */
+const ROOT_W = 208, BRANCH_W = 184, LEAF_W = 252;
+const GAP_RB = 66;      // 中心 → 分支
+const GAP_BL = 44;      // 分支 → 叶子
+const GAP_Y  = 7;       // 同侧相邻叶子间距
+const GAP_BRANCH = 18;  // 同侧分支之间的额外间距
+
+const RIGHT_X = ROOT_W / 2 + GAP_RB;                 // 分支左边缘距中心
+const BRANCH_X = RIGHT_X + BRANCH_W + GAP_BL;
+const HALF_W = RIGHT_X + BRANCH_W + GAP_BL + LEAF_W; // 中心到最外侧
+const MARGIN = 14;
+const CANVAS_W = HALF_W * 2 + MARGIN * 2;
+const CX = CANVAS_W / 2;
+
+const canvas  = document.getElementById('canvas');
+const nodesEl = document.getElementById('nodes');
+const svg     = document.getElementById('wires');
+
+/* ---- 1) 建 DOM ---- */
+const rootEl = document.createElement('div');
+rootEl.className = 'node n-root';
+rootEl.innerHTML = '<div class="t">' + ROOT.t + '</div><div class="s">' + ROOT.s + '</div>';
+nodesEl.appendChild(rootEl);
+
+function buildBranch(b) {
+  b._el = document.createElement('div');
+  b._el.className = 'node n-branch ' + b.g;
+  b._el.innerHTML = '<div class="t">' + b.t + '</div><div class="s">' + b.s + '</div>';
+  nodesEl.appendChild(b._el);
+
+  b.children.forEach(c => {
+    c._el = document.createElement('div');
+    c._el.className = 'node n-leaf ' + b.g + (b.side === 'L' ? ' align-right' : '');
+    c._el.innerHTML = '<div class="t">' + c.t + '</div>' +
+                      (c.s ? '<div class="s">' + c.s + '</div>' : '');
+    nodesEl.appendChild(c._el);
+  });
+}
+ROOT.children.forEach(buildBranch);
+
+/* ---- 2) 配色表 ---- */
+const COLOR = {
+  g1:'#2563eb', g2:'#0d9488', g3:'#7c3aed', g4:'#ea580c',
+  g5:'#16a34a', g6:'#dc2626', g7:'#4f46e5', g8:'#94a3b8',
+};
+
+/* ---- 3) 单侧布局：叶子顺序堆放，分支取子节点中位 ---- */
+function layoutSide(branches) {
+  let cursor = 0;
+  branches.forEach(b => {
+    b.children.forEach(c => {
+      c._w = c._el.offsetWidth; c._h = c._el.offsetHeight;
+      c._y = cursor;
+      cursor += c._h + GAP_Y;
+    });
+    cursor -= GAP_Y;                       // 去掉最后一个的多余间距
+    const first = b.children[0];
+    const last  = b.children[b.children.length - 1];
+    b._w = b._el.offsetWidth; b._h = b._el.offsetHeight;
+    b._y = (first._y + last._y + last._h) / 2 - b._h / 2;
+    cursor += GAP_BRANCH;
+  });
+  return cursor - GAP_BRANCH;
+}
+
+const right = ROOT.children.filter(b => b.side === 'R');
+const left  = ROOT.children.filter(b => b.side === 'L');
+const hR = layoutSide(right);
+const hL = layoutSide(left);
+
+const TOTAL_H = Math.max(hR, hL);
+const offR = (TOTAL_H - hR) / 2;
+const offL = (TOTAL_H - hL) / 2;
+
+/* ---- 4) 落位 ---- */
+rootEl.style.left = (CX - ROOT_W / 2) + 'px';
+const rootH = rootEl.offsetHeight;
+const rootY = TOTAL_H / 2 - rootH / 2;
+rootEl.style.top = rootY + 'px';
+
+let maxBottom = 0;
+function placeSide(branches, off, dir) {
+  branches.forEach(b => {
+    b._x = dir > 0 ? CX + RIGHT_X : CX - RIGHT_X - b._w;
+    b._y += off;
+    b._el.style.left = b._x + 'px';
+    b._el.style.top  = b._y + 'px';
+    maxBottom = Math.max(maxBottom, b._y + b._h);
+
+    b.children.forEach(c => {
+      c._x = dir > 0 ? CX + BRANCH_X : CX - BRANCH_X - c._w;
+      c._y += off;
+      c._el.style.left = c._x + 'px';
+      c._el.style.top  = c._y + 'px';
+      maxBottom = Math.max(maxBottom, c._y + c._h);
+    });
+  });
+}
+placeSide(right, offR, +1);
+placeSide(left,  offL, -1);
+
+const CANVAS_H = maxBottom + MARGIN * 2;
+canvas.style.width  = CANVAS_W + 'px';
+canvas.style.height = CANVAS_H + 'px';
+
+/* ---- 5) 画连线 ---- */
+svg.setAttribute('width',  CANVAS_W);
+svg.setAttribute('height', CANVAS_H);
+svg.setAttribute('viewBox', '0 0 ' + CANVAS_W + ' ' + CANVAS_H);
+
+let out = '';
+function path(d, color, w, op) {
+  out += '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="' + w +
+         '" stroke-opacity="' + op + '" stroke-linecap="round"/>';
+}
+function dot(x, y, r, color, op) {
+  out += '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + color +
+         '" fill-opacity="' + op + '"/>';
+}
+
+const rootCy = rootY + rootH / 2;
+const rootEdgeR = CX + ROOT_W / 2;
+const rootEdgeL = CX - ROOT_W / 2;
+
+function draw(b, off, dir) {
+  const col = COLOR[b.g];
+  const by2 = b._y + b._h / 2;
+
+  // 中心 → 分支
+  const x1 = dir > 0 ? rootEdgeR : rootEdgeL;
+  const x2 = dir > 0 ? b._x : b._x + b._w;
+  const dx = Math.abs(x2 - x1) * 0.55;
+  path('M' + x1 + ' ' + rootCy + ' C' + (x1 + dir * dx) + ' ' + rootCy + ', ' +
+       (x2 - dir * dx) + ' ' + by2 + ', ' + x2 + ' ' + by2, col, 3.2, 0.95);
+  dot(x2, by2, 5, col, 1);
+
+  // 分支 → 叶子
+  b.children.forEach(c => {
+    const y1 = by2, y2 = c._y + c._h / 2;
+    const cx1 = dir > 0 ? b._x + b._w : b._x;
+    const cx2 = dir > 0 ? c._x : c._x + c._w;
+    const ddx = Math.abs(cx2 - cx1) * 0.55;
+    path('M' + cx1 + ' ' + y1 + ' C' + (cx1 + dir * ddx) + ' ' + y1 + ', ' +
+         (cx2 - dir * ddx) + ' ' + y2 + ', ' + cx2 + ' ' + y2, col, 1.8, 0.55);
+    dot(cx2, y2, 3.2, col, 0.75);
+  });
+}
+right.forEach(b => draw(b, offR, +1));
+left.forEach(b  => draw(b, offL, -1));
+
+svg.innerHTML = out;
+
+/* ============================================================
+   自动缩放：整体等比缩到刚好铺满可视区（不出现滚动条）
+   ============================================================ */
+const fitEl = document.getElementById('fit');
+const stage = document.querySelector('.stage');
+
+function fitToScreen() {
+  const availW = stage.clientWidth  - 28;   // 减去 stage 的左右内边距
+  const availH = stage.clientHeight - 12;
+  const k = Math.min(availW / CANVAS_W, availH / CANVAS_H, 1.15);  // 上限 1.15，避免放太大
+  canvas.style.transform = 'scale(' + k + ')';
+  fitEl.style.width  = (CANVAS_W * k) + 'px';
+  fitEl.style.height = (CANVAS_H * k) + 'px';
+}
+
+fitToScreen();
+window.addEventListener('resize', fitToScreen);
+window.addEventListener('orientationchange', fitToScreen);
+</script>
+</body>
+</html>

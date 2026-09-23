@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猜机构 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<style>
+  .ac-game { grid-template-columns: 1fr 380px; }
+  @media (max-width: 1080px) { .ac-game { grid-template-columns: 1fr; } }
+  .g-timer { height: 5px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .g-timer > i { display: block; height: 100%; background: var(--primary); transition: width .2s linear; }
+  .g-q { font-weight: 700; margin-bottom: 12px; }
+  .g-tip { font-size: .82em; color: var(--text-light); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>🔍 猜机构</h1>
+    <p>下面播放的是一个<b>去掉了全部标注</b>的机构动画。看图答题——<b>答完立刻在图上揭晓标注</b>，对照左图认识动点、动系与科氏加速度。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="ac-game">
+    <div class="ac-stage">
+      <canvas id="cv"></canvas>
+      <div class="g-tip" id="stageTip">动画持续播放中 · 不显示任何标注文字</div>
+    </div>
+
+    <aside class="ac-side">
+      <div class="ac-hud">
+        <span class="ac-chip" id="chipScore">0 分</span>
+        <span class="ac-chip" id="chipStreak">连击 0</span>
+        <span class="ac-chip" id="chipIdx">第 1 题</span>
+      </div>
+      <div class="g-timer"><i id="timerBar" style="width:100%"></i></div>
+
+      <div class="g-q" id="qText">准备中…</div>
+      <div class="ac-opts" id="opts"></div>
+      <div id="feedback" style="margin-top:12px;font-size:.86em;line-height:1.6"></div>
+
+      <div style="margin-top:16px;display:flex;gap:8px">
+        <button class="ac-btn" id="btnNext" disabled>下一题</button>
+        <button class="ac-btn ghost" id="btnEnd">结束本轮</button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="ac-modal" id="modal">
+  <div class="ac-modal-box">
+    <h3 id="mTitle">本轮结束</h3>
+    <div class="big" id="mScore">0</div>
+    <p id="mDetail" style="color:var(--text-light)"></p>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center">
+      <button class="ac-btn" id="mAgain">再来一轮</button>
+      <a class="ac-btn ghost" href="arcade.html" style="text-decoration:none;line-height:1.6">回游乐园</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/arcade_mech.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var LIMIT = 15;          // 每题秒数
+  var ROUND = 10;          // 每轮题数
+
+  var mech = ArcadeMech.create(document.getElementById('cv'), 'guideBar');
+  var FACTS = ArcadeMech.FACTS, KEYS = ArcadeMech.KEYS;
+
+  // 四个选项文案固定。正确项由 FACTS[key].hasCoriolis 这个【布尔量】决定，
+  // 绝不去和 FACTS[key].coriolis 比字符串 —— 那是 mechanism_engine.js 抄来的原文
+  // （'科氏加速度 = 0（动系平动）'），跟这里的选项文案根本不是一个串。
+  // 早先就是写的 x.t === f.coriolis，永不成立 → 四个选项没一个 ok
+  // → 这一问点了也判错、答完也标不出正确答案，整条题型报废。
+  // 下面 coriolis 字段：true/false = 该选项断言的事实；null = 物理上不成立、永不正确。
+  var AC_OPTS = [
+    { t: '有科氏加速度，因为动系作转动', coriolis: true },
+    { t: '科氏加速度为 0，因为动系作平动', coriolis: false },
+    { t: '有科氏加速度，因为动系作平动', coriolis: null },
+    { t: '科氏加速度为 0，因为动系作转动', coriolis: null }
+  ];
+
+  var st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: false };
+
+  function makeQuestion() {
+    var pool = KEYS.filter(function (k) { return FACTS[k]; });
+    // 科氏那条只有 guideBar / sliderCrank / scotchYoke 三个机构有明确答案
+    // （行星减速的原文没作判断），所以这一问只在这三者里出
+    var acKeys = ['guideBar', 'sliderCrank', 'scotchYoke'];
+    var kind = Arcade.pick(['name', 'frame', 'coriolis']);
+    var key = kind === 'coriolis' ? Arcade.pick(acKeys) : Arcade.pick(pool);
+    var f = FACTS[key];
+
+    if (kind === 'name') {
+      return {
+        key: key, kind: kind,
+        q: '这个机构是？',
+        opts: Arcade.shuffle(pool.map(function (k) { return { t: FACTS[k].name, ok: k === key }; })),
+        why: '动点：' + f.movingPoint + '　动系：' + f.movingFrame + '。' + f.coriolis
+      };
+    }
+    if (kind === 'frame') {
+      // 动系运动方式：正确项直接用 FACTS 原文「构件（运动方式）」，
+      // 干扰项反向运动 + 泛指构件。别拼成「平动（滑块 B（平动））」这种括号套括号。
+      var opts = [
+        { t: f.movingFrame, ok: true },
+        { t: (f.frameMotion === '转动' ? '平动' : '转动') + '（其它某个构件）', ok: false },
+        { t: '静止不动', ok: false },
+        { t: '绕自身轴线的定轴转动', ok: false }
+      ];
+      return {
+        key: key, kind: kind,
+        q: '它的「动系」作什么运动？',
+        opts: Arcade.shuffle(opts),
+        why: '动点：' + f.movingPoint + '　动系：' + f.movingFrame
+      };
+    }
+    // coriolis：拿布尔量判，且保证有且只有一个正确项
+    var o = AC_OPTS.map(function (x) {
+      return { t: x.t, ok: (x.coriolis !== null && x.coriolis === f.hasCoriolis) };
+    });
+    return {
+      key: key, kind: kind,
+      q: '该机构的科氏加速度情况是？',
+      opts: Arcade.shuffle(o),
+      why: f.desc + ' —— ' + f.coriolis
+    };
+  }
+
+  // 不变式：每题必须【有且只有一个】正确项。
+  // 之前科氏那一问因为比错了字符串，正确项数为 0 ——「点了判错、答完标不出对的」，
+  // 玩家学不到任何东西，而且只靠手测很难发现（四种机构随机出，一次抽不中就漏掉）。
+  // 这里显式喊出来，配合测试脚本捕获 console 即可稳定兜住。
+  function assertOneCorrect(q) {
+    var n = q.opts.filter(function (o) { return o.ok; }).length;
+    if (n !== 1) {
+      var msg = '【出题不变式被破坏】' + q.kind + '（' + q.key + '）正确项数 = ' + n + '，应为 1';
+      if (root.console) console.error(msg);
+    }
+    return q;
+  }
+
+  var cur = null, left = LIMIT, tick = null, lastT = 0, running = true;
+
+  function startQuestion() {
+    st.locked = false;
+    cur = assertOneCorrect(makeQuestion());
+    mech.setMech(cur.key);
+    // 提问阶段回到「去标注」状态 —— 文字标注一显示，动系是谁就直接泄底了。
+    // 但动系/科氏题必须把「动点」用高亮圈圈出来：题目问的就是「它的动系…」，
+    // 图上若没有任何标记点，玩家不知道问的是谁（用户实测抓到的漏洞）。
+    // 只圈点、不写文字、不标动系 —— 答案不泄露，题目有对应物。
+    mech.setLabels(false);
+    mech.setMark(cur.kind !== 'name');
+    mech.render();
+    document.getElementById('stageTip').textContent =
+      cur.kind === 'name'
+        ? '动画持续播放中 · 不显示任何标注文字（答完揭晓）'
+        : '动画持续播放中 · 高亮圈是动点 —— ' +
+          (cur.kind === 'frame' ? '判断它所在的动系作什么运动' : '判断科氏加速度的有无') +
+          '（答完揭晓全部标注）';
+    document.getElementById('qText').textContent = cur.q;
+    document.getElementById('feedback').innerHTML = '';
+    document.getElementById('btnNext').disabled = true;
+    document.getElementById('chipIdx').textContent = '第 ' + (st.idx + 1) + ' 题';
+
+    var box = document.getElementById('opts');
+    box.innerHTML = '';
+    cur.opts.forEach(function (o) {
+      var b = document.createElement('button');
+      b.className = 'ac-opt';
+      b.textContent = o.t;
+      b.onclick = function () { answer(o.ok, b); };
+      box.appendChild(b);
+    });
+
+    left = LIMIT;
+    document.getElementById('timerBar').style.width = '100%';
+    clearInterval(tick);
+    tick = setInterval(function () {
+      left -= 0.1;
+      document.getElementById('timerBar').style.width = Math.max(0, left / LIMIT * 100) + '%';
+      if (left <= 0) { clearInterval(tick); answer(null, null); }
+    }, 100);
+  }
+
+  function answer(ok, btn) {
+    if (st.locked) return;
+    st.locked = true;
+    clearInterval(tick);
+    st.total++;
+    if (ok) st.correct++;
+
+    var gained = 0;
+    if (ok === true) {
+      st.streak++;
+      if (st.streak > st.bestStreak) st.bestStreak = st.streak;
+      gained = 10 + Math.min(10, (st.streak - 1) * 2);
+      st.score += gained;
+      Arcade.toast('答对了 +' + gained + ' 分', 'ok');
+    } else {
+      st.streak = 0;
+      Arcade.toast(ok === null ? '超时了' : '答错了', 'err');
+    }
+
+    // 标出正确项和误选项
+    var nodes = document.querySelectorAll('#opts .ac-opt');
+    cur.opts.forEach(function (o, i) {
+      nodes[i].disabled = true;
+      if (o.ok) nodes[i].className = 'ac-opt correct';
+      else if (nodes[i] === btn) nodes[i].className = 'ac-opt wrong';
+    });
+
+    // 揭晓：把标注画回图上 —— 反馈里的「动点 M」「动系 滑块 B」必须能
+    // 在画布上对上号，否则玩家对着一张无字图什么也学不到（用户抓到的漏洞）。
+    // 高亮圈也一并显示（认机构题答题时没圈，揭晓时补上看点在哪）。
+    mech.setLabels(true);
+    mech.setMark(true);
+    mech.render();
+    document.getElementById('stageTip').textContent = '已揭晓 · 标注已显示 —— 对照左图看动点与动系，点下一题继续隐藏';
+
+    document.getElementById('feedback').innerHTML =
+      '<div style="color:var(--text-light)">' + Arcade.esc(cur.why) + '</div>';
+
+    st.idx++;
+    document.getElementById('chipScore').textContent = st.score + ' 分';
+    document.getElementById('chipStreak').textContent = '连击 ' + st.streak;
+    document.getElementById('chipStreak').className = 'ac-chip' + (st.streak >= 3 ? ' hot' : '');
+
+    if (st.idx >= ROUND) { setTimeout(finish, 900); }
+    else { document.getElementById('btnNext').disabled = false; }
+  }
+
+  function finish() {
+    running = false;
+    var res = Arcade.recordGame('guess', {
+      score: st.score, correct: st.correct, total: st.total, streak: st.bestStreak
+    });
+    document.getElementById('mScore').textContent = st.score + ' 分';
+    document.getElementById('mDetail').innerHTML =
+      '答对 ' + st.correct + ' / ' + st.total + ' 题 · 最高连击 ' + st.bestStreak +
+      (res.tierUp ? '<br><b style="color:' + res.tierUp.hex + '">🎉 段位提升：' + res.tierUp.name + '</b>' : '');
+    document.getElementById('modal').classList.add('show');
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+  }
+
+  function reset() {
+    st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: false };
+    document.getElementById('chipScore').textContent = '0 分';
+    document.getElementById('chipStreak').textContent = '连击 0';
+    document.getElementById('modal').classList.remove('show');
+    running = true;
+    startQuestion();
+  }
+
+  document.getElementById('btnNext').onclick = startQuestion;
+  document.getElementById('btnEnd').onclick = finish;
+  document.getElementById('mAgain').onclick = reset;
+
+  // 动画主循环
+  function loop(ts) {
+    if (!lastT) lastT = ts;
+    var dt = Math.min(0.05, (ts - lastT) / 1000);
+    lastT = ts;
+    if (running && !st.locked) mech.step(dt);
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', function () { mech.fit(); });
+
+  Arcade.mountLevelBar(document.getElementById('levelBar'));
+  startQuestion();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

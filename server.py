@@ -32,6 +32,9 @@ FDATA = ROOT / 'fdata'
 FORUM_INDEX = FDATA / 'index.json'
 PDATA = ROOT / 'pdata'
 ADATA = ROOT / 'adata'                      # 用户活跃记录（登录/做题/AI问答）
+SDATA = ROOT / 'sdata'                      # 站点级共享内容（如「平台内容总览」页）
+SITE_CONTENT_PATH = SDATA / 'site_content.json'
+SITE_CONTENT_MAX = 2 * 1024 * 1024          # 单份内容上限 2MB
 QB_DIR = ROOT / '题库' / '工程力学（二）'   # 独立题库服务器目录（8090）
 
 PORT = 8080
@@ -171,6 +174,34 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
 
+    @staticmethod
+    def parse_range(header, total):
+        """解析 Range: bytes=... ，返回 (start, end)（闭区间）；没带该头 / 解析不了 / 越界则返回 None。
+
+        只处理单区间：浏览器请求视频就只用单区间，多区间请求直接退回整文件 200，
+        结果依然是正确的，只是不省流量。
+        """
+        if not header or not header.startswith('bytes='):
+            return None
+        spec = header[len('bytes='):].split(',')[0].strip()
+        a, sep, b = spec.partition('-')
+        if not sep:
+            return None
+        try:
+            if a == '':
+                n = int(b)          # bytes=-N → 最后 N 字节
+                if n <= 0:
+                    return None
+                start, end = max(0, total - n), total - 1
+            else:
+                start = int(a)
+                end = int(b) if b else total - 1   # bytes=N- → 从 N 到结尾
+        except ValueError:
+            return None
+        if start > end or start >= total:
+            return None
+        return start, min(end, total - 1)
+
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_cors()
@@ -205,6 +236,11 @@ class Handler(BaseHTTPRequestHandler):
         # 按账户的通用进度存储
         if path.startswith('api/userdata/'):
             self.handle_userdata('GET')
+            return
+
+        # 站点级共享内容（「平台内容总览」页的可编辑内容，全站可见）
+        if path == 'api/site-content':
+            self.handle_site_content('GET')
             return
 
         # 语音讲解 API
@@ -255,17 +291,53 @@ class Handler(BaseHTTPRequestHandler):
                 '.otf': 'font/otf',
             }
             content_type = ext_map.get(file_path.suffix, 'application/octet-stream')
-            self.send_response(200)
-            self.send_cors()
-            self.send_header('Content-Type', content_type)
+            total = file_path.stat().st_size
+
+            # —— HTTP Range 支持（2026-09-18 加，为了展厅里的授课视频能拖进度条）——
+            # 以前这里是无条件 read() 整个文件再回 200：600MB 的 mp4 每请求一次就占 600MB 内存，
+            # 而且浏览器拿不到 Content-Range，完全不能快进/回退。现在带 Range 头就回 206 分片。
+            rng = self.parse_range(self.headers.get('Range'), total)
+
             # 彻底禁止缓存：每次访问都从服务器拿最新文件（no-store + 旧协议头兜底）
-            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0')
-            self.send_header('Expires', '0')
-            self.send_header('Pragma', 'no-cache')
-            self.end_headers()
-            # 全部按原始字节读取，保证服务器提供的内容与本地文件逐字节一致（不做行尾符/编码转换）
+            no_cache = (
+                ('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0'),
+                ('Expires', '0'),
+                ('Pragma', 'no-cache'),
+            )
+
+            if rng is None:
+                self.send_response(200)
+                self.send_cors()
+                self.send_header('Content-Type', content_type)
+                self.send_header('Content-Length', str(total))
+                self.send_header('Accept-Ranges', 'bytes')
+                for k, v in no_cache:
+                    self.send_header(k, v)
+                self.end_headers()
+                start, end = 0, total - 1
+            else:
+                start, end = rng
+                self.send_response(206)
+                self.send_cors()
+                self.send_header('Content-Type', content_type)
+                self.send_header('Content-Range', f'bytes {start}-{end}/{total}')
+                self.send_header('Content-Length', str(end - start + 1))
+                self.send_header('Accept-Ranges', 'bytes')
+                for k, v in no_cache:
+                    self.send_header(k, v)
+                self.end_headers()
+
+            # 按原始字节分块发送，保证服务器提供的内容与本地文件逐字节一致（不做行尾符/编码转换）。
+            # 分块读而不是一次 read()，是为了不让大文件把内存吃满。
             with open(file_path, 'rb') as f:
-                self.wfile.write(f.read())
+                f.seek(start)
+                remain = end - start + 1
+                while remain > 0:
+                    chunk = f.read(min(256 * 1024, remain))
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
+                    remain -= len(chunk)
         else:
             self.send_error(404, 'Not Found')
 
@@ -288,6 +360,8 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_activity_record()
         elif self.path.startswith('/api/userdata/'):
             self.handle_userdata('POST')
+        elif self.path == '/api/site-content':
+            self.handle_site_content('POST')
         elif self.path == '/api/tts':
             self.handle_tts_preview()
         elif self.path == '/api/narrate':
@@ -1203,6 +1277,91 @@ class Handler(BaseHTTPRequestHandler):
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         self.send_json(200, {'ok': True, 'data': data})
+
+    # ==================== 站点级共享内容 ====================
+    # 「平台内容总览」(site_stats.html) 页面的可编辑内容，全站唯一一份、所有访客可见。
+    # 存到 sdata/site_content.json。
+    #
+    # ⚠️ 权限说明（重要，别误以为它是安全的）：
+    #   本站没有登录态——没有 cookie / token / session，current_user 只存在浏览器
+    #   localStorage 里。所以这里只能校验「请求里声明的 uid 在 udata/index.json 里
+    #   的 role 是不是 admin」，属于**防误改的软闸门**，挡不住有人手动伪造 uid。
+    #   这是全站既有状态（handle_account_promote 同样不校验），不是本接口引入的。
+    def is_admin_uid(self, uid):
+        """uid 是否为管理员：查 udata/index.json 的 role 字段"""
+        if not uid or not re.match(r'^[A-Za-z0-9_.-]{1,80}$', uid):
+            return False
+        udata_file = ROOT / 'udata' / 'index.json'
+        if not udata_file.exists():
+            return False
+        try:
+            with open(udata_file, 'r', encoding='utf-8') as f:
+                users = json.load(f).get('users', [])
+        except (json.JSONDecodeError, OSError):
+            return False
+        for u in users:
+            if u.get('id') == uid or u.get('student_id') == uid:
+                return u.get('role') == 'admin'
+        return False
+
+    def handle_site_content(self, method):
+        if method == 'GET':
+            if SITE_CONTENT_PATH.exists():
+                try:
+                    with open(SITE_CONTENT_PATH, 'r', encoding='utf-8') as f:
+                        self.send_json(200, {'ok': True, 'data': json.load(f)})
+                        return
+                except (json.JSONDecodeError, OSError):
+                    pass
+            # 没存过 / 文件损坏 → 让前端回落到内置默认内容
+            self.send_json(200, {'ok': True, 'data': None})
+            return
+
+        # ---- POST：写入或清空 ----
+        # read_json_body 解析失败会静默返回 {}。这里先分清「请求体坏了」和
+        # 「uid 不是管理员」——否则一个编码不对的请求会报“只有管理员可以修改”，
+        # 排查时非常误导（实测踩过一次：Windows 终端把中文转成 GBK）。
+        if int(self.headers.get('Content-Length', 0)) <= 0:
+            self.send_json(400, {'ok': False, 'message': '请求体为空'})
+            return
+        body = self.read_json_body()
+        uid = str(body.get('uid', '')).strip()
+        if not uid:
+            self.send_json(400, {'ok': False, 'message': '请求体不是合法 JSON，或缺少 uid'})
+            return
+        if not self.is_admin_uid(uid):
+            print(f'[SiteContent] 拒绝非管理员写入: uid={uid!r}')
+            self.send_json(403, {'ok': False, 'message': '只有管理员可以修改页面内容'})
+            return
+
+        data = body.get('data')
+        # 注意：read_json_body 解析失败会返回 {}。必须先确认请求里真的带了 data 键，
+        # 否则一个畸形请求会被当成「恢复默认」，把已有内容误清空。
+        if 'data' not in body:
+            self.send_json(400, {'ok': False, 'message': '请求体缺少 data 字段'})
+            return
+        if data is None:                       # 恢复默认 = 清空服务端内容
+            if SITE_CONTENT_PATH.exists():
+                SITE_CONTENT_PATH.unlink()
+            print(f'[SiteContent] 已清空，回落到内置默认内容（by {uid}）')
+            self.send_json(200, {'ok': True, 'message': '已恢复默认内容'})
+            return
+
+        if not isinstance(data, dict):
+            self.send_json(400, {'ok': False, 'message': '数据格式无效'})
+            return
+        if len(json.dumps(data, ensure_ascii=False)) > SITE_CONTENT_MAX:
+            self.send_json(413, {'ok': False, 'message': '内容过大，已拒绝写入'})
+            return
+
+        SDATA.mkdir(exist_ok=True)
+        payload = dict(data)
+        payload['_updated_at'] = datetime.now().isoformat(timespec='seconds')
+        payload['_updated_by'] = uid
+        with open(SITE_CONTENT_PATH, 'w', encoding='utf-8') as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+        print(f'[SiteContent] 页面内容已保存（by {uid}）')
+        self.send_json(200, {'ok': True, 'data': payload})
 
 
 def main():

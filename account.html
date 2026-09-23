@@ -417,6 +417,8 @@ function renderLogin(container) {
       '<div class="form-group"><label>密码</label><input type="password" id="loginPw" placeholder="请输入密码" onkeydown="if(event.key===\'Enter\')doLogin()"></div>' +
       '<button class="btn btn-primary" onclick="doLogin()">🔓 登录</button>' +
       '<div class="form-hint">没有账户？<a onclick="showRegister()">点击注册</a></div>' +
+      // 登录前先看看平台里有什么：内容总览页是公开的，不走登录闸门
+      '<div class="form-hint" style="margin-top:12px">还没登录？<a href="site_stats.html">先看看平台里都有什么 →</a></div>' +
     '</div></div>';
   document.getElementById('loginId').focus();
 }

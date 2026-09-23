@@ -54,14 +54,14 @@ body{
 }
 .nav-title{font-size:1.15em; font-weight:700; color:var(--primary-dark); letter-spacing:1px}
 .nav-title small{display:block; font-size:0.55em; font-weight:400; color:var(--text-lighter); letter-spacing:0.5px}
-.nav-links{display:flex; list-style:none; gap:4px; align-items:center}
+.nav-links{display:flex; list-style:none; gap:2px; align-items:center}
 .nav-links a{
   text-decoration:none; color:var(--text); font-size:0.88em; font-weight:500;
-  padding:8px 16px; border-radius:6px; transition:all var(--transition); white-space:nowrap;
+  padding:8px 13px; border-radius:6px; transition:all var(--transition); white-space:nowrap;
 }
 .nav-links a:hover{background:var(--primary-light); color:var(--primary)}
-.nav-links a.btn-nav{background:var(--primary); color:#fff; padding:8px 20px; border-radius:20px; font-weight:600}
-.nav-links a.btn-nav:hover{background:var(--primary-dark); transform:translateY(-1px)}
+/* 顶栏所有项外观一致：原先「个人账户」用 .btn-nav 做成蓝色胶囊，
+   在一排里显得像"当前选中"，现已去掉该样式（.btn-nav 规则一并删除）。 */
 .nav-search{
   display:flex; align-items:center; gap:6px; background:var(--bg);
   border-radius:20px; padding:6px 14px; border:1px solid var(--border); transition:all var(--transition);
@@ -235,15 +235,25 @@ body{
 /* ===== Knowledge Preview ===== */
 .knowledge-preview{max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:20px}
 .knowledge-root{background:var(--primary); color:#fff; padding:16px 32px; border-radius:30px; font-weight:700; font-size:1.1em; letter-spacing:1px}
-.knowledge-branches{display:flex; gap:36px; flex-wrap:wrap; justify-content:center}
+/* 四个知识板块排成 2×2 四方格：
+   - repeat(2,1fr) 让左右两列等宽、上下两行等高（grid-auto-rows:1fr）
+   - 限宽居中，否则在宽屏上每格会拉到 600+px
+   - 卡片内部用 flex 纵向排列、标签 margin-top:auto 顶到底部，
+     这样四张卡片的标题、副标题、标签各自对齐在同一水平线上 */
+.knowledge-branches{
+  display:grid; grid-template-columns:repeat(2,1fr); grid-auto-rows:1fr;
+  gap:22px 26px; max-width:920px; margin:0 auto;
+}
 .knowledge-branch{
   background:var(--card-bg); border-radius:var(--radius); padding:22px 28px;
-  min-width:200px; text-align:center; border:1px solid var(--border);
+  text-align:center; border:1px solid var(--border); min-width:0;
   box-shadow:var(--shadow); transition:all var(--transition);
+  /* 纵向 flex：标签推到卡片底部，四格的标题/副标题/标签才能分别对齐 */
+  display:flex; flex-direction:column;
 }
 .knowledge-branch:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg)}
 .knowledge-branch h5{font-size:1em; font-weight:700; margin-bottom:8px}
-.knowledge-branch .branch-topics{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:12px}
+.knowledge-branch .branch-topics{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:auto; padding-top:14px}
 .knowledge-branch .branch-topics span{font-size:0.72em; padding:3px 10px; background:var(--primary-light); color:var(--primary); border-radius:10px}
 
 /* ===== Demo Section ===== */
@@ -298,7 +308,13 @@ body{
   .hero{height:340px}
   .section{padding:48px 16px}
   .footer-grid{grid-template-columns:1fr}
-  .knowledge-branches{flex-direction:column; align-items:center}
+  .knowledge-branches{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  /* 数据条在窄屏改成整齐的 2×2。
+     四项 flex 换行会出现 3+1 的难看断行——「全天候随时就位」比原来的 24/7 宽，
+     实测约 520px 以下就开始断行，所以断点取 600px 留点余量。 */
+  .stats-bar{display:grid; grid-template-columns:1fr 1fr; gap:18px 20px}
 }
 @media(max-width:480px){
   .hero{height:260px}
@@ -534,7 +550,9 @@ body.vh-open{overflow:hidden}
     <li><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a></li>
     <li><a href="personal_knowledge.html?v=20260826b">个人知识网络</a></li>
     <li><a href="forum.html">问题探讨</a></li>
-    <li><a href="account.html" class="btn-nav">个人账户</a></li>
+    <li><a href="account.html">个人账户</a></li>
+    <li><a href="site_stats.html">统计</a></li>
+    <li><a href="arcade.html">力学游乐园</a></li>
   </ul>
   <div class="nav-search">
     <input type="text" placeholder="搜索力学知识…" id="navSearchInput" onkeydown="if(event.key==='Enter')window.location.href='search.html?q='+encodeURIComponent(this.value)">
@@ -556,6 +574,8 @@ body.vh-open{overflow:hidden}
     <a href="hall.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🏛️ 虚拟展厅</a>
     <a href="forum.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">💬 问题探讨</a>
     <a href="account.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">👤 个人账户</a>
+    <a href="site_stats.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">📊 统计</a>
+    <a href="arcade.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🎮 力学游乐园</a>
     <a href="personal_knowledge.html?v=20260826b" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🕸️ 个人知识网络</a>
     <a href="search.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">🔍 功能搜索</a>
     <a href="about.html" style="display:block;padding:12px 0;text-decoration:none;color:var(--text);font-weight:600;border-bottom:1px solid var(--border)">ℹ️ 平台介绍</a>
@@ -581,7 +601,7 @@ body.vh-open{overflow:hidden}
 <div class="stats-bar">
   <div class="stat-item"><div class="stat-num">596</div><div class="stat-label">理论力学习题</div></div>
   <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">交互式机构演示</div></div>
-  <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">AI智能问答</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">AI智能问答</div></div>
   <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">大知识模块</div></div>
 </div>
 
@@ -597,6 +617,7 @@ body.vh-open{overflow:hidden}
     <a class="feature-card" href="account.html"><div class="card-icon c5">👤</div><h3>个人学习中心</h3><p>记录学习进度、收藏重点题目、查看答题统计，个性化学习路径推荐。</p><span class="card-arrow">进入账户 →</span></a>
     <a class="feature-card" href="personal_knowledge.html?v=20260826b"><div class="card-icon c6">🕸️</div><h3>个人知识网络</h3><p>自主添加知识点并建立概念关联，沉淀属于自己的理论力学知识结构。</p><span class="card-arrow">开始构建 →</span></a>
     <a class="feature-card" href="search.html"><div class="card-icon c6">🔍</div><h3>功能搜索</h3><p>全站知识内容检索，快速定位所需的理论力学知识点、习题与演示内容。</p><span class="card-arrow">搜索内容 →</span></a>
+    <a class="feature-card" href="arcade.html"><div class="card-icon c3">🎮</div><h3>力学游乐园</h3><p>把站内的机构动画与 596 道题变成玩法：猜机构、解析捉虫、矢量竞速、闯关地图、力学沙盒、时空对话。</p><span class="card-arrow">开始游玩 →</span></a>
   </div>
 </section>
 
@@ -832,10 +853,10 @@ body.vh-open{overflow:hidden}
   <div class="section-header"><div class="section-tag">DISCUSSION FORUM</div><h2>问题探讨</h2><div class="divider"></div><p>理论力学学习交流社区，提问探讨、分享心得、共同进步</p></div>
   <div class="forum-preview-grid">
     <div class="forum-preview-main">
-      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#1a56db;">管</div><div class="fp-body"><div class="fp-title">【置顶】理论力学研究平台使用指南与常见问题汇总</div><div class="fp-meta"><span>👤 管理员</span><span>📅 05/20</span></div></div><div class="fp-stats has-new"><div class="fp-count">56</div><div class="fp-label">回复</div></div></a>
-      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#27ae60;">李</div><div class="fp-body"><div class="fp-title">科氏加速度的方向到底怎么判断？有没有简单的口诀？</div><div class="fp-meta"><span>👤 李同学</span><span>📅 05/24</span><span>🏷 运动学</span></div></div><div class="fp-stats has-new"><div class="fp-count">23</div><div class="fp-label">回复</div></div></a>
-      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#7c3aed;">张</div><div class="fp-body"><div class="fp-title">达朗贝尔原理和动静法到底有什么区别？</div><div class="fp-meta"><span>👤 张同学</span><span>📅 05/23</span><span>🏷 动力学</span></div></div><div class="fp-stats"><div class="fp-count">15</div><div class="fp-label">回复</div></div></a>
-      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#0d9488;">王</div><div class="fp-body"><div class="fp-title">分享一个我自己整理的虚位移原理解题思路</div><div class="fp-meta"><span>👤 王同学</span><span>📅 05/22</span><span>🏷 分析力学</span></div></div><div class="fp-stats has-new"><div class="fp-count">41</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#1a56db;">管</div><div class="fp-body"><div class="fp-title">【置顶】理论力学研究平台使用指南与常见问题汇总</div><div class="fp-meta"><span>📅 05/20</span></div></div><div class="fp-stats has-new"><div class="fp-count">56</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#27ae60;">李</div><div class="fp-body"><div class="fp-title">科氏加速度的方向到底怎么判断？有没有简单的口诀？</div><div class="fp-meta"><span>📅 05/24</span><span>🏷 运动学</span></div></div><div class="fp-stats has-new"><div class="fp-count">23</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#7c3aed;">张</div><div class="fp-body"><div class="fp-title">达朗贝尔原理和动静法到底有什么区别？</div><div class="fp-meta"><span>📅 05/23</span><span>🏷 动力学</span></div></div><div class="fp-stats"><div class="fp-count">15</div><div class="fp-label">回复</div></div></a>
+      <a href="forum.html" class="forum-preview-item"><div class="fp-avatar" style="background:#0d9488;">王</div><div class="fp-body"><div class="fp-title">分享一个我自己整理的虚位移原理解题思路</div><div class="fp-meta"><span>📅 05/22</span><span>🏷 分析力学</span></div></div><div class="fp-stats has-new"><div class="fp-count">41</div><div class="fp-label">回复</div></div></a>
     </div>
     <div class="forum-preview-sidebar">
       <a href="forum.html" class="forum-preview-btn">✏️ 发布新帖 / 查看更多</a>
@@ -856,7 +877,7 @@ body.vh-open{overflow:hidden}
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand"><h3>长沙理工大学 · 理论力学研究平台</h3><p>致力于为工程力学教育提供全方位数字化支撑。</p><p>集知识学习、机构演示、AI智能问答于一体，助力每一位力学学子的成长。</p><p style="margin-top:8px;font-size:0.8em">📍 湖南省长沙市天心区万家丽南路二段960号</p></div>
-    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="mindmap.html">知识图谱</a><a href="hall.html">虚拟展厅</a><a href="ai_qa.html">AI智能问答</a></div>
+    <div class="footer-col"><h4>学习资源</h4><a href="http://localhost:8090" onclick="event.preventDefault();openQuestionBank()">理论力学题库</a><a href="mechanism.html">机构运动演示</a><a href="knowledge_framework.html">知识框架</a><a href="mindmap.html">知识图谱</a><a href="hall.html">虚拟展厅</a><a href="ai_qa.html">AI智能问答</a><a href="arcade.html">力学游乐园</a></div>
     <div class="footer-col"><h4>关于我们</h4><a href="about.html">平台介绍</a><a href="contact.html">联系我们</a><a href="forum.html">问题探讨</a><a href="help.html">使用帮助</a></div>
     <div class="footer-col"><h4>更多</h4><a href="account.html">个人账户</a><a href="search.html">功能搜索</a><a href="feedback.html">意见反馈</a></div>
   </div>

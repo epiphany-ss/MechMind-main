@@ -1,0 +1,685 @@
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 56365)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52507)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58656)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60512)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 65210)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 50211)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 62267)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58943)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 53948)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52490)
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 63582)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+----------------------------------------
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49737)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 63167)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 51780)
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61752)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55858)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 62012)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61479)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 51459)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 50852)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 51380)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 59305)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 56746)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61130)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 63503)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61358)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60446)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58003)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 62929)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 339, in do_GET
+    self.wfile.write(chunk)
+  File "D:\Python3.10.1\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 51954)
+Traceback (most recent call last):
+  File "D:\Python3.10.1\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\Python3.10.1\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\Python3.10.1\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "D:\Python3.10.1\lib\http\server.py", line 427, in handle
+    self.handle_one_request()
+  File "D:\Python3.10.1\lib\http\server.py", line 415, in handle_one_request
+    method()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 352, in do_POST
+    self.handle_account_register()
+  File "C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\server.py", line 1066, in handle_account_register
+    body = self.rfile.read(length).decode('utf-8')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb2 in position 10: invalid start byte
+----------------------------------------
+==========================================
+  理论力学研究平台 - 后端服务器
+  地址: http://localhost:8080
+  根目录: C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx
+  数据目录: C:\Users\Lenovo\Desktop\MechMind-main\MechMind-mainzx\qdata
+==========================================
+
+  API 接口:
+    POST /api/upload            上传题目
+    DELETE /api/delete/:id       删除题目
+    GET  /api/forum/list         获取帖子列表
+    POST /api/forum/upload       发布新帖
+    DELETE /api/forum/delete/:id 删除帖子
+
+  按 Ctrl+C 停止服务器
+==========================================
+[GET] GET /hall.html HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%91%EF%BC%93-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%91%EF%BC%93-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%91%EF%BC%93-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%91%EF%BC%93-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%CA%DA%BF%CE%CA%D3%C6%B53-%B6%AF%C1%BF%BE%D8%B6%A8%C0%ED%CD%EA%D5%FB%BF%CE%CC%C3.mp4 HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%B7%E2%C3%E6-%CA%DA%BF%CE%CA%D3%C6%B51.jpg HTTP/1.1
+[GET] 404
+[GET] GET /hall_media/%C0%ED%C2%DB%C1%A6%D1%A7%CF%B0%CC%E2%B2%E1.gif HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911.jpg HTTP/1.1
+[GET] GET /hall_media/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E4%B9%A0%E9%A2%98%E5%86%8C.gif HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] 404
+[GET] GET /favicon.ico HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912.jpg HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E7%A4%BA%E8%8C%83%E8%AF%BE.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E7%A4%BA%E8%8C%83%E8%AF%BE.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E7%A4%BA%E8%8C%83%E8%AF%BE.mp4 HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] 404
+[GET] GET /favicon.ico HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] 404
+[GET] GET /favicon.ico HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913.jpg HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E7%A4%BA%E8%8C%83%E8%AF%BE.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] 404
+[GET] GET /favicon.ico HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912.jpg HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913.jpg HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%911-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E7%A4%BA%E8%8C%83%E8%AF%BE.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E8%AF%BE%E5%A0%82%E5%AE%9E%E5%BD%95.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /hall_media/%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%913-%E5%8A%A8%E9%87%8F%E7%9F%A9%E5%AE%9A%E7%90%86%E5%AE%8C%E6%95%B4%E8%AF%BE%E5%A0%82.mp4 HTTP/1.1
+[GET] GET /index.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /mechanism.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /mechanism_engine.js HTTP/1.1
+[GET] GET /index.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] GET /hall.html HTTP/1.1
+[GET] GET /js/auth.js HTTP/1.1
+[GET] GET /js/three.min.js HTTP/1.1
+[GET] GET /js/hall_engine.js HTTP/1.1
+[GET] GET /js/hall_data.js HTTP/1.1
+[GET] 404
+[GET] GET /favicon.ico HTTP/1.1
+[GET] GET /hall_media/%E5%B0%81%E9%9D%A2-%E6%8E%88%E8%AF%BE%E8%A7%86%E9%A2%912.jpg HTTP/1.1

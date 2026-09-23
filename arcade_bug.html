@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解析捉虫 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<link rel="stylesheet" href="js/katex/katex.min.css">
+<style>
+  .bug-wrap { max-width: 860px; margin: 0 auto; }
+  .b-timer { height: 5px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .b-timer > i { display: block; height: 100%; background: var(--primary); transition: width .2s linear; }
+  .b-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  @media (max-width: 640px) { .b-choices { grid-template-columns: 1fr; } }
+  .b-choices .ac-btn { padding: 14px 20px; font-size: 1em; }
+  .b-choices .ac-btn.wrong-pick { background: #ef4444; }
+  .b-choices .ac-btn.right-pick { background: #22c55e; }
+  .b-tag { display: inline-block; font-size: .72em; font-weight: 700; padding: 2px 10px;
+           border-radius: 999px; background: #eef2f7; color: var(--text-light); margin-left: 8px; }
+  .b-true-exp { margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap bug-wrap">
+  <div class="ac-head">
+    <h1>🐛 解析捉虫</h1>
+    <p>题库后台偶尔会「张冠李戴」。给你一道题和一段解析，判断<b>这段解析是不是这道题的</b>——干扰项全部取自同章节的其它真题。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="ac-side bug-wrap-inner">
+    <div class="ac-hud">
+      <span class="ac-chip" id="chipScore">0 分</span>
+      <span class="ac-chip" id="chipStreak">连击 0</span>
+      <span class="ac-chip" id="chipIdx">第 1 题</span>
+    </div>
+    <div class="b-timer"><i id="timerBar" style="width:100%"></i></div>
+
+    <div class="ac-q" id="qText">准备中…</div>
+    <div class="ac-exp" id="expText">…</div>
+    <div id="trueExp" class="ac-exp b-true-exp" style="display:none"></div>
+
+    <div class="b-choices" id="choices">
+      <button class="ac-btn" id="btnYes">✓ 是本题的解析</button>
+      <button class="ac-btn ghost" id="btnNo">🐛 是别道题的（捉虫）</button>
+    </div>
+    <div id="feedback" style="margin-top:12px;font-size:.86em;line-height:1.6"></div>
+
+    <div style="margin-top:16px;display:flex;gap:8px">
+      <button class="ac-btn" id="btnNext" disabled>下一题</button>
+      <button class="ac-btn ghost" id="btnEnd">结束本轮</button>
+    </div>
+  </div>
+</div>
+
+<div class="ac-modal" id="modal">
+  <div class="ac-modal-box">
+    <h3>本轮结束</h3>
+    <div class="big" id="mScore">0</div>
+    <p id="mDetail" style="color:var(--text-light)"></p>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center">
+      <button class="ac-btn" id="mAgain">再来一轮</button>
+      <a class="ac-btn ghost" href="arcade.html" style="text-decoration:none;line-height:1.6">回游乐园</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/data.js"></script>
+<script src="js/katex/katex.min.js"></script>
+<script src="js/katex/contrib/auto-render.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var LIMIT = 25;          // 每题秒数（要读两段文字，给宽一点）
+  var ROUND = 10;          // 每轮题数：5 真 5 虫，固定对半
+  var MIN_EXP = 25;        // 解析太短的不出（例如只有一句"对"）
+
+  var st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: false };
+  var cur = null, left = LIMIT, tick = null;
+  var queue = [];          // 本轮 10 题预先排好，保证 5 真 5 虫
+
+  // 候选：有解析的题（pool.all 已剔除图片题和空题干）
+  function eligible() {
+    return Arcade.pool().all.filter(function (q) {
+      return q.expText && q.expText.length >= MIN_EXP;
+    });
+  }
+
+  // 干扰解析：优先同章节、长度相近（长度差太多会被一眼看穿），不行就全库找
+  function pickDistractor(base, items) {
+    var len = base.expText.length;
+    var same = items.filter(function (q) {
+      return q.id !== base.id && q.category === base.category &&
+             q.expText.length >= len * 0.4 && q.expText.length <= len * 2.5 &&
+             q.expText !== base.expText;
+    });
+    if (same.length) return Arcade.pick(same);
+    var any = items.filter(function (q) { return q.id !== base.id && q.expText !== base.expText; });
+    return any.length ? Arcade.pick(any) : null;
+  }
+
+  function buildQueue() {
+    var items = eligible();
+    var done = Arcade.doneSet();
+    // 优先没见过的题
+    var fresh = items.filter(function (q) { return !done[q.id]; });
+    var base0 = fresh.length >= ROUND ? Arcade.sample(fresh, ROUND) : Arcade.sample(items, Math.min(ROUND, items.length));
+    var truthCount = 0;
+    var qs = base0.map(function (base, i) {
+      // 对半布局：偶数位出真解析，奇数位出虫（题序随机、比例固定）
+      var isTrue = i % 2 === 0;
+      if (isTrue) truthCount++;
+      return { base: base, isTrue: isTrue, distractor: isTrue ? null : pickDistractor(base, items) };
+    });
+    // 干扰项没凑出来的题位，降级成真解析（保证每题有唯一正确答案）
+    qs.forEach(function (q) { if (!q.isTrue && !q.distractor) { q.isTrue = true; truthCount++; } });
+    Arcade.shuffle(qs);
+    // 不变式：真解析数量必须落在 [1, ROUND-1]，且每题答案可判定
+    if (truthCount <= 0 || truthCount >= ROUND) {
+      console.error('【捉虫不变式被破坏】本轮真解析数 = ' + truthCount + '，应为 5 左右');
+    }
+    return qs;
+  }
+
+  function renderQ() {
+    var exp = cur.isTrue ? cur.base.expText : cur.distractor.expText;
+    document.getElementById('qText').innerHTML =
+      '<b>' + Arcade.esc(cur.base.category) + '</b><span class="b-tag">' +
+      Arcade.esc(typeLabel(cur.base.type)) + '</span><br>' + Arcade.esc(cur.base.text);
+    document.getElementById('expText').innerHTML =
+      '<b style="color:#b45309">解析</b><br>' + Arcade.esc(exp);
+    Arcade.renderMath(document.getElementById('qText'));
+    Arcade.renderMath(document.getElementById('expText'));
+  }
+
+  function typeLabel(t) {
+    return { '判断题': '判断', '选择题': '选择', '计算题': '计算', '填空题': '填空' }[t] || '题目';
+  }
+
+  function startQuestion() {
+    st.locked = false;
+    cur = queue[st.idx];
+    renderQ();
+    document.getElementById('trueExp').style.display = 'none';
+    document.getElementById('feedback').innerHTML = '';
+    document.getElementById('btnNext').disabled = true;
+    document.getElementById('chipIdx').textContent = '第 ' + (st.idx + 1) + ' 题';
+
+    var b1 = document.getElementById('btnYes'), b2 = document.getElementById('btnNo');
+    b1.disabled = false; b2.disabled = false;
+    b1.className = 'ac-btn'; b2.className = 'ac-btn ghost';
+
+    left = LIMIT;
+    document.getElementById('timerBar').style.width = '100%';
+    clearInterval(tick);
+    tick = setInterval(function () {
+      left -= 0.1;
+      document.getElementById('timerBar').style.width = Math.max(0, left / LIMIT * 100) + '%';
+      if (left <= 0) { clearInterval(tick); answer(null); }
+    }, 100);
+  }
+
+  // claim: true=「是本题的」 false=「是别道题的」 null=超时
+  function answer(claim) {
+    if (st.locked) return;
+    st.locked = true;
+    clearInterval(tick);
+    document.getElementById('btnYes').disabled = true;
+    document.getElementById('btnNo').disabled = true;
+
+    var ok = claim !== null && claim === cur.isTrue;
+    st.total++;
+    if (ok) st.correct++;
+
+    var gained = 0;
+    if (ok) {
+      st.streak++;
+      if (st.streak > st.bestStreak) st.bestStreak = st.streak;
+      gained = 10 + Math.min(10, (st.streak - 1) * 2);
+      st.score += gained;
+      Arcade.toast('判断正确 +' + gained + ' 分', 'ok');
+    } else {
+      st.streak = 0;
+      Arcade.toast(claim === null ? '超时了' : '判断错了', 'err');
+    }
+
+    // 按钮反馈：选对了标绿，选错了标红
+    if (claim === true) document.getElementById('btnYes').className = 'ac-btn' + (ok ? ' right-pick' : ' wrong-pick');
+    if (claim === false) document.getElementById('btnNo').className = 'ac-btn ghost' + (ok ? ' right-pick' : ' wrong-pick');
+
+    // 揭底：虫子的来历 + 本题真解析（玩家答错也要学得到东西）
+    var fb = [];
+    if (cur.isTrue) {
+      fb.push(ok ? '✅ 你的判断正确——这段解析就是本题的。' : '❌ 判断错了，这段解析其实<b>就是</b>本题的。');
+    } else {
+      fb.push(ok ? '🐛 捉到一条虫——它出自<b>「' + Arcade.esc(cur.distractor.text.slice(0, 40)) + '…」</b>（' +
+        Arcade.esc(cur.distractor.category) + '），不是本题的。'
+        : '❌ 放过了一条真虫——这段解析<b>不是</b>本题的，它属于另一道' +
+          Arcade.esc(cur.distractor.category) + '题。');
+    }
+    var te = document.getElementById('trueExp');
+    te.style.display = 'block';
+    te.innerHTML = '<b style="color:#b45309">本题真正的解析</b><br>' + Arcade.esc(cur.base.expText);
+    Arcade.renderMath(te);
+    document.getElementById('feedback').innerHTML = fb.join('<br>');
+
+    st.idx++;
+    document.getElementById('chipScore').textContent = st.score + ' 分';
+    document.getElementById('chipStreak').textContent = '连击 ' + st.streak;
+    document.getElementById('chipStreak').className = 'ac-chip' + (st.streak >= 3 ? ' hot' : '');
+
+    if (st.idx >= queue.length) { setTimeout(finish, 1100); }
+    else { document.getElementById('btnNext').disabled = false; }
+  }
+
+  function finish() {
+    var res = Arcade.recordGame('bug', {
+      score: st.score, correct: st.correct, total: st.total, streak: st.bestStreak
+    });
+    // 本轮题干记入「已做过」，之后少出重复题
+    Arcade.markDone(queue.map(function (q) { return q.base.id; }));
+    document.getElementById('mScore').textContent = st.score + ' 分';
+    document.getElementById('mDetail').innerHTML =
+      '判断对 ' + st.correct + ' / ' + st.total + ' 题 · 捉到 ' +
+      queue.filter(function (q) { return !q.isTrue; }).length + ' 条虫 · 最高连击 ' + st.bestStreak +
+      (res.tierUp ? '<br><b style="color:' + res.tierUp.hex + '">🎉 段位提升：' + res.tierUp.name + '</b>' : '');
+    document.getElementById('modal').classList.add('show');
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+  }
+
+  function reset() {
+    st = { score: 0, streak: 0, bestStreak: 0, idx: 0, correct: 0, total: 0, locked: false };
+    document.getElementById('chipScore').textContent = '0 分';
+    document.getElementById('chipStreak').textContent = '连击 0';
+    document.getElementById('modal').classList.remove('show');
+    queue = buildQueue();
+    startQuestion();
+  }
+
+  document.getElementById('btnYes').onclick = function () { answer(true); };
+  document.getElementById('btnNo').onclick = function () { answer(false); };
+  document.getElementById('btnNext').onclick = startQuestion;
+  document.getElementById('btnEnd').onclick = finish;
+  document.getElementById('mAgain').onclick = reset;
+
+  Arcade.mountLevelBar(document.getElementById('levelBar'));
+  reset();
+})();
+</script>
+</body>
+</html>

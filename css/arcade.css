@@ -1,0 +1,202 @@
+/* ============================================================
+   力学游乐园 · 统一样式
+   ------------------------------------------------------------
+   沿用主站（index.html）的设计变量，保证风格一致：
+     主蓝 #1a56db / 深蓝 #0d3b9e / 橙点缀 #f0a030 / 圆角 12px
+   等级配色 .lv-* 来自 activity.html:54-59（原样搬过来，供 MMScore 使用）。
+   ============================================================ */
+
+:root {
+  --primary: #1a56db;
+  --primary-dark: #0d3b9e;
+  --accent: #f0a030;
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, .06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, .12);
+  --transition: .3s cubic-bezier(.4, 0, .2, 1);
+  --nav-height: 64px;
+  --max-width: 1320px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+}
+
+/* ---------- 顶栏（与主站同构，改动请与 index.html 保持一致） ---------- */
+.ac-nav {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--nav-height);
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+}
+.ac-nav-in {
+  max-width: var(--max-width); width: 100%; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ac-brand { font-weight: 800; font-size: 1.05em; color: var(--primary); text-decoration: none; }
+.ac-back { color: var(--text-light); text-decoration: none; font-size: .9em; font-weight: 600; }
+.ac-back:hover { color: var(--primary); }
+
+/* ---------- 页容器 ---------- */
+.ac-wrap { max-width: var(--max-width); margin: 0 auto; padding: 28px 24px 72px; }
+
+.ac-head { margin-bottom: 22px; }
+.ac-head h1 { font-size: 1.9em; margin: 0 0 6px; font-weight: 800; }
+.ac-head p { margin: 0; color: var(--text-light); }
+
+/* ---------- 等级条 ---------- */
+.ac-levelbar {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 22px; box-shadow: var(--shadow); margin-bottom: 26px;
+}
+.ac-tier { display: flex; align-items: center; gap: 8px; min-width: 150px; }
+.ac-tier-icon { font-size: 1.5em; }
+.ac-tier-name { font-weight: 800; color: var(--tc, var(--primary)); font-size: 1.05em; }
+
+.ac-bar-wrap { flex: 1; min-width: 220px; }
+.ac-bar { height: 10px; background: #eef2f7; border-radius: 999px; overflow: hidden; }
+.ac-bar > i { display: block; height: 100%; border-radius: 999px; transition: width var(--transition); }
+.ac-bar-meta { display: flex; justify-content: space-between; font-size: .8em; color: var(--text-light); margin-top: 5px; }
+
+.ac-platform {
+  display: flex; flex-direction: column; align-items: flex-end;
+  padding-left: 20px; border-left: 1px solid var(--border); min-width: 130px;
+}
+.ac-plat-label { font-size: .72em; color: #94a3b8; letter-spacing: .04em; }
+.ac-plat-val { font-size: .95em; }
+.ac-plat-score { color: var(--text-light); font-size: .85em; }
+
+/* ---------- 玩法卡片网格 ---------- */
+.ac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 900px) { .ac-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .ac-grid { grid-template-columns: 1fr; } }
+
+.ac-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 22px; position: relative; overflow: hidden;
+  transition: all var(--transition);
+}
+.ac-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0); transform-origin: left; transition: transform var(--transition);
+}
+.ac-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.ac-card:hover::before { transform: scaleX(1); }
+.ac-card .ic {
+  width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.5em; margin-bottom: 16px;
+}
+.ac-card h3 { margin: 0 0 6px; font-size: 1.12em; font-weight: 700; }
+.ac-card p { margin: 0; color: var(--text-light); font-size: .87em; }
+.ac-card .meta { margin-top: 14px; font-size: .8em; color: var(--primary); font-weight: 600; }
+
+.ic.c1 { background: #e8f0fe; color: var(--primary); }
+.ic.c2 { background: #fef3e2; color: #e67e22; }
+.ic.c3 { background: #f3e8ff; color: #7c3aed; }
+.ic.c4 { background: #e6f7ec; color: #27ae60; }
+.ic.c5 { background: #e0f7f6; color: #0d9488; }
+.ic.c6 { background: #fde8e8; color: #e74c3c; }
+.ic.c7 { background: #e8f7ee; color: #15803d; }
+
+/* ---------- 游戏页通用 ---------- */
+.ac-game { display: grid; grid-template-columns: 1fr 340px; gap: 22px; align-items: start; }
+@media (max-width: 980px) { .ac-game { grid-template-columns: 1fr; } }
+
+.ac-stage {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow); position: relative;
+}
+.ac-stage canvas { display: block; width: 100%; border-radius: 8px; background: #0f172a; }
+
+.ac-side {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow);
+}
+.ac-side h4 { margin: 0 0 12px; font-size: .95em; }
+.ac-hud { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.ac-chip {
+  background: #eef2f7; border-radius: 999px; padding: 5px 13px;
+  font-size: .82em; font-weight: 700; color: var(--text);
+}
+.ac-chip.hot { background: #fee2e2; color: #b91c1c; }
+.ac-chip.ok { background: #dcfce7; color: #15803d; }
+
+/* ---------- 选项按钮 ---------- */
+.ac-opts { display: grid; gap: 10px; }
+.ac-opt {
+  text-align: left; padding: 13px 16px; border-radius: 10px; cursor: pointer;
+  border: 1.5px solid var(--border); background: #fff; color: var(--text);
+  font-size: .95em; font-family: inherit; transition: all .18s;
+}
+.ac-opt:hover:not(:disabled) { border-color: var(--primary); background: #f5f8ff; }
+.ac-opt:disabled { cursor: default; opacity: .75; }
+.ac-opt.correct { border-color: #22c55e; background: #f0fdf4; color: #15803d; font-weight: 700; opacity: 1; }
+.ac-opt.wrong { border-color: #ef4444; background: #fef2f2; color: #b91c1c; font-weight: 700; opacity: 1; }
+
+.ac-btn {
+  padding: 10px 20px; border-radius: 9px; border: none; cursor: pointer;
+  background: var(--primary); color: #fff; font-weight: 700; font-size: .9em;
+  font-family: inherit; transition: all .18s;
+}
+.ac-btn:hover { background: var(--primary-dark); }
+.ac-btn.ghost { background: #eef2f7; color: var(--text); }
+.ac-btn.ghost:hover { background: #e2e8f0; }
+.ac-btn:disabled { opacity: .5; cursor: default; }
+
+/* ---------- 题干 / 解析 ---------- */
+.ac-q {
+  background: #f8fafc; border-left: 3px solid var(--primary); border-radius: 8px;
+  padding: 14px 16px; margin-bottom: 14px; font-size: .93em; line-height: 1.75;
+}
+.ac-exp {
+  background: #fffbeb; border-left: 3px solid var(--accent); border-radius: 8px;
+  padding: 14px 16px; font-size: .92em; line-height: 1.75;
+}
+.ac-trap { color: #b45309; font-size: .84em; margin-top: 10px; }
+
+/* ---------- 结果浮层 ---------- */
+.ac-modal {
+  position: fixed; inset: 0; z-index: 2000; display: none;
+  align-items: center; justify-content: center; background: rgba(15, 23, 42, .55);
+}
+.ac-modal.show { display: flex; }
+.ac-modal-box {
+  background: #fff; border-radius: 16px; padding: 30px 34px; text-align: center;
+  max-width: 420px; box-shadow: var(--shadow-lg);
+}
+.ac-modal-box h3 { margin: 0 0 8px; font-size: 1.4em; }
+.ac-modal-box .big { font-size: 2.4em; font-weight: 800; color: var(--primary); margin: 8px 0; }
+
+/* ---------- Toast ---------- */
+.ac-toast {
+  position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px);
+  background: #1f2937; color: #fff; padding: 12px 22px; border-radius: 10px;
+  font-size: .9em; opacity: 0; pointer-events: none; transition: all var(--transition); z-index: 3000;
+}
+.ac-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.ac-toast.ok { background: #15803d; }
+.ac-toast.err { background: #b91c1c; }
+
+/* ---------- 平台等级配色（activity.html:54-59 原样搬入） ---------- */
+.lv-cyan { color: #06b6d4; }
+.lv-green { color: #22c55e; }
+.lv-yellow { color: #eab308; }
+.lv-orange { color: #f97316; }
+.lv-brown { color: #b45309; }
+.lv-red { color: #b91c1c; }

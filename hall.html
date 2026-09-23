@@ -246,6 +246,90 @@ body.touch #hallJump{display:block}
   background:rgba(255,255,255,0.06);border:1px solid var(--line);color:#a9bcd8}
 .hb-medal .m-meta .lv{background:rgba(240,160,48,0.18);border-color:rgba(240,160,48,0.4);color:#fbbf24;font-weight:700}
 
+/* --- 媒体区块（图片 / 视频） --- */
+.hb-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.hb-media-item{
+  margin:0;padding:12px;border-radius:14px;display:flex;flex-direction:column;gap:10px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--line);transition:all .25s;
+}
+.hb-media-item:hover{transform:translateY(-3px);border-color:var(--hall-accent);
+  box-shadow:0 12px 30px rgba(0,0,0,0.35)}
+.hb-media-item .m-el{
+  display:block;width:100%;max-height:520px;object-fit:contain;
+  border-radius:9px;background:#070c16;
+}
+.hb-media-item .m-cap h4{font-size:0.92em;color:#fff;font-weight:800;letter-spacing:0.5px}
+.hb-media-item .m-cap p{font-size:0.78em;color:#a9bcd8;line-height:1.7;margin-top:3px}
+
+/* 视频卡：封面 + 播放键，整块可点，点了弹大窗（不内嵌播放器） */
+.hb-media-item.is-video{padding:10px}
+.hb-media-item .m-open{
+  position:relative;display:block;width:100%;padding:0;border:0;background:none;
+  cursor:pointer;border-radius:9px;overflow:hidden;line-height:0;font-family:inherit;
+}
+.hb-media-item .m-cover{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;
+  border-radius:9px;background:#070c16;transition:transform .35s,filter .35s;
+}
+.hb-media-item .m-open:hover .m-cover{transform:scale(1.04);filter:brightness(0.72)}
+.hb-media-item .m-open:focus-visible{outline:2px solid var(--hall-accent);outline-offset:3px}
+.hb-media-item .m-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  padding-left:4px;font-size:1.15em;line-height:1;color:#fff;
+  background:rgba(10,18,34,0.62);border:1.5px solid rgba(255,255,255,0.75);
+  box-shadow:0 6px 22px rgba(0,0,0,0.5);transition:all .25s;
+}
+.hb-media-item .m-open:hover .m-play{
+  background:var(--hall-accent);border-color:#fff;transform:translate(-50%,-50%) scale(1.12);
+}
+/* 「原视频链接」：卡片刻意留的直链，方便单独打开或存下来 */
+.hb-media-item .m-link{
+  display:block;font-size:0.7em;color:#7f96b8;line-height:1.5;
+  word-break:break-all;text-decoration:none;padding:6px 8px;border-radius:8px;
+  background:rgba(255,255,255,0.03);border:1px dashed var(--line);transition:all .2s;
+}
+.hb-media-item .m-link::before{content:'🔗 ';font-size:0.95em}
+.hb-media-item .m-link:hover{color:var(--hall-accent);border-color:var(--hall-accent);
+  background:rgba(255,255,255,0.06)}
+
+/* ===================== 视频大窗播放层 ===================== */
+/* z-index 要高于展馆弹层(.panel 70)和进场遮罩(.cover 60)，否则点了没反应 */
+.mview{
+  position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;
+  background:rgba(2,5,11,0.92);backdrop-filter:blur(8px);padding:24px;
+}
+.mview.show{display:flex}
+.mview-box{
+  width:min(1240px,100%);max-height:94vh;display:flex;flex-direction:column;gap:12px;
+  background:linear-gradient(165deg,#101a30,#0b1220);
+  border:1px solid var(--line);border-radius:18px;padding:16px 18px 12px;
+  box-shadow:0 30px 90px rgba(0,0,0,0.8);
+  animation:pop .3s cubic-bezier(.34,1.4,.64,1);
+}
+.mview-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mview-head h3{flex:1;min-width:180px;font-size:1.02em;color:#fff;font-weight:800;letter-spacing:0.5px}
+.mview-tools{display:flex;align-items:center;gap:10px}
+.mv-btn{
+  display:inline-block;padding:7px 14px;border-radius:999px;font-size:0.78em;font-family:inherit;
+  color:#cfe0f7;background:rgba(255,255,255,0.06);border:1px solid var(--line);
+  text-decoration:none;cursor:pointer;transition:all .2s;
+}
+.mv-btn:hover{color:#fff;border-color:var(--hall-accent);background:rgba(255,255,255,0.12)}
+.mv-close{padding:7px 13px;font-weight:700}
+.mview-body{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.mview-body video{
+  display:block;width:100%;max-height:76vh;border-radius:10px;background:#000;
+}
+.mview-tip{font-size:0.72em;color:#8fa7c8;line-height:1.6}
+.mview-tip b{color:#cfe0f7;word-break:break-all}
+
+@media(max-width:900px){
+  .mview{padding:10px}
+  .mview-box{max-height:96vh;padding:12px 12px 10px}
+  .mview-body video{max-height:60vh}
+}
+
 @media(max-width:900px){
   .nav-panel{display:none}
   .brandline{display:none}
@@ -301,6 +385,23 @@ body.touch #hallJump{display:block}
       <button class="panel-close" onclick="HALL_VIEW.close()" title="关闭 (Esc)">✕</button>
     </div>
     <div class="panel-body" id="hpBody"></div>
+  </div>
+</div>
+
+<!-- 视频大窗播放层：点展板上的视频卡后弹出（全站只有这一个 <video>，换片改 src） -->
+<div class="mview" id="mediaView">
+  <div class="mview-box">
+    <div class="mview-head">
+      <h3 id="mvTitle">授课视频</h3>
+      <div class="mview-tools">
+        <a class="mv-btn" id="mvLink" href="#" target="_blank" rel="noopener">在新窗口打开</a>
+        <button class="mv-btn mv-close" type="button" title="关闭 (Esc)">✕</button>
+      </div>
+    </div>
+    <div class="mview-body">
+      <video id="mvVideo" controls playsinline preload="metadata"></video>
+    </div>
+    <p class="mview-tip" id="mvTip">视频文件：<b id="mvFile"></b>　·　按 <b>Esc</b> 或点空白处关闭</p>
   </div>
 </div>
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 注意：本页【故意不引 js/auth.js】—— auth.js 会把未登录用户强制跳到 account.html，
+     而游乐园是「全开放免登录」。身份由 js/arcade_common.js 自己读 localStorage 取。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>力学游乐园 - 长沙理工大学理论力学研究平台</title>
+<link rel="stylesheet" href="css/arcade.css">
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="index.html">← 返回主平台</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>🎮 力学游乐园</h1>
+    <p>把平台里的机构动画、596 道题和知识框架，变成能玩的形态。全部内容取自站内已有资料。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="ac-grid" id="gameGrid"></div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ready: 页面是否已建好。未建好的先标「敬请期待」，避免点出 404。
+  var GAMES = [
+    { key:'guess',  href:'arcade_guess.html',  ic:'c1', icon:'🔍', name:'猜机构',
+      desc:'播放一个去掉全部标注的机构动画，四选一猜它是哪种机构，并追问科氏加速度的有无。' },
+    { key:'vector', href:'arcade_vector.html', ic:'c3', icon:'➡️', name:'矢量竞速',
+      desc:'定格某一瞬时，限时点出该点速度或加速度的正确方向。连击越长分越高。' },
+    { key:'bug',    href:'arcade_bug.html',    ic:'c5', icon:'🐛', name:'解析捉虫',
+      desc:'给一段题干和一段解析，判断这段解析是不是这道题的。干扰项来自同章节的其它题。' },
+    { key:'quest',  href:'arcade_quest.html',  ic:'c4', icon:'🥋', name:'闯关地图',
+      desc:'静力学 / 运动学 / 动力学 / 分析力学四章，每关三题，全对通关，按用时评星。' },
+    { key:'sandbox',href:'arcade_sandbox.html',ic:'c2', icon:'🧩', name:'力学沙盒',
+      desc:'调四根杆的长度，实时看连杆点画出什么轨迹。任务卡：让它走直线、走圆、近似停歇。' },
+    { key:'talk',   href:'arcade_talk.html',   ic:'c6', icon:'🎩', name:'时空对话',
+      desc:'与牛顿、欧拉、拉格朗日、科里奥利对话，让他们出题考你。' }
+  ];
+
+  // 已建好的页面白名单——六个玩法全部就位
+  var READY = { guess: 1, vector: 1, bug: 1, quest: 1, sandbox: 1, talk: 1 };
+
+  function progressLine(key, p) {
+    var g = p.games[key] || {};
+    switch (key) {
+      case 'guess':
+      case 'vector':
+      case 'bug':
+        var acc = g.total ? Math.round(g.correct / g.total * 100) : 0;
+        return g.plays
+          ? ('已玩 ' + g.plays + ' 局 · 最高 ' + (g.best || 0) + ' 分 · 正确率 ' + acc + '%')
+          : '还没玩过';
+      case 'quest':
+        var stars = 0;
+        Object.keys(g.stars || {}).forEach(function (k) { stars += g.stars[k]; });
+        return (Object.keys(g.cleared || {}).length)
+          ? ('已通关 ' + Object.keys(g.cleared).length + ' 关 · 共 ' + stars + ' 颗星')
+          : '还没开始闯关';
+      case 'sandbox':
+        var n = Object.keys(g.tasks || {}).filter(function (k) { return g.tasks[k]; }).length;
+        return n ? ('已完成 ' + n + ' 个任务') : '还没完成任务卡';
+      case 'talk':
+        return (g.met && g.met.length) ? ('已结识 ' + g.met.length + ' 位' ) : '还没开始对话';
+    }
+    return '';
+  }
+
+  function render() {
+    var p = Arcade.progress();
+    Arcade.mountLevelBar(document.getElementById('levelBar'));
+
+    document.getElementById('gameGrid').innerHTML = GAMES.map(function (g) {
+      var ready = !!READY[g.key];
+      var inner =
+        '<div class="ic ' + g.ic + '">' + g.icon + '</div>' +
+        '<h3>' + g.name + '</h3>' +
+        '<p>' + g.desc + '</p>' +
+        '<div class="meta">' + (ready ? progressLine(g.key, p) : '敬请期待') + '</div>';
+      return ready
+        ? '<a class="ac-card" href="' + g.href + '">' + inner + '</a>'
+        : '<div class="ac-card" style="opacity:.55;cursor:default">' + inner + '</div>';
+    }).join('');
+  }
+
+  render();
+  // 服务端进度回来后重画一次
+  if (window.UserStore && UserStore.ready) UserStore.ready().then(render);
+})();
+</script>
+</body>
+</html>

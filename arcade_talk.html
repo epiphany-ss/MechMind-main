@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时空对话 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<link rel="stylesheet" href="js/katex/katex.min.css">
+<style>
+  .ac-game { grid-template-columns: 320px 1fr; }
+  @media (max-width: 1080px) { .ac-game { grid-template-columns: 1fr; } }
+  .tk-list { display: grid; gap: 12px; }
+  .tk-sci {
+    background: var(--card-bg); border: 1.5px solid var(--border); border-radius: var(--radius);
+    padding: 14px 16px; cursor: pointer; display: flex; gap: 12px; align-items: center;
+    transition: all .18s; text-align: left; width: 100%; font-family: inherit; color: var(--text);
+  }
+  .tk-sci:hover:not(:disabled) { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .tk-sci.active { border-color: var(--primary); background: #f5f8ff; }
+  .tk-sci:disabled { cursor: default; opacity: .6; }
+  .tk-ava {
+    width: 52px; height: 52px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15em; font-weight: 800; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.25);
+  }
+  .tk-sci h4 { margin: 0; font-size: .98em; }
+  .tk-sci h4 .met { color: #15803d; font-size: .8em; font-weight: 700; }
+  .tk-sci p { margin: 2px 0 0; font-size: .76em; color: var(--text-light); }
+  .tk-era { display: inline-block; font-size: .68em; background: #eef2f7; border-radius: 999px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+
+  .tk-chat {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); display: flex; flex-direction: column; height: 640px;
+  }
+  @media (max-width: 1080px) { .tk-chat { height: 560px; } }
+  .tk-chat-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 700;
+  }
+  .tk-msgs { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #f8fafc; }
+  .tk-msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: .9em; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
+  .tk-msg.them { background: #fff; border: 1px solid var(--border); border-top-left-radius: 4px; align-self: flex-start; }
+  .tk-msg.me { background: var(--primary); color: #fff; border-top-right-radius: 4px; align-self: flex-end; }
+  .tk-msg.fact { background: #fffbeb; border: 1px solid #fde68a; border-top-left-radius: 4px; align-self: flex-start; font-size: .84em; }
+  .tk-msg.q { background: #e8f0fe; border: 1px solid #c7dbfe; border-top-left-radius: 4px; align-self: flex-start; }
+  .tk-msg .who { font-size: .72em; font-weight: 800; color: var(--text-light); display: block; margin-bottom: 3px; }
+  .tk-opts { display: flex; flex-direction: column; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border); }
+  .tk-opt {
+    text-align: left; padding: 11px 15px; border-radius: 10px; cursor: pointer;
+    border: 1.5px solid var(--border); background: #fff; font-size: .88em;
+    font-family: inherit; color: var(--text); transition: all .18s; line-height: 1.55;
+  }
+  .tk-opt:hover:not(:disabled) { border-color: var(--primary); background: #f5f8ff; }
+  .tk-opt:disabled { cursor: default; opacity: .75; }
+  .tk-opt.correct { border-color: #22c55e; background: #f0fdf4; color: #15803d; font-weight: 700; opacity: 1; }
+  .tk-opt.wrong { border-color: #ef4444; background: #fef2f2; color: #b91c1c; font-weight: 700; opacity: 1; }
+  .tk-dots { display: inline-flex; gap: 4px; align-items: center; }
+  .tk-dots i { width: 6px; height: 6px; border-radius: 50%; background: #94a3b8; display: inline-block; animation: tkb 1.2s infinite; }
+  .tk-dots i:nth-child(2) { animation-delay: .2s; }
+  .tk-dots i:nth-child(3) { animation-delay: .4s; }
+  @keyframes tkb { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap">
+  <div class="ac-head">
+    <h1>🎩 时空对话</h1>
+    <p>四位力学先贤穿越到此。他们只聊自己最懂的领域，并会从题库真题里<b>出题考你</b>——答对加分，答错他们亲自讲解。</p>
+  </div>
+
+  <div id="levelBar"></div>
+
+  <div class="ac-game">
+    <div class="tk-list" id="sciList"></div>
+
+    <div class="tk-chat">
+      <div class="tk-chat-head">
+        <span id="chatTitle">选择一位先贤开始对话</span>
+        <button class="ac-btn ghost" id="btnLeave" style="display:none;padding:6px 14px;font-size:.8em">告辞</button>
+      </div>
+      <div class="tk-msgs" id="msgs">
+        <div class="tk-msg them" style="max-width:100%">你好！我是这里的看门人 🗝️<br>左边四位从 17～19 世纪远道而来，各自带着一肚子真题。挑一位拜访吧——每拜访一位可以连答 6 题。</div>
+      </div>
+      <div class="tk-opts" id="optArea"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/data.js"></script>
+<script src="js/katex/katex.min.js"></script>
+<script src="js/katex/contrib/auto-render.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var VISIT_Q = 6;   // 每次拜访的题数
+  var SCORE_PER = 10;
+
+  /* ==================== 四位先贤 ==================== */
+  // 领域划分只取站内题库自带的 category / knowledge_points 标签，不新造知识点。
+  var SCIENTISTS = [
+    {
+      key: 'newton', name: '牛顿', western: 'Isaac Newton', era: '1643–1727',
+      color: '#1a56db', ava: '🍎',
+      motto: '自然与运动，皆可计算',
+      field: '静力学 · 质点动力学 · 动量定理',
+      filter: function (q) { return q.category === '静力学' || q.kp.indexOf('质点动力学') >= 0 || q.kp.indexOf('动量定理') >= 0; },
+      greet: ['小友请坐。苹果落地，月绕地行，本是一回事。',
+              '我写《原理》那年定下的三条定律，你若真懂，我的题难不倒你。'],
+      praises: ['不错，这正是我在《原理》里想说的。', '好！三定律没白教你。', '嗯，思路对路。'],
+      regrets: ['唉，回到我的三条定律再想想。', '不对。力学的大厦要从定律地基起。'],
+      facts: ['小知识：1687 年我出版《自然哲学的数学原理》，三大运动定律与万有引力都在里面——全书用几何证明，微积分是我藏在袖子里的。',
+              '小知识：我的第二定律写作「动量的变化率等于外力」。你算加速度问题前，先问自己：受几个力？',
+              '小知识：人们只记得我那句「站在巨人的肩上」，却忘了后半句吵架的语境——科学史也是有脾气的。']
+    },
+    {
+      key: 'euler', name: '欧拉', western: 'Leonhard Euler', era: '1707–1783',
+      color: '#7c3aed', ava: '∫',
+      motto: 'e^{iπ}+1=0',
+      field: '动量矩定理 · 转动惯量 · 刚体转动',
+      filter: function (q) {
+        return q.kp.indexOf('动量矩定理') >= 0 || q.kp.indexOf('转动惯量') >= 0 ||
+               q.kp.indexOf('刚体定轴转动') >= 0 || q.kp.indexOf('刚体平面运动') >= 0;
+      },
+      greet: ['看这满屋的公式——大多数写法都是我定的：f(x)、sin、∫，还有那个 e。',
+              '转动的事来问我。刚体怎么转、绕什么轴转、转起来有多少「倔脾气」，我有专门的方程。'],
+      praises: ['对！这个量我当年也是这么算的。', '妙极。转动惯量欺负不了你。', '正是如此。'],
+      regrets: ['不对，把质量到轴的距离平方求和那一步再做一遍。', '差一点。转动问题先问：绕哪个轴？'],
+      facts: ['小知识：我刚体定点转动的那组方程后来叫「欧拉动力学方程」，三个角 ζ、θ、ψ（欧拉角）也是我的。',
+              '小知识：我一生写了 850 多篇论著，失明后还靠心算继续出成果——彼得堡科学院的排版工人跟不上我。',
+              '小知识：转动惯量 J=∫r²dm 里的 r² 是平方，所以质量离轴越远越「难转」——这是齿轮飞轮都做大半径的缘故。']
+    },
+    {
+      key: 'lagrange', name: '拉格朗日', western: 'Joseph-Louis Lagrange', era: '1736–1813',
+      color: '#0d9488', ava: '𝓛',
+      motto: 'L = T − V',
+      field: '分析力学 · 虚功 · 达朗贝尔原理',
+      filter: function (q) {
+        return q.category === '分析力学' || q.kp.indexOf('达朗贝尔原理') >= 0 ||
+               q.kp.indexOf('虚功') >= 0 || q.kp.indexOf('虚位移') >= 0 || q.kp.indexOf('拉格朗日方程') >= 0;
+      },
+      greet: ['幸会。我写《分析力学》时立了一个规矩：全书不画一张图。',
+              '我的方法是选好广义坐标，让方程自己长出来。你的几何直觉先放一放，跟我玩几题代数。'],
+      praises: ['很好，你已经摸到分析力学的门了。', '漂亮，广义坐标用得不闷。', '正是，方程从不辜负会选坐标的人。'],
+      regrets: ['不。先数一数自由度，再谈方程。', '错了。虚位移是「约束允许的」，别把它当真实位移。'],
+      facts: ['小知识：1788 年我的《分析力学》出版，全书没有一张图——把力学写成一套漂亮的微分方程，是我最得意的事。',
+              '小知识：达朗贝尔原理加虚功原理，在我手里合成了拉格朗日方程——约束力就此从方程里消失。',
+              '小知识：我 19 岁开始写信给欧拉，他看完我的等周问题解法，说「你已经超过我了」。']
+    },
+    {
+      key: 'coriolis', name: '科里奥利', western: 'Gaspard-Gustave de Coriolis', era: '1792–1843',
+      color: '#e67e22', ava: '⟳',
+      motto: 'aC = 2ωₑ × vᵣ',
+      field: '点的合成运动 · 科氏加速度',
+      filter: function (q) { return q.category === '运动学'; },
+      greet: ['你好。在转动的参考系里看运动，会多出一项谁也躲不开的加速度。',
+              '游乐园里那台「曲柄导杆」就藏着我那一项——动系一转动，aC = 2ωₑ × vᵣ 就要出场。'],
+      praises: ['对！方向别忘了：vᵣ 沿 ωₑ 转九十度再翻倍。', '很好，合成运动的账你算清了。', '正是这一项，台风都归它管。'],
+      regrets: ['不对，把动系转动那一项漏了。', '再想：动点、动系各是什么？相对速度沿什么方向？'],
+      facts: ['小知识：1835 年我的论文给出这项加速度，后来它以我的名字命名——北半球台风逆时针转，就是它在掌舵。',
+              '小知识：我给「功」下了工程定义（力乘位移），还把 ½mv² 这个因子写清楚了。',
+              '小知识：我本行是水利工程，在运河和瀑布边算了一辈子功率——科氏加速度是我在教书时顺手推出来的。']
+    }
+  ];
+
+  var st = {
+    sci: null,          // 当前拜访的科学家 key
+    asked: [],          // 本次拜访已问题目 id
+    count: 0, correct: 0,
+    recorded: false,
+    busy: false         // 动画/出题进行中，禁止连点
+  };
+
+  /* ==================== 消息流 ==================== */
+
+  var msgs = document.getElementById('msgs');
+
+  function scrollBottom() { msgs.scrollTop = msgs.scrollHeight; }
+
+  function addMsg(html, cls, who) {
+    var d = document.createElement('div');
+    d.className = 'tk-msg ' + (cls || 'them');
+    d.innerHTML = (who ? '<span class="who">' + Arcade.esc(who) + '</span>' : '') + html;
+    msgs.appendChild(d);
+    Arcade.renderMath(d);
+    scrollBottom();
+    return d;
+  }
+
+  function typing(who, then, delay) {
+    var d = document.createElement('div');
+    d.className = 'tk-msg them';
+    d.innerHTML = '<span class="who">' + Arcade.esc(who) + '</span><span class="tk-dots"><i></i><i></i><i></i></span>';
+    msgs.appendChild(d);
+    scrollBottom();
+    st.busy = true;
+    setTimeout(function () {
+      d.remove();
+      st.busy = false;
+      then();
+    }, delay || 650);
+  }
+
+  function clearOpts() { document.getElementById('optArea').innerHTML = ''; }
+
+  // 选项区渲染：judge 两个钮，choice 按字母逐项
+  function showOptions(q, onPick) {
+    var box = document.getElementById('optArea');
+    box.innerHTML = '';
+    var opts;
+    if (q.type === '判断题') {
+      opts = [{ k: '对', ok: q.ans === '对' }, { k: '错', ok: q.ans === '错' }];
+    } else {
+      opts = q.opts.map(function (o) { return { k: '(' + o.key + ') ' + o.text, ok: o.key === q.ans }; });
+    }
+    opts.forEach(function (o) {
+      var b = document.createElement('button');
+      b.className = 'tk-opt';
+      b.textContent = o.k;
+      b.onclick = function () {
+        if (st.busy) return;
+        Array.prototype.forEach.call(box.children, function (n) { n.disabled = true; });
+        onPick(o, b);
+      };
+      box.appendChild(b);
+    });
+  }
+
+  /* ==================== 出题 ==================== */
+
+  function sciPool(sci) {
+    var pool = Arcade.pool();
+    return pool.judge.concat(pool.choice).filter(sci.filter);
+  }
+
+  function pickQuestion(sci) {
+    var cand = sciPool(sci);
+    var done = Arcade.doneSet();
+    var fresh = cand.filter(function (q) { return st.asked.indexOf(q.id) < 0 && !done[q.id]; });
+    var seen = cand.filter(function (q) { return st.asked.indexOf(q.id) < 0; });
+    var arr = fresh.length ? fresh : seen;
+    return arr.length ? Arcade.pick(arr) : null;
+  }
+
+  function askNext() {
+    var sci = current();
+    var q = pickQuestion(sci);
+    if (!q) {
+      addMsg('我肚子里的题都被你掏空了，改日我再带来一批。', 'them', sciName());
+      clearOpts();
+      finishVisit();
+      return;
+    }
+    st.asked.push(q.id);
+    st.count++;
+    addMsg('第 ' + st.count + ' 问 · ' + Arcade.esc(q.type) + '：<br>' + Arcade.esc(q.text), 'q', sciName());
+    showOptions(q, function (o, btn) { judge(q, o, btn); });
+  }
+
+  function judge(q, o, btn) {
+    var sci = current();
+    var ok = o.ok === true;
+    st.totalQ = (st.totalQ || 0) + 1;
+    if (ok) st.correct++;
+
+    // 标出正确项（答错也要看得见对的）
+    var box = document.getElementById('optArea');
+    Array.prototype.forEach.call(box.children, function (n) {
+      if (n.textContent === o.k && ok) n.className = 'tk-opt correct';
+      else if (n.textContent === o.k && !ok) n.className = 'tk-opt wrong';
+    });
+    var rightBtn = Array.prototype.filter.call(box.children, function (n) {
+      return q.type === '判断题' ? n.textContent === q.ans : n.textContent.indexOf('(' + q.ans + ')') === 0;
+    })[0];
+    if (rightBtn) rightBtn.className = 'tk-opt correct';
+
+    var mine = document.createElement('div');
+    mine.className = 'tk-msg me';
+    mine.textContent = o.k;
+    msgs.appendChild(mine);
+    scrollBottom();
+
+    typing(sciName(), function () {
+      var line = ok ? Arcade.pick(sci.praises) : Arcade.pick(sci.regrets);
+      addMsg(Arcade.esc(line), 'them', sciName());
+      var exp = q.expText || '';
+      if (ok) Arcade.toast('答对 +' + SCORE_PER + ' 分', 'ok');
+      markMet();
+      typing(sciName(), function () {
+        addMsg(exp ? Arcade.esc(exp) : '（本题暂无解析）', 'them', sciName());
+        if (st.count % 2 === 0 && st.count < VISIT_Q) {
+          typing(sciName(), function () {
+            addMsg(Arcade.esc(sci.facts[(st.count / 2 - 1) % sci.facts.length]), 'fact', sciName());
+            nextOrEnd();
+          });
+        } else {
+          nextOrEnd();
+        }
+      });
+    });
+  }
+
+  function nextOrEnd() {
+    if (st.count >= VISIT_Q) {
+      typing(sciName(), function () {
+        addMsg('今日就考到这里。你答对了 ' + st.correct + ' / ' + st.count + '，期待下次过招。', 'them', sciName());
+        finishVisit();
+      });
+    } else {
+      typing(sciName(), askNext, 500);
+    }
+  }
+
+  /* ==================== 拜访流程 ==================== */
+
+  function current() { return SCIENTISTS.filter(function (s) { return s.key === st.sci; })[0]; }
+  function sciName() { var s = current(); return s ? (s.name + ' · ' + s.western) : ''; }
+
+  function markMet() {
+    var p = Arcade.progress();
+    if (p.games.talk.met.indexOf(st.sci) < 0) {
+      p.games.talk.met.push(st.sci);
+      Arcade.saveProgress(p);
+      renderSciList();
+    }
+  }
+
+  function startVisit(key) {
+    if (st.busy) return;
+    var sci = SCIENTISTS.filter(function (s) { return s.key === key; })[0];
+    st.sci = key;
+    st.asked = []; st.count = 0; st.correct = 0; st.totalQ = 0; st.recorded = false;
+    msgs.innerHTML = '';
+    document.getElementById('chatTitle').textContent = '与 ' + sci.name + ' 对话中';
+    document.getElementById('btnLeave').style.display = '';
+    renderSciList();
+    clearOpts();
+    addMsg(Arcade.esc(sci.greet[0]), 'them', sciName());
+    typing(sciName(), function () {
+      addMsg(Arcade.esc(sci.greet[1]), 'them', sciName());
+      typing(sciName(), askNext, 500);
+    });
+  }
+
+  function finishVisit() {
+    if (!st.recorded && st.totalQ > 0) {
+      st.recorded = true;
+      Arcade.markDone(st.asked.slice());
+      var res = Arcade.recordGame('talk', {
+        score: st.correct * SCORE_PER, correct: st.correct, total: st.totalQ
+      });
+      addMsg('本场小结：答对 ' + st.correct + ' / ' + st.totalQ + ' · 合计 +' + (st.correct * SCORE_PER) + ' 分' +
+        (res.tierUp ? ' · 🎉 段位提升「' + res.tierUp.name + '」' : ''), 'fact', '游乐园看门人');
+      Arcade.mountLevelBar(document.getElementById('levelBar'));
+    }
+    st.sci = null;
+    document.getElementById('chatTitle').textContent = '拜访结束，另挑一位吧';
+    document.getElementById('btnLeave').style.display = 'none';
+    clearOpts();
+    renderSciList();
+  }
+
+  document.getElementById('btnLeave').onclick = function () {
+    if (!st.sci || st.busy) return;
+    var sci = current();
+    clearOpts();
+    addMsg('后会有期。', 'them', sciName());
+    finishVisit();
+  };
+
+  /* ==================== 科学家列表 ==================== */
+
+  function renderSciList() {
+    var p = Arcade.progress();
+    var met = p.games.talk.met || [];
+    document.getElementById('sciList').innerHTML = SCIENTISTS.map(function (s) {
+      var n = sciPool(s).length;
+      var isActive = st.sci === s.key;
+      return '<button class="tk-sci' + (isActive ? ' active' : '') + '" data-key="' + s.key + '"' +
+        (isActive ? ' disabled' : '') + '>' +
+        '<span class="tk-ava" style="background:' + s.color + '">' + s.ava + '</span>' +
+        '<span><h4>' + s.name + ' <span class="tk-era">' + s.era + '</span>' +
+        (met.indexOf(s.key) >= 0 ? '<span class="met"> ✅ 已结识</span>' : '') + '</h4>' +
+        '<p>' + Arcade.esc(s.field) + '<br>题库储备 ' + n + ' 题 ·「' + Arcade.esc(s.motto) + '」</p></span>' +
+        '</button>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('.tk-sci:not([disabled])'), function (b) {
+      b.onclick = function () { startVisit(b.dataset.key); };
+    });
+  }
+
+  // 防丢分：拜访中途直接关页，也把已答的记进存档
+  window.addEventListener('pagehide', function () {
+    if (!st.recorded && st.totalQ > 0) {
+      st.recorded = true;
+      Arcade.markDone(st.asked.slice());
+      Arcade.recordGame('talk', { score: st.correct * SCORE_PER, correct: st.correct, total: st.totalQ });
+    }
+  });
+
+  Arcade.mountLevelBar(document.getElementById('levelBar'));
+  renderSciList();
+})();
+</script>
+</body>
+</html>
