@@ -152,12 +152,12 @@
   /* ==================== 游乐园段位（独立于平台等级） ==================== */
   // 刻意与平台等级（初学→大师）区分开，避免两套数字被看混
   var TIERS = [
-    { name: '见习力学家', min: 0,    icon: '🌱', hex: '#06b6d4' },
-    { name: '力学学徒',   min: 300,  icon: '📐', hex: '#22c55e' },
-    { name: '机构拆解者', min: 800,  icon: '⚙️', hex: '#eab308' },
-    { name: '矢量猎手',   min: 1500, icon: '🎯', hex: '#f97316' },
-    { name: '力学游侠',   min: 2500, icon: '⚡', hex: '#b45309' },
-    { name: '力学家',     min: 4000, icon: '🏆', hex: '#b91c1c' }
+    { name: '见习力学家', min: 0,    icon: 'star', hex: '#06b6d4' },
+    { name: '力学学徒',   min: 300,  icon: 'scroll', hex: '#22c55e' },
+    { name: '机构拆解者', min: 800,  icon: 'gear', hex: '#eab308' },
+    { name: '矢量猎手',   min: 1500, icon: 'target', hex: '#f97316' },
+    { name: '力学游侠',   min: 2500, icon: 'sword', hex: '#b45309' },
+    { name: '力学家',     min: 4000, icon: 'trophy', hex: '#b91c1c' }
   ];
   function tierForScore(s) {
     var t = TIERS[0];
@@ -186,7 +186,7 @@
     return '' +
       '<div class="ac-levelbar">' +
         '<div class="ac-tier" style="--tc:' + t.hex + '">' +
-          '<span class="ac-tier-icon">' + t.icon + '</span>' +
+          '<span class="ac-tier-icon">' + (root.PxlIcons ? root.PxlIcons.img(t.icon, 22) : '') + '</span>' +
           '<span class="ac-tier-name">' + t.name + '</span>' +
         '</div>' +
         '<div class="ac-bar-wrap">' +

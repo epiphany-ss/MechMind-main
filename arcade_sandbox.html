@@ -31,6 +31,7 @@
   }
   .sb-task.done { border-color: #22c55e; background: #f0fdf4; }
   .sb-task h4 { margin: 0 0 4px; font-size: .9em; display: flex; justify-content: space-between; align-items: center; }
+  .sb-task-name { display: inline-flex; align-items: center; gap: 6px; }
   .sb-task .badge { font-size: .78em; font-weight: 800; color: #15803d; }
   .sb-task p { margin: 0 0 8px; font-size: .78em; color: var(--text-light); line-height: 1.55; }
   .sb-meter { height: 8px; background: #eef2f7; border-radius: 999px; overflow: hidden; }
@@ -44,14 +45,14 @@
 
 <nav class="ac-nav">
   <div class="ac-nav-in">
-    <a class="ac-brand" href="arcade.html">🎮 力学游乐园</a>
+    <a class="ac-brand" href="arcade.html"><img class="ac-pxl" data-pxl="flag" alt="" width="18" height="18"> 力学游乐园</a>
     <a class="ac-back" href="arcade.html">← 返回游乐园</a>
   </div>
 </nav>
 
 <div class="ac-wrap">
   <div class="ac-head">
-    <h1>🧩 力学沙盒</h1>
+    <h1><img class="ac-pxl" data-pxl="bars" alt="" width="28" height="28"> 力学沙盒</h1>
     <p>一台<b>四杆机构</b>实验台：调六个数（四根杆 + 连杆上一点的位置与偏移），看点 P 实时画出什么轨迹。完成三张任务卡。</p>
   </div>
 
@@ -86,7 +87,7 @@
     </div>
 
     <div class="sb-btns">
-      <button class="ac-btn ghost" id="btnRandom">🎲 随机一组能转的</button>
+      <button class="ac-btn ghost" id="btnRandom"><img class="ac-pxl" data-pxl="dice" alt="" width="16" height="16"> 随机一组能转的</button>
     </div>
   </aside>
 
@@ -95,6 +96,7 @@
 
 <script src="js/score.js"></script>
 <script src="js/user-store.js"></script>
+<script src="js/arcade_pxl_icons.js"></script>
 <script src="js/arcade_common.js"></script>
 <script>
 (function () {
@@ -110,13 +112,13 @@
   //   圆    平行四边形摆法可精确到 0        ← 点不能贴 A/B 铰链（贴上去天然是圆）
   //   停歇  最优 0.10 / 阈值 0.30           ← 曲线带近尖点，点在那里几乎停下
   var TASKS = {
-    line:   { name: '让 P 走直线', icon: '📏', thr: 0.05,
+    line:   { name: '让 P 走直线', icon: 'arrowRight', thr: 0.05,
               desc: '让 P 的连杆曲线接近一条直线（最大偏差 < 曲线尺寸的 5%）。',
               hint: '提示：曲柄调短、机架拉长，P 放在连杆中段偏外试试。' },
-    circle: { name: '让 P 走圆', icon: '⭕', thr: 0.04,
+    circle: { name: '让 P 走圆', icon: 'ring', thr: 0.04,
               desc: '让 P 的连杆曲线接近一个圆（半径涨落 < 4%）。P 不能贴着 A、B 铰链。',
               hint: '提示：让四根杆摆成平行四边形（r₁=r₃、L₂=d），连杆上任意点都走圆。' },
-    dwell:  { name: '让 P 近似停歇', icon: '⏸️', thr: 0.30,
+    dwell:  { name: '让 P 近似停歇', icon: 'pause', thr: 0.30,
               desc: '存在至少 15% 周期的时间，P 几乎不动（期间最大速度 < 平均速度的 30%）。',
               hint: '提示：连杆曲线出现接近尖点（打结）的地方时，点在那里会停一下。' }
   };
@@ -391,7 +393,7 @@
     document.getElementById('tasks').innerHTML = Object.keys(TASKS).map(function (key) {
       var t = TASKS[key];
       return '<div class="sb-task' + (done[key] ? ' done' : '') + '" id="task_' + key + '">' +
-        '<h4>' + t.icon + ' ' + t.name + (done[key] ? '<span class="badge">✅ 已达成</span>' : '') + '</h4>' +
+        '<h4><span class="sb-task-name">' + PxlIcons.img(t.icon, 18) + t.name + '</span>' + (done[key] ? '<span class="badge">' + PxlIcons.img('check', 14) + ' 已达成</span>' : '') + '</h4>' +
         '<p>' + t.desc + '<br>' + t.hint + '</p>' +
         '<div class="sb-meter"><i id="meter_' + key + '" style="width:0%"></i></div>' +
         '<div class="sb-metric" id="metric_' + key + '">—</div>' +

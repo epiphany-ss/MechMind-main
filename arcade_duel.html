@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联机对战 - 力学游乐园</title>
+<link rel="stylesheet" href="css/arcade.css">
+<link rel="stylesheet" href="js/katex/katex.min.css">
+<style>
+  .duel-wrap { max-width: 980px; }
+  .duel-board {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px;
+    align-items: stretch; margin-bottom: 16px;
+  }
+  .duel-side {
+    background: #fff; border: 3px solid var(--ink); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 12px 14px; min-width: 0;
+  }
+  .duel-side.foe { text-align: right; }
+  .duel-name { font-weight: 800; font-size: 1.05em; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .duel-hpnum { font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .hp-track { height: 14px; margin-top: 8px; border: 2px solid var(--ink); border-radius: 4px; background: #fff; overflow: hidden; }
+  .hp-fill { height: 100%; width: 100%; background: var(--nb-green); transition: width .25s linear; }
+  .b-choices .ac-btn:disabled { opacity: 1; }
+  .duel-side.foe .hp-fill { margin-left: auto; }
+  .duel-mid {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 88px; font-weight: 800;
+  }
+  .duel-note { min-height: 1.4em; margin: 0 0 12px; font-weight: 700; text-align: center; }
+  .duel-timer { height: 8px; border: 2px solid var(--ink); border-radius: 4px; overflow: hidden; margin-bottom: 14px; background: #fff; }
+  .duel-timer > i { display: block; height: 100%; width: 100%; background: var(--nb-blue); }
+  .v-arrows { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) {
+    .duel-board { grid-template-columns: 1fr 1fr; }
+    .duel-mid { grid-column: 1 / -1; order: -1; }
+    .v-arrows { grid-template-columns: repeat(2, 1fr); }
+  }
+  .v-arrow {
+    background: #fff; border: 3px solid var(--ink); border-radius: var(--radius);
+    box-shadow: 3px 3px 0 var(--ink); padding: 8px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .v-arrow:disabled { cursor: default; }
+  .v-arrow.correct { background: var(--nb-green); }
+  .v-arrow.wrong { background: var(--nb-red); }
+  .b-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .ac-btn.right-pick { background: var(--nb-green); color: var(--ink); }
+  .ac-btn.wrong-pick { background: var(--nb-red); color: var(--ink); }
+  @media (max-width: 640px) { .b-choices { grid-template-columns: 1fr; } }
+  .pick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .pick-row { grid-template-columns: 1fr; } }
+  .pick {
+    text-align: left; padding: 16px; border: 3px solid var(--ink); border-radius: var(--radius);
+    box-shadow: var(--shadow); background: #fff; cursor: pointer; font: inherit; color: inherit;
+  }
+  .pick.vector { background: var(--nb-blue); color: #fff; }
+  .pick.bug { background: var(--nb-red); }
+  .pick b { display: block; font-size: 1.15em; margin-bottom: 4px; }
+  .exp-box { max-height: 180px; overflow: auto; margin-top: 12px; }
+  .rev-card { margin-top: 14px; }
+  .rev-kps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .rev-kps span {
+    border: 2px solid var(--ink); border-radius: 4px; padding: 2px 8px;
+    background: var(--nb-yellow); font-size: .8em; font-weight: 700;
+  }
+  .rules { font-size: .88em; color: var(--text-light); }
+  .rules li { margin: 4px 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .hp-fill, .duel-timer > i { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="ac-nav">
+  <div class="ac-nav-in">
+    <a class="ac-brand" href="arcade.html"><img class="ac-pxl" data-pxl="flag" alt="" width="18" height="18"> 力学游乐园</a>
+    <a class="ac-back" href="arcade.html">← 返回游乐园</a>
+  </div>
+</nav>
+
+<div class="ac-wrap duel-wrap">
+  <div class="ac-head">
+    <h1><img class="ac-pxl" data-pxl="sword" alt="" width="28" height="28"> 联机对战</h1>
+    <p>矢量竞速和解析捉虫可以在这里对战。左上角和右上角是双方的名字和血量，每一题都按用时和对错结算。五题结束后给出胜负，并逐题复盘。</p>
+  </div>
+
+  <section id="setup">
+    <div class="ac-side">
+      <label for="myName">你的名字</label>
+      <input id="myName" maxlength="16" style="display:block;width:100%;max-width:280px;margin:6px 0 14px;padding:8px 10px;border:3px solid #111;border-radius:6px;font:inherit;font-weight:700">
+      <div class="pick-row">
+        <button class="pick vector" type="button" data-mode="vector"><b>矢量竞速</b>定格后点出速度或加速度方向。每题 12 秒。</button>
+        <button class="pick bug" type="button" data-mode="bug"><b>解析捉虫</b>判断这段解析是不是这道题的。每题 25 秒。</button>
+      </div>
+      <ol class="rules">
+        <li>双方各 100 血，五题全部打完，血量高的一方胜。</li>
+        <li>只有一方答对：答对的人按剩余时间打对方 6 到 20 点，答错或超时的人自己再掉 8 到 16 点，用得越久掉得越多。</li>
+        <li>双方都答对：只有较慢的一方掉血，时间差越大掉得越多，最少 4 点。</li>
+        <li>双方都答错：各自按自己的用时掉血，不互相追加。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="duel-board">
+      <div class="duel-side">
+        <div class="duel-name" id="meName">我</div>
+        <div class="duel-hpnum"><span id="meHp">100</span> / 100</div>
+        <div class="hp-track"><div class="hp-fill" id="meBar"></div></div>
+      </div>
+      <div class="duel-mid" id="roundChip">1 / 5</div>
+      <div class="duel-side foe">
+        <div class="duel-name" id="foeName">拉格朗日</div>
+        <div class="duel-hpnum"><span id="foeHp">100</span> / 100</div>
+        <div class="hp-track"><div class="hp-fill" id="foeBar"></div></div>
+      </div>
+    </div>
+    <p class="duel-note" id="roundNote"></p>
+    <div class="duel-timer"><i id="timerBar"></i></div>
+
+    <div id="vectorPane">
+      <div class="ac-stage" style="margin-bottom:14px"><canvas id="cv"></canvas></div>
+      <div class="ac-side">
+        <div class="v-q" id="vText" style="font-weight:800">准备中…</div>
+        <div class="v-sub" id="vSub" style="color:var(--text-light);margin-bottom:12px"></div>
+        <div class="v-arrows" id="opts"></div>
+      </div>
+    </div>
+
+    <div id="bugPane" class="ac-side" hidden>
+      <div id="bText"></div>
+      <div class="ac-exp exp-box" id="bExp"></div>
+      <div class="b-choices">
+        <button class="ac-btn" id="btnYes" type="button">是本题的解析</button>
+        <button class="ac-btn ghost" id="btnNo" type="button"><img class="ac-pxl" data-pxl="bug" alt="" width="16" height="16">是别道题的</button>
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <button class="ac-btn" id="btnNext" type="button" disabled>下一题</button>
+    </div>
+  </section>
+
+  <section id="review" hidden>
+    <div class="ac-side">
+      <h2 id="resultTitle" style="margin:0 0 8px">结果</h2>
+      <p id="resultLine" style="margin:0 0 8px;font-weight:700"></p>
+      <p class="rules" style="margin:0">按出题顺序复盘。每题写出双方用时、对错和血量变化，并附上解析和相关知识点。</p>
+    </div>
+    <div id="reviewList"></div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="ac-btn" id="btnAgain" type="button">再开一局</button>
+      <a class="ac-btn ghost" href="arcade.html" style="text-decoration:none">回游乐园</a>
+    </div>
+  </section>
+</div>
+
+<script src="js/score.js"></script>
+<script src="js/user-store.js"></script>
+<script src="js/arcade_pxl_icons.js"></script>
+<script src="js/arcade_common.js"></script>
+<script src="js/data.js"></script>
+<script src="js/katex/katex.min.js"></script>
+<script src="js/katex/contrib/auto-render.min.js"></script>
+<script src="js/arcade_mech.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var HP0 = 100;
+  var ROUNDS = 5;
+  var LIMIT = { vector: 12, bug: 25 };
+  var WATCH = 1.6;
+  var FOE_NAME = '拉格朗日';
+
+  var mode = 'vector';
+  var me = { name: '我', hp: HP0 };
+  var foe = { name: FOE_NAME, hp: HP0 };
+  var queue = [];
+  var log = [];
+  var idx = 0;
+  var cur = null;
+  var mech = null;
+  var phase = 'idle';
+  var startedAt = 0;
+  var foePlan = null;
+  var foeLocked = false;
+  var locked = true;
+  var tick = null;
+  var raf = 0;
+  var lastT = 0;
+
+  function $(id) { return document.getElementById(id); }
+
+  function myName() {
+    var typed = ($('myName').value || '').trim();
+    if (typed) return typed.slice(0, 16);
+    try {
+      var u = JSON.parse(localStorage.getItem('current_user') || 'null');
+      if (u && u.name) return String(u.name).slice(0, 16);
+    } catch (e) {}
+    return '我';
+  }
+
+  function paintHud() {
+    $('meName').textContent = me.name;
+    $('foeName').textContent = foe.name;
+    $('meHp').textContent = String(me.hp);
+    $('foeHp').textContent = String(foe.hp);
+    $('meBar').style.width = me.hp + '%';
+    $('foeBar').style.width = foe.hp + '%';
+    $('meBar').style.background = me.hp > 50 ? '#7DDE55' : me.hp > 20 ? '#FFE14A' : '#FF5A5A';
+    $('foeBar').style.background = foe.hp > 50 ? '#7DDE55' : foe.hp > 20 ? '#FFE14A' : '#FF5A5A';
+    $('roundChip').textContent = Math.min(idx + 1, queue.length || ROUNDS) + ' / ' + (queue.length || ROUNDS);
+  }
+
+  function planFoe() {
+    var correct = Math.random() < 0.68;
+    var r = correct ? (0.22 + Math.random() * 0.5) : (0.35 + Math.random() * 0.55);
+    if (Math.random() < 0.08) { correct = false; r = 1; }
+    r = Math.min(1, Math.max(0.05, r));
+    return { correct: correct, r: r };
+  }
+
+  function resolveHit(a, b) {
+    function strike(ok, r) {
+      if (!ok) return { out: 0, self: Math.round(8 + 8 * r) };
+      return { out: Math.round(6 + 14 * (1 - r)), self: 0 };
+    }
+    var A = strike(a.correct, a.r);
+    var B = strike(b.correct, b.r);
+    var dmgA = A.self;
+    var dmgB = B.self;
+    if (a.correct && b.correct) {
+      var gap = Math.abs(a.r - b.r);
+      var chip = Math.max(4, Math.round(4 + 12 * gap));
+      if (a.r + 0.02 < b.r) dmgB += chip;
+      else if (b.r + 0.02 < a.r) dmgA += chip;
+    } else {
+      if (a.correct) dmgB += A.out;
+      if (b.correct) dmgA += B.out;
+    }
+    return { dmgA: dmgA, dmgB: dmgB };
+  }
+
+  function arrowSVG(thetaRad, color) {
+    var deg = (-thetaRad * 180 / Math.PI).toFixed(1);
+    return '<svg width="58" height="58" viewBox="-29 -29 58 58"><g transform="rotate(' + deg + ')">' +
+      '<line x1="-17" y1="0" x2="13" y2="0" stroke="' + color + '" stroke-width="3.4" stroke-linecap="round"/>' +
+      '<polygon points="19,0 8.5,-7 8.5,7" fill="' + color + '"/></g></svg>';
+  }
+
+  function pickVector() {
+    var keys = ArcadeMech.KEYS;
+    for (var tries = 0; tries < 40; tries++) {
+      var key = Arcade.pick(keys);
+      var th = Math.random() * Math.PI * 2;
+      mech.setMech(key);
+      var kin = ArcadeMech[
+        key === 'guideBar' ? 'computeGuideBar' :
+        key === 'sliderCrank' ? 'computeSliderCrank' :
+        key === 'scotchYoke' ? 'computeScotchYoke' : 'computePlanetaryGear'
+      ](th, mech.params().omega, mech.params().r,
+        key === 'guideBar' ? mech.params().d :
+        key === 'sliderCrank' ? mech.params().L :
+        key === 'scotchYoke' ? 0 : mech.params().sunR,
+        key === 'sliderCrank' ? mech.params().e : mech.params().planetR);
+      if (!kin) continue;
+      var askVel = Math.random() < 0.5;
+      var vx = askVel ? kin.va_x : kin.aa_x;
+      var vy = askVel ? kin.va_y : kin.aa_y;
+      var mag = Math.hypot(vx, vy);
+      var ref = mech.params().omega * mech.params().r;
+      if (mag < ref * 0.25) continue;
+      var facts = ArcadeMech.FACTS[key];
+      var angle = Math.atan2(vy, vx);
+      var kps = ['点的运动学'];
+      if (key === 'planetaryGear') kps = ['刚体平面运动', '点的运动学'];
+      else if (!askVel && facts.hasCoriolis) kps = ['点的合成运动', '科氏加速度'];
+      else kps = ['点的运动学', '点的合成运动'];
+      var deg = (angle * 180 / Math.PI).toFixed(0);
+      var what = askVel ? '速度' : '加速度';
+      return {
+        kind: 'vector', key: key, theta: th, askVel: askVel, angle: angle, facts: facts, kps: kps,
+        prompt: '高亮点的' + what + '方向是？',
+        sub: facts.name + ' · 动点 ' + facts.movingPoint,
+        exp: '问的是高亮点的' + what + '方向。真实方向与水平约成 ' + deg +
+          '°（逆时针为正，水平即图中机架或导轨方向）。' + facts.desc + '。' + facts.coriolis + '。'
+      };
+    }
+    return null;
+  }
+
+  function buildBugQueue() {
+    var pool = Arcade.pool();
+    if (!pool) return [];
+    var items = pool.all.filter(function (q) { return q.expText && q.expText.length >= 25; });
+    var bases = Arcade.sample(items, Math.min(ROUNDS, items.length));
+    var qs = bases.map(function (base, i) {
+      var isTrue = i % 2 === 0;
+      var distractor = null;
+      if (!isTrue) {
+        var same = items.filter(function (q) {
+          return q.id !== base.id && q.category === base.category && q.expText !== base.expText &&
+            q.expText.length >= base.expText.length * 0.4 && q.expText.length <= base.expText.length * 2.5;
+        });
+        var any = items.filter(function (q) { return q.id !== base.id && q.expText !== base.expText; });
+        distractor = (same.length ? Arcade.pick(same) : (any.length ? Arcade.pick(any) : null));
+        if (!distractor) isTrue = true;
+      }
+      var shown = isTrue ? base.expText : distractor.expText;
+      var exp = '本题解析：' + base.expText;
+      if (!isTrue) {
+        exp += ' 画面上那段解析不是本题的，它属于另一道' + distractor.category + '题：「' +
+          distractor.text.slice(0, 42) + (distractor.text.length > 42 ? '…' : '') + '」。';
+      }
+      return {
+        kind: 'bug', base: base, isTrue: isTrue, shown: shown, exp: exp,
+        kps: (base.kp && base.kp.length) ? base.kp.slice() : [base.category],
+        prompt: base.category + ' · ' + (base.type || '题目'),
+        text: base.text
+      };
+    });
+    return Arcade.shuffle(qs);
+  }
+
+  function startMatch(nextMode) {
+    mode = nextMode;
+    me = { name: myName(), hp: HP0 };
+    foe = { name: FOE_NAME, hp: HP0 };
+    log = [];
+    idx = 0;
+    if (mode === 'vector') {
+      if (!mech) {
+        mech = ArcadeMech.create($('cv'), 'guideBar');
+        mech.setLabels(true);
+      }
+      mech.fit();
+      queue = [];
+      for (var i = 0; i < ROUNDS; i++) {
+        var q = pickVector();
+        if (q) queue.push(q);
+      }
+    } else {
+      queue = buildBugQueue();
+    }
+    if (queue.length < 1) {
+      $('roundNote').textContent = '题目没有准备好。';
+      return;
+    }
+    $('setup').hidden = true;
+    $('review').hidden = true;
+    $('play').hidden = false;
+    $('vectorPane').hidden = mode !== 'vector';
+    $('bugPane').hidden = mode !== 'bug';
+    if (mode === 'vector') requestAnimationFrame(function () { mech.fit(); });
+    paintHud();
+    beginQuestion();
+  }
+
+  function beginQuestion() {
+    cur = queue[idx];
+    foePlan = planFoe();
+    foeLocked = false;
+    locked = true;
+    $('btnNext').disabled = true;
+    $('btnNext').textContent = '下一题';
+    $('roundNote').textContent = '对手思考中';
+    $('timerBar').style.width = '100%';
+    paintHud();
+    clearInterval(tick);
+    if (mode === 'vector') {
+      $('opts').innerHTML = '';
+      $('vText').textContent = '观察动画…';
+      $('vSub').textContent = '';
+      mech.setMech(cur.key);
+      mech.setTheta(cur.theta);
+      mech.setMark(false);
+      phase = 'watch';
+      startedAt = performance.now();
+    } else {
+      phase = 'ask';
+      renderBug();
+      armTimer();
+    }
+  }
+
+  function renderBug() {
+    $('bText').innerHTML = '<b>' + Arcade.esc(cur.prompt) + '</b><br>' + Arcade.esc(cur.text);
+    $('bExp').innerHTML = '<b>解析</b><br>' + Arcade.esc(cur.shown);
+    Arcade.renderMath($('bText'));
+    Arcade.renderMath($('bExp'));
+    $('btnYes').disabled = false;
+    $('btnNo').disabled = false;
+    $('btnYes').className = 'ac-btn';
+    $('btnNo').className = 'ac-btn ghost';
+  }
+
+  function armTimer() {
+    locked = false;
+    startedAt = performance.now();
+    var limit = LIMIT[mode];
+    clearInterval(tick);
+    tick = setInterval(function () {
+      var elapsed = (performance.now() - startedAt) / 1000;
+      $('timerBar').style.width = Math.max(0, (1 - elapsed / limit) * 100) + '%';
+      if (!foeLocked && elapsed >= foePlan.r * limit) {
+        foeLocked = true;
+        $('roundNote').textContent = '对手已锁定';
+      }
+      if (elapsed >= limit) submit(null);
+    }, 100);
+  }
+
+  function freezeVector() {
+    phase = 'ask';
+    mech.render();
+    mech.mark('#4cc9f0');
+    $('vText').textContent = cur.prompt;
+    $('vSub').textContent = cur.sub + ' · 已定格';
+    var a = cur.angle;
+    var opts = Arcade.shuffle([
+      { ang: a, ok: true },
+      { ang: a + Math.PI / 2, ok: false },
+      { ang: a + Math.PI, ok: false },
+      { ang: a + Math.PI * 1.5, ok: false }
+    ]);
+    var box = $('opts');
+    box.innerHTML = '';
+    opts.forEach(function (o) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'v-arrow';
+      b.dataset.ok = o.ok ? '1' : '0';
+      b.dataset.ang = String(o.ang);
+      b.innerHTML = arrowSVG(o.ang, '#1a56db');
+      b.onclick = function () { submit(o.ok, b); };
+      box.appendChild(b);
+    });
+    armTimer();
+  }
+
+  function submit(ok, btn) {
+    if (locked || phase !== 'ask') return;
+    locked = true;
+    clearInterval(tick);
+    var limit = LIMIT[mode];
+    var elapsed = (performance.now() - startedAt) / 1000;
+    var r = ok === null ? 1 : Math.min(1, elapsed / limit);
+    var meOk = ok === true;
+    if (mode === 'vector') {
+      Array.prototype.forEach.call(document.querySelectorAll('#opts .v-arrow'), function (n) { n.disabled = true; });
+      var right = document.querySelector('#opts .v-arrow[data-ok="1"]');
+      if (right) {
+        right.classList.add('correct');
+        right.innerHTML = arrowSVG(parseFloat(right.dataset.ang), '#14532d');
+      }
+      if (btn && !meOk) {
+        btn.classList.add('wrong');
+        btn.innerHTML = arrowSVG(parseFloat(btn.dataset.ang), '#111');
+      }
+    } else {
+      $('btnYes').disabled = true;
+      $('btnNo').disabled = true;
+      if (ok === true) $('btnYes').className = 'ac-btn' + (meOk ? ' right-pick' : ' wrong-pick');
+      if (ok === false) $('btnNo').className = 'ac-btn ghost' + (meOk ? ' right-pick' : ' wrong-pick');
+    }
+    var wait = Math.max(0, foePlan.r * limit - elapsed);
+    $('roundNote').textContent = wait > 0.15 ? '等待对手锁定' : '结算中';
+    setTimeout(function () { reveal(meOk, r, ok === null); }, wait * 1000);
+  }
+
+  function tag(ok, timeout) {
+    if (timeout) return '超时';
+    return ok ? '答对' : '答错';
+  }
+
+  function reveal(meOk, r, meTimeout) {
+    var hit = resolveHit(
+      { correct: meOk, r: r },
+      { correct: foePlan.correct, r: foePlan.r }
+    );
+    me.hp = Math.max(0, me.hp - hit.dmgA);
+    foe.hp = Math.max(0, foe.hp - hit.dmgB);
+    var foeTimeout = foePlan.r >= 0.999 && !foePlan.correct;
+    log.push({
+      n: idx + 1,
+      prompt: cur.prompt,
+      sub: cur.sub || '',
+      text: cur.text || '',
+      exp: cur.exp,
+      kps: cur.kps,
+      me: tag(meOk, meTimeout),
+      foe: tag(foePlan.correct, foeTimeout),
+      meTime: meTimeout ? LIMIT[mode] : +(r * LIMIT[mode]).toFixed(1),
+      foeTime: foeTimeout ? LIMIT[mode] : +(foePlan.r * LIMIT[mode]).toFixed(1),
+      dmgA: hit.dmgA,
+      dmgB: hit.dmgB,
+      hpA: me.hp,
+      hpB: foe.hp
+    });
+    paintHud();
+    $('roundNote').textContent = '你 −' + hit.dmgA + '　对手 −' + hit.dmgB;
+    idx++;
+    $('btnNext').disabled = false;
+    $('btnNext').textContent = idx >= queue.length ? '查看结果' : '下一题';
+  }
+
+  function showReview() {
+    phase = 'idle';
+    clearInterval(tick);
+    $('play').hidden = true;
+    $('review').hidden = false;
+    var title = me.hp === foe.hp ? '平局' : (me.hp > foe.hp ? me.name + ' 赢了' : foe.name + ' 赢了');
+    $('resultTitle').textContent = title;
+    $('resultLine').textContent = me.name + ' ' + me.hp + ' : ' + foe.hp + ' ' + foe.name;
+    var box = $('reviewList');
+    box.innerHTML = '';
+    log.forEach(function (row) {
+      var card = document.createElement('article');
+      card.className = 'ac-side rev-card';
+      var kps = row.kps.map(function (k) { return '<span>' + Arcade.esc(k) + '</span>'; }).join('');
+      card.innerHTML =
+        '<h3 style="margin:0 0 6px">第 ' + row.n + ' 题 · ' + Arcade.esc(row.prompt) + '</h3>' +
+        (row.sub ? '<p style="margin:0 0 6px;color:var(--text-light)">' + Arcade.esc(row.sub) + '</p>' : '') +
+        (row.text ? '<p style="margin:0 0 8px">' + Arcade.esc(row.text) + '</p>' : '') +
+        '<p style="margin:0">你：' + row.me + ' · ' + row.meTime + ' 秒 · −' + row.dmgA + ' · 剩余 ' + row.hpA + '</p>' +
+        '<p style="margin:0 0 8px">对手：' + row.foe + ' · ' + row.foeTime + ' 秒 · −' + row.dmgB + ' · 剩余 ' + row.hpB + '</p>' +
+        '<div class="ac-exp"><b>解析</b><br>' + Arcade.esc(row.exp) + '</div>' +
+        '<div class="rev-kps">' + kps + '</div>';
+      box.appendChild(card);
+      Arcade.renderMath(card.querySelector('.ac-exp'));
+    });
+  }
+
+  function loop(ts) {
+    if (!lastT) lastT = ts;
+    var dt = Math.min(0.05, (ts - lastT) / 1000);
+    lastT = ts;
+    if (phase === 'watch' && mech) {
+      mech.step(dt);
+      if ((performance.now() - startedAt) / 1000 >= WATCH) freezeVector();
+    }
+    raf = requestAnimationFrame(loop);
+  }
+
+  document.querySelectorAll('.pick').forEach(function (b) {
+    b.onclick = function () { startMatch(b.getAttribute('data-mode')); };
+  });
+  $('btnYes').onclick = function () { submit(true); };
+  $('btnNo').onclick = function () { submit(false); };
+  $('btnNext').onclick = function () {
+    if (idx >= queue.length) showReview();
+    else beginQuestion();
+  };
+  $('btnAgain').onclick = function () {
+    $('review').hidden = true;
+    $('setup').hidden = false;
+  };
+  window.addEventListener('resize', function () { if (mech) mech.fit(); });
+
+  try {
+    var u = JSON.parse(localStorage.getItem('current_user') || 'null');
+    if (u && u.name) $('myName').value = String(u.name).slice(0, 16);
+  } catch (e) {}
+
+  raf = requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

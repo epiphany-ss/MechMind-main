@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a56db;
+  --color-primary-dark: #0d3b9e;
+  --color-accent: #f0a030;
+  --color-ink: #111111;
+  --color-muted: #3d4a57;
+  --color-line: #111111;
+  --color-canvas: #fffdf6;
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+body {
+  background: #fffdf6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nb-press:hover,
+  .nb-press:active {
+    transform: none;
+  }
+}
